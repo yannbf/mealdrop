@@ -1,5 +1,5 @@
 import React from 'react'
 
-export const About = () => {
+export const AboutPage = () => {
   return <h2>About</h2>
 }

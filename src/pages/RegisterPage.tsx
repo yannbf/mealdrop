@@ -14,7 +14,7 @@ const FormContainer = styled.main`
 `;
 
 
-export const Register = () => {
+export const RegisterPage = () => {
   return (
     <div style={{marginBottom: '5rem'}}>
       <HeroImage url="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80" />

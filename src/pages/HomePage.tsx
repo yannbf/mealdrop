@@ -46,7 +46,7 @@ const Divider = styled.hr`
 //   )
 // }
 
-export const Home = () => {
+export const HomePage = () => {
   const history = useHistory()
   return (
     <>

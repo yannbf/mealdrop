@@ -2,12 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getRestaurantById } from '../stub/restaurants'
 import { HeroImage } from '../components/HeroImage'
-import styled from 'styled-components'
 
-// const FoodItemsContainer = styled
-
-export const Restaurant = () => {
-  let { id } = useParams()
+export const RestaurantPage = () => {
+  let { id } = useParams<{ id: string }>()
   const [restaurant, setRestaurant] = useState<any>()
 
   useEffect(() => {

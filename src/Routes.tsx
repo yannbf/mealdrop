@@ -1,11 +1,11 @@
 import React, { useLayoutEffect } from 'react'
 import { Switch, Route, useLocation } from 'react-router-dom'
-import { Restaurant } from './pages/Restaurant'
-import { Category } from './pages/Category'
-import { About } from './pages/About'
-import { Profile } from './pages/Profile'
-import { Home } from './pages/Home'
-import { Register } from './pages/Register'
+import { RestaurantPage } from './pages/RestaurantPage'
+import { CategoryPage } from './pages/CategoryPage'
+import { AboutPage } from './pages/AboutPage'
+import { ProfilePage } from './pages/ProfilePage'
+import { HomePage } from './pages/HomePage'
+import { RegisterPage } from './pages/RegisterPage'
 
 export const AppRoutes = () => {
   const location = useLocation()
@@ -18,22 +18,22 @@ export const AppRoutes = () => {
     <Switch>
       <Route
         path="/categories"
-        render={(routeProps) => <Category {...routeProps} />}
+        render={(routeProps) => <CategoryPage {...routeProps} />}
       ></Route>
       <Route exact path="/restaurants/:id">
-        <Restaurant />
+        <RestaurantPage />
       </Route>
       <Route exact path="/about">
-        <About />
+        <AboutPage />
       </Route>
       <Route exact path="/profile">
-        <Profile />
+        <ProfilePage />
       </Route>
       <Route exact path="/register">
-        <Register />
+        <RegisterPage />
       </Route>
       <Route path="/">
-        <Home />
+        <HomePage />
       </Route>
     </Switch>
   )

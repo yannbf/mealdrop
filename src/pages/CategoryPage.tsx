@@ -3,7 +3,7 @@ import { Route, RouteComponentProps } from 'react-router-dom'
 import { CategoryListPage } from './CategoryListPage'
 import { CategoryDetailPage } from './CategoryDetailPage'
 
-export const Category = ({ match }: RouteComponentProps) => {
+export const CategoryPage = ({ match }: RouteComponentProps) => {
   return (
     <>
       <Route exact path={`${match.path}`}>
