@@ -1,26 +1,34 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { Category } from './Category'
 
-export type CategoryListProps = {
-  items: Array<{
-    title: string
-    photoUrl: string
-  }>
+import { Category } from './Category'
+import { CATEGORIES } from '../constants'
+
+type Category = {
+  title: string
+  photoUrl: string
 }
 
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  scroll-snap-align: start;
+export type CategoryListProps = {
+  categories: Category[]
+}
+
+const StyledContainer = styled.div`
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+  display: grid;
+  padding-bottom: 5rem;
 `
 
-export const CategoryList = ({ items }: CategoryListProps) => {
+export const CategoryList = ({ categories }: CategoryListProps) => {
   return (
-    <Container>
-      {items.map((item) => (
-        <Category {...item} />
+    <StyledContainer>
+      {categories.map((category) => (
+        <Link to={`/categories/${category.title}`}>
+          <Category {...category} title={CATEGORIES[category.title]} />
+        </Link>
       ))}
-    </Container>
+    </StyledContainer>
   )
 }

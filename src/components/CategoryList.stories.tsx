@@ -13,5 +13,5 @@ const Basic: Story<CategoryListProps> = (args) => <CategoryList {...args} />
 
 export const Default = Basic.bind({})
 Default.args = {
-  items: categories,
+  categories,
 }
