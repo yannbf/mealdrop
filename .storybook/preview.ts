@@ -1,7 +1,7 @@
-import { withRouter } from './decorators'
+import { withGlobalStyles, withRouter } from './decorators'
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
 }
 
-export const decorators = [withRouter]
+export const decorators = [withGlobalStyles, withRouter]

@@ -1,53 +1,6 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  pointer-events: none;
-}
-/* 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-} */
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-/* * { */
-/* color: #151515; */
-/* } */
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 a {
   text-decoration: none;
   color: #222;
-}
-
-.padded {
-  padding-left: 5rem;
-  padding-right: 5rem;
 }
 
 .container {
@@ -56,21 +9,9 @@ a {
   padding: 0 16px;
 }
 
-@media only screen and (max-width: 640px) {
-  html {
-    font-size: 14px;
-  }
-}
-
 .copyright {
   color: white;
   text-align: end;
-}
-
-@media (max-width: 640px) {
-  .footer-top {
-    grid-template-columns: repeat(1, 1fr) !important;
-  }
 }
 
 .footer-top {
@@ -90,34 +31,14 @@ a {
   padding-left: 1rem;
 }
 
-/* // uber */
-.dk {
-  height: calc(100vh - 372px);
+@media only screen and (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
 }
-.dj {
-  background-color: #66d19e;
-}
-.cd {
-  z-index: 1;
-}
-.aj {
-  overflow: hidden;
-}
-.af {
-  position: relative;
-}
-.dl {
-  height: 100%;
-}
-.d7 {
-  bottom: 0;
-}
-.ag {
-  position: absolute;
-}
-.dp {
-  right: calc((10 / 16) * -100vh);
-}
-.do {
-  object-fit: cover;
+
+@media (max-width: 640px) {
+  .footer-top {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
 }
