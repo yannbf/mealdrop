@@ -6,6 +6,8 @@ import { AboutPage } from './pages/AboutPage'
 import { ProfilePage } from './pages/ProfilePage'
 import { HomePage } from './pages/HomePage'
 import { RegisterPage } from './pages/RegisterPage'
+import { CheckoutPage } from './pages/CheckoutPage'
+import { SuccessPage } from './pages/SuccessPage'
 
 export const AppRoutes = () => {
   const location = useLocation()
@@ -31,6 +33,12 @@ export const AppRoutes = () => {
       </Route>
       <Route exact path="/register">
         <RegisterPage />
+      </Route>
+      <Route exact path="/checkout">
+        <CheckoutPage />
+      </Route>
+      <Route exact path="/success">
+        <SuccessPage />
       </Route>
       <Route path="/">
         <HomePage />
