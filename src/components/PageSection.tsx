@@ -34,9 +34,9 @@ export const PageSection: React.FC<PageSectionProps> = ({
   showSlideButtons,
   children,
 }) => (
-  <Container>
+  <Container className="container">
     <TopContainer>
-      <h2 className="padded">{title}</h2>
+      <h2>{title}</h2>
       {showSlideButtons && (
         <div>
           <Button onClick={onPreviousClick} label="⇦" />

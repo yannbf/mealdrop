@@ -4,6 +4,7 @@ import Carousel from '@brainhubeu/react-carousel'
 
 import { PageSection } from './PageSection'
 import { Category, CategoryProps } from './Category'
+import { viewports } from '../styles/breakpoints'
 
 export type CategoriesSectionProps = {
   categories: CategoryProps[]
@@ -20,13 +21,21 @@ export const CategoriesSection = ({ categories }: CategoriesSectionProps) => {
       onPreviousClick={() => setSlideIndex(slideIndex - 1)}
     >
       <Carousel
-        slidesPerPage={3}
         infinite
         value={slideIndex}
         onChange={setSlideIndex}
+        slidesPerPage={5}
+        breakpoints={{
+          [viewports.small]: {
+            slidesPerPage: 3,
+          },
+          [viewports.medium]: {
+            slidesPerPage: 4,
+          },
+        }}
       >
         {categories.map((item) => (
-          <Link to={`/categories/${item.title.toLowerCase()}`}>
+          <Link key={item.title} to={`/categories/${item.title.toLowerCase()}`}>
             <Category rounded {...item} />
           </Link>
         ))}

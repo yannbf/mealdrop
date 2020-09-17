@@ -1,22 +1,31 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+
+import {
+  selectCartItems,
+  selectCartVisibility,
+  toggleVisibilityAction,
+} from '../app-state/cart'
+import { breakpoints } from '../styles/breakpoints'
+import { ShoppingCartButton, ShoppingCartDropdown } from './shopping-cart'
 
 export const HeaderContainer = styled.div`
-  height: 70px;
-  width: 100%;
   display: flex;
   justify-content: space-between;
   box-shadow: rgb(226, 226, 226) 0px -2px 0px inset;
+  height: 56px;
+  top: 0;
+  left: 0;
+  position: fixed;
+  background: white;
+  z-index: 2;
+  width: 100%;
 
-  @media screen and (max-width: 800px) {
-    height: 60px;
-    padding: 10px;
-    top: 0;
-    left: 0;
-    position: fixed;
-    background: white;
-    z-index: 2;
+  @media ${breakpoints.M} {
+    position: relative;
+    height: 70px;
   }
 `
 
@@ -64,10 +73,25 @@ export const OptionLink = styled(Link)`
   }
 `
 
-export const Header: React.FC = ({ currentUser, signOut }: any) => (
+export type HeaderComponentProps = {
+  isCartVisible: boolean
+}
+
+export const HeaderComponent = ({
+  currentUser,
+  signOut,
+  isCartVisible,
+  cartItems,
+  toggleCartVisibility,
+  goToCheckout
+}: any) => (
   <HeaderContainer data-testid="header">
     <LogoContainer to="/">
-      <img src="https://image.flaticon.com/icons/svg/1046/1046784.svg" className="App-logo" alt="logo" />
+      <img
+        src="https://image.flaticon.com/icons/svg/1046/1046784.svg"
+        className="App-logo"
+        alt="logo"
+      />
     </LogoContainer>
     <OptionsContainer>
       <OptionLink to="/">HOME</OptionLink>
@@ -79,22 +103,38 @@ export const Header: React.FC = ({ currentUser, signOut }: any) => (
       ) : (
         <OptionLink to="/register">SIGN IN</OptionLink>
       )}
+      <ShoppingCartButton
+        count={cartItems.length}
+        onClick={toggleCartVisibility}
+      />
     </OptionsContainer>
+    {isCartVisible && (
+      <ShoppingCartDropdown
+        onGoToCheckoutClick={goToCheckout}
+        cartItems={cartItems}
+      />
+    )}
   </HeaderContainer>
 )
 
-// const Header = () => (
-//   <nav style={{ display: 'flex', borderBottom: '1px solid gray' }}>
-//     <ul style={{ display: 'flex', justifyContent: 'space-around' }}>
-//       <li>
-//         <Link to="/">Home</Link>
-//       </li>
-//       <li>
-//         <Link to="/about">About</Link>
-//       </li>
-//       <li>
-//         <Link to="/users">Users</Link>
-//       </li>
-//     </ul>
-//   </nav>
-// )
+export const Header = () => {
+  const isCartVisible = useSelector(selectCartVisibility)
+  const cartItems = useSelector(selectCartItems)
+  const dispatch = useDispatch()
+  const history = useHistory()
+  const toggleCartVisibility = () => dispatch(toggleVisibilityAction())
+
+  const goToCheckout = () => {
+    toggleCartVisibility()
+    history.push('/checkout')
+  }
+  
+  return (
+    <HeaderComponent
+      goToCheckout={goToCheckout}
+      cartItems={cartItems}
+      isCartVisible={isCartVisible}
+      toggleCartVisibility={toggleCartVisibility}
+    />
+  )
+}

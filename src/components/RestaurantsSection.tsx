@@ -5,6 +5,7 @@ import Carousel from '@brainhubeu/react-carousel'
 import { PageSection } from './PageSection'
 import { RestaurantCard } from './RestaurantCard'
 import { getCuratedRestaurants } from '../stub/restaurants'
+import { viewports } from '../styles/breakpoints'
 
 export const RestaurantsSection = () => {
   const [slideIndex, setSlideIndex] = useState(0)
@@ -31,13 +32,25 @@ export const RestaurantsSection = () => {
       onPreviousClick={() => setSlideIndex(slideIndex - 1)}
     >
       <Carousel
-        slidesPerPage={3}
         infinite
         value={slideIndex}
         onChange={setSlideIndex}
+        slidesPerPage={4}
+        offset={30}
+        breakpoints={{
+          [viewports.small]: {
+            slidesPerPage: 2,
+          },
+          [viewports.medium]: {
+            slidesPerPage: 3,
+          },
+        }}
       >
-        {restaurants.map((restaurant) => (
-          <RestaurantCard key={restaurant.name} restaurant={restaurant} />
+        {restaurants.map((restaurant, index) => (
+          <RestaurantCard
+            key={restaurant.name + index}
+            restaurant={restaurant}
+          />
         ))}
       </Carousel>
     </PageSection>

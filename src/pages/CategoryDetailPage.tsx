@@ -11,6 +11,13 @@ const Breadcrumb = styled.div`
   }
 `
 
+const StyledContainer = styled.div`
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+  display: grid;
+  padding-bottom: 5rem;
+`
+
 export const CategoryDetailPage = () => {
   const { id } = useParams()
   const [restaurants, setRestaurants] = useState<any>([
@@ -29,7 +36,7 @@ export const CategoryDetailPage = () => {
   }, [id])
 
   return (
-    <div style={{ padding: '0 5rem' }}>
+    <div className="container">
       <Breadcrumb>
         <h2 style={{ display: 'inline-block' }}>
           <Link to="/categories">Categories</Link>
@@ -53,13 +60,13 @@ export const CategoryDetailPage = () => {
           <p>Please check back later!</p>
         </div>
       )}
-      <div className="category-list">
+      <StyledContainer>
         {restaurants.map((restaurant: Restaurant, index: number) => (
           <RestaurantCard
-            restaurant={{ ...restaurant, isLoading: index === 2 }}
+            restaurant={{ ...restaurant }}
           />
         ))}
-      </div>
+      </StyledContainer>
     </div>
   )
 }

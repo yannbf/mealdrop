@@ -27,9 +27,8 @@
   color: #61dafb;
 }
 
-
 /* * { */
-  /* color: #151515; */
+/* color: #151515; */
 /* } */
 
 @keyframes App-logo-spin {
@@ -51,18 +50,17 @@ a {
   padding-right: 5rem;
 }
 
-.category-list {
-  grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
-  gap: 40px 24px;
-  display: grid;
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
-/* 
-@media (max-width: 1330px) {
-  .category-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-} */
 
+@media only screen and (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+}
 
 .copyright {
   color: white;

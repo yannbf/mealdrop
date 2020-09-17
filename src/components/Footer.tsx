@@ -6,7 +6,7 @@ const FooterContainer = styled.div(
   ({ theme: { color: colors } }) => css`
     color: ${colors.white};
     background: ${colors.black};
-    padding: 2rem 5rem;
+    padding: 2rem 0;
 
     hr {
       color: ${colors.white};
@@ -55,27 +55,29 @@ export const Footer = () => {
 
   return (
     <FooterContainer>
-      <div className="footer-top">
-        <FooterCard title="Discover us" links={navigationLinks} />
-        <FooterCard title="Our social media" links={socialMediaLinks} />
-        <FooterCard title="Check our apps">
-          <div className="footer-bottom">
-            <img
-              alt="app store link"
-              style={{ width: '120px', marginBottom: '0.5rem' }}
-              src="https://www.pete-app.com/wp-content/themes/PETE/style/public/images/downloadIos.png"
-            />
-            <img
-              alt="google play link"
-              style={{ width: '120px' }}
-              src="https://help.richmondelt.com/hc/article_attachments/115008811623/android-app-store-latest.png"
-            />
-          </div>
-        </FooterCard>
-      </div>
-      <div className="footer-bottom">
-        <hr />
-        <small className="copyright">Some text, copyright 2020</small>
+      <div className="container">
+        <div className="footer-top">
+          <FooterCard title="Discover us" links={navigationLinks} />
+          <FooterCard title="Our social media" links={socialMediaLinks} />
+          <FooterCard title="Check our apps">
+            <div className="footer-bottom">
+              <img
+                alt="app store link"
+                style={{ width: '120px', marginBottom: '0.5rem' }}
+                src="https://www.pete-app.com/wp-content/themes/PETE/style/public/images/downloadIos.png"
+              />
+              <img
+                alt="google play link"
+                style={{ width: '120px' }}
+                src="https://help.richmondelt.com/hc/article_attachments/115008811623/android-app-store-latest.png"
+              />
+            </div>
+          </FooterCard>
+        </div>
+        <div className="footer-bottom">
+          <hr />
+          <small className="copyright">Some text, copyright 2020</small>
+        </div>
       </div>
     </FooterContainer>
   )

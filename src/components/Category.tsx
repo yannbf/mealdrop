@@ -8,11 +8,17 @@ export type CategoryProps = {
   rounded?: boolean
 }
 
-const Container = styled.div<{ $rounded: boolean }>`
+const Container = styled.figure<{ $rounded: boolean }>`
   display: flex;
   position: relative;
   flex-direction: ${({ $rounded }) => ($rounded ? 'column' : 'row')};
   align-items: ${({ $rounded }) => ($rounded ? 'center' : 'start')};
+  width: auto;
+  height: 100%;
+  min-width: 50px;
+  min-height: 50px;
+  max-height: 300px;
+  margin: 0;
 `
 
 const Image = styled.img`
@@ -25,14 +31,14 @@ const Image = styled.img`
 `
 const RoundImage = styled(Image)`
   border-radius: 50%;
-  width: 10rem;
-  height: 10rem;
+  width: 8rem;
+  height: 8rem;
   max-height: 200px;
 `
 
-const FloatingTitle = styled.p`
+const FloatingTitle = styled.figcaption`
   position: absolute;
-  bottom: -0.5rem;
+  bottom: 0.5rem;
   color: white;
   left: 0.5rem;
   font-size: 18px;
@@ -43,7 +49,7 @@ const FloatingTitle = styled.p`
 const Rounded = ({ title, photoUrl: url }: CategoryProps) => (
   <>
     <RoundImage src={url} />
-    <p>{title}</p>
+    <figcaption style={{paddingTop: '1rem'}}>{title}</figcaption>
   </>
 )
 

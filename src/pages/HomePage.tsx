@@ -50,7 +50,6 @@ export const HomePage = () => {
   const history = useHistory()
   return (
     <>
-      <h2 className="padded">Home</h2>
       <HeroImage url={Math.random() > 0.5 ? second : first} />
       <RestaurantsSection />
       <Divider />

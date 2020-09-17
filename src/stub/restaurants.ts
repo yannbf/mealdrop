@@ -1,17 +1,41 @@
-const foodItems = [
+const food = [
   {
+    id: 1,
     name: 'Cheeseburger',
-    description: 'Nice grilled burger with chesse',
+    description: 'Nice grilled burger with cheese',
     price: 8.5,
   },
   {
+    id: 2,
     name: 'Fries',
     description: 'Fried french fries',
     price: 2.5,
   },
+]
+
+const dessert = [
   {
-    name: 'Cola',
-    description: 'Some soda for the good hearted',
+    id: 3,
+    name: 'Vanilla ice cream',
+    description: 'Ice cream',
+    price: 2,
+  },
+]
+
+const drinks = [
+  {
+    id: 4,
+    name: 'Coca-Cola',
+    price: 1.75,
+  },
+  {
+    id: 5,
+    name: 'Fanta',
+    price: 1.5,
+  },
+  {
+    id: 6,
+    name: 'Sprite',
     price: 1.5,
   },
 ]
@@ -27,7 +51,12 @@ export const restaurants = [
     photoUrl:
       'https://media-cdn.tripadvisor.com/media/photo-s/18/1a/96/54/main-restaurant.jpg',
     categories: ['fastfood'],
-    foodItems,
+    isNew: true,
+    menu: {
+      food,
+      dessert,
+      drinks,
+    },
   },
   {
     id: '2',
@@ -38,7 +67,11 @@ export const restaurants = [
     specialty: 'Sarma (wine leafs with rice)',
     photoUrl: 'https://duyt4h9nfnj50.cloudfront.net/search_home/FastFood.jpg',
     categories: ['hamburgers', 'pizza'],
-    foodItems,
+    menu: {
+      food,
+      dessert,
+      drinks,
+    },
   },
   {
     id: '3',
@@ -49,7 +82,11 @@ export const restaurants = [
     specialty: 'Olive oil',
     photoUrl: 'https://duyt4h9nfnj50.cloudfront.net/search_home/FastFood.jpg',
     categories: ['fastfood'],
-    foodItems,
+    menu: {
+      food,
+      dessert,
+      drinks,
+    },
     isClosed: true,
   },
   {
@@ -61,7 +98,12 @@ export const restaurants = [
     specialty: 'Pastrami sandwiches',
     photoUrl: 'https://duyt4h9nfnj50.cloudfront.net/search_home/FastFood.jpg',
     categories: ['fastfood'],
-    foodItems,
+    isNew: true,
+    menu: {
+      food,
+      dessert,
+      drinks,
+    },
   },
   {
     id: '1',
@@ -72,7 +114,12 @@ export const restaurants = [
     specialty: 'Takeaway lasagna',
     photoUrl: 'https://duyt4h9nfnj50.cloudfront.net/search_home/FastFood.jpg',
     categories: ['pizza'],
-    foodItems,
+    isNew: true,
+    menu: {
+      food,
+      dessert,
+      drinks,
+    },
   },
   {
     id: '1',
@@ -83,7 +130,11 @@ export const restaurants = [
     specialty: 'Spinach soup',
     photoUrl: 'https://duyt4h9nfnj50.cloudfront.net/search_home/FastFood.jpg',
     categories: ['asian'],
-    foodItems,
+    menu: {
+      food,
+      dessert,
+      drinks,
+    },
   },
   {
     id: '1',
@@ -95,7 +146,11 @@ export const restaurants = [
       '€6 meals (especially the yellow rice + oerap oerap + tempeh combo)',
     photoUrl: 'https://duyt4h9nfnj50.cloudfront.net/search_home/FastFood.jpg',
     categories: ['sushi', 'asian'],
-    foodItems,
+    menu: {
+      food,
+      dessert,
+      drinks,
+    },
   },
   {
     id: '1',
@@ -146,7 +201,11 @@ export const restaurants = [
     specialty: 'expensive dinners',
     photoUrl: 'https://duyt4h9nfnj50.cloudfront.net/search_home/FastFood.jpg',
     categories: ['fastfood'],
-    foodItems,
+    menu: {
+      food,
+      dessert,
+      drinks,
+    },
   },
   {
     id: '1',
@@ -1277,4 +1336,5 @@ export const getRestaurantsByCategory = (category: string) =>
         restaurant.categories.includes(category.toLowerCase())
       )
       .sort((restaurant) => (restaurant.isClosed ? 1 : -1))
+      .sort((restaurant) => (restaurant.isNew ? -1 : 1))
   )
