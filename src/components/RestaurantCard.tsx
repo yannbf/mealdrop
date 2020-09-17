@@ -16,6 +16,7 @@ export type Restaurant = {
   specialty: string
   photoUrl: string
   isClosed?: boolean
+  categories?: string[]
   isLoading?: boolean
   isNew?: boolean
 }
@@ -23,7 +24,22 @@ export type Restaurant = {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  border-radius: 8px;
   width: 100%;
+`
+
+const StyledContent = styled.div`
+  padding: 24px;
+  background: #f9f9f9;
+  border-radius: 0px 0px 8px 8px;
+`
+
+const StyledPill = styled.div`
+  padding: 8px;
+  background: #f2f2f2;
+  color: #7b7b7b;
+  border-radius: 4px;
+  display: inline-block;
 `
 
 const Closed = styled.span`
@@ -42,36 +58,31 @@ const Closed = styled.span`
   z-index: 2;
 `
 
-// const NewTag = styled.span`
-//   position: absolute;
-//   height: 20px;
-//   width: 20px;
-//   background: red;
-//   color: white;
-//   top: 0;
-//   right: 0;
-//   text-align: center;
-//   line-height: 250px;
-//   z-index: 2;
-// `
-
 const RestaurantImage = styled.img<{ $isClosed: boolean }>`
   height: 240px;
   width: 100%;
+  border-radius: 8px 8px 0px 0px;
   object-fit: cover;
   filter: ${({ $isClosed }) => ($isClosed ? 'grayscale(1)' : 'none')};
 `
 
 const RestaurantCardSkeleton = () => (
   <Container>
-    <Skeleton height={140} width="100%" />
-    <h2>
-      <Skeleton width="50%" />
-    </h2>
-    <hr />
-    <p>
-      <Skeleton />
-    </p>
+    <Skeleton height={240} width="100%" />
+    <StyledContent>
+      <h2 style={{ margin: 0 }}>
+        <Skeleton width="50%" />
+      </h2>
+      <span>
+        <Skeleton width="65%" />
+      </span>
+      <p>
+        <Skeleton />
+      </p>
+      <p>
+        <Skeleton width="20%" />
+      </p>
+    </StyledContent>
   </Container>
 )
 
@@ -104,9 +115,19 @@ export const RestaurantCard = ({ restaurant }: RestaurantCardProps) => {
           alt="restaurant"
         />
       </Link>
-      <h2>{name} {isNew && <span style={{ color: 'red', fontWeight: 'bold' }}> NEW!</span>}</h2>
-      <hr />
-      <p>{specialty}</p>
+      <StyledContent>
+        <h2 style={{ margin: 0 }}>
+          {name}{' '}
+          {isNew && (
+            <span style={{ color: 'red', fontWeight: 'bold' }}> NEW!</span>
+          )}
+        </h2>
+        <span style={{ color: '#6D868A' }}>★ 4.2 Very Good</span>
+        <p>{specialty}</p>
+        {restaurant.categories?.map((category) => (
+          <StyledPill>{category}</StyledPill>
+        ))}
+      </StyledContent>
     </Container>
   )
 }

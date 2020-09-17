@@ -41,3 +41,14 @@ Closed.args = {
     isClosed: true,
   },
 }
+
+export const Loading = Basic.bind({})
+Loading.args = {
+  restaurant: {
+    name: 'Burger King',
+    specialty: 'Nicest place for burgers',
+    photoUrl:
+      'https://duyt4h9nfnj50.cloudfront.net/sku/57864fe0d398139ac2175e7457c63954',
+    isLoading: true,
+  },
+}
