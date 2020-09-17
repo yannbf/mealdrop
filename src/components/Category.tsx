@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { CATEGORIES } from '../constants'
 
 export type CategoryProps = {
   title: string
@@ -13,17 +12,20 @@ const Container = styled.figure<{ $rounded: boolean }>`
   position: relative;
   flex-direction: ${({ $rounded }) => ($rounded ? 'column' : 'row')};
   align-items: ${({ $rounded }) => ($rounded ? 'center' : 'start')};
-  width: auto;
+  border-radius: 8px;
+  padding: ${({ $rounded }) => ($rounded ? '1.5rem 3rem' : '0')};
+  background: #F9F9F9;
   height: 100%;
   min-width: 50px;
   min-height: 50px;
-  max-height: 300px;
+  max-height: ${({ $rounded }) => ($rounded ? '200px' : '300px')};
   margin: 0;
 `
 
 const Image = styled.img`
   object-fit: cover;
   width: auto;
+  border-radius: 8px;
   height: 100%;
   min-width: 50px;
   min-height: 50px;
@@ -38,9 +40,12 @@ const RoundImage = styled(Image)`
 
 const FloatingTitle = styled.figcaption`
   position: absolute;
-  bottom: 0.5rem;
+  top: 1.5rem;
+  left: 1.5rem;
+  border-radius: 8px;
   color: white;
-  left: 0.5rem;
+  background: black;
+  padding: 8px 16px;
   font-size: 18px;
   font-weight: bold;
   text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.5);
@@ -49,7 +54,7 @@ const FloatingTitle = styled.figcaption`
 const Rounded = ({ title, photoUrl: url }: CategoryProps) => (
   <>
     <RoundImage src={url} />
-    <figcaption style={{paddingTop: '1rem'}}>{title}</figcaption>
+    <figcaption style={{ paddingTop: '1rem' }}>{title}</figcaption>
   </>
 )
 
@@ -62,13 +67,12 @@ const Squared = ({ title, photoUrl: url }: CategoryProps) => (
 
 export const Category = (props: CategoryProps) => {
   const { photoUrl, title, rounded = false } = props
-  const categoryTitle = CATEGORIES[title]
   return (
     <Container $rounded={rounded}>
       {rounded ? (
-        <Rounded photoUrl={photoUrl} title={categoryTitle} />
+        <Rounded photoUrl={photoUrl} title={title} />
       ) : (
-        <Squared photoUrl={photoUrl} title={categoryTitle} />
+        <Squared photoUrl={photoUrl} title={title} />
       )}
     </Container>
   )
