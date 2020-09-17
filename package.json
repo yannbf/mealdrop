@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@brainhubeu/react-carousel": "^1.19.26",
+    "@reduxjs/toolkit": "^1.4.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -15,10 +16,12 @@
     "react-dom": "^16.13.1",
     "react-hooks-helper": "^1.6.0",
     "react-loading-skeleton": "^2.1.1",
+    "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
+    "reselect": "^4.0.0",
     "styled-components": "^5.1.1",
-    "typescript": "~3.7.2"
+    "typescript": "~3.8.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -45,16 +48,19 @@
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
-    "@storybook/addon-essentials": "^6.0.2",
-    "@storybook/addon-links": "^6.0.2",
-    "@storybook/node-logger": "^6.0.2",
+    "@storybook/addon-essentials": "^6.0.21",
+    "@storybook/addon-links": "^6.0.21",
+    "@storybook/addon-storyshots": "^6.0.21",
+    "@storybook/node-logger": "^6.0.21",
     "@storybook/preset-create-react-app": "^3.1.4",
-    "@storybook/react": "^6.0.2",
+    "@storybook/react": "^6.0.21",
     "@types/brainhubeu__react-carousel": "^1.13.0",
     "@types/react-hooks-helper": "^1.6.2",
+    "@types/react-redux": "^7.1.9",
     "@types/react-router-dom": "^5.1.5",
     "@types/styled-components": "^5.1.2",
     "babel-loader": "^8.1.0",
-    "react-is": "^16.13.1"
+    "react-is": "^16.13.1",
+    "react-test-renderer": "^16.13.1"
   }
 }
