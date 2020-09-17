@@ -19,3 +19,25 @@ Default.args = {
       'https://duyt4h9nfnj50.cloudfront.net/sku/57864fe0d398139ac2175e7457c63954',
   },
 }
+
+export const New = Basic.bind({})
+New.args = {
+  restaurant: {
+    name: 'Burger King',
+    specialty: 'Nicest place for burgers',
+    photoUrl:
+      'https://duyt4h9nfnj50.cloudfront.net/sku/57864fe0d398139ac2175e7457c63954',
+    isNew: true,
+  },
+}
+
+export const Closed = Basic.bind({})
+Closed.args = {
+  restaurant: {
+    name: 'Burger King',
+    specialty: 'Nicest place for burgers',
+    photoUrl:
+      'https://duyt4h9nfnj50.cloudfront.net/sku/57864fe0d398139ac2175e7457c63954',
+    isClosed: true,
+  },
+}
