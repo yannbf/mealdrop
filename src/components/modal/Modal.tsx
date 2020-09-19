@@ -1,17 +1,9 @@
 import React from 'react'
-import { createGlobalStyle } from 'styled-components'
 import { CSSTransition } from 'react-transition-group'
 
 import { ModalContent, TopBar, TopBarButton, Backdrop } from './Modal.styles'
 import { Portal } from '../Portal'
 import { useKey } from '../../hooks/useKeyboard'
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    overflow: hidden;
-    touch-action: none;
-  }
-`
 
 export type ModalProps = {
   isOpen: boolean
@@ -40,13 +32,8 @@ export const Modal: React.FC<ModalProps> = ({ children, isOpen, onClose }) => {
         classNames="backdrop"
         unmountOnExit
       >
-        <Backdrop
-          data-testid="modal-backdrop"
-          onClick={onClose}
-        />
+        <Backdrop data-testid="modal-backdrop" onClick={onClose} />
       </CSSTransition>
-
-      <GlobalStyle />
     </Portal>
   )
 }
