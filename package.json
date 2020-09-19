@@ -20,7 +20,6 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-transition-group": "^4.4.1",
-    "reselect": "^4.0.0",
     "styled-components": "^5.1.1",
     "typescript": "~3.8.2"
   },
