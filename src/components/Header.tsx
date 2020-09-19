@@ -11,7 +11,7 @@ import {
 import { breakpoints } from '../styles/breakpoints'
 import { ShoppingCartButton, ShoppingCartDropdown } from './shopping-cart'
 
-export const HeaderContainer = styled.div`
+export const HeaderContainer = styled.div<{sticky: boolean}>`
   display: flex;
   justify-content: space-between;
   box-shadow: rgb(226, 226, 226) 0px -2px 0px inset;
@@ -24,7 +24,7 @@ export const HeaderContainer = styled.div`
   width: 100%;
 
   @media ${breakpoints.M} {
-    position: relative;
+    position: ${({ sticky }) => (sticky ? 'fixed' : 'relative')};
     height: 70px;
   }
 `
@@ -78,14 +78,14 @@ export type HeaderComponentProps = {
 }
 
 export const HeaderComponent = ({
-  currentUser,
-  signOut,
   isCartVisible,
   cartItems,
   toggleCartVisibility,
-  goToCheckout
+  goToCheckout,
+  logoOnly = false,
+  sticky = false,
 }: any) => (
-  <HeaderContainer data-testid="header">
+  <HeaderContainer data-testid="header" sticky={sticky}>
     <LogoContainer to="/">
       <img
         src="https://image.flaticon.com/icons/svg/1046/1046784.svg"
@@ -93,31 +93,28 @@ export const HeaderComponent = ({
         alt="logo"
       />
     </LogoContainer>
-    <OptionsContainer>
-      <OptionLink to="/">HOME</OptionLink>
-      <OptionLink to="/about">ABOUT</OptionLink>
-      {currentUser ? (
-        <OptionLink as="button" onClick={signOut}>
-          SIGN OUT
-        </OptionLink>
-      ) : (
-        <OptionLink to="/register">SIGN IN</OptionLink>
-      )}
-      <ShoppingCartButton
-        count={cartItems.length}
-        onClick={toggleCartVisibility}
-      />
-    </OptionsContainer>
-    {isCartVisible && (
-      <ShoppingCartDropdown
-        onGoToCheckoutClick={goToCheckout}
-        cartItems={cartItems}
-      />
+    {!logoOnly && (
+      <>
+        <OptionsContainer>
+          <OptionLink to="/">HOME</OptionLink>
+          <OptionLink to="/categories">CATEGORIES</OptionLink>
+          <ShoppingCartButton
+            count={cartItems.length}
+            onClick={toggleCartVisibility}
+          />
+        </OptionsContainer>
+        {isCartVisible && (
+          <ShoppingCartDropdown
+            onGoToCheckoutClick={goToCheckout}
+            cartItems={cartItems}
+          />
+        )}
+      </>
     )}
   </HeaderContainer>
 )
 
-export const Header = () => {
+export const Header = ({ sticky }: any) => {
   const isCartVisible = useSelector(selectCartVisibility)
   const cartItems = useSelector(selectCartItems)
   const dispatch = useDispatch()
@@ -128,9 +125,10 @@ export const Header = () => {
     toggleCartVisibility()
     history.push('/checkout')
   }
-  
+
   return (
     <HeaderComponent
+      sticky={sticky}
       goToCheckout={goToCheckout}
       cartItems={cartItems}
       isCartVisible={isCartVisible}

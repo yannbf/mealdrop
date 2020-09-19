@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Header } from '../components/Header'
+import { Header, HeaderComponent } from '../components/Header'
 import { Footer } from '../components/Footer'
 import { breakpoints } from '../styles/breakpoints'
 
@@ -14,7 +14,7 @@ const Container = styled.div`
 
 // TODO: Add Error boundary
 
-export const PageTemplate: React.FC = ({ children }) => (
+export const DefaultTemplate: React.FC = ({ children }) => (
   <>
     <Header />
     <Container>{children}</Container>
@@ -22,10 +22,18 @@ export const PageTemplate: React.FC = ({ children }) => (
   </>
 )
 
-// export const SimpleTemplate: React.FC = ({ children }) => (
-//   <>
-//     <Header />
-//     <Container>{children}</Container>
-//     <Footer />
-//   </>
-// )
+export const StickyHeaderTemplate: React.FC = ({ children }) => (
+  <>
+    <Header sticky/>
+    <Container>{children}</Container>
+    <Footer />
+  </>
+)
+
+export const SimpleTemplate: React.FC = ({ children }) => (
+  <>
+    <HeaderComponent logoOnly/>
+    <Container>{children}</Container>
+    <Footer />
+  </>
+)

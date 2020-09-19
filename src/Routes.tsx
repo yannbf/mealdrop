@@ -5,9 +5,13 @@ import { CategoryPage } from './pages/CategoryPage'
 import { AboutPage } from './pages/AboutPage'
 import { ProfilePage } from './pages/ProfilePage'
 import { HomePage } from './pages/HomePage'
-import { RegisterPage } from './pages/RegisterPage'
 import { CheckoutPage } from './pages/CheckoutPage'
 import { SuccessPage } from './pages/SuccessPage'
+import {
+  DefaultTemplate,
+  SimpleTemplate,
+  StickyHeaderTemplate,
+} from './templates/PageTemplate'
 
 export const AppRoutes = () => {
   const location = useLocation()
@@ -20,28 +24,41 @@ export const AppRoutes = () => {
     <Switch>
       <Route
         path="/categories"
-        render={(routeProps) => <CategoryPage {...routeProps} />}
+        render={(routeProps) => (
+          <DefaultTemplate>
+            <CategoryPage {...routeProps} />
+          </DefaultTemplate>
+        )}
       ></Route>
       <Route exact path="/restaurants/:id">
-        <RestaurantDetailPage />
+        <StickyHeaderTemplate>
+          <RestaurantDetailPage />
+        </StickyHeaderTemplate>
       </Route>
       <Route exact path="/about">
-        <AboutPage />
+        <DefaultTemplate>
+          <AboutPage />
+        </DefaultTemplate>
       </Route>
       <Route exact path="/profile">
-        <ProfilePage />
-      </Route>
-      <Route exact path="/register">
-        <RegisterPage />
+        <DefaultTemplate>
+          <ProfilePage />
+        </DefaultTemplate>
       </Route>
       <Route exact path="/checkout">
-        <CheckoutPage />
+        <SimpleTemplate>
+          <CheckoutPage />
+        </SimpleTemplate>
       </Route>
       <Route exact path="/success">
-        <SuccessPage />
+        <SimpleTemplate>
+          <SuccessPage />
+        </SimpleTemplate>
       </Route>
       <Route path="/">
-        <HomePage />
+        <DefaultTemplate>
+          <HomePage />
+        </DefaultTemplate>
       </Route>
     </Switch>
   )
