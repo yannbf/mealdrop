@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 
 import { ShoppingCartItem } from '../item/ShoppingCartItem'
 import { CartItem } from '../../../app-state/cart'
@@ -10,17 +10,24 @@ import {
   CartItemsContainer,
 } from './ShoppingCartDropdown.styles'
 
-type DefaultProps = {
+export type ShoppingCartDropdownProps = {
   cartItems: CartItem[]
-  onGoToCheckoutClick: () => void
+  onGoToCheckoutClick?: () => void
+  isCheckout?: boolean
 }
 
-type Props = DefaultProps
-
-export const ShoppingCartDropdown: React.FC<Props> = ({
+export const ShoppingCartDropdown: React.FC<ShoppingCartDropdownProps> = ({
   cartItems,
   onGoToCheckoutClick,
+  isCheckout = false,
 }) => {
+  const totalPrice = useMemo(
+    () =>
+      cartItems
+        .map((item) => item.quantity * item.price)
+        .reduce((acc, next) => acc + next),
+    [cartItems]
+  )
   return (
     <>
       <CartDropdownContainer>
@@ -32,11 +39,11 @@ export const ShoppingCartDropdown: React.FC<Props> = ({
           ) : (
             <EmptyMessageContainer>Your cart is empty.</EmptyMessageContainer>
           )}
+          <p>Total: ${totalPrice}</p>
         </CartItemsContainer>
-        <CartDropdownButton
-          label="To checkout"
-          onClick={onGoToCheckoutClick}
-        />
+        {!isCheckout && (
+          <CartDropdownButton label="To pay" onClick={onGoToCheckoutClick} />
+        )}
       </CartDropdownContainer>
     </>
   )

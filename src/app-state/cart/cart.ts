@@ -1,11 +1,11 @@
 import { createSlice, CaseReducer, PayloadAction } from '@reduxjs/toolkit'
 
 export type ShopItem = {
-  id: string
+  id: number
   name: string
   price: number
-  imageUrl: string
-  description: string
+  imageUrl?: string
+  description?: string
 }
 
 export interface CartItem extends ShopItem {
