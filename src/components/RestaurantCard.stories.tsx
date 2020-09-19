@@ -15,8 +15,9 @@ Default.args = {
   restaurant: {
     name: 'Burger King',
     specialty: 'Nicest place for burgers',
+    categories: ['fastfood'],
     photoUrl:
-      'https://duyt4h9nfnj50.cloudfront.net/sku/57864fe0d398139ac2175e7457c63954',
+      'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1003&q=20',
   },
 }
 
@@ -25,8 +26,9 @@ New.args = {
   restaurant: {
     name: 'Burger King',
     specialty: 'Nicest place for burgers',
+    categories: ['fastfood'],
     photoUrl:
-      'https://duyt4h9nfnj50.cloudfront.net/sku/57864fe0d398139ac2175e7457c63954',
+      'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1003&q=20',
     isNew: true,
   },
 }
@@ -36,8 +38,9 @@ Closed.args = {
   restaurant: {
     name: 'Burger King',
     specialty: 'Nicest place for burgers',
+    categories: ['fastfood'],
     photoUrl:
-      'https://duyt4h9nfnj50.cloudfront.net/sku/57864fe0d398139ac2175e7457c63954',
+      'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1003&q=20',
     isClosed: true,
   },
 }
@@ -47,8 +50,9 @@ Loading.args = {
   restaurant: {
     name: 'Burger King',
     specialty: 'Nicest place for burgers',
+    categories: ['fastfood'],
     photoUrl:
-      'https://duyt4h9nfnj50.cloudfront.net/sku/57864fe0d398139ac2175e7457c63954',
+      'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1003&q=20',
     isLoading: true,
   },
 }
