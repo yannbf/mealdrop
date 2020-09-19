@@ -25,7 +25,7 @@ export const ShoppingCartDropdown: React.FC<ShoppingCartDropdownProps> = ({
     () =>
       cartItems
         .map((item) => item.quantity * item.price)
-        .reduce((acc, next) => acc + next),
+        .reduce((acc, next) => acc + next, 0),
     [cartItems]
   )
   return (
