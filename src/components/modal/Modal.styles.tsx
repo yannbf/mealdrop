@@ -38,8 +38,8 @@ const desktopAnimation = css`
   }
 `
 
-const desktopOverrides = css`
-  @media ${breakpoints.L} {
+const largeScreenOverrides = css`
+  @media ${breakpoints.M} {
     width: 600px;
     height: 600px;
 
@@ -47,7 +47,7 @@ const desktopOverrides = css`
     bottom: 0;
     left: calc(50% - (600px / 2));
     top: calc(50% - (600px / 2));
-    position: absolute;
+    position: fixed;
     border-radius: 0.75rem;
 
     ${desktopAnimation}
@@ -69,7 +69,7 @@ export const ModalContent = styled.div`
   box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
 
   ${defaultAnimation}
-  ${desktopOverrides}
+  ${largeScreenOverrides}
 `
 
 export const Backdrop = styled.div`
