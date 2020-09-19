@@ -1,26 +1,31 @@
 import React from 'react'
-
-import { useHistory } from 'react-router-dom'
+import MultiStepForm from '../components/registration-form'
+import { HeroImage } from '../components/HeroImage'
+import styled from 'styled-components'
+import { ShoppingCartDropdown } from '../components/shopping-cart'
 import { useSelector } from 'react-redux'
 import { selectCartItems } from '../app-state/cart'
-import { ShoppingCartItem } from '../components/shopping-cart'
-import { EmptyMessageContainer } from '../components/shopping-cart/dropdown/ShoppingCartDropdown.styles'
-import { Button } from '../components/Button'
+
+const FormContainer = styled.main`
+  width: 500px;
+  margin: 0 auto;
+  margin-top: -2.5rem;
+  min-height: 480px;
+  background: white;
+  padding: 2rem 4rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+`
 
 export const CheckoutPage = () => {
-  const history = useHistory()
   const cartItems = useSelector(selectCartItems)
-  return (
-    <div>
-      {cartItems.length ? (
-        cartItems.map((item) => (
-          <ShoppingCartItem key={item.id} item={item}></ShoppingCartItem>
-        ))
-      ) : (
-        <EmptyMessageContainer>Your cart is empty.</EmptyMessageContainer>
-      )}
 
-      <Button label="Success" onClick={() => history.push('/success')} />
+  return (
+    <div style={{ marginBottom: '5rem' }}>
+      <HeroImage url="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1267&q=80" />
+      <FormContainer>
+        <MultiStepForm />
+      </FormContainer>
+      <ShoppingCartDropdown isCheckout cartItems={cartItems} />
     </div>
   )
 }
