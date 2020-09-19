@@ -50,7 +50,7 @@ const removeItem: CaseReducer<CartState, PayloadAction<CartItem>> = (
   }
 }
 
-const addItem: CaseReducer<CartState, PayloadAction<ShopItem>> = (
+const saveItem: CaseReducer<CartState, PayloadAction<CartItem>> = (
   state,
   action
 ) => {
@@ -59,12 +59,9 @@ const addItem: CaseReducer<CartState, PayloadAction<ShopItem>> = (
   ) as CartItem
 
   if (existingCartItem) {
-    existingCartItem.quantity++
+    existingCartItem.quantity = action.payload.quantity
   } else {
-    state.items.push({
-      ...action.payload,
-      quantity: 1,
-    })
+    state.items.push(action.payload)
   }
 }
 
@@ -78,7 +75,7 @@ const counterSlice = createSlice({
   initialState,
   reducers: {
     toggleVisibilityAction: toggleVisibility,
-    addItemAction: addItem,
+    saveItemAction: saveItem,
     clearItemAction: clearItem,
     removeItemAction: removeItem,
     clearCartAction: clearCart,
@@ -91,7 +88,7 @@ export const { actions, reducer } = counterSlice
 // Extract and export each action creator by name
 export const {
   toggleVisibilityAction,
-  addItemAction,
+  saveItemAction,
   clearItemAction,
   removeItemAction,
   clearCartAction,

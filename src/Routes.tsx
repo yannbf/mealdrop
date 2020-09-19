@@ -1,6 +1,6 @@
 import React, { useLayoutEffect } from 'react'
 import { Switch, Route, useLocation } from 'react-router-dom'
-import { RestaurantPage } from './pages/RestaurantPage'
+import { RestaurantDetailPage } from './pages/RestaurantDetailPage'
 import { CategoryPage } from './pages/CategoryPage'
 import { AboutPage } from './pages/AboutPage'
 import { ProfilePage } from './pages/ProfilePage'
@@ -23,7 +23,7 @@ export const AppRoutes = () => {
         render={(routeProps) => <CategoryPage {...routeProps} />}
       ></Route>
       <Route exact path="/restaurants/:id">
-        <RestaurantPage />
+        <RestaurantDetailPage />
       </Route>
       <Route exact path="/about">
         <AboutPage />

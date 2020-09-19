@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { memo } from 'react'
 import styled, { css } from 'styled-components'
-import { Button } from './Button'
 
 const Container = styled.div<{ isHighlighted: boolean }>(
   ({ isHighlighted }) => css`
@@ -10,6 +9,7 @@ const Container = styled.div<{ isHighlighted: boolean }>(
     border-color: ${isHighlighted ? '#a2b' : '#ccc'};
     transition: border 0.1s linear;
     transition: all 150ms ease-in;
+    position: relative;
 
     &:hover {
       border-color: ${isHighlighted ? '#a2b' : '#333'};
@@ -19,40 +19,32 @@ const Container = styled.div<{ isHighlighted: boolean }>(
   `
 )
 
-const CollapsibleContainer = styled.div<{ isOpen: boolean }>(
-  ({ isOpen }) => css`
-    visibility: ${isOpen ? 'visible' : 'hidden'};
-    height: ${isOpen ? 'auto' : 0};
-    display: flex;
-    align-items: center;
-  `
-)
+const Quantity = styled.div`
+  padding: 0.25rem;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #dbbeff;
+  color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+`
 
-export const FoodItem = ({
-  name,
-  quantity,
-  price,
-  description,
-  onClick,
-}: any) => {
-  const [open, setOpen] = useState(quantity > 0)
-  const [amount, setAmount] = useState(quantity || 0)
+export const FoodItem = memo(({ item, onClick }: any) => {
+  const { quantity, name, price, description } = item
 
   return (
-    <Container isHighlighted={amount > 0}>
-      <div onClick={onClick}>
-        <div>
-          <h3>
-            {name} - {price}
-          </h3>
-          <p>{description}</p>
-        </div>
+    <Container isHighlighted={quantity > 0} onClick={onClick}>
+      <div>
+        {quantity > 0 && <Quantity>{quantity}</Quantity>}
+        <h3>
+          {name} - {price}
+        </h3>
+        <p>{description}</p>
       </div>
-      {/* <CollapsibleContainer isOpen={open}>
-        <Button label="-" onClick={() => setAmount(amount - 1)} />
-        {amount}
-        <Button label="+" onClick={() => setAmount(amount + 1)} />
-      </CollapsibleContainer> */}
     </Container>
   )
-}
+})

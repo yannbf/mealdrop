@@ -11,8 +11,18 @@ const Template: Story = (args: any) => <FoodItem {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  name: 'Food',
-  price: 7.5,
-  description: 'nice stuff',
-  quantity: 1
+  item: {
+    id: 1,
+    name: 'Food',
+    price: 7.5,
+    description: 'nice stuff',
+  },
+}
+
+export const WithQuantity = Template.bind({})
+WithQuantity.args = {
+  item: {
+    ...Default.args.item,
+    quantity: 5,
+  },
 }
