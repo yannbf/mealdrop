@@ -1,4 +1,6 @@
 import React from 'react'
+import { CategoryList } from '../components/CategoryList'
+import { categories } from '../stub/categories'
 
 export const CategoryListPage = () => {
   return (
@@ -9,7 +11,7 @@ export const CategoryListPage = () => {
         few quick clicks and enjoy the world of delivery! Check a great
         selection of restaurants by selecting a category below.
       </p>
-      
+      <CategoryList categories={categories} />
     </div>
   )
 }
