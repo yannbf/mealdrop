@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 import { Category } from './Category'
 import { CATEGORIES } from '../constants'
+import { breakpoints } from '../styles/breakpoints'
 
 type Category = {
   title: string
@@ -15,10 +16,19 @@ export type CategoryListProps = {
 }
 
 const StyledContainer = styled.div`
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 24px;
+  gap: 12px;
   display: grid;
   padding-bottom: 5rem;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+  @media ${breakpoints.M} {
+    gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+
+  @media ${breakpoints.XL} {
+    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  }
 `
 
 export const CategoryList = ({ categories }: CategoryListProps) => {

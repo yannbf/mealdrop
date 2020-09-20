@@ -37,6 +37,7 @@ export const GlobalStyle = createGlobalStyle`
 
   * {
     box-sizing: border-box;
+    color: #2C2C2C;
   }
 
   a {

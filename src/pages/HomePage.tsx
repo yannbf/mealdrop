@@ -6,7 +6,6 @@ import { CategoriesSection } from '../components/CategoriesSection'
 import { categories } from '../stub/categories'
 import { HeroImage } from '../components/HeroImage'
 import first from '../assets/images/background-1.png'
-import second from '../assets/images/background-2.png'
 import { Button } from '../components/Button'
 import { useHistory } from 'react-router-dom'
 
@@ -50,7 +49,7 @@ export const HomePage = () => {
   const history = useHistory()
   return (
     <>
-      <HeroImage url={Math.random() > 0.5 ? second : first} />
+      <HeroImage url={first} />
       <RestaurantsSection />
       <Divider />
       <CategoriesSection categories={categories} />

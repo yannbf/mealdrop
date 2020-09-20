@@ -24,12 +24,16 @@ export const CategoriesSection = ({ categories }: CategoriesSectionProps) => {
         infinite
         value={slideIndex}
         onChange={setSlideIndex}
-        slidesPerPage={5}
+        slidesPerPage={6}
+        offset={24}
         breakpoints={{
           [viewports.small]: {
-            slidesPerPage: 3,
+            slidesPerPage: 2,
           },
           [viewports.medium]: {
+            slidesPerPage: 3,
+          },
+          [viewports.large]: {
             slidesPerPage: 4,
           },
         }}

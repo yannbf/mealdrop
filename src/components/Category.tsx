@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { breakpoints } from '../styles/breakpoints'
 
 export type CategoryProps = {
   title: string
@@ -13,19 +14,24 @@ const Container = styled.figure<{ $rounded: boolean }>`
   flex-direction: ${({ $rounded }) => ($rounded ? 'column' : 'row')};
   align-items: ${({ $rounded }) => ($rounded ? 'center' : 'start')};
   border-radius: 8px;
-  padding: ${({ $rounded }) => ($rounded ? '1.5rem 3rem' : '0')};
-  background: #F9F9F9;
+  background: ${({ $rounded }) => ($rounded ? '#F9F9F9' : 'transparent')};
   height: 100%;
   min-width: 50px;
-  min-height: 50px;
+  max-width: ${({ $rounded }) => ($rounded ? '200px' : 'auto')};
   max-height: ${({ $rounded }) => ($rounded ? '200px' : '300px')};
   margin: 0;
+  padding: ${({ $rounded }) => ($rounded ? '1.5rem 2rem' : '0')};
+
+  @media ${breakpoints.M} {
+    padding: ${({ $rounded }) => ($rounded ? '1.5rem 3rem' : '0')};
+  }
 `
 
 const Image = styled.img`
   object-fit: cover;
   width: auto;
   border-radius: 8px;
+  width: 100%;
   height: 100%;
   min-width: 50px;
   min-height: 50px;
@@ -33,9 +39,13 @@ const Image = styled.img`
 `
 const RoundImage = styled(Image)`
   border-radius: 50%;
-  width: 8rem;
-  height: 8rem;
+  width: 6rem;
+  height: 6rem;
   max-height: 200px;
+  @media ${breakpoints.M} {
+    width: 8rem;
+    height: 8rem;
+  }
 `
 
 const FloatingTitle = styled.figcaption`

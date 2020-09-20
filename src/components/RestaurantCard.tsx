@@ -42,6 +42,16 @@ const StyledPill = styled.div`
   display: inline-block;
 `
 
+const NewTag = styled.span`
+  position: absolute;
+  padding: 8px;
+  background: #E5F8BC;
+  display: inline-block;  
+  top: 1rem;
+  left: -0.5rem;
+  font-weight: bold;
+`
+
 const Closed = styled.span`
   position: absolute;
   font-weight: bold;
@@ -59,16 +69,25 @@ const Closed = styled.span`
 `
 
 const RestaurantImage = styled.img<{ $isClosed: boolean }>`
-  height: 240px;
+  height: 200px;
   width: 100%;
   border-radius: 8px 8px 0px 0px;
   object-fit: cover;
   filter: ${({ $isClosed }) => ($isClosed ? 'grayscale(1)' : 'none')};
 `
+const Description = styled.p`
+  font-size: 14px;
+  max-height: 38px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+`
 
 const RestaurantCardSkeleton = () => (
   <Container>
-    <Skeleton height={240} width="100%" />
+    <Skeleton height={200} width="100%" />
     <StyledContent>
       <h2 style={{ margin: 0 }}>
         <Skeleton width="50%" />
@@ -76,9 +95,9 @@ const RestaurantCardSkeleton = () => (
       <span>
         <Skeleton width="65%" />
       </span>
-      <p>
+      <Description>
         <Skeleton />
-      </p>
+      </Description>
       <p>
         <Skeleton width="20%" />
       </p>
@@ -116,14 +135,10 @@ export const RestaurantCard = ({ restaurant }: RestaurantCardProps) => {
         />
       </Link>
       <StyledContent>
-        <h2 style={{ margin: 0 }}>
-          {name}{' '}
-          {isNew && (
-            <span style={{ color: 'red', fontWeight: 'bold' }}> NEW!</span>
-          )}
-        </h2>
+        <h2 style={{ margin: 0 }}>{name} </h2>
+        {isNew && <NewTag>new</NewTag>}
         <span style={{ color: '#6D868A' }}>★ 4.2 Very Good</span>
-        <p>{specialty}</p>
+        <Description>{specialty}</Description>
         {restaurant.categories?.map((category) => (
           <StyledPill>{category}</StyledPill>
         ))}

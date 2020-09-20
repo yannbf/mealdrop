@@ -32,7 +32,7 @@ const FooterCardContainer = styled.div(
 
 export const FooterCard = ({ title, links, children }: any) => (
   <FooterCardContainer>
-    <h3>{title}</h3>
+    <h3 style={{ color: 'white' }}>{title}</h3>
     {links?.length > 0 && (
       <ul>
         {links.map(({ external, name, href }: any) => (

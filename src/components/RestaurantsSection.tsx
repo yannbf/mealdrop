@@ -36,12 +36,15 @@ export const RestaurantsSection = () => {
         value={slideIndex}
         onChange={setSlideIndex}
         slidesPerPage={4}
-        offset={30}
+        offset={24}
         breakpoints={{
           [viewports.small]: {
-            slidesPerPage: 2,
+            slidesPerPage: 1,
           },
           [viewports.medium]: {
+            slidesPerPage: 2,
+          },
+          [viewports.large]: {
             slidesPerPage: 3,
           },
         }}
