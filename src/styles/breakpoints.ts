@@ -3,7 +3,7 @@ export const viewports = {
   small: 640,
   medium: 768,
   large: 1024,
-  xLarge: 1280,
+  xLarge: 1440,
 }
 
 export const breakpoints = {
