@@ -1,6 +1,5 @@
 import React from 'react'
 
-import './App.css'
 import '@brainhubeu/react-carousel/lib/style.css'
 import { AppRoutes } from './Routes'
 import { ThemeProvider } from 'styled-components'
