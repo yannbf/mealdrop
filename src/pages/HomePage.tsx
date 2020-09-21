@@ -55,7 +55,8 @@ export const HomePage = () => {
       <CategoriesSection categories={categories} />
       <ButtonContainer>
         <Button
-          label="See all categories"
+          primary
+          label="View all categories"
           onClick={() => history.push('/categories')}
         />
       </ButtonContainer>
