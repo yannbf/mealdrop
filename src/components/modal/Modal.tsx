@@ -4,6 +4,7 @@ import { CSSTransition } from 'react-transition-group'
 import { ModalContent, TopBar, TopBarButton, Backdrop } from './Modal.styles'
 import { Portal } from '../Portal'
 import { useKey } from '../../hooks/useKeyboard'
+import { Icon } from '../Icon'
 
 export type ModalProps = {
   isOpen: boolean
@@ -19,7 +20,7 @@ export const Modal: React.FC<ModalProps> = ({ children, isOpen, onClose }) => {
         <ModalContent data-testid="modal">
           <TopBar>
             <TopBarButton data-testid="modal-close-btn" onClick={onClose}>
-              Close
+              <Icon name="cross"/>
             </TopBarButton>
           </TopBar>
           {children}

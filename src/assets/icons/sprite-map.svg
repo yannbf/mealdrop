@@ -6,4 +6,8 @@
   <symbol id="arrow-backward" viewBox="0 0 36 36">
     <path d="M34 18L2 18M2 18L18 34M2 18L18 2" stroke="#202020" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
   </symbol>
+
+  <symbol id="cross" viewBox="0 0 34 34">
+    <path d="M2 31L31 2M31 31L2 2" stroke="black" stroke-width="3" stroke-linecap="round"/>
+  </symbol>
 </svg>

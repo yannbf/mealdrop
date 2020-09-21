@@ -60,7 +60,7 @@ export const ModalContent = styled.div`
   border-top-right-radius: 1rem;
   position: fixed;
   z-index: 99;
-  top: 5%;
+  top: 50%;
   right: 0;
   bottom: 0;
   left: 0;
