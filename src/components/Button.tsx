@@ -1,11 +1,32 @@
 import React from 'react'
-import './button.css'
+import styled, { css } from 'styled-components'
+
+const StyledButton = styled.button<{ primary: boolean; clear: boolean }>(
+  ({ primary, clear }) => css`
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-block;
+    padding: 14px 24px;
+    font-size: 1rem;
+    color: ${primary ? 'white' : '#333'};
+    background-color: ${clear
+      ? 'transparent'
+      : primary
+      ? '#2C2C2C'
+      : '#E5F8BC'};
+  `
+)
 
 export interface ButtonProps {
   /**
    * Is this the principal call to action on the page?
    */
   primary?: boolean
+  /**
+   * Clear button styles leaving just a text
+   */
+  clear?: boolean
   /**
    * What background color to use
    */
@@ -28,25 +49,14 @@ export interface ButtonProps {
  * Primary UI component for user interaction
  */
 export const Button: React.FC<ButtonProps> = ({
-  primary = false,
-  size = 'medium',
-  backgroundColor,
   label,
+  primary = false,
+  clear = false,
   ...props
 }) => {
-  const mode = primary
-    ? 'storybook-button--primary'
-    : 'storybook-button--secondary'
   return (
-    <button
-      type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(
-        ' '
-      )}
-      style={{ backgroundColor }}
-      {...props}
-    >
+    <StyledButton type="button" clear={clear} primary={primary} {...props}>
       {label}
-    </button>
+    </StyledButton>
   )
 }
