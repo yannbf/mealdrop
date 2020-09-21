@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="arrow-forward" viewBox="0 0 36 36">
+    <path d="M2 18L34 18M34 18L18 2M34 18L18 34" stroke="#202020" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+
+  <symbol id="arrow-backward" viewBox="0 0 36 36">
+    <path d="M34 18L2 18M2 18L18 34M2 18L18 2" stroke="#202020" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+</svg>
