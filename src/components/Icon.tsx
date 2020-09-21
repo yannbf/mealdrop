@@ -6,7 +6,7 @@ const StyledSVG = styled.svg`
   display: block;
 `
 
-export const Icon = ({ name, color, size }: any) => {
+export const Icon = ({ name, color, size = 24 }: any) => {
   return (
     <StyledSVG
       fill={color}
