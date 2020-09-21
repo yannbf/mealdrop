@@ -1,12 +1,25 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Button } from './Button'
+import { IconButton } from './IconButton'
+
+const PreviousButton = styled(IconButton)`
+  position: absolute;
+  top: 50%;
+  left: 0;
+`
+const NextButton = styled(IconButton)`
+  position: absolute;
+  top: 50%;
+  right: 0;
+`
 
 export type PageSectionProps = {
   title: string
   showSlideButtons?: boolean
   onPreviousClick?: () => void
   onNextClick?: () => void
+  showNextButton?: boolean
+  showPreviousButton?: boolean
   children: React.ReactNode
 }
 
@@ -16,6 +29,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   padding: 1rem 0;
+  position: relative;
 `
 const TopContainer = styled.div`
   display: flex;
@@ -31,19 +45,22 @@ export const PageSection: React.FC<PageSectionProps> = ({
   title,
   onPreviousClick,
   onNextClick,
-  showSlideButtons,
+  showNextButton,
+  showPreviousButton,
   children,
 }) => (
   <Container className="container">
     <TopContainer>
       <h2>{title}</h2>
-      {showSlideButtons && (
-        <div>
-          <Button onClick={onPreviousClick} label="⇦" />
-          <Button onClick={onNextClick} label="⇨" />
-        </div>
-      )}
     </TopContainer>
-    <BottomContainer>{children}</BottomContainer>
+    <BottomContainer>
+      {children}
+      {showPreviousButton && (
+        <PreviousButton small onClick={onPreviousClick} name="arrow-backward" />
+      )}
+      {showNextButton && (
+        <NextButton small onClick={onNextClick} name="arrow-forward" />
+      )}
+    </BottomContainer>
   </Container>
 )
