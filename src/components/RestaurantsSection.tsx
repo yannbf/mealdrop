@@ -6,7 +6,6 @@ import { PageSection } from './PageSection'
 import { RestaurantCard } from './RestaurantCard'
 import { getCuratedRestaurants } from '../stub/restaurants'
 import { viewports } from '../styles/breakpoints'
-
 export const RestaurantsSection = () => {
   const [slideIndex, setSlideIndex] = useState(0)
   const [restaurants, setRestaurants] = useState<any>([
@@ -23,11 +22,11 @@ export const RestaurantsSection = () => {
 
     getData()
   }, [])
-
   return (
     <PageSection
-      title="Nice curated list of restaurants"
-      showSlideButtons={restaurants.length > 3}
+      title="New arrivals"
+      showNextButton
+      showPreviousButton
       onNextClick={() => setSlideIndex(slideIndex + 1)}
       onPreviousClick={() => setSlideIndex(slideIndex - 1)}
     >
