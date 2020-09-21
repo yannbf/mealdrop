@@ -30,7 +30,7 @@ export const ShoppingCartDropdown: React.FC<ShoppingCartDropdownProps> = ({
   )
   return (
     <>
-      <CartDropdownContainer>
+      <CartDropdownContainer fixed={!isCheckout}>
         <CartItemsContainer>
           {cartItems.length ? (
             cartItems.map((item) => (
