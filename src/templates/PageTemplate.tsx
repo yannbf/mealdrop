@@ -7,6 +7,7 @@ import { breakpoints } from '../styles/breakpoints'
 
 const Container = styled.div`
   margin-top: 56px;
+  min-height: calc(100vh - 200px);
   @media ${breakpoints.M} {
     margin-top: 0;
   }
@@ -24,7 +25,7 @@ export const DefaultTemplate: React.FC = ({ children }) => (
 
 export const StickyHeaderTemplate: React.FC = ({ children }) => (
   <>
-    <Header sticky/>
+    <Header sticky />
     <Container>{children}</Container>
     <Footer />
   </>
@@ -32,7 +33,7 @@ export const StickyHeaderTemplate: React.FC = ({ children }) => (
 
 export const SimpleTemplate: React.FC = ({ children }) => (
   <>
-    <HeaderComponent logoOnly/>
+    <HeaderComponent logoOnly />
     <Container>{children}</Container>
     <Footer />
   </>
