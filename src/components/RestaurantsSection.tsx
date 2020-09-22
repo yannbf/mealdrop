@@ -37,13 +37,13 @@ export const RestaurantsSection = () => {
         slidesPerPage={4}
         offset={24}
         breakpoints={{
-          [viewports.small]: {
+          [viewports.S]: {
             slidesPerPage: 1,
           },
-          [viewports.medium]: {
+          [viewports.M]: {
             slidesPerPage: 2,
           },
-          [viewports.large]: {
+          [viewports.L]: {
             slidesPerPage: 3,
           },
         }}

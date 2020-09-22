@@ -27,13 +27,13 @@ export const CategoriesSection = ({ categories }: CategoriesSectionProps) => {
         slidesPerPage={6}
         offset={24}
         breakpoints={{
-          [viewports.small]: {
+          [viewports.S]: {
             slidesPerPage: 2,
           },
-          [viewports.medium]: {
+          [viewports.M]: {
             slidesPerPage: 3,
           },
-          [viewports.large]: {
+          [viewports.L]: {
             slidesPerPage: 4,
           },
         }}
