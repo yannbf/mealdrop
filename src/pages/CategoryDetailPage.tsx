@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, Link, useLocation, useHistory } from 'react-router-dom'
+import { useParams, Link, useHistory } from 'react-router-dom'
 import { getRestaurantsByCategory } from '../stub/restaurants'
 import { RestaurantCard, Restaurant } from '../components/RestaurantCard'
 import { CATEGORIES } from '../constants'
