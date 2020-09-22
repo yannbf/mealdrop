@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react'
 import { Category, CategoryProps } from './Category'
 
 export default {
-  title: 'Category',
+  title: 'Components/Category',
   component: Category,
 } as Meta
 

@@ -8,7 +8,7 @@ import {
 } from './ShoppingCartDropdown'
 
 export default {
-  title: 'ShoppingCartDropdown',
+  title: 'Features/ShoppingCartDropdown',
   component: ShoppingCartDropdown,
 } as Meta
 

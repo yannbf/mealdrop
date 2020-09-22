@@ -5,7 +5,7 @@ import { CategoryList, CategoryListProps } from './CategoryList'
 import { categories } from '../stub/categories'
 
 export default {
-  title: 'CategoryList',
+  title: 'Components/CategoryList',
   component: CategoryList,
 } as Meta
 

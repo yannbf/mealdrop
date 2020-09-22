@@ -4,8 +4,17 @@ import { Story, Meta } from '@storybook/react'
 import { RestaurantCard, RestaurantCardProps } from './RestaurantCard'
 
 export default {
-  title: 'RestaurantCard',
+  title: 'Components/RestaurantCard',
   component: RestaurantCard,
+  parameters: {
+    design: {
+      type: 'figma',
+      // url:
+        // 'https://www.figma.com/file/XW4Bcjmj3JOILjKmZjjdQd/Foodenters?node-id=125%3A314',
+      url:
+        'https://www.figma.com/proto/XW4Bcjmj3JOILjKmZjjdQd/Foodenters?node-id=142%3A727&viewport=21%2C1270%2C0.9448022246360779&scaling=min-zoom',
+    },
+  },
 } as Meta
 
 const Basic: Story<RestaurantCardProps> = (args) => <RestaurantCard {...args} />

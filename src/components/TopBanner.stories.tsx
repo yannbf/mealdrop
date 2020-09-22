@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react'
 import { TopBanner } from './TopBanner'
 
 export default {
-  title: 'TopBanner',
+  title: 'Components/TopBanner',
   component: TopBanner,
   parameters: {
     layout: 'fullscreen',

@@ -3,7 +3,7 @@ import React from 'react'
 import { FoodItem } from './FoodItem'
 
 export default {
-  title: 'FoodItem',
+  title: 'Components/FoodItem',
   component: FoodItem,
 }
 

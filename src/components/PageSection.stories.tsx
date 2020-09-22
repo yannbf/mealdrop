@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react'
 import { PageSection, PageSectionProps } from './PageSection'
 
 export default {
-  title: 'PageSection',
+  title: 'Components/PageSection',
   component: PageSection,
   parameters: {
     layout: 'fullscreen',

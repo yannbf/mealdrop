@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react'
 import { HeroImage, HeroImageProps } from './HeroImage'
 
 export default {
-  title: 'HeroImage',
+  title: 'Components/HeroImage',
   component: HeroImage,
   parameters: {
     layout: 'fullscreen',
