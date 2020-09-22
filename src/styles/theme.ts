@@ -34,10 +34,18 @@ const spacing = {
 }
 
 const color = {
-  text: '#333333',
-  white: '#ffffff',
-  black: '#000000',
-  grey: '#191919',
+  white: '#FFFFFF',
+  secondaryText: '#636871',
+  accentText: '#202020',
+  primaryText: '#2C2C2C',
+  tertiaryText: '#6D868A',
+  screenBackground: '#FFFFFF',
+  cardBackground: '#F9F9F9',
+  bannerBackground: '#B1DDE4',
+  footerBackground: '#2C2C2C',
+  buttonPrimary: '#2C2C2C',
+  buttonSecondary: '#E5F8BC',
+  buttonClear: 'transparent',
 }
 
 const boxShadow = {
@@ -53,4 +61,19 @@ export const defaultTheme: DefaultTheme = {
   color,
   borderRadius,
   boxShadow,
+}
+
+export const darkTheme: DefaultTheme = {
+  ...defaultTheme,
+  color: {
+    ...defaultTheme.color,
+    primaryText: '#FFFFFF',
+    secondaryText: '#9F9F9F',
+    tertiaryText: '#B1DDE4',
+    screenBackground: '#202020',
+    cardBackground: '#2C2C2C',
+    bannerBackground: '#2C2C2C',
+    buttonPrimary: '#E5F8BC',
+    buttonSecondary: '#E5F8BC',
+  },
 }

@@ -1,0 +1,50 @@
+import {
+  Meta,
+  ColorPalette,
+  ColorItem,
+  Typeset,
+} from '@storybook/addon-docs/blocks'
+import { TabsState } from '@storybook/components'
+import { defaultTheme, darkTheme } from '../styles/theme'
+
+<Meta title="Design System/Colors" />
+
+export const sortObjectKeys = (obj) =>
+  Object.entries(obj)
+    .sort()
+    .reduce((o, [k, v]) => ((o[k] = v), o), {})
+
+export const getColors = (theme) =>
+  Object.keys(sortObjectKeys(theme.color)).map((key) => ({
+    name: key,
+    value: theme.color[key],
+  }))
+
+# Colors
+
+<TabsState initial="light">
+  <div id="light" title="Light mode">
+    <ColorPalette>
+      {getColors(defaultTheme).map(({ name, value }) => (
+        <ColorItem
+          key={name}
+          title={`theme.colors.${name}`}
+          subtitle={name}
+          colors={[value]}
+        />
+      ))}
+    </ColorPalette>
+  </div>
+  <div id="dark" title="Dark mode">
+    <ColorPalette>
+      {getColors(darkTheme).map(({ name, value }) => (
+        <ColorItem
+          key={name}
+          title={`theme.colors.${name}`}
+          subtitle={name}
+          colors={[value]}
+        />
+      ))}
+    </ColorPalette>
+  </div>
+</TabsState>
