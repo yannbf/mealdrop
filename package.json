@@ -63,6 +63,7 @@
     "@types/styled-components": "^5.1.2",
     "babel-loader": "^8.1.0",
     "react-is": "^16.13.1",
-    "react-test-renderer": "^16.13.1"
+    "react-test-renderer": "^16.13.1",
+    "storybook-addon-designs": "^5.4.2"
   }
 }
