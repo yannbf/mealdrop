@@ -5,12 +5,8 @@ import styled, { css } from 'styled-components'
 const FooterCardContainer = styled.div(
   ({ theme: { color: colors, spacing, borderRadius: borderRadiuses } }) => css`
     color: ${colors.white};
-    background: ${colors.black};
 
-    padding: ${spacing.m};
-    background-color: ${colors.grey};
     border-radius: ${borderRadiuses.xs};
-
     h3 {
       margin: 0;
       padding-bottom: ${spacing.xs};

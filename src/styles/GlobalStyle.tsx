@@ -66,12 +66,6 @@ export const GlobalStyle = createGlobalStyle`
     text-align: end;
   }
 
-  .footer-top {
-    grid-template-columns: repeat(3, 1fr);
-    display: grid;
-    gap: 40px 24px;
-  }
-
   .footer-bottom {
     display: flex;
     flex-direction: column;
@@ -89,9 +83,4 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
-  @media (max-width: 640px) {
-    .footer-top {
-      grid-template-columns: repeat(1, 1fr) !important;
-    }
-  }
 `

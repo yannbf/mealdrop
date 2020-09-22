@@ -1,19 +1,32 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
+import { breakpoints } from '../styles/breakpoints'
 import { FooterCard } from './FooterCard'
 
 const FooterContainer = styled.div(
-  ({ theme: { color: colors } }) => css`
-    color: ${colors.white};
-    background: ${colors.black};
+  ({ theme: { color } }) => css`
+    color: ${color.white};
+    background: ${color.footerBackground};
     padding: 2rem 0;
 
     hr {
-      color: ${colors.white};
+      color: ${color.white};
       width: 100%;
     }
   `
 )
+
+const FooterTop = styled.div`
+  display: grid;
+  gap: 40px 24px;
+  grid-template-columns: repeat(1, 1fr);
+  @media ${breakpoints.S} {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media ${breakpoints.L} {
+    grid-template-columns: repeat(4, 1fr);
+  }
+`
 
 export const Footer = () => {
   const navigationLinks = [
@@ -56,7 +69,8 @@ export const Footer = () => {
   return (
     <FooterContainer>
       <div className="container">
-        <div className="footer-top">
+        <FooterTop>
+          <img src="https://via.placeholder.com/150" alt="logo" />
           <FooterCard title="Discover us" links={navigationLinks} />
           <FooterCard title="Our social media" links={socialMediaLinks} />
           <FooterCard title="Check our apps">
@@ -73,7 +87,7 @@ export const Footer = () => {
               />
             </div>
           </FooterCard>
-        </div>
+        </FooterTop>
         <div className="footer-bottom">
           <hr />
           <small className="copyright">Some text, copyright 2020</small>
