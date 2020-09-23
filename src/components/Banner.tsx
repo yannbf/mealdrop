@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Button } from './Button'
 import ladies from '../assets/images/ladies.svg'
 import { breakpoints } from '../styles/breakpoints'
@@ -8,10 +8,6 @@ const Container = styled.div`
   background: #b1dde4;
   width: 100%;
   position: relative;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
   height: 410px;
   padding-top: 3.75rem;
 
@@ -21,14 +17,28 @@ const Container = styled.div`
   }
 `
 
-const Image = styled.img`
-  position: absolute;
-  bottom: -1px;
-  width: 740px;
-  @media ${breakpoints.M} {
-    width: 1040px;
-  }
+const ContentContainer = styled.div`
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 `
+
+const Image = styled.div<{ src: string }>(
+  ({ src }) => css`
+    background: url(${src});
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 700px;
+    position: absolute;
+    bottom: 0;
+    @media ${breakpoints.M} {
+      background-size: 1000px;
+    }
+  `
+)
 
 const Heading = styled.h1`
   margin: 0;
@@ -41,8 +51,12 @@ const Heading = styled.h1`
 
 export const Banner = () => (
   <Container>
-    <Heading><strong>Hungry?</strong> find your next meal</Heading>
-    <Button primary label="View all restaurants" />
+    <ContentContainer>
+      <Heading>
+        <strong>Hungry?</strong> find your next meal
+      </Heading>
+      <Button primary label="View all restaurants" />
+    </ContentContainer>
     <Image src={ladies} />
   </Container>
 )
