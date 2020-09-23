@@ -66,6 +66,10 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
+  .BrainhubCarousel__container {
+    touch-action: pan-x; 
+  }
+
   .copyright {
     color: white;
     text-align: end;
