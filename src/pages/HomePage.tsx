@@ -7,6 +7,7 @@ import { categories } from '../stub/categories'
 import { Button } from '../components/Button'
 import { useHistory } from 'react-router-dom'
 import { Banner } from '../components/Banner'
+import { AwardWinningSection } from '../components/AwardWinningSection'
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -14,21 +15,22 @@ const ButtonContainer = styled.div`
   margin: 3rem 0;
 `
 
-const Divider = styled.hr`
-  background-color: #e2e2e2;
-  border: none;
-  height: 1px;
-  margin: 30px 0;
+const Spacing = styled.div`
+  margin-bottom: 4.5rem;
 `
 
 export const HomePage = () => {
   const history = useHistory()
   return (
     <>
-      <Banner/>
+      <Banner />
+      <Spacing />
       <RestaurantsSection />
-      <Divider />
+      <Spacing />
+      <AwardWinningSection />
+      <Spacing />
       <CategoriesSection categories={categories} />
+      <Spacing />
       <ButtonContainer>
         <Button
           primary
@@ -36,6 +38,7 @@ export const HomePage = () => {
           onClick={() => history.push('/categories')}
         />
       </ButtonContainer>
+      <Spacing />
     </>
   )
 }
