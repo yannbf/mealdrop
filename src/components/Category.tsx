@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { breakpoints } from '../styles/breakpoints'
 
 export type CategoryProps = {
+  id?: string
   title: string
   photoUrl: string
   rounded?: boolean
@@ -16,6 +17,7 @@ const Container = styled.figure<{ $rounded: boolean }>`
   border-radius: 8px;
   background: ${({ $rounded }) => ($rounded ? '#F9F9F9' : 'transparent')};
   height: 100%;
+  width: 100%;
   min-width: 50px;
   max-width: ${({ $rounded }) => ($rounded ? '200px' : 'auto')};
   max-height: ${({ $rounded }) => ($rounded ? '200px' : '300px')};
@@ -23,7 +25,7 @@ const Container = styled.figure<{ $rounded: boolean }>`
   padding: ${({ $rounded }) => ($rounded ? '1.5rem 2rem' : '0')};
 
   @media ${breakpoints.M} {
-    padding: ${({ $rounded }) => ($rounded ? '1.5rem 3rem' : '0')};
+    padding: ${({ $rounded }) => ($rounded ? '1.5rem 0' : '0')};
   }
 `
 
@@ -39,12 +41,16 @@ const Image = styled.img`
 `
 const RoundImage = styled(Image)`
   border-radius: 50%;
-  width: 6rem;
-  height: 6rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  min-width: 4.5rem;
+  min-height: 4.5rem;
   max-height: 200px;
   @media ${breakpoints.M} {
-    width: 8rem;
-    height: 8rem;
+    width: 6.5rem;
+    height: 6.5rem;
+    min-width: 6.5rem;
+    min-height: 6.5rem;
   }
 `
 
