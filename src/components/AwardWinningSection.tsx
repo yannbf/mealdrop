@@ -39,12 +39,11 @@ const LeftContainer = styled.div`
   width: 100%;
   display: flex;
   height: 487px;
-  flex: 0.3;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  margin-left: 3.5rem;
 
   @media ${breakpoints.M} {
     flex: 0.5;
@@ -52,11 +51,11 @@ const LeftContainer = styled.div`
 `
 
 const SlidingBackground = styled.div`
-  flex: 0.7;
   background: url(${restaurants}) repeat-y;
   height: 5076px;
   animation: slide 60s linear infinite;
   width: 100%;
+  display: none;
 
   @keyframes slide {
     0% {
@@ -68,6 +67,7 @@ const SlidingBackground = styled.div`
   }
 
   @media ${breakpoints.M} {
+    display: block;
     flex: 0.5;
   }
 `
