@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import { breakpoints } from './breakpoints'
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -56,9 +57,13 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   .container {
-    max-width: 1240px;
+    max-width: 1600px;
     margin: 0 auto;
-    padding: 0 16px;
+    padding: 0 1.5rem;
+
+    @media ${breakpoints.S} {
+      padding: 0 4rem;
+    }
   }
 
   .copyright {
