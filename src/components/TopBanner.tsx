@@ -22,7 +22,7 @@ const Container = styled.div<{ src: string }>(
     justify-content: center;
     align-items: center;
     background: ${src ? `url(${src}) no-repeat 50%` : '#E5F8BC'};
-    background-position: bottom;
+    background-position: center;
     background-size: cover;
     height: 240px;
   `
