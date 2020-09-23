@@ -50,7 +50,7 @@ export const restaurants = [
     specialty: 'Truffelworst (truffle sausage)',
     photoUrl:
       'https://media-cdn.tripadvisor.com/media/photo-s/18/1a/96/54/main-restaurant.jpg',
-    categories: ['fastfood'],
+    categories: ['comfort-food'],
     isNew: true,
     menu: {
       food,
@@ -81,7 +81,7 @@ export const restaurants = [
     address: 'Brouwersgracht 119 1015 GD Amsterdam',
     specialty: 'Olive oil',
     photoUrl: 'https://duyt4h9nfnj50.cloudfront.net/search_home/FastFood.jpg',
-    categories: ['fastfood'],
+    categories: ['comfort-food'],
     menu: {
       food,
       dessert,
@@ -97,7 +97,7 @@ export const restaurants = [
     address: 'GASTHUISMOLENSTEEG 9 1016 AM AMSTERDAM',
     specialty: 'Pastrami sandwiches',
     photoUrl: 'https://duyt4h9nfnj50.cloudfront.net/search_home/FastFood.jpg',
-    categories: ['fastfood'],
+    categories: ['comfort-food'],
     isNew: true,
     menu: {
       food,
@@ -200,7 +200,7 @@ export const restaurants = [
     address: 'Cruquiusweg 9, 1019 AT Amsterdam',
     specialty: 'expensive dinners',
     photoUrl: 'https://duyt4h9nfnj50.cloudfront.net/search_home/FastFood.jpg',
-    categories: ['fastfood'],
+    categories: ['comfort-food'],
     menu: {
       food,
       dessert,
@@ -215,7 +215,7 @@ export const restaurants = [
     address: 'Heisteeg 4, 1012 WC Amsterdam',
     specialty: 'cookies',
     photoUrl: 'https://duyt4h9nfnj50.cloudfront.net/search_home/FastFood.jpg',
-    categories: ['indian', 'fastfood'],
+    categories: ['indian', 'comfort-food'],
   },
   {
     id: '1',

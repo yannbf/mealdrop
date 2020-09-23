@@ -1,42 +1,48 @@
 export const categories = [
   {
-    title: 'pizza',
+    id: 'pizza',
+    title: 'Pizza',
     photoUrl:
-      'https://images.unsplash.com/photo-1574071318508-1cdbab80d002?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=20',
+      'https://images.pexels.com/photos/2147491/pexels-photo-2147491.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=550',
   },
   {
-    title: 'hamburgers',
+    id: 'hamburgers',
+    title: 'Hamburgers',
     photoUrl:
-      'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1003&q=20',
+      'https://images.pexels.com/photos/2233351/pexels-photo-2233351.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=550',
   },
   {
-    title: 'desserts',
+    id: 'desserts',
+    title: 'Desserts',
     photoUrl:
-      'https://images.unsplash.com/photo-1555990205-057f92006fcc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=20',
+      'https://images.pexels.com/photos/1343465/pexels-photo-1343465.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=550',
   },
   {
-    title: 'fastfood',
+    id: 'comfort-food',
+    title: 'Comfort food',
     photoUrl:
-      'https://images.unsplash.com/photo-1426869981800-95ebf51ce900?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=20',
+      'https://images.pexels.com/photos/1199960/pexels-photo-1199960.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=550',
   },
   {
-    title: 'sushi',
+    id: 'sushi',
+    title: 'Sushi',
     photoUrl:
-      'https://images.unsplash.com/photo-1579871494447-9811cf80d66c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=20',
+      'https://images.pexels.com/photos/9210/food-japanese-food-photography-sushi.jpg?auto=compress&cs=tinysrgb&dpr=2&h=550',
   },
   {
-    title: 'asian',
+    id: 'asian',
+    title: 'Asian',
     photoUrl:
-      'https://images.unsplash.com/photo-1509680859026-7d8cfc6894f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=20',
+      'https://images.pexels.com/photos/1234535/pexels-photo-1234535.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=550',
   },
-  {
-    title: 'thai',
-    photoUrl:
-      'https://images.unsplash.com/photo-1562565652-a0d8f0c59eb4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=20',
-  },
-  {
-    title: 'indian',
-    photoUrl:
-      'https://images.unsplash.com/photo-1567337710282-00832b415979?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1488&q=20',
-  },
+  // {
+  //   title: 'thai',
+  //   photoUrl:
+  //     'https://images.unsplash.com/photo-1562565652-a0d8f0c59eb4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=20',
+  // },
+  // {
+  //   title: 'indian',
+  //   photoUrl:
+  //     'https://images.unsplash.com/photo-1567337710282-00832b415979?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1488&q=20',
+  // },
 ]

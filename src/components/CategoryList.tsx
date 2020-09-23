@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { Category } from './Category'
-import { CATEGORIES } from '../constants'
 import { breakpoints } from '../styles/breakpoints'
 
 type Category = {
+  id?: string
   title: string
   photoUrl: string
 }
@@ -35,8 +35,8 @@ export const CategoryList = ({ categories }: CategoryListProps) => {
   return (
     <StyledContainer>
       {categories.map((category) => (
-        <Link to={`/categories/${category.title}`}>
-          <Category {...category} title={CATEGORIES[category.title]} />
+        <Link key={category.id} to={`/categories/${category.id}`}>
+          <Category {...category} title={category.title} />
         </Link>
       ))}
     </StyledContainer>

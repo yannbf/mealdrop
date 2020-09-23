@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useParams, Link, useHistory } from 'react-router-dom'
 import { getRestaurantsByCategory } from '../stub/restaurants'
 import { RestaurantCard, Restaurant } from '../components/RestaurantCard'
-import { CATEGORIES } from '../constants'
 import styled from 'styled-components'
 import { TopBanner } from '../components/TopBanner'
 import { categories } from '../stub/categories'
@@ -25,7 +24,7 @@ const StyledContainer = styled.div`
 `
 
 export const CategoryDetailPage = () => {
-  const { id } = useParams()
+  const { id } = useParams<{ id: string }>()
   const history = useHistory()
 
   const [restaurants, setRestaurants] = useState<any>([
@@ -43,13 +42,13 @@ export const CategoryDetailPage = () => {
     getData()
   }, [id])
 
-  const photoUrl = categories.find((cat) => cat.title === id)?.photoUrl
+  const category = categories.find((cat) => cat.id === id)
 
   return (
     <>
       <TopBanner
-        title={CATEGORIES[id]}
-        photoUrl={photoUrl}
+        title={category?.title}
+        photoUrl={category?.photoUrl}
         onBackClick={() => history.goBack()}
       />
       <div className="container">
@@ -59,7 +58,7 @@ export const CategoryDetailPage = () => {
           </p>{' '}
           /{' '}
           <p style={{ display: 'inline', fontWeight: 'lighter' }}>
-            {CATEGORIES[id]}
+            {category?.title.toLowerCase()}
           </p>
         </Breadcrumb>
         {restaurants.length <= 0 && (
