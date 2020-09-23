@@ -2530,7 +2530,7 @@
   resolved "https://registry.yarnpkg.com/@types/braces/-/braces-3.0.0.tgz#7da1c0d44ff1c7eb660a36ec078ea61ba7eb42cb"
   integrity sha512-TbH79tcyi9FHwbyboOKeRachRq63mSuWYXOflsNO9ZyE5ClQ/JaozNKl+aWUq87qPNsXasXxi2AbgfwIJ+8GQw==
 
-"@types/brainhubeu__react-carousel@^1.19.26":
+"@types/brainhubeu__react-carousel@^1.15.0":
   version "1.15.0"
   resolved "https://registry.yarnpkg.com/@types/brainhubeu__react-carousel/-/brainhubeu__react-carousel-1.15.0.tgz#8cb1b6b182d9b00f37a0e5b922df4b8f8a690250"
   integrity sha512-dUwOz4LkUhbqiGH8+ud8L1ygfNZ01Z6lmU0tJkikF51TH/9g14dg6cJE5tLnDCxkpnJm1/0xv0+aRYSsg1xvLg==
