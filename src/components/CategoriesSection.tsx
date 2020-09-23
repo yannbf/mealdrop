@@ -5,10 +5,16 @@ import Carousel from '@brainhubeu/react-carousel'
 import { PageSection } from './PageSection'
 import { Category, CategoryProps } from './Category'
 import { viewports } from '../styles/breakpoints'
+import styled from 'styled-components'
 
 export type CategoriesSectionProps = {
   categories: CategoryProps[]
 }
+
+const StyledLink = styled(Link)`
+  width: 100%;
+  margin-right: 1rem;
+`
 
 export const CategoriesSection = ({ categories }: CategoriesSectionProps) => {
   const [slideIndex, setSlideIndex] = useState(0)
@@ -25,7 +31,6 @@ export const CategoriesSection = ({ categories }: CategoriesSectionProps) => {
         value={slideIndex}
         onChange={setSlideIndex}
         slidesPerPage={6}
-        offset={24}
         breakpoints={{
           [viewports.S]: {
             slidesPerPage: 2,
@@ -38,10 +43,10 @@ export const CategoriesSection = ({ categories }: CategoriesSectionProps) => {
           },
         }}
       >
-        {categories.map((item) => (
-          <Link key={item.title} to={`/categories/${item.title.toLowerCase()}`}>
-            <Category rounded {...item} />
-          </Link>
+        {categories.map((category) => (
+          <StyledLink key={category.id} to={`/categories/${category.id}`}>
+            <Category rounded {...category} />
+          </StyledLink>
         ))}
       </Carousel>
     </PageSection>

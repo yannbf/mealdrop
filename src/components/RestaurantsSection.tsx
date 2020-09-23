@@ -1,11 +1,18 @@
-// @ts-nocheck
 import React, { useState, useEffect } from 'react'
 import Carousel from '@brainhubeu/react-carousel'
+import styled from 'styled-components'
 
 import { PageSection } from './PageSection'
 import { RestaurantCard } from './RestaurantCard'
 import { getCuratedRestaurants } from '../stub/restaurants'
-import { viewports } from '../styles/breakpoints'
+import { viewports, breakpoints } from '../styles/breakpoints'
+
+const StyledRestaurantCard = styled(RestaurantCard)`
+  @media ${breakpoints.S} {
+    margin-right: 1rem;
+  }
+`
+
 export const RestaurantsSection = () => {
   const [slideIndex, setSlideIndex] = useState(0)
   const [restaurants, setRestaurants] = useState<any>([
@@ -35,7 +42,7 @@ export const RestaurantsSection = () => {
         value={slideIndex}
         onChange={setSlideIndex}
         slidesPerPage={4}
-        offset={24}
+        offset={1}
         breakpoints={{
           [viewports.S]: {
             slidesPerPage: 1,
@@ -46,10 +53,13 @@ export const RestaurantsSection = () => {
           [viewports.L]: {
             slidesPerPage: 3,
           },
+          [viewports.XL]: {
+            slidesPerPage: 4,
+          },
         }}
       >
-        {restaurants.map((restaurant, index) => (
-          <RestaurantCard
+        {restaurants.map((restaurant: any, index: number) => (
+          <StyledRestaurantCard
             key={restaurant.name + index}
             restaurant={restaurant}
           />

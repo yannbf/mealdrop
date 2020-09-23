@@ -4,6 +4,7 @@ import Skeleton from 'react-loading-skeleton'
 import styled from 'styled-components'
 
 export type RestaurantCardProps = {
+  className?: string
   restaurant: Restaurant
 }
 
@@ -45,10 +46,11 @@ const StyledPill = styled.div`
 const NewTag = styled.span`
   position: absolute;
   padding: 8px;
-  background: #E5F8BC;
-  display: inline-block;  
+  background: #e5f8bc;
+  display: inline-block;
   top: 1rem;
-  left: -0.5rem;
+  left: 0.5rem;
+  border-radius: 0.5rem;
   font-weight: bold;
 `
 
@@ -105,7 +107,10 @@ const RestaurantCardSkeleton = () => (
   </Container>
 )
 
-export const RestaurantCard = ({ restaurant }: RestaurantCardProps) => {
+export const RestaurantCard: React.FC<RestaurantCardProps> = ({
+  restaurant,
+  className
+}) => {
   const {
     photoUrl,
     name,
@@ -121,7 +126,7 @@ export const RestaurantCard = ({ restaurant }: RestaurantCardProps) => {
   }
 
   return (
-    <Container>
+    <Container className={className}>
       <Link
         to={`/restaurants/${id}`}
         style={{ position: 'relative', display: 'flex' }}
