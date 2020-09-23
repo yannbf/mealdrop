@@ -24,6 +24,10 @@ const StyledContainer = styled.div`
   @media ${breakpoints.M} {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  @media ${breakpoints.L} {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `
 
 export const RestaurantDetailPage = () => {
