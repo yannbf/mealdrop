@@ -16,6 +16,14 @@ const Container = styled.div`
   display: flex;
   height: 487px;
 `
+
+const ContentContainer = styled.div`
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+`
+
 const Heading = styled.h2<{ bolder?: boolean }>(
   ({ bolder }) => css`
     text-align: left;
@@ -66,11 +74,13 @@ const SlidingBackground = styled.div`
 
 export const AwardWinningSection = () => (
   <Container>
-    <LeftContainer>
-      <Heading bolder>Award winning</Heading>
-      <Heading>The best restaurants near you!</Heading>
-      <StyledButton primary label="Explore best restaurants" />
-    </LeftContainer>
-    <SlidingBackground />
+    <ContentContainer className="container">
+      <LeftContainer>
+        <Heading bolder>Award winning</Heading>
+        <Heading>The best restaurants near you!</Heading>
+        <StyledButton primary label="Explore best restaurants" />
+      </LeftContainer>
+      <SlidingBackground />
+    </ContentContainer>
   </Container>
 )

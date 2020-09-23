@@ -23,6 +23,11 @@ export type PageSectionProps = {
   children: React.ReactNode
 }
 
+const Title = styled.h2`
+  margin: 0;
+  margin-bottom: 2rem;
+`
+
 const Container = styled.div`
   width: 100%;
   height: 100%;
@@ -51,7 +56,7 @@ export const PageSection: React.FC<PageSectionProps> = ({
 }) => (
   <Container className="container">
     <TopContainer>
-      <h2>{title}</h2>
+      <Title>{title}</Title>
     </TopContainer>
     <BottomContainer>
       {children}
