@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
+import { Body } from '../typography/Body'
 
 const Container = styled.div(
   ({ theme: { color, spacing, boxShadow } }) => css`
@@ -8,8 +9,6 @@ const Container = styled.div(
     padding-bottom: ${spacing.m};
     label {
       color: ${color.label};
-      font-size: 18px;
-      font-weight: 400;
       padding-bottom: ${spacing.xs};
       &:first-letter {
         text-transform: uppercase;
@@ -38,6 +37,6 @@ const Container = styled.div(
 export const Input = ({ label = '', type = 'text', ...otherProps }) => (
   <Container>
     <input type={type} {...otherProps} />
-    {label && <label>{label}</label>}
+    {label && <Body as="label">{label}</Body>}
   </Container>
 )

@@ -1,8 +1,9 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import restaurants from '../assets/images/restaurants.png'
 import { breakpoints } from '../styles/breakpoints'
 import { Button } from './Button'
+import { Heading } from './typography/Heading'
 
 const StyledButton = styled(Button)`
   margin-top: 2.5rem;
@@ -23,15 +24,6 @@ const ContentContainer = styled.div`
   display: flex;
   width: 100%;
 `
-
-const Heading = styled.h2<{ bolder?: boolean }>(
-  ({ bolder }) => css`
-    text-align: left;
-    margin: 0;
-    font-size: 2.5rem;
-    font-weight: ${bolder ? '900' : '700'};
-  `
-)
 
 const LeftContainer = styled.div`
   overflow: hidden;
@@ -76,7 +68,7 @@ export const AwardWinningSection = () => (
   <Container>
     <ContentContainer className="container">
       <LeftContainer>
-        <Heading bolder>Award winning</Heading>
+        <Heading className="bolder">Award winning</Heading>
         <Heading>The best restaurants near you!</Heading>
         <StyledButton primary label="Explore best restaurants" />
       </LeftContainer>
