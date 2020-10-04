@@ -44,6 +44,7 @@ const TopContainer = styled.div`
 const BottomContainer = styled.div`
   display: flex;
   overflow-x: auto;
+  position: static;
 `
 
 export const PageSection: React.FC<PageSectionProps> = ({

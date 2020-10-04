@@ -1,7 +1,9 @@
 import { createGlobalStyle } from 'styled-components'
 import { breakpoints } from './breakpoints'
+import { resetCSS } from './CSSReset'
 
 export const GlobalStyle = createGlobalStyle`
+  ${resetCSS}
   @font-face {
     font-family: 'Montserrat';
     font-style: normal;
@@ -63,11 +65,7 @@ export const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
   }
-
-  label {
-    font-family: 'Hind';
-  }
-
+  
   * {
     box-sizing: border-box;
     color: #2C2C2C;
@@ -76,6 +74,10 @@ export const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
     color: #222;
+  }
+
+  .bolder {
+    font-weight: 900;
   }
 
   .container {

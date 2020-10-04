@@ -48,10 +48,11 @@ const NewTag = styled.span`
   padding: 8px;
   background: #e5f8bc;
   display: inline-block;
-  top: 1rem;
+  top: 0.5rem;
   left: 0.5rem;
   border-radius: 0.5rem;
   font-weight: bold;
+  z-index: 2;
 `
 
 const Closed = styled.span`
@@ -127,6 +128,7 @@ export const RestaurantCard: React.FC<RestaurantCardProps> = ({
 
   return (
     <Container className={className}>
+      {isNew && <NewTag>new</NewTag>}
       <Link
         to={`/restaurants/${id}`}
         style={{ position: 'relative', display: 'flex' }}
@@ -141,7 +143,6 @@ export const RestaurantCard: React.FC<RestaurantCardProps> = ({
       </Link>
       <StyledContent>
         <h2 style={{ margin: 0 }}>{name} </h2>
-        {isNew && <NewTag>new</NewTag>}
         <span style={{ color: '#6D868A' }}>★ 4.2 Very Good</span>
         <Description>{specialty}</Description>
         {restaurant.categories?.map((category) => (
