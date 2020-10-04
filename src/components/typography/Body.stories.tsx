@@ -4,7 +4,7 @@ import React from 'react'
 import { Body, BodyProps } from './Body'
 
 export default {
-  title: 'Typography/Body',
+  title: 'Components/Typography/Body',
   component: Body,
   argTypes: {
     children: { controls: 'text' },

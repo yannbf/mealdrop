@@ -4,7 +4,7 @@ import React from 'react'
 import { Heading, HeadingProps } from './Heading'
 
 export default {
-  title: 'Typography/Heading',
+  title: 'Components/Typography/Heading',
   component: Heading,
   argTypes: {
     children: { controls: 'text' },
