@@ -10,6 +10,7 @@ declare module 'styled-components' {
     color: typeof color
     borderRadius: typeof borderRadius
     boxShadow: typeof boxShadow
+    typography: typeof typography
   }
 }
 
@@ -52,6 +53,24 @@ const boxShadow = {
   inner: 'inset 0 3px 0 0 rgba(0, 0, 0, 0.05)',
 }
 
+const typography = {
+  fontSize: {
+    heading1: '2.74rem',
+    heading2: '2.19rem',
+    heading3: '1.75rem',
+    heading4: '1.4rem',
+    body: '1.125rem',
+    bodyS: '1rem',
+    bodyXS: '0.9rem',
+    bodyXXS: '0.72rem',
+  },
+  fontWeight: {
+    regular: '400',
+    bold: '700',
+    black: '900',
+  },
+}
+
 export const defaultTheme: DefaultTheme = {
   name: 'default',
   fonts: {
@@ -61,6 +80,7 @@ export const defaultTheme: DefaultTheme = {
   color,
   borderRadius,
   boxShadow,
+  typography,
 }
 
 export const darkTheme: DefaultTheme = {
