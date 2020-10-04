@@ -47,10 +47,13 @@ const color = {
   buttonPrimary: '#2C2C2C',
   buttonSecondary: '#E5F8BC',
   buttonClear: 'transparent',
+  label: '#636871',
+  labelActive: '#202020',
 }
 
 const boxShadow = {
   inner: 'inset 0 3px 0 0 rgba(0, 0, 0, 0.05)',
+  outerBorders: '0 0 0 1px #71acb6, 0 0 0 5px #dcf0f3',
 }
 
 const typography = {
