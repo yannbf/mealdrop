@@ -49,6 +49,8 @@ const color = {
   buttonClear: 'transparent',
   label: '#636871',
   labelActive: '#202020',
+  inputBackground: '#F5F6F7',
+  inputIcon: '#202020',
 }
 
 const boxShadow = {
