@@ -5,13 +5,15 @@ import { useDispatch, useSelector } from 'react-redux'
 
 import {
   selectCartItems,
+  selectCartTotal,
   selectCartVisibility,
   toggleVisibilityAction,
 } from '../app-state/cart'
 import { breakpoints } from '../styles/breakpoints'
-import { ShoppingCartButton, ShoppingCartDropdown } from './shopping-cart'
+import { ShoppingCartButton } from './shopping-cart'
+import { ShoppingCartMenu } from './ShoppingCartMenu'
 
-export const HeaderContainer = styled.div<{sticky: boolean}>`
+export const HeaderContainer = styled.div<{ sticky: boolean }>`
   display: flex;
   justify-content: space-between;
   box-shadow: rgb(226, 226, 226) 0px -2px 0px inset;
@@ -82,6 +84,7 @@ export const HeaderComponent = ({
   cartItems,
   toggleCartVisibility,
   goToCheckout,
+  totalPrice,
   logoOnly = false,
   sticky = false,
 }: any) => (
@@ -103,12 +106,13 @@ export const HeaderComponent = ({
             onClick={toggleCartVisibility}
           />
         </OptionsContainer>
-        {isCartVisible && (
-          <ShoppingCartDropdown
-            onGoToCheckoutClick={goToCheckout}
-            cartItems={cartItems}
-          />
-        )}
+        <ShoppingCartMenu
+          isOpen={isCartVisible}
+          onClose={toggleCartVisibility}
+          onGoToCheckoutClick={goToCheckout}
+          cartItems={cartItems}
+          totalPrice={totalPrice}
+        />
       </>
     )}
   </HeaderContainer>
@@ -117,6 +121,7 @@ export const HeaderComponent = ({
 export const Header = ({ sticky }: any) => {
   const isCartVisible = useSelector(selectCartVisibility)
   const cartItems = useSelector(selectCartItems)
+  const totalPrice = useSelector(selectCartTotal)
   const dispatch = useDispatch()
   const history = useHistory()
   const toggleCartVisibility = () => dispatch(toggleVisibilityAction())
@@ -133,6 +138,7 @@ export const Header = ({ sticky }: any) => {
       cartItems={cartItems}
       isCartVisible={isCartVisible}
       toggleCartVisibility={toggleCartVisibility}
+      totalPrice={totalPrice}
     />
   )
 }
