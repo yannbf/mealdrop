@@ -46,9 +46,22 @@ const Container = styled.div(
   `
 )
 
-export const Select = ({ label = '', options = [], ...otherProps }) => (
+export type SelectProps = {
+  label?: string
+  options: any[]
+  value?: any
+  onChange?: () => void
+}
+
+export const Select = ({
+  label = '',
+  value = '',
+  options = [],
+  onChange,
+  ...otherProps
+}: SelectProps) => (
   <Container>
-    <select {...otherProps}>
+    <select value={value} onChange={onChange} {...otherProps}>
       {options.map((option) => (
         <option key={option} value={option}>
           {option}
