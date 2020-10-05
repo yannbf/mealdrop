@@ -17,7 +17,7 @@ export type SidebarProps = {
   isOpen: boolean
   title: string
   onClose: () => void
-  footer: React.ReactNode
+  footer?: React.ReactNode
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({
@@ -44,8 +44,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
               <Icon size={16} name="cross" />
             </TopBarButton>
           </TopBar>
-          <SidebarContent data-testid="sidebar-content">{children}</SidebarContent>
-          <SidebarFooter data-testid="sidebar-footer">{footer}</SidebarFooter>
+          <SidebarContent data-testid="sidebar-content">
+            {children}
+          </SidebarContent>
+          {footer && (
+            <SidebarFooter data-testid="sidebar-footer">{footer}</SidebarFooter>
+          )}
         </SidebarContainer>
       </CSSTransition>
 

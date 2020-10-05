@@ -37,7 +37,7 @@ const desktopAnimation = css`
 
 const largeScreenOverrides = css`
   @media ${breakpoints.M} {
-    width: 372px;
+    width: 420px;
     height: 100vh;
 
     box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
@@ -99,6 +99,7 @@ export const TopBar = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: static;
   padding: 0 0.5rem;
   top: 0.75rem;
   right: 0.75rem;
