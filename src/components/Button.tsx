@@ -1,14 +1,19 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 
-const StyledButton = styled.button<{ primary: boolean; clear: boolean }>(
-  ({ primary, clear }) => css`
+const StyledButton = styled.button<{
+  primary: boolean
+  clear: boolean
+  large: boolean
+}>(
+  ({ primary, clear, large }) => css`
     border: 0;
     border-radius: 8px;
     cursor: pointer;
     display: inline-block;
-    padding: 14px 24px;
+    padding: ${large ? '18px' : '14px'} 24px;
     font-size: 1rem;
+    text-align: center;
     color: ${primary ? 'white' : '#333'};
     background-color: ${clear
       ? 'transparent'
@@ -32,9 +37,9 @@ export interface ButtonProps {
    */
   backgroundColor?: string
   /**
-   * How large should the button be?
+   * Is the button large?
    */
-  size?: 'small' | 'medium' | 'large'
+  large?: boolean
   /**
    * Button contents
    */
@@ -51,11 +56,18 @@ export interface ButtonProps {
 export const Button: React.FC<ButtonProps> = ({
   label,
   primary = false,
+  large = false,
   clear = false,
   ...props
 }) => {
   return (
-    <StyledButton type="button" clear={clear} primary={primary} {...props}>
+    <StyledButton
+      type="button"
+      large={large}
+      clear={clear}
+      primary={primary}
+      {...props}
+    >
       {label}
     </StyledButton>
   )
