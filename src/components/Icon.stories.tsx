@@ -10,7 +10,12 @@ export default {
     name: {
       control: {
         type: 'select',
-        options: ['arrow-forward', 'arrow-backward'],
+        options: ['arrow-forward', 'arrow-backward', 'plus', 'minus', 'cart'],
+      },
+    },
+    color: {
+      control: {
+        type: 'color',
       },
     },
     size: {

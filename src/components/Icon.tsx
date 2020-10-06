@@ -6,10 +6,10 @@ const StyledSVG = styled.svg`
   display: block;
 `
 
-export const Icon = ({ name, color, size = 24 }: any) => {
+export const Icon = ({ name, color = '#202020', size = 24 }: any) => {
   return (
     <StyledSVG
-      fill={color}
+      stroke={color}
       width={size}
       height={size}
       style={{ minWidth: size }}

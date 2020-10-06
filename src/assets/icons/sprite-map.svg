@@ -1,13 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
   <symbol id="arrow-forward" viewBox="0 0 36 36">
-    <path d="M2 18L34 18M34 18L18 2M34 18L18 34" stroke="#202020" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M2 18L34 18M34 18L18 2M34 18L18 34" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
   </symbol>
 
   <symbol id="arrow-backward" viewBox="0 0 36 36">
-    <path d="M34 18L2 18M2 18L18 34M2 18L18 2" stroke="#202020" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M34 18L2 18M2 18L18 34M2 18L18 2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
   </symbol>
 
   <symbol id="cross" viewBox="0 0 34 34">
     <path d="M2 31L31 2M31 31L2 2" stroke="black" stroke-width="3" stroke-linecap="round"/>
+  </symbol>
+
+  <symbol id="cart" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="9" cy="21" r="1"></circle>
+    <circle cx="20" cy="21" r="1"></circle>
+    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+  </symbol>
+
+  <symbol id="minus" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="5" y1="12" x2="19" y2="12"></line>
+  </symbol>
+  
+  <symbol id="plus" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="12" y1="5" x2="12" y2="19"></line>
+    <line x1="5" y1="12" x2="19" y2="12"></line>
   </symbol>
 </svg>
