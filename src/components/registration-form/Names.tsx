@@ -30,7 +30,7 @@ const Names = ({ setForm, formData, navigation }: any) => {
         onChange={setForm}
       />
       <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-        <Button label="Next" onClick={next} />
+        <Button onClick={next}>Next</Button>
       </div>
     </div>
   )

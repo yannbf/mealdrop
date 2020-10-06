@@ -4,6 +4,7 @@ import { Button } from './Button'
 import ladies from '../assets/images/ladies.svg'
 import { breakpoints } from '../styles/breakpoints'
 import { Heading } from './typography/Heading'
+import { Link } from 'react-router-dom'
 
 const Container = styled.div`
   background: #b1dde4;
@@ -23,6 +24,7 @@ const ContentContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
+  z-index: 1;
 `
 
 const Image = styled.div<{ src: string }>(
@@ -55,7 +57,9 @@ export const Banner = () => (
       <StyledHeading level={2}>
         <strong>Hungry?</strong> find your next meal
       </StyledHeading>
-      <Button primary label="View all restaurants" />
+      <Link to="/categories">
+        <Button primary>View all restaurants</Button>
+      </Link>
     </ContentContainer>
     <Image src={ladies} />
   </Container>

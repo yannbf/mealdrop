@@ -1,25 +1,56 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
+import { breakpoints } from '../styles/breakpoints'
+import { Icon } from './Icon'
+
+const Spacer = styled.span`
+  padding-left: 1rem;
+`
 
 const StyledButton = styled.button<{
   primary: boolean
   clear: boolean
   large: boolean
+  withIcon: boolean
 }>(
-  ({ primary, clear, large }) => css`
+  ({ primary, clear, large, withIcon, theme: { color, boxShadow } }) => css`
+    outline: none;
     border: 0;
-    border-radius: 8px;
-    cursor: pointer;
-    display: inline-block;
-    padding: ${large ? '18px' : '14px'} 24px;
-    font-size: 1rem;
-    text-align: center;
+    font-family: 'Hind';
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: ${withIcon ? '1rem' : large ? '1.125rem 1rem' : '0.875rem 1rem'};
     color: ${primary ? 'white' : '#333'};
     background-color: ${clear
-      ? 'transparent'
+      ? color.buttonClear
       : primary
-      ? '#2C2C2C'
-      : '#E5F8BC'};
+      ? color.buttonPrimary
+      : color.buttonSecondary};
+    &:hover {
+      cursor: pointer;
+      background-color: ${clear
+        ? color.buttonClearHover
+        : primary
+        ? color.buttonPrimaryHover
+        : color.buttonSecondaryHover};
+    }
+    &:focus {
+      box-shadow: ${clear
+        ? boxShadow.clearButton
+        : primary
+        ? boxShadow.primaryButton
+        : boxShadow.secondaryButton};
+    }
+
+    @media ${breakpoints.M} {
+      padding: ${withIcon
+        ? '1rem'
+        : large
+        ? '1.125rem 1.5rem'
+        : '0.875rem 1.5rem'};
+    }
   `
 )
 
@@ -41,9 +72,13 @@ export interface ButtonProps {
    */
   large?: boolean
   /**
-   * Button contents
+   * Does the button have an icon?
    */
-  label: string
+  icon?: string
+  /**
+   * Does the button have an icon?
+   */
+  children?: React.ReactNode | string
   /**
    * Optional click handler
    */
@@ -54,10 +89,11 @@ export interface ButtonProps {
  * Primary UI component for user interaction
  */
 export const Button: React.FC<ButtonProps> = ({
-  label,
+  children,
   primary = false,
   large = false,
   clear = false,
+  icon,
   ...props
 }) => {
   return (
@@ -66,9 +102,12 @@ export const Button: React.FC<ButtonProps> = ({
       large={large}
       clear={clear}
       primary={primary}
+      withIcon={!!icon}
       {...props}
     >
-      {label}
+      {icon && <Icon color="#ffffff" name={icon} />}
+      {icon && children && <Spacer />}
+      {children}
     </StyledButton>
   )
 }

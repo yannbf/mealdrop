@@ -42,7 +42,9 @@ export const ShoppingCartDropdown: React.FC<ShoppingCartDropdownProps> = ({
           <p>Total: ${totalPrice}</p>
         </CartItemsContainer>
         {!isCheckout && cartItems.length > 0 && (
-          <CartDropdownButton label="To pay" onClick={onGoToCheckoutClick} />
+          <CartDropdownButton onClick={onGoToCheckoutClick}>
+            To pay
+          </CartDropdownButton>
         )}
       </CartDropdownContainer>
     </>

@@ -126,13 +126,15 @@ const MenuItemDetailModal = ({
       <h2>{item.name}</h2>
       <p>{item.description}</p>
       <div>
-        <Button label="-" onClick={() => setQuantity(quantity - 1)} />
+        <Button icon="minus" onClick={() => setQuantity(quantity - 1)} />
         {quantity}
-        <Button label="+" onClick={() => setQuantity(quantity + 1)} />
+        <Button icon="plus" onClick={() => setQuantity(quantity + 1)} />
       </div>
       <div style={{ display: 'flex' }}>
-        <Button label="Cancel" onClick={onClose} />
-        <Button primary label="Save" onClick={saveItem} />
+        <Button onClick={onClose}>Cancel</Button>
+        <Button primary onClick={saveItem}>
+          Save
+        </Button>
       </div>
     </>
   )

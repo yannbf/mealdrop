@@ -45,8 +45,11 @@ const color = {
   bannerBackground: '#B1DDE4',
   footerBackground: '#2C2C2C',
   buttonPrimary: '#2C2C2C',
+  buttonPrimaryHover: '#32363C',
   buttonSecondary: '#E5F8BC',
+  buttonSecondaryHover: '#DBF3B1',
   buttonClear: 'transparent',
+  buttonClearHover: '#F0F0F0',
   label: '#636871',
   labelActive: '#202020',
   inputBackground: '#F5F6F7',
@@ -55,7 +58,10 @@ const color = {
 
 const boxShadow = {
   inner: 'inset 0 3px 0 0 rgba(0, 0, 0, 0.05)',
-  outerBorders: '0 0 0 1px #71acb6, 0 0 0 5px #dcf0f3',
+  input: '0 0 0 1px #71acb6, 0 0 0 5px #dcf0f3',
+  primaryButton: '0 0 0 1px white, 0 0 0 3px #2C2C2C',
+  secondaryButton: '0 0 0 1px white, 0 0 0 3px #E5F8BC',
+  clearButton: '0 0 0 1px white, 0 0 0 3px #F0F0F0',
 }
 
 const typography = {

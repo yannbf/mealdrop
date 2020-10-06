@@ -70,7 +70,7 @@ export const AwardWinningSection = () => (
       <LeftContainer>
         <Heading className="bolder">Award winning</Heading>
         <Heading>The best restaurants near you!</Heading>
-        <StyledButton primary label="Explore best restaurants" />
+        <StyledButton primary>Explore best restaurants</StyledButton>
       </LeftContainer>
       <SlidingBackground />
     </ContentContainer>

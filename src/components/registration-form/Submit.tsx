@@ -32,12 +32,10 @@ const Submit = () => {
         src="https://www.flaticon.com/svg/static/icons/svg/3187/3187874.svg"
       />
       <ButtonSection>
-        <Button label="Back to restaurants" onClick={() => history.push('/')} />
-        <Button
-          primary
-          label="To my profile"
-          onClick={() => history.push('profile')}
-        />
+        <Button onClick={() => history.push('/')}>Back to restaurants</Button>
+        <Button primary onClick={() => history.push('profile')}>
+          To my profile
+        </Button>
       </ButtonSection>
     </Container>
   )

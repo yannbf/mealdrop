@@ -21,7 +21,9 @@ const Template: Story = () => {
   return (
     <>
       <p>Press ESC to close the sidebar or click on the close icon!</p>
-      <Button primary label="Open sidebar" onClick={openSidebar} />
+      <Button primary onClick={openSidebar}>
+        Open sidebar
+      </Button>
       <Sidebar
         title="Your order"
         isOpen={isOpen}

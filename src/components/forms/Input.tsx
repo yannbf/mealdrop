@@ -24,7 +24,7 @@ const Container = styled.div(
       background: #f5f6f7;
       margin: 0;
       &:focus {
-        box-shadow: ${boxShadow.outerBorders};
+        box-shadow: ${boxShadow.input};
       }
     }
 

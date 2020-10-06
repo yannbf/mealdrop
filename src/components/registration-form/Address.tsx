@@ -25,8 +25,8 @@ const Address = ({ setForm, formData, navigation }: any) => {
           justifyContent: 'space-between',
         }}
       >
-        <Button label="Previous" onClick={previous} />
-        <Button label="Next" onClick={next} />
+        <Button onClick={previous}>Previous</Button>
+        <Button onClick={next}>Next</Button>
       </div>
     </div>
   )
