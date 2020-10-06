@@ -10,7 +10,6 @@ import {
   toggleVisibilityAction,
 } from '../app-state/cart'
 import { breakpoints } from '../styles/breakpoints'
-import { ShoppingCartButton } from './shopping-cart'
 import { ShoppingCartMenu } from './ShoppingCartMenu'
 import { Button } from './Button'
 import { toEuro } from '../helpers'
@@ -74,7 +73,7 @@ export const HeaderComponent = ({
   logoOnly = false,
   sticky = false,
 }: any) => (
-  <HeaderContainer data-testid="header" sticky={sticky}>
+  <HeaderContainer data-testid="header" className="container" sticky={sticky}>
     <LogoContainer to="/">
       <img
         src="https://image.flaticon.com/icons/svg/1046/1046784.svg"
