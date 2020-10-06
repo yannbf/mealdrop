@@ -47,7 +47,9 @@ const MenuItemContainer = styled.div`
 const ShoppingCartMenuItem = ({ item }: any) => (
   <MenuItemContainer>
     <div>
-      <Body type="span">{item.name}</Body>
+      <Body type="span" fontWeight="medium">
+        {item.name}
+      </Body>
       <Body>{item.description}</Body>
       <Body>{toEuro(item.price * item.quantity)}</Body>
     </div>
