@@ -37,6 +37,6 @@ const Container = styled.div(
 export const Input = ({ label = '', type = 'text', ...otherProps }) => (
   <Container>
     <input type={type} {...otherProps} />
-    {label && <Body as="label">{label}</Body>}
+    {label && <Body type="label">{label}</Body>}
   </Container>
 )

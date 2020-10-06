@@ -1,8 +1,9 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
 import { IconButton } from './IconButton'
+import { Heading } from './typography/Heading'
 
-const Title = styled.h1<{ inverted: boolean }>(
+const StyledHeading = styled(Heading)<{ inverted: boolean }>(
   ({ inverted }) => css`
     color: ${inverted ? 'white' : '#2c2c2c'};
   `
@@ -32,7 +33,7 @@ export const TopBanner = ({ photoUrl, title, onBackClick }: any) => {
   return (
     <Container src={photoUrl}>
       <StyledIconButton onClick={onBackClick} small name="arrow-backward" />
-      <Title inverted={!!photoUrl}>{title}</Title>
+      <StyledHeading inverted={!!photoUrl}>{title}</StyledHeading>
     </Container>
   )
 }

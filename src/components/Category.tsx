@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { breakpoints } from '../styles/breakpoints'
+import { Body } from './typography/Body'
 
 export type CategoryProps = {
   id?: string
@@ -59,25 +60,33 @@ const FloatingTitle = styled.figcaption`
   top: 1.5rem;
   left: 1.5rem;
   border-radius: 8px;
-  color: white;
-  background: black;
+  background: #202020;
   padding: 8px 16px;
-  font-size: 18px;
-  font-weight: bold;
   text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.5);
+  span {
+    color: white;
+  }
+`
+
+const Title = styled.figcaption`
+  padding-top: 1rem;
 `
 
 const Rounded = ({ title, photoUrl: url }: CategoryProps) => (
   <>
     <RoundImage src={url} />
-    <figcaption style={{ paddingTop: '1rem' }}>{title}</figcaption>
+    <Title>
+      <Body type="span">{title}</Body>
+    </Title>
   </>
 )
 
 const Squared = ({ title, photoUrl: url }: CategoryProps) => (
   <>
     <Image src={url} />
-    <FloatingTitle>{title}</FloatingTitle>
+    <FloatingTitle>
+      <Body type="span">{title}</Body>
+    </FloatingTitle>
   </>
 )
 

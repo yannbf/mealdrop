@@ -1,15 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled, { css } from 'styled-components'
+import { Body } from './typography/Body'
+import { Heading } from './typography/Heading'
 
 const FooterCardContainer = styled.div(
   ({ theme: { color: colors, spacing, borderRadius: borderRadiuses } }) => css`
     color: ${colors.white};
 
     border-radius: ${borderRadiuses.xs};
-    h3 {
-      margin: 0;
-      padding-bottom: ${spacing.xs};
+    h4 {
+      color: white;
+      margin-bottom: ${spacing.xs};
     }
 
     ul {
@@ -23,17 +25,22 @@ const FooterCardContainer = styled.div(
       text-decoration: none;
       cursor: pointer;
     }
+
+    p {
+      margin-top: ${spacing.xs};
+      margin-bottom: ${spacing.xs};
+    }
   `
 )
 
 export const FooterCard = ({ title, links, children }: any) => (
   <FooterCardContainer>
-    <h3 style={{ color: 'white' }}>{title}</h3>
+    <Heading level={4}>{title}</Heading>
     {links?.length > 0 && (
       <ul>
         {links.map(({ external, name, href }: any) => (
           <li key={name}>
-            <p>
+            <Body>
               {external ? (
                 <a target="_blank" rel="noopener noreferrer" href={href}>
                   {name}
@@ -41,7 +48,7 @@ export const FooterCard = ({ title, links, children }: any) => (
               ) : (
                 <Link to={href}>{name}</Link>
               )}
-            </p>
+            </Body>
           </li>
         ))}
       </ul>

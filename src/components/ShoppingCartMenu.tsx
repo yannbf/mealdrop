@@ -24,8 +24,8 @@ const TotalSection = styled.div`
 const Footer = ({ onClick, totalPrice }: any) => (
   <FooterContainer>
     <TotalSection>
-      <Body as="span">Total</Body>
-      <Body as="span">{toEuro(totalPrice)}</Body>
+      <Body type="span">Total</Body>
+      <Body type="span">{toEuro(totalPrice)}</Body>
     </TotalSection>
     <Button large primary onClick={onClick} label="Checkout" />
   </FooterContainer>
@@ -47,7 +47,7 @@ const MenuItemContainer = styled.div`
 const ShoppingCartMenuItem = ({ item }: any) => (
   <MenuItemContainer>
     <div>
-      <Body as="span">{item.name}</Body>
+      <Body type="span">{item.name}</Body>
       <Body>{item.description}</Body>
       <Body>{toEuro(item.price * item.quantity)}</Body>
     </div>

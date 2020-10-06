@@ -66,7 +66,7 @@ export const restaurants = [
     address: 'Tijnmuiden 5F 1046 AK Amsterdam',
     specialty: 'Sarma (wine leafs with rice)',
     photoUrl: 'https://duyt4h9nfnj50.cloudfront.net/search_home/FastFood.jpg',
-    categories: ['hamburgers', 'pizza'],
+    categories: ['burgers', 'pizza'],
     menu: {
       food,
       dessert,

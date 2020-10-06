@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Skeleton from 'react-loading-skeleton'
 import styled from 'styled-components'
+import { Heading } from './typography/Heading'
+import { Body } from './typography/Body'
 
 export type RestaurantCardProps = {
   className?: string
@@ -33,10 +35,13 @@ const StyledContent = styled.div`
   padding: 24px;
   background: #f9f9f9;
   border-radius: 0px 0px 8px 8px;
+  span {
+    color: #6d868a;
+  }
 `
 
 const StyledPill = styled.div`
-  padding: 8px;
+  padding: 3px 8px;
   background: #f2f2f2;
   color: #7b7b7b;
   border-radius: 4px;
@@ -55,20 +60,22 @@ const NewTag = styled.span`
   z-index: 2;
 `
 
-const Closed = styled.span`
+const Closed = styled.div`
   position: absolute;
-  font-weight: bold;
   height: 100%;
   width: 100%;
+  border-radius: 8px 8px 0 0;
   background: rgba(0, 0, 0, 0.4);
-  color: white;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0;
   text-align: center;
-  line-height: 250px;
   z-index: 2;
+  span {
+    color: white;
+    line-height: 210px;
+  }
 `
 
 const RestaurantImage = styled.img<{ $isClosed: boolean }>`
@@ -78,8 +85,9 @@ const RestaurantImage = styled.img<{ $isClosed: boolean }>`
   object-fit: cover;
   filter: ${({ $isClosed }) => ($isClosed ? 'grayscale(1)' : 'none')};
 `
-const Description = styled.p`
-  font-size: 14px;
+const Description = styled(Body)`
+  margin-top: 8px;
+  margin: 0;
   max-height: 38px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -92,25 +100,25 @@ const RestaurantCardSkeleton = () => (
   <Container>
     <Skeleton height={200} width="100%" />
     <StyledContent>
-      <h2 style={{ margin: 0 }}>
+      <Heading level={4}>
         <Skeleton width="50%" />
-      </h2>
-      <span>
-        <Skeleton width="65%" />
-      </span>
+      </Heading>
+      <Body type="span">
+        <Skeleton width="35%" />
+      </Body>
       <Description>
         <Skeleton />
       </Description>
-      <p>
-        <Skeleton width="20%" />
-      </p>
+      <Body type="span">
+        <Skeleton width="25%" height="20px"/>
+      </Body>
     </StyledContent>
   </Container>
 )
 
 export const RestaurantCard: React.FC<RestaurantCardProps> = ({
   restaurant,
-  className
+  className,
 }) => {
   const {
     photoUrl,
@@ -133,7 +141,11 @@ export const RestaurantCard: React.FC<RestaurantCardProps> = ({
         to={`/restaurants/${id}`}
         style={{ position: 'relative', display: 'flex' }}
       >
-        {isClosed && <Closed>This restaurant is closed.</Closed>}
+        {isClosed && (
+          <Closed>
+            <Body type="span">This restaurant is closed.</Body>
+          </Closed>
+        )}
         <RestaurantImage
           $isClosed={isClosed}
           loading="lazy"
@@ -142,11 +154,17 @@ export const RestaurantCard: React.FC<RestaurantCardProps> = ({
         />
       </Link>
       <StyledContent>
-        <h2 style={{ margin: 0 }}>{name} </h2>
-        <span style={{ color: '#6D868A' }}>★ 4.2 Very Good</span>
-        <Description>{specialty}</Description>
+        <Heading level={4}>{name} </Heading>
+        <Body size="S" type="span">
+          ★ 4.2 Very Good
+        </Body>
+        <Description fontWeight="regular">{specialty}</Description>
         {restaurant.categories?.map((category) => (
-          <StyledPill>{category}</StyledPill>
+          <StyledPill>
+            <Body type="span" size="S">
+              {category}
+            </Body>
+          </StyledPill>
         ))}
       </StyledContent>
     </Container>

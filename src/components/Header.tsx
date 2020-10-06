@@ -16,8 +16,8 @@ import { ShoppingCartMenu } from './ShoppingCartMenu'
 export const HeaderContainer = styled.div<{ sticky: boolean }>`
   display: flex;
   justify-content: space-between;
-  box-shadow: rgb(226, 226, 226) 0px -2px 0px inset;
   height: 56px;
+  border: 1px solid #e3e3e3;
   top: 0;
   left: 0;
   position: fixed;
@@ -27,7 +27,7 @@ export const HeaderContainer = styled.div<{ sticky: boolean }>`
 
   @media ${breakpoints.M} {
     position: ${({ sticky }) => (sticky ? 'fixed' : 'relative')};
-    height: 70px;
+    height: 72px;
   }
 `
 
@@ -99,8 +99,8 @@ export const HeaderComponent = ({
     {!logoOnly && (
       <>
         <OptionsContainer>
-          <OptionLink to="/">HOME</OptionLink>
-          <OptionLink to="/categories">CATEGORIES</OptionLink>
+          <OptionLink to="/">Home</OptionLink>
+          <OptionLink to="/categories">Categories</OptionLink>
           <ShoppingCartButton
             count={cartItems.length}
             onClick={toggleCartVisibility}

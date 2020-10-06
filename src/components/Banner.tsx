@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components'
 import { Button } from './Button'
 import ladies from '../assets/images/ladies.svg'
 import { breakpoints } from '../styles/breakpoints'
+import { Heading } from './typography/Heading'
 
 const Container = styled.div`
   background: #b1dde4;
@@ -40,8 +41,7 @@ const Image = styled.div<{ src: string }>(
   `
 )
 
-const Heading = styled.h1`
-  margin: 0;
+const StyledHeading = styled(Heading)`
   margin-bottom: 2.5rem;
   padding: 0 2rem;
   strong {
@@ -52,9 +52,9 @@ const Heading = styled.h1`
 export const Banner = () => (
   <Container>
     <ContentContainer>
-      <Heading>
+      <StyledHeading level={2}>
         <strong>Hungry?</strong> find your next meal
-      </Heading>
+      </StyledHeading>
       <Button primary label="View all restaurants" />
     </ContentContainer>
     <Image src={ladies} />

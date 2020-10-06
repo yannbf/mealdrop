@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { IconButton } from './IconButton'
+import { Heading } from './typography/Heading'
 
 const PreviousButton = styled(IconButton)`
   position: absolute;
@@ -23,9 +24,8 @@ export type PageSectionProps = {
   children: React.ReactNode
 }
 
-const Title = styled.h2`
-  margin: 0;
-  margin-bottom: 2rem;
+const StyledHeading = styled(Heading)`
+  margin-bottom: 1.5rem;
 `
 
 const Container = styled.div`
@@ -57,7 +57,7 @@ export const PageSection: React.FC<PageSectionProps> = ({
 }) => (
   <Container className="container">
     <TopContainer>
-      <Title>{title}</Title>
+      <StyledHeading level={2}>{title}</StyledHeading>
     </TopContainer>
     <BottomContainer>
       {children}

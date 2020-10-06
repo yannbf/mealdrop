@@ -5,6 +5,7 @@ import { FooterCard } from './FooterCard'
 
 const FooterContainer = styled.div(
   ({ theme: { color } }) => css`
+    min-height: 450px;
     color: ${color.white};
     background: ${color.footerBackground};
     padding: 2rem 0;
@@ -88,10 +89,6 @@ export const Footer = () => {
             </div>
           </FooterCard>
         </FooterTop>
-        <div className="footer-bottom">
-          <hr />
-          <small className="copyright">Some text, copyright 2020</small>
-        </div>
       </div>
     </FooterContainer>
   )

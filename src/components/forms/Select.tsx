@@ -68,6 +68,6 @@ export const Select = ({
         </option>
       ))}
     </select>
-    {label && <Body as="label">{label}</Body>}
+    {label && <Body type="label">{label}</Body>}
   </Container>
 )
