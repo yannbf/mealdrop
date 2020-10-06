@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback, memo } from 'react'
-import { useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { getRestaurantById } from '../stub/restaurants'
-import { HeroImage } from '../components/HeroImage'
 import { FoodItem } from '../components/FoodItem'
 import styled from 'styled-components'
 import { breakpoints } from '../styles/breakpoints'
@@ -14,6 +13,7 @@ import {
 
 import { Modal } from '../components/modal/Modal'
 import { Button } from '../components/Button'
+import { TopBanner } from '../components/TopBanner'
 
 const StyledContainer = styled.div`
   grid-template-columns: repeat(1, 1fr);
@@ -32,6 +32,7 @@ const StyledContainer = styled.div`
 
 export const RestaurantDetailPage = () => {
   let { id } = useParams<{ id: string }>()
+  const history = useHistory()
   const [restaurant, setRestaurant] = useState<any>({})
 
   const [selectedItem, setSelectedItem] = useState()
@@ -66,7 +67,11 @@ export const RestaurantDetailPage = () => {
           />
         )}
       </Modal>
-      <HeroImage url={photoUrl} />
+      <TopBanner
+        title={name}
+        photoUrl={photoUrl}
+        onBackClick={() => history.goBack()}
+      />
       {restaurant.menu && (
         <div className="container">
           <h1>{name}</h1>

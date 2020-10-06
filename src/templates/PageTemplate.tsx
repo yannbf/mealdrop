@@ -13,6 +13,14 @@ const Container = styled.div`
   }
 `
 
+const StickyHeaderContainer = styled.div`
+  margin-top: 56px;
+  min-height: calc(100vh - 200px);
+  @media ${breakpoints.M} {
+    margin-top: 72px;
+  }
+`
+
 // TODO: Add Error boundary
 
 export const DefaultTemplate: React.FC = ({ children }) => (
@@ -26,7 +34,7 @@ export const DefaultTemplate: React.FC = ({ children }) => (
 export const StickyHeaderTemplate: React.FC = ({ children }) => (
   <>
     <Header sticky />
-    <Container>{children}</Container>
+    <StickyHeaderContainer>{children}</StickyHeaderContainer>
     <Footer />
   </>
 )
