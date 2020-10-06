@@ -6,7 +6,7 @@ const StyledSVG = styled.svg`
   display: block;
 `
 
-export const Icon = ({ name, color = '#202020', size = 24 }: any) => {
+export const Icon = ({ name, color = '#202020', size = '1.5rem' }: any) => {
   return (
     <StyledSVG
       stroke={color}
