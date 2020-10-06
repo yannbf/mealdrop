@@ -13,7 +13,7 @@ const StyledRestaurantCard = styled(RestaurantCard)`
   }
 `
 
-export const RestaurantsSection = () => {
+export const RestaurantsSection = ({ title }: { title: string }) => {
   const [slideIndex, setSlideIndex] = useState(0)
   const [restaurants, setRestaurants] = useState<any>([
     { isLoading: true },
@@ -31,7 +31,7 @@ export const RestaurantsSection = () => {
   }, [])
   return (
     <PageSection
-      title="New arrivals"
+      title={title}
       showNextButton
       showPreviousButton
       onNextClick={() => setSlideIndex(slideIndex + 1)}
