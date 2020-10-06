@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { Button } from './Button'
 import { IconButton } from './IconButton'
 import { Heading } from './typography/Heading'
 
@@ -21,12 +22,10 @@ export type PageSectionProps = {
   onNextClick?: () => void
   showNextButton?: boolean
   showPreviousButton?: boolean
+  topButtonLabel?: string
+  onTopButtonClick?: () => void
   children: React.ReactNode
 }
-
-const StyledHeading = styled(Heading)`
-  margin-bottom: 1.5rem;
-`
 
 const Container = styled.div`
   width: 100%;
@@ -38,7 +37,9 @@ const Container = styled.div`
 `
 const TopContainer = styled.div`
   display: flex;
+  align-items: center;
   justify-content: space-between;
+  margin-bottom: 1.5rem;
 `
 
 const BottomContainer = styled.div`
@@ -53,11 +54,18 @@ export const PageSection: React.FC<PageSectionProps> = ({
   onNextClick,
   showNextButton,
   showPreviousButton,
+  topButtonLabel,
+  onTopButtonClick,
   children,
 }) => (
   <Container className="container">
     <TopContainer>
-      <StyledHeading level={2}>{title}</StyledHeading>
+      <Heading level={2}>{title}</Heading>
+      {topButtonLabel && (
+        <Button clear onClick={onTopButtonClick}>
+          {topButtonLabel}
+        </Button>
+      )}
     </TopContainer>
     <BottomContainer>
       {children}

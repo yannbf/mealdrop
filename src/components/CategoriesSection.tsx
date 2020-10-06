@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import Carousel from '@brainhubeu/react-carousel'
 
@@ -18,6 +19,7 @@ const StyledLink = styled(Link)`
 
 export const CategoriesSection = ({ categories }: CategoriesSectionProps) => {
   const [slideIndex, setSlideIndex] = useState(0)
+  const history = useHistory()
 
   return (
     <PageSection
@@ -25,6 +27,8 @@ export const CategoriesSection = ({ categories }: CategoriesSectionProps) => {
       showSlideButtons={categories.length > 3}
       onNextClick={() => setSlideIndex(slideIndex + 1)}
       onPreviousClick={() => setSlideIndex(slideIndex - 1)}
+      topButtonLabel="View all categories"
+      onTopButtonClick={() => history.push('/categories')}
     >
       <Carousel
         infinite
