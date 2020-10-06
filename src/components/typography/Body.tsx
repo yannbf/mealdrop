@@ -21,7 +21,7 @@ export type BodyProps = {
 
 export const Body: React.FC<BodyProps> = ({
   size = '',
-  fontWeight = 'medium',
+  fontWeight = 'regular',
   type = 'p',
   children,
 }) => {
