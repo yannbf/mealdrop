@@ -12,6 +12,9 @@ import {
 import { breakpoints } from '../styles/breakpoints'
 import { ShoppingCartButton } from './shopping-cart'
 import { ShoppingCartMenu } from './ShoppingCartMenu'
+import { Button } from './Button'
+import { toEuro } from '../helpers'
+import { Body } from './typography/Body'
 
 export const HeaderContainer = styled.div<{ sticky: boolean }>`
   display: flex;
@@ -58,23 +61,6 @@ export const OptionsContainer = styled.div`
   }
 `
 
-export const OptionLink = styled(Link)`
-  padding: 10px 15px;
-  cursor: pointer;
-  border: none;
-  background: transparent;
-  font-size: inherit;
-  font-family: inherit;
-
-  &:hover {
-    font-weight: bold;
-  }
-
-  @media screen and (max-width: 800px) {
-    padding: 10px 7px;
-  }
-`
-
 export type HeaderComponentProps = {
   isCartVisible: boolean
 }
@@ -99,12 +85,19 @@ export const HeaderComponent = ({
     {!logoOnly && (
       <>
         <OptionsContainer>
-          <OptionLink to="/">Home</OptionLink>
-          <OptionLink to="/categories">Categories</OptionLink>
-          <ShoppingCartButton
-            count={cartItems.length}
-            onClick={toggleCartVisibility}
-          />
+          <Link to="/">
+            <Button clear>Home</Button>
+          </Link>
+          <Link to="/categories">
+            <Button clear>All restaurants</Button>
+          </Link>
+          <Button icon="cart" primary onClick={toggleCartVisibility}>
+            {totalPrice > 0 && (
+              <Body type="span" color="white">
+                {toEuro(totalPrice)}
+              </Body>
+            )}
+          </Button>
         </OptionsContainer>
         <ShoppingCartMenu
           isOpen={isCartVisible}
