@@ -50,7 +50,7 @@ export type SelectProps = {
   label?: string
   options: any[]
   value?: any
-  onChange?: () => void
+  onChange?: (data: any) => void
 }
 
 export const Select = ({
@@ -61,7 +61,11 @@ export const Select = ({
   ...otherProps
 }: SelectProps) => (
   <Container>
-    <select value={value} onChange={onChange} {...otherProps}>
+    <select
+      value={value}
+      onChange={(evt: any) => onChange && onChange(Number(evt.target.value))}
+      {...otherProps}
+    >
       {options.map((option) => (
         <option key={option} value={option}>
           {option}

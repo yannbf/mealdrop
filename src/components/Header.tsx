@@ -4,6 +4,7 @@ import { Link, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 import {
+  saveItemAction,
   selectCartItems,
   selectCartTotal,
   selectCartVisibility,
@@ -96,6 +97,7 @@ export const HeaderComponent = ({
   totalPrice,
   logoOnly = false,
   sticky = false,
+  saveItem,
 }: any) => (
   <HeaderContainer data-testid="header" sticky={sticky}>
     <LogoContainer to="/">
@@ -131,6 +133,7 @@ export const HeaderComponent = ({
           onGoToCheckoutClick={goToCheckout}
           cartItems={cartItems}
           totalPrice={totalPrice}
+          onItemChange={saveItem}
         />
       </>
     )}
@@ -144,6 +147,7 @@ export const Header = ({ sticky }: any) => {
   const dispatch = useDispatch()
   const history = useHistory()
   const toggleCartVisibility = () => dispatch(toggleVisibilityAction())
+  const saveItem = (item: any) => dispatch(saveItemAction(item))
 
   const goToCheckout = () => {
     toggleCartVisibility()
@@ -158,6 +162,7 @@ export const Header = ({ sticky }: any) => {
       isCartVisible={isCartVisible}
       toggleCartVisibility={toggleCartVisibility}
       totalPrice={totalPrice}
+      saveItem={saveItem}
     />
   )
 }

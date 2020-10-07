@@ -46,7 +46,7 @@ const MenuItemContainer = styled.div`
   }
 `
 
-const ShoppingCartMenuItem = ({ item }: any) => (
+const ShoppingCartMenuItem = ({ item, onChange }: any) => (
   <MenuItemContainer>
     <div>
       <Body type="span" fontWeight="medium">
@@ -55,7 +55,11 @@ const ShoppingCartMenuItem = ({ item }: any) => (
       <Body>{item.description}</Body>
       <Body>{toEuro(item.price * item.quantity)}</Body>
     </div>
-    <Select value={item.quantity} options={[...Array(11).keys()]} />
+    <Select
+      value={item.quantity}
+      onChange={onChange}
+      options={[...Array(11).keys()]}
+    />
   </MenuItemContainer>
 )
 
@@ -65,6 +69,7 @@ export type ShoppingCartMenuProps = {
   onClose: () => void
   cartItems: CartItem[]
   onGoToCheckoutClick?: () => void
+  onItemChange: (item: any) => void
 }
 
 export const ShoppingCartMenu: React.FC<ShoppingCartMenuProps> = ({
@@ -72,6 +77,7 @@ export const ShoppingCartMenu: React.FC<ShoppingCartMenuProps> = ({
   onClose,
   cartItems,
   totalPrice,
+  onItemChange,
   onGoToCheckoutClick,
 }) => {
   return (
@@ -83,7 +89,10 @@ export const ShoppingCartMenu: React.FC<ShoppingCartMenuProps> = ({
     >
       <div style={{ display: 'grid', gap: '24px' }}>
         {cartItems.map((item) => (
-          <ShoppingCartMenuItem item={item} />
+          <ShoppingCartMenuItem
+            item={item}
+            onChange={(quantity: number) => onItemChange({ ...item, quantity })}
+          />
         ))}
       </div>
     </Sidebar>
