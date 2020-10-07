@@ -95,31 +95,33 @@ export const RestaurantDetailPage = () => {
             <Heading level={2}>{name}</Heading>
             <Body>Specialties: {specialty}</Body>
           </DetailSection>
-          <MenuSection className="container">
-            {menu.food && (
-              <FoodSection
-                title="To eat"
-                items={menu.food}
-                cartItems={cartItems}
-                onItemClick={setSelectedItem}
-              />
-            )}
-            {menu.dessert && (
-              <FoodSection
-                title="Dessert"
-                items={menu.dessert}
-                cartItems={cartItems}
-                onItemClick={setSelectedItem}
-              />
-            )}
-            {menu.drinks && (
-              <FoodSection
-                title="To eat"
-                items={menu.drinks}
-                cartItems={cartItems}
-                onItemClick={setSelectedItem}
-              />
-            )}
+          <MenuSection>
+            <div className="container">
+              {menu.food && (
+                <FoodSection
+                  title="To eat"
+                  items={menu.food}
+                  cartItems={cartItems}
+                  onItemClick={setSelectedItem}
+                />
+              )}
+              {menu.dessert && (
+                <FoodSection
+                  title="Dessert"
+                  items={menu.dessert}
+                  cartItems={cartItems}
+                  onItemClick={setSelectedItem}
+                />
+              )}
+              {menu.drinks && (
+                <FoodSection
+                  title="To eat"
+                  items={menu.drinks}
+                  cartItems={cartItems}
+                  onItemClick={setSelectedItem}
+                />
+              )}
+            </div>
           </MenuSection>
         </>
       )}

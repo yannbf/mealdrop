@@ -26,6 +26,11 @@ export const HeaderContainer = styled.div<{ sticky: boolean }>`
   background: white;
   z-index: 2;
   width: 100%;
+  padding: 0 1.5rem;
+
+  @media ${breakpoints.S} {
+    padding: 0 4rem;
+  }
 
   @media ${breakpoints.M} {
     position: ${({ sticky }) => (sticky ? 'fixed' : 'relative')};
@@ -92,7 +97,7 @@ export const HeaderComponent = ({
   logoOnly = false,
   sticky = false,
 }: any) => (
-  <HeaderContainer data-testid="header" className="container" sticky={sticky}>
+  <HeaderContainer data-testid="header" sticky={sticky}>
     <LogoContainer to="/">
       <img
         src="https://image.flaticon.com/icons/svg/1046/1046784.svg"
