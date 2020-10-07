@@ -14,6 +14,7 @@ const BodyBase = styled.p<{ size: string; fontWeight: string }>(
 )
 
 export type BodyProps = {
+  className?: string
   size?: 'S' | 'XS' | 'XXS'
   fontWeight?: 'regular' | 'medium' | 'bold' | 'black'
   type?: 'span' | 'p' | 'label' | 'figcaption'
@@ -27,9 +28,16 @@ export const Body: React.FC<BodyProps> = ({
   type = 'p',
   color,
   children,
+  className,
 }) => {
   return (
-    <BodyBase as={type} size={size} color={color} fontWeight={fontWeight}>
+    <BodyBase
+      as={type}
+      size={size}
+      color={color}
+      fontWeight={fontWeight}
+      className={className}
+    >
       {children}
     </BodyBase>
   )

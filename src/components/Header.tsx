@@ -19,7 +19,7 @@ export const HeaderContainer = styled.div<{ sticky: boolean }>`
   display: flex;
   justify-content: space-between;
   height: 56px;
-  border: 1px solid #e3e3e3;
+  border-bottom: 1px solid #e3e3e3;
   top: 0;
   left: 0;
   position: fixed;
@@ -55,8 +55,27 @@ export const OptionsContainer = styled.div`
   align-items: center;
   justify-content: flex-end;
 
+  a {
+    margin-right: 0.5rem;
+  }
+
   @media screen and (max-width: 800px) {
     width: 80%;
+  }
+`
+
+export const StyledBody = styled(Body)`
+  color: white;
+  span {
+    display: none;
+  }
+
+  @media ${breakpoints.M} {
+    span {
+      display: inline-block;
+      color: #949494;
+      margin-right: 0.25rem;
+    }
   }
 `
 
@@ -84,17 +103,20 @@ export const HeaderComponent = ({
     {!logoOnly && (
       <>
         <OptionsContainer>
-          <Link to="/">
+          <Link to="/" tabIndex={-1}>
             <Button clear>Home</Button>
           </Link>
-          <Link to="/categories">
+          <Link to="/categories" tabIndex={-1}>
             <Button clear>All restaurants</Button>
           </Link>
           <Button icon="cart" primary onClick={toggleCartVisibility}>
             {totalPrice > 0 && (
-              <Body type="span" color="white">
+              <StyledBody type="span">
+                <Body type="span" className="cart-text">
+                  Order
+                </Body>
                 {toEuro(totalPrice)}
-              </Body>
+              </StyledBody>
             )}
           </Button>
         </OptionsContainer>
