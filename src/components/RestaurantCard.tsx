@@ -4,10 +4,18 @@ import Skeleton from 'react-loading-skeleton'
 import styled from 'styled-components'
 import { Heading } from './typography/Heading'
 import { Body } from './typography/Body'
+import { Badge } from './Badge'
 
 export type RestaurantCardProps = {
   className?: string
   restaurant: Restaurant
+}
+
+export type FoodItem = {
+  id: number
+  name: string
+  description: string
+  price: number
 }
 
 export type Restaurant = {
@@ -22,6 +30,11 @@ export type Restaurant = {
   categories?: string[]
   isLoading?: boolean
   isNew?: boolean
+  menu: {
+    food: FoodItem[]
+    dessert: FoodItem[]
+    drinks: FoodItem[]
+  }
 }
 
 const Container = styled.div`
@@ -38,14 +51,6 @@ const StyledContent = styled.div`
   span {
     color: #6d868a;
   }
-`
-
-const StyledPill = styled.div`
-  padding: 3px 8px;
-  background: #f2f2f2;
-  color: #7b7b7b;
-  border-radius: 4px;
-  display: inline-block;
 `
 
 const NewTag = styled.span`
@@ -110,7 +115,7 @@ const RestaurantCardSkeleton = () => (
         <Skeleton />
       </Description>
       <Body type="span">
-        <Skeleton width="25%" height="20px"/>
+        <Skeleton width="25%" height="20px" />
       </Body>
     </StyledContent>
   </Container>
@@ -160,11 +165,7 @@ export const RestaurantCard: React.FC<RestaurantCardProps> = ({
         </Body>
         <Description fontWeight="regular">{specialty}</Description>
         {restaurant.categories?.map((category) => (
-          <StyledPill>
-            <Body type="span" size="S">
-              {category}
-            </Body>
-          </StyledPill>
+          <Badge text={category} />
         ))}
       </StyledContent>
     </Container>

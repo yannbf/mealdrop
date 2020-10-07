@@ -1316,7 +1316,7 @@ export const restaurants = [
 
 const fakeApiCall = (data: any) => {
   return new Promise((resolve) => {
-    const timeout = Math.random() * 1000 + 150
+    const timeout = Math.random() * 150 + 150
     setTimeout(() => resolve(data), timeout)
   })
 }

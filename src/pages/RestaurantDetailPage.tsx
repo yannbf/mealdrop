@@ -16,6 +16,8 @@ import { Button } from '../components/Button'
 import { TopBanner } from '../components/TopBanner'
 import { Heading } from '../components/typography/Heading'
 import { Body } from '../components/typography/Body'
+import { Badge } from '../components/Badge'
+import { Restaurant } from '../components/RestaurantCard'
 
 const StyledContainer = styled.div`
   grid-template-columns: repeat(1, 1fr);
@@ -50,7 +52,7 @@ const StyledHeading = styled(Heading)`
 export const RestaurantDetailPage = () => {
   let { id } = useParams<{ id: string }>()
   const history = useHistory()
-  const [restaurant, setRestaurant] = useState<any>({})
+  const [restaurant, setRestaurant] = useState<Restaurant>()
 
   const [selectedItem, setSelectedItem] = useState()
   const closeModal = () => setSelectedItem(undefined)
@@ -62,14 +64,18 @@ export const RestaurantDetailPage = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const data = await getRestaurantById(id)
+      const data = (await getRestaurantById(id)) as Restaurant
       setRestaurant(data)
     }
 
     getData()
   }, [id])
 
-  const { menu, name, specialty, photoUrl } = restaurant
+  if (!restaurant) {
+    return null
+  }
+
+  const { menu, name, specialty, photoUrl, categories } = restaurant
 
   return (
     <>
@@ -94,6 +100,14 @@ export const RestaurantDetailPage = () => {
           <DetailSection className="container">
             <Heading level={2}>{name}</Heading>
             <Body>Specialties: {specialty}</Body>
+            <Body size="S" type="span">
+              ★ 4.2 Very Good
+            </Body>
+            <div>
+              {categories?.map((category: any) => (
+                <Badge text={category} />
+              ))}
+            </div>
           </DetailSection>
           <MenuSection>
             <div className="container">

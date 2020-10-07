@@ -5,16 +5,16 @@ import { Body } from './typography/Body'
 import { Heading } from './typography/Heading'
 
 const Container = styled.div<{ isHighlighted: boolean }>(
-  ({ isHighlighted }) => css`
+  ({ theme: { boxShadow, color } }) => css`
     padding: 1.5rem;
     border-radius: 4px;
     transition: box-shadow 0.1s ease-in;
     position: relative;
-    background: white;
+    background: ${color.white};
 
     &:hover {
       cursor: pointer;
-      box-shadow: 0px 14px 26px 0px rgba(0, 0, 0, 0.08);
+      box-shadow: ${boxShadow.card};
     }
   `
 )
@@ -27,8 +27,8 @@ const Quantity = styled(Body)`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #F8FDEE;
-  color: #77835E;
+  background: #202020;
+  color: white;
   position: absolute;
   top: 0;
   right: 0;
@@ -51,10 +51,12 @@ export const FoodItem = memo(({ item, onClick }: any) => {
   return (
     <Container isHighlighted={quantity > 0} onClick={onClick}>
       <div>
-        {quantity > 0 && <Quantity type="span" fontWeight="medium">{quantity}</Quantity>}
-        <Heading level={4}>
-          {name}
-        </Heading>
+        {quantity > 0 && (
+          <Quantity type="span" fontWeight="medium">
+            {quantity}
+          </Quantity>
+        )}
+        <Heading level={4}>{name}</Heading>
         <Description>{description}</Description>
         <Price>{toEuro(price)}</Price>
       </div>
