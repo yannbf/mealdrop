@@ -14,6 +14,8 @@ import {
 import { Modal } from '../components/modal/Modal'
 import { Button } from '../components/Button'
 import { TopBanner } from '../components/TopBanner'
+import { Heading } from '../components/typography/Heading'
+import { Body } from '../components/typography/Body'
 
 const StyledContainer = styled.div`
   grid-template-columns: repeat(1, 1fr);
@@ -28,6 +30,21 @@ const StyledContainer = styled.div`
   @media ${breakpoints.L} {
     grid-template-columns: repeat(3, 1fr);
   }
+`
+
+const DetailSection = styled.div`
+  margin-top: 2rem !important;
+  margin-bottom: 2rem !important;
+`
+
+const MenuSection = styled.div`
+  padding-top: 3rem !important;
+  padding-bottom: 5rem !important;
+  background: #f9f9f9;
+`
+
+const StyledHeading = styled(Heading)`
+  margin-bottom: 1.5rem;
 `
 
 export const RestaurantDetailPage = () => {
@@ -73,34 +90,38 @@ export const RestaurantDetailPage = () => {
         onBackClick={() => history.goBack()}
       />
       {restaurant.menu && (
-        <div className="container">
-          <h1>{name}</h1>
-          <p>Specialties: {specialty}</p>
-          {menu.food && (
-            <FoodSection
-              title="To eat"
-              items={menu.food}
-              cartItems={cartItems}
-              onItemClick={setSelectedItem}
-            />
-          )}
-          {menu.dessert && (
-            <FoodSection
-              title="Dessert"
-              items={menu.dessert}
-              cartItems={cartItems}
-              onItemClick={setSelectedItem}
-            />
-          )}
-          {menu.drinks && (
-            <FoodSection
-              title="To eat"
-              items={menu.drinks}
-              cartItems={cartItems}
-              onItemClick={setSelectedItem}
-            />
-          )}
-        </div>
+        <>
+          <DetailSection className="container">
+            <Heading level={2}>{name}</Heading>
+            <Body>Specialties: {specialty}</Body>
+          </DetailSection>
+          <MenuSection className="container">
+            {menu.food && (
+              <FoodSection
+                title="To eat"
+                items={menu.food}
+                cartItems={cartItems}
+                onItemClick={setSelectedItem}
+              />
+            )}
+            {menu.dessert && (
+              <FoodSection
+                title="Dessert"
+                items={menu.dessert}
+                cartItems={cartItems}
+                onItemClick={setSelectedItem}
+              />
+            )}
+            {menu.drinks && (
+              <FoodSection
+                title="To eat"
+                items={menu.drinks}
+                cartItems={cartItems}
+                onItemClick={setSelectedItem}
+              />
+            )}
+          </MenuSection>
+        </>
       )}
     </>
   )
@@ -128,12 +149,16 @@ const MenuItemDetailModal = ({
 
   return (
     <>
-      <h2>{item.name}</h2>
-      <p>{item.description}</p>
+      <Heading level={2}>{item.name}</Heading>
+      <Body>{item.description}</Body>
       <div>
-        <Button icon="minus" onClick={() => setQuantity(quantity - 1)} />
+        <Button
+          primary
+          icon="minus"
+          onClick={() => setQuantity(quantity - 1)}
+        />
         {quantity}
-        <Button icon="plus" onClick={() => setQuantity(quantity + 1)} />
+        <Button primary icon="plus" onClick={() => setQuantity(quantity + 1)} />
       </div>
       <div style={{ display: 'flex' }}>
         <Button onClick={onClose}>Cancel</Button>
@@ -147,7 +172,7 @@ const MenuItemDetailModal = ({
 
 const FoodSection = memo(({ title, cartItems, items, onItemClick }: any) => (
   <div>
-    <h2>{title}</h2>
+    <StyledHeading level={3}>{title}</StyledHeading>
     <StyledContainer>
       {items.map((item: any) => {
         const cartItem = cartItems.find(
