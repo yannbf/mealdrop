@@ -5,10 +5,13 @@ import { CartItem } from '../../../app-state/cart'
 
 import {
   CartDropdownContainer,
-  EmptyMessageContainer,
-  CartDropdownButton,
+  BottomContainer,
   CartItemsContainer,
+  StyledHeading
 } from './ShoppingCartDropdown.styles'
+import { Body } from '../../typography/Body'
+import { toEuro } from '../../../helpers'
+import { Heading } from '../../typography/Heading'
 
 export type ShoppingCartDropdownProps = {
   cartItems: CartItem[]
@@ -18,8 +21,6 @@ export type ShoppingCartDropdownProps = {
 
 export const ShoppingCartDropdown: React.FC<ShoppingCartDropdownProps> = ({
   cartItems,
-  onGoToCheckoutClick,
-  isCheckout = false,
 }) => {
   const totalPrice = useMemo(
     () =>
@@ -30,22 +31,21 @@ export const ShoppingCartDropdown: React.FC<ShoppingCartDropdownProps> = ({
   )
   return (
     <>
-      <CartDropdownContainer fixed={!isCheckout}>
+      <CartDropdownContainer>
+        <StyledHeading level={4}>Your order</StyledHeading>
         <CartItemsContainer>
           {cartItems.length ? (
             cartItems.map((item) => (
               <ShoppingCartItem key={item.id} item={item}></ShoppingCartItem>
             ))
           ) : (
-            <EmptyMessageContainer>Your cart is empty.</EmptyMessageContainer>
+            <Body>Your cart is empty.</Body>
           )}
-          <p>Total: ${totalPrice}</p>
         </CartItemsContainer>
-        {!isCheckout && cartItems.length > 0 && (
-          <CartDropdownButton onClick={onGoToCheckoutClick}>
-            To pay
-          </CartDropdownButton>
-        )}
+        <BottomContainer>
+          <Body>Total</Body>
+          <Heading level={4}>{toEuro(totalPrice)}</Heading>
+        </BottomContainer>
       </CartDropdownContainer>
     </>
   )

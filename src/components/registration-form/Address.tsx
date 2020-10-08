@@ -1,32 +1,46 @@
 import React from 'react'
 
-import ItemForm from './ItemForm'
 import { Button } from '../Button'
+import { Heading } from '../typography/Heading'
+import { Input } from '../forms/Input'
 
 const Address = ({ setForm, formData, navigation }: any) => {
-  const { address, city, zip } = formData
+  const { address, city, postcode } = formData
 
   const { previous, next } = navigation
 
   return (
     <div className="form">
-      <h3>Tell us where you are</h3>
-      <ItemForm
-        label="Address"
+      <Heading level={4}>Delivery details</Heading>
+      <Input
+        label="Streetname and housenumber"
+        palcholder="Some street, 13"
         name="address"
         value={address}
         onChange={setForm}
       />
-      <ItemForm label="City" name="city" value={city} onChange={setForm} />
-      <ItemForm label="Zip" name="zip" value={zip} onChange={setForm} />
+      <Input
+        label="Postcode"
+        placeholder="AAAAXX"
+        name="postcode"
+        value={postcode}
+        onChange={setForm}
+      />
+      <Input
+        label="City"
+        placeholder="Amsterdam"
+        name="city"
+        value={city}
+        onChange={setForm}
+      />
       <div
         style={{
           display: 'flex',
-          justifyContent: 'space-between',
+          justifyContent: 'flex-start',
         }}
       >
-        <Button onClick={previous}>Previous</Button>
-        <Button onClick={next}>Next</Button>
+        <Button clear onClick={previous}>Previous</Button>
+        <Button primary onClick={next}>Next</Button>
       </div>
     </div>
   )

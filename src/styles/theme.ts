@@ -26,6 +26,7 @@ const borderRadius = {
 }
 
 const spacing = {
+  xxs: `${0.25 * spaceUnit}em`,
   xs: `${0.5 * spaceUnit}em`,
   s: `${spaceUnit}em`,
   m: `${1.25 * spaceUnit}em`,

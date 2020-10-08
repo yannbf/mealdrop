@@ -8,7 +8,6 @@ import {
   TopBar,
   Backdrop,
 } from './Sidebar.styles'
-import { Icon } from './Icon'
 import { useKey } from '../hooks/useKeyboard'
 import { Button } from './Button'
 import { Heading } from './typography/Heading'

@@ -1,22 +1,22 @@
 import styled from 'styled-components';
+import { Body } from '../../typography/Body'
 
 export const CartItemContainer = styled.div`
   width: 100%;
   display: flex;
-  height: 80px;
-  min-height: 80px;
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
 `;
 
-export const CartItemImage = styled.img`
-  width: 30%;
-`;
 
-export const ItemDetailsContainer = styled.div`
-  width: 70%;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  padding: 10px 20px;
-`;
+export const Quantity = styled(Body)`
+  flex: 0.1;
+`
+
+export const Name = styled(Body)`
+  flex: 0.6;
+`
+
+export const Price = styled(Body)`
+  flex: 0.3;
+  text-align: right;
+`

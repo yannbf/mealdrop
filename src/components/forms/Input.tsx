@@ -9,7 +9,7 @@ const Container = styled.div(
     padding-bottom: ${spacing.m};
     label {
       color: ${color.label};
-      padding-bottom: ${spacing.xs};
+      padding-bottom: ${spacing.xxs};
       &:first-letter {
         text-transform: uppercase;
       }

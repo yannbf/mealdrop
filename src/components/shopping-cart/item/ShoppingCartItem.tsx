@@ -1,26 +1,25 @@
-import React from 'react';
+import React from 'react'
 
-import { CartItem } from '../../../app-state/cart';
+import { CartItem } from '../../../app-state/cart'
+import { toEuro } from '../../../helpers'
 import {
   CartItemContainer,
-  ItemDetailsContainer,
-} from './ShoppingCartItem.styles';
+  Quantity,
+  Name,
+  Price,
+} from './ShoppingCartItem.styles'
 
-type Props = {
-  item: CartItem;
-};
+type ShoppingCartItemProps = {
+  item: CartItem
+}
 
-export const ShoppingCartItem: React.FC<Props> = ({ item }) => {
-  const { name, price, quantity } = item;
+export const ShoppingCartItem = ({ item }: ShoppingCartItemProps) => {
+  const { name, price, quantity } = item
   return (
     <CartItemContainer>
-      {/* <CartItemImage src={imageUrl} alt={`cart item ${name}`} /> */}
-      <ItemDetailsContainer>
-        <span>{name}</span>
-        <span>
-          {quantity} x ${price}
-        </span>
-      </ItemDetailsContainer>
+      <Quantity type="span">{quantity}</Quantity>
+      <Name type="span">{name}</Name>
+      <Price type="span">{toEuro(quantity * price)}</Price>
     </CartItemContainer>
-  );
-};
+  )
+}

@@ -8,15 +8,13 @@ import Submit from './Submit'
 const steps = ['names', 'address', 'submit']
 
 const defaultData = {
-  firstName: 'Jane',
+  firstName: 'John',
   lastName: 'Doe',
-  nickName: 'Jannie',
-  address: '200 South Main St',
-  city: 'Anytown',
-  state: 'CA',
-  zip: '90505',
+  address: 'Somestreet 14',
+  city: 'Amsterdam',
+  postcode: '1043DX',
   email: 'email@domain.com',
-  phone: '+61 4252 454 332',
+  phone: '0612345678',
 }
 
 const getCurrentStep = (step: string, props: any) => {

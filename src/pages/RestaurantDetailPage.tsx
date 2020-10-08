@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, memo } from 'react'
+import React, { useState, useEffect, memo } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import { getRestaurantById } from '../stub/restaurants'
 import { FoodItem } from '../components/FoodItem'
@@ -11,8 +11,6 @@ import {
   selectCartItems,
 } from '../app-state/cart'
 
-import { Modal } from '../components/modal/Modal'
-import { Button } from '../components/Button'
 import { TopBanner } from '../components/TopBanner'
 import { Heading } from '../components/typography/Heading'
 import { Body } from '../components/typography/Body'

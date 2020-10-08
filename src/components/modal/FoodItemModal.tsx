@@ -1,6 +1,7 @@
 import React, { useState, useCallback, useEffect } from 'react'
 import styled from 'styled-components'
 import { toEuro } from '../../helpers'
+import { breakpoints } from '../../styles/breakpoints'
 
 import { Button } from '../Button'
 import { Body } from '../typography/Body'
@@ -19,9 +20,15 @@ const StyledButton = styled(Button)`
 const ButtonsContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   flex: 0.45;
-  margin-right: 1.5rem;
+  margin-bottom: 1.5rem;
+  margin-right: 0;
+  @media ${breakpoints.M} {
+    margin-bottom: 0;
+    margin-right: 1.5rem;
+    justify-content: space-between;
+  }
 `
 
 const TopContainer = styled.div`
@@ -33,6 +40,10 @@ const TopContainer = styled.div`
 const BottomContainer = styled.div`
   padding: 1.5rem;
   display: flex;
+  flex-direction: column;
+  @media ${breakpoints.M} {
+    flex-direction: row;
+  }
 `
 
 export const FoodItemModal = ({
