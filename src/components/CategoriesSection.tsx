@@ -29,6 +29,8 @@ export const CategoriesSection = ({ categories }: CategoriesSectionProps) => {
       onPreviousClick={() => setSlideIndex(slideIndex - 1)}
       topButtonLabel="View all categories"
       onTopButtonClick={() => history.push('/categories')}
+      showNextButton
+      showPreviousButton
     >
       <Carousel
         infinite

@@ -41,12 +41,12 @@ const desktopAnimation = css`
 const largeScreenOverrides = css`
   @media ${breakpoints.M} {
     width: 600px;
-    height: 600px;
+    height: 272px;
 
     box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
     bottom: 0;
     left: calc(50% - (600px / 2));
-    top: calc(50% - (600px / 2));
+    top: calc(50% - (272px / 2));
     position: fixed;
     border-radius: 0.75rem;
 
@@ -64,7 +64,7 @@ export const ModalContent = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 3em 1em 1em 1em;
+  /* padding: 3em 1em 1em 1em; */
   transform-origin: 'top center';
   box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
 
@@ -101,12 +101,4 @@ export const TopBar = styled.div`
   position: absolute;
   top: 0.75rem;
   right: 0.75rem;
-`
-
-export const TopBarButton = styled.button`
-  padding: 0.75rem;
-  border: none;
-  background: none;
-  cursor: pointer;
-  color: ${({ theme }) => '#050505'};
 `

@@ -49,7 +49,7 @@ export const restaurants = [
     address: 'Staalstraat 12 1011 JL Amsterdam',
     specialty: 'Truffelworst (truffle sausage)',
     photoUrl:
-      'https://media-cdn.tripadvisor.com/media/photo-s/18/1a/96/54/main-restaurant.jpg',
+      'https://images.pexels.com/photos/6267/menu-restaurant-vintage-table.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     categories: ['comfort-food'],
     isNew: true,
     menu: {
@@ -65,7 +65,8 @@ export const restaurants = [
     url: 'http://www.karafirin.nl/',
     address: 'Tijnmuiden 5F 1046 AK Amsterdam',
     specialty: 'Sarma (wine leafs with rice)',
-    photoUrl: 'https://duyt4h9nfnj50.cloudfront.net/search_home/FastFood.jpg',
+    photoUrl:
+      'https://images.pexels.com/photos/1058277/pexels-photo-1058277.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     categories: ['burgers', 'pizza'],
     menu: {
       food,
@@ -112,7 +113,8 @@ export const restaurants = [
     url: 'http://ciaobellaamsterdam.nl/',
     address: 'Prinsengracht 1055/H 1017JE Amsterdam',
     specialty: 'Takeaway lasagna',
-    photoUrl: 'https://duyt4h9nfnj50.cloudfront.net/search_home/FastFood.jpg',
+    photoUrl:
+      'https://images.pexels.com/photos/6267/menu-restaurant-vintage-table.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     categories: ['pizza'],
     isNew: true,
     menu: {
@@ -142,8 +144,7 @@ export const restaurants = [
     mapsUrl: 'https://goo.gl/maps/RidH93JHj9SuNrKFA',
     url: 'https://www.warungatika.nl/',
     address: 'Van Woustraat 232 1073 NC Amsterdam',
-    specialty:
-      '€6 meals (especially the yellow rice + oerap oerap + tempeh combo)',
+    specialty: '€6 meals',
     photoUrl: 'https://duyt4h9nfnj50.cloudfront.net/search_home/FastFood.jpg',
     categories: ['sushi', 'asian'],
     menu: {
@@ -179,7 +180,8 @@ export const restaurants = [
     url: 'https://a-fusion.nl/',
     address: 'Zeedijk 130, 1012 BC Amsterdam',
     specialty: 'Surprise menu',
-    photoUrl: 'https://duyt4h9nfnj50.cloudfront.net/search_home/FastFood.jpg',
+    photoUrl:
+      'https://images.pexels.com/photos/6267/menu-restaurant-vintage-table.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     categories: ['TBD'],
   },
   {
@@ -199,7 +201,8 @@ export const restaurants = [
     url: 'http://foeramsterdam.nl/',
     address: 'Cruquiusweg 9, 1019 AT Amsterdam',
     specialty: 'expensive dinners',
-    photoUrl: 'https://duyt4h9nfnj50.cloudfront.net/search_home/FastFood.jpg',
+    photoUrl:
+      'https://images.pexels.com/photos/6267/menu-restaurant-vintage-table.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
     categories: ['comfort-food'],
     menu: {
       food,

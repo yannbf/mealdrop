@@ -100,7 +100,8 @@ export const TopBar = styled.div`
   justify-content: space-between;
   align-items: center;
   position: static;
-  padding: 0 0.5rem;
+  padding: 1.5rem;
+  padding-right: 1rem;
   top: 0.75rem;
   right: 0.75rem;
   height: 4.5rem;
@@ -118,18 +119,3 @@ export const SidebarFooter = styled.div`
   background-color: ${({ theme }) => 'white'};
 `
 
-export const TopBarButton = styled.button`
-  padding: 0.75rem;
-  border: none;
-  background: none;
-  cursor: pointer;
-  color: ${({ theme }) => '#050505'};
-`
-
-export const TopBarTitle = styled.p`
-  padding: 0.75rem;
-  margin: 0;
-  color: ${({ theme }) => '#202020'};
-  font-weight: 700;
-  font-size: 1.4rem;
-`

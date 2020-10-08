@@ -60,7 +60,7 @@ const StepIndicator = ({ index, amount }: any) => {
   )
 }
 
-const MultiStepForm = () => {
+export const MultiStepForm = () => {
   const [formData, setForm] = useForm(defaultData)
   const { step, navigation, index } = useStep({ initialStep: 0, steps })
 
@@ -76,5 +76,3 @@ const MultiStepForm = () => {
     </div>
   )
 }
-
-export default MultiStepForm

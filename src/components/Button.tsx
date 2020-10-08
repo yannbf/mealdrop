@@ -12,22 +12,33 @@ const StyledButton = styled.button<{
   clear: boolean
   large: boolean
   withIcon: boolean
+  round: boolean
 }>(
-  ({ primary, clear, large, withIcon, theme: { color, boxShadow } }) => css`
+  ({
+    primary,
+    clear,
+    large,
+    round,
+    withIcon,
+    theme: { color, boxShadow },
+  }) => css`
     outline: none;
     border: 0;
     font-family: 'Hind';
-    border-radius: 4px;
+    border-radius: ${round ? '50%' : '4px'};
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: ${withIcon ? '1rem' : large ? '1.125rem 1rem' : '0.875rem 1rem'};
     color: ${primary ? 'white' : '#333'};
+    transition: box-shadow 150ms ease-in;
+    z-index: 1;
     background-color: ${clear
       ? color.buttonClear
       : primary
       ? color.buttonPrimary
       : color.buttonSecondary};
+
     &:hover {
       cursor: pointer;
       background-color: ${clear
@@ -36,12 +47,18 @@ const StyledButton = styled.button<{
         ? color.buttonPrimaryHover
         : color.buttonSecondaryHover};
     }
+
     &:focus {
-      box-shadow: ${clear
-        ? boxShadow.clearButton
+      box-shadow: ${boxShadow.outerBorder};
+    }
+
+    &:disabled {
+      background-color: ${clear
+        ? color.buttonClear
         : primary
-        ? boxShadow.primaryButton
-        : boxShadow.secondaryButton};
+        ? color.buttonPrimary
+        : color.buttonSecondary};
+      opacity: 0.4;
     }
 
     @media ${breakpoints.M} {
@@ -63,6 +80,7 @@ export interface ButtonProps {
    * Clear button styles leaving just a text
    */
   clear?: boolean
+  round?: boolean
   /**
    * What background color to use
    */
@@ -75,6 +93,14 @@ export interface ButtonProps {
    * Does the button have an icon?
    */
   icon?: string
+  /**
+   * Size of the icon
+   */
+  iconSize?: number
+  /**
+   * Is the button disabled?
+   */
+  disabled?: boolean
   /**
    * Does the button have an icon?
    */
@@ -93,7 +119,9 @@ export const Button: React.FC<ButtonProps> = ({
   primary = false,
   large = false,
   clear = false,
+  round = false,
   icon,
+  iconSize,
   ...props
 }) => {
   return (
@@ -101,11 +129,18 @@ export const Button: React.FC<ButtonProps> = ({
       type="button"
       large={large}
       clear={clear}
+      round={round}
       primary={primary}
       withIcon={!!icon}
       {...props}
     >
-      {icon && <Icon color="#ffffff" name={icon} />}
+      {icon && (
+        <Icon
+          color={clear ? '#202020' : '#ffffff'}
+          size={iconSize}
+          name={icon}
+        />
+      )}
       {icon && children && <Spacer />}
       {children}
     </StyledButton>

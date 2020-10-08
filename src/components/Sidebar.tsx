@@ -6,12 +6,12 @@ import {
   SidebarContent,
   SidebarFooter,
   TopBar,
-  TopBarTitle,
-  TopBarButton,
   Backdrop,
 } from './Sidebar.styles'
 import { Icon } from './Icon'
 import { useKey } from '../hooks/useKeyboard'
+import { Button } from './Button'
+import { Heading } from './typography/Heading'
 
 export type SidebarProps = {
   isOpen: boolean
@@ -39,10 +39,15 @@ export const Sidebar: React.FC<SidebarProps> = ({
       >
         <SidebarContainer data-testid="sidebar">
           <TopBar>
-            <TopBarTitle>{title}</TopBarTitle>
-            <TopBarButton data-testid="sidebar-close-btn" onClick={onClose}>
-              <Icon size={16} name="cross" />
-            </TopBarButton>
+            <Heading level={4}>{title}</Heading>
+            <Button
+              data-testid="sidebar-close-btn"
+              onClick={onClose}
+              clear
+              round
+              icon="cross"
+              iconSize={16}
+            />
           </TopBar>
           <SidebarContent data-testid="sidebar-content">
             {children}

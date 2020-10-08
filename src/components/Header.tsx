@@ -146,6 +146,7 @@ export const Header = ({ sticky }: any) => {
   const totalPrice = useSelector(selectCartTotal)
   const dispatch = useDispatch()
   const history = useHistory()
+  console.log({ cartItems, totalPrice })
   const toggleCartVisibility = () => dispatch(toggleVisibilityAction())
   const saveItem = (item: any) => dispatch(saveItemAction(item))
 

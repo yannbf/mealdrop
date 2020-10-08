@@ -1,5 +1,5 @@
 import React from 'react'
-import MultiStepForm from '../components/registration-form'
+import { MultiStepForm } from '../components/registration-form'
 import { HeroImage } from '../components/HeroImage'
 import styled from 'styled-components'
 import { ShoppingCartDropdown } from '../components/shopping-cart'

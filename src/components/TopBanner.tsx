@@ -37,7 +37,7 @@ const Container = styled.div<{ src: string }>(
 export const TopBanner = ({ photoUrl, title, onBackClick }: any) => {
   return (
     <Container src={photoUrl}>
-      <StyledIconButton onClick={onBackClick} small name="arrow-backward" />
+      {/* <StyledIconButton onClick={onBackClick} small name="arrow-backward" /> */}
       <StyledHeading inverted={!!photoUrl}>{title}</StyledHeading>
     </Container>
   )

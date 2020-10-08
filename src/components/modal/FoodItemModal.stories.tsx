@@ -2,11 +2,11 @@ import { Story } from '@storybook/react'
 import React, { useState } from 'react'
 import { Button } from '../Button'
 
-import { Modal } from './Modal'
+import { FoodItemModal } from './FoodItemModal'
 
 export default {
-  title: 'Overlays/Modal',
-  component: Modal,
+  title: 'Overlays/FoodItemModal',
+  component: FoodItemModal,
   decorators: [
     (StoryFn: Story) => (
       <>
@@ -18,12 +18,18 @@ export default {
 }
 
 const Template: Story = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const openModal = () => setIsOpen(true)
-  const closeModal = () => setIsOpen(false)
+  const itemMock = {
+    name: 'Dish.name',
+    description: 'Juicy dish with extra mayonaise',
+    price: 12,
+  }
+
+  const [item, setItem] = useState<any>()
+  const openModal = () => setItem(itemMock)
+  const closeModal = () => setItem(undefined)
 
   React.useEffect(() => {
-    setIsOpen(true)
+    setItem(itemMock)
   }, [])
 
   return (
@@ -32,14 +38,14 @@ const Template: Story = () => {
       <Button primary onClick={openModal}>
         Open modal
       </Button>
-      <Modal
-        isOpen={isOpen}
-        onClose={() => {
-          closeModal()
-        }}
-      >
-        <div style={{ padding: '1.5rem' }}>Some content here</div>
-      </Modal>
+      <FoodItemModal
+        item={item}
+        closeModal={() => {}}
+        cartItems={[item]}
+        onClose={closeModal}
+        onItemSave={() => {}}
+        onItemRemove={() => {}}
+      />
     </>
   )
 }

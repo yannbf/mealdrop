@@ -18,6 +18,7 @@ import { Heading } from '../components/typography/Heading'
 import { Body } from '../components/typography/Body'
 import { Badge } from '../components/Badge'
 import { Restaurant } from '../components/RestaurantCard'
+import { FoodItemModal } from '../components/modal/FoodItemModal'
 
 const StyledContainer = styled.div`
   grid-template-columns: repeat(1, 1fr);
@@ -79,22 +80,15 @@ export const RestaurantDetailPage = () => {
 
   return (
     <>
-      <Modal isOpen={!!selectedItem} onClose={closeModal}>
-        {selectedItem && (
-          <MenuItemDetailModal
-            item={selectedItem}
-            cartItems={cartItems}
-            onClose={closeModal}
-            onItemSave={addItemToCart}
-            onItemRemove={clearItemFromCart}
-          />
-        )}
-      </Modal>
-      <TopBanner
-        title={name}
-        photoUrl={photoUrl}
-        onBackClick={() => history.goBack()}
+      <FoodItemModal
+        item={selectedItem}
+        cartItems={cartItems}
+        onClose={closeModal}
+        onItemSave={addItemToCart}
+        onItemRemove={clearItemFromCart}
+        isOpen={!!selectedItem}
       />
+      <TopBanner photoUrl={photoUrl} onBackClick={() => history.goBack()} />
       {restaurant.menu && (
         <>
           <DetailSection className="container">
@@ -139,49 +133,6 @@ export const RestaurantDetailPage = () => {
           </MenuSection>
         </>
       )}
-    </>
-  )
-}
-
-const MenuItemDetailModal = ({
-  item,
-  cartItems,
-  onClose,
-  onItemSave,
-  onItemRemove,
-}: any) => {
-  const cartItem = cartItems.find((cartItem: any) => cartItem.id === item.id)
-  const [quantity, setQuantity] = useState(cartItem?.quantity || 0)
-
-  const saveItem = useCallback(() => {
-    if (quantity === 0) {
-      onItemRemove(item)
-    } else {
-      onItemSave({ ...item, quantity })
-    }
-
-    onClose()
-  }, [item, onItemSave, onItemRemove, onClose, quantity])
-
-  return (
-    <>
-      <Heading level={2}>{item.name}</Heading>
-      <Body>{item.description}</Body>
-      <div>
-        <Button
-          primary
-          icon="minus"
-          onClick={() => setQuantity(quantity - 1)}
-        />
-        {quantity}
-        <Button primary icon="plus" onClick={() => setQuantity(quantity + 1)} />
-      </div>
-      <div style={{ display: 'flex' }}>
-        <Button onClick={onClose}>Cancel</Button>
-        <Button primary onClick={saveItem}>
-          Save
-        </Button>
-      </div>
     </>
   )
 }
