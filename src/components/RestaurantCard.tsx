@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Skeleton from 'react-loading-skeleton'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Heading } from './typography/Heading'
 import { Body } from './typography/Body'
 import { Badge } from './Badge'
@@ -44,14 +44,16 @@ const Container = styled.div`
   width: 100%;
 `
 
-const StyledContent = styled.div`
-  padding: 24px;
-  background: #f9f9f9;
-  border-radius: 0px 0px 8px 8px;
-  span {
-    color: #6d868a;
-  }
-`
+const StyledContent = styled.div(
+  ({ theme: { color } }) => css`
+    padding: 24px;
+    background: ${color.cardBackground};
+    border-radius: 0px 0px 8px 8px;
+    .review-text {
+      color: ${color.reviewText};
+    }
+  `
+)
 
 const NewTag = styled.span`
   position: absolute;
@@ -160,7 +162,7 @@ export const RestaurantCard: React.FC<RestaurantCardProps> = ({
       </Link>
       <StyledContent>
         <Heading level={4}>{name} </Heading>
-        <Body size="S" type="span">
+        <Body size="S" type="span" className="review-text">
           ★ 4.2 Very Good
         </Body>
         <Description fontWeight="regular">{specialty}</Description>

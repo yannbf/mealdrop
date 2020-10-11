@@ -1,14 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-  <symbol id="arrow-forward" viewBox="0 0 36 36">
-    <path d="M2 18L34 18M34 18L18 2M34 18L18 34" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <symbol id="arrow-right" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="5" y1="12" x2="19" y2="12"></line>
+    <polyline points="12 5 19 12 12 19"></polyline>
   </symbol>
 
-  <symbol id="arrow-backward" viewBox="0 0 36 36">
-    <path d="M34 18L2 18M2 18L18 34M2 18L18 2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <symbol id="arrow-left" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="19" y1="12" x2="5" y2="12"></line>
+    <polyline points="12 19 5 12 12 5"></polyline>
   </symbol>
 
-  <symbol id="cross" viewBox="0 0 34 34">
-    <path d="M2 31L31 2M31 31L2 2" stroke="black" stroke-width="3" stroke-linecap="round"/>
+  <symbol id="cross" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <line x1="18" y1="6" x2="6" y2="18"></line>
+    <line x1="6" y1="6" x2="18" y2="18"></line>
   </symbol>
 
   <symbol id="cart" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -24,5 +27,21 @@
   <symbol id="plus" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <line x1="12" y1="5" x2="12" y2="19"></line>
     <line x1="5" y1="12" x2="19" y2="12"></line>
+  </symbol>
+
+  <symbol id="moon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+  </symbol>
+
+  <symbol id="sun" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="5"></circle>
+    <line x1="12" y1="1" x2="12" y2="3"></line>
+    <line x1="12" y1="21" x2="12" y2="23"></line>
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+    <line x1="1" y1="12" x2="3" y2="12"></line>
+    <line x1="21" y1="12" x2="23" y2="12"></line>
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
   </symbol>
 </svg>

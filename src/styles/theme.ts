@@ -14,6 +14,45 @@ declare module 'styled-components' {
   }
 }
 
+const baseColors = {
+  white: '#FFFFFF ',
+  black: '#202020',
+  otherBlack: '#2C2C2C ',
+  grey: {
+    100: '#F9F9F9',
+    200: '#F5F6F7',
+    300: '#F0F0F0',
+    400: '#E0E0E0',
+    500: '#C4C4C4',
+    600: '#949494',
+    700: '#636871',
+    800: '#32363C',
+    900: '#272A30',
+  },
+  green: {
+    100: '#F8FDEE',
+    200: '#F5FCE4',
+    300: '#EEFAD3',
+    400: '#EBFACD',
+    500: '#E5F8BC',
+    600: '#DBF3B1',
+    700: '#C0DB92',
+    800: '#A8BE81',
+    900: '#77835E',
+  },
+  blue: {
+    100: '#EBF7F8',
+    200: '#DCF0F3',
+    300: '#CCE9ED',
+    400: '#C8E7EC',
+    500: '#B1DDE4',
+    600: '#9FCCD3',
+    700: '#71ACB6',
+    800: '#67949B',
+    900: '#34595F',
+  },
+}
+
 const spaceUnit = 1
 
 const borderRadius = {
@@ -36,31 +75,41 @@ const spacing = {
 }
 
 const color = {
-  white: '#FFFFFF',
-  secondaryText: '#636871',
-  accentText: '#202020',
-  primaryText: '#2C2C2C',
-  tertiaryText: '#6D868A',
-  screenBackground: '#FFFFFF',
-  cardBackground: '#F9F9F9',
-  bannerBackground: '#B1DDE4',
-  footerBackground: '#2C2C2C',
-  buttonPrimary: '#2C2C2C',
-  buttonPrimaryHover: '#32363C',
-  buttonSecondary: '#E5F8BC',
-  buttonSecondaryHover: '#DBF3B1',
+  white: baseColors.white,
+  accentText: baseColors.black,
+  primaryText: baseColors.otherBlack,
+  reviewText: baseColors.blue[800],
+  screenBackground: baseColors.white,
+  headerBorder: baseColors.grey[400],
+  headerBackground: baseColors.white,
+  foodItemBackground: baseColors.white,
+  menuSectionBackground: baseColors.grey[100],
+  cardBackground: baseColors.grey[100],
+  bannerBackground: baseColors.blue[500],
+  badgeBackground: baseColors.grey[300],
+  badgeText: baseColors.grey[700],
+  topBannerBackground: baseColors.green[500],
+  footerBackground: baseColors.otherBlack,
+  buttonText: baseColors.white,
+  buttonPrimary: baseColors.otherBlack,
+  buttonPrimaryHover: baseColors.grey[800],
+  buttonSecondary: baseColors.green[500],
+  buttonSecondaryHover: baseColors.green[600],
   buttonClear: 'transparent',
-  buttonClearHover: '#F0F0F0',
-  label: '#636871',
-  labelActive: '#202020',
-  inputBackground: '#F5F6F7',
-  inputIcon: '#202020',
+  buttonClearHover: baseColors.grey[300],
+  label: baseColors.grey[700],
+  labelActive: baseColors.black,
+  inputBackground: baseColors.grey[200],
+  inputHint: baseColors.grey[600],
+  inputIcon: baseColors.black,
+  overlayHeader: baseColors.grey[100],
+  overlayBackground: baseColors.white,
 }
 
 const boxShadow = {
   card: '0px 14px 26px 0px rgba(0, 0, 0, 0.08)',
   inner: 'inset 0 3px 0 0 rgba(0, 0, 0, 0.05)',
-  outerBorder: '0 0 0 1px #71acb6, 0 0 0 4px #dcf0f3',
+  outerBorder: `0 0 0 1px ${baseColors.blue[700]}, 0 0 0 4px ${baseColors.blue[200]}`,
 }
 
 const typography = {
@@ -82,7 +131,7 @@ const typography = {
   },
 }
 
-export const defaultTheme: DefaultTheme = {
+export const lightTheme: DefaultTheme = {
   name: 'default',
   fonts: {
     family: 'NunitoSans, sans-serif',
@@ -95,16 +144,35 @@ export const defaultTheme: DefaultTheme = {
 }
 
 export const darkTheme: DefaultTheme = {
-  ...defaultTheme,
+  ...lightTheme,
+  boxShadow: {
+    ...boxShadow,
+    outerBorder: `0 0 0 2px ${baseColors.blue[900]}, 0 0 0 4px ${baseColors.blue[500]}`,
+  },
   color: {
-    ...defaultTheme.color,
-    primaryText: '#FFFFFF',
-    secondaryText: '#9F9F9F',
-    tertiaryText: '#B1DDE4',
-    screenBackground: '#202020',
-    cardBackground: '#2C2C2C',
-    bannerBackground: '#2C2C2C',
-    buttonPrimary: '#E5F8BC',
-    buttonSecondary: '#E5F8BC',
+    ...lightTheme.color,
+    buttonText: baseColors.otherBlack,
+    buttonPrimaryHover: baseColors.green[600],
+    badgeText: baseColors.grey[500],
+    topBannerBackground: baseColors.otherBlack,
+    primaryText: baseColors.white,
+    menuSectionBackground: baseColors.grey[900],
+    reviewText: baseColors.blue[500],
+    screenBackground: baseColors.black,
+    foodItemBackground: baseColors.otherBlack,
+    cardBackground: baseColors.otherBlack,
+    headerBackground: baseColors.black,
+    headerBorder: baseColors.otherBlack,
+    badgeBackground: baseColors.grey[800],
+    bannerBackground: baseColors.otherBlack,
+    buttonPrimary: baseColors.green[500],
+    buttonSecondary: baseColors.green[500],
+    inputBackground: baseColors.grey[800],
+    buttonClearHover: baseColors.grey[900],
+    label: baseColors.white,
+    labelActive: baseColors.white,
+    inputIcon: baseColors.white,
+    overlayHeader: baseColors.black,
+    overlayBackground: baseColors.otherBlack,
   },
 }

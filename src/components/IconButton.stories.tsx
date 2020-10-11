@@ -12,7 +12,7 @@ const Template: Story<IconButtonProps> = (args) => <IconButton {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  name: 'arrow-forward',
+  name: 'arrow-right',
   small: false,
 }
 

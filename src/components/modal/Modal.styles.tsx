@@ -48,29 +48,31 @@ const largeScreenOverrides = css`
     left: calc(50% - (600px / 2));
     top: calc(50% - (272px / 2));
     position: fixed;
-    border-radius: 0.75rem;
+    border-radius: 1rem;
 
     ${desktopAnimation}
   }
 `
 
-export const ModalContent = styled.div`
-  background-color: ${({ theme }) => '#ffffff'};
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-  position: fixed;
-  z-index: 99;
-  top: 50%;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  /* padding: 3em 1em 1em 1em; */
-  transform-origin: 'top center';
-  box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+export const ModalContent = styled.div(
+  ({ theme: { color } }) => css`
+    background-color: ${color.overlayBackground};
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    position: fixed;
+    z-index: 99;
+    top: 50%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /* padding: 3em 1em 1em 1em; */
+    transform-origin: 'top center';
+    box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
 
-  ${defaultAnimation}
-  ${largeScreenOverrides}
-`
+    ${defaultAnimation}
+    ${largeScreenOverrides}
+  `
+)
 
 export const Backdrop = styled.div`
   position: fixed;

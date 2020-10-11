@@ -47,7 +47,7 @@ const Names = ({ setForm, formData, navigation }: any) => {
         We’ll only use your phone to call you about your order
       </Body>
       <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-        <Button primary onClick={next}>
+        <Button onClick={next}>
           Next
         </Button>
       </div>

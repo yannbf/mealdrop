@@ -6,18 +6,20 @@ import { breakpoints } from '../styles/breakpoints'
 import { Heading } from './typography/Heading'
 import { Link } from 'react-router-dom'
 
-const Container = styled.div`
-  background: #b1dde4;
-  width: 100%;
-  position: relative;
-  height: 410px;
-  padding-top: 3.75rem;
+const Container = styled.div(
+  ({ theme: { color } }) => css`
+    background: ${color.bannerBackground};
+    width: 100%;
+    position: relative;
+    height: 410px;
+    padding-top: 3.75rem;
 
-  @media ${breakpoints.M} {
-    padding-top: 6rem;
-    height: 566px;
-  }
-`
+    @media ${breakpoints.M} {
+      padding-top: 6rem;
+      height: 566px;
+    }
+  `
+)
 
 const ContentContainer = styled.div`
   text-align: center;
@@ -43,13 +45,16 @@ const Image = styled.div<{ src: string }>(
   `
 )
 
-const StyledHeading = styled(Heading)`
+const StyledHeading = styled(Heading)(
+  ({ theme: { color } }) => `
   margin-bottom: 2.5rem;
   padding: 0 2rem;
   strong {
+    color: ${color.primaryText};
     font-weight: 900;
   }
 `
+)
 
 export const Banner = () => (
   <Container>
@@ -58,7 +63,7 @@ export const Banner = () => (
         <strong>Hungry?</strong> find your next meal
       </StyledHeading>
       <Link to="/categories">
-        <Button primary>View all restaurants</Button>
+        <Button>View all restaurants</Button>
       </Link>
     </ContentContainer>
     <Image src={ladies} />

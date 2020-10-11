@@ -5,7 +5,7 @@ import {
   Typeset,
 } from '@storybook/addon-docs/blocks'
 import { TabsState } from '@storybook/components'
-import { defaultTheme, darkTheme } from '../styles/theme'
+import { lightTheme, darkTheme } from '../styles/theme'
 
 <Meta title="Design System/Colors" />
 
@@ -25,7 +25,7 @@ export const getColors = (theme) =>
 <TabsState initial="light">
   <div id="light" title="Light mode">
     <ColorPalette>
-      {getColors(defaultTheme).map(({ name, value }) => (
+      {getColors(lightTheme).map(({ name, value }) => (
         <ColorItem
           key={name}
           title={`theme.colors.${name}`}

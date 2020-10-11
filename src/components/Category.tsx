@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { breakpoints } from '../styles/breakpoints'
 import { Body } from './typography/Body'
 
@@ -10,25 +10,27 @@ export type CategoryProps = {
   rounded?: boolean
 }
 
-const Container = styled.figure<{ $rounded: boolean }>`
-  display: flex;
-  position: relative;
-  flex-direction: ${({ $rounded }) => ($rounded ? 'column' : 'row')};
-  align-items: ${({ $rounded }) => ($rounded ? 'center' : 'start')};
-  border-radius: 8px;
-  background: ${({ $rounded }) => ($rounded ? '#F9F9F9' : 'transparent')};
-  height: 100%;
-  width: 100%;
-  min-width: 50px;
-  max-width: ${({ $rounded }) => ($rounded ? '200px' : 'auto')};
-  max-height: ${({ $rounded }) => ($rounded ? '200px' : '300px')};
-  margin: 0;
-  padding: ${({ $rounded }) => ($rounded ? '1.5rem 2rem' : '0')};
+const Container = styled.figure<{ rounded: boolean }>(
+  ({ rounded, theme: { color } }) => css`
+    display: flex;
+    position: relative;
+    flex-direction: ${rounded ? 'column' : 'row'};
+    align-items: ${rounded ? 'center' : 'start'};
+    border-radius: 8px;
+    background: ${rounded ? color.cardBackground : 'transparent'};
+    height: 100%;
+    width: 100%;
+    min-width: 50px;
+    max-width: ${rounded ? '200px' : 'auto'};
+    max-height: ${rounded ? '200px' : '300px'};
+    margin: 0;
+    padding: ${rounded ? '1.5rem 2rem' : '0'};
 
-  @media ${breakpoints.M} {
-    padding: ${({ $rounded }) => ($rounded ? '1.5rem 0' : '0')};
-  }
-`
+    @media ${breakpoints.M} {
+      padding: ${rounded ? '1.5rem 0' : '0'};
+    }
+  `
+)
 
 const Image = styled.img`
   object-fit: cover;
@@ -55,18 +57,20 @@ const RoundImage = styled(Image)`
   }
 `
 
-const FloatingTitle = styled.figcaption`
-  position: absolute;
-  top: 1.5rem;
-  left: 1.5rem;
-  border-radius: 8px;
-  background: #202020;
-  padding: 8px 16px;
-  text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.5);
-  span {
-    color: white;
-  }
-`
+const FloatingTitle = styled.figcaption(
+  ({ theme: { color } }) => css`
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    border-radius: 8px;
+    background: #202020;
+    padding: 8px 16px;
+    text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.5);
+    span {
+      color: ${color.white};
+    }
+  `
+)
 
 const Title = styled.figcaption`
   padding-top: 1rem;
@@ -93,7 +97,7 @@ const Squared = ({ title, photoUrl: url }: CategoryProps) => (
 export const Category = (props: CategoryProps) => {
   const { photoUrl, title, rounded = false } = props
   return (
-    <Container $rounded={rounded}>
+    <Container rounded={rounded}>
       {rounded ? (
         <Rounded photoUrl={photoUrl} title={title} />
       ) : (
