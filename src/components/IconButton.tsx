@@ -33,7 +33,7 @@ export const IconButton: React.FC<IconButtonProps> = ({
 }) => {
   return (
     <StyledButton type="button" small={small} {...props}>
-      <Icon name={name} size={small ? 15 : 20} />
+      <Icon name={name} size={small ? 15 : 24} color="#202020" />
     </StyledButton>
   )
 }

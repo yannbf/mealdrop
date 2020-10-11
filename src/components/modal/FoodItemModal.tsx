@@ -99,7 +99,7 @@ export const FoodItemModal = ({
                 disabled={quantity >= 10}
               />
             </ButtonsContainer>
-            <StyledButton primary onClick={saveItem}>
+            <StyledButton onClick={saveItem}>
               add for {toEuro(item.price * quantity)}
             </StyledButton>
           </BottomContainer>

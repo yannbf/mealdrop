@@ -28,6 +28,7 @@ const Container = styled.div(
       outline: none;
       padding: 13px 16px;
       box-sizing: border-box;
+      color: ${color.primaryText};
       border-radius: 4px;
       border: none;
       background-position: calc(100% - 0.5rem);

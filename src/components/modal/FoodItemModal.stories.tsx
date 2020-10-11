@@ -30,12 +30,12 @@ const Template: Story = () => {
 
   React.useEffect(() => {
     setItem(itemMock)
-  }, [])
+  }, [itemMock])
 
   return (
     <>
       <p>Press ESC to close modal or click on the close icon!</p>
-      <Button primary onClick={openModal}>
+      <Button onClick={openModal}>
         Open modal
       </Button>
       <FoodItemModal

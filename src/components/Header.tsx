@@ -1,7 +1,8 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { Link, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import useDarkMode from 'use-dark-mode'
 
 import {
   saveItemAction,
@@ -16,28 +17,30 @@ import { Button } from './Button'
 import { toEuro } from '../helpers'
 import { Body } from './typography/Body'
 
-export const HeaderContainer = styled.div<{ sticky: boolean }>`
-  display: flex;
-  justify-content: space-between;
-  height: 56px;
-  border-bottom: 1px solid #e3e3e3;
-  top: 0;
-  left: 0;
-  position: fixed;
-  background: white;
-  z-index: 2;
-  width: 100%;
-  padding: 0 1.5rem;
+export const HeaderContainer = styled.div<{ sticky: boolean }>(
+  ({ sticky, theme: { color } }) => css`
+    display: flex;
+    justify-content: space-between;
+    height: 56px;
+    border-bottom: 1px solid #e3e3e3;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: ${color.headerBackground};
+    z-index: 2;
+    width: 100%;
+    padding: 0 1.5rem;
 
-  @media ${breakpoints.S} {
-    padding: 0 4rem;
-  }
+    @media ${breakpoints.S} {
+      padding: 0 4rem;
+    }
 
-  @media ${breakpoints.M} {
-    position: ${({ sticky }) => (sticky ? 'fixed' : 'relative')};
-    height: 72px;
-  }
-`
+    @media ${breakpoints.M} {
+      position: ${sticky ? 'fixed' : 'relative'};
+      height: 72px;
+    }
+  `
+)
 
 export const LogoContainer = styled(Link)`
   width: 40px;
@@ -85,6 +88,18 @@ export const StyledBody = styled(Body)`
   }
 `
 
+const ThemeToggle = () => {
+  const darkMode = useDarkMode(false)
+  return (
+    <Button
+      round
+      clear
+      icon={darkMode.value ? 'moon' : 'sun'}
+      onClick={darkMode.toggle}
+    />
+  )
+}
+
 export type HeaderComponentProps = {
   isCartVisible: boolean
 }
@@ -110,13 +125,14 @@ export const HeaderComponent = ({
     {!logoOnly && (
       <>
         <OptionsContainer>
+          <ThemeToggle />
           <Link to="/" tabIndex={-1}>
             <Button clear>Home</Button>
           </Link>
           <Link to="/categories" tabIndex={-1}>
             <Button clear>All restaurants</Button>
           </Link>
-          <Button icon="cart" primary onClick={toggleCartVisibility}>
+          <Button icon="cart" onClick={toggleCartVisibility}>
             {totalPrice > 0 && (
               <StyledBody type="span">
                 <Body type="span" className="cart-text">

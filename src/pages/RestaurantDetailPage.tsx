@@ -38,11 +38,13 @@ const DetailSection = styled.div`
   margin-bottom: 2rem !important;
 `
 
-const MenuSection = styled.div`
+const MenuSection = styled.div(
+  ({ theme: { color } }) => `
   padding-top: 3rem !important;
   padding-bottom: 5rem !important;
-  background: #f9f9f9;
+  background: ${color.screenBackground};
 `
+)
 
 const StyledHeading = styled(Heading)`
   margin-bottom: 1.5rem;

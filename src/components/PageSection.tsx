@@ -70,10 +70,10 @@ export const PageSection: React.FC<PageSectionProps> = ({
     <BottomContainer>
       {children}
       {showPreviousButton && (
-        <PreviousButton small onClick={onPreviousClick} name="arrow-backward" />
+        <PreviousButton small onClick={onPreviousClick} name="arrow-left" />
       )}
       {showNextButton && (
-        <NextButton small onClick={onNextClick} name="arrow-forward" />
+        <NextButton small onClick={onNextClick} name="arrow-right" />
       )}
     </BottomContainer>
   </Container>

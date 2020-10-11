@@ -8,10 +8,12 @@ const HeadingBase = styled.h1<{ level: number }>(
   ({
     level,
     theme: {
+      color,
       typography: { fontSize },
     },
   }) => css`
     margin: 0;
+    color: ${color.primaryText};
     font-family: 'Montserrat';
     letter-spacing: ${level === 1 || level === 2 ? '-2px' : 'unset'};
     font-size: ${fontSize[`heading${level}` as fontSizeType]};
@@ -24,7 +26,11 @@ export type HeadingProps = {
   children: React.ReactNode | string
 }
 
-export const Heading: React.FC<HeadingProps> = ({ level = 1, children, className }) => {
+export const Heading: React.FC<HeadingProps> = ({
+  level = 1,
+  children,
+  className,
+}) => {
   const heading = `h${level}`
   return (
     <HeadingBase as={heading} level={level} className={className}>

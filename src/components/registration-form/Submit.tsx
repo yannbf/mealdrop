@@ -33,7 +33,7 @@ const Submit = () => {
       />
       <ButtonSection>
         <Button onClick={() => history.push('/')}>Back to restaurants</Button>
-        <Button primary onClick={() => history.push('profile')}>
+        <Button onClick={() => history.push('profile')}>
           To my profile
         </Button>
       </ButtonSection>

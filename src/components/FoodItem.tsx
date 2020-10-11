@@ -10,7 +10,7 @@ const Container = styled.div<{ isHighlighted: boolean }>(
     border-radius: 4px;
     transition: box-shadow 0.1s ease-in;
     position: relative;
-    background: ${color.white};
+    background: ${color.foodItemBackground};
 
     &:hover {
       cursor: pointer;
@@ -34,11 +34,13 @@ const Quantity = styled(Body)`
   right: 0;
 `
 
-const Description = styled(Body)`
+const Description = styled(Body)(
+  ({ theme: { color } }) => `
   margin: 0;
-  color: #636871;
+  color: ${color.badgeText};
   margin-top: 0.5rem;
 `
+)
 
 const Price = styled(Body)`
   margin: 0;

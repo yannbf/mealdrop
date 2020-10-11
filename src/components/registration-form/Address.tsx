@@ -40,7 +40,7 @@ const Address = ({ setForm, formData, navigation }: any) => {
         }}
       >
         <Button clear onClick={previous}>Previous</Button>
-        <Button primary onClick={next}>Next</Button>
+        <Button onClick={next}>Next</Button>
       </div>
     </div>
   )

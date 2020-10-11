@@ -21,9 +21,14 @@ const Container = styled.div(
       box-sizing: border-box;
       border-radius: 4px;
       border: none;
-      background: #f5f6f7;
+      color: ${color.primaryText};
+      background: ${color.inputBackground};
       margin: 0;
-      &:focus, &:hover {
+      &:placeholder {
+        color: ${color.inputHint};
+      }
+      &:focus,
+      &:hover {
         box-shadow: ${boxShadow.outerBorder};
       }
     }
