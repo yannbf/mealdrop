@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { toEuro } from '../../helpers'
 import { breakpoints } from '../../styles/breakpoints'
 
@@ -31,11 +31,13 @@ const ButtonsContainer = styled.div`
   }
 `
 
-const TopContainer = styled.div`
-  padding: 2.5rem 1.5rem;
-  background: #f5f6f7;
-  border-radius: 16px 16px 0px 0px;
-`
+const TopContainer = styled.div(
+  ({ theme: { color } }) => css`
+    padding: 2.5rem 1.5rem;
+    background: ${color.overlayHeader};
+    border-radius: 16px 16px 0px 0px;
+  `
+)
 
 const BottomContainer = styled.div`
   padding: 1.5rem;
@@ -90,7 +92,7 @@ export const FoodItemModal = ({
                 onClick={() => setQuantity(quantity - 1)}
                 disabled={quantity <= 1}
               />
-              {quantity}
+              <Body type="span">{quantity}</Body>
               <Button
                 round
                 clear

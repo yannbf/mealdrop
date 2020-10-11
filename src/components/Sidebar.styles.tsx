@@ -51,20 +51,22 @@ const largeScreenOverrides = css`
   }
 `
 
-export const SidebarContainer = styled.div`
-  background-color: ${({ theme }) => 'white'};
-  position: fixed;
-  z-index: 99;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  transform-origin: 'top center';
-  box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+export const SidebarContainer = styled.div(
+  ({ theme: { color } }) => css`
+    background-color: ${color.overlayBackground};
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform-origin: 'top center';
+    box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
 
-  ${defaultAnimation}
-  ${largeScreenOverrides}
-`
+    ${defaultAnimation}
+    ${largeScreenOverrides}
+  `
+)
 
 export const SidebarContent = styled.div`
   padding: 1.5rem;
@@ -95,27 +97,29 @@ export const Backdrop = styled.div`
   }
 `
 
-export const TopBar = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: static;
-  padding: 1.5rem;
-  padding-right: 1rem;
-  top: 0.75rem;
-  right: 0.75rem;
-  height: 4.5rem;
-  background-color: ${({ theme }) => '#F5F6F7'};
-`
+export const TopBar = styled.div(
+  ({ theme: { color } }) => css`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: static;
+    padding: 1.5rem;
+    padding-right: 1rem;
+    top: 0.75rem;
+    right: 0.75rem;
+    height: 4.5rem;
+    background-color: ${color.overlayHeader};
+  `
+)
 
-export const SidebarFooter = styled.div`
-  display: flex;
-  padding: 1.5rem;
-  bottom: 0;
-  height: 165px;
-  width: 100%;
-  border-top: 1px solid #F5F6F7;
-  position: absolute;
-  background-color: ${({ theme }) => 'white'};
-`
-
+export const SidebarFooter = styled.div(
+  ({ theme: { color } }) => css`
+    display: flex;
+    padding: 1.5rem;
+    bottom: 0;
+    height: 165px;
+    width: 100%;
+    border-top: 1px solid ${color.headerBorder};
+    position: absolute;
+  `
+)

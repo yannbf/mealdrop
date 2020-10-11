@@ -80,6 +80,7 @@ const color = {
   primaryText: baseColors.otherBlack,
   reviewText: baseColors.blue[800],
   screenBackground: baseColors.white,
+  headerBorder: baseColors.grey[400],
   headerBackground: baseColors.white,
   foodItemBackground: baseColors.white,
   menuSectionBackground: baseColors.grey[100],
@@ -101,6 +102,8 @@ const color = {
   inputBackground: baseColors.grey[200],
   inputHint: baseColors.grey[600],
   inputIcon: baseColors.black,
+  overlayHeader: baseColors.grey[100],
+  overlayBackground: baseColors.white,
 }
 
 const boxShadow = {
@@ -158,14 +161,18 @@ export const darkTheme: DefaultTheme = {
     screenBackground: baseColors.black,
     foodItemBackground: baseColors.otherBlack,
     cardBackground: baseColors.otherBlack,
-    headerBackground: baseColors.otherBlack,
+    headerBackground: baseColors.black,
+    headerBorder: baseColors.otherBlack,
     badgeBackground: baseColors.grey[800],
     bannerBackground: baseColors.otherBlack,
     buttonPrimary: baseColors.green[500],
     buttonSecondary: baseColors.green[500],
     inputBackground: baseColors.grey[800],
+    buttonClearHover: baseColors.grey[900],
     label: baseColors.white,
     labelActive: baseColors.white,
     inputIcon: baseColors.white,
+    overlayHeader: baseColors.black,
+    overlayBackground: baseColors.otherBlack,
   },
 }

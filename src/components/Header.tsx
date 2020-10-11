@@ -22,7 +22,7 @@ export const HeaderContainer = styled.div<{ sticky: boolean }>(
     display: flex;
     justify-content: space-between;
     height: 56px;
-    border-bottom: 1px solid #e3e3e3;
+    border-bottom: 1px solid ${color.headerBorder};
     top: 0;
     left: 0;
     position: fixed;
