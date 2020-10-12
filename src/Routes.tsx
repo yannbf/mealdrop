@@ -2,8 +2,6 @@ import React, { useLayoutEffect } from 'react'
 import { Switch, Route, useLocation } from 'react-router-dom'
 import { RestaurantDetailPage } from './pages/RestaurantDetailPage'
 import { CategoryPage } from './pages/CategoryPage'
-import { AboutPage } from './pages/AboutPage'
-import { ProfilePage } from './pages/ProfilePage'
 import { HomePage } from './pages/HomePage'
 import { CheckoutPage } from './pages/CheckoutPage'
 import { SuccessPage } from './pages/SuccessPage'
@@ -34,16 +32,6 @@ export const AppRoutes = () => {
         <StickyHeaderTemplate>
           <RestaurantDetailPage />
         </StickyHeaderTemplate>
-      </Route>
-      <Route exact path="/about">
-        <DefaultTemplate>
-          <AboutPage />
-        </DefaultTemplate>
-      </Route>
-      <Route exact path="/profile">
-        <DefaultTemplate>
-          <ProfilePage />
-        </DefaultTemplate>
       </Route>
       <Route exact path="/checkout">
         <SimpleTemplate>
