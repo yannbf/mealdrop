@@ -1,4 +1,4 @@
-import { appDecorators } from './decorators'
+import { globalDecorators } from './decorators'
 import { withDesign } from 'storybook-addon-designs'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import { viewports as breakpoints } from '../src/styles/breakpoints'
@@ -42,4 +42,4 @@ export const globalTypes = {
   },
 }
 
-export const decorators = [...appDecorators, withDesign]
+export const decorators = [...globalDecorators, withDesign]

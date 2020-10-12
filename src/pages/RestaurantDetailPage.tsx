@@ -2,7 +2,7 @@ import React, { useState, useEffect, memo } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import { getRestaurantById } from '../stub/restaurants'
 import { FoodItem } from '../components/FoodItem'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { breakpoints } from '../styles/breakpoints'
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -39,11 +39,11 @@ const DetailSection = styled.div`
 `
 
 const MenuSection = styled.div(
-  ({ theme: { color } }) => `
-  padding-top: 3rem !important;
-  padding-bottom: 5rem !important;
-  background: ${color.screenBackground};
-`
+  ({ theme: { color } }) => css`
+    padding-top: 3rem !important;
+    padding-bottom: 5rem !important;
+    background: ${color.screenBackground};
+  `
 )
 
 const StyledHeading = styled(Heading)`
@@ -62,6 +62,7 @@ export const RestaurantDetailPage = () => {
   const dispatch = useDispatch()
   const addItemToCart = (item: any) => dispatch(saveItemAction(item))
   const clearItemFromCart = (item: any) => dispatch(clearItemAction(item))
+  console.log('bla')
 
   useEffect(() => {
     const getData = async () => {
