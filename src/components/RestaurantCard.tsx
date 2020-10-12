@@ -64,7 +64,7 @@ const NewTag = styled.span`
   left: 0.5rem;
   border-radius: 0.5rem;
   font-weight: bold;
-  z-index: 2;
+  z-index: 1;
 `
 
 const Closed = styled.div`
@@ -78,7 +78,7 @@ const Closed = styled.div`
   bottom: 0;
   right: 0;
   text-align: center;
-  z-index: 2;
+  z-index: 1;
   span {
     color: white;
     line-height: 210px;
@@ -167,7 +167,7 @@ export const RestaurantCard: React.FC<RestaurantCardProps> = ({
         </Body>
         <Description fontWeight="regular">{specialty}</Description>
         {restaurant.categories?.map((category) => (
-          <Badge text={category} />
+          <Badge key={category} text={category} />
         ))}
       </StyledContent>
     </Container>
