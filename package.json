@@ -32,7 +32,8 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public -o build/storybook",
-    "build-all": "yarn build && yarn build-storybook"
+    "build-all": "yarn build && yarn build-storybook",
+    "chromatic": "npx chromatic --project-token w1ch1gflv6h"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -64,6 +65,7 @@
     "@types/react-transition-group": "^4.4.0",
     "@types/styled-components": "^5.1.3",
     "babel-loader": "^8.1.0",
+    "chromatic": "^5.2.0",
     "react-is": "^16.13.1",
     "react-test-renderer": "^16.13.1",
     "storybook-addon-designs": "^5.4.2"
