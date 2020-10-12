@@ -42,7 +42,7 @@ const MenuSection = styled.div(
   ({ theme: { color } }) => css`
     padding-top: 3rem !important;
     padding-bottom: 5rem !important;
-    background: ${color.screenBackground};
+    background: ${color.menuSectionBackground};
   `
 )
 
