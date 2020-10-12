@@ -11,6 +11,7 @@ import {
 import { useKey } from '../hooks/useKeyboard'
 import { Button } from './Button'
 import { Heading } from './typography/Heading'
+import { useLockBodyScroll } from '../hooks/useBodyScrollLock'
 
 export type SidebarProps = {
   isOpen: boolean
@@ -27,6 +28,8 @@ export const Sidebar: React.FC<SidebarProps> = ({
   onClose,
 }) => {
   useKey('escape', onClose)
+
+  useLockBodyScroll(isOpen)
 
   return (
     <>
