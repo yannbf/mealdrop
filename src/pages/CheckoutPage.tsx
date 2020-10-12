@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { useSelector } from 'react-redux'
 
 import { ShoppingCartDropdown } from '../components/shopping-cart'
@@ -40,10 +40,12 @@ const FormContainer = styled.div`
   border-radius: 8px;
 `
 
-const TopContainer = styled.div`
-  min-height: 300px;
-  background: #e5f8bc;
-`
+const TopContainer = styled.div(
+  ({ theme: { color } }) => css`
+    min-height: 300px;
+    background: ${color.topBannerBackground};
+  `
+)
 
 export const CheckoutPage = () => {
   const cartItems = useSelector(selectCartItems)
