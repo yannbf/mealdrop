@@ -6,7 +6,7 @@ import { ShoppingCartDropdown } from '../components/shopping-cart'
 import { selectCartItems } from '../app-state/cart'
 import { breakpoints } from '../styles/breakpoints'
 import { Heading } from '../components/typography/Heading'
-import { MultiStepForm } from '../components/registration-form'
+import { MultiStepForm } from '../components/registration-form/MultiStepForm'
 
 const ContentContainer = styled.div`
   display: flex;
@@ -31,14 +31,16 @@ const OrderDetailsContainer = styled.div`
   }
 `
 
-const FormContainer = styled.div`
-  width: 100%;
-  min-height: 480px;
-  margin-right: 1.5rem;
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-`
+const FormContainer = styled.div(
+  ({ theme: { color } }) => css`
+    width: 100%;
+    min-height: 480px;
+    margin-right: 1.5rem;
+    background: ${color.cardBackground};
+    padding: 1.5rem;
+    border-radius: 8px;
+  `
+)
 
 const TopContainer = styled.div(
   ({ theme: { color } }) => css`
