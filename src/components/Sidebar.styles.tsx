@@ -70,6 +70,8 @@ export const SidebarContainer = styled.div(
 
 export const SidebarContent = styled.div`
   padding: 1.5rem;
+  overflow: auto;
+  max-height: calc(100vh - 237px); /** viewport height - topbar - footer */
 `
 
 export const Backdrop = styled.div`
@@ -114,6 +116,7 @@ export const TopBar = styled.div(
 
 export const SidebarFooter = styled.div(
   ({ theme: { color } }) => css`
+    background-color: ${color.sidebarFooter};
     display: flex;
     padding: 1.5rem;
     bottom: 0;
