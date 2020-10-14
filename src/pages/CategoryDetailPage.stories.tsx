@@ -2,7 +2,8 @@ import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
 import { CategoryDetailPage } from './CategoryDetailPage'
-import { withSpecificRoute } from '../../.storybook/decorators'
+import { withSpecificRoute, withStore } from '../../.storybook/decorators'
+import { DefaultTemplate } from '../templates/PageTemplate'
 
 export default {
   title: 'Pages/CategoryDetailPage',
@@ -10,9 +11,14 @@ export default {
   parameters: {
     layout: 'fullscreen',
   },
+  decorators: [withStore()]
 } as Meta
 
-const Template: Story = (args) => <CategoryDetailPage {...args} />
+const Template: Story = (args) => (
+  <DefaultTemplate>
+    <CategoryDetailPage {...args} />
+  </DefaultTemplate>
+)
 
 export const Default = Template.bind({})
 Default.decorators = [
