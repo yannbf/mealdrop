@@ -3,6 +3,7 @@ import { Story, Meta } from '@storybook/react'
 
 import { RestaurantDetailPage } from './RestaurantDetailPage'
 import { withSpecificRoute, withStore } from '../../.storybook/decorators'
+import { StickyHeaderTemplate } from '../templates/PageTemplate'
 
 export default {
   title: 'Pages/RestaurantDetailPage',
@@ -19,7 +20,9 @@ export default {
 const Template: Story = (args) => (
   <div>
     <div id="modal" />
-    <RestaurantDetailPage {...args} />
+    <StickyHeaderTemplate>
+      <RestaurantDetailPage {...args} />
+    </StickyHeaderTemplate>
   </div>
 )
 
