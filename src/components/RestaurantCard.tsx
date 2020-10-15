@@ -43,6 +43,9 @@ const Container = styled.div`
   flex-direction: column;
   border-radius: 8px;
   width: 100%;
+  &:hover {
+    opacity: 0.9;
+  }
 `
 
 const StyledContent = styled.div(

@@ -26,6 +26,10 @@ const Container = styled.figure<{ rounded: boolean }>(
     margin: 0;
     padding: ${rounded ? '1.5rem 2rem' : '0'};
 
+    &:hover {
+      opacity: 0.9;
+    }
+    
     @media ${breakpoints.M} {
       padding: ${rounded ? '1.5rem 0' : '0'};
     }
