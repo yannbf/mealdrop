@@ -16,7 +16,6 @@ const Basic: Story<PageSectionProps> = (args) => <PageSection {...args} />
 export const Default = Basic.bind({})
 Default.args = {
   title: 'Asian',
-  showSlideButtons: false,
   children: <h1>Hello Dummy Content Baby</h1>,
 }
 
@@ -24,5 +23,4 @@ export const WithButtons = Basic.bind({})
 WithButtons.args = {
   ...Default.args,
   title: 'Asian',
-  showSlideButtons: true,
 }

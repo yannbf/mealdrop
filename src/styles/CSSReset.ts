@@ -5,7 +5,6 @@ export const resetCSS = css`
   *::before,
   *::after {
     position: relative; /* make absolutely positioned elements relative to their parent by default */
-    min-width: 0; /* prevent flex items from overflowing horizontally */
     min-height: 0; /* prevent flex items from overflowing vertically */
     background-position: center center; /* better default than 0% 0% */
     background-repeat: no-repeat; /* better default than repeat */

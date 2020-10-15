@@ -1,11 +1,22 @@
 import React, { useState, useEffect } from 'react'
-import Carousel from '@brainhubeu/react-carousel'
 import styled from 'styled-components'
+import Carousel from 'react-multi-carousel'
 
+import { getCuratedRestaurants } from '../stub/restaurants'
+import { breakpoints } from '../styles/breakpoints'
+import { IconButton } from './IconButton'
 import { PageSection } from './PageSection'
 import { RestaurantCard } from './RestaurantCard'
-import { getCuratedRestaurants } from '../stub/restaurants'
-import { viewports, breakpoints } from '../styles/breakpoints'
+
+const PreviousButton = styled(IconButton)`
+  position: absolute;
+  left: 0;
+`
+
+const NextButton = styled(IconButton)`
+  position: absolute;
+  right: 0;
+`
 
 const StyledRestaurantCard = styled(RestaurantCard)`
   @media ${breakpoints.S} {
@@ -14,7 +25,6 @@ const StyledRestaurantCard = styled(RestaurantCard)`
 `
 
 export const RestaurantsSection = ({ title }: { title: string }) => {
-  const [slideIndex, setSlideIndex] = useState(0)
   const [restaurants, setRestaurants] = useState<any>([
     { isLoading: true },
     { isLoading: true },
@@ -29,34 +39,35 @@ export const RestaurantsSection = ({ title }: { title: string }) => {
 
     getData()
   }, [])
+
+  const isMobile = /Mobi/i.test(window.navigator.userAgent)
   return (
-    <PageSection
-      title={title}
-      showNextButton
-      showPreviousButton
-      onNextClick={() => setSlideIndex(slideIndex + 1)}
-      onPreviousClick={() => setSlideIndex(slideIndex - 1)}
-    >
+    <PageSection title={title}>
       <Carousel
-        infinite
-        value={slideIndex}
-        onChange={setSlideIndex}
-        slidesPerPage={4}
-        offset={1}
-        breakpoints={{
-          [viewports.S]: {
-            slidesPerPage: 1,
+        draggable={isMobile}
+        partialVisible={isMobile}
+        customLeftArrow={<PreviousButton name="arrow-left" />}
+        customRightArrow={<NextButton name="arrow-right" />}
+        responsive={{
+          desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 3,
+            slidesToSlide: 3,
           },
-          [viewports.M]: {
-            slidesPerPage: 2,
+          tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 2,
+            paritialVisibilityGutter: 50,
           },
-          [viewports.L]: {
-            slidesPerPage: 3,
-          },
-          [viewports.XL]: {
-            slidesPerPage: 4,
+          mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 1,
+            paritialVisibilityGutter: 30,
           },
         }}
+        containerClass="carousel-container"
+        removeArrowOnDeviceType={['tablet', 'mobile']}
+        itemClass="carousel-item"
       >
         {restaurants.map((restaurant: any, index: number) => (
           <StyledRestaurantCard

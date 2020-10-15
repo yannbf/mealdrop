@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@brainhubeu/react-carousel": "^1.19.26",
     "@reduxjs/toolkit": "^1.4.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.0.4",
@@ -17,6 +16,7 @@
     "react-dom": "^16.13.1",
     "react-hooks-helper": "^1.6.0",
     "react-loading-skeleton": "^2.1.1",
+    "react-multi-carousel": "^2.5.5",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
@@ -58,7 +58,6 @@
     "@storybook/node-logger": "^6.0.21",
     "@storybook/preset-create-react-app": "^3.1.4",
     "@storybook/react": "^6.0.21",
-    "@types/brainhubeu__react-carousel": "^1.15.0",
     "@types/react-hooks-helper": "^1.6.2",
     "@types/react-redux": "^7.1.9",
     "@types/react-router-dom": "^5.1.5",

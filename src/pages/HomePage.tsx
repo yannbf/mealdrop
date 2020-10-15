@@ -16,11 +16,11 @@ export const HomePage = () => {
     <>
       <Banner />
       <Spacing />
-      <RestaurantsSection title="Our favorite picks"/>
+      <RestaurantsSection title="Our favorite picks" />
       <Spacing />
       <AwardWinningSection />
       <Spacing />
-      <RestaurantsSection title="New arrivals"/>
+      <RestaurantsSection title="New arrivals" />
       <Spacing />
       <CategoriesSection categories={categories} />
       <Spacing />

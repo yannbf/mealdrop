@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import Carousel from '@brainhubeu/react-carousel'
+import Carousel from 'react-multi-carousel'
+import styled from 'styled-components'
 
 import { PageSection } from './PageSection'
 import { Category, CategoryProps } from './Category'
-import { viewports } from '../styles/breakpoints'
-import styled from 'styled-components'
+import { IconButton } from './IconButton'
 
 export type CategoriesSectionProps = {
   categories: CategoryProps[]
@@ -17,37 +17,53 @@ const StyledLink = styled(Link)`
   margin-right: 1rem;
 `
 
+const PreviousButton = styled(IconButton)`
+  position: absolute;
+  left: 0;
+`
+
+const NextButton = styled(IconButton)`
+  position: absolute;
+  right: 0;
+`
+
 export const CategoriesSection = ({ categories }: CategoriesSectionProps) => {
-  const [slideIndex, setSlideIndex] = useState(0)
   const history = useHistory()
 
+  const isMobile = /Mobi/i.test(window.navigator.userAgent)
   return (
     <PageSection
       title="Categories"
-      showSlideButtons={categories.length > 3}
-      onNextClick={() => setSlideIndex(slideIndex + 1)}
-      onPreviousClick={() => setSlideIndex(slideIndex - 1)}
       topButtonLabel="View all categories"
       onTopButtonClick={() => history.push('/categories')}
-      showNextButton
-      showPreviousButton
     >
       <Carousel
-        infinite
-        value={slideIndex}
-        onChange={setSlideIndex}
-        slidesPerPage={6}
-        breakpoints={{
-          [viewports.S]: {
-            slidesPerPage: 2,
+        draggable={isMobile}
+        partialVisible={isMobile}
+        customLeftArrow={<PreviousButton name="arrow-left" />}
+        customRightArrow={<NextButton name="arrow-right" />}
+        responsive={{
+          desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 6,
+            slidesToSlide: 3,
+            paritialVisibilityGutter: 80,
           },
-          [viewports.M]: {
-            slidesPerPage: 3,
+          tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 3,
+            paritialVisibilityGutter: 50,
           },
-          [viewports.L]: {
-            slidesPerPage: 4,
+          mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 2,
+            slidesToSlide: 3,
+            paritialVisibilityGutter: 10,
           },
         }}
+        containerClass="carousel-container"
+        removeArrowOnDeviceType={['tablet', 'mobile']}
+        itemClass={isMobile ? 'carousel-item' : ''}
       >
         {categories.map((category) => (
           <StyledLink key={category.id} to={`/categories/${category.id}`}>

@@ -1,6 +1,7 @@
 import { createGlobalStyle, css } from 'styled-components'
 import { breakpoints } from './breakpoints'
 import { resetCSS } from './CSSReset'
+import 'react-multi-carousel/lib/styles.css'
 
 export const GlobalStyle = createGlobalStyle(
   ({ theme: { color } }) => css`
@@ -116,8 +117,12 @@ export const GlobalStyle = createGlobalStyle(
       }
     }
 
-    .BrainhubCarousel__container {
-      touch-action: pan-x;
+    .container-desktop {
+      @media ${breakpoints.L} {
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
     }
 
     .copyright {
@@ -140,6 +145,20 @@ export const GlobalStyle = createGlobalStyle(
       html {
         font-size: 14px;
       }
+    }
+    /* react-multi-carousel overrides */
+    .carousel-item {
+      padding-right: 20px;
+      margin-left: 1px;
+      transition: opacity 200ms linear;
+    }
+
+    .carousel-item:not(.react-multi-carousel-item--active) {
+      opacity: 0.5;
+    }
+
+    .carousel-container {
+      touch-action: pan-x;
     }
   `
 )
