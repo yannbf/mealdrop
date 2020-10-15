@@ -2,7 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { useSelector } from 'react-redux'
 
-import { ShoppingCartDropdown } from '../components/shopping-cart'
+import { OrderSummary } from '../components/shopping-cart'
 import { selectCartItems } from '../app-state/cart'
 import { breakpoints } from '../styles/breakpoints'
 import { Heading } from '../components/typography/Heading'
@@ -62,7 +62,7 @@ export const CheckoutPage = () => {
           <MultiStepForm />
         </FormContainer>
         <OrderDetailsContainer>
-          <ShoppingCartDropdown isCheckout cartItems={cartItems} />
+          <OrderSummary cartItems={cartItems} />
         </OrderDetailsContainer>
       </ContentContainer>
     </div>

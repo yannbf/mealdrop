@@ -1,9 +1,14 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
+import { useSelector } from 'react-redux'
+
 import ladies from '../assets/images/ladies-sushi.svg'
+import { selectCartItems } from '../app-state/cart'
 import { TopBanner } from '../components/TopBanner'
 import { Heading } from '../components/typography/Heading'
+import { OrderSummary } from '../components/shopping-cart'
 import { breakpoints } from '../styles/breakpoints'
+import { Body } from '../components/typography/Body'
 
 const Image = styled.div<{ src: string }>(
   ({ src }) => css`
@@ -30,13 +35,33 @@ const StyledHeading = styled(Heading)`
   top: 0;
 `
 
+const Container = styled.div(
+  ({ theme: { color } }) => css`
+    background: ${color.menuSectionBackground};
+    min-height: 100vh;
+  `
+)
+
+const OrderSummaryContainer = styled.div`
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: -3rem;
+  text-align: center;
+`
+
 export const SuccessPage = () => {
+  const cartItems = useSelector(selectCartItems)
   return (
-    <div>
+    <Container>
       <TopBanner title="Order confirmed!" />
+      <OrderSummaryContainer>
+        <Body type="span">Estimated delivery</Body>
+        <Heading level={2}>13:23 today</Heading>
+        <OrderSummary cartItems={cartItems} />
+      </OrderSummaryContainer>
       <Image src={ladies}>
         <StyledHeading level={3}>Bon appetit</StyledHeading>
       </Image>
-    </div>
+    </Container>
   )
 }

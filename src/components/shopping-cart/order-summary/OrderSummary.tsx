@@ -4,24 +4,22 @@ import { ShoppingCartItem } from '../item/ShoppingCartItem'
 import { CartItem } from '../../../app-state/cart'
 
 import {
-  CartDropdownContainer,
+  OrderSummaryContainer,
   BottomContainer,
   CartItemsContainer,
-  StyledHeading
-} from './ShoppingCartDropdown.styles'
+  StyledHeading,
+} from './OrderSummary.styles'
 import { Body } from '../../typography/Body'
 import { toEuro } from '../../../helpers'
 import { Heading } from '../../typography/Heading'
 
-export type ShoppingCartDropdownProps = {
+export type OrderSummaryProps = {
   cartItems: CartItem[]
   onGoToCheckoutClick?: () => void
   isCheckout?: boolean
 }
 
-export const ShoppingCartDropdown: React.FC<ShoppingCartDropdownProps> = ({
-  cartItems,
-}) => {
+export const OrderSummary: React.FC<OrderSummaryProps> = ({ cartItems }) => {
   const totalPrice = useMemo(
     () =>
       cartItems
@@ -31,7 +29,7 @@ export const ShoppingCartDropdown: React.FC<ShoppingCartDropdownProps> = ({
   )
   return (
     <>
-      <CartDropdownContainer>
+      <OrderSummaryContainer>
         <StyledHeading level={4}>Your order</StyledHeading>
         <CartItemsContainer>
           {cartItems.length ? (
@@ -46,7 +44,7 @@ export const ShoppingCartDropdown: React.FC<ShoppingCartDropdownProps> = ({
           <Body>Total</Body>
           <Heading level={4}>{toEuro(totalPrice)}</Heading>
         </BottomContainer>
-      </CartDropdownContainer>
+      </OrderSummaryContainer>
     </>
   )
 }
