@@ -1,7 +1,7 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import Skeleton from 'react-loading-skeleton'
-import styled, { css } from 'styled-components'
+import { useHistory } from 'react-router-dom'
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import styled, { css, useTheme } from 'styled-components'
 import { Heading } from './typography/Heading'
 import { Body } from './typography/Body'
 import { Badge } from './Badge'
@@ -38,6 +38,7 @@ export type Restaurant = {
 }
 
 const Container = styled.div`
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   border-radius: 8px;
@@ -103,25 +104,33 @@ const Description = styled(Body)`
   -webkit-box-orient: vertical;
 `
 
-const RestaurantCardSkeleton = () => (
-  <Container>
-    <Skeleton height={200} width="100%" />
-    <StyledContent>
-      <Heading level={4}>
-        <Skeleton width="50%" />
-      </Heading>
-      <Body type="span">
-        <Skeleton width="35%" />
-      </Body>
-      <Description>
-        <Skeleton />
-      </Description>
-      <Body type="span">
-        <Skeleton width="25%" height="20px" />
-      </Body>
-    </StyledContent>
-  </Container>
-)
+const RestaurantCardSkeleton = () => {
+  const { color } = useTheme()
+  return (
+    <SkeletonTheme
+      color={color.skeletonBase}
+      highlightColor={color.skeletonHighlight}
+    >
+      <Container>
+        <Skeleton height={200} width="100%" />
+        <StyledContent>
+          <Heading level={4}>
+            <Skeleton width="50%" />
+          </Heading>
+          <Body type="span">
+            <Skeleton width="35%" />
+          </Body>
+          <Description>
+            <Skeleton />
+          </Description>
+          <Body type="span">
+            <Skeleton width="25%" height="20px" />
+          </Body>
+        </StyledContent>
+      </Container>
+    </SkeletonTheme>
+  )
+}
 
 export const RestaurantCard: React.FC<RestaurantCardProps> = ({
   restaurant,
@@ -137,17 +146,19 @@ export const RestaurantCard: React.FC<RestaurantCardProps> = ({
     isNew = false,
   } = restaurant
 
+  const history = useHistory()
+
   if (isLoading) {
     return <RestaurantCardSkeleton />
   }
 
   return (
-    <Container className={className}>
+    <Container
+      className={className}
+      onClick={() => history.push(`/restaurants/${id}`)}
+    >
       {isNew && <NewTag>new</NewTag>}
-      <Link
-        to={`/restaurants/${id}`}
-        style={{ position: 'relative', display: 'flex' }}
-      >
+      <div style={{ position: 'relative', display: 'flex' }}>
         {isClosed && (
           <Closed>
             <Body type="span">This restaurant is closed.</Body>
@@ -159,7 +170,7 @@ export const RestaurantCard: React.FC<RestaurantCardProps> = ({
           src={photoUrl}
           alt="restaurant"
         />
-      </Link>
+      </div>
       <StyledContent>
         <Heading level={4}>{name} </Heading>
         <Body size="S" type="span" className="review-text">

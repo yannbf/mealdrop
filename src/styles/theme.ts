@@ -103,6 +103,8 @@ const color = {
   reviewText: baseColors.blue[800],
   screenBackground: baseColors.white,
   sidebarFooter: baseColors.white,
+  skeletonBase: '#eee',
+  skeletonHighlight: '#f5f5f5',
   topBannerBackground: baseColors.green[500],
   white: baseColors.white,
 }
@@ -175,6 +177,8 @@ export const darkTheme: DefaultTheme = {
     reviewText: baseColors.blue[500],
     screenBackground: baseColors.black,
     sidebarFooter: baseColors.otherBlack,
+    skeletonBase: baseColors.grey[700],
+    skeletonHighlight: baseColors.grey[600],
     topBannerBackground: baseColors.otherBlack,
   },
 }
