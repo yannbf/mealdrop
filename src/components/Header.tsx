@@ -16,6 +16,7 @@ import { ShoppingCartMenu } from './ShoppingCartMenu'
 import { Button } from './Button'
 import { toEuro } from '../helpers'
 import { Body } from './typography/Body'
+import { Logo } from './Logo'
 
 export const HeaderContainer = styled.div<{ sticky: boolean }>(
   ({ sticky, theme: { color } }) => css`
@@ -116,11 +117,7 @@ export const HeaderComponent = ({
 }: any) => (
   <HeaderContainer data-testid="header" sticky={sticky}>
     <LogoContainer to="/">
-      <img
-        src="https://image.flaticon.com/icons/svg/1046/1046784.svg"
-        className="App-logo"
-        alt="logo"
-      />
+      <Logo />
     </LogoContainer>
     {!logoOnly && (
       <>

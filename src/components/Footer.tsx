@@ -2,6 +2,7 @@ import React from 'react'
 import styled, { css } from 'styled-components'
 import { breakpoints } from '../styles/breakpoints'
 import { FooterCard } from './FooterCard'
+import { Logo } from './Logo'
 
 const FooterContainer = styled.div(
   ({ theme: { color } }) => css`
@@ -71,7 +72,7 @@ export const Footer = () => {
     <FooterContainer>
       <div className="container">
         <FooterTop>
-          <img src="https://via.placeholder.com/150" alt="logo" />
+          <Logo large logoOnly />
           <FooterCard title="Discover us" links={navigationLinks} />
           <FooterCard title="Our social media" links={socialMediaLinks} />
           <FooterCard title="Check our apps">
