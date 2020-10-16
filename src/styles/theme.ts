@@ -2,7 +2,7 @@ import { DefaultTheme } from 'styled-components'
 
 declare module 'styled-components' {
   export interface DefaultTheme {
-    name: string
+    name: 'light' | 'dark'
     fonts: {
       family: string
     }
@@ -142,7 +142,7 @@ export const lightTheme: DefaultTheme = {
   fonts: {
     family: 'NunitoSans, sans-serif',
   },
-  name: 'default',
+  name: 'light',
   spacing,
   typography,
 }
@@ -183,4 +183,5 @@ export const darkTheme: DefaultTheme = {
     skeletonHighlight: baseColors.grey[600],
     topBannerBackground: baseColors.otherBlack,
   },
+  name: 'dark',
 }
