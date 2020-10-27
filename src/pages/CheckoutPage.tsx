@@ -10,12 +10,13 @@ import { MultiStepForm } from '../components/registration-form/MultiStepForm'
 
 const ContentContainer = styled.div`
   display: flex;
-  margin-top: -5rem !important;
+  margin-top: -12rem !important;
   justify-content: center;
   flex-direction: column-reverse;
   align-items: flex-start;
 
   @media ${breakpoints.S} {
+    margin-top: -10rem !important;
     flex-direction: row;
   }
 `
@@ -23,18 +24,36 @@ const ContentContainer = styled.div`
 const OrderDetailsContainer = styled.div`
   width: 100%;
   margin-bottom: 4rem;
-  margin-top: -2.5rem;
 
   @media ${breakpoints.M} {
-    margin-top: -5rem;
     width: 420px;
   }
 `
 
 const TopContainer = styled.div(
   ({ theme: { color } }) => css`
-    min-height: 300px;
-    background: ${color.topBannerBackground};
+    min-height: 260px;
+    background: ${color.checkoutTopBackground};
+
+    @media ${breakpoints.M} {
+      min-height: 300px;
+    }
+  `
+)
+
+const StyledHeading = styled(Heading)(
+  ({ theme: { spacing } }) => css`
+    padding-top: ${spacing.m};
+    @media ${breakpoints.M} {
+      padding-top: ${spacing.l};
+    }
+  `
+)
+
+const PageContainer = styled.div(
+  ({ theme: { color, spacing } }) => css`
+    padding-bottom: ${spacing.xxl};
+    background: ${color.checkoutBottomBackground};
   `
 )
 
@@ -42,9 +61,11 @@ export const CheckoutPage = () => {
   const cartItems = useSelector(selectCartItems)
 
   return (
-    <div style={{ paddingBottom: '8rem', background: '#F9F9F9' }}>
-      <TopContainer className="container">
-        <Heading level={2}>Checkout</Heading>
+    <PageContainer>
+      <TopContainer>
+        <StyledHeading level={2} className="container">
+          Checkout
+        </StyledHeading>
       </TopContainer>
       <ContentContainer className="container">
         <MultiStepForm />
@@ -52,6 +73,6 @@ export const CheckoutPage = () => {
           <OrderSummary cartItems={cartItems} />
         </OrderDetailsContainer>
       </ContentContainer>
-    </div>
+    </PageContainer>
   )
 }

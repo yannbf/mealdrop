@@ -35,8 +35,8 @@ const StyledContainer = styled.div`
 
 const DetailSection = styled.div(
   ({ theme: { color, spacing } }) => css`
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
     background: ${color.restaurantDetailBackground};
     .review-text {
       color: ${color.reviewText};
@@ -56,6 +56,12 @@ const MenuSection = styled.div(
 const StyledHeading = styled(Heading)`
   margin-bottom: 1.5rem;
 `
+
+const StyledBadge = styled(Badge)(
+  ({ theme: { spacing } }) => css`
+    margin-right: ${spacing.s};
+  `
+)
 
 export const RestaurantDetailPage = () => {
   let { id } = useParams<{ id: string }>()
@@ -98,16 +104,18 @@ export const RestaurantDetailPage = () => {
       <TopBanner photoUrl={photoUrl} onBackClick={() => history.goBack()} />
       {restaurant.menu && (
         <>
-          <DetailSection className="container">
-            <Heading level={2}>{name}</Heading>
-            <Body>Specialties: {specialty}</Body>
-            <Body size="S" type="span" className="review-text">
-              ★ 4.2 Very Good
-            </Body>
-            <div>
-              {categories?.map((category: any) => (
-                <Badge text={category} />
-              ))}
+          <DetailSection>
+            <div className="container">
+              <Heading level={2}>{name}</Heading>
+              <Body>Specialties: {specialty}</Body>
+              <Body size="S" type="span" className="review-text">
+                ★ 4.2 Very Good
+              </Body>
+              <div>
+                {categories?.map((category: any) => (
+                  <StyledBadge text={category} />
+                ))}
+              </div>
             </div>
           </DetailSection>
           <MenuSection>

@@ -17,10 +17,11 @@ const Container = styled.div(
 
 export type BadgeProps = {
   text: string
+  className?: string
 }
 
-export const Badge = ({ text }: BadgeProps) => (
-  <Container>
+export const Badge = ({ text, className }: BadgeProps) => (
+  <Container className={className}>
     <Body type="span" size="S">
       {text}
     </Body>

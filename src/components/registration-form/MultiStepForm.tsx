@@ -37,7 +37,7 @@ const FormContainer = styled.div(
     width: 100%;
     min-height: 480px;
     margin-right: 1.5rem;
-    background: ${color.cardBackground};
+    background: ${color.formBackground};
     padding: 1.5rem;
     border-radius: 8px;
   `
