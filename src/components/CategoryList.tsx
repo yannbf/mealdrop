@@ -5,14 +5,14 @@ import styled from 'styled-components'
 import { Category } from './Category'
 import { breakpoints } from '../styles/breakpoints'
 
-type Category = {
+type CategoryItem = {
   id?: string
   title: string
   photoUrl: string
 }
 
 export type CategoryListProps = {
-  categories: Category[]
+  categories: CategoryItem[]
 }
 
 const StyledContainer = styled.div`

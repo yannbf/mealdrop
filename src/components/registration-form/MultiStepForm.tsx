@@ -1,12 +1,13 @@
 import React from 'react'
 import { useForm, useStep } from 'react-hooks-helper'
+import styled, { css } from 'styled-components'
 
-import Names from './Names'
-import Address from './Address'
+import { ContactDetails } from './ContactDetails'
+import { DeliveryDetails } from './DeliveryDetails'
 import Submit from './Submit'
 import { StepIndicator } from './StepIndicator'
 
-const steps = ['names', 'address', 'submit']
+const steps = ['Contact details', 'Delivery details']
 
 const defaultData = {
   firstName: 'John',
@@ -20,10 +21,10 @@ const defaultData = {
 
 const getCurrentStep = (step: string, props: any) => {
   switch (step) {
-    case 'names':
-      return <Names {...props} />
-    case 'address':
-      return <Address {...props} />
+    case 'Contact details':
+      return <ContactDetails {...props} />
+    case 'Delivery details':
+      return <DeliveryDetails {...props} />
     case 'submit':
       return <Submit {...props} />
     default:
@@ -31,22 +32,31 @@ const getCurrentStep = (step: string, props: any) => {
   }
 }
 
+const FormContainer = styled.div(
+  ({ theme: { color } }) => css`
+    width: 100%;
+    min-height: 480px;
+    margin-right: 1.5rem;
+    background: ${color.cardBackground};
+    padding: 1.5rem;
+    border-radius: 8px;
+  `
+)
+
 export const MultiStepForm = () => {
   const [formData, setForm] = useForm(defaultData)
   const { step, navigation, index } = useStep({ initialStep: 0, steps })
 
   const props = { formData, setForm, navigation }
   const currentIndex = index + 1
-  const hasReachedLastStep = currentIndex >= steps.length
   return (
-    <div>
-      {!hasReachedLastStep && (
-        <StepIndicator
-          currentStep={currentIndex}
-          amountOfSteps={steps.length}
-        />
-      )}
+    <FormContainer>
+      <StepIndicator
+        title={step.toString()}
+        currentStep={currentIndex}
+        amountOfSteps={steps.length}
+      />
       {getCurrentStep(step.toString(), props)}
-    </div>
+    </FormContainer>
   )
 }

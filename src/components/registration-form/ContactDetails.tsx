@@ -1,18 +1,23 @@
 import React from 'react'
+import styled, { css } from 'styled-components'
 
 import { Button } from '../Button'
 import { Input } from '../forms/Input'
 import { Body } from '../typography/Body'
-import { Heading } from '../typography/Heading'
 
-const Names = ({ setForm, formData, navigation }: any) => {
+const DisclaimerText = styled(Body)(
+  ({ theme: { spacing } }) => css`
+    margin-bottom: ${spacing.m};
+  `
+)
+
+export const ContactDetails = ({ setForm, formData, navigation }: any) => {
   const { firstName, lastName, email, phone } = formData
 
   const { next } = navigation
 
   return (
     <div className="form">
-      <Heading level={4}>Contact details</Heading>
       <Input
         label="First Name"
         placeholder="John"
@@ -43,16 +48,12 @@ const Names = ({ setForm, formData, navigation }: any) => {
         value={phone}
         onChange={setForm}
       />
-      <Body size="XXS">
+      <DisclaimerText size="XXS" type="span">
         We’ll only use your phone to call you about your order
-      </Body>
+      </DisclaimerText>
       <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-        <Button onClick={next}>
-          Next
-        </Button>
+        <Button onClick={next}>Next</Button>
       </div>
     </div>
   )
 }
-
-export default Names

@@ -1,17 +1,15 @@
 import React from 'react'
 
 import { Button } from '../Button'
-import { Heading } from '../typography/Heading'
 import { Input } from '../forms/Input'
 
-const Address = ({ setForm, formData, navigation }: any) => {
+export const DeliveryDetails = ({ setForm, formData, navigation }: any) => {
   const { address, city, postcode } = formData
 
   const { previous, next } = navigation
 
   return (
     <div className="form">
-      <Heading level={4}>Delivery details</Heading>
       <Input
         label="Streetname and housenumber"
         palcholder="Some street, 13"
@@ -39,11 +37,11 @@ const Address = ({ setForm, formData, navigation }: any) => {
           justifyContent: 'flex-start',
         }}
       >
-        <Button clear onClick={previous}>Previous</Button>
+        <Button clear onClick={previous}>
+          Previous
+        </Button>
         <Button onClick={next}>Next</Button>
       </div>
     </div>
   )
 }
-
-export default Address

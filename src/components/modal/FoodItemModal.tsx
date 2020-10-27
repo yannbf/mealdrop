@@ -55,7 +55,6 @@ export const FoodItemModal = ({
   onItemSave,
   onItemRemove,
 }: any) => {
-  console.log({ cartItems, item })
   const [quantity, setQuantity] = useState(0)
 
   const saveItem = useCallback(() => {

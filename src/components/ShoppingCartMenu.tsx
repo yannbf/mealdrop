@@ -82,7 +82,7 @@ export const ShoppingCartMenu: React.FC<ShoppingCartMenuProps> = ({
 }) => {
   return (
     <Sidebar
-      title="Your orders"
+      title="Your order"
       onClose={onClose}
       isOpen={isOpen}
       footer={<Footer onClick={onGoToCheckoutClick} totalPrice={totalPrice} />}
