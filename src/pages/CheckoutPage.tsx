@@ -31,17 +31,6 @@ const OrderDetailsContainer = styled.div`
   }
 `
 
-const FormContainer = styled.div(
-  ({ theme: { color } }) => css`
-    width: 100%;
-    min-height: 480px;
-    margin-right: 1.5rem;
-    background: ${color.cardBackground};
-    padding: 1.5rem;
-    border-radius: 8px;
-  `
-)
-
 const TopContainer = styled.div(
   ({ theme: { color } }) => css`
     min-height: 300px;
@@ -58,9 +47,7 @@ export const CheckoutPage = () => {
         <Heading level={2}>Checkout</Heading>
       </TopContainer>
       <ContentContainer className="container">
-        <FormContainer>
-          <MultiStepForm />
-        </FormContainer>
+        <MultiStepForm />
         <OrderDetailsContainer>
           <OrderSummary cartItems={cartItems} />
         </OrderDetailsContainer>

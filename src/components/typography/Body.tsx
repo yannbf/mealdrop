@@ -6,6 +6,7 @@ type fontWeightType = 'regular' | 'medium' | 'bold' | 'black'
 
 const BodyBase = styled.p<{ size: string; fontWeight: string }>(
   ({ size, fontWeight, color: textColor, theme: { typography, color } }) => css`
+    display: block;
     font-family: 'Hind';
     color: ${textColor || color.primaryText};
     font-weight: ${typography.fontWeight[fontWeight as fontWeightType]};

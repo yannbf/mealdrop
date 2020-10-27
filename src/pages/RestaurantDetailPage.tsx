@@ -33,10 +33,17 @@ const StyledContainer = styled.div`
   }
 `
 
-const DetailSection = styled.div`
-  margin-top: 2rem !important;
-  margin-bottom: 2rem !important;
-`
+const DetailSection = styled.div(
+  ({ theme: { color, spacing } }) => css`
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    background: ${color.restaurantDetailBackground};
+    .review-text {
+      color: ${color.reviewText};
+      margin-bottom: ${spacing.m};
+    }
+  `
+)
 
 const MenuSection = styled.div(
   ({ theme: { color } }) => css`
@@ -62,7 +69,6 @@ export const RestaurantDetailPage = () => {
   const dispatch = useDispatch()
   const addItemToCart = (item: any) => dispatch(saveItemAction(item))
   const clearItemFromCart = (item: any) => dispatch(clearItemAction(item))
-  console.log('bla')
 
   useEffect(() => {
     const getData = async () => {
@@ -95,7 +101,7 @@ export const RestaurantDetailPage = () => {
           <DetailSection className="container">
             <Heading level={2}>{name}</Heading>
             <Body>Specialties: {specialty}</Body>
-            <Body size="S" type="span">
+            <Body size="S" type="span" className="review-text">
               ★ 4.2 Very Good
             </Body>
             <div>
