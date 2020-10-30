@@ -39,6 +39,20 @@ export const withTheme = (
 ) => {
   const fullScreen = parameters.layout === 'fullscreen'
   const appTheme = theme === 'light' ? lightTheme : darkTheme
+  const secondContainerRef = React.useRef()
+
+  const firstBlockRef = React.useCallback(
+    (node) => {
+      if (node) {
+        node.addEventListener('scroll', () => {
+          if (secondContainerRef.current) {
+            secondContainerRef.current.scrollTop = node.scrollTop
+          }
+        })
+      }
+    },
+    [secondContainerRef.current]
+  )
 
   switch (theme) {
     case 'side-by-side': {
@@ -46,13 +60,13 @@ export const withTheme = (
         <>
           <ThemeProvider theme={lightTheme}>
             <GlobalStyle />
-            <ThemeBlock left fullScreen={fullScreen}>
+            <ThemeBlock ref={firstBlockRef} left fullScreen={fullScreen}>
               <StoryFn />
             </ThemeBlock>
           </ThemeProvider>
           <ThemeProvider theme={darkTheme}>
             <GlobalStyle />
-            <ThemeBlock fullScreen={fullScreen}>
+            <ThemeBlock ref={secondContainerRef} fullScreen={fullScreen}>
               <StoryFn />
             </ThemeBlock>
           </ThemeProvider>
