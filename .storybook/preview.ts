@@ -3,18 +3,19 @@ import { withDesign } from 'storybook-addon-designs'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import { viewports as breakpoints } from '../src/styles/breakpoints'
 
-// Create viewports using widths defined in design tokens
-const breakpointViewports = Object.keys(breakpoints).map((name) => {
-  return {
-    name: `Breakpoint - ${name}`,
+// Create custom viewports using widths defined in design tokens
+const breakpointViewports = Object.keys(breakpoints).reduce((acc, key) => {
+  acc[`breakpoint${key}`] = {
+    name: `Breakpoint - ${key}`,
     styles: {
-      width: `${breakpoints[name]}px`,
+      width: `${breakpoints[key]}px`,
       // Account for padding and border around viewport preview
       height: 'calc(100% - 20px)',
     },
     type: 'other',
   }
-})
+  return acc
+}, {})
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -26,6 +27,7 @@ export const parameters = {
   },
 }
 
+console.log({ parameters })
 export const globalTypes = {
   theme: {
     name: 'Theme',
