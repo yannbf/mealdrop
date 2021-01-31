@@ -10,6 +10,11 @@ export default {
   component: RestaurantDetailPage,
   parameters: {
     layout: 'fullscreen',
+    design: {
+      type: 'figma',
+      url:
+        'https://www.figma.com/file/XW4Bcjmj3JOILjKmZjjdQd/Foodenters?node-id=169%3A510',
+    },
   },
   decorators: [
     withSpecificRoute({ route: '/restaurants/1', path: '/restaurants/:id' }),
