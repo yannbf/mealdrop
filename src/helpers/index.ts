@@ -1,8 +1,5 @@
-import currency from 'currency.js'
-
 export const toEuro = (number: number) =>
-  currency(number, {
-    symbol: '€',
-    decimal: ',',
-    separator: '.',
-  }).format()
+  number.toLocaleString(undefined, {
+    style: 'currency',
+    currency: 'EUR',
+  })
