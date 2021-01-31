@@ -10,8 +10,13 @@ export default {
   component: HomePage,
   parameters: {
     layout: 'fullscreen',
+    design: {
+      type: 'figma',
+      url:
+        'https://www.figma.com/proto/XW4Bcjmj3JOILjKmZjjdQd/Foodenters?node-id=135%3A258&viewport=319%2C422%2C0.06356501579284668&scaling=scale-down',
+    },
   },
-  decorators: [withStore()]
+  decorators: [withStore()],
 } as Meta
 
 const Template: Story = (args) => (
