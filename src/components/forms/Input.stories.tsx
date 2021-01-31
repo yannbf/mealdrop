@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Story, Meta } from '@storybook/react'
 import React from 'react'
 
 import { Input } from './Input'
@@ -6,7 +6,7 @@ import { Input } from './Input'
 export default {
   title: 'Components/Form/Input',
   component: Input,
-}
+} as Meta
 
 const Template: Story = (args) => <Input {...args} />
 
@@ -18,10 +18,10 @@ WithLabel.args = {
 export const WithHint = Template.bind({})
 WithHint.args = {
   label: 'Input field',
-  placeholder: 'bla',
+  placeholder: 'This is a hint',
 }
 export const Filled = Template.bind({})
 Filled.args = {
   label: 'Input field',
-  value: 'Some text',
+  value: 'Already filled text',
 }

@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Story, Meta } from '@storybook/react'
 import React, { useState } from 'react'
 import { Button } from './Button'
 
@@ -7,7 +7,7 @@ import { Sidebar } from './Sidebar'
 export default {
   title: 'Overlays/Sidebar',
   component: Sidebar,
-}
+} as Meta
 
 const Template: Story = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -21,9 +21,7 @@ const Template: Story = () => {
   return (
     <>
       <p>Press ESC to close the sidebar or click on the close icon!</p>
-      <Button onClick={openSidebar}>
-        Open sidebar
-      </Button>
+      <Button onClick={openSidebar}>Open sidebar</Button>
       <Sidebar
         title="Your order"
         isOpen={isOpen}

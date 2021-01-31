@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Story, Meta } from '@storybook/react'
 import React from 'react'
 
 import { StepIndicator, StepIndicatorProps } from './StepIndicator'
@@ -6,7 +6,7 @@ import { StepIndicator, StepIndicatorProps } from './StepIndicator'
 export default {
   title: 'Components/StepIndicator',
   component: StepIndicator,
-}
+} as Meta
 
 const Template: Story<StepIndicatorProps> = (args) => (
   <StepIndicator {...args} />

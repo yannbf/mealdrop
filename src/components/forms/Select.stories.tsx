@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Story, Meta } from '@storybook/react'
 import React from 'react'
 
 import { Select, SelectProps } from './Select'
@@ -6,13 +6,13 @@ import { Select, SelectProps } from './Select'
 export default {
   title: 'Components/Form/Select',
   component: Select,
-}
+} as Meta
 
 const Template: Story<SelectProps> = (args) => <Select {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  options: ['one', 'two', 'three'],
+  options: ['Burger', 'Pizza', 'Sushi'],
 }
 export const WithLabel = Template.bind({})
 WithLabel.args = {

@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Story, Meta } from '@storybook/react'
 import React, { useState } from 'react'
 import { cartItems } from '../stub/cart-items'
 import { Button } from './Button'
@@ -8,7 +8,7 @@ import { ShoppingCartMenu, ShoppingCartMenuProps } from './ShoppingCartMenu'
 export default {
   title: 'Features/ShoppingCartMenu',
   component: ShoppingCartMenu,
-}
+} as Meta
 
 const Template: Story<ShoppingCartMenuProps> = () => {
   const [isOpen, setIsOpen] = useState(false)

@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Story, Meta } from '@storybook/react'
 import React from 'react'
 
 import { Heading, HeadingProps } from './Heading'
@@ -10,7 +10,7 @@ export default {
     children: { controls: 'text' },
     level: { table: { disable: true } },
   },
-}
+} as Meta
 
 const Template: Story<HeadingProps> = ({ children }) => (
   <div>

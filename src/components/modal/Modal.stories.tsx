@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Story, Meta } from '@storybook/react'
 import React, { useState } from 'react'
 import { Button } from '../Button'
 
@@ -15,7 +15,7 @@ export default {
       </>
     ),
   ],
-}
+} as Meta
 
 const Template: Story = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -29,9 +29,7 @@ const Template: Story = () => {
   return (
     <>
       <p>Press ESC to close modal or click on the close icon!</p>
-      <Button onClick={openModal}>
-        Open modal
-      </Button>
+      <Button onClick={openModal}>Open modal</Button>
       <Modal
         isOpen={isOpen}
         onClose={() => {
