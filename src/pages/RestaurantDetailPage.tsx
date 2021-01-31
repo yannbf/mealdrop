@@ -17,6 +17,7 @@ import { Body } from '../components/typography/Body'
 import { Badge } from '../components/Badge'
 import { Restaurant } from '../components/RestaurantCard'
 import { FoodItemModal } from '../components/modal/FoodItemModal'
+import { Review } from '../components/Review'
 
 const StyledContainer = styled.div`
   grid-template-columns: repeat(1, 1fr);
@@ -89,7 +90,7 @@ export const RestaurantDetailPage = () => {
     return null
   }
 
-  const { menu, name, specialty, photoUrl, categories } = restaurant
+  const { menu, name, rating, specialty, photoUrl, categories } = restaurant
 
   return (
     <>
@@ -108,9 +109,7 @@ export const RestaurantDetailPage = () => {
             <div className="container">
               <Heading level={2}>{name}</Heading>
               <Body>Specialties: {specialty}</Body>
-              <Body size="S" type="span" className="review-text">
-                ★ 4.2 Very Good
-              </Body>
+              <Review rating={rating} />
               <div>
                 {categories?.map((category: any) => (
                   <StyledBadge text={category} />

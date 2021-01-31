@@ -5,6 +5,7 @@ import styled, { css, useTheme } from 'styled-components'
 import { Heading } from './typography/Heading'
 import { Body } from './typography/Body'
 import { Badge } from './Badge'
+import { Review } from './Review'
 
 export type RestaurantCardProps = Restaurant & {
   className?: string
@@ -21,6 +22,7 @@ export type Restaurant = {
   name: string
   id?: string
   mapsUrl?: string
+  rating?: number
   url?: string
   address?: string
   specialty: string
@@ -139,6 +141,7 @@ export const RestaurantCard: React.FC<RestaurantCardProps> = ({
   name,
   id,
   specialty,
+  rating,
   isClosed = false,
   isLoading = false,
   categories,
@@ -172,9 +175,7 @@ export const RestaurantCard: React.FC<RestaurantCardProps> = ({
       </div>
       <StyledContent>
         <Heading level={4}>{name} </Heading>
-        <Body size="S" type="span" className="review-text">
-          ★ 4.2 Very Good
-        </Body>
+        <Review rating={rating} />
         <Description fontWeight="regular">{specialty}</Description>
         {categories?.map((category) => (
           <Badge key={category} text={category} />
