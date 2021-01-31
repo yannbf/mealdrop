@@ -1,4 +1,4 @@
-import { Story } from '@storybook/react'
+import { Story, Meta } from '@storybook/react'
 import React, { useState } from 'react'
 import { Button } from '../Button'
 
@@ -15,7 +15,7 @@ export default {
       </>
     ),
   ],
-}
+} as Meta
 
 const Template: Story = () => {
   const itemMock = {
@@ -24,23 +24,16 @@ const Template: Story = () => {
     price: 12,
   }
 
-  const [item, setItem] = useState<any>()
+  const [item, setItem] = useState<any>(undefined)
   const openModal = () => setItem(itemMock)
   const closeModal = () => setItem(undefined)
-
-  React.useEffect(() => {
-    setItem(itemMock)
-  }, [itemMock])
 
   return (
     <>
       <p>Press ESC to close modal or click on the close icon!</p>
-      <Button onClick={openModal}>
-        Open modal
-      </Button>
+      <Button onClick={openModal}>Open modal</Button>
       <FoodItemModal
         item={item}
-        closeModal={() => {}}
         cartItems={[item]}
         onClose={closeModal}
         onItemSave={() => {}}

@@ -1,8 +1,9 @@
 import React, { useState, useCallback, useEffect } from 'react'
 import styled, { css } from 'styled-components'
+
+import { CartItem } from '../../app-state/cart'
 import { toEuro } from '../../helpers'
 import { breakpoints } from '../../styles/breakpoints'
-
 import { Button } from '../Button'
 import { Body } from '../typography/Body'
 import { Heading } from '../typography/Heading'
@@ -48,13 +49,21 @@ const BottomContainer = styled.div`
   }
 `
 
-export const FoodItemModal = ({
+export type FoodItemModalProps = {
+  item: CartItem
+  cartItems: CartItem[]
+  onClose: () => void
+  onItemSave: (item: CartItem) => void
+  onItemRemove: (item: CartItem) => void
+}
+
+export const FoodItemModal: React.FC<FoodItemModalProps> = ({
   item,
   cartItems,
   onClose,
   onItemSave,
   onItemRemove,
-}: any) => {
+}) => {
   const [quantity, setQuantity] = useState(0)
 
   const saveItem = useCallback(() => {
