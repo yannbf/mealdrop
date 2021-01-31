@@ -1324,7 +1324,15 @@ const fakeApiCall = (data: any) => {
   })
 }
 
-export const getCuratedRestaurants = () =>
+export const getCuratedRestaurants = async () => {
+  const data = await fetch(
+    'https://blab-290ab.firebaseio.com/restaurants/.json'
+  )
+
+  return data.json()
+}
+
+export const getCuratedRestaurantsMocked = () =>
   fakeApiCall(
     restaurants.filter((restaurant) => !restaurant.isClosed).slice(0, 6)
   )
