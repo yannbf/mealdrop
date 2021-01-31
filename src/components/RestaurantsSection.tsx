@@ -72,7 +72,7 @@ export const RestaurantsSection = ({ title }: { title: string }) => {
         {restaurants.map((restaurant: any, index: number) => (
           <StyledRestaurantCard
             key={restaurant.name + index}
-            restaurant={restaurant}
+            {...restaurant}
           />
         ))}
       </Carousel>

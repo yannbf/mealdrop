@@ -6,9 +6,8 @@ import { Heading } from './typography/Heading'
 import { Body } from './typography/Body'
 import { Badge } from './Badge'
 
-export type RestaurantCardProps = {
+export type RestaurantCardProps = Restaurant & {
   className?: string
-  restaurant: Restaurant
 }
 
 export type FoodItem = {
@@ -136,19 +135,16 @@ const RestaurantCardSkeleton = () => {
 }
 
 export const RestaurantCard: React.FC<RestaurantCardProps> = ({
-  restaurant,
+  photoUrl,
+  name,
+  id,
+  specialty,
+  isClosed = false,
+  isLoading = false,
+  categories,
+  isNew = false,
   className,
 }) => {
-  const {
-    photoUrl,
-    name,
-    id,
-    specialty,
-    isClosed = false,
-    isLoading = false,
-    isNew = false,
-  } = restaurant
-
   const history = useHistory()
 
   if (isLoading) {
@@ -180,7 +176,7 @@ export const RestaurantCard: React.FC<RestaurantCardProps> = ({
           ★ 4.2 Very Good
         </Body>
         <Description fontWeight="regular">{specialty}</Description>
-        {restaurant.categories?.map((category) => (
+        {categories?.map((category) => (
           <Badge key={category} text={category} />
         ))}
       </StyledContent>

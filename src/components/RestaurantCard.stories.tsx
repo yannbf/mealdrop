@@ -7,12 +7,13 @@ export default {
   title: 'Components/RestaurantCard',
   component: RestaurantCard,
   parameters: {
+    viewport: {
+      defaultViewport: 'breakpointXS',
+    },
     design: {
       type: 'figma',
-      // url:
-      // 'https://www.figma.com/file/XW4Bcjmj3JOILjKmZjjdQd/Foodenters?node-id=125%3A314',
       url:
-        'https://www.figma.com/proto/XW4Bcjmj3JOILjKmZjjdQd/Foodenters?node-id=142%3A727&viewport=21%2C1270%2C0.9448022246360779&scaling=min-zoom',
+        'https://www.figma.com/file/XW4Bcjmj3JOILjKmZjjdQd/Foodenters?node-id=332%3A1644',
     },
   },
 } as Meta
@@ -33,30 +34,22 @@ const restaurantMock = {
 const Basic: Story<RestaurantCardProps> = (args) => <RestaurantCard {...args} />
 
 export const Default = Basic.bind({})
-Default.args = {
-  restaurant: restaurantMock,
-}
+Default.args = restaurantMock
 
 export const New = Basic.bind({})
 New.args = {
-  restaurant: {
-    ...restaurantMock,
-    isNew: true,
-  },
+  ...Default.args,
+  isNew: true,
 }
 
 export const Closed = Basic.bind({})
 Closed.args = {
-  restaurant: {
-    ...restaurantMock,
-    isClosed: true,
-  },
+  ...Default.args,
+  isClosed: true,
 }
 
 export const Loading = Basic.bind({})
 Loading.args = {
-  restaurant: {
-    ...restaurantMock,
-    isLoading: true,
-  },
+  ...Default.args,
+  isLoading: true,
 }
