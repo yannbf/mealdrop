@@ -164,7 +164,8 @@ const FoodSection = memo(({ title, cartItems, items, onItemClick }: any) => (
         return (
           <FoodItem
             key={item.title}
-            item={{ ...item, quantity }}
+            {...item}
+            quantity={quantity}
             onClick={() => onItemClick(item)}
           />
         )

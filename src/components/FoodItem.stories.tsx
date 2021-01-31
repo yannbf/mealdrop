@@ -1,28 +1,24 @@
-import { Story } from '@storybook/react'
+import { Meta, Story } from '@storybook/react'
 import React from 'react'
-import { FoodItem } from './FoodItem'
+
+import { FoodItem, FoodItemProps } from './FoodItem'
 
 export default {
   title: 'Components/FoodItem',
   component: FoodItem,
-}
+} as Meta
 
-const Template: Story = (args: any) => <FoodItem {...args} />
+const Template: Story<FoodItemProps> = (args) => <FoodItem {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  item: {
-    id: 1,
-    name: 'Food',
-    price: 7.5,
-    description: 'nice stuff',
-  },
+  name: 'Food',
+  price: 7.5,
+  description: 'nice stuff',
 }
 
 export const WithQuantity = Template.bind({})
 WithQuantity.args = {
-  item: {
-    ...Default.args.item,
-    quantity: 5,
-  },
+  ...Default.args,
+  quantity: 5,
 }
