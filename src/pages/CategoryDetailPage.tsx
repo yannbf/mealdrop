@@ -83,10 +83,7 @@ export const CategoryDetailPage = () => {
         )}
         <StyledContainer>
           {restaurants.map((restaurant: Restaurant) => (
-            <RestaurantCard
-              key={restaurant.id}
-              restaurant={{ ...restaurant }}
-            />
+            <RestaurantCard key={restaurant.id} {...restaurant} />
           ))}
         </StyledContainer>
       </div>
