@@ -100,12 +100,15 @@ const RestaurantImage = styled.img<{ $isClosed: boolean }>`
 const Description = styled(Body)`
   margin-top: 8px;
   margin: 0;
-  max-height: 38px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+`
+
+const StyledBadge = styled(Badge)`
+  margin-right: 0.5rem;
 `
 
 const RestaurantCardSkeleton = () => {
@@ -178,7 +181,7 @@ export const RestaurantCard: React.FC<RestaurantCardProps> = ({
         <Review rating={rating} />
         <Description fontWeight="regular">{specialty}</Description>
         {categories?.map((category) => (
-          <Badge key={category} text={category} />
+          <StyledBadge key={category} text={category} />
         ))}
       </StyledContent>
     </Container>
