@@ -7,7 +7,16 @@ import { Body } from './typography/Body'
 import { Badge } from './Badge'
 import { Review } from './Review'
 
-export type RestaurantCardProps = Restaurant & {
+export type RestaurantCardProps = {
+  id?: string
+  name: string
+  rating?: number
+  specialty: string
+  photoUrl: string
+  isClosed?: boolean
+  categories?: string[]
+  isLoading?: boolean
+  isNew?: boolean
   className?: string
 }
 
@@ -44,6 +53,7 @@ const Container = styled.div`
   flex-direction: column;
   border-radius: 8px;
   width: 100%;
+  max-width: 500px;
   &:hover {
     opacity: 0.9;
   }
@@ -99,6 +109,7 @@ const RestaurantImage = styled.img<{ $isClosed: boolean }>`
 `
 const Description = styled(Body)`
   margin-top: 8px;
+  margin-bottom: 24px;
   margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -108,7 +119,12 @@ const Description = styled(Body)`
 `
 
 const StyledBadge = styled(Badge)`
+  margin-top: 1.5rem;
   margin-right: 0.5rem;
+`
+
+const StyleHeading = styled(Heading)`
+  margin-bottom: 8px;
 `
 
 const RestaurantCardSkeleton = () => {
@@ -121,9 +137,9 @@ const RestaurantCardSkeleton = () => {
       <Container>
         <Skeleton height={200} width="100%" />
         <StyledContent>
-          <Heading level={4}>
+          <StyleHeading level={4}>
             <Skeleton width="50%" />
-          </Heading>
+          </StyleHeading>
           <Body type="span">
             <Skeleton width="35%" />
           </Body>
@@ -131,7 +147,7 @@ const RestaurantCardSkeleton = () => {
             <Skeleton />
           </Description>
           <Body type="span">
-            <Skeleton width="25%" height="20px" />
+            <Skeleton width="25%" height="23px" style={{ marginTop: 24 }} />
           </Body>
         </StyledContent>
       </Container>
@@ -177,7 +193,7 @@ export const RestaurantCard: React.FC<RestaurantCardProps> = ({
         />
       </div>
       <StyledContent>
-        <Heading level={4}>{name} </Heading>
+        <StyleHeading level={4}>{name} </StyleHeading>
         <Review rating={rating} />
         <Description fontWeight="regular">{specialty}</Description>
         {categories?.map((category) => (

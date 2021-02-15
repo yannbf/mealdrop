@@ -11,9 +11,22 @@ export default {
       defaultViewport: 'breakpointXS',
     },
     design: {
-      type: 'figma',
+      type: 'experimental-figspec',
+      // url:
+      // 'https://www.figma.com/file/XW4Bcjmj3JOILjKmZjjdQd/Foodenters?node-id=125%3A314',
       url:
         'https://www.figma.com/file/XW4Bcjmj3JOILjKmZjjdQd/Foodenters?node-id=332%3A1644',
+      accessToken: '153561-cf0bebf2-cb64-4dc9-81b4-14f89edf9bab',
+    },
+  },
+  argTypes: {
+    rating: {
+      control: {
+        type: 'range',
+        min: 0,
+        max: 5,
+        step: 0.1,
+      },
     },
   },
 } as Meta
@@ -21,14 +34,10 @@ export default {
 const restaurantMock = {
   name: 'Burger King',
   specialty: 'Nicest place for burgers',
-  categories: ['comfort-food'],
+  categories: ['Category'],
   photoUrl:
     'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1003&q=20',
-  menu: {
-    dessert: [],
-    food: [],
-    drinks: [],
-  },
+  rating: 4.2
 }
 
 const Basic: Story<RestaurantCardProps> = (args) => <RestaurantCard {...args} />
