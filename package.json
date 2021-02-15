@@ -51,6 +51,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",
+    "@figspec/components": "^0.1.4",
+    "@figspec/react": "^0.1.5",
     "@storybook/addon-a11y": "^6.1.15",
     "@storybook/addon-essentials": "^6.1.15",
     "@storybook/preset-create-react-app": "^3.1.5",
@@ -64,7 +66,7 @@
     "chromatic": "^5.2.0",
     "react-is": "^16.13.1",
     "react-test-renderer": "^16.13.1",
-    "storybook-addon-designs": "^5.4.2",
+    "storybook-addon-designs": "^6.0.0-alpha.2",
     "storybook-mobile": "^0.1.29"
   }
 }
