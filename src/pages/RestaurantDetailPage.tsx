@@ -6,6 +6,7 @@ import styled, { css } from 'styled-components'
 import { breakpoints } from '../styles/breakpoints'
 import { useDispatch, useSelector } from 'react-redux'
 import {
+  CartItem,
   clearItemAction,
   saveItemAction,
   selectCartItems,
@@ -69,7 +70,7 @@ export const RestaurantDetailPage = () => {
   const history = useHistory()
   const [restaurant, setRestaurant] = useState<Restaurant>()
 
-  const [selectedItem, setSelectedItem] = useState()
+  const [selectedItem, setSelectedItem] = useState<CartItem>()
   const closeModal = () => setSelectedItem(undefined)
 
   const cartItems = useSelector(selectCartItems)
@@ -100,7 +101,6 @@ export const RestaurantDetailPage = () => {
         onClose={closeModal}
         onItemSave={addItemToCart}
         onItemRemove={clearItemFromCart}
-        isOpen={!!selectedItem}
       />
       <TopBanner photoUrl={photoUrl} onBackClick={() => history.goBack()} />
       {restaurant.menu && (

@@ -50,7 +50,7 @@ const BottomContainer = styled.div`
 `
 
 export type FoodItemModalProps = {
-  item: CartItem
+  item?: CartItem
   cartItems: CartItem[]
   onClose: () => void
   onItemSave: (item: CartItem) => void
@@ -67,10 +67,12 @@ export const FoodItemModal: React.FC<FoodItemModalProps> = ({
   const [quantity, setQuantity] = useState(0)
 
   const saveItem = useCallback(() => {
-    if (quantity === 0) {
-      onItemRemove(item)
-    } else {
-      onItemSave({ ...item, quantity })
+    if (item) {
+      if (quantity === 0) {
+        onItemRemove(item)
+      } else {
+        onItemSave({ ...item, quantity })
+      }
     }
 
     onClose()
