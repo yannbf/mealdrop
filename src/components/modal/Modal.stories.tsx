@@ -7,6 +7,9 @@ import { Modal } from './Modal'
 export default {
   title: 'Overlays/Modal',
   component: Modal,
+  parameters: {
+    docs: { inlineStories: false, iframeHeight: 600 },
+  },
   decorators: [
     (StoryFn: Story) => (
       <>

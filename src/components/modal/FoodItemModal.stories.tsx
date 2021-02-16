@@ -7,6 +7,9 @@ import { FoodItemModal } from './FoodItemModal'
 export default {
   title: 'Overlays/FoodItemModal',
   component: FoodItemModal,
+  parameters: {
+    docs: { inlineStories: false, iframeHeight: 600 },
+  },
   decorators: [
     (StoryFn: Story) => (
       <>
@@ -24,7 +27,7 @@ const Template: Story = () => {
     price: 12,
   }
 
-  const [item, setItem] = useState<any>(undefined)
+  const [item, setItem] = useState<any>(itemMock)
   const openModal = () => setItem(itemMock)
   const closeModal = () => setItem(undefined)
 
