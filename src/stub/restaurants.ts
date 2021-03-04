@@ -1,3 +1,5 @@
+import { Restaurant } from '../types'
+
 const food = [
   {
     id: 1,
@@ -40,7 +42,7 @@ const drinks = [
   },
 ]
 
-export const restaurants = [
+export const restaurants: Restaurant[] = [
   {
     id: '1',
     name: "'n Sterk Staaltje",
@@ -1344,7 +1346,7 @@ export const getRestaurantsByCategory = (category: string) =>
   fakeApiCall(
     restaurants
       .filter((restaurant) =>
-        restaurant.categories.includes(category.toLowerCase())
+        restaurant.categories?.includes(category.toLowerCase())
       )
       .sort((restaurant) => (restaurant.isClosed ? 1 : -1))
       .sort((restaurant) => (restaurant.isNew ? -1 : 1))

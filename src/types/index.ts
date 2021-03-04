@@ -1,0 +1,26 @@
+export type FoodItem = {
+  id: number
+  name: string
+  description?: string
+  price: number
+}
+
+export type Restaurant = {
+  name: string
+  id?: string
+  mapsUrl?: string
+  rating?: number
+  url?: string
+  address?: string
+  specialty: string
+  photoUrl: string
+  isClosed?: boolean
+  categories?: string[]
+  isLoading?: boolean
+  isNew?: boolean
+  menu?: {
+    food: FoodItem[]
+    dessert: FoodItem[]
+    drinks: FoodItem[]
+  }
+}

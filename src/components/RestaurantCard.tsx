@@ -2,6 +2,7 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import styled, { css, useTheme } from 'styled-components'
+
 import { Heading } from './typography/Heading'
 import { Body } from './typography/Body'
 import { Badge } from './Badge'
@@ -18,33 +19,6 @@ export type RestaurantCardProps = {
   isLoading?: boolean
   isNew?: boolean
   className?: string
-}
-
-export type FoodItem = {
-  id: number
-  name: string
-  description: string
-  price: number
-}
-
-export type Restaurant = {
-  name: string
-  id?: string
-  mapsUrl?: string
-  rating?: number
-  url?: string
-  address?: string
-  specialty: string
-  photoUrl: string
-  isClosed?: boolean
-  categories?: string[]
-  isLoading?: boolean
-  isNew?: boolean
-  menu: {
-    food: FoodItem[]
-    dessert: FoodItem[]
-    drinks: FoodItem[]
-  }
 }
 
 const Container = styled.div`
