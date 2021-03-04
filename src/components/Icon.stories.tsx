@@ -14,6 +14,7 @@ const icons = [
   'plus',
   'moon',
   'sun',
+  'star',
 ]
 
 const IconContainer = styled.div(
@@ -61,14 +62,15 @@ export default {
 
 const Template: Story = (args) => <Icon {...args} />
 
-
 export const AllIcons = () => (
   <>
     <IconContainer>
       {icons.map((icon) => (
         <div>
           <Icon name={icon} size={24} />
-          <Body type="span" size="XS">{icon}</Body>
+          <Body type="span" size="XS">
+            {icon}
+          </Body>
         </div>
       ))}
     </IconContainer>

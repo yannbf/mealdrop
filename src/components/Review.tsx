@@ -1,6 +1,14 @@
 import React from 'react'
+import styled from 'styled-components'
 
 import { Body } from './typography/Body'
+import { Icon } from './Icon'
+
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+`
 
 export type ReviewProps = {
   rating?: number
@@ -11,23 +19,24 @@ const getReview = (rating?: number) => {
     return 'No reviews yet'
   }
 
-  if (rating === 5) {
-    return 'Excellent'
+  let reviewText = 'Excellent'
+
+  if (rating <= 4) {
+    reviewText = 'Very good'
   }
 
-  if (rating >= 4) {
-    return 'Very good'
+  if (rating <= 2) {
+    reviewText = 'Adequate'
   }
 
-  if (rating >= 2) {
-    return 'Adequate'
-  }
-
-  return 'Very poor'
+  return `${rating.toFixed(1)} ${reviewText}`
 }
 
 export const Review: React.FC<ReviewProps> = ({ rating }) => (
-  <Body size="S" type="span" className="review-text">
-    ★ {rating?.toFixed(1)} {getReview(rating)}
-  </Body>
+  <Wrapper>
+    <Icon name="star" />
+    <Body size="S" type="span" className="review-text">
+      {getReview(rating)}
+    </Body>
+  </Wrapper>
 )
