@@ -44,6 +44,7 @@ const TopContainer = styled.div(
 const StyledHeading = styled(Heading)(
   ({ theme: { spacing } }) => css`
     padding-top: ${spacing.m};
+    margin: 0 auto;
     @media ${breakpoints.M} {
       padding-top: ${spacing.l};
     }
@@ -52,6 +53,7 @@ const StyledHeading = styled(Heading)(
 
 const PageContainer = styled.div(
   ({ theme: { color, spacing } }) => css`
+    min-height: 100vh;
     padding-bottom: ${spacing.xxl};
     background: ${color.checkoutBottomBackground};
   `

@@ -121,7 +121,7 @@ const color = {
   buttonText: baseColors.white,
   cardBackground: baseColors.grey.light6,
   checkoutTopBackground: baseColors.green.base,
-  checkoutBottomBackground: baseColors.grey.light5,
+  checkoutBottomBackground: baseColors.grey.light6,
   formBackground: baseColors.white,
   foodItemBackground: baseColors.white,
   footerBackground: baseColors.grey.dark5,
