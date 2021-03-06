@@ -12,11 +12,9 @@ export default {
     },
     design: {
       type: 'experimental-figspec',
-      // url:
-      // 'https://www.figma.com/file/XW4Bcjmj3JOILjKmZjjdQd/Foodenters?node-id=125%3A314',
       url:
         'https://www.figma.com/file/XW4Bcjmj3JOILjKmZjjdQd/Foodenters?node-id=332%3A1644',
-      accessToken: '153561-cf0bebf2-cb64-4dc9-81b4-14f89edf9bab',
+      accessToken: process.env.FIGMA_ACCESS_TOKEN,
     },
   },
   argTypes: {

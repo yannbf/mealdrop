@@ -19,20 +19,23 @@ const Image = styled.div<{ src: string }>(
     background-position: center bottom;
     background-size: 100%;
     position: fixed;
+    margin: 0 auto;
     bottom: 0;
+    right: 0;
+    left: 0;
     background-size: 600px;
     display: flex;
     justify-content: center;
     @media ${breakpoints.S} {
       height: 368px;
-      background-size: 1000px;
+      width: 700px;
+      background-size: contain;
     }
   `
 )
 
 const StyledHeading = styled(Heading)`
-  position: absolute;
-  top: 0;
+  margin-bottom: 1.5rem;
 `
 
 const Container = styled.div(
@@ -45,8 +48,9 @@ const Container = styled.div(
 const OrderSummaryContainer = styled.div`
   max-width: 400px;
   margin: 0 auto;
-  margin-top: -3rem;
-  text-align: center;
+  margin-top: 2.5rem;
+  margin-bottom: 12.5rem;
+  text-align: left;
 `
 
 export const SuccessPage = () => {
@@ -56,12 +60,10 @@ export const SuccessPage = () => {
       <TopBanner title="Order confirmed!" />
       <OrderSummaryContainer>
         <Body type="span">Estimated delivery</Body>
-        <Heading level={2}>13:23 today</Heading>
+        <StyledHeading level={2}>13:23 today</StyledHeading>
         <OrderSummary cartItems={cartItems} />
       </OrderSummaryContainer>
-      <Image src={ladies}>
-        <StyledHeading level={3}>Bon appetit</StyledHeading>
-      </Image>
+      <Image src={ladies} />
     </Container>
   )
 }

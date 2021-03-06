@@ -9,8 +9,34 @@ export default {
   component: SuccessPage,
   parameters: {
     layout: 'fullscreen',
+    design: {
+      type: 'experimental-figspec',
+      url:
+        'https://www.figma.com/file/XW4Bcjmj3JOILjKmZjjdQd/Foodenters?node-id=426%3A3444',
+      accessToken: process.env.FIGMA_ACCESS_TOKEN,
+    },
   },
-  decorators: [withStore()],
+  decorators: [withStore({
+    cart: {
+      visible: false,
+      items: [
+        {
+          id: 2,
+          name: 'Fries',
+          description: 'Fried french fries',
+          price: 2.5,
+          quantity: 2,
+        },
+        {
+          id: 1,
+          name: 'Cheeseburger',
+          description: 'Nice grilled burger with cheese',
+          price: 8.5,
+          quantity: 1,
+        },
+      ],
+    },
+  })],
 } as Meta
 
 const Template: Story = (args) => <SuccessPage {...args} />
