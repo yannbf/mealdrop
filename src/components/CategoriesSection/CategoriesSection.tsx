@@ -1,0 +1,76 @@
+import React from 'react'
+import { useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import Carousel from 'react-multi-carousel'
+import styled from 'styled-components'
+
+import { PageSection } from '../PageSection'
+import { Category, CategoryProps } from '../Category'
+import { IconButton } from '../IconButton'
+
+export type CategoriesSectionProps = {
+  categories: CategoryProps[]
+}
+
+const StyledLink = styled(Link)`
+  width: 100%;
+  margin-right: 1rem;
+`
+
+const PreviousButton = styled(IconButton)`
+  position: absolute;
+  left: 0;
+`
+
+const NextButton = styled(IconButton)`
+  position: absolute;
+  right: 0;
+`
+
+export const CategoriesSection = ({ categories }: CategoriesSectionProps) => {
+  const history = useHistory()
+
+  const isMobile = /Mobi/i.test(window.navigator.userAgent)
+  return (
+    <PageSection
+      title="Categories"
+      topButtonLabel="View all categories"
+      onTopButtonClick={() => history.push('/categories')}
+    >
+      <Carousel
+        draggable={isMobile}
+        partialVisible={isMobile}
+        customLeftArrow={<PreviousButton name="arrow-left" />}
+        customRightArrow={<NextButton name="arrow-right" />}
+        responsive={{
+          desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 6,
+            slidesToSlide: 3,
+            paritialVisibilityGutter: 80,
+          },
+          tablet: {
+            breakpoint: { max: 1024, min: 464 },
+            items: 3,
+            paritialVisibilityGutter: 50,
+          },
+          mobile: {
+            breakpoint: { max: 464, min: 0 },
+            items: 2,
+            slidesToSlide: 3,
+            paritialVisibilityGutter: 10,
+          },
+        }}
+        containerClass="carousel-container"
+        removeArrowOnDeviceType={['tablet', 'mobile']}
+        itemClass={isMobile ? 'carousel-item' : ''}
+      >
+        {categories.map((category) => (
+          <StyledLink key={category.id} to={`/categories/${category.id}`}>
+            <Category rounded {...category} />
+          </StyledLink>
+        ))}
+      </Carousel>
+    </PageSection>
+  )
+}
