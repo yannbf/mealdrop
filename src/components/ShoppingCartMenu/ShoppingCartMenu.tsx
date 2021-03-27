@@ -90,6 +90,7 @@ export const ShoppingCartMenu: React.FC<ShoppingCartMenuProps> = ({
       <div style={{ display: 'grid', gap: '24px' }}>
         {cartItems.map((item) => (
           <ShoppingCartMenuItem
+            key={item.id}
             item={item}
             onChange={(quantity: number) => onItemChange({ ...item, quantity })}
           />

@@ -10,9 +10,9 @@ export default {
 
 export const Basic: Story<CategoryProps> = (args) => <Category {...args} />
 Basic.args = {
-  title: 'Asian',
+  title: 'Pizza',
   photoUrl:
-    'https://duyt4h9nfnj50.cloudfront.net/sku/57864fe0d398139ac2175e7457c63954',
+    'https://images.pexels.com/photos/2147491/pexels-photo-2147491.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=550',
 }
 
 export const Rounded = Basic.bind({})

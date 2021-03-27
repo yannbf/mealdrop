@@ -111,7 +111,7 @@ export const RestaurantDetailPage = () => {
               <Review rating={rating} />
               <div>
                 {categories?.map((category: any) => (
-                  <StyledBadge text={category} />
+                  <StyledBadge key={category} text={category} />
                 ))}
               </div>
             </div>

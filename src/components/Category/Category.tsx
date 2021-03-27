@@ -23,7 +23,7 @@ const Container = styled.figure<{ rounded: boolean }>(
     width: 100%;
     min-width: 50px;
     max-width: ${rounded ? '200px' : 'auto'};
-    max-height: ${rounded ? '200px' : '300px'};
+    max-height: ${rounded ? '200px' : '309px'};
     margin: 0;
     padding: ${rounded ? '1.5rem 2rem' : '0'};
 
