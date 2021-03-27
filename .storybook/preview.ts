@@ -27,7 +27,6 @@ export const parameters = {
   },
 }
 
-console.log({ parameters })
 export const globalTypes = {
   theme: {
     name: 'Theme',
