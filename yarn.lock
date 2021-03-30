@@ -3457,10 +3457,10 @@
     regenerator-runtime "^0.13.7"
     source-map "^0.7.3"
 
-"@storybook/testing-react@^0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@storybook/testing-react/-/testing-react-0.0.6.tgz#d423f5f0bf6989f65e37213dbe8e0afb6ca14be1"
-  integrity sha512-aQAr9j8vwTj1B4wDowzs4VTTqjzAIezUqmWHWe5MelgKz+sjHOn9eLlcpdMOAPcaLTNSV89nj6VDTSywnwcJcg==
+"@storybook/testing-react@^0.0.8":
+  version "0.0.8"
+  resolved "https://registry.yarnpkg.com/@storybook/testing-react/-/testing-react-0.0.8.tgz#c113cb967a50ce0ceb79e7800acff706ff78ab57"
+  integrity sha512-lvf8W1TYj8o6YBZr9tEGaza1uZrjqh1A+AvHeJWn8/qmFq5zTBCcVh0E/Nx/ckMxC8DKLdDuQTuQcNyk+qXC1g==
   dependencies:
     "@storybook/addons" "^6.1.21"
     "@storybook/client-api" "^6.1.21"

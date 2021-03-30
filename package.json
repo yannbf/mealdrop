@@ -27,7 +27,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --setupFiles ./src/setup.ts",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public -o build/storybook",
@@ -57,7 +57,7 @@
     "@storybook/addon-essentials": "^6.1.21",
     "@storybook/preset-create-react-app": "^3.1.5",
     "@storybook/react": "^6.1.21",
-    "@storybook/testing-react": "^0.0.6",
+    "@storybook/testing-react": "^0.0.8",
     "@types/react-hooks-helper": "^1.6.2",
     "@types/react-redux": "^7.1.9",
     "@types/react-router-dom": "^5.1.5",
