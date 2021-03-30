@@ -61,10 +61,6 @@ export interface ButtonProps {
   clear?: boolean
   round?: boolean
   /**
-   * What background color to use
-   */
-  backgroundColor?: string
-  /**
    * Is the button large?
    */
   large?: boolean
