@@ -1,5 +1,6 @@
 import React, { useLayoutEffect } from 'react'
 import { Switch, Route, useLocation } from 'react-router-dom'
+
 import { RestaurantDetailPage } from './pages/RestaurantDetailPage'
 import { CategoryPage } from './pages/CategoryPage'
 import { HomePage } from './pages/HomePage'

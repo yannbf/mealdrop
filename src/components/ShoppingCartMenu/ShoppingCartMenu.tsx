@@ -1,0 +1,101 @@
+import React from 'react'
+import styled from 'styled-components'
+
+import { CartItem } from '../../app-state/cart'
+import { toEuro } from '../../helpers'
+import { Button } from '../Button'
+import { Select } from '../forms/Select'
+import { Sidebar } from '../Sidebar'
+import { Body } from '../typography'
+
+const FooterContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+`
+
+const TotalSection = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+`
+
+const Footer = ({ onClick, totalPrice }: any) => (
+  <FooterContainer>
+    <TotalSection>
+      <Body type="span">Total</Body>
+      <Body type="span">{toEuro(totalPrice)}</Body>
+    </TotalSection>
+    <Button disabled={totalPrice === 0} large onClick={onClick}>
+      Checkout
+    </Button>
+  </FooterContainer>
+)
+
+const MenuItemContainer = styled.div`
+  display: flex;
+  align-items: flex-start;
+  > div:first-of-type {
+    padding-right: 1rem;
+    flex: 0.75;
+  }
+
+  > div:last-of-type {
+    flex: 0.25;
+  }
+`
+
+const ShoppingCartMenuItem = ({ item, onChange }: any) => (
+  <MenuItemContainer>
+    <div>
+      <Body type="span" fontWeight="medium">
+        {item.name}
+      </Body>
+      <Body>{item.description}</Body>
+      <Body>{toEuro(item.price * item.quantity)}</Body>
+    </div>
+    <Select
+      value={item.quantity}
+      onChange={onChange}
+      options={[...Array(11).keys()]}
+    />
+  </MenuItemContainer>
+)
+
+export type ShoppingCartMenuProps = {
+  isOpen: boolean
+  totalPrice: number
+  onClose: () => void
+  cartItems: CartItem[]
+  onGoToCheckoutClick?: () => void
+  onItemChange: (item: any) => void
+}
+
+export const ShoppingCartMenu: React.FC<ShoppingCartMenuProps> = ({
+  isOpen,
+  onClose,
+  cartItems,
+  totalPrice,
+  onItemChange,
+  onGoToCheckoutClick,
+}) => {
+  return (
+    <Sidebar
+      title="Your order"
+      onClose={onClose}
+      isOpen={isOpen}
+      footer={<Footer onClick={onGoToCheckoutClick} totalPrice={totalPrice} />}
+    >
+      <div style={{ display: 'grid', gap: '24px' }}>
+        {cartItems.map((item) => (
+          <ShoppingCartMenuItem
+            key={item.id}
+            item={item}
+            onChange={(quantity: number) => onItemChange({ ...item, quantity })}
+          />
+        ))}
+      </div>
+    </Sidebar>
+  )
+}

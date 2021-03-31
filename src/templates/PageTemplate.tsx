@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import { Header, HeaderComponent } from '../components/Header'
-import { Footer } from '../components/Footer'
+import { Header, HeaderComponent } from '../components/Header/Header'
+import { Footer } from '../components/Footer/Footer'
 import { breakpoints } from '../styles/breakpoints'
 
 const Container = styled.div`

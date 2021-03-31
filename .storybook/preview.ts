@@ -25,9 +25,14 @@ export const parameters = {
       ...INITIAL_VIEWPORTS,
     },
   },
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/,
+    },
+  },
 }
 
-console.log({ parameters })
 export const globalTypes = {
   theme: {
     name: 'Theme',

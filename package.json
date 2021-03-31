@@ -27,7 +27,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --setupFiles ./src/setup.ts",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public -o build/storybook",
@@ -53,10 +53,11 @@
     "@babel/core": "^7.11.6",
     "@figspec/components": "^0.1.4",
     "@figspec/react": "^0.1.5",
-    "@storybook/addon-a11y": "^6.1.15",
-    "@storybook/addon-essentials": "^6.1.15",
-    "@storybook/preset-create-react-app": "^3.1.5",
-    "@storybook/react": "^6.1.15",
+    "@storybook/addon-a11y": "^6.2.0",
+    "@storybook/addon-essentials": "^6.2.0",
+    "@storybook/preset-create-react-app": "^3.1.7",
+    "@storybook/react": "^6.2.0",
+    "@storybook/testing-react": "^0.0.8",
     "@types/react-hooks-helper": "^1.6.2",
     "@types/react-redux": "^7.1.9",
     "@types/react-router-dom": "^5.1.5",
@@ -67,6 +68,6 @@
     "react-is": "^16.13.1",
     "react-test-renderer": "^16.13.1",
     "storybook-addon-designs": "^6.0.0-alpha.2",
-    "storybook-mobile": "^0.1.29"
+    "storybook-mobile": "^0.1.30"
   }
 }
