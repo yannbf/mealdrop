@@ -104,6 +104,7 @@ const RestaurantCardSkeleton = () => {
   const { color } = useTheme()
   return (
     <SkeletonTheme
+      data-testid="loading"
       color={color.skeletonBase}
       highlightColor={color.skeletonHighlight}
     >
@@ -149,6 +150,7 @@ export const RestaurantCard: React.FC<RestaurantCardProps> = ({
   return (
     <Container
       className={className}
+      data-testid="restaurant-card"
       onClick={() => history.push(`/restaurants/${id}`)}
     >
       {isNew && <NewTag>new</NewTag>}
