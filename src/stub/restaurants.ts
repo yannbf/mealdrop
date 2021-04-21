@@ -45,15 +45,15 @@ const drinks = [
 export const restaurants: Restaurant[] = [
   {
     id: '1',
-    name: "'n Sterk Staaltje",
+    name: 'Burger King',
     mapsUrl: 'https://goo.gl/maps/EnyNcNJtvC3QkFgJ6',
     url: 'https://www.sterkstaaltje.com/',
     address: 'Staalstraat 12 1011 JL Amsterdam',
-    specialty: 'Truffelworst (truffle sausage)',
+    specialty: 'Nicest place for burgers',
     photoUrl:
-      'https://images.pexels.com/photos/6267/menu-restaurant-vintage-table.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+      'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1003&q=20',
+    rating: 4.2,
     categories: ['comfort-food'],
-    isNew: true,
     menu: {
       food,
       dessert,
@@ -1318,36 +1318,3 @@ export const restaurants: Restaurant[] = [
     categories: ['TBD'],
   },
 ]
-
-const fakeApiCall = (data: any) => {
-  return new Promise((resolve) => {
-    const timeout = Math.random() * 150 + 150
-    setTimeout(() => resolve(data), timeout)
-  })
-}
-
-export const getCuratedRestaurants = async () => {
-  const data = await fetch(
-    'https://blab-290ab.firebaseio.com/restaurants/.json'
-  )
-
-  return data.json()
-}
-
-export const getCuratedRestaurantsMocked = () =>
-  fakeApiCall(
-    restaurants.filter((restaurant) => !restaurant.isClosed).slice(0, 6)
-  )
-
-export const getRestaurantById = (id: string) =>
-  fakeApiCall(restaurants.find((restaurant) => id === restaurant.id))
-
-export const getRestaurantsByCategory = (category: string) =>
-  fakeApiCall(
-    restaurants
-      .filter((restaurant) =>
-        restaurant.categories?.includes(category.toLowerCase())
-      )
-      .sort((restaurant) => (restaurant.isClosed ? 1 : -1))
-      .sort((restaurant) => (restaurant.isNew ? -1 : 1))
-  )
