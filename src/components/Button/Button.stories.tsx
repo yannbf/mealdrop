@@ -15,6 +15,12 @@ Default.args = {
   children: 'Button',
 }
 
+export const Disabled = Template.bind({})
+Disabled.args = {
+  children: 'Button',
+  disabled: true,
+}
+
 export const Clear = Template.bind({})
 Clear.args = {
   clear: true,
