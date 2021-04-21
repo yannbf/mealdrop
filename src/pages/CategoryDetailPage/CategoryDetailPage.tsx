@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams, Link, useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { getRestaurantsByCategory } from '../../stub/restaurants'
+import { api } from '../../api'
 import { RestaurantCard } from '../../components/RestaurantCard'
 import { TopBanner } from '../../components/TopBanner'
 import { categories } from '../../stub/categories'
@@ -41,7 +41,7 @@ export const CategoryDetailPage = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const data = await getRestaurantsByCategory(id)
+      const data = await api.getRestaurantsByCategory(id)
       setRestaurants(data)
     }
 

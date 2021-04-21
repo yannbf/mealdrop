@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import Carousel from 'react-multi-carousel'
 
-import { getCuratedRestaurants } from '../../stub/restaurants'
+import { api } from '../../api'
 import { breakpoints } from '../../styles/breakpoints'
 import { IconButton } from '../IconButton'
 import { PageSection } from '../PageSection'
@@ -24,7 +24,11 @@ const StyledRestaurantCard = styled(RestaurantCard)`
   }
 `
 
-export const RestaurantsSection = ({ title }: { title: string }) => {
+export type RestaurantsSectionProps = {
+  title: string
+}
+
+export const RestaurantsSection = ({ title }: RestaurantsSectionProps) => {
   const [restaurants, setRestaurants] = useState<any>([
     { isLoading: true },
     { isLoading: true },
@@ -33,7 +37,8 @@ export const RestaurantsSection = ({ title }: { title: string }) => {
 
   useEffect(() => {
     const getData = async () => {
-      const data = await getCuratedRestaurants()
+      const data = await api.getCuratedRestaurants()
+      console.log(data.length)
       setRestaurants(data)
     }
 
@@ -70,10 +75,7 @@ export const RestaurantsSection = ({ title }: { title: string }) => {
         itemClass="carousel-item"
       >
         {restaurants.map((restaurant: any, index: number) => (
-          <StyledRestaurantCard
-            key={restaurant.name + index}
-            {...restaurant}
-          />
+          <StyledRestaurantCard key={restaurant.name + index} {...restaurant} />
         ))}
       </Carousel>
     </PageSection>

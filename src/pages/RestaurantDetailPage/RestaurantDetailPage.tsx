@@ -3,7 +3,7 @@ import { useHistory, useParams } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { getRestaurantById } from '../../stub/restaurants'
+import { api } from '../../api'
 import { FoodItem } from '../../components/FoodItem/FoodItem'
 import { breakpoints } from '../../styles/breakpoints'
 import {
@@ -79,7 +79,7 @@ export const RestaurantDetailPage = () => {
 
   useEffect(() => {
     const getData = async () => {
-      const data = (await getRestaurantById(id)) as Restaurant
+      const data = await api.getRestaurantById(id)
       setRestaurant(data)
     }
 
