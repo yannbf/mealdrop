@@ -9,15 +9,22 @@ interface BaseApi {
 
 const BASE_URL = 'https://blab-290ab.firebaseio.com'
 
+const isMockedEnvironment =
+  !!process.env.STORYBOOK || process.env.NODE_ENV === 'test'
+
 const apiCache = new Map()
 
 const apiGet = async <T>(url: string): Promise<AxiosResponse<T>> => {
-  if (apiCache.has(url)) {
+  // do not cache when testing to avoid flakyness
+  if (!isMockedEnvironment && apiCache.has(url)) {
     return await apiCache.get(url)
   }
 
   const response = await axios.get<T>(url)
-  apiCache.set(url, response)
+
+  if (!isMockedEnvironment) {
+    apiCache.set(url, response)
+  }
 
   return response
 }
@@ -69,9 +76,6 @@ class RestaurantsApi implements BaseApi {
 //       .sort((restaurant) => (restaurant.isNew ? -1 : 1))
 //   }
 // }
-
-// const isMockedEnvironment =
-//   !!process.env.STORYBOOK || process.env.NODE_ENV === 'test'
 
 // const api: BaseApi = isMockedEnvironment
 //   ? new MockedRestaurantsApi()
