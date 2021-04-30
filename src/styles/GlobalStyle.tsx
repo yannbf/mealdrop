@@ -6,6 +6,11 @@ import 'react-multi-carousel/lib/styles.css'
 export const GlobalStyle = createGlobalStyle(
   ({ theme: { color } }) => css`
     ${resetCSS}
+    // smooth light-dark mode transition
+    * {
+      transition: all 250ms ease-in;
+      transition-property: background, color, border;
+    }
     @font-face {
       font-family: 'Montserrat';
       font-style: normal;
