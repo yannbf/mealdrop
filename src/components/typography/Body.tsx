@@ -14,7 +14,7 @@ const BodyBase = styled.p<{ size: string; fontWeight: string }>(
   `
 )
 
-export type BodyProps = {
+export type DefaultProps = {
   className?: string
   size?: 'S' | 'XS' | 'XXS'
   fontWeight?: 'regular' | 'medium' | 'bold' | 'black'
@@ -23,6 +23,8 @@ export type BodyProps = {
   children: React.ReactNode | string
 }
 
+export type BodyProps = DefaultProps & React.ComponentProps<typeof BodyBase>;
+
 export const Body: React.FC<BodyProps> = ({
   size = '',
   fontWeight = 'regular',
@@ -30,6 +32,7 @@ export const Body: React.FC<BodyProps> = ({
   color,
   children,
   className,
+  ...props
 }) => {
   return (
     <BodyBase
@@ -38,6 +41,7 @@ export const Body: React.FC<BodyProps> = ({
       color={color}
       fontWeight={fontWeight}
       className={className}
+      {...props}
     >
       {children}
     </BodyBase>

@@ -54,7 +54,7 @@ const StyledButton = styled.button<{
   `
 )
 
-export interface ButtonProps {
+type DefaultProps = {
   /**
    * Clear button styles leaving just a text
    */
@@ -85,6 +85,12 @@ export interface ButtonProps {
    */
   onClick?: () => void
 }
+
+export type ButtonProps = DefaultProps &
+  React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  >;
 
 /**
  * Primary UI component for user interaction
