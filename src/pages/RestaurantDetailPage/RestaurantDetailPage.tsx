@@ -1,4 +1,4 @@
-import React, { useState, useEffect, memo } from 'react'
+import React, { useState, useEffect, memo, useCallback } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux'
@@ -15,9 +15,11 @@ import {
 import { TopBanner } from '../../components/TopBanner'
 import { Heading, Body } from '../../components/typography'
 import { Badge } from '../../components/Badge'
-import { Restaurant } from '../../types'
+import { FoodMenuItem, Restaurant } from '../../types'
 import { FoodItemModal } from '../../components/modal/FoodItemModal'
 import { Review } from '../../components/Review'
+import { AnimatedIllustration } from '../../components/AnimatedIllustration'
+import { ErrorSection } from '../../components/ErrorSection'
 
 const StyledContainer = styled.div`
   grid-template-columns: repeat(1, 1fr);
@@ -66,7 +68,9 @@ const StyledBadge = styled(Badge)(
 
 export const RestaurantDetailPage = () => {
   let { id } = useParams<{ id: string }>()
+
   const history = useHistory()
+  const [error, setError] = useState()
   const [restaurant, setRestaurant] = useState<Restaurant>()
 
   const [selectedItem, setSelectedItem] = useState<CartItem>()
@@ -77,17 +81,50 @@ export const RestaurantDetailPage = () => {
   const addItemToCart = (item: any) => dispatch(saveItemAction(item))
   const clearItemFromCart = (item: any) => dispatch(clearItemAction(item))
 
-  useEffect(() => {
+  const fetchData = useCallback(() => {
     const getData = async () => {
       const data = await api.getRestaurantById(id)
       setRestaurant(data)
     }
 
     getData()
+      .then(() => setError(undefined))
+      .catch((error) => {
+        const statusCode = error?.response?.status || 500
+        setError(statusCode)
+      })
   }, [id])
 
-  if (!restaurant) {
-    return null
+  useEffect(() => {
+    fetchData()
+  }, [fetchData])
+
+  if (error === 500) {
+    return (
+      <ErrorSection
+        title="Something went wrong!"
+        body="Our bad, something went wrong on our side."
+        image={<AnimatedIllustration animation="NotFound" />}
+        onButtonClick={fetchData}
+        buttonText="Try again"
+      />
+    )
+  }
+
+  if (error === 404) {
+    return (
+      <ErrorSection
+        title="We can't find this page"
+        body="This page doesn’t exist, keep looking."
+        image={<AnimatedIllustration animation="Error" />}
+        onButtonClick={() => history.push('/')}
+        buttonText="Home"
+      />
+    )
+  }
+
+  if (restaurant === undefined) {
+    return <Heading>Loading..</Heading>
   }
 
   const { menu, name, rating, specialty, photoUrl, categories } = restaurant
@@ -150,19 +187,28 @@ export const RestaurantDetailPage = () => {
   )
 }
 
-const FoodSection = memo(({ title, cartItems, items, onItemClick }: any) => (
+type FoodSectionProps = { 
+  items: FoodMenuItem[] 
+  title: string 
+  cartItems: CartItem[]
+  onItemClick: (item: any) => void 
+}
+
+const FoodSection = memo(({ title, cartItems, items, onItemClick }: FoodSectionProps) => (
   <div>
     <StyledHeading level={3}>{title}</StyledHeading>
     <StyledContainer>
-      {items.map((item: any) => {
+      {items.map((item: FoodMenuItem) => {
         const cartItem = cartItems.find(
-          (cartItem: any) => cartItem.id === item.id
+          (cartItem) => cartItem.id === item.id
         )
         const quantity = cartItem?.quantity || 0
         return (
           <FoodItem
-            key={item.title}
-            {...item}
+            key={item.name}
+            name={item.name}
+            price={item.price}
+            description={item.description}
             quantity={quantity}
             onClick={() => onItemClick(item)}
           />

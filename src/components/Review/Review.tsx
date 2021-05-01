@@ -29,12 +29,12 @@ const getReview = (rating?: number) => {
     reviewText = 'Adequate'
   }
 
-  return `${rating.toFixed(1)} ${reviewText}`
+  return `★ ${rating.toFixed(1)} ${reviewText}`
 }
 
 export const Review: React.FC<ReviewProps> = ({ rating }) => (
   <Wrapper>
-    <Icon name="star" />
+    {/* <Icon name="star" /> */}
     <Body size="S" type="span" className="review-text">
       {getReview(rating)}
     </Body>

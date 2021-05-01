@@ -96,6 +96,7 @@ export const FoodItemModal: React.FC<FoodItemModalProps> = ({
           <BottomContainer>
             <ButtonsContainer>
               <Button
+                aria-label="decrease quantity by one"
                 round
                 clear
                 icon="minus"
@@ -104,6 +105,7 @@ export const FoodItemModal: React.FC<FoodItemModalProps> = ({
               />
               <Body type="span">{quantity}</Body>
               <Button
+                aria-label="increase quantity by one"
                 round
                 clear
                 icon="plus"
@@ -111,7 +113,7 @@ export const FoodItemModal: React.FC<FoodItemModalProps> = ({
                 disabled={quantity >= 10}
               />
             </ButtonsContainer>
-            <StyledButton onClick={saveItem}>
+            <StyledButton aria-label="confirm" onClick={saveItem}>
               add for {toEuro(item.price * quantity)}
             </StyledButton>
           </BottomContainer>

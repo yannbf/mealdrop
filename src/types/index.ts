@@ -1,4 +1,4 @@
-export type FoodItem = {
+export type FoodMenuItem = {
   id: number
   name: string
   description?: string
@@ -19,8 +19,8 @@ export type Restaurant = {
   isLoading?: boolean
   isNew?: boolean
   menu?: {
-    food: FoodItem[]
-    dessert: FoodItem[]
-    drinks: FoodItem[]
+    food: FoodMenuItem[]
+    dessert: FoodMenuItem[]
+    drinks: FoodMenuItem[]
   }
 }

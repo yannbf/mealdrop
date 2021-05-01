@@ -51,7 +51,7 @@ export type FoodItemProps = {
   quantity?: number
   name: string
   price: number
-  description: string
+  description?: string
   onClick: () => void
 }
 
@@ -61,7 +61,7 @@ export const FoodItem: React.FC<FoodItemProps> = memo(
       <Container isHighlighted={quantity > 0} onClick={onClick}>
         <div>
           {quantity > 0 && (
-            <Quantity type="span" fontWeight="medium">
+            <Quantity aria-label="food quantity" type="span" fontWeight="medium">
               {quantity}
             </Quantity>
           )}
