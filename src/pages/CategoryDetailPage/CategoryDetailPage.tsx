@@ -84,7 +84,11 @@ export const CategoryDetailPage = () => {
         )}
         <StyledContainer>
           {restaurants.map((restaurant: Restaurant) => (
-            <RestaurantCard key={restaurant.id} {...restaurant} />
+            <RestaurantCard
+              key={restaurant.name}
+              {...restaurant}
+              onClick={() => history.push(`/restaurants/${restaurant.id}`)}
+            />
           ))}
         </StyledContainer>
       </div>

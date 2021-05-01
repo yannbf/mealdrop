@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import { useHistory } from 'react-router-dom'
 import Carousel from 'react-multi-carousel'
 
 import { api } from '../../api'
@@ -7,6 +8,7 @@ import { breakpoints } from '../../styles/breakpoints'
 import { IconButton } from '../IconButton'
 import { PageSection } from '../PageSection'
 import { RestaurantCard } from '../RestaurantCard'
+import { Restaurant } from '../../types'
 
 const PreviousButton = styled(IconButton)`
   position: absolute;
@@ -29,6 +31,8 @@ export type RestaurantsSectionProps = {
 }
 
 export const RestaurantsSection = ({ title }: RestaurantsSectionProps) => {
+  const history = useHistory()
+
   const [restaurants, setRestaurants] = useState<any>([
     { isLoading: true },
     { isLoading: true },
@@ -38,7 +42,6 @@ export const RestaurantsSection = ({ title }: RestaurantsSectionProps) => {
   useEffect(() => {
     const getData = async () => {
       const data = await api.getCuratedRestaurants()
-      console.log(data.length)
       setRestaurants(data)
     }
 
@@ -74,8 +77,12 @@ export const RestaurantsSection = ({ title }: RestaurantsSectionProps) => {
         removeArrowOnDeviceType={['tablet', 'mobile']}
         itemClass="carousel-item"
       >
-        {restaurants.map((restaurant: any, index: number) => (
-          <StyledRestaurantCard key={restaurant.name + index} {...restaurant} />
+        {restaurants.map((restaurant: Restaurant, index: number) => (
+          <StyledRestaurantCard
+            key={restaurant.name + index}
+            {...restaurant}
+            onClick={() => history.push(`/restaurants/${restaurant.id}`)}
+          />
         ))}
       </Carousel>
     </PageSection>

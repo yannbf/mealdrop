@@ -1,5 +1,4 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import styled, { css, useTheme } from 'styled-components'
 
@@ -17,6 +16,7 @@ export type RestaurantCardProps = {
   categories?: string[]
   isLoading?: boolean
   isNew?: boolean
+  onClick: () => void
   className?: string
 }
 
@@ -132,7 +132,6 @@ const RestaurantCardSkeleton = () => {
 export const RestaurantCard: React.FC<RestaurantCardProps> = ({
   photoUrl,
   name,
-  id,
   specialty,
   rating,
   isClosed = false,
@@ -140,8 +139,8 @@ export const RestaurantCard: React.FC<RestaurantCardProps> = ({
   categories,
   isNew = false,
   className,
+  onClick
 }) => {
-  const history = useHistory()
 
   if (isLoading) {
     return <RestaurantCardSkeleton />
@@ -151,7 +150,7 @@ export const RestaurantCard: React.FC<RestaurantCardProps> = ({
     <Container
       className={className}
       data-testid="restaurant-card"
-      onClick={() => history.push(`/restaurants/${id}`)}
+      onClick={onClick}
     >
       {isNew && <NewTag>new</NewTag>}
       <div style={{ position: 'relative', display: 'flex' }}>
