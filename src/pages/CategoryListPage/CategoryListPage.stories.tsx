@@ -2,7 +2,6 @@ import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
 import { CategoryListPage } from './CategoryListPage'
-import { withStore } from '../../../.storybook/decorators'
 import { DefaultTemplate } from '../../templates/PageTemplate'
 
 export default {
@@ -11,7 +10,6 @@ export default {
   parameters: {
     layout: 'fullscreen',
   },
-  decorators: [withStore()]
 } as Meta
 
 const Template: Story = (args) => (

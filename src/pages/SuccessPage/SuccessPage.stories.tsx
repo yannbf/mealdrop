@@ -2,7 +2,6 @@ import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
 import { SuccessPage } from './SuccessPage'
-import { withStore } from '../../../.storybook/decorators'
 
 export default {
   title: 'Pages/SuccessPage',
@@ -16,29 +15,33 @@ export default {
       accessToken: process.env.FIGMA_ACCESS_TOKEN,
     },
   },
-  decorators: [withStore({
-    cart: {
-      visible: false,
-      items: [
-        {
-          id: 2,
-          name: 'Fries',
-          description: 'Fried french fries',
-          price: 2.5,
-          quantity: 2,
-        },
-        {
-          id: 1,
-          name: 'Cheeseburger',
-          description: 'Nice grilled burger with cheese',
-          price: 8.5,
-          quantity: 1,
-        },
-      ],
-    },
-  })],
 } as Meta
 
 const Template: Story = (args) => <SuccessPage {...args} />
 
 export const Default = Template.bind({})
+Default.parameters = {
+  store: {
+    initialState: {
+      cart: {
+        visible: false,
+        items: [
+          {
+            id: 2,
+            name: 'Fries',
+            description: 'Fried french fries',
+            price: 2.5,
+            quantity: 2,
+          },
+          {
+            id: 1,
+            name: 'Cheeseburger',
+            description: 'Nice grilled burger with cheese',
+            price: 8.5,
+            quantity: 1,
+          },
+        ],
+      },
+    }
+  }
+}

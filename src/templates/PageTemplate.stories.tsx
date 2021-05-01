@@ -6,14 +6,12 @@ import {
   SimpleTemplate,
   StickyHeaderTemplate,
 } from './PageTemplate'
-import { withStore } from '../../.storybook/decorators'
 
 export default {
   title: 'Templates/PageTemplate',
   parameters: {
     layout: 'fullscreen',
   },
-  decorators: [withStore()],
 } as Meta
 
 const DummyComponent: React.FC = ({ children }) => (

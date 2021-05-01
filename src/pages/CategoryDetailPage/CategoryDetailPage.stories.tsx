@@ -2,7 +2,7 @@ import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
 import { CategoryDetailPage } from './CategoryDetailPage'
-import { withSpecificRoute, withStore } from '../../../.storybook/decorators'
+import { withSpecificRoute } from '../../../.storybook/decorators'
 import { DefaultTemplate } from '../../templates/PageTemplate'
 
 export default {
@@ -10,8 +10,7 @@ export default {
   component: CategoryDetailPage,
   parameters: {
     layout: 'fullscreen',
-  },
-  decorators: [withStore()]
+  }
 } as Meta
 
 const Template: Story = (args) => (

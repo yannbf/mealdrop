@@ -1,15 +1,15 @@
 import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Route, MemoryRouter } from 'react-router-dom'
 import styled, { css, ThemeProvider } from 'styled-components'
 import { Story, StoryContext } from '@storybook/react'
+import { configureStore } from '@reduxjs/toolkit';
 import { Provider as StoreProvider } from 'react-redux'
-import { Route, Router } from 'react-router'
-import { createMemoryHistory } from 'history'
 
-import { store as appStore } from '../src/app-state'
+import { rootReducer } from '../src/app-state/reducers'
 import { breakpoints } from '../src/styles/breakpoints'
 import { GlobalStyle } from '../src/styles/GlobalStyle'
 import { darkTheme, lightTheme } from '../src/styles/theme'
+
 
 const ThemeBlock = styled.div<{ left?: boolean; fullScreen?: boolean }>(
   ({ left, fullScreen, theme: { color } }) =>
@@ -90,28 +90,45 @@ export const withRouter = (StoryFn: Story) => (
   </BrowserRouter>
 )
 
-export const withStore = (state?: Record<string, any>) => (StoryFn: Story) => (
-  <StoreProvider
-    store={{
-      ...appStore,
-      getState: state ? () => state : appStore.getState,
-    }}
-  >
-    <StoryFn />
-  </StoreProvider>
-)
+/**
+ * 
+ * Provide components support for redux-store
+ * optionally passing custom initial state, and using default initial state if not passed
+ * 
+ * @example
+ * export const MyComponent = () => Template.bind({})
+ * MyComponent.parameters = {
+ *   store: {
+ *     initialState: {
+ *       foo: 'bar'
+ *     },
+ *   }
+ * };
+ */
+ export const withStore = (StoryFn: Story, { parameters }: StoryContext) => {
+  // Creates a store by merging optional custom initialState
+  const store = configureStore({
+    reducer: rootReducer,
+    preloadedState: parameters.store?.initialState, // if undefined, just use default state from reducers
+  });
+  return (
+    <StoreProvider store={store}>
+      <StoryFn />
+    </StoreProvider>
+  );
+};
 
 export const withSpecificRoute = ({
-  path = '/', // "/restaurant/:id"
-  route = '/', // "/restaurant/123"
+  path = '/', // e.g. "/restaurant/:id"
+  route = '/', // e.g. "/restaurant/123"
 } = {}) => (StoryFn: Story) => {
   return (
-    <Router history={createMemoryHistory({ initialEntries: [route] })}>
+    <MemoryRouter initialEntries={[route]}>
       <Route path={path}>
         <StoryFn />
       </Route>
-    </Router>
+    </MemoryRouter>
   )
 }
 
-export const globalDecorators = [withRouter, withTheme]
+export const globalDecorators = [withStore, withRouter, withTheme]
