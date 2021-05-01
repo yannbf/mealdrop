@@ -2,14 +2,12 @@ import React from 'react'
 import { Story, Meta } from '@storybook/react'
 
 import { RestaurantCard, RestaurantCardProps } from './RestaurantCard'
+import { restaurants } from '../../stub/restaurants'
 
 export default {
   title: 'Components/RestaurantCard',
   component: RestaurantCard,
   parameters: {
-    viewport: {
-      defaultViewport: 'breakpointXS',
-    },
     design: {
       type: 'experimental-figspec',
       url:
@@ -29,19 +27,12 @@ export default {
   },
 } as Meta
 
-const restaurantMock = {
-  name: 'Burger King',
-  specialty: 'Nicest place for burgers',
-  categories: ['Category'],
-  photoUrl:
-    'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1003&q=20',
-  rating: 4.2
-}
-
 const Basic: Story<RestaurantCardProps> = (args) => <RestaurantCard {...args} />
 
 export const Default = Basic.bind({})
-Default.args = restaurantMock
+Default.args = {
+  ...restaurants[0]
+}
 
 export const New = Basic.bind({})
 New.args = {
