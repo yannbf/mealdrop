@@ -1,4 +1,3 @@
-import React from 'react'
 import styled, { useTheme } from 'styled-components'
 
 import Icons from '../../assets/icons/sprite-map.svg'

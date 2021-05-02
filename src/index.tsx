@@ -1,4 +1,4 @@
-import React from 'react'
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
@@ -7,13 +7,13 @@ import { Provider as StoreProvider } from 'react-redux'
 import { store } from './app-state'
 
 ReactDOM.render(
-  <React.StrictMode>
+  <StrictMode>
     <Router>
       <StoreProvider store={store}>
         <App />
       </StoreProvider>
     </Router>
-  </React.StrictMode>,
+  </StrictMode>,
   document.getElementById('root')
 )
 

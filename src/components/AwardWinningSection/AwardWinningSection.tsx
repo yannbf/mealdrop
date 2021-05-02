@@ -1,4 +1,3 @@
-import React from 'react'
 import styled, { css } from 'styled-components'
 import restaurants from '../../assets/images/restaurants.png'
 import { breakpoints } from '../../styles/breakpoints'

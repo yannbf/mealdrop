@@ -1,5 +1,5 @@
 // @ts-nocheck
-import React from 'react'
+import * as React from 'react';
 import styled, { css } from 'styled-components'
 
 type fontSizeType = 'heading1' | 'heading2' | 'heading3' | 'heading4'

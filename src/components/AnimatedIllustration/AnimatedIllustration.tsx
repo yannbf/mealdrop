@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 import Lottie from 'react-lottie-player'
 
 enum LOTTIE_ANIMATIONS {

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { CartItem } from '../../../app-state/cart'
 import { toEuro } from '../../../helpers'
 import {

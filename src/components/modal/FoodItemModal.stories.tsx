@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react'
-import React, { useState } from 'react'
+import { useState } from 'react';
 import { Button } from '../Button'
 
 import { FoodItemModal } from './FoodItemModal'

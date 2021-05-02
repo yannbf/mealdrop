@@ -1,4 +1,4 @@
-import React, { useLayoutEffect } from 'react'
+import { useLayoutEffect } from 'react';
 import { Switch, Route, useLocation } from 'react-router-dom'
 
 import { RestaurantDetailPage } from './pages/RestaurantDetailPage'

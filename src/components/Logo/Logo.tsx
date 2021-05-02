@@ -1,4 +1,3 @@
-import React from 'react'
 import styled, { css, useTheme, keyframes } from 'styled-components'
 
 import { breakpoints } from '../../styles/breakpoints'

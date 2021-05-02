@@ -1,4 +1,5 @@
-import React, { useMemo } from 'react'
+import { useMemo } from 'react';
+import * as React from 'react';
 
 import { ShoppingCartItem } from '../item/ShoppingCartItem'
 import { CartItem } from '../../../app-state/cart'

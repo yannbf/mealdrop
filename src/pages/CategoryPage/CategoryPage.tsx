@@ -1,4 +1,3 @@
-import React from 'react'
 import { Route, RouteComponentProps } from 'react-router-dom'
 import { CategoryListPage } from '../CategoryListPage'
 import { CategoryDetailPage } from '../CategoryDetailPage'

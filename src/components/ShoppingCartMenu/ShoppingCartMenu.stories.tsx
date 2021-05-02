@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useEffect, useState } from 'react';
 import { Story, Meta } from '@storybook/react'
 
 import { cartItems } from '../../stub/cart-items'
@@ -16,7 +16,7 @@ const Template: Story<ShoppingCartMenuProps> = () => {
   const openShoppingCartMenu = () => setIsOpen(true)
   const closeShoppingCartMenu = () => setIsOpen(false)
 
-  React.useEffect(() => {
+  useEffect(() => {
     setIsOpen(true)
   }, [])
 

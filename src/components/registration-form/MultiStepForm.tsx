@@ -1,4 +1,3 @@
-import React from 'react'
 import { Step, useForm, useStep } from 'react-hooks-helper'
 import styled, { css } from 'styled-components'
 

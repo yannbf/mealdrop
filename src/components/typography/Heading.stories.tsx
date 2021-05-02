@@ -1,5 +1,4 @@
 import { Story, Meta } from '@storybook/react'
-import React from 'react'
 
 import { Heading, HeadingProps } from './Heading'
 

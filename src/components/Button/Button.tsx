@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react';
 import styled, { css, useTheme } from 'styled-components'
 import { breakpoints } from '../../styles/breakpoints'
 import { Icon } from '../Icon'

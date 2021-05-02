@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import styled, { css, useTheme } from 'styled-components'
 
