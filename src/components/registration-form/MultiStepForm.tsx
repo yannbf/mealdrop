@@ -1,5 +1,5 @@
 import React from 'react'
-import { useForm, useStep } from 'react-hooks-helper'
+import { Step, useForm, useStep } from 'react-hooks-helper'
 import styled, { css } from 'styled-components'
 
 import { ContactDetails } from './ContactDetails'
@@ -7,7 +7,7 @@ import { DeliveryDetails } from './DeliveryDetails'
 import Submit from './Submit'
 import { StepIndicator } from './StepIndicator'
 
-const steps = ['Contact details', 'Delivery details']
+const steps: Step[] = [{ id: 'Contact details' }, { id: 'Delivery details' }]
 
 const defaultData = {
   firstName: 'John',
@@ -47,16 +47,18 @@ export const MultiStepForm = () => {
   const [formData, setForm] = useForm(defaultData)
   const { step, navigation, index } = useStep({ initialStep: 0, steps })
 
+  const currentStepId = (step as Step).id
   const props = { formData, setForm, navigation }
   const currentIndex = index + 1
+
   return (
     <FormContainer>
       <StepIndicator
-        title={step.toString()}
+        title={currentStepId}
         currentStep={currentIndex}
         amountOfSteps={steps.length}
       />
-      {getCurrentStep(step.toString(), props)}
+      {getCurrentStep(currentStepId, props)}
     </FormContainer>
   )
 }

@@ -87,10 +87,7 @@ type DefaultProps = {
 }
 
 export type ButtonProps = DefaultProps &
-  React.DetailedHTMLProps<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    HTMLButtonElement
-  >;
+  React.ComponentProps<typeof StyledButton>;
 
 /**
  * Primary UI component for user interaction

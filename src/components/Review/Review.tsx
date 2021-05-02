@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 
 import { Body } from '../typography'
-import { Icon } from '../Icon'
 
 const Wrapper = styled.div`
   display: flex;

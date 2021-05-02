@@ -14,7 +14,7 @@ const BodyBase = styled.p<{ size: string; fontWeight: string }>(
   `
 )
 
-export type DefaultProps = {
+type DefaultProps = {
   className?: string
   size?: 'S' | 'XS' | 'XXS'
   fontWeight?: 'regular' | 'medium' | 'bold' | 'black'

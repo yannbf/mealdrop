@@ -20,7 +20,7 @@ const HeadingBase = styled.h1<{ level: number }>(
   `
 )
 
-export type DefaultProps = {
+type DefaultProps = {
   level?: 1 | 2 | 3 | 4 | 5
   className?: string
   children: React.ReactNode | string
