@@ -18,7 +18,7 @@ export type Restaurant = {
   categories?: string[]
   isLoading?: boolean
   isNew?: boolean
-  menu?: {
+  menu: {
     food: FoodMenuItem[]
     dessert: FoodMenuItem[]
     drinks: FoodMenuItem[]

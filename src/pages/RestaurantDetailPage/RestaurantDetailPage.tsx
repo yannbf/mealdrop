@@ -66,12 +66,41 @@ const StyledBadge = styled(Badge)(
   `
 )
 
+const useFetchRestaurant = (id: string) => {
+  const [status, setStatus] = useState('idle');
+  const [restaurant, setRestaurant] = useState<Restaurant>();
+  const [retry, setRetry] = useState(false);
+
+  const retryRequest = useCallback(() => {
+    setRetry(prev => !prev);
+  }, [setRetry])
+
+  useEffect(() => {
+    setStatus('loading');
+
+    api.getRestaurantById(id)
+      .then((res) => {
+        setStatus('success');
+        setRestaurant(res);
+      })
+      .catch((error) => {
+        const statusCode = error?.response?.status || 500
+        setStatus(statusCode.toString());
+      });
+  }, [id, retry]);
+
+  return {
+    status,
+    restaurant,
+    retryRequest
+  };
+}
+
 export const RestaurantDetailPage = () => {
   let { id } = useParams<{ id: string }>()
 
   const history = useHistory()
-  const [error, setError] = useState()
-  const [restaurant, setRestaurant] = useState<Restaurant>()
+  const { restaurant, status, retryRequest } = useFetchRestaurant(id)
 
   const [selectedItem, setSelectedItem] = useState<CartItem>()
   const closeModal = () => setSelectedItem(undefined)
@@ -81,37 +110,20 @@ export const RestaurantDetailPage = () => {
   const addItemToCart = (item: any) => dispatch(saveItemAction(item))
   const clearItemFromCart = (item: any) => dispatch(clearItemAction(item))
 
-  const fetchData = useCallback(() => {
-    const getData = async () => {
-      const data = await api.getRestaurantById(id)
-      setRestaurant(data)
-    }
 
-    getData()
-      .then(() => setError(undefined))
-      .catch((error) => {
-        const statusCode = error?.response?.status || 500
-        setError(statusCode)
-      })
-  }, [id])
-
-  useEffect(() => {
-    fetchData()
-  }, [fetchData])
-
-  if (error === 500) {
+  if (status === '500') {
     return (
       <ErrorSection
         title="Something went wrong!"
         body="Our bad, something went wrong on our side."
         image={<AnimatedIllustration animation="NotFound" />}
-        onButtonClick={fetchData}
+        onButtonClick={retryRequest}
         buttonText="Try again"
       />
     )
   }
 
-  if (error === 404) {
+  if (status === '404') {
     return (
       <ErrorSection
         title="We can't find this page"
@@ -123,8 +135,12 @@ export const RestaurantDetailPage = () => {
     )
   }
 
-  if (restaurant === undefined) {
+  if (status === 'loading') {
     return <Heading>Loading..</Heading>
+  }
+
+  if (!restaurant) {
+    return null
   }
 
   const { menu, name, rating, specialty, photoUrl, categories } = restaurant
@@ -139,59 +155,55 @@ export const RestaurantDetailPage = () => {
         onItemRemove={clearItemFromCart}
       />
       <TopBanner photoUrl={photoUrl} onBackClick={() => history.goBack()} />
-      {menu && (
-        <>
-          <DetailSection>
-            <div className="container">
-              <Heading level={2}>{name}</Heading>
-              <Body>Specialties: {specialty}</Body>
-              <Review rating={rating} />
-              <div>
-                {categories?.map((category: any) => (
-                  <StyledBadge key={category} text={category} />
-                ))}
-              </div>
-            </div>
-          </DetailSection>
-          <MenuSection>
-            <div className="container">
-              {menu.food && (
-                <FoodSection
-                  title="To eat"
-                  items={menu.food}
-                  cartItems={cartItems}
-                  onItemClick={setSelectedItem}
-                />
-              )}
-              {menu.dessert && (
-                <FoodSection
-                  title="Dessert"
-                  items={menu.dessert}
-                  cartItems={cartItems}
-                  onItemClick={setSelectedItem}
-                />
-              )}
-              {menu.drinks && (
-                <FoodSection
-                  title="To eat"
-                  items={menu.drinks}
-                  cartItems={cartItems}
-                  onItemClick={setSelectedItem}
-                />
-              )}
-            </div>
-          </MenuSection>
-        </>
-      )}
+      <DetailSection>
+        <div className="container">
+          <Heading level={2}>{name}</Heading>
+          <Body>Specialties: {specialty}</Body>
+          <Review rating={rating} />
+          <div>
+            {categories?.map((category: any) => (
+              <StyledBadge key={category} text={category} />
+            ))}
+          </div>
+        </div>
+      </DetailSection>
+      <MenuSection>
+        <div className="container">
+          {menu.food && (
+            <FoodSection
+              title="To eat"
+              items={menu.food}
+              cartItems={cartItems}
+              onItemClick={setSelectedItem}
+            />
+          )}
+          {menu.dessert && (
+            <FoodSection
+              title="Dessert"
+              items={menu.dessert}
+              cartItems={cartItems}
+              onItemClick={setSelectedItem}
+            />
+          )}
+          {menu.drinks && (
+            <FoodSection
+              title="To drink"
+              items={menu.drinks}
+              cartItems={cartItems}
+              onItemClick={setSelectedItem}
+            />
+          )}
+        </div>
+      </MenuSection>
     </>
   )
 }
 
-type FoodSectionProps = { 
-  items: FoodMenuItem[] 
-  title: string 
+type FoodSectionProps = {
+  items: FoodMenuItem[]
+  title: string
   cartItems: CartItem[]
-  onItemClick: (item: any) => void 
+  onItemClick: (item: any) => void
 }
 
 const FoodSection = memo(({ title, cartItems, items, onItemClick }: FoodSectionProps) => (
