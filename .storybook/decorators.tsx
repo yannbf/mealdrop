@@ -2,14 +2,13 @@ import React from 'react'
 import { BrowserRouter, Route, MemoryRouter } from 'react-router-dom'
 import styled, { css, ThemeProvider } from 'styled-components'
 import { Story, StoryContext } from '@storybook/react'
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit'
 import { Provider as StoreProvider } from 'react-redux'
 
 import { rootReducer } from '../src/app-state/reducers'
 import { breakpoints } from '../src/styles/breakpoints'
 import { GlobalStyle } from '../src/styles/GlobalStyle'
 import { darkTheme, lightTheme } from '../src/styles/theme'
-
 
 const ThemeBlock = styled.div<{ left?: boolean; fullScreen?: boolean }>(
   ({ left, fullScreen, theme: { color } }) =>
@@ -39,7 +38,7 @@ export const withTheme = (
 ) => {
   const fullScreen = parameters.layout === 'fullscreen'
   const appTheme = theme === 'light' ? lightTheme : darkTheme
-  const secondContainerRef = React.useRef()
+  const secondContainerRef = React.useRef<HTMLDivElement>(null)
 
   const firstBlockRef = React.useCallback(
     (node) => {
@@ -91,10 +90,10 @@ export const withRouter = (StoryFn: Story) => (
 )
 
 /**
- * 
+ *
  * Provide components support for redux-store
  * optionally passing custom initial state, and using default initial state if not passed
- * 
+ *
  * @example
  * export const MyComponent = () => Template.bind({})
  * MyComponent.parameters = {
@@ -105,23 +104,44 @@ export const withRouter = (StoryFn: Story) => (
  *   }
  * };
  */
- export const withStore = (StoryFn: Story, { parameters }: StoryContext) => {
+export const withStore = (StoryFn: Story, { parameters }: StoryContext) => {
   // Creates a store by merging optional custom initialState
   const store = configureStore({
     reducer: rootReducer,
     preloadedState: parameters.store?.initialState, // if undefined, just use default state from reducers
-  });
+  })
   return (
     <StoreProvider store={store}>
       <StoryFn />
     </StoreProvider>
-  );
-};
+  )
+}
 
-export const withSpecificRoute = ({
-  path = '/', // e.g. "/restaurant/:id"
-  route = '/', // e.g. "/restaurant/123"
-} = {}) => (StoryFn: Story) => {
+/**
+ *
+ * Provide components support for simulated deeplinking
+ * it renders the component with a mocked history based on the route passed
+ *
+ * @example
+ * export const MyComponent = () => Template.bind({})
+ * MyComponent.parameters = {
+ *   deeplink: {
+ *     path = '/restaurant/:id',
+ *     route = '/restaurant/12',
+ *   }
+ * };
+ */
+export const withDeeplink = (
+  StoryFn: Story,
+  { parameters: { deeplink } }: StoryContext
+) => {
+  // if there's no deeplink config, just return the story
+  if (!deeplink) {
+    return <StoryFn />
+  }
+
+  const { path, route } = deeplink
+
   return (
     <MemoryRouter initialEntries={[route]}>
       <Route path={path}>
@@ -131,4 +151,5 @@ export const withSpecificRoute = ({
   )
 }
 
-export const globalDecorators = [withStore, withRouter, withTheme]
+// ordered from innermost to outermost, be careful with the order!
+export const globalDecorators = [withDeeplink, withRouter, withTheme, withStore]

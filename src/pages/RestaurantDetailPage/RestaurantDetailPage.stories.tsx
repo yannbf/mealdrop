@@ -2,7 +2,6 @@ import { Story, Meta } from '@storybook/react'
 import { rest } from 'msw'
 
 import { RestaurantDetailPage } from './RestaurantDetailPage'
-import { withSpecificRoute } from '../../../.storybook/decorators'
 import { StickyHeaderTemplate } from '../../templates/PageTemplate'
 import { restaurants } from '../../stub/restaurants'
 
@@ -16,10 +15,11 @@ export default {
       url:
         'https://www.figma.com/file/XW4Bcjmj3JOILjKmZjjdQd/Foodenters?node-id=169%3A510',
     },
+    deeplink: {
+      route: '/restaurants/1',
+      path: '/restaurants/:id'
+    }
   },
-  decorators: [
-    withSpecificRoute({ route: '/restaurants/1', path: '/restaurants/:id' }),
-  ]
 } as Meta
 
 const REQUEST_URL = 'https://blab-290ab.firebaseio.com/restaurants/:id/.json'

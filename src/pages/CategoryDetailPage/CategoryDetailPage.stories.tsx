@@ -1,7 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 
 import { CategoryDetailPage } from './CategoryDetailPage'
-import { withSpecificRoute } from '../../../.storybook/decorators'
 import { DefaultTemplate } from '../../templates/PageTemplate'
 
 export default {
@@ -19,11 +18,11 @@ const Template: Story = (args) => (
 )
 
 export const Default = Template.bind({})
-Default.decorators = [
-  withSpecificRoute({ route: '/categories/pizza', path: '/categories/:id' }),
-]
+Default.parameters = {
+  deeplink: { route: '/categories/pizza', path: '/categories/:id' },
+}
 
 export const Missing = Template.bind({})
-Missing.decorators = [
-  withSpecificRoute({ route: '/categories/wrong', path: '/categories/:id' }),
-]
+Missing.parameters = {
+  deeplink: { route: '/categories/wrong', path: '/categories/:id' },
+}
