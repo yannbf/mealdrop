@@ -43,6 +43,11 @@ class RestaurantsApi implements BaseApi {
       `${BASE_URL}/restaurants/${id}/.json`
     )
 
+    // firebase returns 200 with null when not found, so we need to force the correct status
+    if (restaurant == null) {
+      return Promise.reject({ response: { status: 404 } })
+    }
+
     return restaurant
   }
 
