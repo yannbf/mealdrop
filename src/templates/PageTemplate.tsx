@@ -43,6 +43,5 @@ export const SimpleTemplate: React.FC = ({ children }) => (
   <>
     <HeaderComponent logoOnly />
     <Container>{children}</Container>
-    <Footer />
   </>
 )
