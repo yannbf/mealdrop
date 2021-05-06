@@ -29,6 +29,7 @@ Clear.args = {
 export const Icon = Template.bind({})
 Icon.args = {
   icon: 'cart',
+  'aria-label': 'cart'
 }
 
 export const IconAndText = Template.bind({})

@@ -1,4 +1,3 @@
-import * as React from 'react';
 import styled from 'styled-components'
 
 import { CartItem } from '../../app-state/cart'
@@ -72,14 +71,14 @@ export type ShoppingCartMenuProps = {
   onItemChange: (item: any) => void
 }
 
-export const ShoppingCartMenu: React.FC<ShoppingCartMenuProps> = ({
+export const ShoppingCartMenu = ({
   isOpen,
   onClose,
   cartItems,
   totalPrice,
   onItemChange,
   onGoToCheckoutClick,
-}) => {
+}: ShoppingCartMenuProps) => {
   return (
     <Sidebar
       title="Your order"

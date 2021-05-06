@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import useDarkMode from 'use-dark-mode'
 
 import {
+  CartItem,
   saveItemAction,
   selectCartItems,
   selectCartTotal,
@@ -94,6 +95,7 @@ const ThemeToggle = () => {
     <Button
       round
       clear
+      aria-label={`turn on ${darkMode.value ? 'light' : 'dark'} mode`}
       icon={darkMode.value ? 'moon' : 'sun'}
       onClick={darkMode.toggle}
     />
@@ -101,21 +103,28 @@ const ThemeToggle = () => {
 }
 
 export type HeaderComponentProps = {
-  isCartVisible: boolean
+  isCartVisible?: boolean
+  cartItems?: CartItem[]
+  totalPrice?: number
+  logoOnly?: boolean
+  sticky?: boolean
+  toggleCartVisibility?: () => void
+  goToCheckout?: () => void
+  saveItem?: (item: CartItem) => void
 }
 
 export const HeaderComponent = ({
-  isCartVisible,
-  cartItems,
-  toggleCartVisibility,
-  goToCheckout,
-  totalPrice,
+  isCartVisible = false,
   logoOnly = false,
   sticky = false,
-  saveItem,
-}: any) => (
+  totalPrice = 0,
+  cartItems = [],
+  toggleCartVisibility = () => {},
+  goToCheckout = () => {},
+  saveItem = () => {},
+}: HeaderComponentProps) => (
   <HeaderContainer data-testid="header" sticky={sticky}>
-    <LogoContainer to="/">
+    <LogoContainer to="/" aria-label="go to home page">
       <Logo />
     </LogoContainer>
     {!logoOnly && (
@@ -128,7 +137,7 @@ export const HeaderComponent = ({
           <Link to="/categories" tabIndex={-1}>
             <Button clear>All restaurants</Button>
           </Link>
-          <Button icon="cart" onClick={toggleCartVisibility}>
+          <Button aria-label="food cart" icon="cart" onClick={toggleCartVisibility}>
             {totalPrice > 0 && (
               <StyledBody type="span">
                 <Body type="span" className="cart-text">
@@ -152,14 +161,14 @@ export const HeaderComponent = ({
   </HeaderContainer>
 )
 
-export const Header = ({ sticky }: any) => {
+export const Header = ({ sticky }: { sticky?: boolean }) => {
   const isCartVisible = useSelector(selectCartVisibility)
   const cartItems = useSelector(selectCartItems)
   const totalPrice = useSelector(selectCartTotal)
   const dispatch = useDispatch()
   const history = useHistory()
   const toggleCartVisibility = () => dispatch(toggleVisibilityAction())
-  const saveItem = (item: any) => dispatch(saveItemAction(item))
+  const saveItem = (item: CartItem) => dispatch(saveItemAction(item))
 
   const goToCheckout = () => {
     toggleCartVisibility()

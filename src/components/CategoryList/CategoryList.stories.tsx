@@ -8,9 +8,9 @@ export default {
   component: CategoryList,
 } as Meta
 
-const Basic: Story<CategoryListProps> = (args) => <CategoryList {...args} />
+const Template: Story<CategoryListProps> = (args) => <CategoryList {...args} />
 
-export const Default = Basic.bind({})
+export const Default = Template.bind({})
 Default.args = {
   categories,
 }

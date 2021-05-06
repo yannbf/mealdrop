@@ -13,11 +13,11 @@ export default {
   component: RestaurantsSection,
 } as Meta
 
-const Basic: Story<RestaurantsSectionProps> = (args) => (
+const Template: Story<RestaurantsSectionProps> = (args) => (
   <RestaurantsSection {...args} />
 )
 
-export const Default = Basic.bind({})
+export const Default = Template.bind({})
 Default.args = {
   title: 'Near you',
 }
@@ -32,7 +32,7 @@ Default.parameters = {
   ],
 }
 
-export const Loading = Basic.bind({})
+export const Loading = Template.bind({})
 Loading.args = {
   ...Default.args
 }

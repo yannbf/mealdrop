@@ -1,4 +1,6 @@
+import { DetailedHTMLProps, InputHTMLAttributes } from 'react';
 import styled, { css } from 'styled-components'
+
 import { Body } from '../typography/Body'
 
 const Container = styled.div(
@@ -38,9 +40,19 @@ const Container = styled.div(
   `
 )
 
-export const Input = ({ label = '', type = 'text', ...otherProps }) => (
+
+export type InputProps = {
+  label?: string
+  value?: any
+  onChange?: (data: any) => void
+} & DetailedHTMLProps<
+  InputHTMLAttributes<HTMLInputElement>,
+  HTMLInputElement
+>;
+
+export const Input = ({ label = '', type = 'text', id, ...otherProps }: InputProps) => (
   <Container>
-    <input type={type} {...otherProps} />
-    {label && <Body type="label">{label}</Body>}
+    <input id={id} type={type} {...otherProps} />
+    {label && <Body type="label" htmlFor={id}>{label}</Body>}
   </Container>
 )

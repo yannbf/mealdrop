@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react'
-import { cartItems } from '../../../stub/cart-items'
 
+import { cartItems } from '../../../stub/cart-items'
 import { OrderSummary, OrderSummaryProps } from './OrderSummary'
 
 export default {
@@ -8,16 +8,9 @@ export default {
   component: OrderSummary,
 } as Meta
 
-export const Basic: Story<OrderSummaryProps> = (args) => (
+export const Default: Story<OrderSummaryProps> = (args) => (
   <OrderSummary {...args} />
 )
-Basic.args = {
+Default.args = {
   cartItems,
-  isCheckout: false,
-}
-
-export const InCheckout = Basic.bind({})
-InCheckout.args = {
-  ...Basic.args,
-  isCheckout: true,
 }

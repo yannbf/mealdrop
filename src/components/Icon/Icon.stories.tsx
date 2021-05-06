@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 
-import { Icon } from './Icon'
+import { Icon, IconProps } from './Icon'
 import styled, { css } from 'styled-components'
 import { Body } from '../typography/Body'
 
@@ -59,13 +59,13 @@ export default {
   },
 } as Meta
 
-const Template: Story = (args) => <Icon {...args} />
+const Template: Story<IconProps> = (args) => <Icon {...args} />
 
 export const AllIcons = () => (
   <>
     <IconContainer>
       {icons.map((icon) => (
-        <div>
+        <div key={icon}>
           <Icon name={icon} size={24} />
           <Body type="span" size="XS">
             {icon}

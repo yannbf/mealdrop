@@ -7,9 +7,6 @@ export default {
   component: MultiStepForm,
 } as Meta
 
-const Template: Story = (args) => <MultiStepForm {...args} />
+const Template: Story = () => <MultiStepForm />
+
 export const Default = Template.bind({})
-Default.args = {
-  amountOfSteps: 4,
-  currentStep: 1,
-}

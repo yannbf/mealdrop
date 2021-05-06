@@ -1,5 +1,4 @@
 import { useMemo } from 'react';
-import * as React from 'react';
 
 import { ShoppingCartItem } from '../item/ShoppingCartItem'
 import { CartItem } from '../../../app-state/cart'
@@ -16,11 +15,9 @@ import { Heading } from '../../typography/Heading'
 
 export type OrderSummaryProps = {
   cartItems: CartItem[]
-  onGoToCheckoutClick?: () => void
-  isCheckout?: boolean
 }
 
-export const OrderSummary: React.FC<OrderSummaryProps> = ({ cartItems }) => {
+export const OrderSummary = ({ cartItems }: OrderSummaryProps) => {
   const totalPrice = useMemo(
     () =>
       cartItems

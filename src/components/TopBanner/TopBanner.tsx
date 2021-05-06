@@ -8,7 +8,7 @@ const StyledHeading = styled(Heading)<{ inverted: boolean }>(
   `
 )
 
-const Container = styled.div<{ src: string }>(
+const Container = styled.div<{ src?: string }>(
   ({ src, theme: { color } }) => css`
     width: 100%;
     display: flex;
@@ -24,7 +24,13 @@ const Container = styled.div<{ src: string }>(
   `
 )
 
-export const TopBanner = ({ photoUrl, title, onBackClick }: any) => {
+export type TopBannerProps = {
+  title?: string
+  photoUrl?: string
+  onBackClick?: () => void
+}
+
+export const TopBanner = ({ photoUrl, title, onBackClick }: TopBannerProps) => {
   return (
     <Container src={photoUrl}>
       {/* <StyledIconButton onClick={onBackClick} small name="arrow-left" /> */}

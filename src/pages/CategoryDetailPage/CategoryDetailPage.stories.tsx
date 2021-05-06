@@ -11,9 +11,9 @@ export default {
   }
 } as Meta
 
-const Template: Story = (args) => (
+const Template: Story = () => (
   <DefaultTemplate>
-    <CategoryDetailPage {...args} />
+    <CategoryDetailPage />
   </DefaultTemplate>
 )
 

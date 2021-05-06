@@ -16,7 +16,7 @@ export default {
   },
 } as Meta
 
-const Template: Story = (args) => <SuccessPage {...args} />
+const Template: Story = () => <SuccessPage />
 
 export const Default = Template.bind({})
 Default.parameters = {

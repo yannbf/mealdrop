@@ -10,15 +10,15 @@ export default {
   },
 } as Meta
 
-const Basic: Story<PageSectionProps> = (args) => <PageSection {...args} />
+const Template: Story<PageSectionProps> = (args) => <PageSection {...args} />
 
-export const Default = Basic.bind({})
+export const Default = Template.bind({})
 Default.args = {
   title: 'Asian',
   children: <h1>Hello Dummy Content Baby</h1>,
 }
 
-export const WithButtons = Basic.bind({})
+export const WithButtons = Template.bind({})
 WithButtons.args = {
   ...Default.args,
   title: 'Asian',

@@ -26,26 +26,26 @@ export default {
   },
 } as Meta
 
-const Basic: Story<RestaurantCardProps> = (args) => <RestaurantCard {...args} />
+const Template: Story<RestaurantCardProps> = (args) => <RestaurantCard {...args} />
 
-export const Default = Basic.bind({})
+export const Default = Template.bind({})
 Default.args = {
   ...restaurants[0]
 }
 
-export const New = Basic.bind({})
+export const New = Template.bind({})
 New.args = {
   ...Default.args,
   isNew: true,
 }
 
-export const Closed = Basic.bind({})
+export const Closed = Template.bind({})
 Closed.args = {
   ...Default.args,
   isClosed: true,
 }
 
-export const Loading = Basic.bind({})
+export const Loading = Template.bind({})
 Loading.args = {
   ...Default.args,
   isLoading: true,

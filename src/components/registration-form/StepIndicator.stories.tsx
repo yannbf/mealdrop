@@ -12,6 +12,7 @@ const Template: Story<StepIndicatorProps> = (args) => (
 )
 export const Default = Template.bind({})
 Default.args = {
+  title: 'Step',
   amountOfSteps: 4,
   currentStep: 1,
 }

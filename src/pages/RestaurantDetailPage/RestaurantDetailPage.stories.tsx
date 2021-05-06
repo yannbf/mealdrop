@@ -24,11 +24,11 @@ export default {
 
 const REQUEST_URL = 'https://blab-290ab.firebaseio.com/restaurants/:id/.json'
 
-const Template: Story = (args) => (
+const Template: Story = () => (
   <div>
     <div id="modal" />
     <StickyHeaderTemplate>
-      <RestaurantDetailPage {...args} />
+      <RestaurantDetailPage />
     </StickyHeaderTemplate>
   </div>
 )

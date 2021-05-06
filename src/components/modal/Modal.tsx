@@ -27,6 +27,7 @@ export const Modal: React.FC<ModalProps> = ({ children, isOpen, onClose }) => {
               clear
               round
               icon="cross"
+              aria-label="close modal"
               iconSize={16}
             />
           </TopBar>

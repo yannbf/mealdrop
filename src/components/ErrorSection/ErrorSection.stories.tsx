@@ -15,11 +15,11 @@ export default {
   }
 } as Meta
 
-const Basic: Story<ErrorSectionProps> = (args) => (
+const Template: Story<ErrorSectionProps> = (args) => (
   <ErrorSection {...args} />
 )
 
-export const Default = Basic.bind({})
+export const Default = Template.bind({})
 Default.args = {
   title: 'This is not the food you’re looking for.',
   body: 'There seems that there are no restaurants in this category yet. Try to come back later?',

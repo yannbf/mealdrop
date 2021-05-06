@@ -6,7 +6,13 @@ const StyledSVG = styled.svg`
   display: block;
 `
 
-export const Icon = ({ name, color, size = '1.5rem' }: any) => {
+export type IconProps = {
+  name: string
+  color?: string
+  size?: number | string
+}
+
+export const Icon = ({ name, color, size = '1.5rem' }: IconProps) => {
   const { color: themeColor } = useTheme()
   return (
     <StyledSVG

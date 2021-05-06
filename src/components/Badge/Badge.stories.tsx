@@ -15,9 +15,9 @@ export default {
   },
 } as Meta
 
-const Basic: Story<BadgeProps> = (args) => <Badge {...args} />
+const Template: Story<BadgeProps> = (args) => <Badge {...args} />
 
-export const Default = Basic.bind({})
+export const Default = Template.bind({})
 Default.args = {
   text: 'Hamburgers',
 }

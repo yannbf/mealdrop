@@ -1,4 +1,3 @@
-import * as React from 'react';
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import styled, { css, useTheme } from 'styled-components'
 
@@ -104,11 +103,10 @@ const RestaurantCardSkeleton = () => {
   const { color } = useTheme()
   return (
     <SkeletonTheme
-      data-testid="loading"
       color={color.skeletonBase}
       highlightColor={color.skeletonHighlight}
     >
-      <Container>
+      <Container data-testid="loading">
         <Skeleton height={200} width="100%" />
         <StyledContent>
           <StyleHeading level={4}>
@@ -129,7 +127,7 @@ const RestaurantCardSkeleton = () => {
   )
 }
 
-export const RestaurantCard: React.FC<RestaurantCardProps> = ({
+export const RestaurantCard = ({
   photoUrl,
   name,
   specialty,
@@ -140,7 +138,7 @@ export const RestaurantCard: React.FC<RestaurantCardProps> = ({
   isNew = false,
   className,
   onClick
-}) => {
+}: RestaurantCardProps) => {
 
   if (isLoading) {
     return <RestaurantCardSkeleton />

@@ -107,8 +107,8 @@ export const RestaurantDetailPage = () => {
 
   const cartItems = useSelector(selectCartItems)
   const dispatch = useDispatch()
-  const addItemToCart = (item: any) => dispatch(saveItemAction(item))
-  const clearItemFromCart = (item: any) => dispatch(clearItemAction(item))
+  const addItemToCart = (item: CartItem) => dispatch(saveItemAction(item))
+  const clearItemFromCart = (item: CartItem) => dispatch(clearItemAction(item))
 
 
   if (status === '500') {
@@ -161,7 +161,7 @@ export const RestaurantDetailPage = () => {
           <Body>Specialties: {specialty}</Body>
           <Review rating={rating} />
           <div>
-            {categories?.map((category: any) => (
+            {categories?.map((category) => (
               <StyledBadge key={category} text={category} />
             ))}
           </div>
@@ -203,7 +203,7 @@ type FoodSectionProps = {
   items: FoodMenuItem[]
   title: string
   cartItems: CartItem[]
-  onItemClick: (item: any) => void
+  onItemClick: (item: CartItem) => void
 }
 
 const FoodSection = memo(({ title, cartItems, items, onItemClick }: FoodSectionProps) => (
@@ -222,7 +222,7 @@ const FoodSection = memo(({ title, cartItems, items, onItemClick }: FoodSectionP
             price={item.price}
             description={item.description}
             quantity={quantity}
-            onClick={() => onItemClick(item)}
+            onClick={() => onItemClick(item as CartItem)}
           />
         )
       })}

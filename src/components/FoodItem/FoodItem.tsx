@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import * as React from 'react';
 import styled, { css } from 'styled-components'
+
 import { toEuro } from '../../helpers'
 import { Body } from '../typography/Body'
 import { Heading } from '../typography/Heading'
@@ -56,8 +56,8 @@ export type FoodItemProps = {
   onClick: () => void
 }
 
-export const FoodItem: React.FC<FoodItemProps> = memo(
-  ({ quantity = 0, name, price, description, onClick }) => {
+export const FoodItem = memo(
+  ({ quantity = 0, name, price, description, onClick }: FoodItemProps) => {
     return (
       <Container isHighlighted={quantity > 0} onClick={onClick}>
         <div>

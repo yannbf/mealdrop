@@ -1,16 +1,29 @@
+import { useHistory } from 'react-router-dom'
+
 import { Button } from '../Button'
 import { Input } from '../forms/Input'
 
-export const DeliveryDetails = ({ setForm, formData, navigation }: any) => {
+type DeliveryDetailsProps = {
+  setForm: () => {}
+  formData: {
+    address: string
+    city: string
+    postcode: string
+  }
+  navigation: any
+}
+
+export const DeliveryDetails = ({ setForm, formData, navigation }: DeliveryDetailsProps) => {
+  const history = useHistory()
   const { address, city, postcode } = formData
 
-  const { previous, next } = navigation
+  const { previous } = navigation
 
   return (
     <div className="form">
       <Input
         label="Streetname and housenumber"
-        palcholder="Some street, 13"
+        placeholder="Some street, 13"
         name="address"
         value={address}
         onChange={setForm}
@@ -32,13 +45,13 @@ export const DeliveryDetails = ({ setForm, formData, navigation }: any) => {
       <div
         style={{
           display: 'flex',
-          justifyContent: 'flex-start',
+          justifyContent: 'space-between',
         }}
       >
         <Button clear onClick={previous}>
           Previous
         </Button>
-        <Button onClick={next}>Next</Button>
+        <Button onClick={() => history.push('/success')}>Complete</Button>
       </div>
     </div>
   )

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import type { ComponentProps } from 'react';
 import styled, { css } from 'styled-components'
 
 import { Icon } from '../Icon'
@@ -20,17 +20,17 @@ const StyledButton = styled.button<{ small: boolean }>(
   `
 )
 
-export interface IconButtonProps {
+export type IconButtonProps = {
   name: string
   small?: boolean
   onClick?: () => void
-}
+} & ComponentProps<typeof StyledButton>
 
-export const IconButton: React.FC<IconButtonProps> = ({
+export const IconButton = ({
   small = false,
   name,
   ...props
-}) => {
+}: IconButtonProps) => {
   return (
     <StyledButton type="button" small={small} {...props}>
       <Icon name={name} size={small ? 15 : 24} color="#202020" />

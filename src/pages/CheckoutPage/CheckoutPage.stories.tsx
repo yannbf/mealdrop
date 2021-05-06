@@ -10,7 +10,7 @@ export default {
   },
 } as Meta
 
-const Template: Story = (args) => <CheckoutPage {...args} />
+const Template: Story = () => <CheckoutPage />
 
 export const Empty = Template.bind({})
 

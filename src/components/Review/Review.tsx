@@ -1,4 +1,3 @@
-import * as React from 'react';
 import styled from 'styled-components'
 
 import { Body } from '../typography'
@@ -31,7 +30,7 @@ const getReview = (rating?: number) => {
   return `★ ${rating.toFixed(1)} ${reviewText}`
 }
 
-export const Review: React.FC<ReviewProps> = ({ rating }) => (
+export const Review = ({ rating }: ReviewProps) => (
   <Wrapper>
     {/* <Icon name="star" /> */}
     <Body size="S" type="span" className="review-text">

@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 
-import { TopBanner } from './TopBanner'
+import { TopBanner, TopBannerProps } from './TopBanner'
 
 export default {
   title: 'Components/TopBanner',
@@ -10,14 +10,14 @@ export default {
   },
 } as Meta
 
-const Basic: Story = (args) => <TopBanner {...args} />
+const Template: Story<TopBannerProps> = (args) => <TopBanner {...args} />
 
-export const Default = Basic.bind({})
+export const Default = Template.bind({})
 Default.args = {
   title: 'Categories',
 }
 
-export const WithImage = Basic.bind({})
+export const WithImage = Template.bind({})
 WithImage.args = {
   ...Default.args,
   photoUrl:
