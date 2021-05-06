@@ -12,7 +12,7 @@ const theme = create({
   appBg: '#F6F9FC',
   appContentBg: '#FFFFFF',
   appBorderColor: 'rgba(0,0,0,.1)',
-  appBorderRadius: 4,
+  appBorderRadius: 12,
 
   // Typography
   fontBase: '"Open Sans", sans-serif',
@@ -36,7 +36,7 @@ const theme = create({
 
   // Brand assets
   brandTitle: 'Mealdrop',
-  brandUrl: 'https://mealdrop.netlify.com/',
+  brandUrl: 'https://github.com/yannbf/mealdrop/',
   brandImage: logo,
 })
 
