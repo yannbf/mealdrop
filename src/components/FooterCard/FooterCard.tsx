@@ -4,13 +4,14 @@ import { Body } from '../typography/Body'
 import { Heading } from '../typography/Heading'
 
 const FooterCardContainer = styled.div(
-  ({ theme: { color: colors, spacing, borderRadius: borderRadiuses } }) => css`
+  ({ theme: { color: colors, spacing, borderRadius: borderRadiuses, typography: { fontSize } } }) => css`
     color: ${colors.white};
 
     border-radius: ${borderRadiuses.xs};
-    h4 {
+    h2 {
       color: white;
       margin-bottom: ${spacing.xs};
+      font-size: ${fontSize.heading4};
     }
 
     ul {
@@ -32,12 +33,21 @@ const FooterCardContainer = styled.div(
   `
 )
 
-export const FooterCard = ({ title, links, children }: any) => (
+type FooterCardProps = {
+  title: string,
+  links?: {
+    external?: boolean,
+    name: string,
+    href: string
+  }[]
+}
+
+export const FooterCard: React.FC<FooterCardProps> = ({ title, links = [], children }) => (
   <FooterCardContainer>
-    <Heading level={4}>{title}</Heading>
-    {links?.length > 0 && (
+    <Heading level={2}>{title}</Heading>
+    {links.length > 0 && (
       <ul>
-        {links.map(({ external, name, href }: any) => (
+        {links.map(({ external, name, href }) => (
           <li key={name}>
             <Body>
               {external ? (
