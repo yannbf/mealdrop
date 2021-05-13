@@ -42,6 +42,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           <TopBar>
             <Heading level={4}>{title}</Heading>
             <Button
+              aria-label="close sidebar"
               data-testid="sidebar-close-btn"
               onClick={onClose}
               clear

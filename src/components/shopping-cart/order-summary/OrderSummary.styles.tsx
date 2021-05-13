@@ -1,9 +1,12 @@
 import styled, { css } from 'styled-components'
 import { Heading } from '../../typography/Heading'
 
-export const StyledHeading = styled(Heading)`
-  margin-bottom: 1.5rem;
-`
+export const StyledHeading = styled(Heading)(
+  ({ withMargin = false, theme: { typography: { fontSize } } }) => css`
+    font-size: ${fontSize.heading4};
+    margin-bottom: ${withMargin ? '1.5rem' : 0};
+  `
+)
 
 export const OrderSummaryContainer = styled.div<{ fixed?: boolean }>(
   ({ theme: { color } }) => css`

@@ -95,9 +95,12 @@ const StyledBadge = styled(Badge)`
   margin-right: 0.5rem;
 `
 
-const StyleHeading = styled(Heading)`
-  margin-bottom: 8px;
-`
+const StyledHeading = styled(Heading)(
+  ({ theme: { spacing, typography: { fontSize } } }) => css`
+    font-size: ${fontSize.heading4};
+    margin-bottom: ${spacing.xs};
+  `
+)
 
 const RestaurantCardSkeleton = () => {
   const { color } = useTheme()
@@ -109,9 +112,9 @@ const RestaurantCardSkeleton = () => {
       <Container data-testid="loading">
         <Skeleton height={200} width="100%" />
         <StyledContent>
-          <StyleHeading level={4}>
+          <StyledHeading level={2}>
             <Skeleton width="50%" />
-          </StyleHeading>
+          </StyledHeading>
           <Body type="span">
             <Skeleton width="35%" />
           </Body>
@@ -165,7 +168,7 @@ export const RestaurantCard = ({
         />
       </div>
       <StyledContent>
-        <StyleHeading level={4}>{name} </StyleHeading>
+        <StyledHeading level={2}>{name} </StyledHeading>
         <Review rating={rating} />
         <Description fontWeight="regular">{specialty}</Description>
         {categories?.map((category) => (

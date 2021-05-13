@@ -28,7 +28,7 @@ export const OrderSummary = ({ cartItems }: OrderSummaryProps) => {
   return (
     <>
       <OrderSummaryContainer>
-        <StyledHeading level={4}>Your order</StyledHeading>
+        <StyledHeading level={2} withMargin>Your order</StyledHeading>
         <CartItemsContainer>
           {cartItems.length ? (
             cartItems.map((item) => (
@@ -40,7 +40,7 @@ export const OrderSummary = ({ cartItems }: OrderSummaryProps) => {
         </CartItemsContainer>
         <BottomContainer>
           <Body>Total</Body>
-          <Heading level={4}>{toEuro(totalPrice)}</Heading>
+          <StyledHeading level={2}>{toEuro(totalPrice)}</StyledHeading>
         </BottomContainer>
       </OrderSummaryContainer>
     </>
