@@ -14,9 +14,12 @@ initStoryshots({
   suite: 'A11y checks',
   test: async ({ story, context }) => {
     const component = story.render(context)
+    // Story component is rendered and you can test anything you'd like
     const { container } = render(component)
     expect(await axe(container)).toHaveNoViolations()
   },
+  // Storyshots has filters and you can set to run tests in whatever scope you'd like
+  // In this case, we are running a11y tests only in stories with Components in the title, and with name "Default"
   storyKindRegex: /Components/,
   storyNameRegex: 'Default',
 })
