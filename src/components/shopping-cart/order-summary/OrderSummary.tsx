@@ -11,7 +11,6 @@ import {
 } from './OrderSummary.styles'
 import { Body } from '../../typography/Body'
 import { toEuro } from '../../../helpers'
-import { Heading } from '../../typography/Heading'
 
 export type OrderSummaryProps = {
   cartItems: CartItem[]
