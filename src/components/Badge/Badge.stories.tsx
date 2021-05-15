@@ -10,7 +10,6 @@ export default {
       type: 'experimental-figspec',
       url:
         'https://www.figma.com/file/XW4Bcjmj3JOILjKmZjjdQd/Mealdrop?node-id=780%3A2938',
-      accessToken: process.env.FIGMA_ACCESS_TOKEN,
     },
   },
 } as Meta

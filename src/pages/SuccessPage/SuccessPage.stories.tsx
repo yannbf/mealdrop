@@ -11,7 +11,6 @@ export default {
       type: 'experimental-figspec',
       url:
         'https://www.figma.com/file/XW4Bcjmj3JOILjKmZjjdQd/Foodenters?node-id=426%3A3444',
-      accessToken: process.env.FIGMA_ACCESS_TOKEN,
     },
   },
 } as Meta
