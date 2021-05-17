@@ -52,8 +52,6 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.0",
-    "@figspec/components": "^0.1.7",
-    "@figspec/react": "^0.1.5",
     "@storybook/addon-a11y": "^6.2.9",
     "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addon-storyshots": "^6.2.9",
@@ -74,7 +72,7 @@
     "msw-storybook-addon": "^1.1.0",
     "react-is": "^17.0.2",
     "react-test-renderer": "^17.0.2",
-    "storybook-addon-designs": "^6.0.0-beta.2",
+    "storybook-addon-designs": "^6.0.0",
     "storybook-mobile": "^0.1.31"
   },
   "msw": {
