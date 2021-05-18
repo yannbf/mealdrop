@@ -7,7 +7,7 @@ const { Default, Disabled } = composeStories(stories);
 
 test('renders button with custom children', () => {
   render(<Default />);
-  expect(screen.getByText(/Hello world/i)).toBeInTheDocument();
+  expect(screen.getByText(/Button/i)).toBeInTheDocument();
 });
 
 test('onclick handler is called', async () => {
