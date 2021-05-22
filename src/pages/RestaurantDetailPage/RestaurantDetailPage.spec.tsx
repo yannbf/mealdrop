@@ -6,27 +6,32 @@ import * as stories from './RestaurantDetailPage.stories'
 const { Success, Loading, Error, NotFound } = composeStories(stories)
 
 describe('RestaurantDetailPage', () => {
-  it.only('Should add an item to cart', async () => {
+  it('Should add an item to cart', () => {
     mount(<Success />)
-
-    const foodItem = cy.findByText(/Cheeseburger/i)
-    foodItem.click()
-
-    const modalButton = cy.findByLabelText('confirm')
-    modalButton.click()
-
-    cy.findByLabelText('food quantity').contains('1')
+      .get('body')
+      .findByText(/Cheeseburger/i)
+      .click()
+      .get('body')
+      .findByLabelText('confirm')
+      .click()
+      .get('body')
+      .findByLabelText('food quantity')
+      .should('contain', '1')
   })
-  it('Should display an error screen', async () => {
+
+  it('Should display an error screen', () => {
     mount(<Error />)
-    cy.findByText('Something went wrong!').should('exist')
+      .get('body')
+      .findByText('Something went wrong!').should('exist')
   })
   it('Should display a loading screen', async () => {
     mount(<Loading />)
-    cy.findByText('Loading..').should('exist')
+      .get('body')
+      .findByText('Loading..').should('exist')
   })
   it('Should display a 404 screen', async () => {
     mount(<NotFound />)
-    cy.findByText("We can't find this page").should('exist')
+      .get('body')
+      .findByText("We can't find this page").should('exist')
   })
 })
