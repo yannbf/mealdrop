@@ -6,7 +6,12 @@ import { initializeWorker, mswDecorator } from 'msw-storybook-addon'
 import { globalDecorators } from './decorators'
 import { viewports as breakpoints } from '../src/styles/breakpoints'
 
-initializeWorker()
+initializeWorker({
+  serviceWorker: {
+    // I have to do this for cypress
+    url: '/public/mockServiceWorker.js',
+  },
+})
 
 // Create custom viewports using widths defined in design tokens
 const breakpointViewports = Object.keys(breakpoints).reduce((acc, key) => {

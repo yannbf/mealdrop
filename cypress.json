@@ -1,0 +1,6 @@
+{
+  "componentFolder": "src",
+  "testFiles": "**/*.spec.{js,ts,jsx,tsx}",
+  "viewportHeight": 768,
+  "viewportWidth": 1024
+}
