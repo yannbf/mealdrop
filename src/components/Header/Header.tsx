@@ -26,7 +26,7 @@ export const HeaderContainer = styled.div<{ sticky: boolean }>(
     border-bottom: 1px solid ${color.headerBorder};
     top: 0;
     left: 0;
-    position: fixed;
+    position: sticky;
     background: ${color.headerBackground};
     z-index: 2;
     width: 100%;
@@ -37,7 +37,7 @@ export const HeaderContainer = styled.div<{ sticky: boolean }>(
     }
 
     @media ${breakpoints.M} {
-      position: ${sticky ? 'fixed' : 'relative'};
+      position: ${sticky ? 'sticky' : 'relative'};
       height: 72px;
     }
   `
