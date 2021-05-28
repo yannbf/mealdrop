@@ -12,7 +12,7 @@ const theme = create({
   appBg: '#F6F9FC',
   appContentBg: '#FFFFFF',
   appBorderColor: 'rgba(0,0,0,.1)',
-  appBorderRadius: 12,
+  appBorderRadius: 8,
 
   // Typography
   fontBase: '"Open Sans", sans-serif',
