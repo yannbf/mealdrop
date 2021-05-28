@@ -8,7 +8,7 @@ const ErrorContainer = styled.div(
   ({ theme: { spacing } }) => css`
   max-width: 450px;
   margin: 0 auto;
-  padding-top: ${spacing.m};
+  padding: ${spacing.l} 0;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -19,7 +19,7 @@ const ImageContainer = styled.div(
   ({ theme: { spacing } }) => css`
     text-align: center;
     margin-top: ${spacing.m};
-    max-height: 450px;
+    height: 450px;
     width: 100%;
   `
 )
