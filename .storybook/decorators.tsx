@@ -143,7 +143,7 @@ export const withDeeplink = (
   const { path, route } = deeplink
 
   return (
-    <MemoryRouter initialEntries={[route]}>
+    <MemoryRouter initialEntries={[encodeURI(route)]}>
       <Route path={path}>
         <StoryFn />
       </Route>
