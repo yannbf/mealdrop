@@ -35,9 +35,7 @@ export const AppRoutes = () => {
         </StickyHeaderTemplate>
       </Route>
       <Route exact path="/checkout">
-        <SimpleTemplate>
-          <CheckoutPage />
-        </SimpleTemplate>
+        <CheckoutPage />
       </Route>
       <Route exact path="/success">
         <SimpleTemplate>

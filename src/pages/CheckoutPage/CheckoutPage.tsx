@@ -30,11 +30,14 @@ const OrderDetailsContainer = styled.div`
 `
 
 const TopContainer = styled.div(
-  ({ theme: { color } }) => css`
+  ({ theme: { color, spacing } }) => css`
+    padding-top: ${spacing.xl};
+    margin-bottom: ${spacing.s};
     min-height: 260px;
     background: ${color.checkoutTopBackground};
 
     @media ${breakpoints.M} {
+      padding-top: ${spacing.xxl};
       min-height: 300px;
     }
   `
@@ -42,11 +45,7 @@ const TopContainer = styled.div(
 
 const StyledHeading = styled(Heading)(
   ({ theme: { spacing } }) => css`
-    padding-top: ${spacing.m};
     margin: 0 auto;
-    @media ${breakpoints.M} {
-      padding-top: ${spacing.l};
-    }
   `
 )
 
