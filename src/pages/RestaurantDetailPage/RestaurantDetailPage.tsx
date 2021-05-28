@@ -20,6 +20,7 @@ import { FoodItemModal } from '../../components/modal/FoodItemModal'
 import { Review } from '../../components/Review'
 import { AnimatedIllustration } from '../../components/AnimatedIllustration'
 import { ErrorSection } from '../../components/ErrorSection'
+import { Spinner } from '../../components/Spinner';
 
 const StyledContainer = styled.div`
   grid-template-columns: repeat(1, 1fr);
@@ -136,7 +137,7 @@ export const RestaurantDetailPage = () => {
   }
 
   if (status === 'loading') {
-    return <Heading>Loading..</Heading>
+    return <Spinner />
   }
 
   if (!restaurant) {
