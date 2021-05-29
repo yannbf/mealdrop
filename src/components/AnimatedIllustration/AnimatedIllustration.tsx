@@ -22,5 +22,5 @@ export const AnimatedIllustration = ({
     )
   }, [animation])
 
-  return <Lottie play loop animationData={animationData} />
+  return <Lottie style={{ minHeight: 450, maxWidth: 450 }} play loop animationData={animationData} />
 }

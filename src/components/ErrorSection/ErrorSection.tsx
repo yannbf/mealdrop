@@ -6,7 +6,6 @@ import { Body, Heading } from '../typography';
 
 const ErrorContainer = styled.div(
   ({ theme: { spacing } }) => css`
-  max-width: 450px;
   margin: 0 auto;
   padding: ${spacing.l} 0;
   display: flex;
@@ -19,7 +18,8 @@ const ImageContainer = styled.div(
   ({ theme: { spacing } }) => css`
     text-align: center;
     margin-top: ${spacing.m};
-    height: 450px;
+    display: flex;
+    justify-content: center;
     width: 100%;
   `
 )

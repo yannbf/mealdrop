@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 import { useParams, Link, useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 
@@ -6,11 +6,9 @@ import { api } from '../../api'
 import { RestaurantCard } from '../../components/RestaurantCard'
 import { TopBanner } from '../../components/TopBanner'
 import { categories } from '../../stub/categories'
-import { Heading } from '../../components/typography/Heading'
-import { Body } from '../../components/typography/Body'
-import { Button } from '../../components/Button'
 import sushi from '../../assets/images/sushi.svg'
 import { Restaurant } from '../../types'
+import { ErrorSection } from '../../components/ErrorSection'
 
 const Breadcrumb = styled.div`
   margin-top: 2rem;
@@ -68,19 +66,15 @@ export const CategoryDetailPage = () => {
           </p>
         </Breadcrumb>
         {restaurants.length <= 0 && (
-          <div style={{ textAlign: 'center', padding: '6rem' }}>
-            <img alt="no restaurants found" src={sushi} />
-            <Heading level={2}>
-              This is not the food you’re looking for.
-            </Heading>
-            <Body>
-              There seems that there are no restaurants in this category yet.
-              Try to come back later?
-            </Body>
-            <Link to="/categories">
-              <Button>See all restaurants</Button>
-            </Link>
-          </div>
+          <ErrorSection
+            body="There seems that there are no restaurants in this category yet. Try to come back later?"
+            title="This is not the food you’re looking for."
+            image={<img alt="no restaurants found" src={sushi} />}
+            buttonText="See all restaurants"
+            onButtonClick={() => {
+              history.push('/categories')
+            }}
+          />
         )}
         <StyledContainer>
           {restaurants.map((restaurant: Restaurant, index: number) => (
