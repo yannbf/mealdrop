@@ -65,29 +65,38 @@ export const OptionsContainer = styled.div`
   align-items: center;
   justify-content: flex-end;
 
+  .navigation-items {
+    display: none;
+  }
+
   a {
     margin-right: 0.5rem;
   }
 
-  @media screen and (max-width: 800px) {
+  @media ${breakpoints.M} {
+    .navigation-items {
+      display: contents;
+    }
     width: 80%;
   }
 `
 
-export const StyledBody = styled(Body)`
-  color: white;
-  span {
-    display: none;
-  }
-
+export const CartText = styled(Body)
+  (({ theme: { color } }) => css`
+  display: none;
   @media ${breakpoints.M} {
-    span {
-      display: inline-block;
-      color: #949494;
-      margin-right: 0.25rem;
-    }
+    display: inline-block;
+    color: ${color.cartButtonText};
+    margin-right: 0.25rem;
   }
-`
+`)
+
+export const CartTotal = styled(Body)(
+  ({ theme: { color } }) => css`
+  display: inline-block;
+  color: ${color.buttonText}
+`)
+
 
 const ThemeToggle = () => {
   const darkMode = useDarkMode(false)
@@ -119,9 +128,9 @@ export const HeaderComponent = ({
   sticky = false,
   totalPrice = 0,
   cartItems = [],
-  toggleCartVisibility = () => {},
-  goToCheckout = () => {},
-  saveItem = () => {},
+  toggleCartVisibility = () => { },
+  goToCheckout = () => { },
+  saveItem = () => { },
 }: HeaderComponentProps) => (
   <HeaderContainer data-testid="header" sticky={sticky}>
     <LogoContainer to="/" aria-label="go to home page">
@@ -130,21 +139,25 @@ export const HeaderComponent = ({
     {!logoOnly && (
       <>
         <OptionsContainer>
-          <ThemeToggle />
-          <Link to="/" tabIndex={-1}>
-            <Button clear>Home</Button>
-          </Link>
-          <Link to="/categories" tabIndex={-1}>
-            <Button clear>All restaurants</Button>
-          </Link>
+          <span className="navigation-items">
+            <ThemeToggle />
+            <Link to="/" tabIndex={-1}>
+              <Button clear>Home</Button>
+            </Link>
+            <Link to="/categories" tabIndex={-1}>
+              <Button clear>All restaurants</Button>
+            </Link>
+          </span>
           <Button aria-label="food cart" icon="cart" onClick={toggleCartVisibility}>
             {totalPrice > 0 && (
-              <StyledBody type="span">
-                <Body type="span" className="cart-text">
+              <>
+                <CartText type="span">
                   Order
-                </Body>
-                {toEuro(totalPrice)}
-              </StyledBody>
+                </CartText>
+                <CartTotal type="span">
+                  {toEuro(totalPrice)}
+                </CartTotal>
+              </>
             )}
           </Button>
         </OptionsContainer>

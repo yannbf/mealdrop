@@ -111,6 +111,7 @@ const color = {
   accentText: baseColors.black,
   badgeBackground: baseColors.grey.light4,
   badgeText: baseColors.grey.dark2,
+  cartButtonText: baseColors.grey.base,
   bannerBackground: baseColors.blue.base,
   buttonClear: 'transparent',
   buttonClearHover: baseColors.grey.light5,
@@ -172,6 +173,7 @@ export const darkTheme: DefaultTheme = {
     ...lightTheme.color,
     badgeBackground: baseColors.grey.dark4,
     badgeText: baseColors.grey.light1,
+    cartButtonText: baseColors.grey.dark2,
     bannerBackground: baseColors.grey.dark5,
     buttonClearHover: baseColors.grey.dark4, // recheck
     buttonPrimary: baseColors.green.base,
