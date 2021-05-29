@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
-import { useSelector } from 'react-redux'
 
+import { useAppSelector } from '../../app-state'
 import { OrderSummary } from '../../components/shopping-cart'
 import { selectCartItems } from '../../app-state/cart'
 import { breakpoints } from '../../styles/breakpoints'
@@ -43,11 +43,9 @@ const TopContainer = styled.div(
   `
 )
 
-const StyledHeading = styled(Heading)(
-  ({ theme: { spacing } }) => css`
+const StyledHeading = styled(Heading)`
     margin: 0 auto;
-  `
-)
+`
 
 const PageContainer = styled.div(
   ({ theme: { color, spacing } }) => css`
@@ -58,7 +56,7 @@ const PageContainer = styled.div(
 )
 
 export const CheckoutPage = () => {
-  const cartItems = useSelector(selectCartItems)
+  const cartItems = useAppSelector(selectCartItems)
 
   return (
     <PageContainer>

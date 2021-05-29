@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components'
 import { Link, useHistory } from 'react-router-dom'
-import { useDispatch, useSelector } from 'react-redux'
 import useDarkMode from 'use-dark-mode'
 
+import { useAppDispatch, useAppSelector } from '../../app-state'
 import {
   CartItem,
   saveItemAction,
@@ -162,10 +162,10 @@ export const HeaderComponent = ({
 )
 
 export const Header = ({ sticky }: { sticky?: boolean }) => {
-  const isCartVisible = useSelector(selectCartVisibility)
-  const cartItems = useSelector(selectCartItems)
-  const totalPrice = useSelector(selectCartTotal)
-  const dispatch = useDispatch()
+  const isCartVisible = useAppSelector(selectCartVisibility)
+  const cartItems = useAppSelector(selectCartItems)
+  const totalPrice = useAppSelector(selectCartTotal)
+  const dispatch = useAppDispatch()
   const history = useHistory()
   const toggleCartVisibility = () => dispatch(toggleVisibilityAction())
   const saveItem = (item: CartItem) => dispatch(saveItemAction(item))

@@ -1,8 +1,8 @@
 import { useState, useEffect, memo, useCallback } from 'react';
 import { useHistory, useParams } from 'react-router-dom'
 import styled, { css } from 'styled-components'
-import { useDispatch, useSelector } from 'react-redux'
 
+import { useAppDispatch, useAppSelector } from '../../app-state'
 import { api } from '../../api'
 import { FoodItem } from '../../components/FoodItem/FoodItem'
 import { breakpoints } from '../../styles/breakpoints'
@@ -106,8 +106,8 @@ export const RestaurantDetailPage = () => {
   const [selectedItem, setSelectedItem] = useState<CartItem>()
   const closeModal = () => setSelectedItem(undefined)
 
-  const cartItems = useSelector(selectCartItems)
-  const dispatch = useDispatch()
+  const cartItems = useAppSelector(selectCartItems)
+  const dispatch = useAppDispatch()
   const addItemToCart = (item: CartItem) => dispatch(saveItemAction(item))
   const clearItemFromCart = (item: CartItem) => dispatch(clearItemAction(item))
 

@@ -1,8 +1,8 @@
 import { createSelector } from '@reduxjs/toolkit'
 
-import { AppState } from '../store'
+import { RootState } from '../store'
 
-const selectCart = (state: AppState) => state.cart
+const selectCart = (state: RootState) => state.cart
 
 export const selectCartVisibility = createSelector(
   [selectCart],

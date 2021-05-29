@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
-import { useSelector } from 'react-redux'
 
+import { useAppSelector } from '../../app-state'
 import ladies from '../../assets/images/ladies-sushi.svg'
 import { selectCartItems } from '../../app-state/cart'
 import { TopBanner } from '../../components/TopBanner'
@@ -53,7 +53,7 @@ const OrderSummaryContainer = styled.div`
 `
 
 export const SuccessPage = () => {
-  const cartItems = useSelector(selectCartItems)
+  const cartItems = useAppSelector(selectCartItems)
   return (
     <Container>
       <TopBanner title="Order confirmed!" />
