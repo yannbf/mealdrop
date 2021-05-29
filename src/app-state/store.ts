@@ -1,11 +1,13 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { combineReducers, configureStore } from '@reduxjs/toolkit'
 
 import { reducer as cart } from './cart'
 
+export const rootReducer = combineReducers({
+  cart,
+})
+
 export const store = configureStore({
-  reducer: {
-    cart,
-  },
+  reducer: rootReducer,
 })
 
 export type AppDispatch = typeof store.dispatch

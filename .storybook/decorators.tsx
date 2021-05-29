@@ -5,7 +5,7 @@ import { Story, StoryContext } from '@storybook/react'
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider as StoreProvider } from 'react-redux'
 
-import { rootReducer } from '../src/app-state/reducers'
+import { rootReducer } from '../src/app-state'
 import { breakpoints } from '../src/styles/breakpoints'
 import { GlobalStyle } from '../src/styles/GlobalStyle'
 import { darkTheme, lightTheme } from '../src/styles/theme'
