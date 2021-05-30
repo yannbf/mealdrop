@@ -51,7 +51,7 @@ export const CategoryDetailPage = () => {
   return (
     <>
       <TopBanner
-        title={category?.title}
+        title={category?.title || 'Oops!'}
         photoUrl={category?.photoUrl}
         onBackClick={() => history.goBack()}
       />
@@ -67,7 +67,7 @@ export const CategoryDetailPage = () => {
         </Breadcrumb>
         {restaurants.length <= 0 && (
           <ErrorSection
-            body="There seems that there are no restaurants in this category yet. Try to come back later?"
+            body="It seems that there are no restaurants in this category yet. Try to come back later?"
             title="This is not the food you’re looking for."
             image={<img alt="no restaurants found" src={sushi} />}
             buttonText="See all restaurants"
