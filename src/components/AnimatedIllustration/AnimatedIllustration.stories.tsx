@@ -9,7 +9,8 @@ export default {
   component: AnimatedIllustration,
   parameters: {
     layout: 'fullscreen',
-    storyshots: { disable: true }
+    storyshots: { disable: true },
+    chromatic: { delay: 1000 }
   },
   decorators: [
     (StoryFn) => (
