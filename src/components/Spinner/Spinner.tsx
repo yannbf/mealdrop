@@ -18,7 +18,7 @@ export const Spinner = () => {
       preserveAspectRatio="xMidYMid"
     >
       <text transform="translate(-50 0)" fill={color.primaryText}>Looking for some food...</text>
-      <animate attributeName="opacity" dur="2s" keyTimes="0;0.4;1" values="0;0;1" />
+      <animate attributeName="opacity" dur="1s" keyTimes="0;0.4;1" values="0;0;1" />
       <g>
         <circle cx="60" cy="50" r="4" fill="#22aca7">
           <animate
