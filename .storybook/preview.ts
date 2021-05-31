@@ -3,6 +3,11 @@ import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import { globalDecorators } from './decorators'
 import { viewports as breakpoints } from '../src/styles/breakpoints'
 
+// @ts-ignore This addon has no types unfortunately
+import { initializeWorker, mswDecorator } from 'msw-storybook-addon'
+
+initializeWorker()
+
 // Create custom viewports using widths defined in design tokens
 const breakpointViewports = Object.keys(breakpoints).reduce((acc, key) => {
   acc[`breakpoint${key}`] = {
@@ -33,4 +38,4 @@ export const parameters = {
   },
 }
 
-export const decorators = globalDecorators
+export const decorators = [...globalDecorators, mswDecorator]

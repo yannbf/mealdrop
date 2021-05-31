@@ -32,7 +32,8 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public -o build/storybook",
-    "build-all": "yarn build && yarn build-storybook"
+    "build-all": "yarn build && yarn build-storybook",
+    "chromatic": "chromatic --project-token $CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -59,6 +60,9 @@
     "@types/react-router-dom": "^5.1.7",
     "@types/react-transition-group": "^4.4.1",
     "@types/styled-components": "^5.1.9",
+    "chromatic": "^5.8.0",
+    "msw": "^0.28.2",
+    "msw-storybook-addon": "^1.1.0",
     "babel-loader": "8.1.0",
     "jest-canvas-mock": "^2.3.1",
     "react-is": "^17.0.2",
