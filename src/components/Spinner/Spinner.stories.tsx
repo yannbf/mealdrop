@@ -7,7 +7,7 @@ export default {
   component: Spinner,
   parameters: {
     layout: 'fullscreen',
-    chromatic: { delay: 1000 }
+    chromatic: { delay: 1200 }
   }
 } as Meta
 

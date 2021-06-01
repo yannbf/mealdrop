@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 import Lottie from 'react-lottie-player'
 
 enum LOTTIE_ANIMATIONS {
@@ -22,5 +22,14 @@ export const AnimatedIllustration = ({
     )
   }, [animation])
 
-  return <Lottie style={{ minHeight: 450, maxWidth: 450 }} play loop animationData={animationData} />
+  return (
+    <span className="chromatic-ignore">
+      <Lottie
+        style={{ minHeight: 450, maxWidth: 450 }}
+        play
+        loop
+        animationData={animationData}
+      />
+    </span>
+  )
 }
