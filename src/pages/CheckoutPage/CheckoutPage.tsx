@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components'
 
 import { useAppSelector } from '../../app-state'
-import { OrderSummary } from '../../components/shopping-cart'
+import { OrderSummary } from '../../components/ShoppingCart'
 import { selectCartItems } from '../../app-state/cart'
 import { breakpoints } from '../../styles/breakpoints'
 import { Heading } from '../../components/typography/Heading'
-import { MultiStepForm } from '../../components/registration-form/MultiStepForm'
+import { MultiStepForm } from './components/registration-form/MultiStepForm'
 
 const ContentContainer = styled.div`
   display: flex;

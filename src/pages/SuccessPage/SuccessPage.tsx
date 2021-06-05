@@ -5,7 +5,7 @@ import ladies from '../../assets/images/ladies-sushi.svg'
 import { selectCartItems } from '../../app-state/cart'
 import { TopBanner } from '../../components/TopBanner'
 import { Heading } from '../../components/typography/Heading'
-import { OrderSummary } from '../../components/shopping-cart'
+import { OrderSummary } from '../../components/ShoppingCart'
 import { breakpoints } from '../../styles/breakpoints'
 import { Body } from '../../components/typography/Body'
 

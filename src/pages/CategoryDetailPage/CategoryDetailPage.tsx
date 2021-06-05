@@ -8,7 +8,7 @@ import { TopBanner } from '../../components/TopBanner'
 import { categories } from '../../stub/categories'
 import sushi from '../../assets/images/sushi.svg'
 import { Restaurant } from '../../types'
-import { ErrorSection } from '../../components/ErrorSection'
+import { ErrorBlock } from '../../components/ErrorBlock'
 
 const Breadcrumb = styled.div`
   margin-top: 2rem;
@@ -66,7 +66,7 @@ export const CategoryDetailPage = () => {
           </p>
         </Breadcrumb>
         {restaurants.length <= 0 && (
-          <ErrorSection
+          <ErrorBlock
             body="It seems that there are no restaurants in this category yet. Try to come back later?"
             title="This is not the food you’re looking for."
             image={<img alt="no restaurants found" src={sushi} />}

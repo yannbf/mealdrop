@@ -1,11 +1,11 @@
 import { useHistory } from 'react-router-dom'
 import styled from 'styled-components'
 
-import { CategoryList } from '../../components/CategoryList'
 import { TopBanner } from '../../components/TopBanner'
 import { Body } from '../../components/typography/Body'
 import { Heading } from '../../components/typography/Heading'
 import { categories } from '../../stub/categories'
+import { CategoryList } from './components/CategoryList'
 
 const StyledHeading = styled(Heading)`
   margin-top: 4.5rem;
