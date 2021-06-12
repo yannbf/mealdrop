@@ -2,6 +2,8 @@ import styled, { css } from 'styled-components'
 import { breakpoints } from '../../styles/breakpoints'
 import { FooterCard } from '../FooterCard/FooterCard'
 import { Logo } from '../Logo'
+import googlePlayBanner from '../../assets/images/googleplay-banner.png'
+import appStoreBanner from '../../assets/images/appstore-banner.png'
 
 const FooterContainer = styled.div(
   ({ theme: { color } }) => css`
@@ -79,12 +81,12 @@ export const Footer = () => {
               <img
                 alt="app store link"
                 style={{ width: '120px', marginBottom: '0.5rem' }}
-                src="https://www.pete-app.com/wp-content/themes/PETE/style/public/images/downloadIos.png"
+                src={appStoreBanner}
               />
               <img
                 alt="google play link"
                 style={{ width: '120px' }}
-                src="https://help.richmondelt.com/hc/article_attachments/115008811623/android-app-store-latest.png"
+                src={googlePlayBanner}
               />
             </div>
           </FooterCard>
