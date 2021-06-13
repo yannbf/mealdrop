@@ -5,7 +5,7 @@ import { Button } from '../Button'
 import { Sidebar } from './Sidebar'
 
 export default {
-  title: 'Overlays/Sidebar',
+  title: 'Components/Sidebar',
   component: Sidebar,
 } as Meta
 

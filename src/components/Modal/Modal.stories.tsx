@@ -5,7 +5,7 @@ import { Button } from '../Button'
 import { Modal } from './Modal'
 
 export default {
-  title: 'Overlays/Modal',
+  title: 'Components/Modal',
   component: Modal,
   parameters: {
     docs: { inlineStories: false, iframeHeight: 600 },

@@ -7,7 +7,7 @@ import { Button } from '../Button'
 import { ShoppingCartMenu, ShoppingCartMenuProps } from './ShoppingCartMenu'
 
 export default {
-  title: 'Features/ShoppingCartMenu',
+  title: 'Components/ShoppingCartMenu',
   component: ShoppingCartMenu,
 } as Meta
 

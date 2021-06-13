@@ -4,7 +4,7 @@ import { cartItems } from '../../../stub/cart-items'
 import { OrderSummary, OrderSummaryProps } from './OrderSummary'
 
 export default {
-  title: 'Features/OrderSummary',
+  title: 'Components/OrderSummary',
   component: OrderSummary,
 } as Meta
 
