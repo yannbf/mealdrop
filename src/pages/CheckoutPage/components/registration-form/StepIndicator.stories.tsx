@@ -1,0 +1,18 @@
+import { Story, Meta } from '@storybook/react'
+
+import { StepIndicator, StepIndicatorProps } from './StepIndicator'
+
+export default {
+  title: 'Pages/CheckoutPage/Components/StepIndicator',
+  component: StepIndicator,
+} as Meta
+
+const Template: Story<StepIndicatorProps> = (args) => (
+  <StepIndicator {...args} />
+)
+export const Default = Template.bind({})
+Default.args = {
+  title: 'Step',
+  amountOfSteps: 4,
+  currentStep: 1,
+}

@@ -4,7 +4,7 @@ import styled, { css } from 'styled-components'
 
 import { useAppDispatch, useAppSelector } from '../../app-state'
 import { api } from '../../api'
-import { FoodItem } from '../../components/FoodItem/FoodItem'
+import { FoodItem } from './components/FoodItem/FoodItem'
 import { breakpoints } from '../../styles/breakpoints'
 import {
   CartItem,
@@ -16,10 +16,10 @@ import { TopBanner } from '../../components/TopBanner'
 import { Heading, Body } from '../../components/typography'
 import { Badge } from '../../components/Badge'
 import { FoodMenuItem, Restaurant } from '../../types'
-import { FoodItemModal } from '../../components/modal/FoodItemModal'
+import { FoodItemModal } from './components/FoodItemModal'
 import { Review } from '../../components/Review'
 import { AnimatedIllustration } from '../../components/AnimatedIllustration'
-import { ErrorSection } from '../../components/ErrorSection'
+import { ErrorBlock } from '../../components/ErrorBlock'
 import { Spinner } from '../../components/Spinner';
 
 const StyledContainer = styled.div`
@@ -114,7 +114,7 @@ export const RestaurantDetailPage = () => {
 
   if (status === '500') {
     return (
-      <ErrorSection
+      <ErrorBlock
         title="Something went wrong!"
         body="Our bad, something went wrong on our side."
         image={<AnimatedIllustration animation="NotFound" />}
@@ -126,7 +126,7 @@ export const RestaurantDetailPage = () => {
 
   if (status === '404') {
     return (
-      <ErrorSection
+      <ErrorBlock
         title="We can't find this page"
         body="This page doesn’t exist, keep looking."
         image={<AnimatedIllustration animation="Error" />}
