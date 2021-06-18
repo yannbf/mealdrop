@@ -1,6 +1,6 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { RestaurantCard, RestaurantCardProps } from './RestaurantCard'
+import { RestaurantCard } from './RestaurantCard'
 import { restaurants } from '../../stub/restaurants'
 
 export default {
@@ -23,9 +23,9 @@ export default {
       },
     },
   },
-} as Meta
+} as ComponentMeta<typeof RestaurantCard>
 
-const Template: Story<RestaurantCardProps> = (args) => <RestaurantCard {...args} />
+const Template: ComponentStory<typeof RestaurantCard> = (args) => <RestaurantCard {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

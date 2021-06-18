@@ -1,10 +1,9 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import sushi from '../../assets/images/sushi.svg'
 
 import {
   ErrorBlock,
-  ErrorSectionProps,
 } from './ErrorBlock'
 
 export default {
@@ -13,9 +12,9 @@ export default {
   parameters: {
     layout: 'fullscreen'
   }
-} as Meta
+} as ComponentMeta<typeof ErrorBlock>
 
-const Template: Story<ErrorSectionProps> = (args) => (
+const Template: ComponentStory<typeof ErrorBlock> = (args) => (
   <ErrorBlock {...args} />
 )
 

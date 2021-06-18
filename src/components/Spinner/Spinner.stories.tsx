@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import { Spinner } from './Spinner'
 
@@ -9,8 +9,8 @@ export default {
     layout: 'fullscreen',
     chromatic: { delay: 1200 }
   }
-} as Meta
+} as ComponentMeta<typeof Spinner>
 
-export const Default: Story = () => (<div style={{ minHeight: '100vh' }}>
+export const Default: ComponentStory<typeof Spinner> = () => (<div style={{ minHeight: '100vh' }}>
   <Spinner />
 </div>)

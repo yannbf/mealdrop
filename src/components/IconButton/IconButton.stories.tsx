@@ -1,13 +1,13 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { IconButton, IconButtonProps } from './IconButton'
+import { IconButton } from './IconButton'
 
 export default {
   title: 'Components/IconButton',
   component: IconButton,
-} as Meta
+} as ComponentMeta<typeof IconButton>
 
-const Template: Story<IconButtonProps> = (args) => <IconButton {...args} />
+const Template: ComponentStory<typeof IconButton> = (args) => <IconButton {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

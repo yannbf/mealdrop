@@ -1,6 +1,6 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { Heading, HeadingProps } from './Heading'
+import { Heading } from './Heading'
 
 export default {
   title: 'Components/Typography/Heading',
@@ -9,9 +9,9 @@ export default {
     children: { controls: 'text' },
     level: { table: { disable: true } },
   },
-} as Meta
+}as ComponentMeta<typeof Heading>
 
-const Template: Story<HeadingProps> = ({ children }) => (
+const Template: ComponentStory<typeof Heading> = ({ children }) => (
   <div>
     <Heading>{children || 'Heading 1'}</Heading>
     <Heading level={2}>{children || 'Heading 2'}</Heading>

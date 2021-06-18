@@ -11,7 +11,7 @@ export default {
     docs: { inlineStories: false, iframeHeight: 600 },
   },
   decorators: [
-    (StoryFn: Story) => (
+    (StoryFn) => (
       <>
         <div id="modal" />
         <StoryFn />

@@ -24,7 +24,7 @@ const ImageContainer = styled.div(
   `
 )
 
-export type ErrorSectionProps = {
+export type ErrorBlockProps = {
   title: string
   image: React.ReactNode
   body: string
@@ -32,7 +32,7 @@ export type ErrorSectionProps = {
   onButtonClick: () => void
 }
 
-export const ErrorBlock = ({ title, image, body, buttonText, onButtonClick }: ErrorSectionProps) => {
+export const ErrorBlock = ({ title, image, body, buttonText, onButtonClick }: ErrorBlockProps) => {
   return <ErrorContainer>
     <Heading level={2}>{title}</Heading>
     <ImageContainer>

@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import { HomePage } from './HomePage'
 import { DefaultTemplate } from '../../templates/PageTemplate'
@@ -14,9 +14,9 @@ export default {
         'https://www.figma.com/proto/XW4Bcjmj3JOILjKmZjjdQd/Foodenters?node-id=135%3A258&viewport=319%2C422%2C0.06356501579284668&scaling=scale-down',
     },
   },
-} as Meta
+} as ComponentMeta<typeof HomePage>
 
-const Template: Story = () => (
+const Template: ComponentStory<typeof HomePage> = () => (
   <DefaultTemplate>
     <HomePage />
   </DefaultTemplate>

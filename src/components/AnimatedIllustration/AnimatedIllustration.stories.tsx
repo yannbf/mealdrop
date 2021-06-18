@@ -1,7 +1,6 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 import {
   AnimatedIllustration,
-  AnimatedIllustrationProps,
 } from './AnimatedIllustration'
 
 export default {
@@ -19,13 +18,13 @@ export default {
       </div>
     ),
   ],
-} as Meta
+} as ComponentMeta<typeof AnimatedIllustration>
 
-const Template: Story<AnimatedIllustrationProps> = (args) => (
+const Template: ComponentStory<typeof AnimatedIllustration> = (args) => (
   <AnimatedIllustration {...args} />
 )
 
 export const Default = Template.bind({})
 Default.args = {
-  animation: 'Error',
+  animation: 'Error'
 }

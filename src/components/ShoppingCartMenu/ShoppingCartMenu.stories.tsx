@@ -4,14 +4,14 @@ import { Story, Meta } from '@storybook/react'
 import { cartItems } from '../../stub/cart-items'
 import { Button } from '../Button'
 
-import { ShoppingCartMenu, ShoppingCartMenuProps } from './ShoppingCartMenu'
+import { ShoppingCartMenu } from './ShoppingCartMenu'
 
 export default {
   title: 'Components/ShoppingCartMenu',
   component: ShoppingCartMenu,
 } as Meta
 
-const Template: Story<ShoppingCartMenuProps> = () => {
+const Template: Story = () => {
   const [isOpen, setIsOpen] = useState(false)
   const openShoppingCartMenu = () => setIsOpen(true)
   const closeShoppingCartMenu = () => setIsOpen(false)
@@ -28,7 +28,7 @@ const Template: Story<ShoppingCartMenuProps> = () => {
         isOpen={isOpen}
         cartItems={cartItems}
         totalPrice={1200}
-        onItemChange={() => {}}
+        onItemChange={() => { }}
         onClose={() => {
           closeShoppingCartMenu()
         }}

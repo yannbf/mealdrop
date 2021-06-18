@@ -1,13 +1,13 @@
-import { Meta, Story } from '@storybook/react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { FoodItem, FoodItemProps } from './FoodItem'
+import { FoodItem } from './FoodItem'
 
 export default {
   title: 'Pages/RestaurantDetailPage/Components/FoodItem',
   component: FoodItem,
-} as Meta
+}as ComponentMeta<typeof FoodItem>
 
-const Template: Story<FoodItemProps> = (args) => <FoodItem {...args} />
+const Template: ComponentStory<typeof FoodItem> = (args) => <FoodItem {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

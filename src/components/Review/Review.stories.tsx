@@ -1,6 +1,6 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { Review, ReviewProps } from './Review'
+import { Review } from './Review'
 
 export default {
   title: 'Components/Review',
@@ -15,9 +15,9 @@ export default {
       },
     },
   },
-} as Meta
+} as ComponentMeta<typeof Review>
 
-const Template: Story<ReviewProps> = (args) => <Review {...args} />
+const Template: ComponentStory<typeof Review> = (args) => <Review {...args} />
 
 export const Excellent = Template.bind({})
 Excellent.args = {

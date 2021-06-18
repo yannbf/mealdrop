@@ -1,13 +1,13 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { Input, InputProps } from './Input'
+import { Input } from './Input'
 
 export default {
   title: 'Components/Form/Input',
   component: Input,
-} as Meta
+} as ComponentMeta<typeof Input>
 
-const Template: Story<InputProps> = (args) => <Input {...args} />
+const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
@@ -27,5 +27,5 @@ export const Filled = Template.bind({})
 Filled.args = {
   ...WithLabel.args,
   value: 'Already filled text',
-  onChange: () => {}
+  onChange: () => { }
 }

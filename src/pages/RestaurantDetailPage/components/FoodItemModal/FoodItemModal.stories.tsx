@@ -1,7 +1,7 @@
-import { Story, Meta } from '@storybook/react'
 import { useState } from 'react';
-import { Button } from '../../../../components/Button'
+import { Story, Meta } from '@storybook/react'
 
+import { Button } from '../../../../components/Button'
 import { FoodItemModal } from './FoodItemModal'
 
 export default {
@@ -11,7 +11,7 @@ export default {
     docs: { inlineStories: false, iframeHeight: 600 },
   },
   decorators: [
-    (StoryFn: Story) => (
+    (StoryFn) => (
       <>
         <div id="modal" />
         <StoryFn />
@@ -39,8 +39,8 @@ const Template: Story = () => {
         item={item}
         cartItems={[item]}
         onClose={closeModal}
-        onItemSave={() => {}}
-        onItemRemove={() => {}}
+        onItemSave={() => { }}
+        onItemRemove={() => { }}
       />
     </>
   )

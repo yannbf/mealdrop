@@ -1,8 +1,7 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import {
   RestaurantsSection,
-  RestaurantsSectionProps,
 } from './RestaurantsSection'
 import { restaurants } from '../../../../stub/restaurants'
 
@@ -11,9 +10,9 @@ import { rest } from 'msw'
 export default {
   title: 'Pages/HomePage/Components/RestaurantsSection',
   component: RestaurantsSection,
-} as Meta
+} as ComponentMeta<typeof RestaurantsSection>
 
-const Template: Story<RestaurantsSectionProps> = (args) => (
+const Template: ComponentStory<typeof RestaurantsSection> = (args) => (
   <RestaurantsSection {...args} />
 )
 

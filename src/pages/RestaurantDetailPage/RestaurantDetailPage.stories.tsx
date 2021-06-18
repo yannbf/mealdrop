@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { rest } from 'msw'
 
 import { RestaurantDetailPage } from './RestaurantDetailPage'
@@ -20,11 +20,11 @@ export default {
       path: '/restaurants/:id'
     }
   },
-} as Meta
+} as ComponentMeta<typeof RestaurantDetailPage>
 
 const REQUEST_URL = 'https://blab-290ab.firebaseio.com/restaurants/:id/.json'
 
-const Template: Story = () => (
+const Template: ComponentStory<typeof RestaurantDetailPage> = () => (
   <div>
     <div id="modal" />
     <StickyHeaderTemplate>

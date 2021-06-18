@@ -1,6 +1,6 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { Icon, IconProps } from './Icon'
+import { Icon } from './Icon'
 import styled, { css } from 'styled-components'
 import { Body } from '../typography/Body'
 
@@ -46,20 +46,15 @@ export default {
         options: icons,
       },
     },
-    color: {
-      control: {
-        type: 'color',
-      },
-    },
     size: {
       control: {
         type: 'range',
       },
     },
   },
-} as Meta
+} as ComponentMeta<typeof Icon>
 
-const Template: Story<IconProps> = (args) => <Icon {...args} />
+const Template: ComponentStory<typeof Icon> = (args) => <Icon {...args} />
 
 export const AllIcons = () => (
   <>

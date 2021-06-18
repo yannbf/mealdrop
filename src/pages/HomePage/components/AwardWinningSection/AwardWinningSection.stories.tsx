@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import { AwardWinningSection } from './AwardWinningSection'
 
@@ -8,8 +8,8 @@ export default {
   parameters: {
     layout: 'fullscreen',
   },
-} as Meta
+} as ComponentMeta<typeof AwardWinningSection>
 
-const Template: Story = () => <AwardWinningSection />
+const Template: ComponentStory<typeof AwardWinningSection> = () => <AwardWinningSection />
 
 export const Default = Template.bind({})

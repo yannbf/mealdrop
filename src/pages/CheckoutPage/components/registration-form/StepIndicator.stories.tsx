@@ -1,13 +1,13 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { StepIndicator, StepIndicatorProps } from './StepIndicator'
+import { StepIndicator } from './StepIndicator'
 
 export default {
   title: 'Pages/CheckoutPage/Components/StepIndicator',
   component: StepIndicator,
-} as Meta
+}as ComponentMeta<typeof StepIndicator>
 
-const Template: Story<StepIndicatorProps> = (args) => (
+const Template: ComponentStory<typeof StepIndicator> = (args) => (
   <StepIndicator {...args} />
 )
 export const Default = Template.bind({})

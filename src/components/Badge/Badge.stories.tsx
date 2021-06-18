@@ -1,6 +1,6 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { Badge, BadgeProps } from './Badge'
+import { Badge } from './Badge'
 
 export default {
   title: 'Components/Badge',
@@ -12,9 +12,9 @@ export default {
         'https://www.figma.com/file/XW4Bcjmj3JOILjKmZjjdQd/Mealdrop?node-id=780%3A2938',
     },
   },
-} as Meta
+} as ComponentMeta<typeof Badge>
 
-const Template: Story<BadgeProps> = (args) => <Badge {...args} />
+const Template: ComponentStory<typeof Badge> = (args) => <Badge {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import { Header } from './Header'
 
@@ -8,9 +8,9 @@ export default {
   parameters: {
     layout: 'fullscreen'
   }
-} as Meta
+} as ComponentMeta<typeof Header>
 
-const Template: Story = (args) =>
+const Template: ComponentStory<typeof Header> = (args) =>
   <div style={{ position: 'relative', height: '100vh' }}>
     <Header {...args} />
   </div>

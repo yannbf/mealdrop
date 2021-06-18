@@ -63,7 +63,7 @@ export const Footer = () => {
       external: true,
     },
     {
-      name: 'Twitter',
+      name: 'Twitters',
       href: 'https://twitter.com',
       external: true,
     },

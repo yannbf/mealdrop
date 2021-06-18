@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
 import { Banner } from './Banner'
 
@@ -8,9 +8,9 @@ export default {
   parameters: {
     layout: 'fullscreen',
   },
-} as Meta
+} as ComponentMeta<typeof Banner>
 
-const Template: Story = () => <Banner />
+const Template: ComponentStory<typeof Banner> = () => <Banner />
 
 export const Desktop = Template.bind({})
 export const Mobile = Template.bind({})

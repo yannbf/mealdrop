@@ -1,6 +1,6 @@
-import { Story, Meta } from '@storybook/react'
+import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { Body, BodyProps } from './Body'
+import { Body } from './Body'
 
 export default {
   title: 'Components/Typography/Body',
@@ -9,9 +9,9 @@ export default {
     children: { controls: 'text' },
     size: { table: { disable: true } },
   },
-} as Meta
+}as ComponentMeta<typeof Body>
 
-const Template: Story<BodyProps> = ({ children }) => (
+const Template: ComponentStory<typeof Body> = ({ children }) => (
   <div>
     <Body>{children || 'Body'}</Body>
     <Body size="S">{children || 'Body S'}</Body>
