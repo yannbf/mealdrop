@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   justify-content: flex-start;
 `
 
-export type ReviewProps = {
+type ReviewProps = {
   rating?: number
 }
 
@@ -17,13 +17,13 @@ const getReview = (rating?: number) => {
     return 'No reviews yet'
   }
 
-  let reviewText = 'Excellent'
+  let reviewText = 'Very poor'
 
-  if (rating <= 4) {
+  if (rating === 5) {
+    reviewText = 'Excellent'
+  } else if (rating >= 4 && rating <= 5) {
     reviewText = 'Very good'
-  }
-
-  if (rating <= 2) {
+  } else if (rating >= 2 && rating <= 4) {
     reviewText = 'Adequate'
   }
 
@@ -32,7 +32,6 @@ const getReview = (rating?: number) => {
 
 export const Review = ({ rating }: ReviewProps) => (
   <Wrapper>
-    {/* <Icon name="star" /> */}
     <Body size="S" type="span" className="review-text">
       {getReview(rating)}
     </Body>
