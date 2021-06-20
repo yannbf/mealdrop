@@ -18,6 +18,7 @@ export const HomePage = () => {
       <RestaurantsSection title="Our favorite picks" />
       <Spacing />
       <AwardWinningSection />
+      <Spacing />
       <CategoriesSection categories={categories} />
       <Spacing />
     </>
