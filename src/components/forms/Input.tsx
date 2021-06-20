@@ -41,7 +41,7 @@ const Container = styled.div(
 )
 
 
-export type InputProps = {
+type InputProps = {
   label?: string
   value?: any
   onChange?: (data: any) => void

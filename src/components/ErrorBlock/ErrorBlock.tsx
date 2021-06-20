@@ -24,7 +24,7 @@ const ImageContainer = styled.div(
   `
 )
 
-export type ErrorBlockProps = {
+type ErrorBlockProps = {
   title: string
   image: React.ReactNode
   body: string

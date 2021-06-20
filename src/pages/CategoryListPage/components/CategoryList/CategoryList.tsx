@@ -10,7 +10,7 @@ type CategoryItem = {
   photoUrl: string
 }
 
-export type CategoryListProps = {
+type CategoryListProps = {
   categories: CategoryItem[]
 }
 

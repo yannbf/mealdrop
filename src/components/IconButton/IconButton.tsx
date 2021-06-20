@@ -20,7 +20,7 @@ const StyledButton = styled.button<{ small: boolean }>(
   `
 )
 
-export type IconButtonProps = {
+type IconButtonProps = {
   name: string
   small?: boolean
   onClick?: () => void

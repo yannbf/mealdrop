@@ -62,7 +62,7 @@ const ShoppingCartMenuItem = ({ item, onChange }: any) => (
   </MenuItemContainer>
 )
 
-export type ShoppingCartMenuProps = {
+type ShoppingCartMenuProps = {
   isOpen: boolean
   totalPrice: number
   onClose: () => void

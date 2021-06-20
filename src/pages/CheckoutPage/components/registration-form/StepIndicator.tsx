@@ -46,7 +46,7 @@ const TitleSection = styled.div(
   `
 )
 
-export type StepIndicatorProps = {
+type StepIndicatorProps = {
   title: string
   currentStep: number
   amountOfSteps: number

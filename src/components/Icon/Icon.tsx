@@ -6,7 +6,7 @@ const StyledSVG = styled.svg`
   display: block;
 `
 
-export type IconProps = {
+type IconProps = {
   name: string
   color?: string
   size?: number | string

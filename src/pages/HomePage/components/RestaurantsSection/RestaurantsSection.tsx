@@ -26,7 +26,7 @@ const StyledRestaurantCard = styled(RestaurantCard)`
   }
 `
 
-export type RestaurantsSectionProps = {
+type RestaurantsSectionProps = {
   title: string
 }
 

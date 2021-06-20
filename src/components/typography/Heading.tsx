@@ -26,7 +26,7 @@ type DefaultProps = {
   children: React.ReactNode | string
 }
 
-export type HeadingProps = DefaultProps & React.ComponentProps<typeof HeadingBase>;
+type HeadingProps = DefaultProps & React.ComponentProps<typeof HeadingBase>;
 
 export const Heading: React.FC<HeadingProps> = ({
   level = 1,

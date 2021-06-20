@@ -6,7 +6,7 @@ enum LOTTIE_ANIMATIONS {
   Error = 'Error',
 }
 
-export type AnimatedIllustrationProps = {
+type AnimatedIllustrationProps = {
   animation: keyof typeof LOTTIE_ANIMATIONS
 }
 

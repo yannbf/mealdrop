@@ -24,7 +24,7 @@ const Container = styled.div<{ src?: string }>(
   `
 )
 
-export type TopBannerProps = {
+type TopBannerProps = {
   title?: string
   photoUrl?: string
   onBackClick?: () => void

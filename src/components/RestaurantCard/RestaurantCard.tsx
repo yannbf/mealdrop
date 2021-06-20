@@ -5,7 +5,7 @@ import { Body, Heading } from '../typography'
 import { Badge } from '../Badge'
 import { Review } from '../Review'
 
-export type RestaurantCardProps = {
+type RestaurantCardProps = {
   id?: string
   name: string
   rating?: number

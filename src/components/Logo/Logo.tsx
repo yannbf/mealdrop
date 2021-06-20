@@ -84,7 +84,7 @@ const StyledHeading = styled(Heading)`
   }
 `
 
-export type LogoProps = {
+type LogoProps = {
   large?: boolean
   logoOnly?: boolean
 }

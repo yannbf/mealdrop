@@ -48,7 +48,7 @@ const Container = styled.div(
   `
 )
 
-export type SelectProps = {
+type SelectProps = {
   label?: string
   options: any[]
   value?: any

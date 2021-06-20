@@ -111,7 +111,7 @@ const ThemeToggle = () => {
   )
 }
 
-export type HeaderComponentProps = {
+type HeaderComponentProps = {
   isCartVisible?: boolean
   cartItems?: CartItem[]
   totalPrice?: number

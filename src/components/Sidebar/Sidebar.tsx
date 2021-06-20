@@ -12,7 +12,7 @@ import { useKey, useLockBodyScroll } from '../../hooks'
 import { Button } from '../Button'
 import { Heading } from '../typography'
 
-export type SidebarProps = {
+type SidebarProps = {
   isOpen: boolean
   title: string
   onClose: () => void

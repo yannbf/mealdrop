@@ -86,7 +86,7 @@ type DefaultProps = {
   onClick?: () => void
 }
 
-export type ButtonProps = DefaultProps &
+type ButtonProps = DefaultProps &
   React.ComponentProps<typeof StyledButton>;
 
 /**

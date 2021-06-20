@@ -7,7 +7,7 @@ import { useKey } from '../../hooks/useKeyboard'
 import { Button } from '../Button'
 import { useLockBodyScroll } from '../../hooks/useBodyScrollLock'
 
-export type ModalProps = {
+type ModalProps = {
   isOpen: boolean
   onClose: () => void
 }

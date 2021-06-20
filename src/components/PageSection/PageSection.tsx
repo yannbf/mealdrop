@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Button } from '../Button'
 import { Heading } from '../typography'
 
-export type PageSectionProps = {
+type PageSectionProps = {
   title: string
   topButtonLabel?: string
   onTopButtonClick?: () => void

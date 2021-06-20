@@ -49,7 +49,7 @@ const BottomContainer = styled.div`
   }
 `
 
-export type FoodItemModalProps = {
+type FoodItemModalProps = {
   item?: CartItem
   cartItems: CartItem[]
   onClose: () => void

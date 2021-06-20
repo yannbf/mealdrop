@@ -23,7 +23,7 @@ type DefaultProps = {
   children: React.ReactNode | string
 }
 
-export type BodyProps = DefaultProps & React.ComponentProps<typeof BodyBase>;
+type BodyProps = DefaultProps & React.ComponentProps<typeof BodyBase>;
 
 export const Body: React.FC<BodyProps> = ({
   size = '',

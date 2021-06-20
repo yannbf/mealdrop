@@ -48,7 +48,7 @@ const Price = styled(Body)`
   margin-top: 1rem;
 `
 
-export type FoodItemProps = {
+type FoodItemProps = {
   quantity?: number
   name: string
   price: number

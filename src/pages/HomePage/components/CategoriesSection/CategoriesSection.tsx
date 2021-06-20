@@ -7,7 +7,7 @@ import { PageSection } from '../../../../components/PageSection'
 import { Category, CategoryProps } from '../../../../components/Category'
 import { IconButton } from '../../../../components/IconButton'
 
-export type CategoriesSectionProps = {
+type CategoriesSectionProps = {
   categories: CategoryProps[]
 }
 

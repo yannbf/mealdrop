@@ -14,7 +14,7 @@ const Container = styled.div(
   `
 )
 
-export type BadgeProps = {
+type BadgeProps = {
   text: string
   className?: string
 }

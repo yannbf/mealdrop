@@ -12,7 +12,7 @@ import {
 import { Body } from '../../typography/Body'
 import { toEuro } from '../../../helpers'
 
-export type OrderSummaryProps = {
+type OrderSummaryProps = {
   cartItems: CartItem[]
 }
 
