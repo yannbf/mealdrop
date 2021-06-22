@@ -1,14 +1,13 @@
-import { Meta } from '@storybook/addon-docs/blocks';
-import Code from './assets/code-brackets.svg';
-import Colors from './assets/colors.svg';
-import Comments from './assets/comments.svg';
-import Direction from './assets/direction.svg';
-import Flow from './assets/flow.svg';
-import Plugin from './assets/plugin.svg';
-import Repo from './assets/repo.svg';
-import StackAlt from './assets/stackalt.svg';
+import { Meta } from '@storybook/addon-docs/blocks'
+import Code from './assets/code-brackets.svg'
+import Comments from './assets/comments.svg'
+import MealdropLogo from './assets/logo.svg'
+import Flow from './assets/flow.svg'
+import Repo from './assets/repo.svg'
+import Colors from './assets/colors.svg'
+import banner from './assets/mealdrop-banner.png'
 
-<Meta title="Getting Started/With Storybook" />
+<Meta title="Getting Started/With Mealdrop" />
 
 <style>{`
   .subheading {
@@ -26,7 +25,7 @@ import StackAlt from './assets/stackalt.svg';
   .link-list {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr;
     row-gap: 10px;
   }
 
@@ -86,6 +85,11 @@ import StackAlt from './assets/stackalt.svg';
     line-height: 20px;
   }
 
+  .link-item span strong:first-of-type {
+    font-size: 15px;
+    line-height: 20px;
+  }
+
   .tip {
     display: inline-block;
     border-radius: 1em;
@@ -114,81 +118,67 @@ import StackAlt from './assets/stackalt.svg';
   
 `}</style>
 
-# Welcome to Storybook
+# Welcome to Mealdrop's Storybook!
 
 Storybook helps you build UI components in isolation from your app's business logic, data, and context.
 That makes it easy to develop hard-to-reach states. Save these UI states as **stories** to revisit during development, testing, or QA.
 
-Browse example stories now by navigating to them in the sidebar.
-View their code in the `src/storybook-examples` directory to learn how they work.
-We recommend building UIs with a [**component-driven**](https://componentdriven.org) process starting with atomic components and ending with pages.
+This Storybook is part of a course made by [Yann Braga](https://twitter.com/yannbf), where you learn how to unleash the full potential of Storybook for React apps. We start from the basics and quickly build up to learn how to develop features and even pages straight from Storybook, saving lots of development time, and at the same time creating a living documentation of components.
 
-<div class="subheading">Configure</div>
+We will see the power of addons and how they help improve the development experience and the end quality of components. We will also connect design tools, test accessibility, dark/light mode, and much more.
 
+**By the end of the course**, you'll be able to impress your team by implementing a tool which will _drastically_ improve the development workflow of your projects!
+
+<img src={banner} />
+
+<div class="subheading">Check this out</div>
 <div class="link-list">
-  <a class="link-item" href="https://storybook.js.org/docs/presets" target="_blank">
-    <img src={Plugin} alt="plugin" />
+  <a
+    class="link-item"
+    href="https://www.newline.co/courses/storybook-for-react-apps"
+    target="_blank"
+  >
+    <img src={Repo} alt="code" />
     <span>
-      <strong>Presets for popular tools</strong>
-      Easy setup for TypeScript, SCSS and more.
+      <strong>Watch the course</strong>
+      Including some free lessons :)
     </span>
   </a>
-  <a class="link-item" href="https://storybook.js.org/docs/webpack" target="_blank">
-    <img src={StackAlt} alt="Build" />
+  <a class="link-item" href="https://mealdrop.netlify.com/" target="_blank">
+    <img src={MealdropLogo} alt="direction" />
     <span>
-      <strong>Build configuration</strong>
-      How to customize webpack and Babel
+      <strong>Check the mealdrop app</strong>
+      App used in the course
     </span>
   </a>
-  <a class="link-item" href="https://storybook.js.org/docs/styling" target="_blank">
-    <img src={Colors} alt="colors" />
+  <a class="link-item" href="https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop" target="_blank">
+    <img src={Colors} alt="direction" />
     <span>
-      <strong>Styling</strong>
-      How to load and configure CSS libraries
-    </span>
-  </a>
-  <a class="link-item" href="https://storybook.js.org/docs/data" target="_blank">
-    <img src={Flow} alt="flow" />
-    <span>
-      <strong>Data</strong>
-      Providers and mocking for data libraries
+      <strong>Figma design</strong>
+      Design was built by the incredible <strong>Maxim Molenaars</strong>
     </span>
   </a>
 </div>
 
-<div class="subheading">Learn</div>
+<div class="subheading">Already a student?</div>
 
 <div class="link-list">
-  <a class="link-item" href="https://storybook.js.org/docs" target="_blank">
-    <img src={Repo} alt="repo" />
-    <span>
-      <strong>Storybook documentation</strong>
-      Configure, customize, and extend
-    </span>
-  </a>
-  <a class="link-item" href="https://www.learnstorybook.com" target="_blank">
-    <img src={Direction} alt="direction" />
-    <span>
-      <strong>In-depth guides</strong>
-      Best practices from leading teams
-    </span>
-  </a>
-  <a class="link-item" href="https://github.com/storybookjs/storybook" target="_blank">
+  <a
+    class="link-item"
+    href="https://github.com/yannbf/mealdrop"
+    target="_blank"
+  >
     <img src={Code} alt="code" />
     <span>
-      <strong>GitHub project</strong>
-      View the source and add issues
+      <strong>Mealdrop's repository</strong>
+      This project is open source, check it out!
     </span>
   </a>
-  <a class="link-item" href="https://discord.gg/UUt2PJb" target="_blank">
+  <a class="link-item" href="https://discord.gg/wrn8CUMkuH" target="_blank">
     <img src={Comments} alt="comments" />
     <span>
       <strong>Discord chat</strong>
-      Chat with maintainers and the community
+      Chat with the course instructor and the <strong>newline community</strong>
     </span>
   </a>
-</div>
-
-<div class="tip-wrapper">
-  <span class="tip">Tip</span>Edit the Markdown in <code>src/storybook-examples/welcome.mdx</code>
 </div>
