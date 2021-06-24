@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/storybook",
+      "destination": "/storybook"
+    }
+  ]
+}
