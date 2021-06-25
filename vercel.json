@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/storybook/:asset*",
-      "destination": "/storybook"
+      "destination": "/storybook/:asset*"
     },
     { "source": "/(.*)", "destination": "/" }
   ]
