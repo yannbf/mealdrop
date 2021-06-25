@@ -1,4 +1,10 @@
 {
+  "builds": [
+    {
+      "src": "/storybook",
+      "use": "@vercel/static"
+    }
+  ],
   "rewrites": [
     {
       "source": "/storybook",
