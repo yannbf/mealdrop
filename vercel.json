@@ -1,11 +1,5 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "build/storybook",
-      "use": "@vercel/static"
-    }
-  ],
   "rewrites": [
     {
       "source": "/storybook/:asset*",
