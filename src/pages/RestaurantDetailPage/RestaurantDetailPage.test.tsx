@@ -30,7 +30,7 @@ describe('RestaurantDetailPage', () => {
   test('Should display a loading screen', async () => {
     render(<Loading />)
     await waitFor(() =>
-      expect(screen.getByText('Loading..')).toBeInTheDocument()
+      expect(screen.getByText('Looking for some food...')).toBeInTheDocument()
     )
   })
   test('Should display a 404 screen', async () => {

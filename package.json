@@ -69,7 +69,7 @@
     "jest-axe": "^4.1.0",
     "jest-canvas-mock": "^2.3.1",
     "msw": "^0.29.0",
-    "msw-storybook-addon": "^1.1.0",
+    "msw-storybook-addon": "^1.2.0",
     "react-is": "^17.0.2",
     "react-test-renderer": "^17.0.2",
     "storybook-addon-designs": "^6.0.0",
