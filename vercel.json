@@ -1,9 +1,8 @@
 {
-  "version": 2,
-  "rewrites": [
+  "redirects": [
     {
       "source": "/storybook",
-      "destination": "/storybook/"
+      "destination": "/storybook"
     },
     {
       "source": "/storybook/:asset*",
