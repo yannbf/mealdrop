@@ -2,7 +2,7 @@
   "redirects": [
     {
       "source": "/storybook",
-      "destination": "/storybook"
+      "destination": "/storybook/"
     },
     {
       "source": "/storybook/:asset*",
