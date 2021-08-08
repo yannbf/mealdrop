@@ -1,12 +1,8 @@
 {
-  "redirects": [
+  "rewrites": [
     {
       "source": "/storybook",
-      "destination": "/storybook/"
-    },
-    {
-      "source": "/storybook/:asset*",
-      "destination": "/storybook/:asset*"
+      "destination": "/storybook"
     },
     { "source": "/(.*)", "destination": "/" }
   ]
