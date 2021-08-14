@@ -70,6 +70,7 @@ const borderRadius = {
   l: '24px',
   xl: '32px',
   xxl: '40px',
+  round: '50%',
 }
 
 const spacing = {
@@ -148,7 +149,9 @@ const color = {
   skeletonBase: baseColors.grey.light4,
   skeletonHighlight: baseColors.grey.light5,
   topBannerBackground: baseColors.green.base,
+  newRestaurantTag: baseColors.green.base,
   white: baseColors.white,
+  black: baseColors.black,
 }
 
 export const lightTheme: DefaultTheme = {

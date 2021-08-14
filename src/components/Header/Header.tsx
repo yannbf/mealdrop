@@ -81,22 +81,23 @@ export const OptionsContainer = styled.div`
   }
 `
 
-export const CartText = styled(Body)
-  (({ theme: { color } }) => css`
-  display: none;
-  @media ${breakpoints.M} {
-    display: inline-block;
-    color: ${color.cartButtonText};
-    margin-right: 0.25rem;
-  }
-`)
+export const CartText = styled(Body)(
+  ({ theme: { color } }) => css`
+    display: none;
+    @media ${breakpoints.M} {
+      display: inline-block;
+      color: ${color.cartButtonText};
+      margin-right: 0.25rem;
+    }
+  `
+)
 
 export const CartTotal = styled(Body)(
   ({ theme: { color } }) => css`
-  display: inline-block;
-  color: ${color.buttonText}
-`)
-
+    display: inline-block;
+    color: ${color.buttonText};
+  `
+)
 
 const ThemeToggle = () => {
   const darkMode = useDarkMode(false)
@@ -128,9 +129,9 @@ export const HeaderComponent = ({
   sticky = false,
   totalPrice = 0,
   cartItems = [],
-  toggleCartVisibility = () => { },
-  goToCheckout = () => { },
-  saveItem = () => { },
+  toggleCartVisibility = () => {},
+  goToCheckout = () => {},
+  saveItem = () => {},
 }: HeaderComponentProps) => (
   <HeaderContainer data-testid="header" sticky={sticky}>
     <LogoContainer to="/" aria-label="go to home page">
@@ -148,15 +149,15 @@ export const HeaderComponent = ({
               <Button clear>All restaurants</Button>
             </Link>
           </span>
-          <Button aria-label="food cart" icon="cart" onClick={toggleCartVisibility}>
+          <Button
+            aria-label="food cart"
+            icon="cart"
+            onClick={toggleCartVisibility}
+          >
             {totalPrice > 0 && (
               <>
-                <CartText type="span">
-                  Order
-                </CartText>
-                <CartTotal type="span">
-                  {toEuro(totalPrice)}
-                </CartTotal>
+                <CartText type="span">Order</CartText>
+                <CartTotal type="span">{toEuro(totalPrice)}</CartTotal>
               </>
             )}
           </Button>

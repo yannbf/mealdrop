@@ -19,17 +19,19 @@ type RestaurantCardProps = {
   className?: string
 }
 
-const Container = styled.div`
+const Container = styled.div(
+  ({ theme: { borderRadius } }) => css`
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  border-radius: 8px;
+  border-radius: ${borderRadius.s};
   width: 100%;
   max-width: 500px;
   &:hover {
     opacity: 0.9;
   }
 `
+)
 
 const StyledContent = styled.div(
   ({ theme: { color } }) => css`
@@ -42,35 +44,39 @@ const StyledContent = styled.div(
   `
 )
 
-const NewTag = styled.span`
-  position: absolute;
-  padding: 8px;
-  background: #e5f8bc;
-  display: inline-block;
-  top: 0.5rem;
-  left: 0.5rem;
-  border-radius: 0.5rem;
-  font-weight: bold;
-  z-index: 1;
-`
+const NewTag = styled.span(
+  ({ theme: { color, borderRadius } }) => css`
+    position: absolute;
+    padding: 8px;
+    background: ${color.newRestaurantTag};
+    display: inline-block;
+    top: 0.5rem;
+    left: 0.5rem;
+    border-radius: ${borderRadius.xs};
+    font-weight: bold;
+    z-index: 1;
+  `
+)
 
-const Closed = styled.div`
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  border-radius: 8px 8px 0 0;
-  background: rgba(0, 0, 0, 0.4);
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  text-align: center;
-  z-index: 1;
-  span {
-    color: white;
-    line-height: 210px;
-  }
-`
+const Closed = styled.div(
+  ({ theme: { color } }) => css`
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 8px 8px 0px 0px;
+    background: rgba(0, 0, 0, 0.4);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    z-index: 1;
+    span {
+      color: ${color.white};
+      line-height: 210px;
+    }
+  `
+)
 
 const RestaurantImage = styled.img<{ $isClosed: boolean }>`
   height: 200px;
@@ -96,7 +102,12 @@ const StyledBadge = styled(Badge)`
 `
 
 const StyledHeading = styled(Heading)(
-  ({ theme: { spacing, typography: { fontSize } } }) => css`
+  ({
+    theme: {
+      spacing,
+      typography: { fontSize },
+    },
+  }) => css`
     font-size: ${fontSize.heading4};
     margin-bottom: ${spacing.xs};
   `
@@ -140,9 +151,8 @@ export const RestaurantCard = ({
   categories,
   isNew = false,
   className,
-  onClick
+  onClick,
 }: RestaurantCardProps) => {
-
   if (isLoading) {
     return <RestaurantCardSkeleton />
   }

@@ -11,12 +11,12 @@ export type CategoryProps = {
 }
 
 const Container = styled.figure<{ rounded: boolean }>(
-  ({ rounded, theme: { color } }) => css`
+  ({ rounded, theme: { color, borderRadius } }) => css`
     display: flex;
     position: relative;
     flex-direction: ${rounded ? 'column' : 'row'};
     align-items: ${rounded ? 'center' : 'start'};
-    border-radius: 8px;
+    border-radius: ${borderRadius.s};
     background: ${rounded ? color.cardBackground : 'transparent'};
     height: 100%;
     width: 100%;
@@ -36,37 +36,42 @@ const Container = styled.figure<{ rounded: boolean }>(
   `
 )
 
-const Image = styled.img`
-  object-fit: cover;
-  width: auto;
-  border-radius: 8px;
-  width: 100%;
-  height: 100%;
-  min-width: 50px;
-  min-height: 50px;
-  max-height: 300px;
-`
-const RoundImage = styled(Image)`
-  border-radius: 50%;
-  width: 4.5rem;
-  height: 4.5rem;
-  min-width: 4.5rem;
-  min-height: 4.5rem;
-  max-height: 200px;
-  @media ${breakpoints.M} {
-    width: 6.5rem;
-    height: 6.5rem;
-    min-width: 6.5rem;
-    min-height: 6.5rem;
-  }
-`
+const Image = styled.img(
+  ({ theme: { borderRadius } }) => css`
+    object-fit: cover;
+    width: auto;
+    border-radius: ${borderRadius.s};
+    width: 100%;
+    height: 100%;
+    min-width: 50px;
+    min-height: 50px;
+    max-height: 300px;
+  `
+)
+
+const RoundImage = styled(Image)(
+  ({ theme: { borderRadius } }) => css`
+    border-radius: ${borderRadius.round};
+    width: 4.5rem;
+    height: 4.5rem;
+    min-width: 4.5rem;
+    min-height: 4.5rem;
+    max-height: 200px;
+    @media ${breakpoints.M} {
+      width: 6.5rem;
+      height: 6.5rem;
+      min-width: 6.5rem;
+      min-height: 6.5rem;
+    }
+  `
+)
 
 const FloatingTitle = styled.figcaption(
-  ({ theme: { color } }) => css`
+  ({ theme: { color, borderRadius } }) => css`
     position: absolute;
     top: 1.5rem;
     left: 1.5rem;
-    border-radius: 8px;
+    border-radius: ${borderRadius.s};
     background: #202020;
     padding: 8px 16px;
     text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.5);

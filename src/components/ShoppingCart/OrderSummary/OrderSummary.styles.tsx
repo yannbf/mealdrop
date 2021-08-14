@@ -9,14 +9,14 @@ export const StyledHeading = styled(Heading)(
 )
 
 export const OrderSummaryContainer = styled.div<{ fixed?: boolean }>(
-  ({ theme: { color } }) => css`
+  ({ theme: { color, borderRadius } }) => css`
     width: 100%;
     min-height: 250px;
     display: flex;
     flex-direction: column;
     padding: 1.5rem;
     background-color: ${color.orderSummaryBackground};
-    border-radius: 8px;
+    border-radius: ${borderRadius.s};
   `
 )
 
