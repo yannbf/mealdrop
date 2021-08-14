@@ -52,7 +52,7 @@ const NewTag = styled.span(
     display: inline-block;
     top: 0.5rem;
     left: 0.5rem;
-    border-radius: ${borderRadius.xs};
+    border-radius: ${borderRadius.s};
     font-weight: bold;
     z-index: 1;
   `
