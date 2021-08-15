@@ -33,7 +33,11 @@
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public -o build/storybook",
     "build-all": "yarn build && yarn build-storybook",
-    "chromatic": "chromatic --project-token $CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes"
+    "chromatic": "chromatic --project-token $CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes",
+    "prepare": "husky install",
+    "lint": "eslint --fix",
+    "prettier": "prettier --write",
+    "pre-commit": "lint-staged"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -64,12 +68,24 @@
     "@types/react-router-dom": "^5.1.7",
     "@types/react-transition-group": "^4.4.1",
     "@types/styled-components": "^5.1.10",
+    "@typescript-eslint/eslint-plugin": "^4.29.1",
+    "@typescript-eslint/parser": "^4.29.1",
     "babel-loader": "8.1.0",
     "chromatic": "^5.9.2",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-typescript": "^12.3.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": ">=6",
     "jest-axe": "^4.1.0",
     "jest-canvas-mock": "^2.3.1",
+    "lint-staged": ">=10",
     "msw": "^0.29.0",
     "msw-storybook-addon": "^1.2.0",
+    "prettier": "^2.3.2",
     "react-is": "^17.0.2",
     "react-test-renderer": "^17.0.2",
     "storybook-addon-designs": "^6.0.0",
@@ -77,5 +93,9 @@
   },
   "msw": {
     "workerDirectory": "public"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,md}": "eslint --fix",
+    "*.{ts,tsx,css,md}": "prettier --write"
   }
 }
