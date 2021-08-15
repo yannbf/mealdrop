@@ -4,10 +4,10 @@ import { Body } from '../typography/Body'
 import { Heading } from '../typography/Heading'
 
 const FooterCardContainer = styled.div(
-  ({ theme: { color: colors, spacing, borderRadius: borderRadiuses, typography: { fontSize } } }) => css`
+  ({ theme: { color: colors, spacing, borderRadius, typography: { fontSize } } }) => css`
     color: ${colors.white};
 
-    border-radius: ${borderRadiuses.xs};
+    border-radius: ${borderRadius.xs};
     h2 {
       color: white;
       margin-bottom: ${spacing.xs};

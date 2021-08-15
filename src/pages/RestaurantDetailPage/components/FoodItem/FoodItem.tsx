@@ -6,9 +6,9 @@ import { Body } from '../../../../components/typography/Body'
 import { Heading } from '../../../../components/typography/Heading'
 
 const Container = styled.div<{ isHighlighted: boolean }>(
-  ({ theme: { boxShadow, color } }) => css`
+  ({ theme: { boxShadow, color, borderRadius } }) => css`
     padding: 1.5rem;
-    border-radius: 4px;
+    border-radius: ${borderRadius.xs};
     transition: box-shadow 0.1s ease-in;
     position: relative;
     background: ${color.foodItemBackground};
@@ -20,20 +20,21 @@ const Container = styled.div<{ isHighlighted: boolean }>(
   `
 )
 
-const Quantity = styled(Body)`
+const Quantity = styled(Body)(
+  ({ theme: { color, borderRadius } }) => css`
   padding: 0.25rem;
   width: 35px;
   height: 35px;
-  border-radius: 4px;
+  border-radius: ${borderRadius.xs};
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #202020;
-  color: white;
+  background: ${color.black};
+  color: ${color.white};
   position: absolute;
   top: 0;
   right: 0;
-`
+`)
 
 const Description = styled(Body)(
   ({ theme: { color } }) => `

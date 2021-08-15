@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react'
 import styled, { css, useTheme } from 'styled-components'
 import { breakpoints } from '../../styles/breakpoints'
 import { Icon } from '../Icon'
@@ -13,11 +13,17 @@ const StyledButton = styled.button<{
   withIcon: boolean
   round: boolean
 }>(
-  ({ clear, large, round, withIcon, theme: { color, boxShadow } }) => css`
+  ({
+    clear,
+    large,
+    round,
+    withIcon,
+    theme: { color, boxShadow, borderRadius },
+  }) => css`
     outline: none;
     border: 0;
     font-family: 'Hind';
-    border-radius: ${round ? '6rem' : '4px'};
+    border-radius: ${round ? borderRadius.xl : borderRadius.xs};
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -86,8 +92,7 @@ type DefaultProps = {
   onClick?: () => void
 }
 
-type ButtonProps = DefaultProps &
-  React.ComponentProps<typeof StyledButton>;
+type ButtonProps = DefaultProps & React.ComponentProps<typeof StyledButton>
 
 /**
  * Primary UI component for user interaction

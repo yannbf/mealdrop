@@ -1,14 +1,14 @@
-import type { ComponentProps } from 'react';
+import type { ComponentProps } from 'react'
 import styled, { css } from 'styled-components'
 
 import { Icon } from '../Icon'
 
 const StyledButton = styled.button<{ small: boolean }>(
-  ({ small }) => css`
+  ({ small, theme: { borderRadius } }) => css`
     border: 0;
     width: ${small ? '3rem' : '4rem'};
     height: ${small ? '3rem' : '4rem'};
-    border-radius: 50%;
+    border-radius: ${borderRadius.round};
     cursor: pointer;
     display: flex;
     align-items: center;

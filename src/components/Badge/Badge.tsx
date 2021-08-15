@@ -3,10 +3,10 @@ import styled, { css } from 'styled-components'
 import { Body } from '../typography'
 
 const Container = styled.div(
-  ({ theme: { color } }) => css`
+  ({ theme: { color, borderRadius } }) => css`
     padding: 3px 8px;
     background: ${color.badgeBackground};
-    border-radius: 4px;
+    border-radius: ${borderRadius.xs};
     display: inline-block;
     span {
       color: ${color.badgeText};

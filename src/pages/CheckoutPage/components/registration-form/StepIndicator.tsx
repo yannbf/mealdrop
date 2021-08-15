@@ -5,18 +5,18 @@ import { Body } from '../../../../components/typography/Body'
 import { Heading } from '../../../../components/typography/Heading'
 
 const OuterBar = styled.div(
-  ({ theme: { color } }) => css`
+  ({ theme: { color, borderRadius } }) => css`
     height: 4px;
-    border-radius: 4px;
+    border-radius: ${borderRadius.xs};
     width: 100%;
     background: ${color.stepsIndicatorOuterBar};
   `
 )
 const InnerBar = styled.div<{ progress: string }>(
-  ({ progress, theme: { color } }) => css`
+  ({ progress, theme: { color, borderRadius } }) => css`
     background: ${color.stepsIndicatorInnerBar};
     width: ${progress};
-    border-radius: 4px;
+    border-radius: ${borderRadius.xs};
     height: 4px;
     transition: width 0.5s ease-in-out;
   `

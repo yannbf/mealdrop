@@ -38,39 +38,34 @@ const desktopAnimation = css`
   }
 `
 
-const largeScreenOverrides = css`
-  @media ${breakpoints.M} {
-    width: 600px;
-    height: 272px;
-
-    box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
-    bottom: 0;
-    left: calc(50% - (600px / 2));
-    top: calc(50% - (272px / 2));
-    position: fixed;
-    border-radius: 1rem;
-
-    ${desktopAnimation}
-  }
-`
-
 export const ModalContent = styled.div(
-  ({ theme: { color } }) => css`
+  ({ theme: { color, borderRadius } }) => css`
     background-color: ${color.overlayBackground};
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
+    border-top-left-radius: ${borderRadius.m};
+    border-top-right-radius: ${borderRadius.m};
     position: fixed;
     z-index: 99;
     top: 50%;
     right: 0;
     bottom: 0;
     left: 0;
-    /* padding: 3em 1em 1em 1em; */
     transform-origin: 'top center';
     box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
 
     ${defaultAnimation}
-    ${largeScreenOverrides}
+    @media ${breakpoints.M} {
+      width: 600px;
+      height: 272px;
+
+      box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+      bottom: 0;
+      left: calc(50% - (600px / 2));
+      top: calc(50% - (272px / 2));
+      position: fixed;
+      border-radius: ${borderRadius.m};
+
+      ${desktopAnimation}
+    }
   `
 )
 
