@@ -1,18 +1,18 @@
-import * as React from 'react';
+import * as React from 'react'
 import styled, { css } from 'styled-components'
 
-import { Button } from '../Button';
-import { Body, Heading } from '../typography';
+import { Button } from '../Button'
+import { Body, Heading } from '../typography'
 
 const ErrorContainer = styled.div(
   ({ theme: { spacing } }) => css`
-  margin: 0 auto;
-  padding: ${spacing.l} 0;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+    margin: 0 auto;
+    padding: ${spacing.l} 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   `
-);
+)
 
 const ImageContainer = styled.div(
   ({ theme: { spacing } }) => css`
@@ -32,13 +32,11 @@ type ErrorBlockProps = {
   onButtonClick: () => void
 }
 
-export const ErrorBlock = ({ title, image, body, buttonText, onButtonClick }: ErrorBlockProps) => {
-  return <ErrorContainer>
+export const ErrorBlock = ({ title, image, body, buttonText, onButtonClick }: ErrorBlockProps) => (
+  <ErrorContainer>
     <Heading level={2}>{title}</Heading>
-    <ImageContainer>
-      {image}
-    </ImageContainer>
+    <ImageContainer>{image}</ImageContainer>
     <Body>{body}</Body>
     <Button onClick={onButtonClick}>{buttonText}</Button>
   </ErrorContainer>
-}
+)

@@ -32,10 +32,7 @@ const ThemeBlock = styled.div<{ left?: boolean; fullScreen?: boolean }>(
     `
 )
 
-export const withTheme: DecoratorFn = (
-  StoryFn,
-  { globals: { theme = 'light' }, parameters }
-) => {
+export const withTheme: DecoratorFn = (StoryFn, { globals: { theme = 'light' }, parameters }) => {
   const fullScreen = parameters.layout === 'fullscreen'
   const appTheme = theme === 'light' ? lightTheme : darkTheme
   const secondContainerRef = React.useRef<HTMLDivElement>(null)
@@ -131,10 +128,7 @@ export const withStore: DecoratorFn = (StoryFn, { parameters }) => {
  *   }
  * };
  */
-export const withDeeplink: DecoratorFn = (
-  StoryFn,
-  { parameters: { deeplink } }
-) => {
+export const withDeeplink: DecoratorFn = (StoryFn, { parameters: { deeplink } }) => {
   // if there's no deeplink config, just return the story
   if (!deeplink) {
     return <StoryFn />

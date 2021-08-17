@@ -1,5 +1,4 @@
-import { useHistory } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 import Carousel from 'react-multi-carousel'
 import styled from 'styled-components'
 

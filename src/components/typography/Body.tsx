@@ -1,16 +1,16 @@
-import * as React from 'react';
+import * as React from 'react'
 import styled, { css } from 'styled-components'
 
-type fontSizeType = 'body' | 'bodyS' | 'bodyXS' | 'bodyXXS'
-type fontWeightType = 'regular' | 'medium' | 'bold' | 'black'
+type FontSize = 'body' | 'bodyS' | 'bodyXS' | 'bodyXXS'
+type FontWeight = 'regular' | 'medium' | 'bold' | 'black'
 
 const BodyBase = styled.p<{ size: string; fontWeight: string }>(
   ({ size, fontWeight, color: textColor, theme: { typography, color } }) => css`
     display: block;
     font-family: 'Hind';
     color: ${textColor || color.primaryText};
-    font-weight: ${typography.fontWeight[fontWeight as fontWeightType]};
-    font-size: ${typography.fontSize[`body${size}` as fontSizeType]};
+    font-weight: ${typography.fontWeight[fontWeight as FontWeight]};
+    font-size: ${typography.fontSize[`body${size}` as FontSize]};
   `
 )
 
@@ -23,7 +23,7 @@ type DefaultProps = {
   children: React.ReactNode | string
 }
 
-type BodyProps = DefaultProps & React.ComponentProps<typeof BodyBase>;
+type BodyProps = DefaultProps & React.ComponentProps<typeof BodyBase>
 
 export const Body: React.FC<BodyProps> = ({
   size = '',
@@ -33,17 +33,8 @@ export const Body: React.FC<BodyProps> = ({
   children,
   className,
   ...props
-}) => {
-  return (
-    <BodyBase
-      as={type}
-      size={size}
-      color={color}
-      fontWeight={fontWeight}
-      className={className}
-      {...props}
-    >
-      {children}
-    </BodyBase>
-  )
-}
+}) => (
+  <BodyBase as={type} size={size} color={color} fontWeight={fontWeight} className={className} {...props}>
+    {children}
+  </BodyBase>
+)

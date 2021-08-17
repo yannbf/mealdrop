@@ -30,14 +30,12 @@ const StyledContainer = styled.div`
   }
 `
 
-export const CategoryList = ({ categories }: CategoryListProps) => {
-  return (
-    <StyledContainer>
-      {categories.map((category) => (
-        <Link key={category.id} to={`/categories/${category.id}`}>
-          <Category {...category} title={category.title} />
-        </Link>
-      ))}
-    </StyledContainer>
-  )
-}
+export const CategoryList = ({ categories }: CategoryListProps) => (
+  <StyledContainer>
+    {categories.map((category) => (
+      <Link key={category.id} to={`/categories/${category.id}`}>
+        <Category {...category} title={category.title} />
+      </Link>
+    ))}
+  </StyledContainer>
+)

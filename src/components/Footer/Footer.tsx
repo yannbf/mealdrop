@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+
 import { breakpoints } from '../../styles/breakpoints'
 import { FooterCard } from '../FooterCard/FooterCard'
 import { Logo } from '../Logo'
@@ -78,16 +79,8 @@ export const Footer = () => {
           <FooterCard title="Our social media" links={socialMediaLinks} />
           <FooterCard title="Check our apps">
             <div className="footer-bottom">
-              <img
-                alt="app store link"
-                style={{ width: '120px', marginBottom: '0.5rem' }}
-                src={appStoreBanner}
-              />
-              <img
-                alt="google play link"
-                style={{ width: '120px' }}
-                src={googlePlayBanner}
-              />
+              <img alt="app store link" style={{ width: '120px', marginBottom: '0.5rem' }} src={appStoreBanner} />
+              <img alt="google play link" style={{ width: '120px' }} src={googlePlayBanner} />
             </div>
           </FooterCard>
         </FooterTop>

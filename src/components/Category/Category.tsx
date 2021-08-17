@@ -107,11 +107,7 @@ export const Category = (props: CategoryProps) => {
   const { photoUrl, title, rounded = false } = props
   return (
     <Container rounded={rounded}>
-      {rounded ? (
-        <Rounded photoUrl={photoUrl} title={title} />
-      ) : (
-        <Squared photoUrl={photoUrl} title={title} />
-      )}
+      {rounded ? <Rounded photoUrl={photoUrl} title={title} /> : <Squared photoUrl={photoUrl} title={title} />}
     </Container>
   )
 }

@@ -7,10 +7,12 @@ export default {
   component: Spinner,
   parameters: {
     layout: 'fullscreen',
-    chromatic: { delay: 1200 }
-  }
+    chromatic: { delay: 1200 },
+  },
 } as ComponentMeta<typeof Spinner>
 
-export const Default: ComponentStory<typeof Spinner> = () => (<div style={{ minHeight: '100vh' }}>
-  <Spinner />
-</div>)
+export const Default: ComponentStory<typeof Spinner> = () => (
+  <div style={{ minHeight: '100vh' }}>
+    <Spinner />
+  </div>
+)

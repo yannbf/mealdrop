@@ -1,6 +1,6 @@
 import type { DetailedHTMLProps, SelectHTMLAttributes } from 'react'
-
 import styled, { css } from 'styled-components'
+
 import { Body } from '../typography/Body'
 
 const withArrowIcon = (backgroundColor: string, iconColor: string) => {
@@ -55,19 +55,9 @@ type SelectProps = {
   options: any[]
   value?: any
   onChange?: (data: any) => void
-} & DetailedHTMLProps<
-  SelectHTMLAttributes<HTMLSelectElement>,
-  HTMLSelectElement
->
+} & DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>
 
-export const Select = ({
-  label = '',
-  value = '',
-  options = [],
-  onChange,
-  id,
-  ...otherProps
-}: SelectProps) => (
+export const Select = ({ label = '', value = '', options = [], onChange, id, ...otherProps }: SelectProps) => (
   <Container>
     <select
       id={id}

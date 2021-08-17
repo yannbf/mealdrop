@@ -1,15 +1,16 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { CategoryDetailPage } from './CategoryDetailPage'
 import { DefaultTemplate } from '../../templates/PageTemplate'
+
+import { CategoryDetailPage } from './CategoryDetailPage'
 
 export default {
   title: 'Pages/CategoryDetailPage',
   component: CategoryDetailPage,
   parameters: {
     layout: 'fullscreen',
-  }
-}as ComponentMeta<typeof CategoryDetailPage>
+  },
+} as ComponentMeta<typeof CategoryDetailPage>
 
 const Template: ComponentStory<typeof CategoryDetailPage> = () => (
   <DefaultTemplate>

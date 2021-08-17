@@ -16,28 +16,19 @@ describe('RestaurantDetailPage', () => {
     const modalButton = await screen.findByLabelText('confirm')
     userEvent.click(modalButton)
 
-    expect(
-      within(foodItem.parentElement!).getByLabelText('food quantity')
-        .textContent
-    ).toEqual('1')
+    expect(within(foodItem.parentElement!).getByLabelText('food quantity').textContent).toEqual('1')
   })
   test('Should display an error screen', async () => {
     render(<Error />)
-    await waitFor(() =>
-      expect(screen.getByText('Something went wrong!')).toBeInTheDocument()
-    )
+    await waitFor(() => expect(screen.getByText('Something went wrong!')).toBeInTheDocument())
   })
   test('Should display a loading screen', async () => {
     render(<Loading />)
-    await waitFor(() =>
-      expect(screen.getByText('Looking for some food...')).toBeInTheDocument()
-    )
+    await waitFor(() => expect(screen.getByText('Looking for some food...')).toBeInTheDocument())
   })
   test('Should display a 404 screen', async () => {
     render(<NotFound />)
-    await waitFor(() =>
-      expect(screen.getByText("We can't find this page")).toBeInTheDocument()
-    )
+    await waitFor(() => expect(screen.getByText("We can't find this page")).toBeInTheDocument())
   })
 })
 

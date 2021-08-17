@@ -54,11 +54,7 @@ const ShoppingCartMenuItem = ({ item, onChange }: any) => (
       <Body>{item.description}</Body>
       <Body>{toEuro(item.price * item.quantity)}</Body>
     </div>
-    <Select
-      value={item.quantity}
-      onChange={onChange}
-      options={[...Array(11).keys()]}
-    />
+    <Select value={item.quantity} onChange={onChange} options={[...Array(11).keys()]} />
   </MenuItemContainer>
 )
 
@@ -78,23 +74,21 @@ export const ShoppingCartMenu = ({
   totalPrice,
   onItemChange,
   onGoToCheckoutClick,
-}: ShoppingCartMenuProps) => {
-  return (
-    <Sidebar
-      title="Your order"
-      onClose={onClose}
-      isOpen={isOpen}
-      footer={<Footer onClick={onGoToCheckoutClick} totalPrice={totalPrice} />}
-    >
-      <div style={{ display: 'grid', gap: '24px' }}>
-        {cartItems.map((item) => (
-          <ShoppingCartMenuItem
-            key={item.id}
-            item={item}
-            onChange={(quantity: number) => onItemChange({ ...item, quantity })}
-          />
-        ))}
-      </div>
-    </Sidebar>
-  )
-}
+}: ShoppingCartMenuProps) => (
+  <Sidebar
+    title="Your order"
+    onClose={onClose}
+    isOpen={isOpen}
+    footer={<Footer onClick={onGoToCheckoutClick} totalPrice={totalPrice} />}
+  >
+    <div style={{ display: 'grid', gap: '24px' }}>
+      {cartItems.map((item) => (
+        <ShoppingCartMenuItem
+          key={item.id}
+          item={item}
+          onChange={(quantity: number) => onItemChange({ ...item, quantity })}
+        />
+      ))}
+    </div>
+  </Sidebar>
+)

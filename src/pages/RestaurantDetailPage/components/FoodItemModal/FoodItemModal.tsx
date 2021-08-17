@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect } from 'react'
 import styled, { css } from 'styled-components'
 
 import { CartItem } from '../../../../app-state/cart'
@@ -57,13 +57,7 @@ type FoodItemModalProps = {
   onItemRemove: (item: CartItem) => void
 }
 
-export const FoodItemModal = ({
-  item,
-  cartItems,
-  onClose,
-  onItemSave,
-  onItemRemove,
-}: FoodItemModalProps) => {
+export const FoodItemModal = ({ item, cartItems, onClose, onItemSave, onItemRemove }: FoodItemModalProps) => {
   const [quantity, setQuantity] = useState(0)
 
   const saveItem = useCallback(() => {
@@ -79,8 +73,7 @@ export const FoodItemModal = ({
   }, [quantity, onClose, onItemRemove, item, onItemSave])
 
   useEffect(() => {
-    const cartItem =
-      item && cartItems.find((cartItem: any) => cartItem.id === item.id)
+    const cartItem = item && cartItems.find((c) => c.id === item.id)
     setQuantity(cartItem?.quantity || 1)
     return () => setQuantity(0)
   }, [cartItems, item])

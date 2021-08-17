@@ -1,5 +1,5 @@
-import { useRef, useEffect } from 'react';
-import * as React from 'react';
+import { useRef, useEffect } from 'react'
+import * as React from 'react'
 import { createPortal } from 'react-dom'
 
 type Props = {
@@ -11,7 +11,7 @@ export const Portal: React.FC<Props> = ({ children, selector }) => {
 
   useEffect(() => {
     const element = document.querySelector<Element>(selector)
-    if (!!element) {
+    if (element) {
       ref.current = element
     }
   }, [selector])

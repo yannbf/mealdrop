@@ -52,11 +52,7 @@ type StepIndicatorProps = {
   amountOfSteps: number
 }
 
-export const StepIndicator = ({
-  title,
-  currentStep,
-  amountOfSteps,
-}: StepIndicatorProps) => {
+export const StepIndicator = ({ title, currentStep, amountOfSteps }: StepIndicatorProps) => {
   const progress = `${(currentStep / amountOfSteps) * 100}%`
   return (
     <div style={{ marginBottom: '2rem' }}>

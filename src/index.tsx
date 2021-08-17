@@ -1,9 +1,10 @@
-import { StrictMode } from 'react';
+import { StrictMode } from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
-import * as serviceWorker from './serviceWorker'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider as StoreProvider } from 'react-redux'
+
+import App from './App'
+import * as serviceWorker from './serviceWorker'
 import { store } from './app-state'
 
 ReactDOM.render(

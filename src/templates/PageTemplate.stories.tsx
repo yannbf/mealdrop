@@ -1,11 +1,7 @@
-import * as React from 'react';
+import * as React from 'react'
 import { Story, Meta } from '@storybook/react'
 
-import {
-  DefaultTemplate,
-  SimpleTemplate,
-  StickyHeaderTemplate,
-} from './PageTemplate'
+import { DefaultTemplate, SimpleTemplate, StickyHeaderTemplate } from './PageTemplate'
 
 export default {
   title: 'Templates/PageTemplate',
@@ -14,23 +10,17 @@ export default {
   },
 } as Meta
 
-const DummyComponent: React.FC = ({ children }) => (
-  <div style={{ padding: 60 }}>{children}</div>
-)
+const DummyComponent: React.FC = ({ children }) => <div style={{ padding: 60 }}>{children}</div>
 
 export const Default: Story = () => (
   <DefaultTemplate>
-    <DummyComponent>
-      Default template with scrollable header and navigation items
-    </DummyComponent>
+    <DummyComponent>Default template with scrollable header and navigation items</DummyComponent>
   </DefaultTemplate>
 )
 
 export const Simple: Story = () => (
   <SimpleTemplate>
-    <DummyComponent>
-      Simple template with scrollable header and no navigation
-    </DummyComponent>
+    <DummyComponent>Simple template with scrollable header and no navigation</DummyComponent>
   </SimpleTemplate>
 )
 

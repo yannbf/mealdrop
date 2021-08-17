@@ -96,7 +96,7 @@
     "workerDirectory": "public"
   },
   "lint-staged": {
-    "*.{ts,tsx,md}": "eslint --fix",
-    "*.{ts,tsx,css,md}": "prettier --write"
+    "*.{ts,tsx}": "eslint --fix",
+    "*.{html,md}": "prettier --write"
   }
 }

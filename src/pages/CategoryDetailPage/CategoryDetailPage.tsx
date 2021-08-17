@@ -31,11 +31,7 @@ export const CategoryDetailPage = () => {
   const { id } = useParams<{ id: string }>()
   const history = useHistory()
 
-  const [restaurants, setRestaurants] = useState<any>([
-    { isLoading: true },
-    { isLoading: true },
-    { isLoading: true },
-  ])
+  const [restaurants, setRestaurants] = useState<any>([{ isLoading: true }, { isLoading: true }, { isLoading: true }])
 
   useEffect(() => {
     const getData = async () => {
@@ -60,10 +56,7 @@ export const CategoryDetailPage = () => {
           <p style={{ display: 'inline-block', textDecoration: 'underline' }}>
             <Link to="/categories">categories</Link>
           </p>{' '}
-          /{' '}
-          <p style={{ display: 'inline', fontWeight: 'lighter' }}>
-            {category?.title.toLowerCase()}
-          </p>
+          / <p style={{ display: 'inline', fontWeight: 'lighter' }}>{category?.title.toLowerCase()}</p>
         </Breadcrumb>
         {restaurants.length <= 0 && (
           <ErrorBlock

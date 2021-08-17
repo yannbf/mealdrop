@@ -1,11 +1,12 @@
-import * as React from 'react';
+import * as React from 'react'
 import { CSSTransition } from 'react-transition-group'
 
-import { ModalContent, TopBar, Backdrop } from './Modal.styles'
 import { Portal } from '../Portal'
 import { useKey } from '../../hooks/useKeyboard'
 import { Button } from '../Button'
 import { useLockBodyScroll } from '../../hooks/useBodyScrollLock'
+
+import { ModalContent, TopBar, Backdrop } from './Modal.styles'
 
 type ModalProps = {
   isOpen: boolean
@@ -15,7 +16,7 @@ type ModalProps = {
 export const Modal: React.FC<ModalProps> = ({ children, isOpen, onClose }) => {
   useKey('escape', onClose)
   useLockBodyScroll(isOpen)
-  
+
   return (
     <Portal selector="#modal">
       <CSSTransition in={isOpen} timeout={300} classNames="modal" unmountOnExit>
@@ -35,12 +36,7 @@ export const Modal: React.FC<ModalProps> = ({ children, isOpen, onClose }) => {
         </ModalContent>
       </CSSTransition>
 
-      <CSSTransition
-        in={isOpen}
-        timeout={300}
-        classNames="backdrop"
-        unmountOnExit
-      >
+      <CSSTransition in={isOpen} timeout={300} classNames="backdrop" unmountOnExit>
         <Backdrop data-testid="modal-backdrop" onClick={onClose} />
       </CSSTransition>
     </Portal>

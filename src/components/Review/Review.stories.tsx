@@ -19,7 +19,6 @@ export default {
 
 const Template: ComponentStory<typeof Review> = (args) => <Review {...args} />
 
-
 export const Default = Template.bind({})
 
 export const Excellent = Template.bind({})

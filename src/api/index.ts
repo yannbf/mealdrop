@@ -1,5 +1,6 @@
-import { Restaurant } from '../types'
 import axios, { AxiosResponse } from 'axios'
+
+import { Restaurant } from '../types'
 
 interface BaseApi {
   getCuratedRestaurants: () => Promise<Restaurant[]>
@@ -9,15 +10,14 @@ interface BaseApi {
 
 const BASE_URL = 'https://blab-290ab.firebaseio.com'
 
-const isMockedEnvironment =
-  !!process.env.STORYBOOK || process.env.NODE_ENV === 'test'
+const isMockedEnvironment = !!process.env.STORYBOOK || process.env.NODE_ENV === 'test'
 
 const apiCache = new Map()
 
 const apiGet = async <T>(url: string): Promise<AxiosResponse<T>> => {
   // do not cache when testing to avoid flakyness
   if (!isMockedEnvironment && apiCache.has(url)) {
-    return await apiCache.get(url)
+    return apiCache.get(url)
   }
 
   const response = await axios.get<T>(url)
@@ -31,17 +31,13 @@ const apiGet = async <T>(url: string): Promise<AxiosResponse<T>> => {
 
 class RestaurantsApi implements BaseApi {
   async getCuratedRestaurants() {
-    const { data: restaurants } = await apiGet<Restaurant[]>(
-      `${BASE_URL}/restaurants/.json`
-    )
+    const { data: restaurants } = await apiGet<Restaurant[]>(`${BASE_URL}/restaurants/.json`)
 
     return restaurants
   }
 
   async getRestaurantById(id: string) {
-    const { data: restaurant } = await apiGet<Restaurant>(
-      `${BASE_URL}/restaurants/${id}/.json`
-    )
+    const { data: restaurant } = await apiGet<Restaurant>(`${BASE_URL}/restaurants/${id}/.json`)
 
     // firebase returns 200 with null when not found, so we need to force the correct status
     if (restaurant == null) {
@@ -55,9 +51,7 @@ class RestaurantsApi implements BaseApi {
     const restaurants = await this.getCuratedRestaurants()
 
     return restaurants
-      .filter((restaurant) =>
-        restaurant.categories?.includes(category.toLowerCase())
-      )
+      .filter((restaurant) => restaurant.categories?.includes(category.toLowerCase()))
       .sort((restaurant) => (restaurant.isClosed ? 1 : -1))
       .sort((restaurant) => (restaurant.isNew ? -1 : 1))
   }

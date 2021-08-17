@@ -15,9 +15,7 @@ const Container = styled.div<{ src?: string }>(
     position: relative;
     justify-content: center;
     align-items: center;
-    background: ${src
-      ? `url(${src}) no-repeat 50%`
-      : color.topBannerBackground};
+    background: ${src ? `url(${src}) no-repeat 50%` : color.topBannerBackground};
     background-position: center;
     background-size: cover;
     height: 240px;
@@ -30,11 +28,9 @@ type TopBannerProps = {
   onBackClick?: () => void
 }
 
-export const TopBanner = ({ photoUrl, title, onBackClick }: TopBannerProps) => {
-  return (
-    <Container src={photoUrl}>
-      {/* <StyledIconButton onClick={onBackClick} small name="arrow-left" /> */}
-      <StyledHeading inverted={!!photoUrl}>{title}</StyledHeading>
-    </Container>
-  )
-}
+export const TopBanner = ({ photoUrl, title, onBackClick }: TopBannerProps) => (
+  <Container src={photoUrl}>
+    {/* <StyledIconButton onClick={onBackClick} small name="arrow-left" /> */}
+    <StyledHeading inverted={!!photoUrl}>{title}</StyledHeading>
+  </Container>
+)

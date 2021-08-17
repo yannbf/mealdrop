@@ -13,7 +13,7 @@ export const Default = Template.bind({})
 Default.args = {
   name: 'arrow-right',
   small: false,
-  'aria-label': 'forward'
+  'aria-label': 'forward',
 }
 
 export const Small = Template.bind({})

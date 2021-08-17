@@ -27,5 +27,5 @@ export const Filled = Template.bind({})
 Filled.args = {
   ...WithLabel.args,
   value: 'Already filled text',
-  onChange: () => { }
+  onChange: () => {},
 }
