@@ -39,5 +39,7 @@ module.exports = {
     'class-methods-use-this': 'off',
     'prefer-promise-reject-errors': 'off',
     'react/prefer-stateless-function': 'off',
+    '@typescript-eslint/no-implied-eval': 'off',
+    'import/no-cycle': 'off',
   },
 }
