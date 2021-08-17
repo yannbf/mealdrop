@@ -27,7 +27,12 @@ const TopContainer = styled.div`
   margin-bottom: 1.5rem;
 `
 
-export const PageSection: React.FC<PageSectionProps> = ({ title, topButtonLabel, onTopButtonClick, children }) => (
+export const PageSection: React.FC<PageSectionProps> = ({
+  title,
+  topButtonLabel,
+  onTopButtonClick,
+  children,
+}) => (
   <Container className="container-desktop">
     <TopContainer>
       <Heading level={2}>{title}</Heading>

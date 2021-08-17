@@ -24,8 +24,9 @@ export const CategoryListPage = () => {
       <div className="container">
         <StyledHeading level={2}>What’s on the menu?</StyledHeading>
         <StyledBody>
-          Feeling like having pizza? How about Sushi? Satisfy your cravings with a few quick clicks and enjoy the world
-          of delivery! Check a great selection of restaurants by selecting a category below.
+          Feeling like having pizza? How about Sushi? Satisfy your cravings with a few quick clicks
+          and enjoy the world of delivery! Check a great selection of restaurants by selecting a
+          category below.
         </StyledBody>
         <CategoryList categories={categories} />
       </div>

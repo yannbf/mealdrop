@@ -98,8 +98,17 @@ export const Button: React.FC<ButtonProps> = ({
   const { color } = useTheme()
 
   return (
-    <StyledButton type="button" large={large} clear={clear} round={round} withIcon={!!icon} {...props}>
-      {icon && <Icon color={clear ? color.primaryText : color.buttonText} size={iconSize} name={icon} />}
+    <StyledButton
+      type="button"
+      large={large}
+      clear={clear}
+      round={round}
+      withIcon={!!icon}
+      {...props}
+    >
+      {icon && (
+        <Icon color={clear ? color.primaryText : color.buttonText} size={iconSize} name={icon} />
+      )}
       {icon && children && <Spacer />}
       {children}
     </StyledButton>

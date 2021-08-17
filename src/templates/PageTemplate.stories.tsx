@@ -26,6 +26,8 @@ export const Simple: Story = () => (
 
 export const StickyHeader: Story = () => (
   <StickyHeaderTemplate>
-    <DummyComponent>Template with sticky header on desktop and navigation items. Try scrolling</DummyComponent>
+    <DummyComponent>
+      Template with sticky header on desktop and navigation items. Try scrolling
+    </DummyComponent>
   </StickyHeaderTemplate>
 )

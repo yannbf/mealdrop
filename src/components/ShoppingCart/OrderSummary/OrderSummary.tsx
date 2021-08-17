@@ -5,7 +5,12 @@ import { CartItem } from '../../../app-state/cart'
 import { Body } from '../../typography/Body'
 import { toEuro } from '../../../helpers'
 
-import { OrderSummaryContainer, BottomContainer, CartItemsContainer, StyledHeading } from './OrderSummary.styles'
+import {
+  OrderSummaryContainer,
+  BottomContainer,
+  CartItemsContainer,
+  StyledHeading,
+} from './OrderSummary.styles'
 
 type OrderSummaryProps = {
   cartItems: CartItem[]

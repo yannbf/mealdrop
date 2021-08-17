@@ -57,7 +57,14 @@ type SelectProps = {
   onChange?: (data: any) => void
 } & DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>
 
-export const Select = ({ label = '', value = '', options = [], onChange, id, ...otherProps }: SelectProps) => (
+export const Select = ({
+  label = '',
+  value = '',
+  options = [],
+  onChange,
+  id,
+  ...otherProps
+}: SelectProps) => (
   <Container>
     <select
       id={id}

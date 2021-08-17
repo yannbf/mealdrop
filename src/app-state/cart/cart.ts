@@ -73,7 +73,13 @@ const counterSlice = createSlice({
 export const { actions, reducer } = counterSlice
 
 // Extract and export each action creator by name
-export const { toggleVisibilityAction, saveItemAction, clearItemAction, removeItemAction, clearCartAction } = actions
+export const {
+  toggleVisibilityAction,
+  saveItemAction,
+  clearItemAction,
+  removeItemAction,
+  clearCartAction,
+} = actions
 
 // Export the reducer, either as a default or named export
 export default reducer

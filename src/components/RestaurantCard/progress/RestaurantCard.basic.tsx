@@ -11,7 +11,11 @@ type RestaurantCardProps = {
   className?: string
 }
 
-export const RestaurantCard = ({ isClosed = false, isNew = false, isLoading = false }: RestaurantCardProps) => {
+export const RestaurantCard = ({
+  isClosed = false,
+  isNew = false,
+  isLoading = false,
+}: RestaurantCardProps) => {
   if (isLoading) {
     return <div>Loading...</div>
   }

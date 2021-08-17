@@ -12,7 +12,11 @@ const StyledSVG = styled.svg`
 export const Spinner = () => {
   const { color } = useTheme()
   return (
-    <StyledSVG xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+    <StyledSVG
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="xMidYMid"
+    >
       <text transform="translate(-50 0)" fill={color.primaryText}>
         Looking for some food...
       </text>

@@ -52,7 +52,11 @@ export const MultiStepForm = () => {
 
   return (
     <FormContainer>
-      <StepIndicator title={currentStepId} currentStep={currentIndex} amountOfSteps={steps.length} />
+      <StepIndicator
+        title={currentStepId}
+        currentStep={currentIndex}
+        amountOfSteps={steps.length}
+      />
       {getCurrentStep(currentStepId, props)}
     </FormContainer>
   )

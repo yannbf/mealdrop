@@ -15,7 +15,12 @@ type IconProps = {
 export const Icon = ({ name, color, size = '1.5rem' }: IconProps) => {
   const { color: themeColor } = useTheme()
   return (
-    <StyledSVG stroke={color || themeColor.primaryText} width={size} height={size} style={{ minWidth: size }}>
+    <StyledSVG
+      stroke={color || themeColor.primaryText}
+      width={size}
+      height={size}
+      style={{ minWidth: size }}
+    >
       <use xlinkHref={`${Icons}#${name}`} />
     </StyledSVG>
   )

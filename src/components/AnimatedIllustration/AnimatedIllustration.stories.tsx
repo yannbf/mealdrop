@@ -19,7 +19,9 @@ export default {
   ],
 } as ComponentMeta<typeof AnimatedIllustration>
 
-const Template: ComponentStory<typeof AnimatedIllustration> = (args) => <AnimatedIllustration {...args} />
+const Template: ComponentStory<typeof AnimatedIllustration> = (args) => (
+  <AnimatedIllustration {...args} />
+)
 
 export const Default = Template.bind({})
 Default.args = {

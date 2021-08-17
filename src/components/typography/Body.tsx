@@ -34,7 +34,14 @@ export const Body: React.FC<BodyProps> = ({
   className,
   ...props
 }) => (
-  <BodyBase as={type} size={size} color={color} fontWeight={fontWeight} className={className} {...props}>
+  <BodyBase
+    as={type}
+    size={size}
+    color={color}
+    fontWeight={fontWeight}
+    className={className}
+    {...props}
+  >
     {children}
   </BodyBase>
 )

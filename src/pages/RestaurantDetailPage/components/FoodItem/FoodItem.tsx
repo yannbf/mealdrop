@@ -58,17 +58,19 @@ type FoodItemProps = {
   onClick: () => void
 }
 
-export const FoodItem = memo(({ quantity = 0, name, price, description, onClick }: FoodItemProps) => (
-  <Container isHighlighted={quantity > 0} onClick={onClick}>
-    <div>
-      {quantity > 0 && (
-        <Quantity aria-label="food quantity" type="span" fontWeight="medium">
-          {quantity}
-        </Quantity>
-      )}
-      <Heading level={4}>{name}</Heading>
-      <Description>{description}</Description>
-      <Price>{toEuro(price)}</Price>
-    </div>
-  </Container>
-))
+export const FoodItem = memo(
+  ({ quantity = 0, name, price, description, onClick }: FoodItemProps) => (
+    <Container isHighlighted={quantity > 0} onClick={onClick}>
+      <div>
+        {quantity > 0 && (
+          <Quantity aria-label="food quantity" type="span" fontWeight="medium">
+            {quantity}
+          </Quantity>
+        )}
+        <Heading level={4}>{name}</Heading>
+        <Description>{description}</Description>
+        <Price>{toEuro(price)}</Price>
+      </div>
+    </Container>
+  )
+)

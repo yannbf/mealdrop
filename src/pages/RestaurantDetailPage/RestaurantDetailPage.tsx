@@ -167,13 +167,28 @@ export const RestaurantDetailPage = () => {
       <MenuSection>
         <div className="container">
           {menu.food && (
-            <FoodSection title="To eat" items={menu.food} cartItems={cartItems} onItemClick={setSelectedItem} />
+            <FoodSection
+              title="To eat"
+              items={menu.food}
+              cartItems={cartItems}
+              onItemClick={setSelectedItem}
+            />
           )}
           {menu.dessert && (
-            <FoodSection title="Dessert" items={menu.dessert} cartItems={cartItems} onItemClick={setSelectedItem} />
+            <FoodSection
+              title="Dessert"
+              items={menu.dessert}
+              cartItems={cartItems}
+              onItemClick={setSelectedItem}
+            />
           )}
           {menu.drinks && (
-            <FoodSection title="To drink" items={menu.drinks} cartItems={cartItems} onItemClick={setSelectedItem} />
+            <FoodSection
+              title="To drink"
+              items={menu.drinks}
+              cartItems={cartItems}
+              onItemClick={setSelectedItem}
+            />
           )}
         </div>
       </MenuSection>

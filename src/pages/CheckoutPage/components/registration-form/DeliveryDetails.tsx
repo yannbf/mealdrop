@@ -28,7 +28,13 @@ export const DeliveryDetails = ({ setForm, formData, navigation }: DeliveryDetai
         value={address}
         onChange={setForm}
       />
-      <Input label="Postcode" placeholder="AAAAXX" name="postcode" value={postcode} onChange={setForm} />
+      <Input
+        label="Postcode"
+        placeholder="AAAAXX"
+        name="postcode"
+        value={postcode}
+        onChange={setForm}
+      />
       <Input label="City" placeholder="Amsterdam" name="city" value={city} onChange={setForm} />
       <div
         style={{

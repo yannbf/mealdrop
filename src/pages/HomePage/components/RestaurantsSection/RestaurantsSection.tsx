@@ -33,7 +33,11 @@ type RestaurantsSectionProps = {
 export const RestaurantsSection = ({ title }: RestaurantsSectionProps) => {
   const history = useHistory()
 
-  const [restaurants, setRestaurants] = useState<any>([{ isLoading: true }, { isLoading: true }, { isLoading: true }])
+  const [restaurants, setRestaurants] = useState<any>([
+    { isLoading: true },
+    { isLoading: true },
+    { isLoading: true },
+  ])
 
   useEffect(() => {
     const getData = async () => {

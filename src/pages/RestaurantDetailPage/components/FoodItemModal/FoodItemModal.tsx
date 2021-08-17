@@ -57,7 +57,13 @@ type FoodItemModalProps = {
   onItemRemove: (item: CartItem) => void
 }
 
-export const FoodItemModal = ({ item, cartItems, onClose, onItemSave, onItemRemove }: FoodItemModalProps) => {
+export const FoodItemModal = ({
+  item,
+  cartItems,
+  onClose,
+  onItemSave,
+  onItemRemove,
+}: FoodItemModalProps) => {
   const [quantity, setQuantity] = useState(0)
 
   const saveItem = useCallback(() => {
