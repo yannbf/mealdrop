@@ -4,3 +4,6 @@ node_modules
 build
 # don't lint nyc coverage output
 coverage
+
+public
+src/typings.d.ts

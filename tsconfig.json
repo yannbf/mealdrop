@@ -22,6 +22,10 @@
     "noFallthroughCasesInSwitch": false
   },
   "include": [
-    "src"
+    "src",
+    ".storybook"
+  ],
+  "exclude": [
+    "public"
   ]
 }

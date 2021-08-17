@@ -1,0 +1,8 @@
+.github
+.husky
+build
+node_modules
+public
+src/assets
+src/docs/assets
+src/__snapshots__

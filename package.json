@@ -35,8 +35,8 @@
     "build-all": "yarn build && yarn build-storybook",
     "chromatic": "chromatic --project-token $CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes",
     "prepare": "husky install",
-    "lint": "eslint --fix",
-    "prettier": "prettier --write",
+    "lint": "eslint --fix .",
+    "prettier": "prettier --write .",
     "pre-commit": "lint-staged"
   },
   "eslintConfig": {
@@ -77,6 +77,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.24.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "husky": ">=6",
