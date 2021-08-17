@@ -1,7 +1,7 @@
 import useDarkMode from 'use-dark-mode'
+import { ThemeProvider } from 'styled-components'
 
 import { AppRoutes } from './Routes'
-import { ThemeProvider } from 'styled-components'
 import { lightTheme, darkTheme } from './styles/theme'
 import { GlobalStyle } from './styles/GlobalStyle'
 

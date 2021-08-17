@@ -1,26 +1,22 @@
-import { useState, useEffect, memo, useCallback } from 'react';
+import { useState, useEffect, memo, useCallback } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 
 import { useAppDispatch, useAppSelector } from '../../app-state'
 import { api } from '../../api'
-import { FoodItem } from './components/FoodItem/FoodItem'
 import { breakpoints } from '../../styles/breakpoints'
-import {
-  CartItem,
-  clearItemAction,
-  saveItemAction,
-  selectCartItems,
-} from '../../app-state/cart'
+import { CartItem, clearItemAction, saveItemAction, selectCartItems } from '../../app-state/cart'
 import { TopBanner } from '../../components/TopBanner'
 import { Heading, Body } from '../../components/typography'
 import { Badge } from '../../components/Badge'
 import { FoodMenuItem, Restaurant } from '../../types'
-import { FoodItemModal } from './components/FoodItemModal'
 import { Review } from '../../components/Review'
 import { AnimatedIllustration } from '../../components/AnimatedIllustration'
 import { ErrorBlock } from '../../components/ErrorBlock'
-import { Spinner } from '../../components/Spinner';
+import { Spinner } from '../../components/Spinner'
+
+import { FoodItemModal } from './components/FoodItemModal'
+import { FoodItem } from './components/FoodItem/FoodItem'
 
 const StyledContainer = styled.div`
   grid-template-columns: repeat(1, 1fr);
@@ -68,37 +64,38 @@ const StyledBadge = styled(Badge)(
 )
 
 const useFetchRestaurant = (id: string) => {
-  const [status, setStatus] = useState('idle');
-  const [restaurant, setRestaurant] = useState<Restaurant>();
-  const [retry, setRetry] = useState(false);
+  const [status, setStatus] = useState('idle')
+  const [restaurant, setRestaurant] = useState<Restaurant>()
+  const [retry, setRetry] = useState(false)
 
   const retryRequest = useCallback(() => {
-    setRetry(prev => !prev);
+    setRetry((prev) => !prev)
   }, [setRetry])
 
   useEffect(() => {
-    setStatus('loading');
+    setStatus('loading')
 
-    api.getRestaurantById(id)
+    api
+      .getRestaurantById(id)
       .then((res) => {
-        setStatus('success');
-        setRestaurant(res);
+        setStatus('success')
+        setRestaurant(res)
       })
       .catch((error) => {
         const statusCode = error?.response?.status || 500
-        setStatus(statusCode.toString());
-      });
-  }, [id, retry]);
+        setStatus(statusCode.toString())
+      })
+  }, [id, retry])
 
   return {
     status,
     restaurant,
-    retryRequest
-  };
+    retryRequest,
+  }
 }
 
 export const RestaurantDetailPage = () => {
-  let { id } = useParams<{ id: string }>()
+  const { id } = useParams<{ id: string }>()
 
   const history = useHistory()
   const { restaurant, status, retryRequest } = useFetchRestaurant(id)
@@ -110,7 +107,6 @@ export const RestaurantDetailPage = () => {
   const dispatch = useAppDispatch()
   const addItemToCart = (item: CartItem) => dispatch(saveItemAction(item))
   const clearItemFromCart = (item: CartItem) => dispatch(clearItemAction(item))
-
 
   if (status === '500') {
     return (
@@ -212,9 +208,7 @@ const FoodSection = memo(({ title, cartItems, items, onItemClick }: FoodSectionP
     <StyledHeading level={3}>{title}</StyledHeading>
     <StyledContainer>
       {items.map((item: FoodMenuItem) => {
-        const cartItem = cartItems.find(
-          (cartItem) => cartItem.id === item.id
-        )
+        const cartItem = cartItems.find((c) => c.id === item.id)
         const quantity = cartItem?.quantity || 0
         return (
           <FoodItem

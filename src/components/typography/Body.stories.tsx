@@ -9,7 +9,7 @@ export default {
     children: { controls: 'text' },
     size: { table: { disable: true } },
   },
-}as ComponentMeta<typeof Body>
+} as ComponentMeta<typeof Body>
 
 const Template: ComponentStory<typeof Body> = ({ children }) => (
   <div>

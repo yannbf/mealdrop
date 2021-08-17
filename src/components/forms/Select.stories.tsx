@@ -13,7 +13,7 @@ export const Default = Template.bind({})
 Default.args = {
   options: ['Burger', 'Pizza', 'Sushi'],
   id: 'select',
-  'aria-label': 'food'
+  'aria-label': 'food',
 }
 export const WithLabel = Template.bind({})
 WithLabel.args = {

@@ -5,7 +5,7 @@ import { FoodItem } from './FoodItem'
 export default {
   title: 'Pages/RestaurantDetailPage/Components/FoodItem',
   component: FoodItem,
-}as ComponentMeta<typeof FoodItem>
+} as ComponentMeta<typeof FoodItem>
 
 const Template: ComponentStory<typeof FoodItem> = (args) => <FoodItem {...args} />
 

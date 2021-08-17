@@ -1,9 +1,8 @@
-import { Badge } from "../../Badge"
-import { Review } from "../../Review"
-import { Body, Heading } from "../../typography"
+import { Badge } from '../../Badge'
+import { Review } from '../../Review'
+import { Body, Heading } from '../../typography'
 
 type RestaurantCardProps = {
-  id?: string
   name: string
   rating?: number
   specialty: string
@@ -26,9 +25,8 @@ export const RestaurantCard = ({
   categories,
   isNew = false,
   className,
-  onClick
+  onClick,
 }: RestaurantCardProps) => {
-
   if (isLoading) {
     return <div>Loading...</div>
   }
@@ -37,13 +35,8 @@ export const RestaurantCard = ({
     <div>
       {isNew && <div>new</div>}
       <div>
-        {isClosed && (
-          <Body type="span">This restaurant is closed.</Body>
-        )}
-        <img
-          src={photoUrl}
-          alt="restaurant"
-        />
+        {isClosed && <Body type="span">This restaurant is closed.</Body>}
+        <img src={photoUrl} alt="restaurant" />
       </div>
       <div>
         <Heading level={2}>{name} </Heading>

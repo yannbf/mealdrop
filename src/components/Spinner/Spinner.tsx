@@ -17,7 +17,9 @@ export const Spinner = () => {
       viewBox="0 0 100 100"
       preserveAspectRatio="xMidYMid"
     >
-      <text transform="translate(-50 0)" fill={color.primaryText}>Looking for some food...</text>
+      <text transform="translate(-50 0)" fill={color.primaryText}>
+        Looking for some food...
+      </text>
       <animate attributeName="opacity" dur="1s" keyTimes="0;0.4;1" values="0;0;1" />
       <g>
         <circle cx="60" cy="50" r="4" fill="#22aca7">
@@ -28,7 +30,7 @@ export const Spinner = () => {
             values="95;35"
             keyTimes="0;1"
             begin="-0.6566000000000001s"
-          ></animate>
+          />
           <animate
             attributeName="fill-opacity"
             repeatCount="indefinite"
@@ -36,7 +38,7 @@ export const Spinner = () => {
             values="0;1;1"
             keyTimes="0;0.2;1"
             begin="-0.6566000000000001s"
-          ></animate>
+          />
         </circle>
         <circle cx="60" cy="50" r="4" fill="#22aca7">
           <animate
@@ -46,7 +48,7 @@ export const Spinner = () => {
             values="95;35"
             keyTimes="0;1"
             begin="-0.3234s"
-          ></animate>
+          />
           <animate
             attributeName="fill-opacity"
             repeatCount="indefinite"
@@ -54,7 +56,7 @@ export const Spinner = () => {
             values="0;1;1"
             keyTimes="0;0.2;1"
             begin="-0.3234s"
-          ></animate>
+          />
         </circle>
         <circle cx="60" cy="50" r="4" fill="#22aca7">
           <animate
@@ -64,7 +66,7 @@ export const Spinner = () => {
             values="95;35"
             keyTimes="0;1"
             begin="0s"
-          ></animate>
+          />
           <animate
             attributeName="fill-opacity"
             repeatCount="indefinite"
@@ -72,15 +74,11 @@ export const Spinner = () => {
             values="0;1;1"
             keyTimes="0;0.2;1"
             begin="0s"
-          ></animate>
+          />
         </circle>
       </g>
       <g transform="translate(-15 0)">
-        <path
-          d="M50 50L20 50A30 30 0 0 0 80 50Z"
-          fill="#61d8de"
-          transform="rotate(90 50 50)"
-        ></path>
+        <path d="M50 50L20 50A30 30 0 0 0 80 50Z" fill="#61d8de" transform="rotate(90 50 50)" />
         <path d="M50 50L20 50A30 30 0 0 0 80 50Z" fill="#61d8de">
           <animateTransform
             attributeName="transform"
@@ -89,7 +87,7 @@ export const Spinner = () => {
             dur="1.0204081632653061s"
             values="0 50 50;45 50 50;0 50 50"
             keyTimes="0;0.5;1"
-          ></animateTransform>
+          />
         </path>
         <path d="M50 50L20 50A30 30 0 0 1 80 50Z" fill="#61d8de">
           <animateTransform
@@ -99,7 +97,7 @@ export const Spinner = () => {
             dur="1.0204081632653061s"
             values="0 50 50;-45 50 50;0 50 50"
             keyTimes="0;0.5;1"
-          ></animateTransform>
+          />
         </path>
       </g>
     </StyledSVG>

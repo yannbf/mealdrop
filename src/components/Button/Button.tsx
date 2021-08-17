@@ -1,5 +1,6 @@
 import * as React from 'react'
 import styled, { css, useTheme } from 'styled-components'
+
 import { breakpoints } from '../../styles/breakpoints'
 import { Icon } from '../Icon'
 
@@ -13,13 +14,7 @@ const StyledButton = styled.button<{
   withIcon: boolean
   round: boolean
 }>(
-  ({
-    clear,
-    large,
-    round,
-    withIcon,
-    theme: { color, boxShadow, borderRadius },
-  }) => css`
+  ({ clear, large, round, withIcon, theme: { color, boxShadow, borderRadius } }) => css`
     outline: none;
     border: 0;
     font-family: 'Hind';
@@ -36,9 +31,7 @@ const StyledButton = styled.button<{
 
     &:hover {
       cursor: pointer;
-      background-color: ${clear
-        ? color.buttonClearHover
-        : color.buttonPrimaryHover};
+      background-color: ${clear ? color.buttonClearHover : color.buttonPrimaryHover};
     }
 
     &:focus {
@@ -51,11 +44,7 @@ const StyledButton = styled.button<{
     }
 
     @media ${breakpoints.M} {
-      padding: ${withIcon
-        ? '1rem'
-        : large
-        ? '1.125rem 1.5rem'
-        : '0.875rem 1.5rem'};
+      padding: ${withIcon ? '1rem' : large ? '1.125rem 1.5rem' : '0.875rem 1.5rem'};
     }
   `
 )
@@ -118,11 +107,7 @@ export const Button: React.FC<ButtonProps> = ({
       {...props}
     >
       {icon && (
-        <Icon
-          color={clear ? color.primaryText : color.buttonText}
-          size={iconSize}
-          name={icon}
-        />
+        <Icon color={clear ? color.primaryText : color.buttonText} size={iconSize} name={icon} />
       )}
       {icon && children && <Spacer />}
       {children}

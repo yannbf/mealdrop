@@ -1,7 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { CategoryListPage } from './CategoryListPage'
 import { DefaultTemplate } from '../../templates/PageTemplate'
+
+import { CategoryListPage } from './CategoryListPage'
 
 export default {
   title: 'Pages/CategoryListPage',

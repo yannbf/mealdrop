@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 import { Story, Meta } from '@storybook/react'
 
 import { cartItems } from '../../stub/cart-items'
@@ -28,7 +28,7 @@ const Template: Story = () => {
         isOpen={isOpen}
         cartItems={cartItems}
         totalPrice={1200}
-        onItemChange={() => { }}
+        onItemChange={() => {}}
         onClose={() => {
           closeShoppingCartMenu()
         }}

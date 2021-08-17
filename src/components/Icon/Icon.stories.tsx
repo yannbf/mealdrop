@@ -1,20 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-
-import { Icon } from './Icon'
 import styled, { css } from 'styled-components'
+
 import { Body } from '../typography/Body'
 
-const icons = [
-  'arrow-right',
-  'arrow-left',
-  'cross',
-  'cart',
-  'minus',
-  'plus',
-  'moon',
-  'sun',
-  'star',
-]
+import { Icon } from './Icon'
+
+const icons = ['arrow-right', 'arrow-left', 'cross', 'cart', 'minus', 'plus', 'moon', 'sun', 'star']
 
 const IconContainer = styled.div(
   ({ theme: { color } }) => css`

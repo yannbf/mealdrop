@@ -1,16 +1,11 @@
-import * as React from 'react';
+import * as React from 'react'
 import { CSSTransition } from 'react-transition-group'
 
-import {
-  SidebarContainer,
-  SidebarContent,
-  SidebarFooter,
-  TopBar,
-  Backdrop,
-} from './Sidebar.styles'
 import { useKey, useLockBodyScroll } from '../../hooks'
 import { Button } from '../Button'
 import { Heading } from '../typography'
+
+import { SidebarContainer, SidebarContent, SidebarFooter, TopBar, Backdrop } from './Sidebar.styles'
 
 type SidebarProps = {
   isOpen: boolean
@@ -19,25 +14,14 @@ type SidebarProps = {
   footer?: React.ReactNode
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({
-  children,
-  footer,
-  isOpen,
-  title,
-  onClose,
-}) => {
+export const Sidebar: React.FC<SidebarProps> = ({ children, footer, isOpen, title, onClose }) => {
   useKey('escape', onClose)
 
   useLockBodyScroll(isOpen)
 
   return (
     <>
-      <CSSTransition
-        in={isOpen}
-        timeout={300}
-        classNames="sidebar"
-        unmountOnExit
-      >
+      <CSSTransition in={isOpen} timeout={300} classNames="sidebar" unmountOnExit>
         <SidebarContainer data-testid="sidebar">
           <TopBar>
             <Heading level={4}>{title}</Heading>
@@ -51,21 +35,12 @@ export const Sidebar: React.FC<SidebarProps> = ({
               iconSize={16}
             />
           </TopBar>
-          <SidebarContent data-testid="sidebar-content">
-            {children}
-          </SidebarContent>
-          {footer && (
-            <SidebarFooter data-testid="sidebar-footer">{footer}</SidebarFooter>
-          )}
+          <SidebarContent data-testid="sidebar-content">{children}</SidebarContent>
+          {footer && <SidebarFooter data-testid="sidebar-footer">{footer}</SidebarFooter>}
         </SidebarContainer>
       </CSSTransition>
 
-      <CSSTransition
-        in={isOpen}
-        timeout={300}
-        classNames="backdrop"
-        unmountOnExit
-      >
+      <CSSTransition in={isOpen} timeout={300} classNames="backdrop" unmountOnExit>
         <Backdrop data-testid="Sidebar-backdrop" onClick={onClose} />
       </CSSTransition>
     </>

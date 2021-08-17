@@ -1,4 +1,4 @@
-import { useLayoutEffect } from 'react';
+import { useLayoutEffect } from 'react'
 import { Switch, Route, useLocation } from 'react-router-dom'
 
 import { RestaurantDetailPage } from './pages/RestaurantDetailPage'
@@ -6,11 +6,7 @@ import { CategoryPage } from './pages/CategoryPage'
 import { HomePage } from './pages/HomePage'
 import { CheckoutPage } from './pages/CheckoutPage'
 import { SuccessPage } from './pages/SuccessPage'
-import {
-  DefaultTemplate,
-  SimpleTemplate,
-  StickyHeaderTemplate,
-} from './templates/PageTemplate'
+import { DefaultTemplate, SimpleTemplate, StickyHeaderTemplate } from './templates/PageTemplate'
 
 export const AppRoutes = () => {
   const location = useLocation()
@@ -28,7 +24,7 @@ export const AppRoutes = () => {
             <CategoryPage {...routeProps} />
           </DefaultTemplate>
         )}
-      ></Route>
+      />
       <Route exact path="/restaurants/:id">
         <StickyHeaderTemplate>
           <RestaurantDetailPage />

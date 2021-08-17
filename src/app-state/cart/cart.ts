@@ -26,37 +26,24 @@ const clearCart: CaseReducer<CartState> = (state) => {
   state.items = []
 }
 
-const clearItem: CaseReducer<CartState, PayloadAction<CartItem>> = (
-  state,
-  action
-) => {
+const clearItem: CaseReducer<CartState, PayloadAction<CartItem>> = (state, action) => {
   state.items = state.items.filter((item) => item.id !== action.payload.id)
 }
 
-const removeItem: CaseReducer<CartState, PayloadAction<CartItem>> = (
-  state,
-  action
-) => {
-  const existingCartItem = state.items.find(
-    (item) => item.id === action.payload.id
-  )
+const removeItem: CaseReducer<CartState, PayloadAction<CartItem>> = (state, action) => {
+  const existingCartItem = state.items.find((item) => item.id === action.payload.id)
 
   if (!existingCartItem) return
 
   if (existingCartItem.quantity === 1) {
     state.items = state.items.filter((item) => item.id !== action.payload.id)
   } else {
-    existingCartItem.quantity--
+    existingCartItem.quantity -= 1
   }
 }
 
-const saveItem: CaseReducer<CartState, PayloadAction<CartItem>> = (
-  state,
-  action
-) => {
-  const existingCartItem = state.items.find(
-    (item) => item.id === action.payload.id
-  ) as CartItem
+const saveItem: CaseReducer<CartState, PayloadAction<CartItem>> = (state, action) => {
+  const existingCartItem = state.items.find((item) => item.id === action.payload.id) as CartItem
 
   if (existingCartItem) {
     existingCartItem.quantity = action.payload.quantity

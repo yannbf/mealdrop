@@ -1,15 +1,8 @@
 import { useCallback, useEffect, useState } from 'react'
 
-export const useKey = (
-  key: string,
-  keyDownCb = () => {},
-  keyUpCb = () => {}
-): boolean => {
+export const useKey = (key: string, keyDownCb = () => {}, keyUpCb = () => {}): boolean => {
   const [pressed, setPressed] = useState(false)
-  const match = useCallback(
-    (event: any) => key.toLowerCase() === event.key.toLowerCase(),
-    [key]
-  )
+  const match = useCallback((event: any) => key.toLowerCase() === event.key.toLowerCase(), [key])
 
   const onKeyDown = useCallback(
     (event: KeyboardEvent) => {

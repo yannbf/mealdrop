@@ -149,11 +149,7 @@ export const HeaderComponent = ({
               <Button clear>All restaurants</Button>
             </Link>
           </span>
-          <Button
-            aria-label="food cart"
-            icon="cart"
-            onClick={toggleCartVisibility}
-          >
+          <Button aria-label="food cart" icon="cart" onClick={toggleCartVisibility}>
             {totalPrice > 0 && (
               <>
                 <CartText type="span">Order</CartText>

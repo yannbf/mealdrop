@@ -8,7 +8,6 @@ Mealdrop is a reproduction of a real-world application to serve as an example fo
 
 [Storybook demo](http://mealdrop.netlify.com/storybook)
 
-
 ## Available Scripts
 
 In the project directory, you can run:

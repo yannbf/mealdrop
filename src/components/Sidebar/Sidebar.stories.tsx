@@ -1,7 +1,8 @@
 import { Story, Meta } from '@storybook/react'
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 
 import { Button } from '../Button'
+
 import { Sidebar } from './Sidebar'
 
 export default {

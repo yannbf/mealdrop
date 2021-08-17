@@ -9,7 +9,7 @@ export default {
     children: { controls: 'text' },
     level: { table: { disable: true } },
   },
-}as ComponentMeta<typeof Heading>
+} as ComponentMeta<typeof Heading>
 
 const Template: ComponentStory<typeof Heading> = ({ children }) => (
   <div>

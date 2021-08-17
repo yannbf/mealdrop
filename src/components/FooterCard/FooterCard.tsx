@@ -1,10 +1,18 @@
 import { Link } from 'react-router-dom'
 import styled, { css } from 'styled-components'
+
 import { Body } from '../typography/Body'
 import { Heading } from '../typography/Heading'
 
 const FooterCardContainer = styled.div(
-  ({ theme: { color: colors, spacing, borderRadius, typography: { fontSize } } }) => css`
+  ({
+    theme: {
+      color: colors,
+      spacing,
+      borderRadius,
+      typography: { fontSize },
+    },
+  }) => css`
     color: ${colors.white};
 
     border-radius: ${borderRadius.xs};
@@ -34,10 +42,10 @@ const FooterCardContainer = styled.div(
 )
 
 type FooterCardProps = {
-  title: string,
+  title: string
   links?: {
-    external?: boolean,
-    name: string,
+    external?: boolean
+    name: string
     href: string
   }[]
 }

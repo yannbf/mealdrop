@@ -26,14 +26,8 @@ type IconButtonProps = {
   onClick?: () => void
 } & ComponentProps<typeof StyledButton>
 
-export const IconButton = ({
-  small = false,
-  name,
-  ...props
-}: IconButtonProps) => {
-  return (
-    <StyledButton type="button" small={small} {...props}>
-      <Icon name={name} size={small ? 15 : 24} color="#202020" />
-    </StyledButton>
-  )
-}
+export const IconButton = ({ small = false, name, ...props }: IconButtonProps) => (
+  <StyledButton type="button" small={small} {...props}>
+    <Icon name={name} size={small ? 15 : 24} color="#202020" />
+  </StyledButton>
+)

@@ -8,7 +8,7 @@ export default {
   parameters: {
     layout: 'fullscreen',
   },
-}as ComponentMeta<typeof TopBanner>
+} as ComponentMeta<typeof TopBanner>
 
 const Template: ComponentStory<typeof TopBanner> = (args) => <TopBanner {...args} />
 

@@ -6,7 +6,6 @@ import { Badge } from '../Badge'
 import { Review } from '../Review'
 
 type RestaurantCardProps = {
-  id?: string
   name: string
   rating?: number
   specialty: string
@@ -21,16 +20,16 @@ type RestaurantCardProps = {
 
 const Container = styled.div(
   ({ theme: { borderRadius } }) => css`
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  border-radius: ${borderRadius.s};
-  width: 100%;
-  max-width: 500px;
-  &:hover {
-    opacity: 0.9;
-  }
-`
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    border-radius: ${borderRadius.s};
+    width: 100%;
+    max-width: 500px;
+    &:hover {
+      opacity: 0.9;
+    }
+  `
 )
 
 const StyledContent = styled.div(
@@ -116,10 +115,7 @@ const StyledHeading = styled(Heading)(
 const RestaurantCardSkeleton = () => {
   const { color } = useTheme()
   return (
-    <SkeletonTheme
-      color={color.skeletonBase}
-      highlightColor={color.skeletonHighlight}
-    >
+    <SkeletonTheme color={color.skeletonBase} highlightColor={color.skeletonHighlight}>
       <Container data-testid="loading">
         <Skeleton height={200} width="100%" />
         <StyledContent>
@@ -158,11 +154,7 @@ export const RestaurantCard = ({
   }
 
   return (
-    <Container
-      className={className}
-      data-testid="restaurant-card"
-      onClick={onClick}
-    >
+    <Container className={className} data-testid="restaurant-card" onClick={onClick}>
       {isNew && <NewTag>new</NewTag>}
       <div style={{ position: 'relative', display: 'flex' }}>
         {isClosed && (
@@ -170,12 +162,7 @@ export const RestaurantCard = ({
             <Body type="span">This restaurant is closed.</Body>
           </Closed>
         )}
-        <RestaurantImage
-          $isClosed={isClosed}
-          loading="lazy"
-          src={photoUrl}
-          alt="restaurant"
-        />
+        <RestaurantImage $isClosed={isClosed} loading="lazy" src={photoUrl} alt="restaurant" />
       </div>
       <StyledContent>
         <StyledHeading level={2}>{name} </StyledHeading>

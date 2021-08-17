@@ -35,13 +35,7 @@ export const DeliveryDetails = ({ setForm, formData, navigation }: DeliveryDetai
         value={postcode}
         onChange={setForm}
       />
-      <Input
-        label="City"
-        placeholder="Amsterdam"
-        name="city"
-        value={city}
-        onChange={setForm}
-      />
+      <Input label="City" placeholder="Amsterdam" name="city" value={city} onChange={setForm} />
       <div
         style={{
           display: 'flex',

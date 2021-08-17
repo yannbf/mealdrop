@@ -46,12 +46,7 @@ type InputProps = {
   onChange?: (data: any) => void
 } & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 
-export const Input = ({
-  label = '',
-  type = 'text',
-  id,
-  ...otherProps
-}: InputProps) => (
+export const Input = ({ label = '', type = 'text', id, ...otherProps }: InputProps) => (
   <Container>
     <input id={id} type={type} {...otherProps} />
     {label && (

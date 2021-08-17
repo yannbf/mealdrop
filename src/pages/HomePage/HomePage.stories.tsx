@@ -1,7 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { HomePage } from './HomePage'
 import { DefaultTemplate } from '../../templates/PageTemplate'
+
+import { HomePage } from './HomePage'
 
 export default {
   title: 'Pages/HomePage',
@@ -10,8 +11,7 @@ export default {
     layout: 'fullscreen',
     design: {
       type: 'figma',
-      url:
-        'https://www.figma.com/proto/XW4Bcjmj3JOILjKmZjjdQd/Foodenters?node-id=135%3A258&viewport=319%2C422%2C0.06356501579284668&scaling=scale-down',
+      url: 'https://www.figma.com/proto/XW4Bcjmj3JOILjKmZjjdQd/Foodenters?node-id=135%3A258&viewport=319%2C422%2C0.06356501579284668&scaling=scale-down',
     },
   },
 } as ComponentMeta<typeof HomePage>

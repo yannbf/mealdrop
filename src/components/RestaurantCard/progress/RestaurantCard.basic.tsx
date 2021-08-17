@@ -1,4 +1,3 @@
-
 type RestaurantCardProps = {
   id?: string
   name: string

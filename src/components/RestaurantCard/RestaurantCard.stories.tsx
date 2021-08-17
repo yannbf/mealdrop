@@ -1,7 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { RestaurantCard } from './RestaurantCard'
 import { restaurants } from '../../stub/restaurants'
+
+import { RestaurantCard } from './RestaurantCard'
 
 export default {
   title: 'Components/RestaurantCard',
@@ -9,8 +10,7 @@ export default {
   parameters: {
     design: {
       type: 'experimental-figspec',
-      url:
-        'https://www.figma.com/file/XW4Bcjmj3JOILjKmZjjdQd/Foodenters?node-id=332%3A1644',
+      url: 'https://www.figma.com/file/XW4Bcjmj3JOILjKmZjjdQd/Foodenters?node-id=332%3A1644',
     },
   },
   argTypes: {
@@ -29,7 +29,7 @@ const Template: ComponentStory<typeof RestaurantCard> = (args) => <RestaurantCar
 
 export const Default = Template.bind({})
 Default.args = {
-  ...restaurants[0]
+  ...restaurants[0],
 }
 
 export const New = Template.bind({})

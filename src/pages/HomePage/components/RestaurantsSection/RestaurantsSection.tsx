@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
 import Carousel from 'react-multi-carousel'
@@ -45,7 +45,9 @@ export const RestaurantsSection = ({ title }: RestaurantsSectionProps) => {
       try {
         const data = await api.getCuratedRestaurants()
         setRestaurants(data)
-      } catch (err) { }
+      } catch (err) {
+        console.error(err)
+      }
     }
 
     getData()
@@ -82,7 +84,7 @@ export const RestaurantsSection = ({ title }: RestaurantsSectionProps) => {
       >
         {restaurants.map((restaurant: Restaurant, index: number) => (
           <StyledRestaurantCard
-            key={restaurant.name + index}
+            key={restaurant.name}
             {...restaurant}
             onClick={() => history.push(`/restaurants/${restaurant.id}`)}
           />

@@ -9,7 +9,6 @@ export default {
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
 
-
 export const Default = Template.bind({})
 Default.args = {
   children: 'Button',
@@ -30,7 +29,7 @@ Clear.args = {
 export const Icon = Template.bind({})
 Icon.args = {
   icon: 'cart',
-  'aria-label': 'cart'
+  'aria-label': 'cart',
 }
 
 export const IconAndText = Template.bind({})
