@@ -17,6 +17,6 @@
     "jsx": "react-jsx",
     "noFallthroughCasesInSwitch": false
   },
-  "include": ["src", ".storybook"],
+  "include": ["src", ".storybook", "functions"],
   "exclude": ["public"]
 }
