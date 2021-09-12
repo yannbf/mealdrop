@@ -10,7 +10,7 @@ interface BaseApi {
   getRestaurantsByCategory: (category: string) => Promise<Restaurant[]>
 }
 
-const BASE_URL = 'https://blab-290ab.firebaseio.com'
+export const BASE_URL = 'https://mealdrop.netlify.app/.netlify/functions/restaurants'
 
 const isMockedEnvironment = !!process.env.STORYBOOK || process.env.NODE_ENV === 'test'
 
@@ -33,16 +33,15 @@ const apiGet = async <T>(url: string): Promise<AxiosResponse<T>> => {
 
 class RestaurantsApi implements BaseApi {
   async getCuratedRestaurants() {
-    const { data: restaurants } = await apiGet<Restaurant[]>(`${BASE_URL}/restaurants/.json`)
+    const { data: restaurants } = await apiGet<Restaurant[]>(BASE_URL)
 
     return restaurants
   }
 
   async getRestaurantById(id: string) {
-    const { data: restaurant } = await apiGet<Restaurant>(`${BASE_URL}/restaurants/${id}/.json`)
+    const { data: restaurant, status } = await apiGet<Restaurant>(`${BASE_URL}?id=${id}`)
 
-    // firebase returns 200 with null when not found, so we need to force the correct status
-    if (restaurant == null) {
+    if (status === 404) {
       return Promise.reject({ response: { status: 404 } })
     }
 
@@ -50,12 +49,9 @@ class RestaurantsApi implements BaseApi {
   }
 
   async getRestaurantsByCategory(category: string) {
-    const restaurants = await this.getCuratedRestaurants()
+    const { data: restaurants } = await apiGet<Restaurant[]>(`${BASE_URL}?category=${category}`)
 
     return restaurants
-      .filter((restaurant) => restaurant.categories?.includes(category.toLowerCase()))
-      .sort((restaurant) => (restaurant.isClosed ? 1 : -1))
-      .sort((restaurant) => (restaurant.isNew ? -1 : 1))
   }
 }
 

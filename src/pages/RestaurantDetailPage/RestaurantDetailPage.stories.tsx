@@ -1,6 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { rest } from 'msw'
 
+import { BASE_URL } from '../../api'
 import { StickyHeaderTemplate } from '../../templates/PageTemplate'
 import { restaurants } from '../../stub/restaurants'
 
@@ -22,7 +23,7 @@ export default {
   },
 } as ComponentMeta<typeof RestaurantDetailPage>
 
-const REQUEST_URL = 'https://blab-290ab.firebaseio.com/restaurants/:id/.json'
+const REQUEST_URL = `${BASE_URL}?id=:id`
 
 const Template: ComponentStory<typeof RestaurantDetailPage> = () => (
   <div>

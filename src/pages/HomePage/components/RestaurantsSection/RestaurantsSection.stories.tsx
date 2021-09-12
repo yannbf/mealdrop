@@ -1,6 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { rest } from 'msw'
 
+import { BASE_URL } from '../../../../api'
 import { restaurants } from '../../../../stub/restaurants'
 
 import { RestaurantsSection } from './RestaurantsSection'
@@ -19,11 +20,7 @@ Default.args = {
   title: 'Near you',
 }
 Default.parameters = {
-  msw: [
-    rest.get('https://blab-290ab.firebaseio.com/restaurants/.json', (req, res, ctx) =>
-      res(ctx.json(restaurants))
-    ),
-  ],
+  msw: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json(restaurants)))],
 }
 
 export const Loading = Template.bind({})
@@ -31,9 +28,5 @@ Loading.args = {
   ...Default.args,
 }
 Loading.parameters = {
-  msw: [
-    rest.get('https://blab-290ab.firebaseio.com/restaurants/.json', (req, res, ctx) =>
-      res(ctx.delay('infinite'))
-    ),
-  ],
+  msw: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.delay('infinite')))],
 }
