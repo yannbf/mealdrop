@@ -43,7 +43,7 @@ export const RestaurantsSection = ({ title }: RestaurantsSectionProps) => {
     const getData = async () => {
       // TODO: make this a hook
       try {
-        const data = await api.getCuratedRestaurants()
+        const data = await api.getRestaurants()
         setRestaurants(data)
       } catch (err) {
         console.error(err)

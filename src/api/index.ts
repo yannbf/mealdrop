@@ -3,7 +3,7 @@ import axios, { AxiosResponse } from 'axios'
 import { Restaurant } from '../types'
 
 interface BaseApi {
-  getCuratedRestaurants: () => Promise<Restaurant[]>
+  getRestaurants: () => Promise<Restaurant[]>
   getRestaurantById: (id: string) => Promise<Restaurant>
   getRestaurantsByCategory: (category: string) => Promise<Restaurant[]>
 }
@@ -30,7 +30,7 @@ const apiGet = async <T>(url: string): Promise<AxiosResponse<T>> => {
 }
 
 class RestaurantsApi implements BaseApi {
-  async getCuratedRestaurants() {
+  async getRestaurants() {
     const { data: restaurants } = await apiGet<Restaurant[]>(BASE_URL)
 
     return restaurants
@@ -54,7 +54,7 @@ class RestaurantsApi implements BaseApi {
 }
 
 // class MockedRestaurantsApi implements BaseApi {
-//   async getCuratedRestaurants() {
+//   async getRestaurants() {
 //     return restaurantsMock
 //   }
 //   async getRestaurantById(id: string) {

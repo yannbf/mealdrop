@@ -97,7 +97,7 @@ export const RestaurantsSection = ({ title }: RestaurantsSectionProps) => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const data = await api.getCuratedRestaurants()
+        const data = await api.getRestaurants()
         setRestaurants(data)
       } catch (err) {
         console.error(err)
