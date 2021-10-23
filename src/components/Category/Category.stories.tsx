@@ -20,3 +20,6 @@ export const Rounded = Template.bind({})
 Rounded.args = {
   round: true,
 }
+Rounded.parameters = {
+  zeplinLink: 'zpl://components?pid=6171dc280e70279e636ee1e6&coid=6171eaeb1dee3593e6d2141c',
+}
