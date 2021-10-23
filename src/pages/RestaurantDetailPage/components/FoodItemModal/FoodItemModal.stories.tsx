@@ -9,6 +9,8 @@ export default {
   title: 'Pages/RestaurantDetailPage/Components/FoodItemModal',
   component: FoodItemModal,
   parameters: {
+    // This makes it so that the modal is loaded inside of an iframe in docs mode.
+    // If it's not rendered in an iframe, the modal is going to open on top of Storybook itself!
     docs: { inlineStories: false, iframeHeight: 600 },
   },
   decorators: [

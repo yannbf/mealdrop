@@ -2,12 +2,18 @@ import { Story, Meta } from '@storybook/react'
 import { useEffect, useState } from 'react'
 
 import { Button } from '../Button'
+import { Body } from '../typography'
 
 import { Sidebar } from './Sidebar'
 
 export default {
   title: 'Components/Sidebar',
   component: Sidebar,
+  parameters: {
+    // This makes it so that the sidebar is loaded inside of an iframe in docs mode.
+    // If it's not rendered in an iframe, the sidebar is going to open on top of Storybook itself!
+    docs: { inlineStories: false, iframeHeight: 600 },
+  },
 } as Meta
 
 const Template: Story = () => {
@@ -21,7 +27,7 @@ const Template: Story = () => {
 
   return (
     <>
-      <p>Press ESC to close the sidebar or click on the close icon!</p>
+      <Body>Press ESC to close the sidebar or click on the close icon!</Body>
       <Button onClick={openSidebar}>Open sidebar</Button>
       <Sidebar
         title="Your order"
@@ -29,9 +35,9 @@ const Template: Story = () => {
         onClose={() => {
           closeSidebar()
         }}
-        footer={<div>Some footer here</div>}
+        footer={<Body>Some footer here</Body>}
       >
-        <div>Some content here</div>
+        <Body>Some content here</Body>
       </Sidebar>
     </>
   )
