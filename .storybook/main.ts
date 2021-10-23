@@ -10,5 +10,6 @@ module.exports = {
     '@storybook/addon-a11y',
     'storybook-addon-designs',
     'storybook-mobile',
+    'storybook-zeplin/register',
   ],
 }
