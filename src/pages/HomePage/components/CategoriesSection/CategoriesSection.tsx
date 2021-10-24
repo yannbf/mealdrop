@@ -65,7 +65,7 @@ export const CategoriesSection = ({ categories }: CategoriesSectionProps) => {
       >
         {categories.map((category) => (
           <StyledLink key={category.id} to={`/categories/${category.id}`}>
-            <Category rounded {...category} />
+            <Category round {...category} />
           </StyledLink>
         ))}
       </Carousel>
