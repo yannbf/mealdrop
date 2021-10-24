@@ -47,6 +47,7 @@ const Image = styled.img(
     min-width: 50px;
     min-height: 50px;
     max-height: 300px;
+    max-width: 457px;
   `
 )
 
