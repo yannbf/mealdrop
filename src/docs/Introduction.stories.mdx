@@ -1,6 +1,8 @@
 import { Meta } from '@storybook/addon-docs'
 import Code from './assets/code-brackets.svg'
 import Comments from './assets/comments.svg'
+import Twitter from './assets/twitter.svg'
+import Github from './assets/github.svg'
 import MealdropLogo from './assets/logo.svg'
 import Flow from './assets/flow.svg'
 import Repo from './assets/repo.svg'
@@ -46,7 +48,6 @@ import banner from './assets/mealdrop-banner.png'
   }
 
   .link-item {
-    display: block;
     padding: 20px 30px 20px 15px;
     border: 1px solid #00000010;
     border-radius: 5px;
@@ -54,6 +55,10 @@ import banner from './assets/mealdrop-banner.png'
     color: #333333;
     display: flex;
     align-items: flex-start;
+  }
+
+  .link-item--title-only {
+    align-items: center;
   }
 
   .link-item:hover {
@@ -180,5 +185,18 @@ We will see the power of addons and how they help improve the development experi
       <strong>Discord chat</strong>
       Chat with the course instructor and the <strong>newline community</strong> in the <pre>#storybook-for-building-react-apps-beta</pre> channel
     </span>
+  </a>
+</div>
+
+<div class="subheading">Follow me for updates!</div>
+
+<div class="link-list">
+  <a class="link-item link-item--title-only" href="https://twitter.com/yannbf" target="_blank">
+    <img src={Twitter} alt="code" />
+    <strong>Twitter</strong>
+  </a>
+  <a class="link-item link-item--title-only" href="https://github.com/yannbf" target="_blank">
+    <img src={Github} alt="code" />
+    <strong>Github</strong>
   </a>
 </div>
