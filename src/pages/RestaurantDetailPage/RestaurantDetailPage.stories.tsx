@@ -14,7 +14,7 @@ export default {
     layout: 'fullscreen',
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/file/XW4Bcjmj3JOILjKmZjjdQd/Foodenters?node-id=169%3A510',
+      url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=169%3A510',
     },
     deeplink: {
       route: '/restaurants/1',

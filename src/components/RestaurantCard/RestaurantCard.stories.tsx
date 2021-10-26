@@ -10,7 +10,7 @@ export default {
   parameters: {
     design: {
       type: 'experimental-figspec',
-      url: 'https://www.figma.com/file/XW4Bcjmj3JOILjKmZjjdQd/Foodenters?node-id=332%3A1644',
+      url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=1126%3A3893',
     },
   },
   argTypes: {
