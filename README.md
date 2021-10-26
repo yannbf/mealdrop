@@ -4,9 +4,9 @@ Mealdrop is a reproduction of a real-world application to serve as an example fo
 
 ![](./.github/media/application-example.png)
 
-[App demo](http://mealdrop.netlify.com/)
+[App demo](http://mealdrop.vercel.app/)
 
-[Storybook demo](http://mealdrop.netlify.com/storybook)
+[Storybook demo](http://mealdrop.vercel.app/storybook)
 
 ## Available Scripts
 
