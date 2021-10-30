@@ -14,8 +14,8 @@ export default {
 
 const Template: ComponentStory<typeof Category> = (args) => <Category {...args} />
 
-export const Default = Template.bind({})
-Default.parameters = {
+export const Expanded = Template.bind({})
+Expanded.parameters = {
   zeplinLink: 'zpl://screen?pid=604b5aa98e9f038b21a17ea8&sid=604b5d67576ae18b2fc38f88',
 }
 
