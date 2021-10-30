@@ -11,7 +11,7 @@ export default {
     layout: 'fullscreen',
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/proto/XW4Bcjmj3JOILjKmZjjdQd/Foodenters?node-id=135%3A258&viewport=319%2C422%2C0.06356501579284668&scaling=scale-down',
+      url: 'https://www.figma.com/proto/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?page-id=135%3A257&node-id=135%3A258&viewport=241%2C48%2C0.2&scaling=scale-down-width&starting-point-node-id=135%3A258',
     },
   },
 } as ComponentMeta<typeof HomePage>

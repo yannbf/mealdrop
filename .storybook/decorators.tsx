@@ -145,5 +145,25 @@ export const withDeeplink: DecoratorFn = (StoryFn, { parameters: { deeplink } })
   )
 }
 
+export const withConstraint: DecoratorFn = (StoryFn, { parameters: { constraint } }) => {
+  // if there's no constraint config, just return the story
+  if (!constraint) {
+    return <StoryFn />
+  }
+
+  const {
+    height = 'auto',
+    maxHeight = 'auto',
+    width = 'auto',
+    maxWidth = 'auto'
+  } = constraint
+
+  return (
+    <div style={{ height, width, maxHeight, maxWidth }}>
+      <StoryFn />
+    </div>
+  )
+}
+
 // ordered from innermost to outermost, be careful with the order!
-export const globalDecorators = [withDeeplink, withRouter, withTheme, withStore]
+export const globalDecorators = [withDeeplink, withRouter, withTheme, withStore, withConstraint]
