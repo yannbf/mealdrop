@@ -5,6 +5,11 @@ import { Category } from './Category'
 export default {
   title: 'Components/Category',
   component: Category,
+  parameters: {
+    constraint: {
+      maxWidth: '427px',
+    },
+  },
   args: {
     title: 'Pizza',
     photoUrl:
@@ -16,10 +21,13 @@ const Template: ComponentStory<typeof Category> = (args) => <Category {...args} 
 
 export const Expanded = Template.bind({})
 Expanded.parameters = {
-  zeplinLink: 'zpl://screen?pid=604b5aa98e9f038b21a17ea8&sid=604b5d67576ae18b2fc38f88',
+  zeplinLink: 'zpl://components?pid=6171dc280e70279e636ee1e6&coids=6171eaeb46ef4ba549b0cc1f',
 }
 
 export const Rounded = Template.bind({})
 Rounded.args = {
   round: true,
+}
+Rounded.parameters = {
+  zeplinLink: 'zpl://components?pid=6171dc280e70279e636ee1e6&coids=6171eaeb1dee3593e6d2141c',
 }
