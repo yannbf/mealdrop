@@ -7,31 +7,32 @@ export type CategoryProps = {
   id?: string
   title: string
   photoUrl: string
-  rounded?: boolean
+  round?: boolean
 }
 
-const Container = styled.figure<{ rounded: boolean }>(
-  ({ rounded, theme: { color, borderRadius } }) => css`
+const Container = styled.figure<{ round: boolean }>(
+  ({ round, theme: { color, borderRadius } }) => css`
     display: flex;
+    cursor: pointer;
     position: relative;
-    flex-direction: ${rounded ? 'column' : 'row'};
-    align-items: ${rounded ? 'center' : 'start'};
+    flex-direction: ${round ? 'column' : 'row'};
+    align-items: ${round ? 'center' : 'start'};
     border-radius: ${borderRadius.s};
-    background: ${rounded ? color.cardBackground : 'transparent'};
+    background: ${round ? color.cardBackground : 'transparent'};
     height: 100%;
     width: 100%;
     min-width: 50px;
-    max-width: ${rounded ? '200px' : 'auto'};
-    max-height: ${rounded ? '200px' : '309px'};
+    max-width: ${round ? '200px' : 'auto'};
+    max-height: ${round ? '200px' : '309px'};
     margin: 0;
-    padding: ${rounded ? '1.5rem 2rem' : '0'};
+    padding: ${round ? '1.5rem 2rem' : '0'};
 
     &:hover {
       opacity: 0.9;
     }
 
     @media ${breakpoints.M} {
-      padding: ${rounded ? '1.5rem 0' : '0'};
+      padding: ${round ? '1.5rem 0' : '0'};
     }
   `
 )
@@ -98,16 +99,17 @@ const Squared = ({ title, photoUrl: url }: CategoryProps) => (
   <>
     <Image src={url} alt="restaurant category" />
     <FloatingTitle>
-      <Body type="span">{title}</Body>
+      <Body type="span" fontWeight="medium">
+        {title}
+      </Body>
     </FloatingTitle>
   </>
 )
 
-export const Category = (props: CategoryProps) => {
-  const { photoUrl, title, rounded = false } = props
+export const Category = ({ photoUrl, title, round = false }: CategoryProps) => {
   return (
-    <Container rounded={rounded}>
-      {rounded ? (
+    <Container round={round}>
+      {round ? (
         <Rounded photoUrl={photoUrl} title={title} />
       ) : (
         <Squared photoUrl={photoUrl} title={title} />

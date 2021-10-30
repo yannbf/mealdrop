@@ -21,7 +21,7 @@ const Breadcrumb = styled.div`
 `
 
 const StyledContainer = styled.div`
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(356px, 1fr));
   gap: 24px;
   display: grid;
   padding-bottom: 5rem;

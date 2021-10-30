@@ -44,7 +44,13 @@ const StyledContent = styled.div(
 )
 
 const NewTag = styled.span(
-  ({ theme: { color, borderRadius } }) => css`
+  ({
+    theme: {
+      color,
+      borderRadius,
+      typography: { fontSize, fontWeight },
+    },
+  }) => css`
     position: absolute;
     padding: 8px;
     background: ${color.newRestaurantTag};
@@ -52,7 +58,8 @@ const NewTag = styled.span(
     top: 0.5rem;
     left: 0.5rem;
     border-radius: ${borderRadius.s};
-    font-weight: bold;
+    font-size: ${fontSize.heading4};
+    font-weight: ${fontWeight.bold};
     z-index: 1;
   `
 )
