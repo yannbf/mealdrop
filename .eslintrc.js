@@ -13,7 +13,20 @@ module.exports = {
     sourceType: 'module',
     project: 'tsconfig.eslint.json',
   },
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['react', '@typescript-eslint', 'storybook'],
+  overrides: [
+    {
+      // 3) Now we enable eslint-plugin-storybook rules or preset only for matching files!
+      // you can use the one defined in your main.js
+      files: ['src/**/*.stories.@(js|jsx|ts|tsx)'],
+      extends: ['plugin:storybook/recommended'],
+
+      // 4) Optional: you can override specific rules here
+      rules: {
+        'storybook/no-redundant-story-name': 'warn',
+      },
+    },
+  ],
   settings: {
     react: {
       version: 'detect',
