@@ -6,6 +6,7 @@ module.exports = {
   ],
   addons: [
     '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
     '@storybook/preset-create-react-app',
     '@storybook/addon-a11y',
     'storybook-addon-designs',
