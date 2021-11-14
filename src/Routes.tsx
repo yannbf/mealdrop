@@ -1,8 +1,9 @@
 import { useLayoutEffect } from 'react'
-import { Switch, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
+import { CategoryListPage } from 'pages/CategoryListPage'
+import { CategoryDetailPage } from 'pages/CategoryDetailPage'
 
 import { RestaurantDetailPage } from './pages/RestaurantDetailPage'
-import { CategoryPage } from './pages/CategoryPage'
 import { HomePage } from './pages/HomePage'
 import { CheckoutPage } from './pages/CheckoutPage'
 import { SuccessPage } from './pages/SuccessPage'
@@ -16,30 +17,48 @@ export const AppRoutes = () => {
   }, [location.pathname])
 
   return (
-    <Switch>
-      <Route path="/categories">
-        <DefaultTemplate>
-          <CategoryPage />
-        </DefaultTemplate>
-      </Route>
-      <Route exact path="/restaurants/:id">
-        <StickyHeaderTemplate>
-          <RestaurantDetailPage />
-        </StickyHeaderTemplate>
-      </Route>
-      <Route exact path="/checkout">
-        <CheckoutPage />
-      </Route>
-      <Route exact path="/success">
-        <SimpleTemplate>
-          <SuccessPage />
-        </SimpleTemplate>
-      </Route>
-      <Route path="/">
-        <DefaultTemplate>
-          <HomePage />
-        </DefaultTemplate>
-      </Route>
-    </Switch>
+    <Routes>
+      <Route
+        path="/categories"
+        element={
+          <DefaultTemplate>
+            <CategoryListPage />
+          </DefaultTemplate>
+        }
+      />
+      <Route
+        path="/categories/:id"
+        element={
+          <DefaultTemplate>
+            <CategoryDetailPage />
+          </DefaultTemplate>
+        }
+      />
+      <Route
+        path="/restaurants/:id"
+        element={
+          <StickyHeaderTemplate>
+            <RestaurantDetailPage />
+          </StickyHeaderTemplate>
+        }
+      />
+      <Route path="/checkout" element={<CheckoutPage />} />
+      <Route
+        path="/success"
+        element={
+          <SimpleTemplate>
+            <SuccessPage />
+          </SimpleTemplate>
+        }
+      />
+      <Route
+        path="/"
+        element={
+          <DefaultTemplate>
+            <HomePage />
+          </DefaultTemplate>
+        }
+      />
+    </Routes>
   )
 }

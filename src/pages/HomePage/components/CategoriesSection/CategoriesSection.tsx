@@ -1,4 +1,4 @@
-import { useHistory, Link } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import Carousel from 'react-multi-carousel'
 import styled from 'styled-components'
 
@@ -26,14 +26,14 @@ const NextButton = styled(IconButton)`
 `
 
 export const CategoriesSection = ({ categories }: CategoriesSectionProps) => {
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const isMobile = /Mobi/i.test(window.navigator.userAgent)
   return (
     <PageSection
       title="Categories"
       topButtonLabel="View all categories"
-      onTopButtonClick={() => history.push('/categories')}
+      onTopButtonClick={() => navigate('/categories')}
     >
       <Carousel
         draggable={isMobile}

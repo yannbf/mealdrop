@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, MemoryRouter } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, MemoryRouter } from 'react-router-dom'
 import styled, { css, ThemeProvider } from 'styled-components'
 import { DecoratorFn } from '@storybook/react'
 import { configureStore } from '@reduxjs/toolkit'
@@ -80,11 +80,6 @@ export const withTheme: DecoratorFn = (StoryFn, { globals: { theme = 'light' }, 
   }
 }
 
-export const withRouter: DecoratorFn = (StoryFn) => (
-  <BrowserRouter>
-    <StoryFn />
-  </BrowserRouter>
-)
 
 /**
  *
@@ -128,22 +123,26 @@ export const withStore: DecoratorFn = (StoryFn, { parameters }) => {
  *   }
  * };
  */
-export const withDeeplink: DecoratorFn = (StoryFn, { parameters: { deeplink } }) => {
-  // if there's no deeplink config, just return the story
+export const withRouter: DecoratorFn = (StoryFn, { parameters: { deeplink } }) => {
+  // if there's no deeplink config, just return the story in a Router
   if (!deeplink) {
-    return <StoryFn />
+    return (
+      <BrowserRouter>
+        <StoryFn />
+      </BrowserRouter>
+    )
   }
 
   const { path, route } = deeplink
 
   return (
     <MemoryRouter initialEntries={[encodeURI(route)]}>
-      <Route path={path}>
-        <StoryFn />
-      </Route>
+      <Routes>
+        <Route path={path} element={<StoryFn />} />
+      </Routes>
     </MemoryRouter>
   )
 }
 
 // ordered from innermost to outermost, be careful with the order!
-export const globalDecorators = [withDeeplink, withRouter, withTheme, withStore]
+export const globalDecorators = [withRouter, withTheme, withStore]

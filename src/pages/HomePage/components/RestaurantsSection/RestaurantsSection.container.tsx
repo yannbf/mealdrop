@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Carousel from 'react-multi-carousel'
 
 import { api } from '../../../../api'
@@ -86,7 +86,7 @@ export const RestaurantsSectionComponent = ({
 
 // Container component, takes care of logic and passes info down to presentational component
 export const RestaurantsSection = ({ title }: RestaurantsSectionProps) => {
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const [restaurants, setRestaurants] = useState<any>([
     { isLoading: true },
@@ -111,7 +111,7 @@ export const RestaurantsSection = ({ title }: RestaurantsSectionProps) => {
     <RestaurantsSectionComponent
       title={title}
       restaurants={restaurants}
-      onRestaurantClick={(id: string) => history.push(`/restaurants/${id}`)}
+      onRestaurantClick={(id: string) => navigate(`/restaurants/${id}`)}
     />
   )
 }
