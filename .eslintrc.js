@@ -47,5 +47,6 @@ module.exports = {
     'react/prefer-stateless-function': 'off',
     '@typescript-eslint/no-implied-eval': 'off',
     'import/no-cycle': 'off',
+    'react/no-array-index-key': 'off'
   },
 }
