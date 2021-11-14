@@ -1,45 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Storyshots Components/AwardWinningSection Default 1`] = `
-<div
-  className="sc-iCoGMd hCXBKv"
->
-  <div
-    className="sc-fujyAs dxAwRg container"
-  >
-    <div
-      className="sc-pNWdM VClJg"
-    >
-      <h1
-        className="sc-jSFjdj ivKUHz bolder"
-      >
-        Award winning
-      </h1>
-      <h1
-        className="sc-jSFjdj ivKUHz"
-      >
-        The best restaurants near you!
-      </h1>
-      <button
-        className="sc-hKFxyN dBrWFX sc-gKAaRy jqhQHF"
-        type="button"
-      >
-        Explore best restaurants
-      </button>
-    </div>
-    <div
-      className="sc-jrsJWt lfxfVl"
-    />
-  </div>
-</div>
-`;
-
 exports[`Storyshots Components/Badge Default 1`] = `
 <div
-  className="sc-kEqXSa dSHOqc"
+  className="sc-hKFxyN cmsIun"
 >
   <span
-    className="sc-eCApnc kBsqG"
+    className="sc-gtsrHT hYJYoC"
     fontWeight="regular"
     size="S"
   >
@@ -50,7 +16,7 @@ exports[`Storyshots Components/Badge Default 1`] = `
 
 exports[`Storyshots Components/Button Default 1`] = `
 <button
-  className="sc-hKFxyN dBrWFX"
+  className="sc-gKAaRy hfXzHm"
   type="button"
 >
   Button
@@ -59,19 +25,19 @@ exports[`Storyshots Components/Button Default 1`] = `
 
 exports[`Storyshots Components/Category Default 1`] = `
 <figure
-  className="sc-ksluID idXKKL"
+  className="sc-iCoGMd gHIMtm"
 >
   <img
     alt="restaurant category"
-    className="sc-hBMUJo kXgFvC"
+    className="sc-fujyAs cBaYLX"
     src="https://images.pexels.com/photos/2147491/pexels-photo-2147491.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=550"
   />
   <figcaption
-    className="sc-fFSPTT jYBKoc"
+    className="sc-jrsJWt fZUUtF"
   >
     <span
-      className="sc-eCApnc doZAyy"
-      fontWeight="regular"
+      className="sc-gtsrHT hTfNVr"
+      fontWeight="medium"
       size=""
     >
       Pizza
@@ -80,174 +46,17 @@ exports[`Storyshots Components/Category Default 1`] = `
 </figure>
 `;
 
-exports[`Storyshots Components/CategoryList Default 1`] = `
+exports[`Storyshots Components/ErrorBlock Default 1`] = `
 <div
-  className="sc-iemWCZ ffXSKB"
->
-  <a
-    href="/categories/pizza"
-    onClick={[Function]}
-  >
-    <figure
-      className="sc-ksluID idXKKL"
-    >
-      <img
-        alt="restaurant category"
-        className="sc-hBMUJo kXgFvC"
-        src="https://images.pexels.com/photos/2147491/pexels-photo-2147491.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=550"
-      />
-      <figcaption
-        className="sc-fFSPTT jYBKoc"
-      >
-        <span
-          className="sc-eCApnc doZAyy"
-          fontWeight="regular"
-          size=""
-        >
-          Pizza
-        </span>
-      </figcaption>
-    </figure>
-  </a>
-  <a
-    href="/categories/burgers"
-    onClick={[Function]}
-  >
-    <figure
-      className="sc-ksluID idXKKL"
-    >
-      <img
-        alt="restaurant category"
-        className="sc-hBMUJo kXgFvC"
-        src="https://images.pexels.com/photos/2233351/pexels-photo-2233351.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=550"
-      />
-      <figcaption
-        className="sc-fFSPTT jYBKoc"
-      >
-        <span
-          className="sc-eCApnc doZAyy"
-          fontWeight="regular"
-          size=""
-        >
-          Burgers
-        </span>
-      </figcaption>
-    </figure>
-  </a>
-  <a
-    href="/categories/desserts"
-    onClick={[Function]}
-  >
-    <figure
-      className="sc-ksluID idXKKL"
-    >
-      <img
-        alt="restaurant category"
-        className="sc-hBMUJo kXgFvC"
-        src="https://images.pexels.com/photos/1343465/pexels-photo-1343465.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=550"
-      />
-      <figcaption
-        className="sc-fFSPTT jYBKoc"
-      >
-        <span
-          className="sc-eCApnc doZAyy"
-          fontWeight="regular"
-          size=""
-        >
-          Desserts
-        </span>
-      </figcaption>
-    </figure>
-  </a>
-  <a
-    href="/categories/comfort-food"
-    onClick={[Function]}
-  >
-    <figure
-      className="sc-ksluID idXKKL"
-    >
-      <img
-        alt="restaurant category"
-        className="sc-hBMUJo kXgFvC"
-        src="https://images.pexels.com/photos/1199960/pexels-photo-1199960.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=550"
-      />
-      <figcaption
-        className="sc-fFSPTT jYBKoc"
-      >
-        <span
-          className="sc-eCApnc doZAyy"
-          fontWeight="regular"
-          size=""
-        >
-          Comfort food
-        </span>
-      </figcaption>
-    </figure>
-  </a>
-  <a
-    href="/categories/sushi"
-    onClick={[Function]}
-  >
-    <figure
-      className="sc-ksluID idXKKL"
-    >
-      <img
-        alt="restaurant category"
-        className="sc-hBMUJo kXgFvC"
-        src="https://images.pexels.com/photos/9210/food-japanese-food-photography-sushi.jpg?auto=compress&cs=tinysrgb&dpr=2&h=550"
-      />
-      <figcaption
-        className="sc-fFSPTT jYBKoc"
-      >
-        <span
-          className="sc-eCApnc doZAyy"
-          fontWeight="regular"
-          size=""
-        >
-          Sushi
-        </span>
-      </figcaption>
-    </figure>
-  </a>
-  <a
-    href="/categories/asian"
-    onClick={[Function]}
-  >
-    <figure
-      className="sc-ksluID idXKKL"
-    >
-      <img
-        alt="restaurant category"
-        className="sc-hBMUJo kXgFvC"
-        src="https://images.pexels.com/photos/1234535/pexels-photo-1234535.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=550"
-      />
-      <figcaption
-        className="sc-fFSPTT jYBKoc"
-      >
-        <span
-          className="sc-eCApnc doZAyy"
-          fontWeight="regular"
-          size=""
-        >
-          Asian
-        </span>
-      </figcaption>
-    </figure>
-  </a>
-</div>
-`;
-
-exports[`Storyshots Components/ErrorSection Default 1`] = `
-<div
-  className="sc-dIvrsQ eMwhWg"
+  className="sc-iqAclL bCwtWg"
 >
   <h2
-    className="sc-jSFjdj hDhCWM"
+    className="sc-dlnjwi leZDup"
   >
     This is not the food you’re looking for.
   </h2>
   <div
-    className="sc-hHEiqL jvYlfI"
+    className="sc-crzoAE ksojnR"
   >
     <img
       alt="no restaurants found"
@@ -255,46 +64,18 @@ exports[`Storyshots Components/ErrorSection Default 1`] = `
     />
   </div>
   <p
-    className="sc-eCApnc doZAyy"
+    className="sc-gtsrHT cyChxW"
     fontWeight="regular"
     size=""
   >
     There seems that there are no restaurants in this category yet. Try to come back later?
   </p>
   <button
-    className="sc-hKFxyN dBrWFX"
+    className="sc-gKAaRy hfXzHm"
     type="button"
   >
     See all restaurants
   </button>
-</div>
-`;
-
-exports[`Storyshots Components/FoodItem Default 1`] = `
-<div
-  className="sc-dlMDgC gqcGbA"
->
-  <div>
-    <h4
-      className="sc-jSFjdj bRxpEV"
-    >
-      Food
-    </h4>
-    <p
-      className="sc-eCApnc doZAyy sc-fKgJPI fsssks"
-      fontWeight="regular"
-      size=""
-    >
-      nice stuff
-    </p>
-    <p
-      className="sc-eCApnc doZAyy sc-bCwfaz jMfXGY"
-      fontWeight="regular"
-      size=""
-    >
-      €7.50
-    </p>
-  </div>
 </div>
 `;
 
@@ -317,19 +98,19 @@ exports[`Storyshots Components/Footer Default 1`] = `
     }
   >
     <div
-      className="sc-giAqHp cBenhg"
+      className="sc-fnVZcZ bwJUyz"
     >
       <div
         className="container"
       >
         <div
-          className="sc-ezzafa bSqPGp"
+          className="sc-fFSPTT eVbRRt"
         >
           <div
-            className="sc-lmgQwP ePkncm"
+            className="sc-ksluID dvxesW"
           >
             <svg
-              className="sc-cxNHIi vfjVB"
+              className="sc-bqGGPW AnJAM"
               fill="none"
               viewBox="0 0 23 20"
             >
@@ -371,17 +152,17 @@ exports[`Storyshots Components/Footer Default 1`] = `
             </svg>
           </div>
           <div
-            className="sc-iwajpm gZENaV"
+            className="sc-dIsUp kRgSBq"
           >
             <h2
-              className="sc-jSFjdj hDhCWM"
+              className="sc-dlnjwi leZDup"
             >
               Discover us
             </h2>
             <ul>
               <li>
                 <p
-                  className="sc-eCApnc doZAyy"
+                  className="sc-gtsrHT cyChxW"
                   fontWeight="regular"
                   size=""
                 >
@@ -395,7 +176,7 @@ exports[`Storyshots Components/Footer Default 1`] = `
               </li>
               <li>
                 <p
-                  className="sc-eCApnc doZAyy"
+                  className="sc-gtsrHT cyChxW"
                   fontWeight="regular"
                   size=""
                 >
@@ -409,7 +190,7 @@ exports[`Storyshots Components/Footer Default 1`] = `
               </li>
               <li>
                 <p
-                  className="sc-eCApnc doZAyy"
+                  className="sc-gtsrHT cyChxW"
                   fontWeight="regular"
                   size=""
                 >
@@ -423,7 +204,7 @@ exports[`Storyshots Components/Footer Default 1`] = `
               </li>
               <li>
                 <p
-                  className="sc-eCApnc doZAyy"
+                  className="sc-gtsrHT cyChxW"
                   fontWeight="regular"
                   size=""
                 >
@@ -438,17 +219,17 @@ exports[`Storyshots Components/Footer Default 1`] = `
             </ul>
           </div>
           <div
-            className="sc-iwajpm gZENaV"
+            className="sc-dIsUp kRgSBq"
           >
             <h2
-              className="sc-jSFjdj hDhCWM"
+              className="sc-dlnjwi leZDup"
             >
               Our social media
             </h2>
             <ul>
               <li>
                 <p
-                  className="sc-eCApnc doZAyy"
+                  className="sc-gtsrHT cyChxW"
                   fontWeight="regular"
                   size=""
                 >
@@ -463,7 +244,7 @@ exports[`Storyshots Components/Footer Default 1`] = `
               </li>
               <li>
                 <p
-                  className="sc-eCApnc doZAyy"
+                  className="sc-gtsrHT cyChxW"
                   fontWeight="regular"
                   size=""
                 >
@@ -478,7 +259,7 @@ exports[`Storyshots Components/Footer Default 1`] = `
               </li>
               <li>
                 <p
-                  className="sc-eCApnc doZAyy"
+                  className="sc-gtsrHT cyChxW"
                   fontWeight="regular"
                   size=""
                 >
@@ -494,10 +275,10 @@ exports[`Storyshots Components/Footer Default 1`] = `
             </ul>
           </div>
           <div
-            className="sc-iwajpm gZENaV"
+            className="sc-dIsUp kRgSBq"
           >
             <h2
-              className="sc-jSFjdj hDhCWM"
+              className="sc-dlnjwi leZDup"
             >
               Check our apps
             </h2>
@@ -506,7 +287,7 @@ exports[`Storyshots Components/Footer Default 1`] = `
             >
               <img
                 alt="app store link"
-                src="https://www.pete-app.com/wp-content/themes/PETE/style/public/images/downloadIos.png"
+                src="appstore-banner.png"
                 style={
                   Object {
                     "marginBottom": "0.5rem",
@@ -516,7 +297,7 @@ exports[`Storyshots Components/Footer Default 1`] = `
               />
               <img
                 alt="google play link"
-                src="https://help.richmondelt.com/hc/article_attachments/115008811623/android-app-store-latest.png"
+                src="googleplay-banner.png"
                 style={
                   Object {
                     "width": "120px",
@@ -534,7 +315,7 @@ exports[`Storyshots Components/Footer Default 1`] = `
 
 exports[`Storyshots Components/Form/Input Default 1`] = `
 <div
-  className="sc-oeezt iCAOnw"
+  className="sc-hhIiOg fXHWyt"
 >
   <input
     aria-label="input"
@@ -546,7 +327,7 @@ exports[`Storyshots Components/Form/Input Default 1`] = `
 
 exports[`Storyshots Components/Form/Select Default 1`] = `
 <div
-  className="sc-bBjRSN bwAhFO"
+  className="sc-bkbkJK bGqqzS"
 >
   <select
     aria-label="food"
@@ -574,6 +355,156 @@ exports[`Storyshots Components/Form/Select Default 1`] = `
 </div>
 `;
 
+exports[`Storyshots Components/Header Default 1`] = `
+<div
+  style={
+    Object {
+      "height": "100vh",
+      "position": "relative",
+    }
+  }
+>
+  <div
+    className="sc-cxNHIi laQfgm"
+    data-testid="header"
+  >
+    <a
+      aria-label="go to home page"
+      className="sc-lmgQwP jEXDVh"
+      href="/"
+      onClick={[Function]}
+    >
+      <div
+        className="sc-ksluID dvxesW"
+      >
+        <svg
+          className="sc-bqGGPW esLgHQ"
+          fill="none"
+          viewBox="0 0 23 20"
+        >
+          <path
+            className="logo--face-left"
+            d="M11.74 19.1662L6.66566 14.0788L0.82428 11.0619L1.76834 4.49574L0.82428 0.029541L11.74 2.1887V19.1662Z"
+            fill="#61D8DE"
+          />
+          <path
+            className="logo--face-right"
+            d="M11.74 19.1366L16.8143 14.0493L22.6557 11.0619L21.7116 4.49574L22.6557 0.029541L11.74 2.1887V19.1366Z"
+            fill="#4CC8C0"
+          />
+          <path
+            className="logo--ear-bottom-right"
+            d="M22.6262 10.8549L14.4246 2.72113L22.6262 0L21.7411 4.61408L22.6262 10.8549Z"
+            fill="#36C1BF"
+          />
+          <path
+            className="logo--ear-bottom-left"
+            d="M0.883118 10.8549L9.11415 2.69155L0.883118 0L1.79768 4.61408L0.883118 10.8549Z"
+            fill="#36C1BF"
+          />
+          <path
+            className="logo--ear-top-right"
+            d="M21.7115 4.55497C21.564 4.58455 14.454 2.78033 14.454 2.78033L22.5671 0.0592041L21.7115 4.55497Z"
+            fill="#22ACA7"
+          />
+          <path
+            className="logo--ear-top-left"
+            d="M1.79794 4.58452C1.94545 4.6141 9.05541 2.80987 9.05541 2.80987L0.942383 0.0887451L1.79794 4.58452Z"
+            fill="#22ACA7"
+          />
+          <path
+            className="logo--nose"
+            d="M13.3626 17.5394L11.74 16.4451L10.1174 17.5394L11.74 19.1366L13.3626 17.5394Z"
+            fill="#B1DCE3"
+          />
+        </svg>
+        <h4
+          className="sc-dlnjwi RvkrQ sc-hBMUJo huJPZv"
+        >
+          MealDrop
+        </h4>
+      </div>
+    </a>
+    <div
+      className="sc-iJCRrE dsNkDs"
+    >
+      <span
+        className="navigation-items"
+      >
+        <button
+          aria-label="turn on dark mode"
+          className="sc-gKAaRy bWYFbq"
+          onClick={[Function]}
+          type="button"
+        >
+          <svg
+            className="sc-eCApnc dhXBmw"
+            height="1.5rem"
+            stroke="#2C2C2C "
+            style={
+              Object {
+                "minWidth": "1.5rem",
+              }
+            }
+            width="1.5rem"
+          >
+            <use
+              xlinkHref="sprite-map.svg#sun"
+            />
+          </svg>
+        </button>
+        <a
+          href="/"
+          onClick={[Function]}
+          tabIndex={-1}
+        >
+          <button
+            className="sc-gKAaRy fSsqXo"
+            type="button"
+          >
+            Home
+          </button>
+        </a>
+        <a
+          href="/categories"
+          onClick={[Function]}
+          tabIndex={-1}
+        >
+          <button
+            className="sc-gKAaRy fSsqXo"
+            type="button"
+          >
+            All restaurants
+          </button>
+        </a>
+      </span>
+      <button
+        aria-label="food cart"
+        className="sc-gKAaRy hmPRbp"
+        onClick={[Function]}
+        type="button"
+      >
+        <svg
+          className="sc-eCApnc dhXBmw"
+          height="1.5rem"
+          stroke="#FFFFFF "
+          style={
+            Object {
+              "minWidth": "1.5rem",
+            }
+          }
+          width="1.5rem"
+        >
+          <use
+            xlinkHref="sprite-map.svg#cart"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Components/IconButton Default 1`] = `
 <button
   aria-label="forward"
@@ -581,7 +512,7 @@ exports[`Storyshots Components/IconButton Default 1`] = `
   type="button"
 >
   <svg
-    className="sc-gtsrHT kjSAgk"
+    className="sc-eCApnc dhXBmw"
     height={24}
     stroke="#202020"
     style={
@@ -598,28 +529,210 @@ exports[`Storyshots Components/IconButton Default 1`] = `
 </button>
 `;
 
+exports[`Storyshots Components/OrderSummary Default 1`] = `
+<div
+  className="sc-jgPyTC jPXdga"
+>
+  <h2
+    className="sc-dlnjwi leZDup sc-hTRkXV ilrNJT"
+  >
+    Your order
+  </h2>
+  <div
+    className="sc-iNiQyp dXWLEc"
+  >
+    <div
+      className="sc-bBjRSN dWXAys"
+    >
+      <span
+        className="sc-gtsrHT cyChxW sc-cOifOu bFcRKE"
+        fontWeight="regular"
+        size=""
+      >
+        1
+      </span>
+      <span
+        className="sc-gtsrHT cyChxW sc-Arkif kOLbPt"
+        fontWeight="regular"
+        size=""
+      >
+        Fries
+      </span>
+      <span
+        className="sc-gtsrHT cyChxW sc-khIgEk kwdKki"
+        fontWeight="regular"
+        size=""
+      >
+        €2.50
+      </span>
+    </div>
+    <div
+      className="sc-bBjRSN dWXAys"
+    >
+      <span
+        className="sc-gtsrHT cyChxW sc-cOifOu bFcRKE"
+        fontWeight="regular"
+        size=""
+      >
+        1
+      </span>
+      <span
+        className="sc-gtsrHT cyChxW sc-Arkif kOLbPt"
+        fontWeight="regular"
+        size=""
+      >
+        Cheeseburger
+      </span>
+      <span
+        className="sc-gtsrHT cyChxW sc-khIgEk kwdKki"
+        fontWeight="regular"
+        size=""
+      >
+        €8.50
+      </span>
+    </div>
+    <div
+      className="sc-bBjRSN dWXAys"
+    >
+      <span
+        className="sc-gtsrHT cyChxW sc-cOifOu bFcRKE"
+        fontWeight="regular"
+        size=""
+      >
+        1
+      </span>
+      <span
+        className="sc-gtsrHT cyChxW sc-Arkif kOLbPt"
+        fontWeight="regular"
+        size=""
+      >
+        Vanilla ice cream
+      </span>
+      <span
+        className="sc-gtsrHT cyChxW sc-khIgEk kwdKki"
+        fontWeight="regular"
+        size=""
+      >
+        €2.00
+      </span>
+    </div>
+    <div
+      className="sc-bBjRSN dWXAys"
+    >
+      <span
+        className="sc-gtsrHT cyChxW sc-cOifOu bFcRKE"
+        fontWeight="regular"
+        size=""
+      >
+        1
+      </span>
+      <span
+        className="sc-gtsrHT cyChxW sc-Arkif kOLbPt"
+        fontWeight="regular"
+        size=""
+      >
+        Coca-Cola
+      </span>
+      <span
+        className="sc-gtsrHT cyChxW sc-khIgEk kwdKki"
+        fontWeight="regular"
+        size=""
+      >
+        €1.75
+      </span>
+    </div>
+    <div
+      className="sc-bBjRSN dWXAys"
+    >
+      <span
+        className="sc-gtsrHT cyChxW sc-cOifOu bFcRKE"
+        fontWeight="regular"
+        size=""
+      >
+        1
+      </span>
+      <span
+        className="sc-gtsrHT cyChxW sc-Arkif kOLbPt"
+        fontWeight="regular"
+        size=""
+      >
+        Fanta
+      </span>
+      <span
+        className="sc-gtsrHT cyChxW sc-khIgEk kwdKki"
+        fontWeight="regular"
+        size=""
+      >
+        €1.50
+      </span>
+    </div>
+    <div
+      className="sc-bBjRSN dWXAys"
+    >
+      <span
+        className="sc-gtsrHT cyChxW sc-cOifOu bFcRKE"
+        fontWeight="regular"
+        size=""
+      >
+        1
+      </span>
+      <span
+        className="sc-gtsrHT cyChxW sc-Arkif kOLbPt"
+        fontWeight="regular"
+        size=""
+      >
+        Sprite
+      </span>
+      <span
+        className="sc-gtsrHT cyChxW sc-khIgEk kwdKki"
+        fontWeight="regular"
+        size=""
+      >
+        €1.50
+      </span>
+    </div>
+  </div>
+  <div
+    className="sc-gSYDnn jqjcBB"
+  >
+    <p
+      className="sc-gtsrHT cyChxW"
+      fontWeight="regular"
+      size=""
+    >
+      Total
+    </p>
+    <h2
+      className="sc-dlnjwi leZDup sc-hTRkXV eoOHZn"
+    >
+      €17.75
+    </h2>
+  </div>
+</div>
+`;
+
 exports[`Storyshots Components/PageSection Default 1`] = `
 <div
-  className="sc-iklJeh jGqxnm container-desktop"
+  className="sc-gXfVKN bHwrYR container-desktop"
 >
   <div
-    className="sc-jJMGnK hzfjLk"
+    className="sc-cBoqAE czroSA"
   >
     <h2
-      className="sc-jSFjdj hDhCWM"
+      className="sc-dlnjwi leZDup"
     >
       Asian
     </h2>
   </div>
   <h1>
-    Hello Dummy Content Baby
+    Hello Dummy Content
   </h1>
 </div>
 `;
 
 exports[`Storyshots Components/RestaurantCard Default 1`] = `
 <div
-  className="sc-gXfVKN krIgcZ"
+  className="sc-jcwpoC cjlWxN"
   data-testid="restaurant-card"
 >
   <div
@@ -632,43 +745,43 @@ exports[`Storyshots Components/RestaurantCard Default 1`] = `
   >
     <img
       alt="restaurant"
-      className="sc-carFqZ fuOqcJ"
+      className="sc-efHYUO cqUTDk"
       loading="lazy"
       src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1003&q=20"
     />
   </div>
   <div
-    className="sc-cBoqAE bzdxCC"
+    className="sc-carFqZ fownto"
   >
     <h2
-      className="sc-jSFjdj hDhCWM sc-efHYUO ahcX"
+      className="sc-dlnjwi leZDup sc-dPaNzc cZykxx"
     >
       Burger King
        
     </h2>
     <div
-      className="sc-hiKfDv bsEQeH"
+      className="sc-ciSkZP cDKjYF"
     >
       <span
-        className="sc-eCApnc kBsqG review-text"
+        className="sc-gtsrHT hYJYoC review-text"
         fontWeight="regular"
         size="S"
       >
-        ★ 4.2 Excellent
+        ★ 4.2 Very good
       </span>
     </div>
     <p
-      className="sc-eCApnc doZAyy sc-iTVJFM jCwJep"
+      className="sc-gtsrHT cyChxW sc-cTJkRt gHCqef"
       fontWeight="regular"
       size=""
     >
       Nicest place for burgers
     </p>
     <div
-      className="sc-kEqXSa dSHOqc sc-iBzEeX lduuxR"
+      className="sc-hKFxyN cmsIun sc-jNnpgg bHvaHW"
     >
       <span
-        className="sc-eCApnc kBsqG"
+        className="sc-gtsrHT hYJYoC"
         fontWeight="regular"
         size="S"
       >
@@ -679,49 +792,162 @@ exports[`Storyshots Components/RestaurantCard Default 1`] = `
 </div>
 `;
 
-exports[`Storyshots Components/StepIndicator Default 1`] = `
+exports[`Storyshots Components/Review Default 1`] = `
+<div
+  className="sc-ciSkZP cDKjYF"
+>
+  <span
+    className="sc-gtsrHT hYJYoC review-text"
+    fontWeight="regular"
+    size="S"
+  >
+    No reviews yet
+  </span>
+</div>
+`;
+
+exports[`Storyshots Components/Spinner Default 1`] = `
 <div
   style={
     Object {
-      "marginBottom": "2rem",
+      "minHeight": "100vh",
     }
   }
 >
-  <div
-    className="sc-hmbstg krtXce"
+  <svg
+    className="sc-jffHpj fJLthS"
+    preserveAspectRatio="xMidYMid"
+    viewBox="0 0 100 100"
+    xmlns="http://www.w3.org/2000/svg"
   >
-    <h4
-      className="sc-jSFjdj bRxpEV"
+    <text
+      fill="#2C2C2C "
+      transform="translate(-50 0)"
     >
-      Step
-    </h4>
-    <span
-      className="sc-eCApnc ifSLnI"
-      fontWeight="regular"
-      size="XS"
-    >
-      Step 
-      1
-       of 
-      4
-    </span>
-  </div>
-  <div
-    className="sc-amiJK eunkUd"
-  >
-    <div
-      className="sc-jOFryr jluEJg"
+      Looking for some food...
+    </text>
+    <animate
+      attributeName="opacity"
+      dur="1s"
+      keyTimes="0;0.4;1"
+      values="0;0;1"
     />
-  </div>
+    <g>
+      <circle
+        cx="60"
+        cy="50"
+        fill="#22aca7"
+        r="4"
+      >
+        <animate
+          attributeName="cx"
+          begin="-0.6566000000000001s"
+          dur="1.0204081632653061s"
+          keyTimes="0;1"
+          repeatCount="indefinite"
+          values="95;35"
+        />
+        <animate
+          attributeName="fill-opacity"
+          begin="-0.6566000000000001s"
+          dur="1.0204081632653061s"
+          keyTimes="0;0.2;1"
+          repeatCount="indefinite"
+          values="0;1;1"
+        />
+      </circle>
+      <circle
+        cx="60"
+        cy="50"
+        fill="#22aca7"
+        r="4"
+      >
+        <animate
+          attributeName="cx"
+          begin="-0.3234s"
+          dur="1.0204081632653061s"
+          keyTimes="0;1"
+          repeatCount="indefinite"
+          values="95;35"
+        />
+        <animate
+          attributeName="fill-opacity"
+          begin="-0.3234s"
+          dur="1.0204081632653061s"
+          keyTimes="0;0.2;1"
+          repeatCount="indefinite"
+          values="0;1;1"
+        />
+      </circle>
+      <circle
+        cx="60"
+        cy="50"
+        fill="#22aca7"
+        r="4"
+      >
+        <animate
+          attributeName="cx"
+          begin="0s"
+          dur="1.0204081632653061s"
+          keyTimes="0;1"
+          repeatCount="indefinite"
+          values="95;35"
+        />
+        <animate
+          attributeName="fill-opacity"
+          begin="0s"
+          dur="1.0204081632653061s"
+          keyTimes="0;0.2;1"
+          repeatCount="indefinite"
+          values="0;1;1"
+        />
+      </circle>
+    </g>
+    <g
+      transform="translate(-15 0)"
+    >
+      <path
+        d="M50 50L20 50A30 30 0 0 0 80 50Z"
+        fill="#61d8de"
+        transform="rotate(90 50 50)"
+      />
+      <path
+        d="M50 50L20 50A30 30 0 0 0 80 50Z"
+        fill="#61d8de"
+      >
+        <animateTransform
+          attributeName="transform"
+          dur="1.0204081632653061s"
+          keyTimes="0;0.5;1"
+          repeatCount="indefinite"
+          type="rotate"
+          values="0 50 50;45 50 50;0 50 50"
+        />
+      </path>
+      <path
+        d="M50 50L20 50A30 30 0 0 1 80 50Z"
+        fill="#61d8de"
+      >
+        <animateTransform
+          attributeName="transform"
+          dur="1.0204081632653061s"
+          keyTimes="0;0.5;1"
+          repeatCount="indefinite"
+          type="rotate"
+          values="0 50 50;-45 50 50;0 50 50"
+        />
+      </path>
+    </g>
+  </svg>
 </div>
 `;
 
 exports[`Storyshots Components/TopBanner Default 1`] = `
 <div
-  className="sc-eJocfa eEgZWS"
+  className="sc-oeezt clWeHL"
 >
   <h1
-    className="sc-jSFjdj ivKUHz sc-jffHpj jViEbu"
+    className="sc-dlnjwi bFJKAC sc-eJocfa fmpety"
   >
     Categories
   </h1>
@@ -731,28 +957,28 @@ exports[`Storyshots Components/TopBanner Default 1`] = `
 exports[`Storyshots Components/Typography/Body Default 1`] = `
 <div>
   <p
-    className="sc-eCApnc doZAyy"
+    className="sc-gtsrHT cyChxW"
     fontWeight="regular"
     size=""
   >
     Body
   </p>
   <p
-    className="sc-eCApnc kBsqG"
+    className="sc-gtsrHT hYJYoC"
     fontWeight="regular"
     size="S"
   >
     Body S
   </p>
   <p
-    className="sc-eCApnc ifSLnI"
+    className="sc-gtsrHT gOxkGI"
     fontWeight="regular"
     size="XS"
   >
     Body XS
   </p>
   <p
-    className="sc-eCApnc hihCZU"
+    className="sc-gtsrHT fGjXqo"
     fontWeight="regular"
     size="XXS"
   >
@@ -764,24 +990,508 @@ exports[`Storyshots Components/Typography/Body Default 1`] = `
 exports[`Storyshots Components/Typography/Heading Default 1`] = `
 <div>
   <h1
-    className="sc-jSFjdj ivKUHz"
+    className="sc-dlnjwi bFJKAC"
   >
     Heading 1
   </h1>
   <h2
-    className="sc-jSFjdj hDhCWM"
+    className="sc-dlnjwi leZDup"
   >
     Heading 2
   </h2>
   <h3
-    className="sc-jSFjdj gHpcGb"
+    className="sc-dlnjwi hWnTMa"
   >
     Heading 3
   </h3>
   <h4
-    className="sc-jSFjdj bRxpEV"
+    className="sc-dlnjwi RvkrQ"
   >
     Heading 4
   </h4>
+</div>
+`;
+
+exports[`Storyshots Pages/CategoryListPage/Components/CategoryList Default 1`] = `
+<div
+  className="sc-ckTSus cfnrfz"
+>
+  <a
+    href="/categories/pizza"
+    onClick={[Function]}
+  >
+    <figure
+      className="sc-iCoGMd gHIMtm"
+    >
+      <img
+        alt="restaurant category"
+        className="sc-fujyAs cBaYLX"
+        src="https://images.pexels.com/photos/2147491/pexels-photo-2147491.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=550"
+      />
+      <figcaption
+        className="sc-jrsJWt fZUUtF"
+      >
+        <span
+          className="sc-gtsrHT hTfNVr"
+          fontWeight="medium"
+          size=""
+        >
+          Pizza
+        </span>
+      </figcaption>
+    </figure>
+  </a>
+  <a
+    href="/categories/burgers"
+    onClick={[Function]}
+  >
+    <figure
+      className="sc-iCoGMd gHIMtm"
+    >
+      <img
+        alt="restaurant category"
+        className="sc-fujyAs cBaYLX"
+        src="https://images.pexels.com/photos/2233351/pexels-photo-2233351.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=550"
+      />
+      <figcaption
+        className="sc-jrsJWt fZUUtF"
+      >
+        <span
+          className="sc-gtsrHT hTfNVr"
+          fontWeight="medium"
+          size=""
+        >
+          Burgers
+        </span>
+      </figcaption>
+    </figure>
+  </a>
+  <a
+    href="/categories/desserts"
+    onClick={[Function]}
+  >
+    <figure
+      className="sc-iCoGMd gHIMtm"
+    >
+      <img
+        alt="restaurant category"
+        className="sc-fujyAs cBaYLX"
+        src="https://images.pexels.com/photos/1343465/pexels-photo-1343465.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=550"
+      />
+      <figcaption
+        className="sc-jrsJWt fZUUtF"
+      >
+        <span
+          className="sc-gtsrHT hTfNVr"
+          fontWeight="medium"
+          size=""
+        >
+          Desserts
+        </span>
+      </figcaption>
+    </figure>
+  </a>
+  <a
+    href="/categories/comfort-food"
+    onClick={[Function]}
+  >
+    <figure
+      className="sc-iCoGMd gHIMtm"
+    >
+      <img
+        alt="restaurant category"
+        className="sc-fujyAs cBaYLX"
+        src="https://images.pexels.com/photos/1199960/pexels-photo-1199960.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=550"
+      />
+      <figcaption
+        className="sc-jrsJWt fZUUtF"
+      >
+        <span
+          className="sc-gtsrHT hTfNVr"
+          fontWeight="medium"
+          size=""
+        >
+          Comfort food
+        </span>
+      </figcaption>
+    </figure>
+  </a>
+  <a
+    href="/categories/sushi"
+    onClick={[Function]}
+  >
+    <figure
+      className="sc-iCoGMd gHIMtm"
+    >
+      <img
+        alt="restaurant category"
+        className="sc-fujyAs cBaYLX"
+        src="https://images.pexels.com/photos/9210/food-japanese-food-photography-sushi.jpg?auto=compress&cs=tinysrgb&dpr=2&h=550"
+      />
+      <figcaption
+        className="sc-jrsJWt fZUUtF"
+      >
+        <span
+          className="sc-gtsrHT hTfNVr"
+          fontWeight="medium"
+          size=""
+        >
+          Sushi
+        </span>
+      </figcaption>
+    </figure>
+  </a>
+  <a
+    href="/categories/asian"
+    onClick={[Function]}
+  >
+    <figure
+      className="sc-iCoGMd gHIMtm"
+    >
+      <img
+        alt="restaurant category"
+        className="sc-fujyAs cBaYLX"
+        src="https://images.pexels.com/photos/1234535/pexels-photo-1234535.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=550"
+      />
+      <figcaption
+        className="sc-jrsJWt fZUUtF"
+      >
+        <span
+          className="sc-gtsrHT hTfNVr"
+          fontWeight="medium"
+          size=""
+        >
+          Asian
+        </span>
+      </figcaption>
+    </figure>
+  </a>
+</div>
+`;
+
+exports[`Storyshots Pages/CheckoutPage/Components/MultiStepForm Default 1`] = `
+<div
+  className="sc-hmbstg kUPzxV"
+>
+  <div
+    style={
+      Object {
+        "marginBottom": "2rem",
+      }
+    }
+  >
+    <div
+      className="sc-jOFryr dkoIyH"
+    >
+      <h4
+        className="sc-dlnjwi RvkrQ"
+      >
+        Contact details
+      </h4>
+      <span
+        className="sc-gtsrHT gOxkGI"
+        fontWeight="regular"
+        size="XS"
+      >
+        Step 
+        1
+         of 
+        2
+      </span>
+    </div>
+    <div
+      className="sc-jHNicF bxVHgx"
+    >
+      <div
+        className="sc-amiJK hvyDnk"
+      />
+    </div>
+  </div>
+  <div
+    className="form"
+  >
+    <div
+      className="sc-hhIiOg fXHWyt"
+    >
+      <input
+        name="firstName"
+        onChange={[Function]}
+        placeholder="John"
+        type="text"
+        value="John"
+      />
+      <label
+        className="sc-gtsrHT cyChxW"
+        fontWeight="regular"
+        size=""
+      >
+        First Name
+      </label>
+    </div>
+    <div
+      className="sc-hhIiOg fXHWyt"
+    >
+      <input
+        name="lastName"
+        onChange={[Function]}
+        placeholder="Doe"
+        type="text"
+        value="Doe"
+      />
+      <label
+        className="sc-gtsrHT cyChxW"
+        fontWeight="regular"
+        size=""
+      >
+        Last Name
+      </label>
+    </div>
+    <div
+      className="sc-hhIiOg fXHWyt"
+    >
+      <input
+        name="email"
+        onChange={[Function]}
+        placeholder="email address"
+        type="email"
+        value="email@domain.com"
+      />
+      <label
+        className="sc-gtsrHT cyChxW"
+        fontWeight="regular"
+        size=""
+      >
+        Email
+      </label>
+    </div>
+    <div
+      className="sc-hhIiOg fXHWyt"
+    >
+      <input
+        name="phone"
+        onChange={[Function]}
+        placeholder="phone number"
+        type="tel"
+        value="0612345678"
+      />
+      <label
+        className="sc-gtsrHT cyChxW"
+        fontWeight="regular"
+        size=""
+      >
+        Phone number
+      </label>
+    </div>
+    <span
+      className="sc-gtsrHT fGjXqo sc-fXazdy foGPNV"
+      fontWeight="regular"
+      size="XXS"
+    >
+      We’ll only use your phone to call you about your order
+    </span>
+    <div
+      style={
+        Object {
+          "display": "flex",
+          "justifyContent": "flex-start",
+        }
+      }
+    >
+      <button
+        className="sc-gKAaRy hfXzHm"
+        onClick={[Function]}
+        type="button"
+      >
+        Next
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Pages/CheckoutPage/Components/StepIndicator Default 1`] = `
+<div
+  style={
+    Object {
+      "marginBottom": "2rem",
+    }
+  }
+>
+  <div
+    className="sc-jOFryr dkoIyH"
+  >
+    <h4
+      className="sc-dlnjwi RvkrQ"
+    >
+      Step
+    </h4>
+    <span
+      className="sc-gtsrHT gOxkGI"
+      fontWeight="regular"
+      size="XS"
+    >
+      Step 
+      1
+       of 
+      4
+    </span>
+  </div>
+  <div
+    className="sc-jHNicF bxVHgx"
+  >
+    <div
+      className="sc-amiJK ezYbQe"
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots Pages/HomePage/Components/AwardWinningSection Default 1`] = `
+<div
+  className="sc-bsatvv jXQzcc"
+>
+  <div
+    className="sc-gIvpjk hEjEjf container"
+  >
+    <div
+      className="sc-euEtCV kQPWUo"
+    >
+      <h1
+        className="sc-dlnjwi bFJKAC bolder"
+      >
+        Award winning
+      </h1>
+      <h1
+        className="sc-dlnjwi bFJKAC"
+      >
+        The best restaurants near you!
+      </h1>
+      <a
+        href="/categories"
+        onClick={[Function]}
+      >
+        <button
+          className="sc-gKAaRy hfXzHm sc-dFRpbK gjTMen"
+          type="button"
+        >
+          Explore best restaurants
+        </button>
+      </a>
+    </div>
+    <div
+      className="sc-fHCHyC jZsCSQ"
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots Pages/HomePage/Components/CategoriesSection Default 1`] = `
+<div
+  className="sc-gXfVKN bHwrYR container-desktop"
+>
+  <div
+    className="sc-cBoqAE czroSA"
+  >
+    <h2
+      className="sc-dlnjwi leZDup"
+    >
+      Categories
+    </h2>
+    <button
+      className="sc-gKAaRy fSsqXo"
+      onClick={[Function]}
+      type="button"
+    >
+      View all categories
+    </button>
+  </div>
+  <div
+    className="react-multi-carousel-list carousel-container "
+  >
+    <ul
+      className="react-multi-carousel-track "
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseMove={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      style={
+        Object {
+          "overflow": "unset",
+          "transform": "translate3d(0px,0,0)",
+          "transition": "none",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots Pages/HomePage/Components/RestaurantsSection Default 1`] = `
+<div
+  className="sc-gXfVKN bHwrYR container-desktop"
+>
+  <div
+    className="sc-cBoqAE czroSA"
+  >
+    <h2
+      className="sc-dlnjwi leZDup"
+    >
+      Near you
+    </h2>
+  </div>
+  <div
+    className="react-multi-carousel-list carousel-container "
+  >
+    <ul
+      className="react-multi-carousel-track "
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseMove={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchMove={[Function]}
+      onTouchStart={[Function]}
+      style={
+        Object {
+          "overflow": "unset",
+          "transform": "translate3d(0px,0,0)",
+          "transition": "none",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots Pages/RestaurantDetailPage/Components/FoodItem Default 1`] = `
+<div
+  className="sc-eHEENL djVGae"
+>
+  <div>
+    <h4
+      className="sc-dlnjwi RvkrQ"
+    >
+      Food
+    </h4>
+    <p
+      className="sc-gtsrHT cyChxW sc-kYPZxB kPxXfT"
+      fontWeight="regular"
+      size=""
+    >
+      nice stuff
+    </p>
+    <p
+      className="sc-gtsrHT cyChxW sc-xGAEC cKVrgj"
+      fontWeight="regular"
+      size=""
+    >
+      €7.50
+    </p>
+  </div>
 </div>
 `;
