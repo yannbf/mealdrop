@@ -1,10 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { expect } from '@storybook/jest'
-import { within, userEvent } from '@storybook/testing-library'
+import { within, userEvent, waitForElementToBeRemoved } from '@storybook/testing-library'
 import { rest } from 'msw'
 
 import { BASE_URL } from '../../api'
 import { StickyHeaderTemplate } from '../../templates/PageTemplate'
+import { withAnimatedInteraction, userEventClick } from '../../../.storybook/interaction'
 import { restaurants } from '../../stub/restaurants'
 
 import { RestaurantDetailPage } from './RestaurantDetailPage'
@@ -23,6 +24,7 @@ export default {
       path: '/restaurants/:id',
     },
   },
+  decorators: [withAnimatedInteraction],
 } as ComponentMeta<typeof RestaurantDetailPage>
 
 const Template: ComponentStory<typeof RestaurantDetailPage> = () => (
@@ -54,19 +56,45 @@ Loading.parameters = {
   msw: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.delay('infinite')))],
 }
 
-export const WithModalOpen = Template.bind({})
-WithModalOpen.parameters = {
+export const SelectingAndUpdatingItems = Template.bind({})
+SelectingAndUpdatingItems.parameters = {
   msw: [rest.get(REQUEST_URL, (req, res, ctx) => res(ctx.json(restaurants[0])))],
 }
-WithModalOpen.play = async ({ canvasElement }) => {
+SelectingAndUpdatingItems.args = {
+  demoMode: false,
+}
+SelectingAndUpdatingItems.argTypes = {
+  demoMode: {
+    control: { type: 'boolean' },
+  },
+}
+SelectingAndUpdatingItems.play = async ({ canvasElement, args }) => {
+  // @ts-ignore
+  const clickEvent = args.demoMode === true ? userEventClick : userEvent.click
   const canvas = within(canvasElement)
 
+  await waitForElementToBeRemoved(await canvas.findByText('Looking for some food...'))
+
   const foodItem = await canvas.findByText(/Cheeseburger/i)
-  await userEvent.click(foodItem)
+  await clickEvent(foodItem)
 
   const modalButton = await canvas.findByLabelText('increase quantity by one')
-  await userEvent.click(modalButton)
-  await userEvent.click(modalButton)
+  await clickEvent(modalButton)
+  await clickEvent(modalButton)
+  await clickEvent(canvas.getByLabelText('confirm'))
 
-  expect(within(foodItem.parentElement!).getByLabelText('food quantity').textContent).toEqual('3')
+  const cheeseburgerItem = within(foodItem.parentElement!)
+
+  await expect(cheeseburgerItem.getByLabelText('food quantity').textContent).toEqual('3')
+
+  await clickEvent(canvas.getByLabelText('food cart'))
+  const sidebar = await within(canvasElement).findByTestId('sidebar')
+
+  const foodItemSelector: HTMLSelectElement = within(sidebar).getByRole('combobox')
+  await expect(foodItemSelector.value).toEqual('3')
+  await userEvent.selectOptions(foodItemSelector, '2')
+
+  await clickEvent(canvas.getByLabelText('close sidebar'))
+  await expect(cheeseburgerItem.getByLabelText('food quantity').textContent).toEqual('2')
 }
+SelectingAndUpdatingItems.storyName = '▶️ Selecting and updating items'
