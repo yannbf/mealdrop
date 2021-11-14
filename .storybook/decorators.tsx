@@ -80,11 +80,6 @@ export const withTheme: DecoratorFn = (StoryFn, { globals: { theme = 'light' }, 
   }
 }
 
-// export const withRouter: DecoratorFn = (StoryFn) => (
-//   <BrowserRouter>
-//     <StoryFn />
-//   </BrowserRouter>
-// )
 
 /**
  *
