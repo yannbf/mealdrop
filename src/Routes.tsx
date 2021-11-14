@@ -17,14 +17,11 @@ export const AppRoutes = () => {
 
   return (
     <Switch>
-      <Route
-        path="/categories"
-        render={(routeProps) => (
-          <DefaultTemplate>
-            <CategoryPage {...routeProps} />
-          </DefaultTemplate>
-        )}
-      />
+      <Route path="/categories">
+        <DefaultTemplate>
+          <CategoryPage />
+        </DefaultTemplate>
+      </Route>
       <Route exact path="/restaurants/:id">
         <StickyHeaderTemplate>
           <RestaurantDetailPage />

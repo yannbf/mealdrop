@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components'
+import { Link } from 'react-router-dom'
 
 import restaurants from '../../../../assets/images/restaurants.png'
 import { breakpoints } from '../../../../styles/breakpoints'
@@ -71,7 +72,9 @@ export const AwardWinningSection = () => (
       <LeftContainer>
         <Heading className="bolder">Award winning</Heading>
         <Heading>The best restaurants near you!</Heading>
-        <StyledButton>Explore best restaurants</StyledButton>
+        <Link to="/categories">
+          <StyledButton>Explore best restaurants</StyledButton>
+        </Link>
       </LeftContainer>
       <SlidingBackground />
     </ContentContainer>
