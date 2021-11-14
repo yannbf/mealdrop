@@ -1,4 +1,4 @@
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { TopBanner } from '../../components/TopBanner'
@@ -17,10 +17,10 @@ const StyledBody = styled(Body)`
 `
 
 export const CategoryListPage = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   return (
     <>
-      <TopBanner title="Categories" onBackClick={() => history.goBack()} />
+      <TopBanner title="Categories" onBackClick={() => navigate(-1)} />
       <div className="container">
         <StyledHeading level={2}>What’s on the menu?</StyledHeading>
         <StyledBody>

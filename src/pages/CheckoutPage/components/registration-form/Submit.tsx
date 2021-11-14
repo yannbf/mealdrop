@@ -1,4 +1,4 @@
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { Button } from '../../../../components/Button'
@@ -18,7 +18,7 @@ const Container = styled.div`
 `
 
 const Submit = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   return (
     <Container>
       <h3>That&apos;s it, your account was created! </h3>
@@ -32,8 +32,8 @@ const Submit = () => {
         src="https://www.flaticon.com/svg/static/icons/svg/3187/3187874.svg"
       />
       <ButtonSection>
-        <Button onClick={() => history.push('/')}>Back to restaurants</Button>
-        <Button onClick={() => history.push('profile')}>To my profile</Button>
+        <Button onClick={() => navigate('/')}>Back to restaurants</Button>
+        <Button onClick={() => navigate('profile')}>To my profile</Button>
       </ButtonSection>
     </Container>
   )

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams, Link, useHistory } from 'react-router-dom'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { api } from '../../api'
@@ -28,8 +28,8 @@ const StyledContainer = styled.div`
 `
 
 export const CategoryDetailPage = () => {
-  const { id } = useParams<{ id: string }>()
-  const history = useHistory()
+  const { id } = useParams<'id'>()
+  const navigate = useNavigate()
 
   const [restaurants, setRestaurants] = useState<any>([
     { isLoading: true },
@@ -38,12 +38,14 @@ export const CategoryDetailPage = () => {
   ])
 
   useEffect(() => {
-    const getData = async () => {
-      const data = await api.getRestaurantsByCategory(id)
-      setRestaurants(data)
-    }
+    if (id) {
+      const getData = async () => {
+        const data = await api.getRestaurantsByCategory(id)
+        setRestaurants(data)
+      }
 
-    getData()
+      getData()
+    }
   }, [id])
 
   const category = categories.find((cat) => cat.id === id)
@@ -53,7 +55,7 @@ export const CategoryDetailPage = () => {
       <TopBanner
         title={category?.title || 'Oops!'}
         photoUrl={category?.photoUrl}
-        onBackClick={() => history.goBack()}
+        onBackClick={() => navigate(-1)}
       />
       <div className="container">
         <Breadcrumb>
@@ -72,7 +74,7 @@ export const CategoryDetailPage = () => {
             image={<img alt="no restaurants found" src={sushi} />}
             buttonText="See all restaurants"
             onButtonClick={() => {
-              history.push('/categories')
+              navigate('/categories')
             }}
           />
         )}
@@ -81,7 +83,7 @@ export const CategoryDetailPage = () => {
             <RestaurantCard
               key={restaurant.name || index}
               {...restaurant}
-              onClick={() => history.push(`/restaurants/${restaurant.id}`)}
+              onClick={() => navigate(`/restaurants/${restaurant.id}`)}
             />
           ))}
         </StyledContainer>

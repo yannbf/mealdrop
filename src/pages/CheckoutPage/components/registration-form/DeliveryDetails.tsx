@@ -1,4 +1,4 @@
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import { Button } from '../../../../components/Button'
 import { Input } from '../../../../components/forms/Input'
@@ -14,7 +14,7 @@ type DeliveryDetailsProps = {
 }
 
 export const DeliveryDetails = ({ setForm, formData, navigation }: DeliveryDetailsProps) => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const { address, city, postcode } = formData
 
   const { previous } = navigation
@@ -45,7 +45,7 @@ export const DeliveryDetails = ({ setForm, formData, navigation }: DeliveryDetai
         <Button clear onClick={previous}>
           Previous
         </Button>
-        <Button onClick={() => history.push('/success')}>Complete</Button>
+        <Button onClick={() => navigate('/success')}>Complete</Button>
       </div>
     </div>
   )

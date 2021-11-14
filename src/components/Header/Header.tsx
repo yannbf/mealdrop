@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import useDarkMode from 'use-dark-mode'
 
 import { useAppDispatch, useAppSelector } from '../../app-state'
@@ -176,13 +176,13 @@ export const Header = ({ sticky }: { sticky?: boolean }) => {
   const cartItems = useAppSelector(selectCartItems)
   const totalPrice = useAppSelector(selectCartTotal)
   const dispatch = useAppDispatch()
-  const history = useHistory()
+  const navigate = useNavigate()
   const toggleCartVisibility = () => dispatch(toggleVisibilityAction())
   const saveItem = (item: CartItem) => dispatch(saveItemAction(item))
 
   const goToCheckout = () => {
     toggleCartVisibility()
-    history.push('/checkout')
+    navigate('/checkout')
   }
 
   return (

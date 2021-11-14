@@ -1,5 +1,5 @@
 import { useState, useEffect, memo, useCallback } from 'react'
-import { useHistory, useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 
 import { useAppDispatch, useAppSelector } from '../../app-state'
@@ -95,9 +95,9 @@ const useFetchRestaurant = (id: string) => {
 }
 
 export const RestaurantDetailPage = () => {
-  const { id } = useParams<{ id: string }>()
+  const { id = '' } = useParams<'id'>()
 
-  const history = useHistory()
+  const navigate = useNavigate()
   const { restaurant, status, retryRequest } = useFetchRestaurant(id)
 
   const [selectedItem, setSelectedItem] = useState<CartItem>()
@@ -126,7 +126,7 @@ export const RestaurantDetailPage = () => {
         title="We can't find this page"
         body="This page doesn’t exist, keep looking."
         image={<AnimatedIllustration animation="Error" />}
-        onButtonClick={() => history.push('/')}
+        onButtonClick={() => navigate('/')}
         buttonText="Home"
       />
     )
@@ -151,7 +151,7 @@ export const RestaurantDetailPage = () => {
         onItemSave={addItemToCart}
         onItemRemove={clearItemFromCart}
       />
-      <TopBanner photoUrl={photoUrl} onBackClick={() => history.goBack()} />
+      <TopBanner photoUrl={photoUrl} onBackClick={() => navigate(-1)} />
       <DetailSection>
         <div className="container">
           <Heading level={2}>{name}</Heading>
