@@ -83,7 +83,7 @@
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-storybook": "link:../../open-source/eslint-plugin-storybook",
+    "eslint-plugin-storybook": "^0.4.1",
     "husky": ">=6",
     "jest-axe": "^4.1.0",
     "jest-canvas-mock": "^2.3.1",
