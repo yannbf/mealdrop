@@ -16,11 +16,19 @@ type ModalProps = {
 export const Modal: React.FC<ModalProps> = ({ children, isOpen, onClose }) => {
   useKey('escape', onClose)
   useLockBodyScroll(isOpen)
+  const contentRef = React.useRef(null)
+  const backdropRef = React.useRef(null)
 
   return (
     <Portal selector="#modal">
-      <CSSTransition in={isOpen} timeout={300} classNames="modal" unmountOnExit>
-        <ModalContent data-testid="modal">
+      <CSSTransition
+        in={isOpen}
+        timeout={300}
+        classNames="modal"
+        unmountOnExit
+        nodeRef={contentRef}
+      >
+        <ModalContent data-testid="modal" ref={contentRef}>
           <TopBar>
             <Button
               data-testid="modal-close-btn"
@@ -36,8 +44,14 @@ export const Modal: React.FC<ModalProps> = ({ children, isOpen, onClose }) => {
         </ModalContent>
       </CSSTransition>
 
-      <CSSTransition in={isOpen} timeout={300} classNames="backdrop" unmountOnExit>
-        <Backdrop data-testid="modal-backdrop" onClick={onClose} />
+      <CSSTransition
+        in={isOpen}
+        timeout={300}
+        classNames="backdrop"
+        unmountOnExit
+        nodeRef={backdropRef}
+      >
+        <Backdrop data-testid="modal-backdrop" ref={backdropRef} onClick={onClose} />
       </CSSTransition>
     </Portal>
   )

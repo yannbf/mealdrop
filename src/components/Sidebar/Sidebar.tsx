@@ -16,13 +16,20 @@ type SidebarProps = {
 
 export const Sidebar: React.FC<SidebarProps> = ({ children, footer, isOpen, title, onClose }) => {
   useKey('escape', onClose)
-
   useLockBodyScroll(isOpen)
+  const contentRef = React.useRef(null)
+  const backdropRef = React.useRef(null)
 
   return (
     <>
-      <CSSTransition in={isOpen} timeout={300} classNames="sidebar" unmountOnExit>
-        <SidebarContainer data-testid="sidebar">
+      <CSSTransition
+        in={isOpen}
+        timeout={300}
+        classNames="sidebar"
+        unmountOnExit
+        nodeRef={contentRef}
+      >
+        <SidebarContainer data-testid="sidebar" ref={contentRef}>
           <TopBar>
             <Heading level={4}>{title}</Heading>
             <Button
@@ -40,7 +47,13 @@ export const Sidebar: React.FC<SidebarProps> = ({ children, footer, isOpen, titl
         </SidebarContainer>
       </CSSTransition>
 
-      <CSSTransition in={isOpen} timeout={300} classNames="backdrop" unmountOnExit>
+      <CSSTransition
+        in={isOpen}
+        timeout={300}
+        classNames="backdrop"
+        unmountOnExit
+        nodeRef={backdropRef}
+      >
         <Backdrop data-testid="Sidebar-backdrop" onClick={onClose} />
       </CSSTransition>
     </>
