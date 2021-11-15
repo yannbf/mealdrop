@@ -112,7 +112,17 @@ export const ToSuccessPage: StoryObj = {
     const clickEvent = args.demoMode === true ? animatedUserEventClick : userEvent.click
     const canvas = within(canvasElement)
 
+    await userEvent.type(canvas.getByLabelText('First name'), 'Jane', { delay: 50 })
+    await userEvent.type(canvas.getByLabelText('Last name'), 'Dough', { delay: 50 })
+    await userEvent.type(canvas.getByLabelText('Email'), 'jane@dough.com', { delay: 50 })
+    await userEvent.type(canvas.getByLabelText('Phone number'), '0612345678', { delay: 50 })
     await clickEvent(canvas.getByText(/Next/i))
+
+    await userEvent.type(canvas.getByLabelText('Streetname and housenumber'), 'Somestreet 14', {
+      delay: 50,
+    })
+    await userEvent.type(canvas.getByLabelText('Postcode'), '1043DX', { delay: 50 })
+    await userEvent.type(canvas.getByLabelText('City'), 'Amsterdam', { delay: 50 })
     await clickEvent(canvas.getByText(/Complete/i))
   },
 }
