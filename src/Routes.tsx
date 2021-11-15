@@ -9,7 +9,7 @@ import { CheckoutPage } from './pages/CheckoutPage'
 import { SuccessPage } from './pages/SuccessPage'
 import { DefaultTemplate, SimpleTemplate, StickyHeaderTemplate } from './templates/PageTemplate'
 
-export const AppRoutes = () => {
+export const AppRoutes: React.FC = ({ children }) => {
   const location = useLocation()
   // Scroll to top when a path changes
   useLayoutEffect(() => {
@@ -17,48 +17,52 @@ export const AppRoutes = () => {
   }, [location.pathname])
 
   return (
-    <Routes>
-      <Route
-        path="/categories"
-        element={
-          <DefaultTemplate>
-            <CategoryListPage />
-          </DefaultTemplate>
-        }
-      />
-      <Route
-        path="/categories/:id"
-        element={
-          <DefaultTemplate>
-            <CategoryDetailPage />
-          </DefaultTemplate>
-        }
-      />
-      <Route
-        path="/restaurants/:id"
-        element={
-          <StickyHeaderTemplate>
-            <RestaurantDetailPage />
-          </StickyHeaderTemplate>
-        }
-      />
-      <Route path="/checkout" element={<CheckoutPage />} />
-      <Route
-        path="/success"
-        element={
-          <SimpleTemplate>
-            <SuccessPage />
-          </SimpleTemplate>
-        }
-      />
-      <Route
-        path="/"
-        element={
-          <DefaultTemplate>
-            <HomePage />
-          </DefaultTemplate>
-        }
-      />
-    </Routes>
+    <>
+      <div id="modal" />
+      <Routes>
+        <Route
+          path="/categories"
+          element={
+            <DefaultTemplate>
+              <CategoryListPage />
+            </DefaultTemplate>
+          }
+        />
+        <Route
+          path="/categories/:id"
+          element={
+            <DefaultTemplate>
+              <CategoryDetailPage />
+            </DefaultTemplate>
+          }
+        />
+        <Route
+          path="/restaurants/:id"
+          element={
+            <StickyHeaderTemplate>
+              <RestaurantDetailPage />
+            </StickyHeaderTemplate>
+          }
+        />
+        <Route path="/checkout" element={<CheckoutPage />} />
+        <Route
+          path="/success"
+          element={
+            <SimpleTemplate>
+              <SuccessPage />
+            </SimpleTemplate>
+          }
+        />
+        <Route
+          path="/"
+          element={
+            <DefaultTemplate>
+              <HomePage />
+            </DefaultTemplate>
+          }
+        />
+        {children}
+      </Routes>
+    </>
   )
 }

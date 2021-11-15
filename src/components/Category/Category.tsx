@@ -108,7 +108,7 @@ const Squared = ({ title, photoUrl: url }: CategoryProps) => (
 
 export const Category = ({ photoUrl, title, round = false }: CategoryProps) => {
   return (
-    <Container round={round}>
+    <Container round={round} data-testid={title}>
       {round ? (
         <Rounded photoUrl={photoUrl} title={title} />
       ) : (

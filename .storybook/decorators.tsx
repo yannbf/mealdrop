@@ -2,7 +2,7 @@
  * This file houses all non-addon related decorators
  */
 import React from 'react'
-import { BrowserRouter, Route, Routes, MemoryRouter } from 'react-router-dom'
+import { BrowserRouter, Route,  MemoryRouter } from 'react-router-dom'
 import styled, { css, ThemeProvider } from 'styled-components'
 import { DecoratorFn } from '@storybook/react'
 import { configureStore } from '@reduxjs/toolkit'
@@ -12,6 +12,7 @@ import { rootReducer } from '../src/app-state'
 import { breakpoints } from '../src/styles/breakpoints'
 import { GlobalStyle } from '../src/styles/GlobalStyle'
 import { darkTheme, lightTheme } from '../src/styles/theme'
+import { AppRoutes } from '../src/Routes'
 
 const ThemeBlock = styled.div<{ left?: boolean; fullScreen?: boolean }>(
   ({ left, fullScreen, theme: { color } }) =>
@@ -140,9 +141,9 @@ export const withRouter: DecoratorFn = (StoryFn, { parameters: { deeplink } }) =
 
   return (
     <MemoryRouter initialEntries={[encodeURI(route)]}>
-      <Routes>
+      <AppRoutes>
         <Route path={path} element={<StoryFn />} />
-      </Routes>
+      </AppRoutes>
     </MemoryRouter>
   )
 }
