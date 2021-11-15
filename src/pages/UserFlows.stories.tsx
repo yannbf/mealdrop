@@ -1,4 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
+import isChromatic from 'chromatic/isChromatic'
 import { rest } from 'msw'
 import { expect } from '@storybook/jest'
 import { within, userEvent, waitForElementToBeRemoved } from '@storybook/testing-library'
@@ -110,26 +111,27 @@ export const ToSuccessPage: StoryObj = {
     const { canvasElement, args } = context
 
     const clickEvent = args.demoMode === true ? animatedUserEventClick : userEvent.click
+    const delay = args.demoMode === true ? 50 : 0
     const canvas = within(canvasElement)
 
-    await userEvent.type(canvas.getByLabelText('First name'), 'Jane', { delay: 50 })
-    await userEvent.type(canvas.getByLabelText('Last name'), 'Dough', { delay: 50 })
-    await userEvent.type(canvas.getByLabelText('Email'), 'jane@dough.com', { delay: 50 })
-    await userEvent.type(canvas.getByLabelText('Phone number'), '0612345678', { delay: 50 })
+    await userEvent.type(canvas.getByLabelText('First name'), 'Jane', { delay })
+    await userEvent.type(canvas.getByLabelText('Last name'), 'Dough', { delay })
+    await userEvent.type(canvas.getByLabelText('Email'), 'jane@dough.com', { delay })
+    await userEvent.type(canvas.getByLabelText('Phone number'), '0612345678', { delay })
     await clickEvent(canvas.getByText(/Next/i))
 
     await userEvent.type(canvas.getByLabelText('Streetname and housenumber'), 'Somestreet 14', {
-      delay: 50,
+      delay,
     })
-    await userEvent.type(canvas.getByLabelText('Postcode'), '1043DX', { delay: 50 })
-    await userEvent.type(canvas.getByLabelText('City'), 'Amsterdam', { delay: 50 })
+    await userEvent.type(canvas.getByLabelText('Postcode'), '1043DX', { delay })
+    await userEvent.type(canvas.getByLabelText('City'), 'Amsterdam', { delay })
     await clickEvent(canvas.getByText(/Complete/i))
   },
 }
 
 export const EndToEnd: StoryObj = {
   args: {
-    demoMode: true,
+    demoMode: !isChromatic,
   },
   play: async (context) => {
     await ToSuccessPage.play!(context)
