@@ -5,7 +5,7 @@ import { rest } from 'msw'
 
 import { BASE_URL } from '../../api'
 import { StickyHeaderTemplate } from '../../templates/PageTemplate'
-import { withAnimatedInteraction, userEventClick } from '../../../.storybook/interaction'
+import { animatedUserEventClick } from '../../../.storybook/interaction'
 import { restaurants } from '../../stub/restaurants'
 
 import { RestaurantDetailPage } from './RestaurantDetailPage'
@@ -24,7 +24,6 @@ export default {
       path: '/restaurants/:id',
     },
   },
-  decorators: [withAnimatedInteraction],
 } as ComponentMeta<typeof RestaurantDetailPage>
 
 const Template: ComponentStory<typeof RestaurantDetailPage> = () => (
@@ -70,7 +69,7 @@ SelectingAndUpdatingItems.argTypes = {
 }
 SelectingAndUpdatingItems.play = async ({ canvasElement, args }) => {
   // @ts-ignore
-  const clickEvent = args.demoMode === true ? userEventClick : userEvent.click
+  const clickEvent = args.demoMode === true ? animatedUserEventClick : userEvent.click
   const canvas = within(canvasElement)
 
   await waitForElementToBeRemoved(await canvas.findByText('Looking for some food...'))

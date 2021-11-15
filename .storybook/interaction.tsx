@@ -1,63 +1,4 @@
 import { userEvent } from '@storybook/testing-library'
-import { DecoratorFn } from '@storybook/react'
-import { useEffect } from '@storybook/addons'
-
-export const withAnimatedInteraction: DecoratorFn = (storyFn, { args: { demoMode } }) => {
-  useEffect(() => {
-    if (!demoMode) {
-      return
-    }
-
-    let el: HTMLElement | null = null
-
-    let remove = (elem?: Element) => {
-      try {
-        const elementToRemove = el || elem
-        if (elementToRemove) {
-          document.body.removeChild(elementToRemove)
-        }
-      } catch (e) { }
-    }
-
-    const doClickAnimation = (event: any) => {
-      if (global.test || !(global as any).playing) { return }
-      const { target } = event
-      if (!target.getBoundingClientRect) {
-        console.log("target does not have getBoundingClientRect", target)
-        return
-      }
-      const { left, top, width, height } = target.getBoundingClientRect()
-      const sTop = Math.round(top + (Math.min(height / 2, 50))) + 'px'
-      const sLeft = Math.round(left + (Math.min(width / 2, 50))) + 'px'
-
-      remove()
-      el = document.createElement('div')
-      el.className = 'clickEffect'
-      el.style.top = sTop
-      el.style.left = sLeft
-      document.body.appendChild(el)
-
-      el.addEventListener('animationend', () => {
-        el && remove(el)
-      })
-    }
-
-    document.addEventListener('click', doClickAnimation, { capture: true })
-
-    return () => document.removeEventListener('click', doClickAnimation)
-  }, [])
-
-  if (!demoMode) {
-    return storyFn()
-  }
-
-  return (
-    <div>
-      <div id="presentInteraction"></div>
-      {storyFn()}
-    </div>
-  )
-}
 
 export function delay(ms: number) {
   if (!!global.test) {
@@ -70,7 +11,7 @@ export function delay(ms: number) {
   }
 }
 
-export async function mouseTo(target: Element, delay = 1200) {
+export async function mouseTo(target: Element, delay = 1700) {
   if (!!global.test || !target) {
     return new Promise(resolve => resolve(undefined));
   } else {
@@ -110,7 +51,7 @@ export async function mouseTo(target: Element, delay = 1200) {
   }
 }
 
-export async function userEventClick(target: Element) {
+export async function animatedUserEventClick(target: Element) {
   await mouseTo(target)
   return userEvent.click(target)
 }
