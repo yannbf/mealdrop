@@ -4,10 +4,9 @@ import { useNavigate } from 'react-router-dom'
 import Carousel from 'react-multi-carousel'
 
 import { api } from '../../../../api'
-import { breakpoints } from '../../../../styles/breakpoints'
 import { IconButton } from '../../../../components/IconButton'
 import { PageSection } from '../../../../components/PageSection'
-import { RestaurantCard } from '../../../../components/RestaurantCard'
+import { RestaurantCard, RestaurantCardSkeleton } from '../../../../components/RestaurantCard'
 import { Restaurant } from '../../../../types'
 
 const PreviousButton = styled(IconButton)`
@@ -20,12 +19,6 @@ const NextButton = styled(IconButton)`
   right: 0;
 `
 
-const StyledRestaurantCard = styled(RestaurantCard)`
-  @media ${breakpoints.S} {
-    margin-right: 1rem;
-  }
-`
-
 type RestaurantsSectionProps = {
   title: string
 }
@@ -33,6 +26,7 @@ type RestaurantsSectionProps = {
 type RestaurantsSectionComponentProps = {
   title: string
   restaurants: Restaurant[]
+  isLoading?: boolean
   onRestaurantClick: (id: string) => void
 }
 
@@ -41,6 +35,7 @@ export const RestaurantsSectionComponent = ({
   title,
   restaurants,
   onRestaurantClick,
+  isLoading,
 }: RestaurantsSectionComponentProps) => {
   const isMobile = /Mobi/i.test(window.navigator.userAgent)
 
@@ -72,13 +67,15 @@ export const RestaurantsSectionComponent = ({
         removeArrowOnDeviceType={['tablet', 'mobile']}
         itemClass="carousel-item"
       >
-        {restaurants.map((restaurant: Restaurant) => (
-          <StyledRestaurantCard
-            key={restaurant.name}
-            {...restaurant}
-            onClick={() => onRestaurantClick(restaurant.id!)}
-          />
-        ))}
+        {isLoading
+          ? Array.from(Array(3)).map(() => <RestaurantCardSkeleton />)
+          : restaurants.map((restaurant: Restaurant) => (
+              <RestaurantCard
+                key={restaurant.name}
+                {...restaurant}
+                onClick={() => onRestaurantClick(restaurant.id!)}
+              />
+            ))}
       </Carousel>
     </PageSection>
   )
@@ -88,19 +85,19 @@ export const RestaurantsSectionComponent = ({
 export const RestaurantsSection = ({ title }: RestaurantsSectionProps) => {
   const navigate = useNavigate()
 
-  const [restaurants, setRestaurants] = useState<any>([
-    { isLoading: true },
-    { isLoading: true },
-    { isLoading: true },
-  ])
+  const [restaurants, setRestaurants] = useState<Restaurant[]>([])
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     const getData = async () => {
+      setIsLoading(true)
       try {
         const data = await api.getRestaurants()
         setRestaurants(data)
       } catch (err) {
         console.error(err)
+      } finally {
+        setIsLoading(false)
       }
     }
 
@@ -111,6 +108,7 @@ export const RestaurantsSection = ({ title }: RestaurantsSectionProps) => {
     <RestaurantsSectionComponent
       title={title}
       restaurants={restaurants}
+      isLoading={isLoading}
       onRestaurantClick={(id: string) => navigate(`/restaurants/${id}`)}
     />
   )

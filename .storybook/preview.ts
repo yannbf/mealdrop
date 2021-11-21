@@ -3,7 +3,7 @@ import { withDesign } from 'storybook-addon-designs'
 // @ts-ignore This addon has no types unfortunately
 import { initialize, mswDecorator } from 'msw-storybook-addon'
 
-import { globalDecorators } from './decorators'
+import { customDecorators } from './decorators'
 import { viewports as breakpoints } from '../src/styles/breakpoints'
 
 initialize({
@@ -65,4 +65,5 @@ export const globalTypes = {
   },
 }
 
-export const decorators = [...globalDecorators, withDesign, mswDecorator]
+// All custom decorators + addon decorators
+export const decorators = [...customDecorators, withDesign, mswDecorator]

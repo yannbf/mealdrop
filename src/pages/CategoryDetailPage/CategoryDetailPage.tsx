@@ -3,7 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { api } from '../../api'
-import { RestaurantCard } from '../../components/RestaurantCard'
+import { RestaurantCard, RestaurantCardSkeleton } from '../../components/RestaurantCard'
 import { TopBanner } from '../../components/TopBanner'
 import { categories } from '../../stub/categories'
 import sushi from '../../assets/images/sushi.svg'
@@ -31,17 +31,16 @@ export const CategoryDetailPage = () => {
   const { id } = useParams<'id'>()
   const navigate = useNavigate()
 
-  const [restaurants, setRestaurants] = useState<any>([
-    { isLoading: true },
-    { isLoading: true },
-    { isLoading: true },
-  ])
+  const [restaurants, setRestaurants] = useState<Restaurant[]>([])
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     if (id) {
+      setIsLoading(true)
       const getData = async () => {
         const data = await api.getRestaurantsByCategory(id)
         setRestaurants(data)
+        setIsLoading(false)
       }
 
       getData()
@@ -67,7 +66,7 @@ export const CategoryDetailPage = () => {
             {category?.title.toLowerCase()}
           </p>
         </Breadcrumb>
-        {restaurants.length <= 0 && (
+        {!isLoading && restaurants.length <= 0 && (
           <ErrorBlock
             body="It seems that there are no restaurants in this category yet. Try to come back later?"
             title="This is not the food you’re looking for."
@@ -79,13 +78,15 @@ export const CategoryDetailPage = () => {
           />
         )}
         <StyledContainer>
-          {restaurants.map((restaurant: Restaurant, index: number) => (
-            <RestaurantCard
-              key={restaurant.name || index}
-              {...restaurant}
-              onClick={() => navigate(`/restaurants/${restaurant.id}`)}
-            />
-          ))}
+          {isLoading
+            ? Array.from(Array(3)).map(() => <RestaurantCardSkeleton />)
+            : restaurants.map((restaurant: Restaurant, index: number) => (
+                <RestaurantCard
+                  key={restaurant.name || index}
+                  {...restaurant}
+                  onClick={() => navigate(`/restaurants/${restaurant.id}`)}
+                />
+              ))}
         </StyledContainer>
       </div>
     </>

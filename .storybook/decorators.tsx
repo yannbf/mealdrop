@@ -1,3 +1,6 @@
+/**
+ * This file houses all non-addon related decorators
+ */
 import React from 'react'
 import { BrowserRouter, Route, Routes, MemoryRouter } from 'react-router-dom'
 import styled, { css, ThemeProvider } from 'styled-components'
@@ -111,7 +114,7 @@ export const withStore: DecoratorFn = (StoryFn, { parameters }) => {
 
 /**
  *
- * Provide components support for simulated deeplinking
+ * Provide components support for routing support and simulated deeplinking
  * it renders the component with a mocked history based on the route passed
  *
  * @example
@@ -145,4 +148,4 @@ export const withRouter: DecoratorFn = (StoryFn, { parameters: { deeplink } }) =
 }
 
 // ordered from innermost to outermost, be careful with the order!
-export const globalDecorators = [withRouter, withTheme, withStore]
+export const customDecorators = [withRouter, withTheme, withStore]

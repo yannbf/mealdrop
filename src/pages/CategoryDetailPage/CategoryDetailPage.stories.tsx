@@ -12,6 +12,7 @@ export default {
   component: CategoryDetailPage,
   parameters: {
     layout: 'fullscreen',
+    deeplink: { route: '/categories/burgers', path: '/categories/:id' },
   },
 } as ComponentMeta<typeof CategoryDetailPage>
 
@@ -23,8 +24,12 @@ const Template: ComponentStory<typeof CategoryDetailPage> = () => (
 
 export const Default = Template.bind({})
 Default.parameters = {
-  deeplink: { route: '/categories/burgers', path: '/categories/:id' },
   msw: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json([restaurants[0]])))],
+}
+
+export const Loading = Template.bind({})
+Loading.parameters = {
+  msw: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.delay('infinite')))],
 }
 
 export const Missing = Template.bind({})
