@@ -20,6 +20,6 @@ initStoryshots({
   },
   // Storyshots has filters and you can set to run tests in whatever scope you'd like
   // In this case, we are running a11y tests only in stories with Components in the title, and with name "Default"
-  storyKindRegex: /Components/,
+  storyKindRegex: /^Components/,
   storyNameRegex: 'Default',
 })
