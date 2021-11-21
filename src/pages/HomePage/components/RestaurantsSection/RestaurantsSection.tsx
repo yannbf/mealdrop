@@ -4,10 +4,9 @@ import { useNavigate } from 'react-router-dom'
 import Carousel from 'react-multi-carousel'
 
 import { api } from '../../../../api'
-import { breakpoints } from '../../../../styles/breakpoints'
 import { IconButton } from '../../../../components/IconButton'
 import { PageSection } from '../../../../components/PageSection'
-import { RestaurantCard } from '../../../../components/RestaurantCard'
+import { RestaurantCard, RestaurantCardSkeleton } from '../../../../components/RestaurantCard'
 import { Restaurant } from '../../../../types'
 
 const PreviousButton = styled(IconButton)`
@@ -20,12 +19,6 @@ const NextButton = styled(IconButton)`
   right: 0;
 `
 
-const StyledRestaurantCard = styled(RestaurantCard)`
-  @media ${breakpoints.S} {
-    margin-right: 1rem;
-  }
-`
-
 type RestaurantsSectionProps = {
   title: string
 }
@@ -33,20 +26,20 @@ type RestaurantsSectionProps = {
 export const RestaurantsSection = ({ title }: RestaurantsSectionProps) => {
   const navigate = useNavigate()
 
-  const [restaurants, setRestaurants] = useState<any>([
-    { isLoading: true },
-    { isLoading: true },
-    { isLoading: true },
-  ])
+  const [restaurants, setRestaurants] = useState<Restaurant[]>([])
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     const getData = async () => {
-      // TODO: make this a hook
+      setIsLoading(true)
       try {
+        // TODO: make this a hook
         const data = await api.getRestaurants()
         setRestaurants(data)
       } catch (err) {
         console.error(err)
+      } finally {
+        setIsLoading(false)
       }
     }
 
@@ -82,13 +75,15 @@ export const RestaurantsSection = ({ title }: RestaurantsSectionProps) => {
         removeArrowOnDeviceType={['tablet', 'mobile']}
         itemClass="carousel-item"
       >
-        {restaurants.map((restaurant: Restaurant, index: number) => (
-          <StyledRestaurantCard
-            key={restaurant.name + index}
-            {...restaurant}
-            onClick={() => navigate(`/restaurants/${restaurant.id}`)}
-          />
-        ))}
+        {isLoading
+          ? Array.from(Array(3)).map(() => <RestaurantCardSkeleton />)
+          : restaurants.map((restaurant: Restaurant, index: number) => (
+              <RestaurantCard
+                key={restaurant.name + index}
+                {...restaurant}
+                onClick={() => navigate(`/restaurants/${restaurant.id}`)}
+              />
+            ))}
       </Carousel>
     </PageSection>
   )

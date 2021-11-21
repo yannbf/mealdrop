@@ -119,12 +119,12 @@ const StyledHeading = styled(Heading)(
   `
 )
 
-const RestaurantCardSkeleton = () => {
+export const RestaurantCardSkeleton = () => {
   const { color } = useTheme()
   return (
     <SkeletonTheme color={color.skeletonBase} highlightColor={color.skeletonHighlight}>
       <Container data-testid="loading">
-        <Skeleton height={200} width="100%" />
+        <Skeleton height={200} width="100%" style={{ borderRadius: '4px 4px 0 0' }} />
         <StyledContent>
           <StyledHeading level={2}>
             <Skeleton width="50%" />
