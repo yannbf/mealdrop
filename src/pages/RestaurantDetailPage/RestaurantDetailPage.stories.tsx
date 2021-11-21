@@ -23,8 +23,6 @@ export default {
   },
 } as ComponentMeta<typeof RestaurantDetailPage>
 
-const REQUEST_URL = `${BASE_URL}?id=:id`
-
 const Template: ComponentStory<typeof RestaurantDetailPage> = () => (
   <div>
     <div id="modal" />
@@ -36,20 +34,20 @@ const Template: ComponentStory<typeof RestaurantDetailPage> = () => (
 
 export const Success = Template.bind({})
 Success.parameters = {
-  msw: [rest.get(REQUEST_URL, (req, res, ctx) => res(ctx.json(restaurants[0])))],
+  msw: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json(restaurants[0])))],
 }
 
 export const NotFound = Template.bind({})
 NotFound.parameters = {
-  msw: [rest.get(REQUEST_URL, (req, res, ctx) => res(ctx.status(404)))],
+  msw: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.status(404)))],
 }
 
 export const Error = Template.bind({})
 Error.parameters = {
-  msw: [rest.get(REQUEST_URL, (req, res, ctx) => res(ctx.status(500)))],
+  msw: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.status(500)))],
 }
 
 export const Loading = Template.bind({})
 Loading.parameters = {
-  msw: [rest.get(REQUEST_URL, (req, res, ctx) => res(ctx.delay('infinite')))],
+  msw: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.delay('infinite')))],
 }
