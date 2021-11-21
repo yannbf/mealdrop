@@ -34,5 +34,6 @@ Loading.parameters = {
 
 export const Missing = Template.bind({})
 Missing.parameters = {
+  deeplink: { route: '/categories/wrong', path: '/categories/:id' },
   msw: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json([])))],
 }
