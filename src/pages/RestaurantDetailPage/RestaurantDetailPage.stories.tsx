@@ -90,7 +90,7 @@ SelectingAndUpdatingItems.play = async ({ canvasElement, args }) => {
   const sidebar = await within(canvasElement).findByTestId('sidebar')
 
   const foodItemSelector: HTMLSelectElement = within(sidebar).getByRole('combobox')
-  await expect(foodItemSelector.value).toEqual('3')
+  await expect(foodItemSelector.value).toEqual('5')
   await userEvent.selectOptions(foodItemSelector, '2')
 
   await clickEvent(canvas.getByLabelText('close sidebar'))
