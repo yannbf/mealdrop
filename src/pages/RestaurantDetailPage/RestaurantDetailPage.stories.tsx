@@ -57,7 +57,7 @@ Loading.parameters = {
 
 export const SelectingAndUpdatingItems = Template.bind({})
 SelectingAndUpdatingItems.parameters = {
-  msw: [rest.get(REQUEST_URL, (req, res, ctx) => res(ctx.json(restaurants[0])))],
+  msw: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json(restaurants[0])))],
 }
 SelectingAndUpdatingItems.args = {
   demoMode: false,

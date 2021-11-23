@@ -2,10 +2,10 @@
 
 exports[`Storyshots Components/Badge Default 1`] = `
 <div
-  className="sc-hKFxyN cmsIun"
+  className="sc-iqseJM eiMYDz"
 >
   <span
-    className="sc-gtsrHT hYJYoC"
+    className="sc-bdvvtL eBjqRR"
     fontWeight="regular"
     size="S"
   >
@@ -16,7 +16,7 @@ exports[`Storyshots Components/Badge Default 1`] = `
 
 exports[`Storyshots Components/Button Default 1`] = `
 <button
-  className="sc-gKAaRy hfXzHm"
+  className="sc-dlVxhl kMLmuM"
   type="button"
 >
   Button
@@ -25,18 +25,19 @@ exports[`Storyshots Components/Button Default 1`] = `
 
 exports[`Storyshots Components/Category Default 1`] = `
 <figure
-  className="sc-iCoGMd gHIMtm"
+  className="sc-eCImPb bFUXaa"
+  data-testid="Pizza"
 >
   <img
     alt="restaurant category"
-    className="sc-fujyAs cBaYLX"
+    className="sc-jRQBWg bKOraV"
     src="https://images.pexels.com/photos/2147491/pexels-photo-2147491.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=550"
   />
   <figcaption
-    className="sc-jrsJWt fZUUtF"
+    className="sc-iCfMLu eVTlNg"
   >
     <span
-      className="sc-gtsrHT hTfNVr"
+      className="sc-bdvvtL iohvTk"
       fontWeight="medium"
       size=""
     >
@@ -48,15 +49,15 @@ exports[`Storyshots Components/Category Default 1`] = `
 
 exports[`Storyshots Components/ErrorBlock Default 1`] = `
 <div
-  className="sc-iqAclL bCwtWg"
+  className="sc-kfPuZi cVOxMm"
 >
   <h2
-    className="sc-dlnjwi leZDup"
+    className="sc-gsDKAQ gXMQwD"
   >
     This is not the food you’re looking for.
   </h2>
   <div
-    className="sc-crzoAE ksojnR"
+    className="sc-fKVqWL ccLwLP"
   >
     <img
       alt="no restaurants found"
@@ -64,14 +65,14 @@ exports[`Storyshots Components/ErrorBlock Default 1`] = `
     />
   </div>
   <p
-    className="sc-gtsrHT cyChxW"
+    className="sc-bdvvtL eMIAGF"
     fontWeight="regular"
     size=""
   >
     There seems that there are no restaurants in this category yet. Try to come back later?
   </p>
   <button
-    className="sc-gKAaRy hfXzHm"
+    className="sc-dlVxhl kMLmuM"
     type="button"
   >
     See all restaurants
@@ -98,19 +99,19 @@ exports[`Storyshots Components/Footer Default 1`] = `
     }
   >
     <div
-      className="sc-fnVZcZ bwJUyz"
+      className="sc-fXEqDS gtxefw"
     >
       <div
         className="container"
       >
         <div
-          className="sc-fFSPTT eVbRRt"
+          className="sc-FNXRL crHivn"
         >
           <div
-            className="sc-ksluID dvxesW"
+            className="sc-bilyIR bOZwfU"
           >
             <svg
-              className="sc-bqGGPW AnJAM"
+              className="sc-uojGG dLYBRT"
               fill="none"
               viewBox="0 0 23 20"
             >
@@ -152,17 +153,17 @@ exports[`Storyshots Components/Footer Default 1`] = `
             </svg>
           </div>
           <div
-            className="sc-dIsUp kRgSBq"
+            className="sc-bQtKYq eEghbS"
           >
             <h2
-              className="sc-dlnjwi leZDup"
+              className="sc-gsDKAQ gXMQwD"
             >
               Discover us
             </h2>
             <ul>
               <li>
                 <p
-                  className="sc-gtsrHT cyChxW"
+                  className="sc-bdvvtL eMIAGF"
                   fontWeight="regular"
                   size=""
                 >
@@ -176,7 +177,7 @@ exports[`Storyshots Components/Footer Default 1`] = `
               </li>
               <li>
                 <p
-                  className="sc-gtsrHT cyChxW"
+                  className="sc-bdvvtL eMIAGF"
                   fontWeight="regular"
                   size=""
                 >
@@ -190,7 +191,7 @@ exports[`Storyshots Components/Footer Default 1`] = `
               </li>
               <li>
                 <p
-                  className="sc-gtsrHT cyChxW"
+                  className="sc-bdvvtL eMIAGF"
                   fontWeight="regular"
                   size=""
                 >
@@ -204,7 +205,7 @@ exports[`Storyshots Components/Footer Default 1`] = `
               </li>
               <li>
                 <p
-                  className="sc-gtsrHT cyChxW"
+                  className="sc-bdvvtL eMIAGF"
                   fontWeight="regular"
                   size=""
                 >
@@ -219,17 +220,17 @@ exports[`Storyshots Components/Footer Default 1`] = `
             </ul>
           </div>
           <div
-            className="sc-dIsUp kRgSBq"
+            className="sc-bQtKYq eEghbS"
           >
             <h2
-              className="sc-dlnjwi leZDup"
+              className="sc-gsDKAQ gXMQwD"
             >
               Our social media
             </h2>
             <ul>
               <li>
                 <p
-                  className="sc-gtsrHT cyChxW"
+                  className="sc-bdvvtL eMIAGF"
                   fontWeight="regular"
                   size=""
                 >
@@ -244,7 +245,7 @@ exports[`Storyshots Components/Footer Default 1`] = `
               </li>
               <li>
                 <p
-                  className="sc-gtsrHT cyChxW"
+                  className="sc-bdvvtL eMIAGF"
                   fontWeight="regular"
                   size=""
                 >
@@ -259,7 +260,7 @@ exports[`Storyshots Components/Footer Default 1`] = `
               </li>
               <li>
                 <p
-                  className="sc-gtsrHT cyChxW"
+                  className="sc-bdvvtL eMIAGF"
                   fontWeight="regular"
                   size=""
                 >
@@ -275,10 +276,10 @@ exports[`Storyshots Components/Footer Default 1`] = `
             </ul>
           </div>
           <div
-            className="sc-dIsUp kRgSBq"
+            className="sc-bQtKYq eEghbS"
           >
             <h2
-              className="sc-dlnjwi leZDup"
+              className="sc-gsDKAQ gXMQwD"
             >
               Check our apps
             </h2>
@@ -315,7 +316,7 @@ exports[`Storyshots Components/Footer Default 1`] = `
 
 exports[`Storyshots Components/Form/Input Default 1`] = `
 <div
-  className="sc-hhIiOg fXHWyt"
+  className="sc-jOxtWs dPmJiL"
 >
   <input
     aria-label="input"
@@ -327,7 +328,7 @@ exports[`Storyshots Components/Form/Input Default 1`] = `
 
 exports[`Storyshots Components/Form/Select Default 1`] = `
 <div
-  className="sc-bkbkJK bGqqzS"
+  className="sc-dFtzxp eiOnIo"
 >
   <select
     aria-label="food"
@@ -365,20 +366,20 @@ exports[`Storyshots Components/Header Default 1`] = `
   }
 >
   <div
-    className="sc-cxNHIi laQfgm"
+    className="sc-hAcGzb kzLetd"
     data-testid="header"
   >
     <a
       aria-label="go to home page"
-      className="sc-lmgQwP jEXDVh"
+      className="sc-kYHfwS laOJvu"
       href="/"
       onClick={[Function]}
     >
       <div
-        className="sc-ksluID dvxesW"
+        className="sc-bilyIR bOZwfU"
       >
         <svg
-          className="sc-bqGGPW esLgHQ"
+          className="sc-uojGG hNUAPL"
           fill="none"
           viewBox="0 0 23 20"
         >
@@ -419,26 +420,26 @@ exports[`Storyshots Components/Header Default 1`] = `
           />
         </svg>
         <h4
-          className="sc-dlnjwi RvkrQ sc-hBMUJo huJPZv"
+          className="sc-gsDKAQ dWWSwS sc-eGPXGI kwRYLn"
         >
           MealDrop
         </h4>
       </div>
     </a>
     <div
-      className="sc-iJCRrE dsNkDs"
+      className="sc-xiLah caetdy"
     >
       <span
         className="navigation-items"
       >
         <button
           aria-label="turn on dark mode"
-          className="sc-gKAaRy bWYFbq"
+          className="sc-dlVxhl hCHqCI"
           onClick={[Function]}
           type="button"
         >
           <svg
-            className="sc-eCApnc dhXBmw"
+            className="sc-dJjYzT eOfYGC"
             height="1.5rem"
             stroke="#2C2C2C "
             style={
@@ -459,7 +460,7 @@ exports[`Storyshots Components/Header Default 1`] = `
           tabIndex={-1}
         >
           <button
-            className="sc-gKAaRy fSsqXo"
+            className="sc-dlVxhl jWTTFi"
             type="button"
           >
             Home
@@ -471,7 +472,7 @@ exports[`Storyshots Components/Header Default 1`] = `
           tabIndex={-1}
         >
           <button
-            className="sc-gKAaRy fSsqXo"
+            className="sc-dlVxhl jWTTFi"
             type="button"
           >
             All restaurants
@@ -480,12 +481,12 @@ exports[`Storyshots Components/Header Default 1`] = `
       </span>
       <button
         aria-label="food cart"
-        className="sc-gKAaRy hmPRbp"
+        className="sc-dlVxhl bYasiv"
         onClick={[Function]}
         type="button"
       >
         <svg
-          className="sc-eCApnc dhXBmw"
+          className="sc-dJjYzT eOfYGC"
           height="1.5rem"
           stroke="#FFFFFF "
           style={
@@ -508,11 +509,11 @@ exports[`Storyshots Components/Header Default 1`] = `
 exports[`Storyshots Components/IconButton Default 1`] = `
 <button
   aria-label="forward"
-  className="sc-kLojOw cLcIrK"
+  className="sc-cTAqQK EdzIK"
   type="button"
 >
   <svg
-    className="sc-eCApnc dhXBmw"
+    className="sc-dJjYzT eOfYGC"
     height={24}
     stroke="#202020"
     style={
@@ -531,35 +532,35 @@ exports[`Storyshots Components/IconButton Default 1`] = `
 
 exports[`Storyshots Components/OrderSummary Default 1`] = `
 <div
-  className="sc-jgPyTC jPXdga"
+  className="sc-dvQaRk gOBXWZ"
 >
   <h2
-    className="sc-dlnjwi leZDup sc-hTRkXV ilrNJT"
+    className="sc-gsDKAQ gXMQwD sc-fWCJzd dWueft"
   >
     Your order
   </h2>
   <div
-    className="sc-iNiQyp dXWLEc"
+    className="sc-ZOtfp ekduDK"
   >
     <div
-      className="sc-bBjRSN dWXAys"
+      className="sc-gGCDDS iPJmom"
     >
       <span
-        className="sc-gtsrHT cyChxW sc-cOifOu bFcRKE"
+        className="sc-bdvvtL eMIAGF sc-clIzBv jdwou"
         fontWeight="regular"
         size=""
       >
         1
       </span>
       <span
-        className="sc-gtsrHT cyChxW sc-Arkif kOLbPt"
+        className="sc-bdvvtL eMIAGF sc-faUpoM ipGkSt"
         fontWeight="regular"
         size=""
       >
         Fries
       </span>
       <span
-        className="sc-gtsrHT cyChxW sc-khIgEk kwdKki"
+        className="sc-bdvvtL eMIAGF sc-Galmp jNhOJl"
         fontWeight="regular"
         size=""
       >
@@ -567,24 +568,24 @@ exports[`Storyshots Components/OrderSummary Default 1`] = `
       </span>
     </div>
     <div
-      className="sc-bBjRSN dWXAys"
+      className="sc-gGCDDS iPJmom"
     >
       <span
-        className="sc-gtsrHT cyChxW sc-cOifOu bFcRKE"
+        className="sc-bdvvtL eMIAGF sc-clIzBv jdwou"
         fontWeight="regular"
         size=""
       >
         1
       </span>
       <span
-        className="sc-gtsrHT cyChxW sc-Arkif kOLbPt"
+        className="sc-bdvvtL eMIAGF sc-faUpoM ipGkSt"
         fontWeight="regular"
         size=""
       >
         Cheeseburger
       </span>
       <span
-        className="sc-gtsrHT cyChxW sc-khIgEk kwdKki"
+        className="sc-bdvvtL eMIAGF sc-Galmp jNhOJl"
         fontWeight="regular"
         size=""
       >
@@ -592,24 +593,24 @@ exports[`Storyshots Components/OrderSummary Default 1`] = `
       </span>
     </div>
     <div
-      className="sc-bBjRSN dWXAys"
+      className="sc-gGCDDS iPJmom"
     >
       <span
-        className="sc-gtsrHT cyChxW sc-cOifOu bFcRKE"
+        className="sc-bdvvtL eMIAGF sc-clIzBv jdwou"
         fontWeight="regular"
         size=""
       >
         1
       </span>
       <span
-        className="sc-gtsrHT cyChxW sc-Arkif kOLbPt"
+        className="sc-bdvvtL eMIAGF sc-faUpoM ipGkSt"
         fontWeight="regular"
         size=""
       >
         Vanilla ice cream
       </span>
       <span
-        className="sc-gtsrHT cyChxW sc-khIgEk kwdKki"
+        className="sc-bdvvtL eMIAGF sc-Galmp jNhOJl"
         fontWeight="regular"
         size=""
       >
@@ -617,24 +618,24 @@ exports[`Storyshots Components/OrderSummary Default 1`] = `
       </span>
     </div>
     <div
-      className="sc-bBjRSN dWXAys"
+      className="sc-gGCDDS iPJmom"
     >
       <span
-        className="sc-gtsrHT cyChxW sc-cOifOu bFcRKE"
+        className="sc-bdvvtL eMIAGF sc-clIzBv jdwou"
         fontWeight="regular"
         size=""
       >
         1
       </span>
       <span
-        className="sc-gtsrHT cyChxW sc-Arkif kOLbPt"
+        className="sc-bdvvtL eMIAGF sc-faUpoM ipGkSt"
         fontWeight="regular"
         size=""
       >
         Coca-Cola
       </span>
       <span
-        className="sc-gtsrHT cyChxW sc-khIgEk kwdKki"
+        className="sc-bdvvtL eMIAGF sc-Galmp jNhOJl"
         fontWeight="regular"
         size=""
       >
@@ -642,24 +643,24 @@ exports[`Storyshots Components/OrderSummary Default 1`] = `
       </span>
     </div>
     <div
-      className="sc-bBjRSN dWXAys"
+      className="sc-gGCDDS iPJmom"
     >
       <span
-        className="sc-gtsrHT cyChxW sc-cOifOu bFcRKE"
+        className="sc-bdvvtL eMIAGF sc-clIzBv jdwou"
         fontWeight="regular"
         size=""
       >
         1
       </span>
       <span
-        className="sc-gtsrHT cyChxW sc-Arkif kOLbPt"
+        className="sc-bdvvtL eMIAGF sc-faUpoM ipGkSt"
         fontWeight="regular"
         size=""
       >
         Fanta
       </span>
       <span
-        className="sc-gtsrHT cyChxW sc-khIgEk kwdKki"
+        className="sc-bdvvtL eMIAGF sc-Galmp jNhOJl"
         fontWeight="regular"
         size=""
       >
@@ -667,24 +668,24 @@ exports[`Storyshots Components/OrderSummary Default 1`] = `
       </span>
     </div>
     <div
-      className="sc-bBjRSN dWXAys"
+      className="sc-gGCDDS iPJmom"
     >
       <span
-        className="sc-gtsrHT cyChxW sc-cOifOu bFcRKE"
+        className="sc-bdvvtL eMIAGF sc-clIzBv jdwou"
         fontWeight="regular"
         size=""
       >
         1
       </span>
       <span
-        className="sc-gtsrHT cyChxW sc-Arkif kOLbPt"
+        className="sc-bdvvtL eMIAGF sc-faUpoM ipGkSt"
         fontWeight="regular"
         size=""
       >
         Sprite
       </span>
       <span
-        className="sc-gtsrHT cyChxW sc-khIgEk kwdKki"
+        className="sc-bdvvtL eMIAGF sc-Galmp jNhOJl"
         fontWeight="regular"
         size=""
       >
@@ -693,17 +694,17 @@ exports[`Storyshots Components/OrderSummary Default 1`] = `
     </div>
   </div>
   <div
-    className="sc-gSYDnn jqjcBB"
+    className="sc-TBWPX jBuQFi"
   >
     <p
-      className="sc-gtsrHT cyChxW"
+      className="sc-bdvvtL eMIAGF"
       fontWeight="regular"
       size=""
     >
       Total
     </p>
     <h2
-      className="sc-dlnjwi leZDup sc-hTRkXV eoOHZn"
+      className="sc-gsDKAQ gXMQwD sc-fWCJzd fhEUXd"
     >
       €17.75
     </h2>
@@ -713,13 +714,13 @@ exports[`Storyshots Components/OrderSummary Default 1`] = `
 
 exports[`Storyshots Components/PageSection Default 1`] = `
 <div
-  className="sc-gXfVKN bHwrYR container-desktop"
+  className="sc-jObWnj jjuOBc container-desktop"
 >
   <div
-    className="sc-cBoqAE czroSA"
+    className="sc-dPiLbb dpblKd"
   >
     <h2
-      className="sc-dlnjwi leZDup"
+      className="sc-gsDKAQ gXMQwD"
     >
       Asian
     </h2>
@@ -732,7 +733,7 @@ exports[`Storyshots Components/PageSection Default 1`] = `
 
 exports[`Storyshots Components/RestaurantCard Default 1`] = `
 <div
-  className="sc-jcwpoC cjlWxN"
+  className="sc-egiyK icJZtF"
   data-testid="restaurant-card"
 >
   <div
@@ -745,25 +746,25 @@ exports[`Storyshots Components/RestaurantCard Default 1`] = `
   >
     <img
       alt="restaurant"
-      className="sc-efHYUO cqUTDk"
+      className="sc-fotOHu jLcCjg"
       loading="lazy"
       src="https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1003&q=20"
     />
   </div>
   <div
-    className="sc-carFqZ fownto"
+    className="sc-bqiRlB irQDHE"
   >
     <h2
-      className="sc-dlnjwi leZDup sc-dPaNzc cZykxx"
+      className="sc-gsDKAQ gXMQwD sc-ieecCq hThQmk"
     >
       Burger King
        
     </h2>
     <div
-      className="sc-ciSkZP cDKjYF"
+      className="sc-crHmcD llfpGV"
     >
       <span
-        className="sc-gtsrHT hYJYoC review-text"
+        className="sc-bdvvtL eBjqRR review-text"
         fontWeight="regular"
         size="S"
       >
@@ -771,17 +772,17 @@ exports[`Storyshots Components/RestaurantCard Default 1`] = `
       </span>
     </div>
     <p
-      className="sc-gtsrHT cyChxW sc-cTJkRt gHCqef"
+      className="sc-bdvvtL eMIAGF sc-fFeiMQ czcCJA"
       fontWeight="regular"
       size=""
     >
       Nicest place for burgers
     </p>
     <div
-      className="sc-hKFxyN cmsIun sc-jNnpgg bHvaHW"
+      className="sc-iqseJM eiMYDz sc-bkkeKt IJYNz"
     >
       <span
-        className="sc-gtsrHT hYJYoC"
+        className="sc-bdvvtL eBjqRR"
         fontWeight="regular"
         size="S"
       >
@@ -794,10 +795,10 @@ exports[`Storyshots Components/RestaurantCard Default 1`] = `
 
 exports[`Storyshots Components/Review Default 1`] = `
 <div
-  className="sc-ciSkZP cDKjYF"
+  className="sc-crHmcD llfpGV"
 >
   <span
-    className="sc-gtsrHT hYJYoC review-text"
+    className="sc-bdvvtL eBjqRR review-text"
     fontWeight="regular"
     size="S"
   >
@@ -815,7 +816,7 @@ exports[`Storyshots Components/Spinner Default 1`] = `
   }
 >
   <svg
-    className="sc-jffHpj fJLthS"
+    className="sc-cxpSdN fnhyRf"
     preserveAspectRatio="xMidYMid"
     viewBox="0 0 100 100"
     xmlns="http://www.w3.org/2000/svg"
@@ -944,10 +945,10 @@ exports[`Storyshots Components/Spinner Default 1`] = `
 
 exports[`Storyshots Components/TopBanner Default 1`] = `
 <div
-  className="sc-oeezt clWeHL"
+  className="sc-hKwDye jeEYRB"
 >
   <h1
-    className="sc-dlnjwi bFJKAC sc-eJocfa fmpety"
+    className="sc-gsDKAQ eMjElI sc-dkPtRN kOpKNy"
   >
     Categories
   </h1>
@@ -957,28 +958,28 @@ exports[`Storyshots Components/TopBanner Default 1`] = `
 exports[`Storyshots Components/Typography/Body Default 1`] = `
 <div>
   <p
-    className="sc-gtsrHT cyChxW"
+    className="sc-bdvvtL eMIAGF"
     fontWeight="regular"
     size=""
   >
     Body
   </p>
   <p
-    className="sc-gtsrHT hYJYoC"
+    className="sc-bdvvtL eBjqRR"
     fontWeight="regular"
     size="S"
   >
     Body S
   </p>
   <p
-    className="sc-gtsrHT gOxkGI"
+    className="sc-bdvvtL iqupKX"
     fontWeight="regular"
     size="XS"
   >
     Body XS
   </p>
   <p
-    className="sc-gtsrHT fGjXqo"
+    className="sc-bdvvtL ciRycL"
     fontWeight="regular"
     size="XXS"
   >
@@ -990,22 +991,22 @@ exports[`Storyshots Components/Typography/Body Default 1`] = `
 exports[`Storyshots Components/Typography/Heading Default 1`] = `
 <div>
   <h1
-    className="sc-dlnjwi bFJKAC"
+    className="sc-gsDKAQ eMjElI"
   >
     Heading 1
   </h1>
   <h2
-    className="sc-dlnjwi leZDup"
+    className="sc-gsDKAQ gXMQwD"
   >
     Heading 2
   </h2>
   <h3
-    className="sc-dlnjwi hWnTMa"
+    className="sc-gsDKAQ ecHDGc"
   >
     Heading 3
   </h3>
   <h4
-    className="sc-dlnjwi RvkrQ"
+    className="sc-gsDKAQ dWWSwS"
   >
     Heading 4
   </h4>
