@@ -1,4 +1,4 @@
-import { useState, useEffect, memo, useCallback } from 'react'
+import { VFC, useState, useEffect, memo, useCallback } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 
@@ -94,7 +94,7 @@ const useFetchRestaurant = (id: string) => {
   }
 }
 
-export const RestaurantDetailPage = () => {
+export const RestaurantDetailPage: VFC = () => {
   const { id = '' } = useParams<'id'>()
 
   const navigate = useNavigate()
