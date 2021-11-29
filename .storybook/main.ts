@@ -12,4 +12,8 @@ module.exports = {
     'storybook-addon-designs',
     'storybook-mobile',
   ],
+  features: {
+    storyStoreV7: true,
+    interactionsDebugger: true,
+  },
 }
