@@ -76,7 +76,7 @@ export const RestaurantsSection = ({ title }: RestaurantsSectionProps) => {
         itemClass="carousel-item"
       >
         {isLoading
-          ? Array.from(Array(3)).map(() => <RestaurantCardSkeleton />)
+          ? Array.from(Array(3)).map((index) => <RestaurantCardSkeleton key={index} />)
           : restaurants.map((restaurant: Restaurant, index: number) => (
               <RestaurantCard
                 key={restaurant.name + index}

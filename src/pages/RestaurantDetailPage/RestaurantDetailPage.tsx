@@ -224,3 +224,4 @@ const FoodSection = memo(({ title, cartItems, items, onItemClick }: FoodSectionP
     </StyledContainer>
   </div>
 ))
+FoodSection.displayName = 'FoodSection'
