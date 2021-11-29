@@ -17,7 +17,7 @@ const Image = styled.div<{ src: string }>(
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: 100%;
-    position: fixed;
+    position: relative;
     margin: 0 auto;
     bottom: 0;
     right: 0;
@@ -48,7 +48,7 @@ const OrderSummaryContainer = styled.div`
   max-width: 400px;
   margin: 0 auto;
   margin-top: 2.5rem;
-  margin-bottom: 12.5rem;
+  margin-bottom: 1.5rem;
   text-align: left;
 `
 

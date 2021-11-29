@@ -74,3 +74,4 @@ export const FoodItem = memo(
     </Container>
   )
 )
+FoodItem.displayName = 'FoodItem'

@@ -3,7 +3,12 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb-typescript', 'plugin:prettier/recommended'],
+  extends: [
+    'plugin:react/recommended',
+    'airbnb-typescript',
+    'plugin:prettier/recommended',
+    'plugin:storybook/recommended',
+  ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -13,13 +18,15 @@ module.exports = {
     sourceType: 'module',
     project: 'tsconfig.eslint.json',
   },
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['react', '@typescript-eslint', 'import'],
   settings: {
     react: {
       version: 'detect',
     },
   },
   rules: {
+    'import/no-extraneous-dependencies': 'off',
+    'import/no-anonymous-default-export': 'error',
     'prettier/prettier': 'warn',
     'import/order': ['error', { 'newlines-between': 'always' }],
     '@typescript-eslint/no-use-before-define': 'off',
@@ -31,7 +38,6 @@ module.exports = {
     'react/require-default-props': 'off',
     'react/jsx-props-no-spreading': 'off',
     'no-nested-ternary': 'off',
-    'import/no-extraneous-dependencies': 'off',
     'no-console': 'off',
     '@typescript-eslint/no-unused-vars': 'off',
     'react/no-unused-prop-types': 'off',

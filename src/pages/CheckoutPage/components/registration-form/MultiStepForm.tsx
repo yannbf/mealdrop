@@ -9,13 +9,13 @@ import { StepIndicator } from './StepIndicator'
 const steps: Step[] = [{ id: 'Contact details' }, { id: 'Delivery details' }]
 
 const defaultData = {
-  firstName: 'John',
-  lastName: 'Doe',
-  address: 'Somestreet 14',
-  city: 'Amsterdam',
-  postcode: '1043DX',
-  email: 'email@domain.com',
-  phone: '0612345678',
+  firstName: '',
+  lastName: '',
+  address: '',
+  city: '',
+  postcode: '',
+  email: '',
+  phone: '',
 }
 
 const getCurrentStep = (step: string, props: any) => {

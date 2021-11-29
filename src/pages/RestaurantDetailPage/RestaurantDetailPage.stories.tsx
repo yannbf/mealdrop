@@ -1,8 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { expect } from '@storybook/jest'
+import { within, userEvent, waitForElementToBeRemoved } from '@storybook/testing-library'
 import { rest } from 'msw'
 
 import { BASE_URL } from '../../api'
 import { StickyHeaderTemplate } from '../../templates/PageTemplate'
+import { animatedUserEventClick } from '../../../.storybook/interaction'
 import { restaurants } from '../../stub/restaurants'
 
 import { RestaurantDetailPage } from './RestaurantDetailPage'
@@ -51,3 +54,46 @@ export const Loading = Template.bind({})
 Loading.parameters = {
   msw: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.delay('infinite')))],
 }
+
+export const SelectingAndUpdatingItems = Template.bind({})
+SelectingAndUpdatingItems.parameters = {
+  msw: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json(restaurants[0])))],
+}
+SelectingAndUpdatingItems.args = {
+  demoMode: false,
+}
+SelectingAndUpdatingItems.argTypes = {
+  demoMode: {
+    control: { type: 'boolean' },
+  },
+}
+SelectingAndUpdatingItems.play = async ({ canvasElement, args }) => {
+  // @ts-ignore
+  const clickEvent = args.demoMode === true ? animatedUserEventClick : userEvent.click
+  const canvas = within(canvasElement)
+
+  await waitForElementToBeRemoved(await canvas.findByText('Looking for some food...'))
+
+  const foodItem = await canvas.findByText(/Cheeseburger/i)
+  await clickEvent(foodItem)
+
+  const modalButton = await canvas.findByLabelText('increase quantity by one')
+  await clickEvent(modalButton)
+  await clickEvent(modalButton)
+  await clickEvent(canvas.getByLabelText('confirm'))
+
+  const cheeseburgerItem = within(foodItem.parentElement!)
+
+  await expect(cheeseburgerItem.getByLabelText('food quantity').textContent).toEqual('3')
+
+  await clickEvent(canvas.getByLabelText('food cart'))
+  const sidebar = await within(canvasElement).findByTestId('sidebar')
+
+  const foodItemSelector: HTMLSelectElement = within(sidebar).getByRole('combobox')
+  await expect(foodItemSelector.value).toEqual('3')
+  await userEvent.selectOptions(foodItemSelector, '2')
+
+  await clickEvent(canvas.getByLabelText('close sidebar'))
+  await expect(cheeseburgerItem.getByLabelText('food quantity').textContent).toEqual('2')
+}
+SelectingAndUpdatingItems.storyName = '▶️ Selecting and updating items'

@@ -18,14 +18,14 @@ export const ContactDetails = ({ setForm, formData, navigation }: any) => {
   return (
     <div className="form">
       <Input
-        label="First Name"
+        label="First name"
         placeholder="John"
         name="firstName"
         value={firstName}
         onChange={setForm}
       />
       <Input
-        label="Last Name"
+        label="Last name"
         placeholder="Doe"
         name="lastName"
         value={lastName}
