@@ -7,7 +7,7 @@ export default {
   component: Badge,
   parameters: {
     design: {
-      type: 'experimental-figspec',
+      type: 'figspec',
       url: 'https://www.figma.com/file/XW4Bcjmj3JOILjKmZjjdQd/Mealdrop?node-id=780%3A2938',
     },
   },
@@ -17,5 +17,5 @@ const Template: ComponentStory<typeof Badge> = (args) => <Badge {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  text: 'Hamburgers',
+  text: 'Comfort food',
 }

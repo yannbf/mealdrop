@@ -8,7 +8,7 @@ export default {
   parameters: {
     layout: 'fullscreen',
     design: {
-      type: 'experimental-figspec',
+      type: 'figspec',
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=426%3A3444',
     },
   },
