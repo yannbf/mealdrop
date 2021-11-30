@@ -53,7 +53,7 @@ export const restaurants: Restaurant[] = [
     photoUrl:
       'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1003&q=20',
     rating: 4.2,
-    categories: ['comfort-food'],
+    categories: ['comfort food'],
     menu: {
       food,
       dessert,
@@ -84,7 +84,7 @@ export const restaurants: Restaurant[] = [
     address: 'Brouwersgracht 119 1015 GD Amsterdam',
     specialty: 'Olive oil',
     photoUrl: 'https://duyt4h9nfnj50.cloudfront.net/search_home/FastFood.jpg',
-    categories: ['comfort-food'],
+    categories: ['comfort food'],
     menu: {
       food,
       dessert,
@@ -100,7 +100,7 @@ export const restaurants: Restaurant[] = [
     address: 'GASTHUISMOLENSTEEG 9 1016 AM AMSTERDAM',
     specialty: 'Pastrami sandwiches',
     photoUrl: 'https://duyt4h9nfnj50.cloudfront.net/search_home/FastFood.jpg',
-    categories: ['comfort-food'],
+    categories: ['comfort food'],
     isNew: true,
     menu: {
       food,
@@ -194,7 +194,7 @@ export const restaurants: Restaurant[] = [
     specialty: 'expensive dinners',
     photoUrl:
       'https://images.pexels.com/photos/6267/menu-restaurant-vintage-table.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    categories: ['comfort-food'],
+    categories: ['comfort food'],
     menu: {
       food,
       dessert,

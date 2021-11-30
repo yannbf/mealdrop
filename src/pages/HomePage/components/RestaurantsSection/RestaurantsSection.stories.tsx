@@ -17,7 +17,7 @@ const Template: ComponentStory<typeof RestaurantsSection> = (args) => (
 
 export const Default = Template.bind({})
 Default.args = {
-  title: 'Near you',
+  title: 'Our favorite picks',
 }
 Default.parameters = {
   msw: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json(restaurants)))],
