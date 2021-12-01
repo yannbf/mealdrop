@@ -24,16 +24,22 @@ const Template: ComponentStory<typeof CategoryDetailPage> = () => (
 
 export const Default = Template.bind({})
 Default.parameters = {
-  msw: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json([restaurants[0]])))],
+  msw: {
+    handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json([restaurants[0]])))],
+  },
 }
 
 export const Loading = Template.bind({})
 Loading.parameters = {
-  msw: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.delay('infinite')))],
+  msw: {
+    handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.delay('infinite')))],
+  },
 }
 
 export const Missing = Template.bind({})
 Missing.parameters = {
   deeplink: { route: '/categories/wrong', path: '/categories/:id' },
-  msw: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json([])))],
+  msw: {
+    handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json([])))],
+  },
 }

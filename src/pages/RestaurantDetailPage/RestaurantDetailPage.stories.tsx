@@ -37,27 +37,37 @@ const Template: ComponentStory<typeof RestaurantDetailPage> = () => (
 
 export const Success = Template.bind({})
 Success.parameters = {
-  msw: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json(restaurants[0])))],
+  msw: {
+    handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json(restaurants[0])))],
+  },
 }
 
 export const NotFound = Template.bind({})
 NotFound.parameters = {
-  msw: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.status(404)))],
+  msw: {
+    handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.status(404)))],
+  },
 }
 
 export const Error = Template.bind({})
 Error.parameters = {
-  msw: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.status(500)))],
+  msw: {
+    handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.status(500)))],
+  },
 }
 
 export const Loading = Template.bind({})
 Loading.parameters = {
-  msw: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.delay('infinite')))],
+  msw: {
+    handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.delay('infinite')))],
+  },
 }
 
 export const SelectingAndUpdatingItems = Template.bind({})
 SelectingAndUpdatingItems.parameters = {
-  msw: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json(restaurants[0])))],
+  msw: {
+    handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json(restaurants[0])))],
+  },
 }
 SelectingAndUpdatingItems.args = {
   demoMode: false,

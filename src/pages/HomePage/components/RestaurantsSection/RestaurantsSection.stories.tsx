@@ -20,7 +20,9 @@ Default.args = {
   title: 'Our favorite picks',
 }
 Default.parameters = {
-  msw: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json(restaurants)))],
+  msw: {
+    handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json(restaurants)))],
+  },
 }
 
 export const Loading = Template.bind({})
@@ -28,5 +30,7 @@ Loading.args = {
   ...Default.args,
 }
 Loading.parameters = {
-  msw: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.delay('infinite')))],
+  msw: {
+    handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.delay('infinite')))],
+  },
 }

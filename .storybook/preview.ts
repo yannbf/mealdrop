@@ -1,13 +1,12 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import { withDesign } from 'storybook-addon-designs'
-// @ts-ignore This addon has no types unfortunately
 import { initialize, mswDecorator } from 'msw-storybook-addon'
 
 import { customDecorators } from './decorators'
 import { viewports as breakpoints } from '../src/styles/breakpoints'
 
 initialize({
-  onUnhandledRequest: ({ method, url }: any) => {
+  onUnhandledRequest: ({ method, url }) => {
     if (url.pathname.startsWith('/.netlify/functions')) {
       console.error(`Unhandled ${method} request to ${url}.
 

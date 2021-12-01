@@ -13,23 +13,25 @@ export default {
   parameters: {
     layout: 'fullscreen',
     deeplink: { route: '/', path: '/' },
-    msw: [
-      rest.get(BASE_URL, (req, res, ctx) => {
-        const id = req.url.searchParams.get('id')
-        const category = req.url.searchParams.get('category')
+    msw: {
+      handlers: [
+        rest.get(BASE_URL, (req, res, ctx) => {
+          const id = req.url.searchParams.get('id')
+          const category = req.url.searchParams.get('category')
 
-        console.log({ id, category })
-        if (id) {
-          return res(ctx.json(restaurants[0]))
-        }
+          console.log({ id, category })
+          if (id) {
+            return res(ctx.json(restaurants[0]))
+          }
 
-        if (category) {
-          return res(ctx.json([restaurants[0], restaurants[1], restaurants[2]]))
-        }
+          if (category) {
+            return res(ctx.json([restaurants[0], restaurants[1], restaurants[2]]))
+          }
 
-        return res(ctx.json(restaurants))
-      }),
-    ],
+          return res(ctx.json(restaurants))
+        }),
+      ],
+    },
   },
   argTypes: {
     demoMode: {

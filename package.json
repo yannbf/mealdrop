@@ -89,7 +89,7 @@
     "jest-canvas-mock": "^2.3.1",
     "lint-staged": ">=10",
     "msw": "^0.29.0",
-    "msw-storybook-addon": "^1.4.1",
+    "msw-storybook-addon": "^1.5.0",
     "prettier": "^2.3.2",
     "react-is": "^17.0.2",
     "react-test-renderer": "^17.0.2",
