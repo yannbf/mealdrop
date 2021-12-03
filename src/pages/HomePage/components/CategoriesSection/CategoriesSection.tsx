@@ -42,7 +42,7 @@ export const CategoriesSection = ({ categories }: CategoriesSectionProps) => {
         customRightArrow={<NextButton name="arrow-right" />}
         responsive={{
           desktop: {
-            breakpoint: { max: 3000, min: 1024 },
+            breakpoint: { max: 5000, min: 1024 },
             items: 6,
             slidesToSlide: 3,
             paritialVisibilityGutter: 80,

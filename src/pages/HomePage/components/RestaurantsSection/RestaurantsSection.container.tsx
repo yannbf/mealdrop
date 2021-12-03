@@ -48,7 +48,7 @@ export const RestaurantsSectionComponent = ({
         customRightArrow={<NextButton name="arrow-right" />}
         responsive={{
           desktop: {
-            breakpoint: { max: 3000, min: 1024 },
+            breakpoint: { max: 5000, min: 1024 },
             items: 3,
             slidesToSlide: 3,
           },
