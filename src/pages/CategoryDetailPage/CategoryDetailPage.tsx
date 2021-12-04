@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
+import { useFetchRestaurantsByCategory } from 'api/hooks'
 
 import { api } from '../../api'
 import { RestaurantCard, RestaurantCardSkeleton } from '../../components/RestaurantCard'
@@ -31,21 +32,7 @@ export const CategoryDetailPage = () => {
   const { id } = useParams<'id'>()
   const navigate = useNavigate()
 
-  const [restaurants, setRestaurants] = useState<Restaurant[]>([])
-  const [isLoading, setIsLoading] = useState(false)
-
-  useEffect(() => {
-    if (id) {
-      setIsLoading(true)
-      const getData = async () => {
-        const data = await api.getRestaurantsByCategory(id)
-        setRestaurants(data)
-        setIsLoading(false)
-      }
-
-      getData()
-    }
-  }, [id])
+  const { restaurants, status } = useFetchRestaurantsByCategory(id)
 
   const category = categories.find((cat) => cat.id === id)
 
@@ -66,7 +53,7 @@ export const CategoryDetailPage = () => {
             {category?.title.toLowerCase()}
           </p>
         </Breadcrumb>
-        {!isLoading && restaurants.length <= 0 && (
+        {status === 'success' && restaurants.length <= 0 && (
           <ErrorBlock
             body="It seems that there are no restaurants in this category yet. Try to come back later?"
             title="This is not the food you’re looking for."
@@ -78,7 +65,7 @@ export const CategoryDetailPage = () => {
           />
         )}
         <StyledContainer>
-          {isLoading
+          {status === 'loading'
             ? Array.from(Array(3)).map((index) => <RestaurantCardSkeleton key={index} />)
             : restaurants.map((restaurant: Restaurant, index: number) => (
                 <RestaurantCard

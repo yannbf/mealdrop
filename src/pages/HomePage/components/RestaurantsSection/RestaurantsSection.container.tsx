@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom'
 import Carousel from 'react-multi-carousel'
+import { useFetchRestaurants } from 'api/hooks'
 
 import { api } from '../../../../api'
 import { IconButton } from '../../../../components/IconButton'
@@ -85,30 +86,13 @@ export const RestaurantsSectionComponent = ({
 export const RestaurantsSection = ({ title }: RestaurantsSectionProps) => {
   const navigate = useNavigate()
 
-  const [restaurants, setRestaurants] = useState<Restaurant[]>([])
-  const [isLoading, setIsLoading] = useState(false)
-
-  useEffect(() => {
-    const getData = async () => {
-      setIsLoading(true)
-      try {
-        const data = await api.getRestaurants()
-        setRestaurants(data)
-      } catch (err) {
-        console.error(err)
-      } finally {
-        setIsLoading(false)
-      }
-    }
-
-    getData()
-  }, [])
+  const { restaurants, status } = useFetchRestaurants()
 
   return (
     <RestaurantsSectionComponent
       title={title}
       restaurants={restaurants}
-      isLoading={isLoading}
+      isLoading={status === 'loading'}
       onRestaurantClick={(id: string) => navigate(`/restaurants/${id}`)}
     />
   )

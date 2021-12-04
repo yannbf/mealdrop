@@ -1,6 +1,7 @@
 import { VFC, useState, useEffect, memo, useCallback } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import styled, { css } from 'styled-components'
+import { useFetchRestaurant } from 'api/hooks'
 
 import { useAppDispatch, useAppSelector } from '../../app-state'
 import { api } from '../../api'
@@ -62,37 +63,6 @@ const StyledBadge = styled(Badge)(
     margin-right: ${spacing.s};
   `
 )
-
-const useFetchRestaurant = (id: string) => {
-  const [status, setStatus] = useState('idle')
-  const [restaurant, setRestaurant] = useState<Restaurant>()
-  const [retry, setRetry] = useState(false)
-
-  const retryRequest = useCallback(() => {
-    setRetry((prev) => !prev)
-  }, [setRetry])
-
-  useEffect(() => {
-    setStatus('loading')
-
-    api
-      .getRestaurantById(id)
-      .then((res) => {
-        setStatus('success')
-        setRestaurant(res)
-      })
-      .catch((error) => {
-        const statusCode = error?.response?.status || 500
-        setStatus(statusCode.toString())
-      })
-  }, [id, retry])
-
-  return {
-    status,
-    restaurant,
-    retryRequest,
-  }
-}
 
 export const RestaurantDetailPage: VFC = () => {
   const { id = '' } = useParams<'id'>()

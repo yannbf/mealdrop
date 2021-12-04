@@ -53,27 +53,4 @@ class RestaurantsApi implements BaseApi {
   }
 }
 
-// class MockedRestaurantsApi implements BaseApi {
-//   async getRestaurants() {
-//     return restaurantsMock
-//   }
-//   async getRestaurantById(id: string) {
-//     return restaurantsMock.find(
-//       (restaurant) => restaurant.id === id
-//     ) as Restaurant
-//   }
-//   async getRestaurantsByCategory(category: string) {
-//     return restaurantsMock
-//       .filter((restaurant) =>
-//         restaurant.categories?.includes(category.toLowerCase())
-//       )
-//       .sort((restaurant) => (restaurant.isClosed ? 1 : -1))
-//       .sort((restaurant) => (restaurant.isNew ? -1 : 1))
-//   }
-// }
-
-// const api: BaseApi = isMockedEnvironment
-//   ? new MockedRestaurantsApi()
-//   : new RestaurantsApi()
-
 export const api = new RestaurantsApi()
