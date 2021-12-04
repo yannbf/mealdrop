@@ -17,5 +17,5 @@ jobs:
         uses: bahmutov/npm-install@v1
 
       - name: Run tests
-        run: |
+        run:
           yarn test:ci
