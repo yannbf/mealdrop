@@ -7,12 +7,26 @@ import styled, { css, ThemeProvider } from 'styled-components'
 import { DecoratorFn } from '@storybook/react'
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider as StoreProvider } from 'react-redux'
+import { initialize, mswDecorator } from 'msw-storybook-addon'
 
 import { rootReducer } from '../src/app-state'
 import { breakpoints } from '../src/styles/breakpoints'
 import { GlobalStyle } from '../src/styles/GlobalStyle'
 import { darkTheme, lightTheme } from '../src/styles/theme'
 import { AppRoutes } from '../src/Routes'
+
+initialize({
+  onUnhandledRequest: ({ method, url }) => {
+    if (url.pathname.startsWith('/.netlify/functions')) {
+      console.error(`Unhandled ${method} request to ${url}.
+
+        This exception has been only logged in the console, however, it's strongly recommended to resolve this error as you don't want unmocked data in Storybook stories.
+
+        If you wish to mock an error response, please refer to this guide: https://mswjs.io/docs/recipes/mocking-error-responses
+      `)
+    }
+  },
+})
 
 const ThemeBlock = styled.div<{ left?: boolean; fullScreen?: boolean }>(
   ({ left, fullScreen, theme: { color } }) =>
@@ -149,4 +163,4 @@ export const withRouter: DecoratorFn = (StoryFn, { parameters: { deeplink } }) =
 }
 
 // ordered from innermost to outermost, be careful with the order!
-export const customDecorators = [withRouter, withTheme, withStore]
+export const globalDecorators = [withRouter, withTheme, withStore]

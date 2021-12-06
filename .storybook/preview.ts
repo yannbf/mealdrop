@@ -1,22 +1,7 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
-import { withDesign } from 'storybook-addon-designs'
-import { initialize, mswDecorator } from 'msw-storybook-addon'
 
-import { customDecorators } from './decorators'
+import { globalDecorators } from './decorators'
 import { viewports as breakpoints } from '../src/styles/breakpoints'
-
-initialize({
-  onUnhandledRequest: ({ method, url }) => {
-    if (url.pathname.startsWith('/.netlify/functions')) {
-      console.error(`Unhandled ${method} request to ${url}.
-
-        This exception has been only logged in the console, however, it's strongly recommended to resolve this error as you don't want unmocked data in Storybook stories.
-
-        If you wish to mock an error response, please refer to this guide: https://mswjs.io/docs/recipes/mocking-error-responses
-      `)
-    }
-  },
-})
 
 // Create custom viewports using widths defined in design tokens
 const breakpointViewports = Object.keys(breakpoints).reduce((acc, key) => {
@@ -64,5 +49,4 @@ export const globalTypes = {
   },
 }
 
-// All custom decorators + addon decorators
-export const decorators = [...customDecorators, withDesign, mswDecorator]
+export const decorators = globalDecorators
