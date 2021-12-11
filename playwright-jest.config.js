@@ -15,9 +15,9 @@ module.exports = {
   globalSetup: '@storybook/test-runner/playwright/global-setup.js',
   globalTeardown: '@storybook/test-runner/playwright/global-teardown.js',
   testEnvironment: '@storybook/test-runner/playwright/custom-environment.js',
-  testEnvironmentOptions: {
-    'jest-playwright': {
-      browsers: ['firefox'],
-    },
-  },
+  // testEnvironmentOptions: {
+  //   'jest-playwright': {
+  //     browsers: ['firefox'],
+  //   },
+  // },
 };
