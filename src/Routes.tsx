@@ -1,8 +1,8 @@
 import { useLayoutEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
-import { CategoryListPage } from 'pages/CategoryListPage'
-import { CategoryDetailPage } from 'pages/CategoryDetailPage'
 
+import { CategoryListPage } from './pages/CategoryListPage'
+import { CategoryDetailPage } from './pages/CategoryDetailPage'
 import { RestaurantDetailPage } from './pages/RestaurantDetailPage'
 import { HomePage } from './pages/HomePage'
 import { CheckoutPage } from './pages/CheckoutPage'
