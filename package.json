@@ -64,7 +64,7 @@
     "@storybook/addon-essentials": "^6.4.0",
     "@storybook/addon-interactions": "^6.4.0",
     "@storybook/addon-storyshots": "^6.4.0",
-    "@storybook/jest": "link:../../open-source/jest",
+    "@storybook/jest": "^0.0.5",
     "@storybook/preset-create-react-app": "^3.1.7",
     "@storybook/react": "^6.4.0",
     "@storybook/testing-library": "^0.0.7",

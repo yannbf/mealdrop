@@ -2715,9 +2715,14 @@
     "@storybook/core-events" "6.4.8"
     global "^4.4.0"
 
-"@storybook/jest@link:../../open-source/jest":
-  version "0.0.0"
-  uid ""
+"@storybook/jest@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@storybook/jest/-/jest-0.0.5.tgz#b7513dc23d65a76c88b336f440b4d32e4fc9635e"
+  integrity sha512-aWpzNlmA80s4WqJBYi6zngba+IinUiePAhs5AomHPOyfu5tQXD/x+UMpjuKSrIsxsyftn1snBn7D7ZfZwrUbjw==
+  dependencies:
+    "@storybook/expect" storybook-jest
+    "@storybook/instrumenter" "6.4.0-rc.5"
+    jest-mock "^27.3.0"
 
 "@storybook/manager-webpack4@6.4.8":
   version "6.4.8"
