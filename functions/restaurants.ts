@@ -20,7 +20,7 @@ const headers = {
 export const handler = async (event: any) => {
   const { id, category } = event.queryStringParameters
 
-  if (id) {
+  if (id != null) {
     const restaurant = getRestaurantById(id)
 
     if (!restaurant) {
