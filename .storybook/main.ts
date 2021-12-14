@@ -17,4 +17,5 @@ module.exports = {
     storyStoreV7: true,
     interactionsDebugger: true,
   },
+  framework: '@storybook/react',
 }
