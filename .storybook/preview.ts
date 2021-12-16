@@ -1,7 +1,6 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import { withDesign } from 'storybook-addon-designs'
 import { initialize, mswDecorator } from 'msw-storybook-addon'
-
 import { customDecorators } from './decorators'
 import { viewports as breakpoints } from '../src/styles/breakpoints'
 
