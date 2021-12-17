@@ -4,9 +4,6 @@ on: push
 jobs:
   deployment:
     runs-on: ubuntu-latest
-    outputs:
-      full_output: ${{ steps.chromatic.outputs }}
-      storybook_url: ${{ steps.chromatic.outputs.storybookUrl }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -20,6 +17,9 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+    outputs:
+      full_output: ${{ steps.chromatic.outputs }}
+      storybook_url: ${{ steps.chromatic.outputs.storybookUrl }}
   test:
     needs: deployment
     timeout-minutes: 60
