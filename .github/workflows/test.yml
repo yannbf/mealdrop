@@ -1,7 +1,13 @@
 name: Playwright Tests
-on:
-  deployment_status:
+on: [deployment_status, deployment]
 jobs:
+  show-event:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
