@@ -14,8 +14,8 @@ jobs:
           fetch-depth: 0 # Required to retrieve git history
       - name: Install dependencies
         run: yarn
-      - id: chromatic
       - name: Publish to Chromatic
+        id: chromatic
         uses: chromaui/action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
