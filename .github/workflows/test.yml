@@ -24,4 +24,4 @@ jobs:
     - name: Run Playwright tests
       run: yarn test-storybook:playwright
       env:
-        TARGET_URL: ${{ github.event.deployment_status.storybookUrl }}
+        TARGET_URL: '${{ github.event.deployment_status.target_url }}/storybook'

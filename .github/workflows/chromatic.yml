@@ -2,7 +2,7 @@ name: "Chromatic"
 on: push
 
 jobs:
-  chromatic-deployment:
+  deployment:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -16,3 +16,22 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+  test:
+    needs: deployment
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '14.x'
+    - name: Dump output
+      run: echo ${{ toJson(needs.deployment.outputs) }}
+    - name: Install dependencies
+      run: yarn
+    - name: Install Playwright
+      run: npx playwright install --with-deps
+    - name: Run Playwright tests
+      run: yarn test-storybook:playwright
+      env:
+        TARGET_URL: ${{ needs.deployment.outputs.storybookUrl }}
