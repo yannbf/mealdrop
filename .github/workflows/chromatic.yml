@@ -17,9 +17,10 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+      - name: Set in env
+        run: echo "storybook_url=${{ steps.chromatic.outputs.storybookUrl }}" >> $GITHUB_ENV
     outputs:
-      full_output: ${{ steps.chromatic.outputs }}
-      storybook_url: ${{ steps.chromatic.outputs.storybookUrl }}
+      storybook_url: ${{ env.storybook_url }}
   test:
     needs: deployment
     timeout-minutes: 60
