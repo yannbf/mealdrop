@@ -12,10 +12,10 @@ jobs:
       with:
         node-version: '14.x'
     - name: Install dependencies
-      run: npm ci
+      run: yarn
     - name: Install Playwright
       run: npx playwright install --with-deps
     - name: Run Playwright tests
-      run: npm run test-storybook:playwright
+      run: yarn test-storybook:playwright
       env:
         TARGET_URL: ${{ github.event.deployment_status.storybookUrl }}
