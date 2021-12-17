@@ -12,6 +12,8 @@
     "@types/node": "^15.12.3",
     "@types/react-dom": "^17.0.8",
     "axios": "^0.21.1",
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hooks-helper": "^1.6.0",
@@ -27,6 +29,7 @@
     "use-dark-mode": "^2.3.1"
   },
   "scripts": {
+    "postinstall": "patch-package",
     "start": "react-scripts start",
     "build": "SKIP_PREFLIGHT_CHECK=true react-scripts build",
     "test": "react-scripts test",

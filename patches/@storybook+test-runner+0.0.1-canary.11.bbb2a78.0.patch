@@ -1,0 +1,13 @@
+diff --git a/node_modules/@storybook/test-runner/playwright/custom-environment.js b/node_modules/@storybook/test-runner/playwright/custom-environment.js
+index 05fb3ed..91a0457 100644
+--- a/node_modules/@storybook/test-runner/playwright/custom-environment.js
++++ b/node_modules/@storybook/test-runner/playwright/custom-environment.js
+@@ -16,7 +16,7 @@ class CustomEnvironment extends PlaywrightEnvironment {
+       }, will fallback to ${targetURL} instead.`)
+     }
+ 
+-    await page.goto(`${targetURL}/iframe.html`, { waitUntil: 'load' }).catch((err) => {
++    await page.goto(`${targetURL}/iframe.html`, { waitUntil: 'networkidle' }).catch((err) => {
+       if(err.message?.includes('ERR_CONNECTION_REFUSED')) {
+         const errorMessage = `Could not access the Storybook instance at ${targetURL}. Are you sure it's running?\n\n${err.message}`;
+         throw new Error(errorMessage)
