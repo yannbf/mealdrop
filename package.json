@@ -28,7 +28,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "SKIP_PREFLIGHTreact-scripts build",
+    "build": "SKIP_PREFLIGHT_CHECK=true react-scripts build",
     "test": "react-scripts test",
     "test:ci": "yarn test --watchAll=false",
     "eject": "react-scripts eject",
