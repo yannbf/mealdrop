@@ -1,13 +1,55 @@
 diff --git a/node_modules/@storybook/test-runner/playwright/custom-environment.js b/node_modules/@storybook/test-runner/playwright/custom-environment.js
-index 05fb3ed..91a0457 100644
+index 05fb3ed..b442dad 100644
 --- a/node_modules/@storybook/test-runner/playwright/custom-environment.js
 +++ b/node_modules/@storybook/test-runner/playwright/custom-environment.js
-@@ -16,7 +16,7 @@ class CustomEnvironment extends PlaywrightEnvironment {
-       }, will fallback to ${targetURL} instead.`)
-     }
+@@ -26,6 +26,8 @@ class CustomEnvironment extends PlaywrightEnvironment {
+     }); // FIXME: configure
+     console.log(`page loaded in ${new Date() - start}ms.`);
  
--    await page.goto(`${targetURL}/iframe.html`, { waitUntil: 'load' }).catch((err) => {
-+    await page.goto(`${targetURL}/iframe.html`, { waitUntil: 'networkidle' }).catch((err) => {
-       if(err.message?.includes('ERR_CONNECTION_REFUSED')) {
-         const errorMessage = `Could not access the Storybook instance at ${targetURL}. Are you sure it's running?\n\n${err.message}`;
-         throw new Error(errorMessage)
++    await page.exposeBinding('logToPage', (_, message) => console.log(message));
++
+     await page.addScriptTag({
+       content: `
+         class StorybookTestRunnerError extends Error {
+@@ -43,7 +45,41 @@ class CustomEnvironment extends PlaywrightEnvironment {
+           throw new StorybookTestRunnerError(storyId, errorMessage);
+         }
+ 
++        async function waitForElement(selector) {
++          let elementFound;
++          return new Promise((resolve, reject) => {
++
++            const timeout = setTimeout(() => {
++              reject();
++            }, 60000);
++
++            if (document.querySelector(selector)) {
++              clearTimeout(timeout);
++              return resolve(document.querySelector(selector));
++            }
++
++            const observer = new MutationObserver(mutations => {
++              if (document.querySelector(selector)) {
++                clearTimeout(timeout);
++                resolve(document.querySelector(selector));
++                observer.disconnect();
++              }
++            });
++
++            observer.observe(document.body, {
++              childList: true,
++              subtree: true
++            });
++          });
++      }
++
+         async function __test(storyId, hasPlayFn) {
++          try {
++            await waitForElement('#root');
++          } catch(err) {
++            throw new StorybookTestRunnerError(storyId, hasPlayFn, 'timed out waiting for Storybook to load after 60 seconds.\n\n\nHTML:' + document.body.innerHTML);
++          }
++
+           const channel = window.__STORYBOOK_ADDONS_CHANNEL__;
+           if(!channel) {
+             throw new StorybookTestRunnerError(
