@@ -3079,10 +3079,10 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/test-runner@0.0.1-canary.11.bbb2a78.0":
-  version "0.0.1-canary.11.bbb2a78.0"
-  resolved "https://registry.yarnpkg.com/@storybook/test-runner/-/test-runner-0.0.1-canary.11.bbb2a78.0.tgz#f2fdf36131055b387e0b75952118013fda37f66b"
-  integrity sha512-O40WMdxk4XFqW1lGQ61P8o2lV/VLmH6LOc9AiPrGv+m1CEAYb58MFYj6P8aB5UO5knZ7tbu0nOD1DtHynS45Tg==
+"@storybook/test-runner@0.0.1-canary.13.6742668.0":
+  version "0.0.1-canary.13.6742668.0"
+  resolved "https://registry.yarnpkg.com/@storybook/test-runner/-/test-runner-0.0.1-canary.13.6742668.0.tgz#fdd4846aa43765eb5acd624f6bc6398c7e5985ac"
+  integrity sha512-MZeUW8F5+ao6TvIKgIhHTppKiHnKFz6TnCGWTPTN7jhtwXH6UiWS4zxS7k5SqKqLcXmy5dGANzbai7IgFa5eJw==
   dependencies:
     "@storybook/csf" "0.0.2--canary.87bc651.0"
     "@storybook/csf-tools" "^6.4.0"
