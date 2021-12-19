@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 
-import { DefaultTemplate } from '../../templates/PageTemplate'
+import { PageTemplate } from '../../templates/PageTemplate'
 
 import { CategoryListPage } from './CategoryListPage'
 
@@ -13,9 +13,9 @@ export default {
 } as ComponentMeta<typeof CategoryListPage>
 
 const Template: ComponentStory<typeof CategoryListPage> = () => (
-  <DefaultTemplate>
+  <PageTemplate>
     <CategoryListPage />
-  </DefaultTemplate>
+  </PageTemplate>
 )
 
 export const Default = Template.bind({})

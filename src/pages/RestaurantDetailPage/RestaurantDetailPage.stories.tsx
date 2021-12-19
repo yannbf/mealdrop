@@ -4,7 +4,7 @@ import { within, userEvent, waitForElementToBeRemoved } from '@storybook/testing
 import { rest } from 'msw'
 
 import { BASE_URL } from '../../api'
-import { StickyHeaderTemplate } from '../../templates/PageTemplate'
+import { PageTemplate } from '../../templates/PageTemplate'
 import { animatedUserEventClick } from '../../../.storybook/interaction'
 import { restaurants } from '../../stub/restaurants'
 
@@ -29,9 +29,9 @@ export default {
 const Template: ComponentStory<typeof RestaurantDetailPage> = () => (
   <div>
     <div id="modal" />
-    <StickyHeaderTemplate>
+    <PageTemplate type="sticky-header">
       <RestaurantDetailPage />
-    </StickyHeaderTemplate>
+    </PageTemplate>
   </div>
 )
 

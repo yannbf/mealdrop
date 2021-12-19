@@ -8,27 +8,34 @@ const Container = styled.div`
   min-height: calc(100vh - 200px);
 `
 
-// TODO: Add Error boundary
+type PageTemplateProps = {
+  type?: 'default' | 'sticky-header' | 'basic'
+}
 
-export const DefaultTemplate: React.FC = ({ children }) => (
-  <>
-    <Header />
-    <Container>{children}</Container>
-    <Footer />
-  </>
-)
+export const PageTemplate: React.FC<PageTemplateProps> = ({ type = 'default', children }) => {
+  switch (type) {
+    case 'sticky-header':
+      return (
+        <>
+          <Header sticky />
+          <Container>{children}</Container>
+          <Footer />
+        </>
+      )
+    case 'basic':
+      return (
+        <>
+          <HeaderComponent logoOnly />
+          <Container>{children}</Container>
+        </>
+      )
+  }
 
-export const StickyHeaderTemplate: React.FC = ({ children }) => (
-  <>
-    <Header sticky />
-    <Container>{children}</Container>
-    <Footer />
-  </>
-)
-
-export const SimpleTemplate: React.FC = ({ children }) => (
-  <>
-    <HeaderComponent logoOnly />
-    <Container>{children}</Container>
-  </>
-)
+  return (
+    <>
+      <Header />
+      <Container>{children}</Container>
+      <Footer />
+    </>
+  )
+}

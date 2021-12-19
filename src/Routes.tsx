@@ -7,7 +7,7 @@ import { RestaurantDetailPage } from './pages/RestaurantDetailPage'
 import { HomePage } from './pages/HomePage'
 import { CheckoutPage } from './pages/CheckoutPage'
 import { SuccessPage } from './pages/SuccessPage'
-import { DefaultTemplate, SimpleTemplate, StickyHeaderTemplate } from './templates/PageTemplate'
+import { PageTemplate } from './templates/PageTemplate'
 
 export const AppRoutes: React.FC = ({ children }) => {
   const location = useLocation()
@@ -23,42 +23,42 @@ export const AppRoutes: React.FC = ({ children }) => {
         <Route
           path="/categories"
           element={
-            <DefaultTemplate>
+            <PageTemplate>
               <CategoryListPage />
-            </DefaultTemplate>
+            </PageTemplate>
           }
         />
         <Route
           path="/categories/:id"
           element={
-            <DefaultTemplate>
+            <PageTemplate>
               <CategoryDetailPage />
-            </DefaultTemplate>
+            </PageTemplate>
           }
         />
         <Route
           path="/restaurants/:id"
           element={
-            <StickyHeaderTemplate>
+            <PageTemplate type="sticky-header">
               <RestaurantDetailPage />
-            </StickyHeaderTemplate>
+            </PageTemplate>
           }
         />
         <Route path="/checkout" element={<CheckoutPage />} />
         <Route
           path="/success"
           element={
-            <SimpleTemplate>
+            <PageTemplate type="basic">
               <SuccessPage />
-            </SimpleTemplate>
+            </PageTemplate>
           }
         />
         <Route
           path="/"
           element={
-            <DefaultTemplate>
+            <PageTemplate>
               <HomePage />
-            </DefaultTemplate>
+            </PageTemplate>
           }
         />
         {children}

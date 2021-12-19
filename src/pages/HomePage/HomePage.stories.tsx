@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { rest } from 'msw'
 
-import { DefaultTemplate } from '../../templates/PageTemplate'
+import { PageTemplate } from '../../templates/PageTemplate'
 import { BASE_URL } from '../../api'
 import { restaurants } from '../../stub/restaurants'
 import { cartItems } from '../../stub/cart-items'
@@ -24,9 +24,9 @@ export default {
 } as ComponentMeta<typeof HomePage>
 
 const Template: ComponentStory<typeof HomePage> = () => (
-  <DefaultTemplate>
+  <PageTemplate>
     <HomePage />
-  </DefaultTemplate>
+  </PageTemplate>
 )
 
 export const Default = Template.bind({})
