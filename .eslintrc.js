@@ -28,7 +28,7 @@ module.exports = {
     'import/no-extraneous-dependencies': 'off',
     'import/no-anonymous-default-export': 'error',
     'prettier/prettier': 'warn',
-    'import/order': ['error', { 'newlines-between': 'always' }],
+    'import/order': ['warn', { 'newlines-between': 'always' }],
     '@typescript-eslint/no-use-before-define': 'off',
     'react/jsx-uses-react': 'off',
     'react/prop-types': 'off',
