@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { PageTemplate } from 'templates/PageTemplate'
 
 import { categories } from '../../stub/categories'
 
@@ -12,7 +13,7 @@ const Spacing = styled.div`
 `
 
 export const HomePage = () => (
-  <>
+  <PageTemplate>
     <Banner />
     <Spacing />
     <RestaurantsSection title="Our favorite picks" />
@@ -21,5 +22,5 @@ export const HomePage = () => (
     <Spacing />
     <CategoriesSection categories={categories} />
     <Spacing />
-  </>
+  </PageTemplate>
 )

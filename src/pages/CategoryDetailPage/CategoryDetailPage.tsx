@@ -1,9 +1,8 @@
-import { useEffect, useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { useFetchRestaurantsByCategory } from 'api/hooks'
 
-import { api } from '../../api'
+import { PageTemplate } from '../../templates/PageTemplate'
 import { RestaurantCard, RestaurantCardSkeleton } from '../../components/RestaurantCard'
 import { TopBanner } from '../../components/TopBanner'
 import { categories } from '../../stub/categories'
@@ -37,7 +36,7 @@ export const CategoryDetailPage = () => {
   const category = categories.find((cat) => cat.id === id)
 
   return (
-    <>
+    <PageTemplate>
       <TopBanner
         title={category?.title || 'Oops!'}
         photoUrl={category?.photoUrl}
@@ -76,6 +75,6 @@ export const CategoryDetailPage = () => {
               ))}
         </StyledContainer>
       </div>
-    </>
+    </PageTemplate>
   )
 }

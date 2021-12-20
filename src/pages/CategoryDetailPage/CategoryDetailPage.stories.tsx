@@ -2,7 +2,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { rest } from 'msw'
 
 import { restaurants } from '../../stub/restaurants'
-import { PageTemplate } from '../../templates/PageTemplate'
 import { BASE_URL } from '../../api'
 
 import { CategoryDetailPage } from './CategoryDetailPage'
@@ -16,11 +15,7 @@ export default {
   },
 } as ComponentMeta<typeof CategoryDetailPage>
 
-const Template: ComponentStory<typeof CategoryDetailPage> = () => (
-  <PageTemplate>
-    <CategoryDetailPage />
-  </PageTemplate>
-)
+const Template: ComponentStory<typeof CategoryDetailPage> = () => <CategoryDetailPage />
 
 export const Default = Template.bind({})
 Default.parameters = {

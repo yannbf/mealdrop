@@ -1,10 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
 import { rest } from 'msw'
 
-import { PageTemplate } from '../../templates/PageTemplate'
 import { BASE_URL } from '../../api'
 import { restaurants } from '../../stub/restaurants'
-import { cartItems } from '../../stub/cart-items'
 
 import { HomePage } from './HomePage'
 
@@ -23,17 +21,6 @@ export default {
   },
 } as ComponentMeta<typeof HomePage>
 
-const Template: ComponentStory<typeof HomePage> = () => (
-  <PageTemplate>
-    <HomePage />
-  </PageTemplate>
-)
+const Template: ComponentStory<typeof HomePage> = () => <HomePage />
 
 export const Default = Template.bind({})
-
-export const WithItemsInTheCart = Template.bind({})
-WithItemsInTheCart.parameters = {
-  store: {
-    initialState: { cart: { items: cartItems } },
-  },
-}

@@ -4,9 +4,9 @@ import { within, userEvent, waitForElementToBeRemoved } from '@storybook/testing
 import { rest } from 'msw'
 
 import { BASE_URL } from '../../api'
-import { PageTemplate } from '../../templates/PageTemplate'
 import { animatedUserEventClick } from '../../../.storybook/interaction'
 import { restaurants } from '../../stub/restaurants'
+import { cartItems } from '../../stub/cart-items'
 
 import { RestaurantDetailPage } from './RestaurantDetailPage'
 
@@ -27,18 +27,24 @@ export default {
 } as ComponentMeta<typeof RestaurantDetailPage>
 
 const Template: ComponentStory<typeof RestaurantDetailPage> = () => (
-  <div>
+  <>
     <div id="modal" />
-    <PageTemplate type="sticky-header">
-      <RestaurantDetailPage />
-    </PageTemplate>
-  </div>
+    <RestaurantDetailPage />
+  </>
 )
 
 export const Success = Template.bind({})
 Success.parameters = {
   msw: {
     handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json(restaurants[0])))],
+  },
+}
+
+export const WithItemsInTheCart = Template.bind({})
+WithItemsInTheCart.parameters = {
+  ...Success.parameters,
+  store: {
+    initialState: { cart: { items: cartItems } },
   },
 }
 

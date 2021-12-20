@@ -1,38 +1,21 @@
-import { VFC, useState, useEffect, memo, useCallback } from 'react'
+import { VFC, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 import { useFetchRestaurant } from 'api/hooks'
+import { PageTemplate } from 'templates/PageTemplate'
 
 import { useAppDispatch, useAppSelector } from '../../app-state'
-import { api } from '../../api'
-import { breakpoints } from '../../styles/breakpoints'
 import { CartItem, clearItemAction, saveItemAction, selectCartItems } from '../../app-state/cart'
 import { TopBanner } from '../../components/TopBanner'
 import { Heading, Body } from '../../components/typography'
 import { Badge } from '../../components/Badge'
-import { FoodMenuItem, Restaurant } from '../../types'
 import { Review } from '../../components/Review'
 import { AnimatedIllustration } from '../../components/AnimatedIllustration'
 import { ErrorBlock } from '../../components/ErrorBlock'
 import { Spinner } from '../../components/Spinner'
 
 import { FoodItemModal } from './components/FoodItemModal'
-import { FoodItem } from './components/FoodItem/FoodItem'
-
-const StyledContainer = styled.div`
-  grid-template-columns: repeat(1, 1fr);
-  gap: 24px;
-  display: grid;
-  padding-bottom: 3rem;
-
-  @media ${breakpoints.M} {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media ${breakpoints.L} {
-    grid-template-columns: repeat(3, 1fr);
-  }
-`
+import { FoodSection } from './components/FoodSection'
 
 const DetailSection = styled.div(
   ({ theme: { color, spacing } }) => css`
@@ -53,10 +36,6 @@ const MenuSection = styled.div(
     background: ${color.menuSectionBackground};
   `
 )
-
-const StyledHeading = styled(Heading)`
-  margin-bottom: 1.5rem;
-`
 
 const StyledBadge = styled(Badge)(
   ({ theme: { spacing } }) => css`
@@ -80,30 +59,38 @@ export const RestaurantDetailPage: VFC = () => {
 
   if (status === '500') {
     return (
-      <ErrorBlock
-        title="Something went wrong!"
-        body="Our bad, something went wrong on our side."
-        image={<AnimatedIllustration animation="NotFound" />}
-        onButtonClick={retryRequest}
-        buttonText="Try again"
-      />
+      <PageTemplate type="sticky-header">
+        <ErrorBlock
+          title="Something went wrong!"
+          body="Our bad, something went wrong on our side."
+          image={<AnimatedIllustration animation="NotFound" />}
+          onButtonClick={retryRequest}
+          buttonText="Try again"
+        />
+      </PageTemplate>
     )
   }
 
   if (status === '404') {
     return (
-      <ErrorBlock
-        title="We can't find this page"
-        body="This page doesn’t exist, keep looking."
-        image={<AnimatedIllustration animation="Error" />}
-        onButtonClick={() => navigate('/')}
-        buttonText="Home"
-      />
+      <PageTemplate type="sticky-header">
+        <ErrorBlock
+          title="We can't find this page"
+          body="This page doesn’t exist, keep looking."
+          image={<AnimatedIllustration animation="Error" />}
+          onButtonClick={() => navigate('/')}
+          buttonText="Home"
+        />
+      </PageTemplate>
     )
   }
 
   if (status === 'loading') {
-    return <Spinner />
+    return (
+      <PageTemplate type="sticky-header">
+        <Spinner />
+      </PageTemplate>
+    )
   }
 
   if (!restaurant) {
@@ -113,7 +100,7 @@ export const RestaurantDetailPage: VFC = () => {
   const { menu, name, rating, specialty, photoUrl, categories } = restaurant
 
   return (
-    <>
+    <PageTemplate type="sticky-header">
       <FoodItemModal
         item={selectedItem}
         cartItems={cartItems}
@@ -162,36 +149,6 @@ export const RestaurantDetailPage: VFC = () => {
           )}
         </div>
       </MenuSection>
-    </>
+    </PageTemplate>
   )
 }
-
-type FoodSectionProps = {
-  items: FoodMenuItem[]
-  title: string
-  cartItems: CartItem[]
-  onItemClick: (item: CartItem) => void
-}
-
-const FoodSection = memo(({ title, cartItems, items, onItemClick }: FoodSectionProps) => (
-  <div>
-    <StyledHeading level={3}>{title}</StyledHeading>
-    <StyledContainer>
-      {items.map((item: FoodMenuItem) => {
-        const cartItem = cartItems.find((c) => c.id === item.id)
-        const quantity = cartItem?.quantity || 0
-        return (
-          <FoodItem
-            key={item.name}
-            name={item.name}
-            price={item.price}
-            description={item.description}
-            quantity={quantity}
-            onClick={() => onItemClick(item as CartItem)}
-          />
-        )
-      })}
-    </StyledContainer>
-  </div>
-))
-FoodSection.displayName = 'FoodSection'
