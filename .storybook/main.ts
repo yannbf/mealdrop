@@ -11,7 +11,7 @@ module.exports = {
         docs: false,
       },
     },
-    '@storybook/addon-essentials',
+    // '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/preset-create-react-app',
     '@storybook/addon-a11y',
