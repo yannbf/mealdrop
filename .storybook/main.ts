@@ -19,8 +19,8 @@ module.exports = {
     'storybook-mobile',
   ],
   features: {
-    storyStoreV7: false,
-    // storyStoreV7: true,
+    // storyStoreV7: false,
+    storyStoreV7: true,
     interactionsDebugger: true,
   },
 }
