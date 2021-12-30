@@ -24,6 +24,13 @@ Default.args = {
   ),
 }
 
+export const DefaultWithItemsInTheCart = Template.bind({})
+DefaultWithItemsInTheCart.parameters = {
+  store: {
+    initialState: { cart: { items: cartItems } },
+  },
+}
+
 export const StickyHeader = Template.bind({})
 StickyHeader.args = {
   type: 'sticky-header',
@@ -40,11 +47,4 @@ Basic.args = {
   children: (
     <DummyComponent>Simple template with scrollable header and no navigation items</DummyComponent>
   ),
-}
-
-export const DefaultWithItemsInTheCart = Template.bind({})
-DefaultWithItemsInTheCart.parameters = {
-  store: {
-    initialState: { cart: { items: cartItems } },
-  },
 }
