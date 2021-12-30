@@ -15,10 +15,6 @@ export default {
   component: RestaurantDetailPage,
   parameters: {
     layout: 'fullscreen',
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=169%3A510',
-    },
     deeplink: {
       route: '/restaurants/1',
       path: '/restaurants/:id',
@@ -28,16 +24,22 @@ export default {
 
 const Template: ComponentStory<typeof RestaurantDetailPage> = () => (
   <>
-    <div id="modal" />
     <RestaurantDetailPage />
+    <div id="modal" />
   </>
 )
 
 export const Success = Template.bind({})
 Success.parameters = {
-  msw: {
-    handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json(restaurants[0])))],
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=169%3A510',
   },
+  msw: [
+    rest.get(BASE_URL, (req, res, ctx) => {
+      return res(ctx.json(restaurants[0]))
+    }),
+  ],
 }
 
 export const WithItemsInTheCart = Template.bind({})
@@ -48,24 +50,48 @@ WithItemsInTheCart.parameters = {
   },
 }
 
+export const Loading = Template.bind({})
+Loading.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=2152%3A3158',
+  },
+  msw: {
+    handlers: [
+      rest.get(BASE_URL, (req, res, ctx) => {
+        return res(ctx.delay('infinite'))
+      }),
+    ],
+  },
+}
+
 export const NotFound = Template.bind({})
 NotFound.parameters = {
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=1097%3A3785',
+  },
   msw: {
-    handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.status(404)))],
+    handlers: [
+      rest.get(BASE_URL, (req, res, ctx) => {
+        return res(ctx.status(404))
+      }),
+    ],
   },
 }
 
 export const Error = Template.bind({})
 Error.parameters = {
-  msw: {
-    handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.status(500)))],
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=1091%3A4537',
   },
-}
-
-export const Loading = Template.bind({})
-Loading.parameters = {
   msw: {
-    handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.delay('infinite')))],
+    handlers: [
+      rest.get(BASE_URL, (req, res, ctx) => {
+        return res(ctx.status(500))
+      }),
+    ],
   },
 }
 
