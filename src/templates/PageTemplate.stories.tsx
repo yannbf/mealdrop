@@ -1,5 +1,7 @@
 import * as React from 'react'
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentMeta, ComponentStory } from '@storybook/react'
+
+import { cartItems } from '../stub/cart-items'
 
 import { PageTemplate } from './PageTemplate'
 
@@ -17,17 +19,8 @@ const Template: ComponentStory<typeof PageTemplate> = (args) => <PageTemplate {.
 
 export const Default = Template.bind({})
 Default.args = {
-  type: 'default',
   children: (
     <DummyComponent>Default template with scrollable header and navigation items</DummyComponent>
-  ),
-}
-
-export const Basic = Template.bind({})
-Basic.args = {
-  type: 'basic',
-  children: (
-    <DummyComponent>Simple template with scrollable header and no navigation items</DummyComponent>
   ),
 }
 
@@ -39,4 +32,19 @@ StickyHeader.args = {
       Template with sticky header on desktop and navigation items. Try scrolling
     </DummyComponent>
   ),
+}
+
+export const Basic = Template.bind({})
+Basic.args = {
+  type: 'basic',
+  children: (
+    <DummyComponent>Simple template with scrollable header and no navigation items</DummyComponent>
+  ),
+}
+
+export const DefaultWithItemsInTheCart = Template.bind({})
+DefaultWithItemsInTheCart.parameters = {
+  store: {
+    initialState: { cart: { items: cartItems } },
+  },
 }
