@@ -14,7 +14,7 @@ type RestaurantCardProps = {
   categories?: string[]
   isLoading?: boolean
   isNew?: boolean
-  onClick: () => void
+  onClick?: () => void
   className?: string
 }
 
@@ -84,6 +84,10 @@ const Closed = styled.div(
   `
 )
 
+const ImageContainer = styled.div`
+  position: 'relative';
+  display: 'flex';
+`
 const RestaurantImage = styled.img<{ $isClosed: boolean }>`
   height: 200px;
   width: 100%;
@@ -161,18 +165,22 @@ export const RestaurantCard = ({
   }
 
   return (
-    <Container className={className} data-testid="restaurant-card" onClick={onClick}>
+    <Container
+      className={className}
+      data-testid="restaurant-card"
+      onClick={isClosed ? undefined : onClick}
+    >
       {isNew && <NewTag>new</NewTag>}
-      <div style={{ position: 'relative', display: 'flex' }}>
+      <ImageContainer>
         {isClosed && (
           <Closed>
             <Body type="span">This restaurant is closed.</Body>
           </Closed>
         )}
         <RestaurantImage $isClosed={isClosed} loading="lazy" src={photoUrl} alt="restaurant" />
-      </div>
+      </ImageContainer>
       <StyledContent>
-        <StyledHeading level={2}>{name} </StyledHeading>
+        <StyledHeading level={2}>{name}</StyledHeading>
         <Review rating={rating} />
         <Description fontWeight="regular">{specialty}</Description>
         {categories?.map((category) => (
