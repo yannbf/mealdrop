@@ -85,8 +85,8 @@ const Closed = styled.div(
 )
 
 const ImageContainer = styled.div`
-  position: 'relative';
-  display: 'flex';
+  position: relative;
+  display: flex;
 `
 const RestaurantImage = styled.img<{ $isClosed: boolean }>`
   height: 200px;
