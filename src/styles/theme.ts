@@ -142,7 +142,7 @@ const color = {
   overlayBackground: baseColors.white,
   overlayHeader: baseColors.grey.light5,
   primaryText: baseColors.otherBlack,
-  reviewText: baseColors.blue.dark4,
+  reviewText: baseColors.blue.dark5,
   screenBackground: baseColors.white,
   sidebarHeader: baseColors.grey.dark4,
   sidebarFooter: baseColors.white,
