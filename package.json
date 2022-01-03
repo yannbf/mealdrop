@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.0",
-    "@storybook/test-runner": "0.0.1-canary.11.5ad0240.0",
+    "@storybook/test-runner": "0.0.1-canary.11.304fae5.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.1.9",
@@ -40,8 +40,8 @@
     "build-all": "yarn build && yarn build-storybook",
     "chromatic": "chromatic --project-token $CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes --only-changed",
     "test-storybook:jsdom": "jest --config ./jsdom-jest.config.js",
-    "test-storybook:playwright": "jest --config ./playwright-jest.config.js",
-    "test-storybook-ci:playwright": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue,green\" \"yarn build-storybook && npx http-server build/storybook --port 6006 --silent\" \"wait-on tcp:6006 && yarn test-storybook:playwright\"",
+    "test-storybook:playwright": "test-storybook",
+    "test-storybook-ci:playwright": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue,green\" \"yarn build-storybook && npx http-server build/storybook --port 6006 --silent\" \"wait-on tcp:6006 && yarn test-storybook\"",
     "prepare": "husky install",
     "lint": "eslint --fix .",
     "prettier": "prettier --write .",
@@ -83,6 +83,7 @@
     "babel-loader": "8.1.0",
     "chromatic": "^6.0.4",
     "concurrently": "^6.5.1",
+    "cross-spawn": "^7.0.3",
     "eslint": "^7.11.0",
     "eslint-config-airbnb-typescript": "^16.0.0",
     "eslint-config-prettier": "^8.3.0",
@@ -106,6 +107,8 @@
     "react-test-renderer": "^17.0.2",
     "storybook-addon-designs": "^6.2.0",
     "storybook-mobile": "^1.0.0",
+    "url-exist": "^3.0.0",
+    "url-exists": "^1.0.3",
     "wait-on": "^6.0.0"
   },
   "msw": {
