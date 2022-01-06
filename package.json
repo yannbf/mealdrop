@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.0",
-    "@storybook/test-runner": "0.0.1-canary.11.304fae5.0",
+    "@storybook/test-runner": "0.0.1-canary.11.80ed3c2.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.1.9",
@@ -29,7 +29,6 @@
     "use-dark-mode": "^2.3.1"
   },
   "scripts": {
-    "postinstall": "patch-package",
     "start": "react-scripts start",
     "build": "SKIP_PREFLIGHT_CHECK=true react-scripts build",
     "test": "react-scripts test",
@@ -97,18 +96,14 @@
     "jest": "^26.6.3",
     "jest-axe": "^4.1.0",
     "jest-canvas-mock": "^2.3.1",
-    "jest-playwright-preset": "^1.7.0",
     "lint-staged": ">=10",
     "msw": "^0.29.0",
     "msw-storybook-addon": "^1.5.0",
-    "playwright": "^1.16.3",
     "prettier": "^2.3.2",
     "react-is": "^17.0.2",
     "react-test-renderer": "^17.0.2",
     "storybook-addon-designs": "^6.2.0",
     "storybook-mobile": "^1.0.0",
-    "url-exist": "^3.0.0",
-    "url-exists": "^1.0.3",
     "wait-on": "^6.0.0"
   },
   "msw": {
