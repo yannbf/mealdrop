@@ -4,7 +4,7 @@
     "esbenp.prettier-vscode",
     "editorconfig.editorconfig",
     "silvenon.mdx",
-    "jpoissonnier.vscode-styled-components",
+    "styled-components.vscode-styled-components",
     "vscode-icons-team.vscode-icons"
   ]
 }
