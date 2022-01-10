@@ -11,5 +11,6 @@
     "titleBar.activeBackground": "#50b1b6",
     "titleBar.inactiveBackground": "#50b1b6c0",
     "titleBar.activeForeground": "#F6FCEE"
-  }
+  },
+  "deepscan.ignoreConfirmWarning": true
 }
