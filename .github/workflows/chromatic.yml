@@ -17,24 +17,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-      - name: Set in env
-        run: echo "storybook_url=${{ steps.chromatic.outputs.storybookUrl }}" >> $GITHUB_ENV
-    outputs:
-      storybook_url: ${{ env.storybook_url }}
-  test:
-    needs: deployment
-    timeout-minutes: 60
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
-      with:
-        node-version: '14.x'
-    - name: Install dependencies
-      run: yarn
-    - name: Install Playwright
-      run: npx playwright install --with-deps
-    - name: Run Playwright tests
-      run: yarn test-storybook:playwright
-      env:
-        TARGET_URL: ${{ needs.deployment.outputs.storybook_url }}
+          exitOnceUploaded: true
+      - name: Run storybook tests
+        run: 'TARGET_URL=${{ steps.chromatic-publish.outputs.storybookUrl}} npm run test:storybook'
