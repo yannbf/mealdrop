@@ -1,5 +1,5 @@
 name: "Chromatic"
-on: release
+on: push
 
 jobs:
   deployment:
