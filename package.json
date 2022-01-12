@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.0",
-    "@storybook/test-runner": "0.0.1-canary.11.80ed3c2.0",
+    "@storybook/test-runner": "0.0.2-canary.e62f9ee.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.1.9",
@@ -39,7 +39,7 @@
     "build-all": "yarn build && yarn build-storybook",
     "chromatic": "chromatic --project-token $CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes --only-changed",
     "test-storybook:jsdom": "jest --config ./jsdom-jest.config.js",
-    "test-storybook:playwright": "test-storybook",
+    "test-storybook": "test-storybook",
     "test-storybook-ci:playwright": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue,green\" \"yarn build-storybook && npx http-server build/storybook --port 6006 --silent\" \"wait-on tcp:6006 && yarn test-storybook\"",
     "prepare": "husky install",
     "lint": "eslint --fix .",
