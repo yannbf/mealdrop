@@ -12,11 +12,9 @@ jobs:
       - name: Install dependencies
         run: yarn
       - name: Publish to Chromatic
-        id: chromatic
         uses: chromaui/action@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          exitOnceUploaded: true
       - name: Run storybook tests
-        run: 'TARGET_URL=${{ steps.chromatic-publish.outputs.storybookUrl}} npm run test:storybook'
+        run: 'TARGET_URL=${{ steps.chromatic-publish.outputs.storybookUrl}} yarn test-storybook'
