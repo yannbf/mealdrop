@@ -5,13 +5,13 @@ module.exports = {
     '../src/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
-    {
-      name: '@storybook/addon-essentials',
-      options: {
-        docs: false,
-      },
-    },
-    // '@storybook/addon-essentials',
+    // {
+    //   name: '@storybook/addon-essentials',
+    //   options: {
+    //     docs: false,
+    //   },
+    // },
+    '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/preset-create-react-app',
     '@storybook/addon-a11y',
@@ -20,7 +20,7 @@ module.exports = {
   ],
   features: {
     // storyStoreV7: false,
-    storyStoreV7: true,
+    storyStoreV7: false,
     interactionsDebugger: true,
   },
 }
