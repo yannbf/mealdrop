@@ -1,4 +1,5 @@
 module.exports = {
+  staticDirs: ['../public'],
   stories: [
     '../src/docs/Introduction.stories.mdx',
     '../src/docs/*.stories.mdx',
@@ -9,6 +10,7 @@ module.exports = {
     '@storybook/preset-create-react-app',
     'storybook-addon-designs',
   ],
+  staticDirs: ['../public'],
   framework: '@storybook/react',
   core: {
     builder: 'webpack5',

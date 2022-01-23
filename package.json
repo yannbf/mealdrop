@@ -83,6 +83,8 @@
     "jest-axe": "^4.1.0",
     "jest-canvas-mock": "^2.3.1",
     "lint-staged": ">=10",
+    "msw": "^0.36.5",
+    "msw-storybook-addon": "^1.6.0",
     "prettier": "^2.5.0",
     "react-is": "^17.0.2",
     "react-test-renderer": "^17.0.2",
@@ -91,5 +93,8 @@
   "lint-staged": {
     "*.{ts,tsx}": "eslint --fix",
     "*.{html,md}": "prettier --write"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }
