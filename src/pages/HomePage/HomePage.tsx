@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { PageTemplate } from 'templates/PageTemplate'
 
+import { PageTemplate } from '../../templates/PageTemplate'
 import { categories } from '../../stub/categories'
 
 import { RestaurantsSection } from './components/RestaurantsSection'

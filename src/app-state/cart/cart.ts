@@ -1,13 +1,6 @@
 import { createSlice, CaseReducer, PayloadAction } from '@reduxjs/toolkit'
 
-export type ShopItem = {
-  id: number
-  name: string
-  price: number
-  imageUrl?: string
-  description?: string
-}
-
+import { ShopItem } from '../../types'
 export interface CartItem extends ShopItem {
   quantity: number
 }
@@ -57,7 +50,7 @@ const initialState: CartState = {
   items: [],
 }
 
-const counterSlice = createSlice({
+const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
@@ -70,7 +63,7 @@ const counterSlice = createSlice({
 })
 
 // Extract the action creators object and the reducer
-export const { actions, reducer } = counterSlice
+export const { actions, reducer } = cartSlice
 
 // Extract and export each action creator by name
 export const {

@@ -1,9 +1,9 @@
 import { VFC, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import styled, { css } from 'styled-components'
-import { useFetchRestaurant } from 'api/hooks'
-import { PageTemplate } from 'templates/PageTemplate'
 
+import { PageTemplate } from '../../templates/PageTemplate'
+import { useFetchRestaurant } from '../../api/hooks'
 import { useAppDispatch, useAppSelector } from '../../app-state'
 import { CartItem, clearItemAction, saveItemAction, selectCartItems } from '../../app-state/cart'
 import { TopBanner } from '../../components/TopBanner'

@@ -3,7 +3,6 @@ import styled, { css } from 'styled-components'
 
 import { ContactDetails } from './ContactDetails'
 import { DeliveryDetails } from './DeliveryDetails'
-import Submit from './Submit'
 import { StepIndicator } from './StepIndicator'
 
 const steps: Step[] = [{ id: 'Contact details' }, { id: 'Delivery details' }]
@@ -24,8 +23,6 @@ const getCurrentStep = (step: string, props: any) => {
       return <ContactDetails {...props} />
     case 'Delivery details':
       return <DeliveryDetails {...props} />
-    case 'submit':
-      return <Submit {...props} />
     default:
       return null
   }

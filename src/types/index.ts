@@ -1,3 +1,11 @@
+export type ShopItem = {
+  id: number
+  name: string
+  price: number
+  imageUrl?: string
+  description?: string
+}
+
 export type FoodMenuItem = {
   id: number
   name: string

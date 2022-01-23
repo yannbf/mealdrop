@@ -1,7 +1,7 @@
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
-import { useFetchRestaurantsByCategory } from 'api/hooks'
 
+import { useFetchRestaurantsByCategory } from '../../api/hooks'
 import { PageTemplate } from '../../templates/PageTemplate'
 import { RestaurantCard, RestaurantCardSkeleton } from '../../components/RestaurantCard'
 import { TopBanner } from '../../components/TopBanner'

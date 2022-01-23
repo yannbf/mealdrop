@@ -20,8 +20,7 @@ export const Default = Template.bind({})
 Default.parameters = {
   store: {
     initialState: {
-      cart: {
-        visible: false,
+      order: {
         items: [
           {
             id: 2,

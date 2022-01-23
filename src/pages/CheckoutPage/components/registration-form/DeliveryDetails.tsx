@@ -1,5 +1,8 @@
+import { saveOrderAction } from 'app-state/order'
 import { useNavigate } from 'react-router-dom'
 
+import { useAppDispatch, useAppSelector } from '../../../../app-state'
+import { clearCartAction, selectCartItems } from '../../../../app-state/cart'
 import { Button } from '../../../../components/Button'
 import { Input } from '../../../../components/forms/Input'
 
@@ -15,9 +18,18 @@ type DeliveryDetailsProps = {
 
 export const DeliveryDetails = ({ setForm, formData, navigation }: DeliveryDetailsProps) => {
   const navigate = useNavigate()
+  const dispatch = useAppDispatch()
+  const cartItems = useAppSelector(selectCartItems)
+
   const { address, city, postcode } = formData
 
   const { previous } = navigation
+
+  const onCompleteOrder = () => {
+    dispatch(saveOrderAction(cartItems))
+    dispatch(clearCartAction())
+    navigate('/success')
+  }
 
   return (
     <div className="form">
@@ -45,7 +57,7 @@ export const DeliveryDetails = ({ setForm, formData, navigation }: DeliveryDetai
         <Button clear onClick={previous}>
           Previous
         </Button>
-        <Button onClick={() => navigate('/success')}>Complete</Button>
+        <Button onClick={onCompleteOrder}>Complete order</Button>
       </div>
     </div>
   )
