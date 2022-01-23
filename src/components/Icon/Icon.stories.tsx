@@ -32,9 +32,9 @@ export default {
   component: Icon,
   argTypes: {
     name: {
+      options: icons,
       control: {
         type: 'select',
-        options: icons,
       },
     },
     size: {

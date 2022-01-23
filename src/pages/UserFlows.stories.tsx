@@ -19,7 +19,6 @@ export default {
           const id = req.url.searchParams.get('id')
           const category = req.url.searchParams.get('category')
 
-          console.log({ id, category })
           if (id) {
             return res(ctx.json(restaurants[0]))
           }
