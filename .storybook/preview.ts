@@ -1,6 +1,5 @@
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 
-import { globalDecorators } from './decorators'
 import { viewports as breakpoints } from '../src/styles/breakpoints'
 
 // Create custom viewports using widths defined in design tokens
@@ -32,21 +31,3 @@ export const parameters = {
     },
   },
 }
-
-export const globalTypes = {
-  theme: {
-    name: 'Theme',
-    description: 'Theme for the components',
-    defaultValue: 'light',
-    toolbar: {
-      icon: 'circlehollow',
-      items: [
-        { value: 'light', icon: 'circlehollow', title: 'light' },
-        { value: 'dark', icon: 'circle', title: 'dark' },
-        { value: 'side-by-side', icon: 'sidebar', title: 'side by side' },
-      ],
-    },
-  },
-}
-
-export const decorators = globalDecorators
