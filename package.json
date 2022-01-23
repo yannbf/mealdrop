@@ -30,7 +30,8 @@
     "prepare": "husky install",
     "lint": "eslint --fix .",
     "prettier": "prettier --write .",
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "chromatic": "chromatic --exit-zero-on-changes"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -49,6 +50,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
+    "@storybook/addon-a11y": "^6.4.14",
     "@storybook/addon-essentials": "^6.4.14",
     "@storybook/addon-interactions": "^6.4.14",
     "@storybook/builder-webpack5": "^6.4.14",
@@ -57,6 +59,7 @@
     "@storybook/preset-create-react-app": "^4.0.0",
     "@storybook/react": "^6.4.14",
     "@storybook/testing-library": "^0.0.7",
+    "@storybook/testing-react": "^1.2.3",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -71,6 +74,7 @@
     "@typescript-eslint/eslint-plugin": "^5.10.0",
     "@typescript-eslint/parser": "^5.10.0",
     "babel-loader": "8.1.0",
+    "chromatic": "^6.4.1",
     "eslint-config-airbnb-typescript": "^16.0.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.3",
@@ -80,7 +84,7 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-storybook": "^0.5.3",
     "husky": ">=6",
-    "jest-axe": "^4.1.0",
+    "jest-axe": "^5.0.1",
     "jest-canvas-mock": "^2.3.1",
     "lint-staged": ">=10",
     "msw": "^0.36.5",

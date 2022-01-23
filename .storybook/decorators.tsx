@@ -5,7 +5,7 @@ import { initialize, mswDecorator } from 'msw-storybook-addon'
 import { Provider as StoreProvider } from 'react-redux'
 import { BrowserRouter, MemoryRouter, Route, Routes } from 'react-router-dom'
 
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from '@reduxjs/toolkit'
 
 import { rootReducer } from '../src/app-state'
 import { GlobalStyle } from '../src/styles/GlobalStyle'
@@ -81,7 +81,7 @@ export const withStore: DecoratorFn = (StoryFn, { parameters }) => {
     reducer: rootReducer,
     // if undefined, it will default state from reducers
     preloadedState: parameters.store?.initialState,
-  });
+  })
   return (
     <StoreProvider store={store}>
       <StoryFn />
@@ -89,10 +89,4 @@ export const withStore: DecoratorFn = (StoryFn, { parameters }) => {
   )
 }
 
-export const globalDecorators = [
-  mswDecorator,
-  withTheme,
-  withDesign,
-  withRouter,
-  withStore
-]
+export const globalDecorators = [mswDecorator, withTheme, withDesign, withRouter, withStore]
