@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.0",
-    "@storybook/test-runner": "0.0.2-canary.e62f9ee.0",
+    "@storybook/test-runner": "0.0.2",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.1.9",
@@ -63,6 +63,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
+    "@babel/helper-environment-visitor": "^7.16.7",
+    "@babel/plugin-syntax-typescript": "^7.16.7",
     "@storybook/addon-a11y": "^6.5.0-alpha.3",
     "@storybook/addon-essentials": "^6.5.0-alpha.3",
     "@storybook/addon-interactions": "^6.5.0-alpha.3",
@@ -96,6 +98,7 @@
     "jest": "^26.6.3",
     "jest-axe": "^4.1.0",
     "jest-canvas-mock": "^2.3.1",
+    "jest-image-snapshot": "^4.5.1",
     "lint-staged": ">=10",
     "msw": "^0.29.0",
     "msw-storybook-addon": "^1.5.0",
