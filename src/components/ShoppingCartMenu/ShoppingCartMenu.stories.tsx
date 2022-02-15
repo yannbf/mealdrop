@@ -30,7 +30,7 @@ Empty.args = {
   totalPrice: 0,
 }
 
-export const Filled = Template.bind({})
+export const WithItems = Template.bind({})
 
 export const Mobile = Template.bind({})
 Mobile.parameters = {
