@@ -2,7 +2,7 @@
  * This file houses all non-addon related decorators
  */
 import React from 'react'
-import { BrowserRouter, Route,  MemoryRouter } from 'react-router-dom'
+import { BrowserRouter, Route, MemoryRouter } from 'react-router-dom'
 import styled, { css, ThemeProvider } from 'styled-components'
 import { DecoratorFn } from '@storybook/react'
 import { configureStore } from '@reduxjs/toolkit'
@@ -37,6 +37,7 @@ const ThemeBlock = styled.div<{ left?: boolean; fullScreen?: boolean }>(
 )
 
 export const withTheme: DecoratorFn = (StoryFn, { globals: { theme = 'light' }, parameters }) => {
+  console.log({ parameters })
   const fullScreen = parameters.layout === 'fullscreen'
   const appTheme = theme === 'light' ? lightTheme : darkTheme
   const secondContainerRef = React.useRef<HTMLDivElement>(null)

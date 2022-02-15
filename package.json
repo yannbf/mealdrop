@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.0",
-    "@storybook/test-runner": "0.0.2",
+    "@storybook/test-runner": "0.0.3-canary.47.b7dec8f.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.1.9",
