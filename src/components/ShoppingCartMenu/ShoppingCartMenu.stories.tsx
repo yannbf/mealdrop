@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Story, Meta } from '@storybook/react'
+import { Story, ComponentStory, ComponentMeta } from '@storybook/react'
 
 import { cartItems } from '../../stub/cart-items'
 import { Button } from '../Button'
@@ -15,9 +15,31 @@ export default {
     // If it's not rendered in an iframe, the modal is going to open on top of Storybook itself!
     docs: { inlineStories: false, iframeHeight: 600 },
   },
-} as Meta
+  args: {
+    isOpen: true,
+    cartItems: cartItems,
+    totalPrice: 1200,
+  },
+} as ComponentMeta<typeof ShoppingCartMenu>
 
-const Template: Story = () => {
+const Template: ComponentStory<typeof ShoppingCartMenu> = (args) => <ShoppingCartMenu {...args} />
+
+export const Empty = Template.bind({})
+Empty.args = {
+  cartItems: [],
+  totalPrice: 0,
+}
+
+export const Filled = Template.bind({})
+
+export const Mobile = Template.bind({})
+Mobile.parameters = {
+  viewport: {
+    defaultViewport: 'iphonex',
+  },
+}
+
+export const Playground: Story = () => {
   const [isOpen, setIsOpen] = useState(false)
   const openShoppingCartMenu = () => setIsOpen(true)
   const closeShoppingCartMenu = () => setIsOpen(false)
@@ -41,13 +63,4 @@ const Template: Story = () => {
       />
     </>
   )
-}
-
-export const Desktop = Template.bind({})
-
-export const Mobile = Template.bind({})
-Mobile.parameters = {
-  viewport: {
-    defaultViewport: 'iphonex',
-  },
 }
