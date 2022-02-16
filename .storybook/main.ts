@@ -14,7 +14,7 @@ module.exports = {
   ],
   staticDirs: ['../public'],
   features: {
-    storyStoreV7: true,
+    storyStoreV7: false,
     interactionsDebugger: true,
   },
   framework: '@storybook/react',
