@@ -12,7 +12,7 @@ describe('RestaurantCard', () => {
   test('should render correctly', () => {
     render(<Default />)
 
-    expect(screen.getByText('Burger King')).toBeInTheDocument()
+    expect(screen.getByText('Burger Kingdom')).toBeInTheDocument()
   })
 
   test('should provide a loading skeleton', () => {

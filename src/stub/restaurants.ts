@@ -45,7 +45,7 @@ const drinks = [
 export const restaurants: Restaurant[] = [
   {
     id: '1',
-    name: 'Burger King',
+    name: 'Burger Kingdom',
     mapsUrl: 'https://goo.gl/maps/EnyNcNJtvC3QkFgJ6',
     url: 'https://www.sterkstaaltje.com/',
     address: 'Staalstraat 12 1011 JL Amsterdam',

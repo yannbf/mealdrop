@@ -11,7 +11,7 @@ type FoodSectionProps = {
   items: FoodMenuItem[]
   title: string
   cartItems: CartItem[]
-  onItemClick: (item: CartItem) => void
+  onItemClick?: (item: CartItem) => void
 }
 
 const StyledHeading = styled(Heading)`
@@ -32,25 +32,27 @@ const StyledContainer = styled.div`
   }
 `
 
-export const FoodSection = memo(({ title, cartItems, items, onItemClick }: FoodSectionProps) => (
-  <div>
-    <StyledHeading level={3}>{title}</StyledHeading>
-    <StyledContainer>
-      {items.map((item: FoodMenuItem) => {
-        const cartItem = cartItems.find((c) => c.id === item.id)
-        const quantity = cartItem?.quantity || 0
-        return (
-          <FoodItem
-            key={item.name}
-            name={item.name}
-            price={item.price}
-            description={item.description}
-            quantity={quantity}
-            onClick={() => onItemClick(item as CartItem)}
-          />
-        )
-      })}
-    </StyledContainer>
-  </div>
-))
+export const FoodSection = memo(
+  ({ title, cartItems, items, onItemClick = () => {} }: FoodSectionProps) => (
+    <div>
+      <StyledHeading level={3}>{title}</StyledHeading>
+      <StyledContainer>
+        {items.map((item: FoodMenuItem) => {
+          const cartItem = cartItems.find((c) => c.id === item.id)
+          const quantity = cartItem?.quantity || 0
+          return (
+            <FoodItem
+              key={item.name}
+              name={item.name}
+              price={item.price}
+              description={item.description}
+              quantity={quantity}
+              onClick={() => onItemClick(item as CartItem)}
+            />
+          )
+        })}
+      </StyledContainer>
+    </div>
+  )
+)
 FoodSection.displayName = 'FoodSection'

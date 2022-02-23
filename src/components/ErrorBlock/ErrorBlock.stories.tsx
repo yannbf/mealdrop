@@ -23,13 +23,13 @@ Default.args = {
   buttonText: 'See all restaurants',
 }
 
-export const Error500 = Template.bind({})
-Error500.args = {
-  title: 'Something went wrong!',
-  body: 'Our bad, something went wrong on our side.',
-  image: <AnimatedIllustration animation="Error" />,
-  buttonText: 'Try again',
-}
+// export const Error500 = Template.bind({})
+// Error500.args = {
+//   title: 'Something went wrong!',
+//   body: 'Our bad, something went wrong on our side.',
+//   image: <AnimatedIllustration animation="Error" />,
+//   buttonText: 'Try again',
+// }
 
 export const Error404 = Template.bind({})
 Error404.args = {
