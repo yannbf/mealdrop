@@ -12,13 +12,37 @@ module.exports = {
     'storybook-addon-designs',
     'storybook-mobile',
   ],
+  // In case you'd like to disable docgen-typescript (70% Sealing typescript step)
+  // typescript: {
+  //   reactDocgen: 'react-docgen',
+  // },
+  webpackFinal: (config) => {
+    // Preset CRA does not take these into consideration, gotta do it manually
+    return {
+      ...config,
+      cache: {
+        type: 'filesystem',
+      },
+      experiments: {
+        lazyCompilation: {
+          entries: false,
+        },
+      },
+    }
+  },
   staticDirs: ['../public'],
   features: {
-    storyStoreV7: false,
+    storyStoreV7: true,
+
     interactionsDebugger: true,
   },
   framework: '@storybook/react',
   core: {
     builder: 'webpack5',
+    // don't work in this project
+    options: {
+      fsCache: true,
+      lazyCompilation: true,
+    },
   },
 }

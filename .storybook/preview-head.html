@@ -1,4 +1,18 @@
 <style>
+  /* Temporary fix for elements flashing */
+  body > * {
+    display: none !important;
+  }
+
+  .sb-show-preparing-story > .sb-preparing-story,
+  .sb-show-preparing-docs > .sb-preparing-docs,
+  .sb-show-nopreview > .sb-nopreview,
+  .sb-show-errordisplay > .sb-errordisplay,
+  .sb-show-main > #root,
+  .sb-show-main > #docs-root {
+    display: block !important;
+  }
+
   #root {
     position: static;
   }
