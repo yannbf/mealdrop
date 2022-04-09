@@ -6,12 +6,12 @@ With Storybook, you can ease the development of a design system and share a comm
 
 This is MealDrop, a real-world like project from the [Storybook for React apps](https://www.newline.co/courses/storybook-for-react-apps) course, used as an example to teach you how to unleash the full potential of Storybook for React apps. It's a food delivery app built from scratch with:
 
-- Create React App
-- Typescript
-- Styled components
-- Redux Toolkit
-- React router
-- Storybook
+- Modern React with [Typescript](https://www.typescriptlang.org/) and hooks
+- Styles with [Styled components](http://styled-components.com/)
+- State management [Redux](https://redux.js.org/) with [@reduxjs/toolkit](https://redux-toolkit.js.org/)
+- Tests with [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
+- Routing with [React router](https://reactrouter.com/)
+- Component explorer [Storybook](https://storybook.js.org/)
 
 Every component of the app is in Storybook, and the designs are all in Figma.
 
