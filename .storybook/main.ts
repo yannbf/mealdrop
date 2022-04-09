@@ -20,6 +20,7 @@ module.exports = {
 
   features: {
     storyStoreV7: false,
+    buildStoriesJson: true,
     interactionsDebugger: true,
   },
   framework: '@storybook/react',
