@@ -13,6 +13,11 @@ module.exports = {
     'storybook-mobile',
   ],
   staticDirs: ['../public'],
+  babel: async (options) => ({
+    ...options,
+    plugins: [...options.plugins, 'babel-plugin-open-source'],
+  }),
+
   features: {
     storyStoreV7: false,
     interactionsDebugger: true,
