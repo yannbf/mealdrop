@@ -54,4 +54,4 @@ By the end of the course, you'll be able to impress your team by implementing a 
 
 If you're interested in the [course](https://www.newline.co/courses/storybook-for-react-apps) (with a free module!), click on the image below to access it:
 
-[![](./.github/media/mealdrop-banner.png)](https://www.newline.co/courses/storybook-for-react-apps)
+[![](./src/docs/assets/mealdrop-banner.png)](https://www.newline.co/courses/storybook-for-react-apps)
