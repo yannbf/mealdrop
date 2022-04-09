@@ -1,30 +1,57 @@
-## Mealdrop
+## MealDrop
 
-Mealdrop is a reproduction of a real-world application to serve as an example for all the cool things you can do with Storybook!
+Storybook is an open-source tool that helps you develop UI components in isolation. It runs in your codebase, but separately from your application. It's like a sandbox, allowing you to not get distracted by incomplete APIs, flaky data, and other external dependencies. It integrates with frameworks like React, Vue, Svelte, Angular, and many others!
+
+With Storybook, you can ease the development of a design system and share a common language with Designers. QA's can get an overview and test functionalities in isolation. Stakeholders can use it for demo purposes. Overall, Storybook helps connect all of these people, greatly improving collaboration!
+
+This is MealDrop, a real-world like project from the [Storybook for React apps](https://www.newline.co/courses/storybook-for-react-apps) course, used as an example to teach you how to unleash the full potential of Storybook for React apps. It's a food delivery app built from scratch with:
+
+- Create React App
+- Typescript
+- Styled components
+- Redux Toolkit
+- React router
+- Storybook
+
+Every component of the app is in Storybook, and the designs are all in Figma.
+
+[![MealDrop Demo](https://img.shields.io/badge/MealDrop-Live%20demo-green?style=for-the-badge&logo=vercel)](http://mealdrop.vercel.app/)
+[![MealDrop Storybook](https://img.shields.io/badge/MealDrop-Storybook-ff4785?style=for-the-badge&logo=storybook)](http://mealdrop.vercel.app/storybook)
+[![MealDrop Designs](https://img.shields.io/badge/MealDrop-Designs-eeeeee?style=for-the-badge&logo=figma)](https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop)
 
 ![](./.github/media/application-example.png)
 
-[App demo](http://mealdrop.vercel.app/)
+## What you will learn
 
-[Storybook demo](http://mealdrop.vercel.app/storybook)
+- The core concepts of Storybook
+- Development workflow with Storybook
+- Unleash the full potential of Storybook, adding components, features and pages
+- Testing strategies with Storybook
+- How to build UI faster
+- Mental models for component development
+- Tools to improve designer-developer collaboration
+- Best practices
 
-## Available Scripts
+We start from the basics of Storybook, and later switch to MealDrop, a real world application, learning how to develop features directly in Storybook, saving lots of development time, and at the same time creating a living documentation of components and features. You will see the power of addons and how they help improve the development experience and the end quality of components.
 
-In the project directory, you can run:
+![](./src/docs/assets/restaurant-card-stories.gif)
 
-### `yarn start`
+You will learn how to connect Figma to Storybook:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![](./src/docs/assets/figma-connect.png)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+You will learn how to add styled components support and create a tool to switch color themes in Storybook:
 
-### `yarn test`
+![](./src/docs/assets/theme-toolbar.gif)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+You will add full pages to Storybook and write interaction tests that run directly in the browser:
 
-### `yarn storybook`
+![](./src/docs/assets/interaction-tests.gif)
 
-Launches Storybook on port 6006.
+And you will learn how to automate interactions tests with Jest and Playwright, add visual regression tests, test accessibility, and much more!
+
+By the end of the course, you'll be able to impress your team by implementing a tool which will drastically improve the development workflow and collaboration of your projects!
+
+If you're interested in the [course](https://www.newline.co/courses/storybook-for-react-apps) (with a free module!), click on the image below to access it:
+
+[![](./src/docs/assets/mealdrop-banner.png)](https://www.newline.co/courses/storybook-for-react-apps)
