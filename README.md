@@ -34,19 +34,19 @@ Every component of the app is in Storybook, and the designs are all in Figma.
 
 We start from the basics of Storybook, and later switch to MealDrop, a real world application, learning how to develop features directly in Storybook, saving lots of development time, and at the same time creating a living documentation of components and features. You will see the power of addons and how they help improve the development experience and the end quality of components.
 
-![](./src/docs/assets/restaurant-card-stories.gif)
+![](./.github/media/restaurant-card-stories.gif)
 
 You will learn how to connect Figma to Storybook:
 
-![](./src/docs/assets/figma-connect.png)
+![](./.github/media/figma-connect.png)
 
 You will learn how to add styled components support and create a tool to switch color themes in Storybook:
 
-![](./src/docs/assets/theme-toolbar.gif)
+![](./.github/media/theme-toolbar.gif)
 
 You will add full pages to Storybook and write interaction tests that run directly in the browser:
 
-![](./src/docs/assets/interaction-tests.gif)
+![](./.github/media/interaction-tests.gif)
 
 And you will learn how to automate interactions tests with Jest and Playwright, add visual regression tests, test accessibility, and much more!
 
@@ -54,4 +54,4 @@ By the end of the course, you'll be able to impress your team by implementing a 
 
 If you're interested in the [course](https://www.newline.co/courses/storybook-for-react-apps) (with a free module!), click on the image below to access it:
 
-[![](./src/docs/assets/mealdrop-banner.png)](https://www.newline.co/courses/storybook-for-react-apps)
+[![](./.github/media/mealdrop-banner.png)](https://www.newline.co/courses/storybook-for-react-apps)
