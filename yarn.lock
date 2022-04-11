@@ -4816,10 +4816,10 @@ babel-plugin-named-asset-import@^0.3.1, babel-plugin-named-asset-import@^0.3.8:
   resolved "https://registry.yarnpkg.com/babel-plugin-named-asset-import/-/babel-plugin-named-asset-import-0.3.8.tgz#6b7fa43c59229685368683c28bc9734f24524cc2"
   integrity sha512-WXiAc++qo7XcJ1ZnTYGtLxmBCVbddAml3CEXgWaBzNzLNoxtQ8AiGEFDMOhot9XjTCQbvP5E77Fj9Gk924f00Q==
 
-babel-plugin-open-source@^1.3.2:
-  version "1.3.2"
-  resolved "https://registry.yarnpkg.com/babel-plugin-open-source/-/babel-plugin-open-source-1.3.2.tgz#6965a483014363baffd6bcbf1a0aa7a7e7887e06"
-  integrity sha512-rOqJIrnVqdVowrAM1n4AFIRUQWPcLmwX1Bk8y5Fkk/YXnGuLwY72r7DrI7+yWlEhQASBoNYxXwLK83BGP28pMg==
+babel-plugin-open-source@^1.3.3:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/babel-plugin-open-source/-/babel-plugin-open-source-1.3.3.tgz#6e7c06be4545396d80483486c3508a0651e9d7e7"
+  integrity sha512-f/Mt2U1ubRy711PDAMJ11r4LVxdUGMzNM4yDtfZ1FzBhYpa4ByMGhsKdUCPGQxOdGctdNKdDsn53V2bt8feRLg==
   dependencies:
     "@babel/core" ">7.0.0"
     "@babel/helper-plugin-utils" ">7.0.0"
