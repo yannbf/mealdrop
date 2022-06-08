@@ -84,7 +84,6 @@ export const GlobalStyle = createGlobalStyle(
 
     body {
       margin: 0;
-      background: ${color.screenBackground};
       font-family: 'Montserrat', sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
