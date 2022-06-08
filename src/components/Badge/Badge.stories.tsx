@@ -13,3 +13,15 @@ export const Default = Template.bind({})
 Default.args = {
   text: 'Comfort food',
 }
+
+export const LightTheme = Template.bind({})
+LightTheme.args = Default.args
+LightTheme.parameters = {
+  theme: 'light',
+}
+
+export const DarkTheme = Template.bind({})
+DarkTheme.args = Default.args
+DarkTheme.parameters = {
+  theme: 'dark',
+}
