@@ -34,14 +34,8 @@ module.exports = {
       ],
     ],
   }),
-
   features: {
-    storyStoreV7: false,
-    buildStoriesJson: true,
     interactionsDebugger: true,
   },
-  framework: '@storybook/react',
-  core: {
-    builder: 'webpack5',
-  },
+  framework: '@storybook/react-webpack5',
 }
