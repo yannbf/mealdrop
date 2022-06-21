@@ -15,29 +15,8 @@ module.exports = {
     'storybook-mobile',
   ],
   staticDirs: ['../public'],
-  babel: async (options) => ({
-    ...options,
-    plugins: [
-      ...options.plugins,
-      'babel-plugin-open-source',
-      [
-        'istanbul',
-        {
-          cwd: path.join(__dirname, '..'),
-          include: ['src/**'],
-          exclude: [
-            '**/*.d.ts',
-            '**/*{.,-}{spec,stories,index.export,types}.{ts,tsx}',
-            'src/App.tsx',
-          ],
-        },
-      ],
-    ],
-  }),
-
   features: {
     storyStoreV7: true,
-    buildStoriesJson: true,
     interactionsDebugger: true,
   },
   framework: '@storybook/react',
