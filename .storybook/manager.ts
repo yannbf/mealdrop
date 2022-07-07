@@ -1,6 +1,9 @@
 import { addons } from '@storybook/addons'
-import { create } from '@storybook/theming/create'
-import logo from '../src/assets/images/logo-black.svg'
+import { create } from '@storybook/theming'
+// TODO: Fix this
+// ✘ [ERROR] No loader is configured for ".svg" files: src/assets/images/logo-black.svg
+
+// import logo from '../src/assets/images/logo-black.svg'
 
 const theme = create({
   base: 'light',
@@ -37,7 +40,7 @@ const theme = create({
   // Brand assets
   brandTitle: 'Mealdrop',
   brandUrl: 'https://github.com/yannbf/mealdrop/',
-  brandImage: logo,
+  // brandImage: logo,
 })
 
 addons.setConfig({
