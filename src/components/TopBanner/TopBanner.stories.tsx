@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentStoryFn, ComponentMeta } from '@storybook/react'
 
 import { TopBanner } from './TopBanner'
 
@@ -10,7 +10,7 @@ export default {
   },
 } as ComponentMeta<typeof TopBanner>
 
-const Template: ComponentStory<typeof TopBanner> = (args) => <TopBanner {...args} />
+const Template: ComponentStoryFn<typeof TopBanner> = (args) => <TopBanner {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentStoryFn, ComponentMeta } from '@storybook/react'
 import { rest } from 'msw'
 
 import { BASE_URL } from '../../api'
@@ -21,6 +21,6 @@ export default {
   },
 } as ComponentMeta<typeof HomePage>
 
-const Template: ComponentStory<typeof HomePage> = () => <HomePage />
+const Template: ComponentStoryFn<typeof HomePage> = () => <HomePage />
 
 export const Default = Template.bind({})

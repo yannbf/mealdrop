@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentStoryFn, ComponentMeta } from '@storybook/react'
 
 import { Category } from './Category'
 
@@ -12,7 +12,7 @@ export default {
   },
 } as ComponentMeta<typeof Category>
 
-const Template: ComponentStory<typeof Category> = (args) => <Category {...args} />
+const Template: ComponentStoryFn<typeof Category> = (args) => <Category {...args} />
 
 export const Default = Template.bind({})
 

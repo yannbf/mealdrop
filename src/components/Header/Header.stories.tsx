@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentStoryFn, ComponentMeta } from '@storybook/react'
 
 import { Header } from './Header'
 
@@ -10,7 +10,7 @@ export default {
   },
 } as ComponentMeta<typeof Header>
 
-const Template: ComponentStory<typeof Header> = (args) => (
+const Template: ComponentStoryFn<typeof Header> = (args) => (
   <div style={{ position: 'relative', height: '100vh' }}>
     <Header {...args} />
   </div>

@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentStoryFn, ComponentMeta } from '@storybook/react'
 
 import { MultiStepForm } from './MultiStepForm'
 
@@ -7,6 +7,6 @@ export default {
   component: MultiStepForm,
 } as ComponentMeta<typeof MultiStepForm>
 
-const Template: ComponentStory<typeof MultiStepForm> = () => <MultiStepForm />
+const Template: ComponentStoryFn<typeof MultiStepForm> = () => <MultiStepForm />
 
 export const Default = Template.bind({})

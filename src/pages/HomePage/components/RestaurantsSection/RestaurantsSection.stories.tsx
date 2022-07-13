@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentStoryFn, ComponentMeta } from '@storybook/react'
 import { rest } from 'msw'
 
 import { BASE_URL } from '../../../../api'
@@ -11,7 +11,7 @@ export default {
   component: RestaurantsSection,
 } as ComponentMeta<typeof RestaurantsSection>
 
-const Template: ComponentStory<typeof RestaurantsSection> = (args) => (
+const Template: ComponentStoryFn<typeof RestaurantsSection> = (args) => (
   <RestaurantsSection {...args} />
 )
 

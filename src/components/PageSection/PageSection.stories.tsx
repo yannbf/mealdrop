@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentStoryFn, ComponentMeta } from '@storybook/react'
 
 import { PageSection } from './PageSection'
 
@@ -10,7 +10,7 @@ export default {
   },
 } as ComponentMeta<typeof PageSection>
 
-const Template: ComponentStory<typeof PageSection> = (args) => <PageSection {...args} />
+const Template: ComponentStoryFn<typeof PageSection> = (args) => <PageSection {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { useEffect, useState } from 'react'
 
 import { Button } from '../Button'
@@ -15,16 +15,16 @@ export default {
     docs: { inlineStories: false, iframeHeight: 600 },
   },
   decorators: [
-    (StoryFn) => (
+    (Story) => (
       <>
         <div id="modal" />
-        <StoryFn />
+        <Story />
       </>
     ),
   ],
 } as Meta
 
-const Template: Story = () => {
+const Template: StoryFn = () => {
   const [isOpen, setIsOpen] = useState(false)
   const openModal = () => setIsOpen(true)
   const closeModal = () => setIsOpen(false)

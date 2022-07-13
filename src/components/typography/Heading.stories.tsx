@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentStoryFn, ComponentMeta } from '@storybook/react'
 
 import { Heading } from './Heading'
 
@@ -11,7 +11,7 @@ export default {
   },
 } as ComponentMeta<typeof Heading>
 
-const Template: ComponentStory<typeof Heading> = ({ children }) => (
+const Template: ComponentStoryFn<typeof Heading> = ({ children }) => (
   <div>
     <Heading>{children || 'Heading 1'}</Heading>
     <Heading level={2}>{children || 'Heading 2'}</Heading>

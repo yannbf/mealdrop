@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentStoryFn, ComponentMeta } from '@storybook/react'
 
 import { Spinner } from './Spinner'
 
@@ -11,7 +11,7 @@ export default {
   },
 } as ComponentMeta<typeof Spinner>
 
-export const Default: ComponentStory<typeof Spinner> = () => (
+export const Default: ComponentStoryFn<typeof Spinner> = () => (
   <div style={{ minHeight: '100vh' }}>
     <Spinner />
   </div>

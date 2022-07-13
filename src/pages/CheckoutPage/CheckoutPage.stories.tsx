@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentStoryFn, ComponentMeta } from '@storybook/react'
 
 import { CheckoutPage } from './CheckoutPage'
 
@@ -10,7 +10,7 @@ export default {
   },
 } as ComponentMeta<typeof CheckoutPage>
 
-const Template: ComponentStory<typeof CheckoutPage> = () => <CheckoutPage />
+const Template: ComponentStoryFn<typeof CheckoutPage> = () => <CheckoutPage />
 
 export const Empty = Template.bind({})
 

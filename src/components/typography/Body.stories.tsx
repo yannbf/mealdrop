@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentStoryFn, ComponentMeta } from '@storybook/react'
 
 import { Body } from './Body'
 
@@ -11,7 +11,7 @@ export default {
   },
 } as ComponentMeta<typeof Body>
 
-const Template: ComponentStory<typeof Body> = ({ children }) => (
+const Template: ComponentStoryFn<typeof Body> = ({ children }) => (
   <div>
     <Body>{children || 'Body'}</Body>
     <Body size="S">{children || 'Body S'}</Body>

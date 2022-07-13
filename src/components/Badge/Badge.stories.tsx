@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentStoryFn, ComponentMeta } from '@storybook/react'
 
 import { Badge } from './Badge'
 
@@ -13,7 +13,7 @@ export default {
   },
 } as ComponentMeta<typeof Badge>
 
-const Template: ComponentStory<typeof Badge> = (args) => <Badge {...args} />
+const Template: ComponentStoryFn<typeof Badge> = (args) => <Badge {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

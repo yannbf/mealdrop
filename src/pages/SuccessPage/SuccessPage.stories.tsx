@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentStoryFn, ComponentMeta } from '@storybook/react'
 
 import { SuccessPage } from './SuccessPage'
 
@@ -14,7 +14,7 @@ export default {
   },
 } as ComponentMeta<typeof SuccessPage>
 
-const Template: ComponentStory<typeof SuccessPage> = () => <SuccessPage />
+const Template: ComponentStoryFn<typeof SuccessPage> = () => <SuccessPage />
 
 export const Default = Template.bind({})
 Default.parameters = {

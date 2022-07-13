@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { ComponentMeta, ComponentStoryFn } from '@storybook/react'
 
 import { cartItems } from '../stub/cart-items'
 
@@ -15,7 +15,7 @@ export default {
 
 const DummyComponent: React.FC = ({ children }) => <div style={{ padding: 60 }}>{children}</div>
 
-const Template: ComponentStory<typeof PageTemplate> = (args) => <PageTemplate {...args} />
+const Template: ComponentStoryFn<typeof PageTemplate> = (args) => <PageTemplate {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentStoryFn, ComponentMeta } from '@storybook/react'
 
 import { FoodItem } from './FoodItem'
 
@@ -7,7 +7,7 @@ export default {
   component: FoodItem,
 } as ComponentMeta<typeof FoodItem>
 
-const Template: ComponentStory<typeof FoodItem> = (args) => <FoodItem {...args} />
+const Template: ComponentStoryFn<typeof FoodItem> = (args) => <FoodItem {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

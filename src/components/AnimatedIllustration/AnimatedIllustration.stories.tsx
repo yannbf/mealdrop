@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentStoryFn, ComponentMeta } from '@storybook/react'
 
 import { AnimatedIllustration } from './AnimatedIllustration'
 
@@ -19,7 +19,7 @@ export default {
   ],
 } as ComponentMeta<typeof AnimatedIllustration>
 
-const Template: ComponentStory<typeof AnimatedIllustration> = (args) => (
+const Template: ComponentStoryFn<typeof AnimatedIllustration> = (args) => (
   <AnimatedIllustration {...args} />
 )
 

@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentStoryFn, ComponentMeta } from '@storybook/react'
 
 import { cartItems } from '../../../stub/cart-items'
 
@@ -9,7 +9,7 @@ export default {
   component: OrderSummary,
 } as ComponentMeta<typeof OrderSummary>
 
-export const Default: ComponentStory<typeof OrderSummary> = (args) => <OrderSummary {...args} />
+export const Default: ComponentStoryFn<typeof OrderSummary> = (args) => <OrderSummary {...args} />
 Default.args = {
   cartItems,
 }

@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentStoryFn, ComponentMeta } from '@storybook/react'
 import { rest } from 'msw'
 
 import { restaurants } from '../../stub/restaurants'
@@ -15,7 +15,7 @@ export default {
   },
 } as ComponentMeta<typeof CategoryDetailPage>
 
-const Template: ComponentStory<typeof CategoryDetailPage> = () => <CategoryDetailPage />
+const Template: ComponentStoryFn<typeof CategoryDetailPage> = () => <CategoryDetailPage />
 
 export const Default = Template.bind({})
 Default.parameters = {

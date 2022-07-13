@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { ComponentStoryFn, ComponentMeta } from '@storybook/react'
 
 import { StepIndicator } from './StepIndicator'
 
@@ -7,7 +7,7 @@ export default {
   component: StepIndicator,
 } as ComponentMeta<typeof StepIndicator>
 
-const Template: ComponentStory<typeof StepIndicator> = (args) => <StepIndicator {...args} />
+const Template: ComponentStoryFn<typeof StepIndicator> = (args) => <StepIndicator {...args} />
 export const Default = Template.bind({})
 Default.args = {
   title: 'Step',
