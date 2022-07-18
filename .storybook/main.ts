@@ -1,6 +1,7 @@
-const path = require('path')
+import path from 'path'
+import type { StorybookConfig } from '@storybook/react-webpack5'
 
-module.exports = {
+export default {
   stories: [
     '../src/docs/Introduction.stories.mdx',
     '../src/docs/*.stories.mdx',
@@ -18,7 +19,7 @@ module.exports = {
   babel: async (options) => ({
     ...options,
     plugins: [
-      ...options.plugins,
+      ...(options.plugins || []),
       'babel-plugin-open-source',
       [
         'istanbul',
@@ -37,5 +38,21 @@ module.exports = {
   features: {
     interactionsDebugger: true,
   },
-  framework: '@storybook/react-webpack5',
-}
+  webpackFinal: async (config) => {
+    config.watchOptions = {
+      ...config.watchOptions,
+      // magic number to fix double HMR
+      aggregateTimeout: 80,
+    }
+
+    return config
+  },
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: {
+      builder: {
+        lazyCompilation: true,
+      },
+    },
+  },
+} as StorybookConfig
