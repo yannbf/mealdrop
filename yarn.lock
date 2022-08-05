@@ -3160,15 +3160,15 @@
     read-pkg-up "^7.0.1"
     regenerator-runtime "^0.13.7"
 
-"@storybook/test-runner@0.1.2--canary.125.7fdef2d.0":
-  version "0.1.2--canary.125.7fdef2d.0"
-  resolved "https://registry.yarnpkg.com/@storybook/test-runner/-/test-runner-0.1.2--canary.125.7fdef2d.0.tgz#a9b5dac1587378469c230a3cc3d74763a8ec18a0"
-  integrity sha512-40qbum+W4qHfyUh+f7VdaPI5P8LbU7k156c33J+O0gXp0CfiP6pmoKJyV0pfz5y7lLkQ8QdYNfVUbi5C97pKew==
+"@storybook/test-runner@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@storybook/test-runner/-/test-runner-0.5.0.tgz#cd766f3509537fe0f709607df706a6e5871e2fc4"
+  integrity sha512-It/lbQ5sBltyrYNozyN/TmI7fBaLupYQTrlvHikWdyVBOUDIWXKBeaR2M2GU2e+0BrqNY7u/JPJNP7diEBGO/Q==
   dependencies:
     "@storybook/csf" "0.0.2--canary.4566f4d.1"
+    can-bind-to-host "^1.1.1"
     commander "^9.0.0"
     global "^4.4.0"
-    is-localhost-ip "^1.4.0"
     jest-playwright-preset "^1.7.2"
     jest-serializer-html "^7.1.0"
     jest-watch-typeahead "^1.0.0"
@@ -5652,6 +5652,11 @@ camelize@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/camelize/-/camelize-1.0.0.tgz#164a5483e630fa4321e5af07020e531831b2609b"
   integrity sha1-FkpUg+Yw+kMh5a8HAg5TGDGyYJs=
+
+can-bind-to-host@^1.1.1:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/can-bind-to-host/-/can-bind-to-host-1.1.2.tgz#45919a1fb426eb1b709ddd4853cd5eda0549e606"
+  integrity sha512-CqsgmaqiyFRNtP17Ihqa/uHbZxRirntNVNl/kJz31DLKuNRfzvzionkLoUSkElQ6Cz+cpXKA3mhHq4tjbieujA==
 
 caniuse-api@^3.0.0:
   version "3.0.0"
@@ -9525,11 +9530,6 @@ is-interactive@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/is-interactive/-/is-interactive-1.0.0.tgz#cea6e6ae5c870a7b0a0004070b7b587e0252912e"
   integrity sha512-2HvIEKRoqS62guEC+qBjpvRubdX910WCMuJTZ+I9yvqKU2/12eSL549HMwtabb4oupdj2sMP50k+XJfB/8JE6w==
-
-is-localhost-ip@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/is-localhost-ip/-/is-localhost-ip-1.4.0.tgz#dd66aaabcbb5dbbc943e00adad5f715d2c3b3a1d"
-  integrity sha512-cN7SzlY7BVxSeoJu5equjsZaKSgD4HCfXrTwu0Jgbq5BbT1BU+D7Lyi/l1KO8H0un0JTlxcQaT/GWVapu+DIDg==
 
 is-map@^2.0.2:
   version "2.0.2"
