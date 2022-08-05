@@ -12,7 +12,8 @@ export default {
     '@storybook/addon-interactions',
     '@storybook/preset-create-react-app',
     '@storybook/addon-a11y',
-    'storybook-addon-designs',
+    // TODO: fix the addon
+    // 'storybook-addon-designs',
     'storybook-mobile',
   ],
   staticDirs: ['../public'],
@@ -50,9 +51,10 @@ export default {
   framework: {
     name: '@storybook/react-webpack5',
     options: {
-      builder: {
-        lazyCompilation: true,
-      },
+      // TODO: does not work with test runner
+      // builder: {
+      //   lazyCompilation: true,
+      // },
     },
   },
 } as StorybookConfig
