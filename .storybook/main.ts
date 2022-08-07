@@ -14,28 +14,16 @@ export default {
     '@storybook/addon-a11y',
     // TODO: fix the addon
     // 'storybook-addon-designs',
+    '@storybook/addon-coverage',
     'storybook-mobile',
   ],
+  babel: async (options) => {
+    return {
+      ...options,
+      plugins: [...options.plugins, 'babel-plugin-open-source'],
+    }
+  },
   staticDirs: ['../public'],
-  babel: async (options) => ({
-    ...options,
-    plugins: [
-      ...(options.plugins || []),
-      'babel-plugin-open-source',
-      [
-        'istanbul',
-        {
-          cwd: path.join(__dirname, '..'),
-          include: ['src/**'],
-          exclude: [
-            '**/*.d.ts',
-            '**/*{.,-}{spec,stories,index.export,types}.{ts,tsx}',
-            'src/App.tsx',
-          ],
-        },
-      ],
-    ],
-  }),
   features: {
     storyStoreV7: true,
     interactionsDebugger: true,

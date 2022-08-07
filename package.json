@@ -52,6 +52,7 @@
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@storybook/addon-a11y": "^7.0.0-alpha.18",
+    "@storybook/addon-coverage": "^0.0.2",
     "@storybook/addon-essentials": "^7.0.0-alpha.18",
     "@storybook/addon-interactions": "^7.0.0-alpha.18",
     "@storybook/addon-storyshots": "^7.0.0-alpha.18",
