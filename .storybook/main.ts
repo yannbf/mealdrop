@@ -37,6 +37,7 @@ export default {
     ],
   }),
   features: {
+    storyStoreV7: true,
     interactionsDebugger: true,
   },
   webpackFinal: async (config) => {
