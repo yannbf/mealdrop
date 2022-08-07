@@ -10,6 +10,12 @@
       "source": "/storybook",
       "destination": "/storybook"
     },
-    { "source": "/(.*)", "destination": "/" }
-  ]
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ],
+  "github": {
+    "silent": true
+  }
 }
