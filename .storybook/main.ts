@@ -15,6 +15,12 @@ module.exports = {
     'storybook-addon-designs',
     'storybook-mobile',
   ],
+  babel: async (options) => {
+    return {
+      ...options,
+      plugins: [...options.plugins, 'babel-plugin-open-source'],
+    }
+  },
   staticDirs: ['../public'],
   features: {
     storyStoreV7: true,
