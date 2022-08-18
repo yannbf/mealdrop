@@ -32,11 +32,11 @@ export default {
       ],
     },
   },
-  argTypes: {
-    demoMode: {
-      control: { type: 'boolean' },
-    },
-  },
+  // argTypes: {
+  //   demoMode: {
+  //     control: { type: 'boolean' },
+  //   },
+  // },
 } as Meta
 
 export const Home = {}

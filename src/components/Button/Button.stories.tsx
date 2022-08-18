@@ -5,9 +5,22 @@ import { Button } from './Button'
 export default {
   title: 'Components/Button',
   component: Button,
+  argTypes: {
+    children: { control: 'text' },
+  },
 } as ComponentMeta<typeof Button>
 
 const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
+
+export const AllVariants = Template.bind({})
+AllVariants.args = {
+  children: 'Button',
+}
+AllVariants.parameters = {
+  variants: {
+    enable: true,
+  },
+}
 
 export const Default = Template.bind({})
 Default.args = {

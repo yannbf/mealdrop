@@ -12,6 +12,9 @@ export default {
       type: 'figspec',
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=1126%3A3893',
     },
+    controls: {
+      include: ['name', 'specialty', 'rating', 'categories', 'isNew', 'isClosed', 'isLoading'],
+    },
   },
   argTypes: {
     rating: {

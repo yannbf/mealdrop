@@ -5699,6 +5699,13 @@ capture-exit@^2.0.0:
   dependencies:
     rsvp "^4.8.4"
 
+cartesian@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/cartesian/-/cartesian-1.0.1.tgz#ae3fc8a63e2ba7e2c4989ce696207457bcae65af"
+  integrity sha512-tR3qKRYpRJ6FXEGuoBwpuCYcwydrk1N2rduy7eWg1Msepi3i5fCxheryw4VBlCqjCbk3Vhjh3eg+IGHtl5H74A==
+  dependencies:
+    xtend "^4.0.1"
+
 case-sensitive-paths-webpack-plugin@^2.3.0, case-sensitive-paths-webpack-plugin@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/case-sensitive-paths-webpack-plugin/-/case-sensitive-paths-webpack-plugin-2.4.0.tgz#db64066c6422eed2e08cc14b986ca43796dbc6d4"
@@ -14965,6 +14972,13 @@ storybook-addon-designs@^6.3.1:
   integrity sha512-QCHZp4KuUikOq52MPiMfU8QifYTfhHar5vWlbcfkFDz1YrgGMy+QAEt5Y3Vdnffl4GKSK1lAsLuvTuzqTBRvnw==
   dependencies:
     "@figspec/react" "^1.0.0"
+
+storybook-addon-variants@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/storybook-addon-variants/-/storybook-addon-variants-0.2.0.tgz#e8038aae3f70c0691e97d11bfe2671de84993d6b"
+  integrity sha512-4woVtd+XsHNHN7XDjFFNns1sVYotjYOh5/FP8AR+CzUK9Eb9WPvQ0re5z5rZztndND0NqhhJ5F65Iy4jrz6OzQ==
+  dependencies:
+    cartesian "^1.0.1"
 
 storybook-mobile@^1.0.0:
   version "1.0.0"
