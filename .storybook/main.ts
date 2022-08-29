@@ -15,7 +15,8 @@ export default {
     // TODO: fix the addon
     // 'storybook-addon-designs',
     '@storybook/addon-coverage',
-    'storybook-mobile',
+    // TODO: fix the addon
+    // 'storybook-mobile',
   ],
   babel: async (options) => {
     return {
