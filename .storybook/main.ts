@@ -28,6 +28,6 @@ module.exports = {
   },
   framework: '@storybook/react',
   core: {
-    builder: 'webpack5',
+    builder: '@storybook/builder-vite',
   },
 }
