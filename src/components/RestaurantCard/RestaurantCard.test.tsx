@@ -1,10 +1,9 @@
+import { vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { composeStories } from '@storybook/testing-react'
-import { axe, toHaveNoViolations } from 'jest-axe'
+import { axe } from 'vitest-axe'
 
 import * as stories from './RestaurantCard.stories'
-
-expect.extend(toHaveNoViolations)
 
 const { Default, Loading, New, Closed } = composeStories(stories)
 
@@ -26,7 +25,7 @@ describe('RestaurantCard', () => {
   })
 
   test('should not trigger onclick when restaurant is closed', async () => {
-    const onClickSpy = jest.fn()
+    const onClickSpy = vi.fn()
     render(<Closed onClick={onClickSpy} />)
 
     // display closed message
