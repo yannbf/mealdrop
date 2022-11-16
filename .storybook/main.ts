@@ -1,5 +1,4 @@
 const path = require('path')
-
 module.exports = {
   stories: [
     '../src/docs/Introduction.stories.mdx',
@@ -9,11 +8,10 @@ module.exports = {
   addons: [
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
-    '@storybook/preset-create-react-app',
     '@storybook/addon-a11y',
     '@storybook/addon-coverage',
-    'storybook-addon-designs',
-    'storybook-mobile',
+    // 'storybook-addon-designs',
+    // 'storybook-mobile',
   ],
   babel: async (options) => {
     return {
@@ -26,8 +24,12 @@ module.exports = {
     storyStoreV7: true,
     interactionsDebugger: true,
   },
-  framework: '@storybook/react',
-  core: {
-    builder: '@storybook/builder-vite',
+  framework: {
+    name: '@storybook/react-vite',
+    options: {},
+  },
+  core: {},
+  docsPage: {
+    docs: 'automatic',
   },
 }
