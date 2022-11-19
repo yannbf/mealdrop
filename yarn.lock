@@ -14342,10 +14342,10 @@ vitest-axe@^0.1.0:
     lodash-es "^4.17.21"
     redent "^3.0.0"
 
-vitest-canvas-mock@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/vitest-canvas-mock/-/vitest-canvas-mock-0.2.1.tgz#71f4b6305451730a0cd6fa9f431b86d7b94cb292"
-  integrity sha512-pBO5UhL1AsWCJeFhaATCt3DLD6kyBk3HDVnVC4vq71TXhuLheVG2S+RKCojIbHMpZYH0QBI3Nvf5Jk+P917EmA==
+vitest-canvas-mock@^0.2.2:
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/vitest-canvas-mock/-/vitest-canvas-mock-0.2.2.tgz#2417786c2a970dd0e7a2e86db1bd2b069dc97256"
+  integrity sha512-xWieqkTMWa7hXbmHcUP9HOnn4qM8/0pK043BD5bD3ipCpr2tNuEn300necwB3Eh2WZp8QV2k1RelXx50fJDT6g==
   dependencies:
     jest-canvas-mock "^2.4.0"
 

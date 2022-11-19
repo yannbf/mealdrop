@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom/extend-expect'
 import 'vitest-canvas-mock'
-import { setProjectAnnotations } from '@storybook/react'
+import { setGlobalConfig } from '@storybook/testing-react'
 import * as axeMatchers from 'vitest-axe/matchers'
 import { cleanup } from '@testing-library/react'
 import matchers from '@testing-library/jest-dom/matchers'
@@ -16,7 +16,7 @@ afterEach(() => {
   cleanup()
 })
 
-setProjectAnnotations(globalStorybookConfig)
+setGlobalConfig(globalStorybookConfig)
 
 // // https://github.com/nickcolley/jest-axe/issues/147#issuecomment-758804533
 const { getComputedStyle } = window

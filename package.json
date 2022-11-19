@@ -109,7 +109,7 @@
     "vite-tsconfig-paths": "^3.5.2",
     "vitest": "^0.25.1",
     "vitest-axe": "^0.1.0",
-    "vitest-canvas-mock": "^0.2.1"
+    "vitest-canvas-mock": "^0.2.2"
   },
   "msw": {
     "workerDirectory": "public"
