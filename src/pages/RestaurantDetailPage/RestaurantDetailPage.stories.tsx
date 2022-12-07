@@ -1,4 +1,4 @@
-import { ComponentStoryFn, ComponentMeta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { expect } from '@storybook/jest'
 import { within, userEvent } from '@storybook/testing-library'
 import { rest } from 'msw'
@@ -19,9 +19,9 @@ export default {
       path: '/restaurants/:id',
     },
   },
-} as ComponentMeta<typeof RestaurantDetailPage>
+} as Meta<typeof RestaurantDetailPage>
 
-const Template: ComponentStoryFn<typeof RestaurantDetailPage> = () => (
+const Template: StoryFn<typeof RestaurantDetailPage> = () => (
   <>
     <RestaurantDetailPage />
     <div id="modal" />

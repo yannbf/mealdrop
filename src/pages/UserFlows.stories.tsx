@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Meta, StoryObj } from '@storybook/react'
 import isChromatic from 'chromatic/isChromatic'
 import { rest } from 'msw'

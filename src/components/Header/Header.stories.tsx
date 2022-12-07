@@ -1,4 +1,4 @@
-import { ComponentStoryFn, ComponentMeta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 
 import { Header } from './Header'
 
@@ -8,9 +8,9 @@ export default {
   parameters: {
     layout: 'fullscreen',
   },
-} as ComponentMeta<typeof Header>
+} as Meta<typeof Header>
 
-const Template: ComponentStoryFn<typeof Header> = (args) => (
+const Template: StoryFn<typeof Header> = (args) => (
   <div style={{ position: 'relative', height: '100vh' }}>
     <Header {...args} />
   </div>

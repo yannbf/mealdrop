@@ -1,4 +1,4 @@
-import { ComponentStoryFn, ComponentMeta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { rest } from 'msw'
 
 import { restaurants } from '../../stub/restaurants'
@@ -13,9 +13,9 @@ export default {
     layout: 'fullscreen',
     deeplink: { route: '/categories/burgers', path: '/categories/:id' },
   },
-} as ComponentMeta<typeof CategoryDetailPage>
+} as Meta<typeof CategoryDetailPage>
 
-const Template: ComponentStoryFn<typeof CategoryDetailPage> = () => <CategoryDetailPage />
+const Template: StoryFn<typeof CategoryDetailPage> = () => <CategoryDetailPage />
 
 export const Default = Template.bind({})
 Default.parameters = {

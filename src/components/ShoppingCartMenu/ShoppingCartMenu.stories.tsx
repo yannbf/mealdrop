@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { StoryFn, ComponentStoryFn, ComponentMeta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 
 import { cartItems } from '../../stub/cart-items'
 import { Button } from '../Button'
@@ -20,9 +20,9 @@ export default {
     cartItems: cartItems,
     totalPrice: 1200,
   },
-} as ComponentMeta<typeof ShoppingCartMenu>
+} as Meta<typeof ShoppingCartMenu>
 
-const Template: ComponentStoryFn<typeof ShoppingCartMenu> = (args) => <ShoppingCartMenu {...args} />
+const Template: StoryFn<typeof ShoppingCartMenu> = (args) => <ShoppingCartMenu {...args} />
 
 export const Empty = Template.bind({})
 Empty.args = {

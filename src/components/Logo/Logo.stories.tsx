@@ -1,13 +1,13 @@
-import { ComponentStoryFn, ComponentMeta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 
 import { Logo } from './Logo'
 
 export default {
   title: 'Components/Logo',
   component: Logo,
-} as ComponentMeta<typeof Logo>
+} as Meta<typeof Logo>
 
-const Template: ComponentStoryFn<typeof Logo> = (args) => <Logo {...args} />
+const Template: StoryFn<typeof Logo> = (args) => <Logo {...args} />
 
 export const WithText = Template.bind({})
 

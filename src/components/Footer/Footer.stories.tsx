@@ -1,4 +1,4 @@
-import { ComponentStoryFn, ComponentMeta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 
 import { Footer } from './Footer'
 
@@ -8,9 +8,9 @@ export default {
   parameters: {
     layout: 'fullscreen',
   },
-} as ComponentMeta<typeof Footer>
+} as Meta<typeof Footer>
 
-const Template: ComponentStoryFn<typeof Footer> = () => (
+const Template: StoryFn<typeof Footer> = () => (
   <div style={{ position: 'relative', height: '100vh' }}>
     <div style={{ position: 'absolute', bottom: 0, width: '100%' }}>
       <Footer />

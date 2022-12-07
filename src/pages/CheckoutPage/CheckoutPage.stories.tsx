@@ -1,4 +1,4 @@
-import { ComponentStoryFn, ComponentMeta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 
 import { CheckoutPage } from './CheckoutPage'
 
@@ -8,9 +8,9 @@ export default {
   parameters: {
     layout: 'fullscreen',
   },
-} as ComponentMeta<typeof CheckoutPage>
+} as Meta<typeof CheckoutPage>
 
-const Template: ComponentStoryFn<typeof CheckoutPage> = () => <CheckoutPage />
+const Template: StoryFn<typeof CheckoutPage> = () => <CheckoutPage />
 
 export const Empty = Template.bind({})
 

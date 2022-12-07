@@ -1,4 +1,4 @@
-import { ComponentStoryFn, ComponentMeta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 
 import { Category } from './Category'
 
@@ -10,9 +10,9 @@ export default {
     photoUrl:
       'https://images.pexels.com/photos/2147491/pexels-photo-2147491.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=550',
   },
-} as ComponentMeta<typeof Category>
+} as Meta<typeof Category>
 
-const Template: ComponentStoryFn<typeof Category> = (args) => <Category {...args} />
+const Template: StoryFn<typeof Category> = (args) => <Category {...args} />
 
 export const Default = Template.bind({})
 
