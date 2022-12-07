@@ -4,7 +4,7 @@
 import React from 'react'
 import { BrowserRouter, Route,  MemoryRouter } from 'react-router-dom'
 import styled, { css, ThemeProvider } from 'styled-components'
-import { DecoratorFn } from '@storybook/react'
+import { Decorator } from '@storybook/react'
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider as StoreProvider } from 'react-redux'
 import { initialize, mswDecorator } from 'msw-storybook-addon'
@@ -50,7 +50,7 @@ const ThemeBlock = styled.div<{ left?: boolean; fullScreen?: boolean }>(
     `
 )
 
-export const withTheme: DecoratorFn = (StoryFn, { globals: { theme = 'light' }, parameters }) => {
+export const withTheme: Decorator = (StoryFn, { globals: { theme = 'light' }, parameters }) => {
   const fullScreen = parameters.layout === 'fullscreen'
   const appTheme = theme === 'light' ? lightTheme : darkTheme
   const secondContainerRef = React.useRef<HTMLDivElement>(null)
@@ -114,7 +114,7 @@ export const withTheme: DecoratorFn = (StoryFn, { globals: { theme = 'light' }, 
  *   }
  * };
  */
-export const withStore: DecoratorFn = (StoryFn, { parameters }) => {
+export const withStore: Decorator = (StoryFn, { parameters }) => {
   // Creates a store by merging optional custom initialState
   const store = configureStore({
     reducer: rootReducer,
@@ -141,7 +141,7 @@ export const withStore: DecoratorFn = (StoryFn, { parameters }) => {
  *   }
  * };
  */
-export const withRouter: DecoratorFn = (StoryFn, { parameters: { deeplink } }) => {
+export const withRouter: Decorator = (StoryFn, { parameters: { deeplink } }) => {
   // if there's no deeplink config, just return the story in a Router
   if (!deeplink) {
     return (
