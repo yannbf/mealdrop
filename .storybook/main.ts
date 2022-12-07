@@ -1,4 +1,3 @@
-import path from 'path'
 import type { StorybookConfig } from '@storybook/react-webpack5'
 
 export default {
@@ -21,7 +20,7 @@ export default {
   babel: async (options) => {
     return {
       ...options,
-      plugins: [...options.plugins, 'babel-plugin-open-source'],
+      plugins: (options.plugins || []).concat('babel-plugin-open-source'),
     }
   },
   staticDirs: ['../public'],
