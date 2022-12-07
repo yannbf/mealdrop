@@ -61,7 +61,7 @@
     "@storybook/react-webpack5": "next",
     "@storybook/test-runner": "^0.7.2",
     "@storybook/testing-library": "^0.0.14-next.0",
-    "@storybook/testing-react": "2.0.0--canary.120.942de96.0",
+    "@storybook/testing-react": "2.0.0--canary.120.3f814e8.0",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",

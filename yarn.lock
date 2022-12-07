@@ -4915,10 +4915,10 @@
     "@testing-library/user-event" "^13.2.1"
     ts-dedent "^2.2.0"
 
-"@storybook/testing-react@2.0.0--canary.120.942de96.0":
-  version "2.0.0--canary.120.942de96.0"
-  resolved "https://registry.yarnpkg.com/@storybook/testing-react/-/testing-react-2.0.0--canary.120.942de96.0.tgz#ae022a4e335fd61c3755d8a3c685fa470c71586f"
-  integrity sha512-5auXTwFq1ASsjIzPIyEYv+yNPx5DN0abDrLOWeWcGKeUe9cQLNDFcXQTHwksfRv+AqH+5biWx3wdYPImkc2anw==
+"@storybook/testing-react@2.0.0--canary.120.3f814e8.0":
+  version "2.0.0--canary.120.3f814e8.0"
+  resolved "https://registry.yarnpkg.com/@storybook/testing-react/-/testing-react-2.0.0--canary.120.3f814e8.0.tgz#f113b2bff04bcb7ccf6bd9af9ff8b91fd50295c1"
+  integrity sha512-E6uRDNGsH09ae0sV7H2D7BNbKckEQPUcllGVjJFOVZD0Gsl4x1krGjrm8l1fuvk2CeB18tZkbuJ2hDH49Hxnhw==
   dependencies:
     "@storybook/csf" next
 

@@ -163,4 +163,4 @@ export const withRouter: Decorator = (StoryFn, { parameters: { deeplink } }) => 
 }
 
 // ordered from innermost to outermost, be careful with the order!
-export const globalDecorators = [withRouter, withTheme, withStore, mswDecorator]
+export const globalDecorators = [withRouter, withTheme, withStore, mswDecorator as Decorator]
