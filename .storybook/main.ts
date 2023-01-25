@@ -10,16 +10,16 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/addon-a11y',
-    '@storybook/addon-coverage',
-    'storybook-addon-designs',
-    'storybook-mobile',
+    // '@storybook/addon-coverage',
+    // 'storybook-addon-designs',
+    // 'storybook-mobile',
   ],
-  babel: async (options) => {
-    return {
-      ...options,
-      plugins: [...(options.plugins || []), 'babel-plugin-open-source'],
-    }
-  },
+  // babel: async (options) => {
+  //   return {
+  //     ...options,
+  //     plugins: [...(options.plugins || []), 'babel-plugin-open-source'],
+  //   }
+  // },
   staticDirs: ['../public'],
   features: {
     storyStoreV7: true,

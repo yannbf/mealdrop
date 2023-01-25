@@ -3,10 +3,12 @@ import isChromatic from 'chromatic/isChromatic'
 import { rest } from 'msw'
 import { expect } from '@storybook/jest'
 import { within, userEvent, waitForElementToBeRemoved } from '@storybook/testing-library'
+import { MemoryRouter, Route } from 'react-router-dom'
 
 import { BASE_URL } from '../api'
 import { restaurants } from '../stub/restaurants'
 import { animatedUserEventClick } from '../../.storybook/interaction'
+import { AppRoutes } from '../Routes'
 
 export default {
   title: 'UserFlows/App',
@@ -32,6 +34,19 @@ export default {
       ],
     },
   },
+  decorators: [
+    (StoryFn, { parameters: { deeplink } }) => {
+      const { path, route } = deeplink
+
+      return (
+        <MemoryRouter initialEntries={[encodeURI(route)]}>
+          <AppRoutes>
+            <Route path={path} element={<StoryFn />} />
+          </AppRoutes>
+        </MemoryRouter>
+      )
+    },
+  ],
   argTypes: {
     demoMode: {
       control: { type: 'boolean' },
@@ -39,9 +54,11 @@ export default {
   },
 } as Meta
 
+type Story = StoryObj<{ demoMode: boolean }>
+
 export const Home = {}
 
-export const ToCategoryListPage: StoryObj = {
+export const ToCategoryListPage: Story = {
   play: async ({ canvasElement, args }) => {
     const clickEvent = args.demoMode === true ? animatedUserEventClick : userEvent.click
     const canvas = within(canvasElement)
@@ -50,7 +67,7 @@ export const ToCategoryListPage: StoryObj = {
   },
 }
 
-export const ToCategoryDetailPage: StoryObj = {
+export const ToCategoryDetailPage: Story = {
   play: async (context) => {
     await ToCategoryListPage.play!(context)
     const { canvasElement, args } = context
@@ -62,7 +79,7 @@ export const ToCategoryDetailPage: StoryObj = {
   },
 }
 
-export const ToRestaurantDetailPage: StoryObj = {
+export const ToRestaurantDetailPage: Story = {
   play: async (context) => {
     await ToCategoryDetailPage.play!(context)
     const { canvasElement, args } = context
@@ -75,7 +92,7 @@ export const ToRestaurantDetailPage: StoryObj = {
   },
 }
 
-export const ToCheckoutPage: StoryObj = {
+export const ToCheckoutPage: Story = {
   play: async (context) => {
     await ToRestaurantDetailPage.play!(context)
     const { canvasElement, args } = context
@@ -106,7 +123,7 @@ export const ToCheckoutPage: StoryObj = {
   },
 }
 
-export const ToSuccessPage: StoryObj = {
+export const ToSuccessPage: Story = {
   play: async (context) => {
     await ToCheckoutPage.play!(context)
     const { canvasElement, args } = context
@@ -130,7 +147,7 @@ export const ToSuccessPage: StoryObj = {
   },
 }
 
-export const EndToEnd: StoryObj = {
+export const EndToEnd: Story = {
   args: {
     demoMode: !isChromatic,
   },
