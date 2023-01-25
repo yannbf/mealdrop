@@ -6,12 +6,14 @@ import { rest } from 'msw'
 import { BASE_URL } from '../../api'
 import { restaurants } from '../../stub/restaurants'
 import { cartItems } from '../../stub/cart-items'
+import { withDeeplink } from '../../../.storybook/withDeeplink'
 
 import { RestaurantDetailPage } from './RestaurantDetailPage'
 
 export default {
   title: 'Pages/RestaurantDetailPage',
   component: RestaurantDetailPage,
+  decorators: [withDeeplink],
   parameters: {
     layout: 'fullscreen',
     deeplink: {

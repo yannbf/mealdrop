@@ -3,12 +3,11 @@ import isChromatic from 'chromatic/isChromatic'
 import { rest } from 'msw'
 import { expect } from '@storybook/jest'
 import { within, userEvent, waitForElementToBeRemoved } from '@storybook/testing-library'
-import { MemoryRouter, Route } from 'react-router-dom'
 
 import { BASE_URL } from '../api'
 import { restaurants } from '../stub/restaurants'
 import { animatedUserEventClick } from '../../.storybook/interaction'
-import { AppRoutes } from '../Routes'
+import { withDeeplink } from '../../.storybook/withDeeplink'
 
 export default {
   title: 'UserFlows/App',
@@ -34,19 +33,7 @@ export default {
       ],
     },
   },
-  decorators: [
-    (StoryFn, { parameters: { deeplink } }) => {
-      const { path, route } = deeplink
-
-      return (
-        <MemoryRouter initialEntries={[encodeURI(route)]}>
-          <AppRoutes>
-            <Route path={path} element={<StoryFn />} />
-          </AppRoutes>
-        </MemoryRouter>
-      )
-    },
-  ],
+  decorators: [withDeeplink],
   argTypes: {
     demoMode: {
       control: { type: 'boolean' },

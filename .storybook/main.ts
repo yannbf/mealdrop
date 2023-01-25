@@ -14,12 +14,10 @@ const config: StorybookConfig = {
     // 'storybook-addon-designs',
     // 'storybook-mobile',
   ],
-  // babel: async (options) => {
-  //   return {
-  //     ...options,
-  //     plugins: [...(options.plugins || []), 'babel-plugin-open-source'],
-  //   }
-  // },
+  typescript: {
+    // @ts-expect-error types should be updated in @storybook/react-vite
+    reactDocgen: 'none',
+  },
   staticDirs: ['../public'],
   features: {
     storyStoreV7: true,
