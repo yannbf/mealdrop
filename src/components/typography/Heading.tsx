@@ -26,7 +26,11 @@ type DefaultProps = {
 
 type HeadingProps = DefaultProps & React.ComponentProps<typeof HeadingBase>
 
-export const Heading: React.FC<HeadingProps> = ({ level = 1, children, className }) => {
+export const Heading: React.FC<React.PropsWithChildren<HeadingProps>> = ({
+  level = 1,
+  children,
+  className,
+}) => {
   const heading = `h${level}` as React.ElementType
   return (
     <HeadingBase as={heading} level={level} className={className}>

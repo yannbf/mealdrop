@@ -13,7 +13,11 @@ type ModalProps = {
   onClose: () => void
 }
 
-export const Modal: React.FC<ModalProps> = ({ children, isOpen, onClose }) => {
+export const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
+  children,
+  isOpen,
+  onClose,
+}) => {
   useKey('escape', onClose)
   useLockBodyScroll(isOpen)
   const contentRef = React.useRef(null)

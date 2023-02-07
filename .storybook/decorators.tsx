@@ -55,7 +55,7 @@ export const withTheme: Decorator = (StoryFn, { globals: { theme = 'light' }, pa
   const secondContainerRef = React.useRef<HTMLDivElement>(null)
 
   const firstBlockRef = React.useCallback(
-    (node) => {
+    (node: any) => {
       if (node) {
         node.addEventListener('scroll', () => {
           if (secondContainerRef.current) {

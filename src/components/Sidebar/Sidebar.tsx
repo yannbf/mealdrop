@@ -14,7 +14,13 @@ type SidebarProps = {
   footer?: React.ReactNode
 }
 
-export const Sidebar: React.FC<SidebarProps> = ({ children, footer, isOpen, title, onClose }) => {
+export const Sidebar: React.FC<React.PropsWithChildren<SidebarProps>> = ({
+  children,
+  footer,
+  isOpen,
+  title,
+  onClose,
+}) => {
   useKey('escape', onClose)
   useLockBodyScroll(isOpen)
   const contentRef = React.useRef(null)

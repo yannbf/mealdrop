@@ -50,7 +50,11 @@ type FooterCardProps = {
   }[]
 }
 
-export const FooterCard: React.FC<FooterCardProps> = ({ title, links = [], children }) => (
+export const FooterCard: React.FC<React.PropsWithChildren<FooterCardProps>> = ({
+  title,
+  links = [],
+  children,
+}) => (
   <FooterCardContainer>
     <Heading level={2}>{title}</Heading>
     {links.length > 0 && (

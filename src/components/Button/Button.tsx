@@ -86,7 +86,7 @@ type ButtonProps = DefaultProps & React.ComponentProps<typeof StyledButton>
 /**
  * Primary UI component for user interaction
  */
-export const Button: React.FC<ButtonProps> = ({
+export const Button: React.FC<React.PropsWithChildren<ButtonProps>> = ({
   children,
   large = false,
   clear = false,
