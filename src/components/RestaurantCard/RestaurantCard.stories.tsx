@@ -1,51 +1,39 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 import { restaurants } from '../../stub/restaurants'
 
 import { RestaurantCard } from './RestaurantCard'
 
-export default {
-  title: 'Components/RestaurantCard',
+const meta = {
   component: RestaurantCard,
-  parameters: {
-    design: {
-      type: 'figspec',
-      url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=1126%3A3893',
-    },
+} satisfies Meta<typeof RestaurantCard>
+
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {
+  args: {
+    ...restaurants[0],
+    name: 'Burger Kingdom',
   },
-  argTypes: {
-    rating: {
-      control: {
-        type: 'range',
-        min: 0,
-        max: 5,
-        step: 0.1,
-      },
-    },
+}
+
+export const New: Story = {
+  render: (args) => <RestaurantCard {...args} isNew />,
+  args: Default.args,
+}
+
+export const Closed: Story = {
+  args: {
+    ...Default.args,
+    isClosed: true,
   },
-} as ComponentMeta<typeof RestaurantCard>
-
-const Template: ComponentStory<typeof RestaurantCard> = (args) => <RestaurantCard {...args} />
-
-export const Default = Template.bind({})
-Default.args = {
-  ...restaurants[0],
 }
 
-export const New = Template.bind({})
-New.args = {
-  ...Default.args,
-  isNew: true,
-}
-
-export const Closed = Template.bind({})
-Closed.args = {
-  ...Default.args,
-  isClosed: true,
-}
-
-export const Loading = Template.bind({})
-Loading.args = {
-  ...Default.args,
-  isLoading: true,
+export const Loading: Story = {
+  args: {
+    ...Default.args,
+    isLoading: true,
+  },
 }

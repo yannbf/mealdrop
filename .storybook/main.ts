@@ -10,17 +10,16 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/addon-a11y',
-    // '@storybook/addon-coverage',
-    // 'storybook-addon-designs',
-    // 'storybook-mobile',
+    '@storybook/addon-coverage',
+    'storybook-addon-designs',
+    'storybook-mobile',
   ],
-  typescript: {
-    // @ts-expect-error types should be updated in @storybook/react-vite
-    reactDocgen: 'none',
-  },
+  // typescript: {
+  // @ts-ignore types should be updated in @storybook/react-vite
+  // reactDocgen: 'none',
+  // },
   staticDirs: ['../public'],
   features: {
-    storyStoreV7: true,
     interactionsDebugger: true,
   },
   framework: {
@@ -28,7 +27,7 @@ const config: StorybookConfig = {
     options: {},
   },
   docs: {
-    autodocs: false,
+    autodocs: 'tag',
   },
 }
 
