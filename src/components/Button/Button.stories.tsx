@@ -7,7 +7,7 @@ const meta = {
   args: {
     children: 'Button',
   },
-  tags: ['autodocs'],
+  // tags: ['autodocs'],
 } satisfies Meta<typeof Button>
 export default meta
 
