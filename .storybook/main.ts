@@ -4,6 +4,7 @@ const config: StorybookConfig = {
   stories: [
     '../src/docs/Introduction.stories.mdx',
     '../src/docs/*.stories.mdx',
+    '../src/**/*.mdx',
     '../src/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
@@ -12,7 +13,7 @@ const config: StorybookConfig = {
     '@storybook/addon-a11y',
     '@storybook/addon-coverage',
     'storybook-addon-designs',
-    'storybook-mobile',
+    // 'storybook-mobile',
   ],
   // typescript: {
   // @ts-ignore types should be updated in @storybook/react-vite

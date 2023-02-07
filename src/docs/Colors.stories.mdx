@@ -1,19 +1,9 @@
-import { Meta, ColorPalette, ColorItem, Typeset } from '@storybook/addon-docs'
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks'
 import { TabsState } from '@storybook/components'
 import { lightTheme, darkTheme } from '../styles/theme'
+import { getColors } from './utils'
 
 <Meta title="Design System/Colors" />
-
-export const sortObjectKeys = (obj) =>
-  Object.entries(obj)
-    .sort()
-    .reduce((o, [k, v]) => ((o[k] = v), o), {})
-
-export const getColors = (theme) =>
-  Object.keys(sortObjectKeys(theme.color)).map((key) => ({
-    name: key,
-    value: theme.color[key],
-  }))
 
 # Colors
 
@@ -33,3 +23,7 @@ export const getColors = (theme) =>
     </ColorPalette>
   </div>
 </TabsState>
+
+
+
+
