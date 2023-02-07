@@ -32,7 +32,7 @@ export const parameters = {
     },
   },
 }
-
+//
 export const globalTypes = {
   theme: {
     name: 'Theme',
