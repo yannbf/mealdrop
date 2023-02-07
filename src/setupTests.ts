@@ -15,7 +15,7 @@ expect.extend(axeMatchers)
 afterEach(() => {
   cleanup()
 })
-
+// @ts-ignore
 setProjectAnnotations(globalStorybookConfig)
 
 // // https://github.com/nickcolley/jest-axe/issues/147#issuecomment-758804533
