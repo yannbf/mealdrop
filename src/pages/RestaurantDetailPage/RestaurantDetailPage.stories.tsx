@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 import { expect } from '@storybook/jest'
 import { within, userEvent } from '@storybook/testing-library'
 import { rest } from 'msw'
@@ -10,7 +10,7 @@ import { withDeeplink } from '../../../.storybook/withDeeplink'
 
 import { RestaurantDetailPage } from './RestaurantDetailPage'
 
-export default {
+const meta = {
   title: 'Pages/RestaurantDetailPage',
   component: RestaurantDetailPage,
   decorators: [withDeeplink],
@@ -21,133 +21,96 @@ export default {
       path: '/restaurants/:id',
     },
   },
-} as ComponentMeta<typeof RestaurantDetailPage>
-
-const Template: ComponentStory<typeof RestaurantDetailPage> = () => (
-  <>
-    <RestaurantDetailPage />
-    <div id="modal" />
-  </>
-)
-
-export const Success = Template.bind({})
-Success.parameters = {
-  design: {
-    type: 'figma',
-    url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=169%3A510',
+  render: () => {
+    return (
+      <>
+        <RestaurantDetailPage />
+        <div id="modal" />
+      </>
+    )
   },
-  msw: [
-    rest.get(BASE_URL, (req, res, ctx) => {
-      return res(ctx.json(restaurants[0]))
-    }),
-  ],
-}
+} satisfies Meta<typeof RestaurantDetailPage>
+export default meta
 
-export const WithModalOpen = Template.bind({})
-WithModalOpen.play = async ({ canvasElement }) => {
-  const canvas = within(canvasElement)
-  const item = await canvas.findByText(/Cheeseburger/i)
-  await userEvent.click(item)
-  await expect(canvas.getByTestId('modal')).toBeInTheDocument()
-}
-WithModalOpen.parameters = {
-  ...Success.parameters,
-}
+type Story = StoryObj<typeof meta>
 
-export const WithItemsInTheCart = Template.bind({})
-WithItemsInTheCart.parameters = {
-  ...Success.parameters,
-  store: {
-    initialState: { cart: { items: cartItems } },
-  },
-}
-
-export const Loading = Template.bind({})
-Loading.parameters = {
-  design: {
-    type: 'figma',
-    url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=2152%3A3158',
-  },
-  msw: {
-    handlers: [
+export const Success = {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=169%3A510',
+    },
+    msw: [
       rest.get(BASE_URL, (req, res, ctx) => {
-        return res(ctx.delay('infinite'))
+        return res(ctx.json(restaurants[0]))
       }),
     ],
   },
 }
 
-export const NotFound = Template.bind({})
-NotFound.parameters = {
-  design: {
-    type: 'figma',
-    url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=1097%3A3785',
-  },
-  msw: {
-    handlers: [
-      rest.get(BASE_URL, (req, res, ctx) => {
-        return res(ctx.status(404))
-      }),
-    ],
+export const WithModalOpen: Story = {
+  ...Success,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const item = await canvas.findByText(/Cheeseburger/i)
+    await userEvent.click(item)
+    await expect(canvas.getByTestId('modal')).toBeInTheDocument()
   },
 }
 
-export const Error = Template.bind({})
-Error.parameters = {
-  design: {
-    type: 'figma',
-    url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=1091%3A4537',
-  },
-  msw: {
-    handlers: [
-      rest.get(BASE_URL, (req, res, ctx) => {
-        return res(ctx.status(500))
-      }),
-    ],
+export const WithItemsInTheCart: Story = {
+  parameters: {
+    ...Success.parameters,
+    store: {
+      initialState: { cart: { items: cartItems } },
+    },
   },
 }
 
-// export const SelectingAndUpdatingItems = Template.bind({})
-// SelectingAndUpdatingItems.parameters = {
-//   msw: {
-//     handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json(restaurants[0])))],
-//   },
-// }
-// SelectingAndUpdatingItems.args = {
-//   demoMode: false,
-// }
-// SelectingAndUpdatingItems.argTypes = {
-//   demoMode: {
-//     control: { type: 'boolean' },
-//   },
-// }
-// SelectingAndUpdatingItems.play = async ({ canvasElement, args }) => {
-//   // @ts-ignore
-//   const clickEvent = args.demoMode === true ? animatedUserEventClick : userEvent.click
-//   const canvas = within(canvasElement)
+export const Loading: Story = {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=2152%3A3158',
+    },
+    msw: {
+      handlers: [
+        rest.get(BASE_URL, (req, res, ctx) => {
+          return res(ctx.delay('infinite'))
+        }),
+      ],
+    },
+  },
+}
 
-//   await waitForElementToBeRemoved(await canvas.findByText('Looking for some food...'))
+export const NotFound: Story = {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=1097%3A3785',
+    },
+    msw: {
+      handlers: [
+        rest.get(BASE_URL, (req, res, ctx) => {
+          return res(ctx.status(404))
+        }),
+      ],
+    },
+  },
+}
 
-//   const foodItem = await canvas.findByText(/Cheeseburger/i)
-//   await clickEvent(foodItem)
-
-//   const modalButton = await canvas.findByLabelText('increase quantity by one')
-//   await clickEvent(modalButton)
-//   await clickEvent(modalButton)
-//   await clickEvent(canvas.getByLabelText('confirm'))
-
-//   const cheeseburgerItem = within(foodItem.parentElement!)
-
-//   await expect(cheeseburgerItem.getByLabelText('food quantity').textContent).toEqual('3')
-
-//   await clickEvent(canvas.getByLabelText('food cart'))
-//   const sidebar = await within(canvasElement).findByTestId('sidebar')
-
-//   const foodItemSelector: HTMLSelectElement = within(sidebar).getByRole('combobox')
-//   await expect(foodItemSelector.value).toEqual('3')
-//   await userEvent.selectOptions(foodItemSelector, '2')
-
-//   await clickEvent(canvas.getByLabelText('close sidebar'))
-//   await expect(cheeseburgerItem.getByLabelText('food quantity').textContent).toEqual('2')
-// }
-// SelectingAndUpdatingItems.storyName = '▶️ Selecting and updating items'
+export const Error: Story = {
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=1091%3A4537',
+    },
+    msw: {
+      handlers: [
+        rest.get(BASE_URL, (req, res, ctx) => {
+          return res(ctx.status(500))
+        }),
+      ],
+    },
+  },
+}
