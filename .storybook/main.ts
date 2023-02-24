@@ -1,9 +1,8 @@
 import { StorybookConfig } from '@storybook/react-vite'
-
 const config: StorybookConfig = {
   stories: [
-    '../src/docs/Introduction.stories.mdx',
-    '../src/docs/*.stories.mdx',
+    '../src/docs/Introduction.mdx',
+    '../src/docs/*.mdx',
     '../src/**/*.mdx',
     '../src/**/*.stories.@(js|jsx|ts|tsx)',
   ],
@@ -20,9 +19,6 @@ const config: StorybookConfig = {
   // reactDocgen: 'none',
   // },
   staticDirs: ['../public'],
-  features: {
-    interactionsDebugger: true,
-  },
   framework: {
     name: '@storybook/react-vite',
     options: {},
@@ -31,5 +27,4 @@ const config: StorybookConfig = {
     autodocs: 'tag',
   },
 }
-
 export default config

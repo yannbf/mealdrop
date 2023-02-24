@@ -154,12 +154,3 @@ export const ToSuccessPage = {
     })
   },
 } satisfies Story
-
-export const EndToEnd = {
-  args: {
-    demoMode: !isChromatic,
-  },
-  play: async (context) => {
-    await ToSuccessPage.play(context)
-  },
-} satisfies Story
