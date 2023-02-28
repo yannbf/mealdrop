@@ -1,9 +1,8 @@
 const path = require('path')
-
 module.exports = {
   stories: [
-    '../src/docs/Introduction.stories.mdx',
-    '../src/docs/*.stories.mdx',
+    '../src/docs/Introduction.mdx',
+    '../src/docs/*.mdx',
     '../src/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
@@ -26,8 +25,11 @@ module.exports = {
     storyStoreV7: true,
     interactionsDebugger: true,
   },
-  framework: '@storybook/react',
-  core: {
-    builder: 'webpack5',
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: {},
+  },
+  docs: {
+    autodocs: true,
   },
 }
