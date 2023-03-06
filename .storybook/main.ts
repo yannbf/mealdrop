@@ -1,5 +1,6 @@
-const path = require('path')
-module.exports = {
+import { StorybookConfig } from '@storybook/react-webpack5'
+
+const config: StorybookConfig = {
   stories: [
     '../src/docs/Introduction.mdx',
     '../src/docs/*.mdx',
@@ -17,13 +18,12 @@ module.exports = {
   babel: async (options) => {
     return {
       ...options,
-      plugins: [...options.plugins, 'babel-plugin-open-source'],
+      plugins: [...(options.plugins || []), 'babel-plugin-open-source'],
     }
   },
   staticDirs: ['../public'],
   features: {
     storyStoreV7: true,
-    interactionsDebugger: true,
   },
   framework: {
     name: '@storybook/react-webpack5',
@@ -33,3 +33,5 @@ module.exports = {
     autodocs: true,
   },
 }
+
+export default config
