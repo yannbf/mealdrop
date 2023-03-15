@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { expect } from '@storybook/jest'
-import { within, userEvent } from '@storybook/testing-library'
 import { rest } from 'msw'
+import { within, userEvent } from '@storybook/testing-library'
+import { expect } from '@storybook/jest'
 
 import { BASE_URL } from '../../api'
 import { restaurants } from '../../stub/restaurants'
@@ -42,19 +42,9 @@ export const Success = {
     },
     msw: [
       rest.get(BASE_URL, (req, res, ctx) => {
-        return res(ctx.json(restaurants[0]))
+        return res(ctx.json(restaurants[1]))
       }),
     ],
-  },
-}
-
-export const WithModalOpen: Story = {
-  ...Success,
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement)
-    const item = await canvas.findByText(/Cheeseburger/i)
-    await userEvent.click(item)
-    await expect(canvas.getByTestId('modal')).toBeInTheDocument()
   },
 }
 

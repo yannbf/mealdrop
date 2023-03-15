@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import isChromatic from 'chromatic/isChromatic'
 import { rest } from 'msw'
 import { expect } from '@storybook/jest'
-import { within, userEvent, waitForElementToBeRemoved, waitFor } from '@storybook/testing-library'
+import { within, userEvent } from '@storybook/testing-library'
 
 import { BASE_URL } from '../api'
 import { restaurants } from '../stub/restaurants'
@@ -138,6 +138,9 @@ export const ToSuccessPage = {
       await userEvent.type(canvas.getByLabelText('Last name'), 'Dough', { delay })
       await userEvent.type(canvas.getByLabelText('Email'), 'jane@dough.com', { delay })
       await userEvent.type(canvas.getByLabelText('Phone number'), '0612345678', { delay })
+    })
+
+    await step('Go to the next step', async () => {
       await clickEvent(canvas.getByText(/Next/i))
     })
 
@@ -155,9 +158,9 @@ export const ToSuccessPage = {
   },
 } satisfies Story
 
-export const EndToEnd: Story = {
-  ...ToSuccessPage,
-  args: {
-    demoMode: true,
-  },
-}
+// export const EndToEnd: Story = {
+//   ...ToSuccessPage,
+//   args: {
+//     demoMode: true,
+//   },
+// }

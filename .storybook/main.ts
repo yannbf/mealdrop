@@ -12,12 +12,10 @@ const config: StorybookConfig = {
     '@storybook/addon-a11y',
     '@storybook/addon-coverage',
     'storybook-addon-designs',
-    // 'storybook-mobile',
   ],
-  // typescript: {
-  // @ts-ignore types should be updated in @storybook/react-vite
-  // reactDocgen: 'none',
-  // },
+  typescript: {
+    reactDocgen: 'react-docgen',
+  },
   staticDirs: ['../public'],
   framework: {
     name: '@storybook/react-vite',
