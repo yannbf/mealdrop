@@ -92,7 +92,7 @@ export const GlobalStyle = createGlobalStyle(
     }
 
     * {
-      box-sizing: border-box;
+      /* box-sizing: border-box; */
       /* color: #2c2c2c; */
     }
 

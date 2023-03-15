@@ -7,7 +7,12 @@ const meta = {
   args: {
     children: 'Button',
   },
-  // tags: ['autodocs'],
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=1005%3A2974&t=8pzYUq8GyzmMGjJ2-4',
+    },
+  },
 } satisfies Meta<typeof Button>
 export default meta
 
