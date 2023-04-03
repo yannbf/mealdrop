@@ -11,6 +11,7 @@ import { withDeeplink } from '../../.storybook/withDeeplink'
 
 const meta = {
   title: 'UserFlows/App',
+  component: () => <></>,
   parameters: {
     layout: 'fullscreen',
     deeplink: { route: '/', path: '/' },
