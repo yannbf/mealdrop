@@ -42,9 +42,19 @@ export const Success = {
     },
     msw: [
       rest.get(BASE_URL, (req, res, ctx) => {
-        return res(ctx.json(restaurants[1]))
+        return res(ctx.json(restaurants[0]))
       }),
     ],
+  },
+}
+
+export const WithModalOpen: Story = {
+  ...Success,
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const item = await canvas.findByText(/Cheeseburger/i)
+    await userEvent.click(item)
+    await expect(canvas.getByTestId('modal')).toBeInTheDocument()
   },
 }
 
