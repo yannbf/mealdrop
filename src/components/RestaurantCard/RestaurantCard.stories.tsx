@@ -6,6 +6,7 @@ import { RestaurantCard } from './RestaurantCard'
 
 const meta = {
   component: RestaurantCard,
+  tags: ['autodocs'],
 } satisfies Meta<typeof RestaurantCard>
 
 export default meta
