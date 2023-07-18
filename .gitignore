@@ -30,3 +30,12 @@ yarn-error.log*
 
 # storybook
 build-storybook.log
+
+
+# Yarn berry
+/**/.yarn/*
+!/**/.yarn/releases
+!/**/.yarn/plugins
+!/**/.yarn/sdks
+!/**/.yarn/versions
+/**/.pnp.*

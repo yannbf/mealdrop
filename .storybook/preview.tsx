@@ -3,6 +3,9 @@ import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 
 import { globalDecorators } from './decorators'
 import { viewports as breakpoints } from '../src/styles/breakpoints'
+import { DocsContainer, DocsContainerProps } from '@storybook/blocks'
+import { ThemeProvider } from 'styled-components'
+import { lightTheme } from '../src/styles/theme'
 
 // Create custom viewports using widths defined in design tokens
 const breakpointViewports = Object.keys(breakpoints).reduce((acc, key) => {
@@ -37,6 +40,11 @@ const preview: Preview = {
       source: {
         excludeDecorators: true,
       },
+      container: (props: DocsContainerProps) => (
+        <ThemeProvider theme={lightTheme}>
+          <DocsContainer {...props} />
+        </ThemeProvider>
+      ),
     },
   },
   globalTypes: {
