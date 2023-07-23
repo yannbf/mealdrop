@@ -1,4 +1,5 @@
 import { StorybookConfig } from '@storybook/react-vite'
+
 const config: StorybookConfig = {
   stories: [
     '../src/docs/Introduction.mdx',
@@ -11,16 +12,13 @@ const config: StorybookConfig = {
     '@storybook/addon-interactions',
     '@storybook/addon-a11y',
     '@storybook/addon-coverage',
-    'storybook-addon-designs',
+    '@storybook/addon-designs',
   ],
   typescript: {
     reactDocgen: 'react-docgen',
   },
   staticDirs: ['../public'],
-  framework: {
-    name: '@storybook/react-vite',
-    options: {},
-  },
+  framework: '@storybook/react-vite',
   docs: {
     autodocs: 'tag',
   },
