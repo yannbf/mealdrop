@@ -1,44 +1,52 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryObj, Meta } from '@storybook/react'
 
 import { Button } from './Button'
 
-export default {
-  title: 'Components/Button',
+const meta = {
   component: Button,
-} as ComponentMeta<typeof Button>
+  args: {
+    children: 'Button',
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=1005%3A2974&t=8pzYUq8GyzmMGjJ2-4',
+    },
+  },
+} satisfies Meta<typeof Button>
+export default meta
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
+type Story = StoryObj<typeof meta>
 
-export const Default = Template.bind({})
-Default.args = {
-  children: 'Button',
+export const Default: Story = {}
+
+export const Disabled: Story = {
+  args: {
+    disabled: true,
+  },
 }
 
-export const Disabled = Template.bind({})
-Disabled.args = {
-  children: 'Button',
-  disabled: true,
+export const Clear: Story = {
+  args: {
+    clear: true,
+  },
 }
 
-export const Clear = Template.bind({})
-Clear.args = {
-  clear: true,
-  children: 'Button',
+export const Icon: Story = {
+  args: {
+    icon: 'cart',
+    'aria-label': 'cart',
+  },
 }
 
-export const Icon = Template.bind({})
-Icon.args = {
-  icon: 'cart',
-  'aria-label': 'cart',
-}
-
-export const IconAndText = Template.bind({})
-IconAndText.args = {
-  icon: 'cart',
-  children: (
-    <div style={{ paddingLeft: '16px' }}>
-      <span style={{ color: '#949494' }}>Order</span>
-      <span style={{ color: 'white', paddingLeft: '8px' }}>€ 8</span>
-    </div>
-  ),
+export const IconAndText: Story = {
+  args: {
+    icon: 'cart',
+    children: (
+      <div style={{ paddingLeft: '16px' }}>
+        <span style={{ color: '#949494' }}>Order</span>
+        <span style={{ color: 'white', paddingLeft: '8px' }}>€ 8</span>
+      </div>
+    ),
+  },
 }

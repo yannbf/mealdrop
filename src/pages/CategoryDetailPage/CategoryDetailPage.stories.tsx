@@ -3,6 +3,7 @@ import { rest } from 'msw'
 
 import { restaurants } from '../../stub/restaurants'
 import { BASE_URL } from '../../api'
+import { withDeeplink } from '../../../.storybook/withDeeplink'
 
 import { CategoryDetailPage } from './CategoryDetailPage'
 
@@ -13,6 +14,7 @@ export default {
     layout: 'fullscreen',
     deeplink: { route: '/categories/burgers', path: '/categories/:id' },
   },
+  decorators: [withDeeplink],
 } as ComponentMeta<typeof CategoryDetailPage>
 
 const Template: ComponentStory<typeof CategoryDetailPage> = () => <CategoryDetailPage />

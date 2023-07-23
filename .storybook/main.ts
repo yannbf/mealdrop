@@ -1,33 +1,26 @@
-const path = require('path')
+import { StorybookConfig } from '@storybook/react-vite'
 
-module.exports = {
+const config: StorybookConfig = {
   stories: [
-    '../src/docs/Introduction.stories.mdx',
-    '../src/docs/*.stories.mdx',
+    '../src/docs/Introduction.mdx',
+    '../src/docs/*.mdx',
+    '../src/**/*.mdx',
     '../src/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
-    '@storybook/preset-create-react-app',
     '@storybook/addon-a11y',
     '@storybook/addon-coverage',
-    'storybook-addon-designs',
-    'storybook-mobile',
+    '@storybook/addon-designs',
   ],
-  babel: async (options) => {
-    return {
-      ...options,
-      plugins: [...options.plugins, 'babel-plugin-open-source'],
-    }
+  typescript: {
+    reactDocgen: 'react-docgen',
   },
   staticDirs: ['../public'],
-  features: {
-    storyStoreV7: true,
-    interactionsDebugger: true,
-  },
-  framework: '@storybook/react',
-  core: {
-    builder: 'webpack5',
+  framework: '@storybook/react-vite',
+  docs: {
+    autodocs: 'tag',
   },
 }
+export default config

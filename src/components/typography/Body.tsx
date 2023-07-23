@@ -25,7 +25,7 @@ type DefaultProps = {
 
 type BodyProps = DefaultProps & React.ComponentProps<typeof BodyBase>
 
-export const Body: React.FC<BodyProps> = ({
+export const Body: React.FC<React.PropsWithChildren<BodyProps>> = ({
   size = '',
   fontWeight = 'regular',
   type = 'p',

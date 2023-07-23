@@ -6,7 +6,7 @@ type Props = {
   selector: string
 }
 
-export const Portal: React.FC<Props> = ({ children, selector }) => {
+export const Portal: React.FC<React.PropsWithChildren<Props>> = ({ children, selector }) => {
   const ref = useRef<Element>()
 
   useEffect(() => {

@@ -2,9 +2,9 @@
  * This file houses all non-addon related decorators
  */
 import React from 'react'
-import { BrowserRouter, Route,  MemoryRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import styled, { css, ThemeProvider } from 'styled-components'
-import { DecoratorFn } from '@storybook/react'
+import { Decorator } from '@storybook/react'
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider as StoreProvider } from 'react-redux'
 import { initialize, mswDecorator } from 'msw-storybook-addon'
@@ -13,7 +13,6 @@ import { rootReducer } from '../src/app-state'
 import { breakpoints } from '../src/styles/breakpoints'
 import { GlobalStyle } from '../src/styles/GlobalStyle'
 import { darkTheme, lightTheme } from '../src/styles/theme'
-import { AppRoutes } from '../src/Routes'
 
 initialize({
   onUnhandledRequest: ({ method, url }) => {
@@ -50,13 +49,13 @@ const ThemeBlock = styled.div<{ left?: boolean; fullScreen?: boolean }>(
     `
 )
 
-export const withTheme: DecoratorFn = (StoryFn, { globals: { theme = 'light' }, parameters }) => {
+export const withTheme: Decorator = (StoryFn, { globals: { theme = 'light' }, parameters }) => {
   const fullScreen = parameters.layout === 'fullscreen'
   const appTheme = theme === 'light' ? lightTheme : darkTheme
   const secondContainerRef = React.useRef<HTMLDivElement>(null)
 
   const firstBlockRef = React.useCallback(
-    (node) => {
+    (node: any) => {
       if (node) {
         node.addEventListener('scroll', () => {
           if (secondContainerRef.current) {
@@ -114,7 +113,7 @@ export const withTheme: DecoratorFn = (StoryFn, { globals: { theme = 'light' }, 
  *   }
  * };
  */
-export const withStore: DecoratorFn = (StoryFn, { parameters }) => {
+export const withStore: Decorator = (StoryFn, { parameters }) => {
   // Creates a store by merging optional custom initialState
   const store = configureStore({
     reducer: rootReducer,
@@ -141,24 +140,16 @@ export const withStore: DecoratorFn = (StoryFn, { parameters }) => {
  *   }
  * };
  */
-export const withRouter: DecoratorFn = (StoryFn, { parameters: { deeplink } }) => {
-  // if there's no deeplink config, just return the story in a Router
-  if (!deeplink) {
-    return (
-      <BrowserRouter>
-        <StoryFn />
-      </BrowserRouter>
-    )
+export const withRouter: Decorator = (StoryFn, { parameters: { deeplink } }) => {
+  // if there's a deeplink, routing will be handled in another decorator
+  if (deeplink) {
+    return <StoryFn />
   }
 
-  const { path, route } = deeplink
-
   return (
-    <MemoryRouter initialEntries={[encodeURI(route)]}>
-      <AppRoutes>
-        <Route path={path} element={<StoryFn />} />
-      </AppRoutes>
-    </MemoryRouter>
+    <BrowserRouter>
+      <StoryFn />
+    </BrowserRouter>
   )
 }
 

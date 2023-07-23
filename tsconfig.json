@@ -1,21 +1,22 @@
 {
   "compilerOptions": {
     "baseUrl": "src",
-    "target": "es2015",
+    "target": "ESNext",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
+    "types": ["vite/client", "vite-plugin-svgr/client", "vitest/globals", "@testing-library/jest-dom"],
+    "allowJs": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
-    "forceConsistentCasingInFileNames": false,
-    "module": "esnext",
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "ESNext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "noFallthroughCasesInSwitch": false
+    "jsx": "react-jsx"
   },
   "include": ["src", ".storybook", "functions"],
   "exclude": ["public"]

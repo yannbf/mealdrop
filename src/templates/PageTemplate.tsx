@@ -12,7 +12,10 @@ type PageTemplateProps = {
   type?: 'default' | 'sticky-header' | 'basic'
 }
 
-export const PageTemplate: React.FC<PageTemplateProps> = ({ type = 'default', children }) => {
+export const PageTemplate: React.FC<React.PropsWithChildren<PageTemplateProps>> = ({
+  type = 'default',
+  children,
+}) => {
   switch (type) {
     case 'sticky-header':
       return (

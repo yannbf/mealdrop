@@ -1,4 +1,12 @@
 {
   "extends": "./tsconfig.json",
-  "include": ["src/**/*.tsx", "src/**/*.ts", "functions/*.ts", ".eslintrc.js", "test-runner-jest.config.js"]
+  "include": [
+    "src/**/*.tsx",
+    "src/**/*.ts",
+    "functions/*.ts",
+    ".eslintrc.js",
+    "test-runner-jest.config.js",
+    "vite.config.ts",
+    "vitest.config.ts",
+  ]
 }
