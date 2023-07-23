@@ -4832,7 +4832,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:<18.0.0, @types/react-dom@npm:^17.0.11":
+"@types/react-dom@npm:<18.0.0, @types/react-dom@npm:^17.0.2":
   version: 17.0.20
   resolution: "@types/react-dom@npm:17.0.20"
   dependencies:
@@ -6982,7 +6982,8 @@ __metadata:
     "@testing-library/react": ^12.1.2
     "@testing-library/user-event": ^13.5.0
     "@types/node": ^15.12.3
-    "@types/react-dom": ^17.0.11
+    "@types/react": ^17.0.2
+    "@types/react-dom": ^17.0.2
     "@types/react-hooks-helper": ^1.6.3
     "@types/react-redux": ^7.1.20
     "@types/react-transition-group": ^4.4.4
