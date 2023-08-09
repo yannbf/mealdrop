@@ -5,6 +5,10 @@ import { IconButton } from './IconButton'
 export default {
   title: 'Components/IconButton',
   component: IconButton,
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1131-437&mode=design&t=zmyrZnTzOLfLqBwr-4',
+  },
 } as ComponentMeta<typeof IconButton>
 
 const Template: ComponentStory<typeof IconButton> = (args) => <IconButton {...args} />

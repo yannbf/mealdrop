@@ -13,6 +13,10 @@ export default {
     // This makes it so that the sidebar is loaded inside of an iframe in docs mode.
     // If it's not rendered in an iframe, the sidebar is going to open on top of Storybook itself!
     docs: { inlineStories: false, iframeHeight: 600 },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1714-3811&mode=design&t=zmyrZnTzOLfLqBwr-4',
+    },
   },
 } as Meta
 
