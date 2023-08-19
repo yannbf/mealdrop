@@ -1164,7 +1164,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-react-jsx-self@npm:^7.18.6":
+"@babel/plugin-transform-react-jsx-self@npm:^7.18.6, @babel/plugin-transform-react-jsx-self@npm:^7.22.5":
   version: 7.22.5
   resolution: "@babel/plugin-transform-react-jsx-self@npm:7.22.5"
   dependencies:
@@ -1175,7 +1175,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-react-jsx-source@npm:^7.19.6":
+"@babel/plugin-transform-react-jsx-source@npm:^7.19.6, @babel/plugin-transform-react-jsx-source@npm:^7.22.5":
   version: 7.22.5
   resolution: "@babel/plugin-transform-react-jsx-source@npm:7.22.5"
   dependencies:
@@ -2629,6 +2629,47 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@playwright/experimental-ct-core@npm:1.37.1":
+  version: 1.37.1
+  resolution: "@playwright/experimental-ct-core@npm:1.37.1"
+  dependencies:
+    "@playwright/test": 1.37.1
+    playwright-core: 1.37.1
+    vite: ^4.3.9
+  bin:
+    playwright: cli.js
+  checksum: 59d6f5872a717e1e04c1432e2fad8616a715a3d1944722f083885b98f4ae14f93e109286895e0a7d4db8c4c905d1da3bf6231534eeb38ea3bfe30d7d8efcae38
+  languageName: node
+  linkType: hard
+
+"@playwright/experimental-ct-react17@npm:^1.37.1":
+  version: 1.37.1
+  resolution: "@playwright/experimental-ct-react17@npm:1.37.1"
+  dependencies:
+    "@playwright/experimental-ct-core": 1.37.1
+    "@vitejs/plugin-react": ^4.0.0
+  bin:
+    playwright: cli.js
+  checksum: 4d105b1757f3dc6d2a680b081a416872b4df7223e3a14ebb13d31a2006a8ffff6e804102424b531d71d062698b743fc1679a663798b7348feaa90285e267ad27
+  languageName: node
+  linkType: hard
+
+"@playwright/test@npm:1.37.1":
+  version: 1.37.1
+  resolution: "@playwright/test@npm:1.37.1"
+  dependencies:
+    "@types/node": "*"
+    fsevents: 2.3.2
+    playwright-core: 1.37.1
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    playwright: cli.js
+  checksum: b7038f29000289103c08b215eff7aabdda70cdc1375fa7dad0e81651be71086a1e2fc0e0e29dc70348037c366cf0cc69f762373fda34ba1a74aa1658741d9195
+  languageName: node
+  linkType: hard
+
 "@reduxjs/toolkit@npm:^1.7.1":
   version: 1.9.5
   resolution: "@reduxjs/toolkit@npm:1.9.5"
@@ -3327,6 +3368,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/channels@npm:7.3.2, @storybook/channels@npm:^7.0.0":
+  version: 7.3.2
+  resolution: "@storybook/channels@npm:7.3.2"
+  dependencies:
+    "@storybook/client-logger": 7.3.2
+    "@storybook/core-events": 7.3.2
+    "@storybook/global": ^5.0.0
+    qs: ^6.10.0
+    telejson: ^7.0.3
+    tiny-invariant: ^1.3.1
+  checksum: a32a204d36f1b778f9d23329846c48f3f8a77db4afa40cf6829185a2e21a7bf65150c7fe33309febda4f5fbc78f5ed36f751519ccdcd9f0f92a32fdbba03390e
+  languageName: node
+  linkType: hard
+
 "@storybook/cli@npm:7.1.0":
   version: 7.1.0
   resolution: "@storybook/cli@npm:7.1.0"
@@ -3403,6 +3458,15 @@ __metadata:
   dependencies:
     "@storybook/global": ^5.0.0
   checksum: 7b6a29b5019c199577a5a0374d6593d878c576e1b512f318881500abc561d19c97c674a05cc66aa78fc078925fcd2625dff3ae6d31bb4b6e2c1a311c612bf5f0
+  languageName: node
+  linkType: hard
+
+"@storybook/client-logger@npm:7.3.2":
+  version: 7.3.2
+  resolution: "@storybook/client-logger@npm:7.3.2"
+  dependencies:
+    "@storybook/global": ^5.0.0
+  checksum: bf52aa9567d3b849976553bafc70da9d55fb2abdbea2e51487e8c8d597d12ba84c0fa952b9225d5c9be489b6bed99eb9250d93682fc66547acf2ff28df17b2e7
   languageName: node
   linkType: hard
 
@@ -3519,6 +3583,13 @@ __metadata:
   version: 7.1.0
   resolution: "@storybook/core-events@npm:7.1.0"
   checksum: a4bacb2d46191b98d00a37f0ee09311410e7c7c58f35953258c5b44235fa47b4cd3a360c0865732f2c8c6a1f442153733c036c94ef445c19bce6a21ffd9c5762
+  languageName: node
+  linkType: hard
+
+"@storybook/core-events@npm:7.3.2":
+  version: 7.3.2
+  resolution: "@storybook/core-events@npm:7.3.2"
+  checksum: 86c809250fc3ad05e3254fc86d163339108569749ffee47496a2717bf1a9052304975007e8c05075415361cda0e0c530cc1f2ae6d4fa682d9573240ebfd1d170
   languageName: node
   linkType: hard
 
@@ -3745,6 +3816,23 @@ __metadata:
   version: 7.1.0
   resolution: "@storybook/node-logger@npm:7.1.0"
   checksum: f7cc5010548879982b7519e3497340090dec50497edc0459a7c7776ebdd6acf9f64b283a73c0a8a5ca8a5e145aacf9f6217dc5f088a79c9fef70c0c289a34cb5
+  languageName: node
+  linkType: hard
+
+"@storybook/playwright-ct@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "@storybook/playwright-ct@npm:0.0.1"
+  dependencies:
+    "@babel/core": ^7.22.9
+    "@babel/types": ^7.22.5
+    "@storybook/channels": ^7.0.0
+    "@storybook/csf": ^0.1.1
+    "@storybook/types": ^7.0.0
+    node-fetch: ^2.0.0
+    wait-on: ^7.0.1
+  peerDependencies:
+    "@playwright/test": ^1.36.2
+  checksum: e4a824fe4d75d38128c26650bac43ab05f1645a209ed2bb06399e52ad6ada6bfa130ee4ed18a22cd376c51eec6f49e5067825cf2735e3e8bc2ea53ea6455d866
   languageName: node
   linkType: hard
 
@@ -4011,6 +4099,18 @@ __metadata:
     "@types/express": ^4.7.0
     file-system-cache: 2.3.0
   checksum: 5b05a27171ac2245e8e5ff056d6c4d05d23be001ab655e21cfc3bd4568d123b6e72954d626bcce6d3be7adeb3f8346a846a5bc974e4273f6b077fc2d786a856e
+  languageName: node
+  linkType: hard
+
+"@storybook/types@npm:^7.0.0":
+  version: 7.3.2
+  resolution: "@storybook/types@npm:7.3.2"
+  dependencies:
+    "@storybook/channels": 7.3.2
+    "@types/babel__core": ^7.0.0
+    "@types/express": ^4.7.0
+    file-system-cache: 2.3.0
+  checksum: 5986ca2780c6049c08f65cda0dc2b1f063476d0a5ad337a96d641bb91131e7d4a600dcf87b25aedba747f8beb66ac0805562c46e73dc0d20222be4fc4b02309c
   languageName: node
   linkType: hard
 
@@ -5188,6 +5288,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vitejs/plugin-react@npm:^4.0.0":
+  version: 4.0.4
+  resolution: "@vitejs/plugin-react@npm:4.0.4"
+  dependencies:
+    "@babel/core": ^7.22.9
+    "@babel/plugin-transform-react-jsx-self": ^7.22.5
+    "@babel/plugin-transform-react-jsx-source": ^7.22.5
+    react-refresh: ^0.14.0
+  peerDependencies:
+    vite: ^4.2.0
+  checksum: ec25400dc7c5fce914122d1f57de0fbaff9216addb8cd6187308ad2c7a3d3b73ea3a6f2dd0a8c7ec5e90e56b37046fe90d3e0ec285a9446e73695cb174377f84
+  languageName: node
+  linkType: hard
+
 "@xmldom/xmldom@npm:^0.8.3":
   version: 0.8.10
   resolution: "@xmldom/xmldom@npm:0.8.10"
@@ -5765,6 +5879,16 @@ __metadata:
   dependencies:
     follow-redirects: ^1.14.4
   checksum: 468cf496c08a6aadfb7e699bebdac02851e3043d4e7d282350804ea8900e30d368daa6e3cd4ab83b8ddb5a3b1e17a5a21ada13fc9cebd27b74828f47a4236316
+  languageName: node
+  linkType: hard
+
+"axios@npm:^0.27.2":
+  version: 0.27.2
+  resolution: "axios@npm:0.27.2"
+  dependencies:
+    follow-redirects: ^1.14.9
+    form-data: ^4.0.0
+  checksum: 38cb7540465fe8c4102850c4368053c21683af85c5fdf0ea619f9628abbcb59415d1e22ebc8a6390d2bbc9b58a9806c874f139767389c862ec9b772235f06854
   languageName: node
   linkType: hard
 
@@ -6964,6 +7088,7 @@ __metadata:
   dependencies:
     "@babel/core": ^7.14.6
     "@ladle/react": ^2.4.5
+    "@playwright/experimental-ct-react17": ^1.37.1
     "@reduxjs/toolkit": ^1.7.1
     "@storybook/addon-a11y": 7.1.0
     "@storybook/addon-coverage": ^0.0.8
@@ -6973,6 +7098,7 @@ __metadata:
     "@storybook/addon-storyshots": 7.1.0
     "@storybook/blocks": 7.1.0
     "@storybook/jest": ^0.1.0
+    "@storybook/playwright-ct": ^0.0.1
     "@storybook/react": 7.1.0
     "@storybook/react-vite": 7.1.0
     "@storybook/test-runner": 0.11.0
@@ -8880,7 +9006,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.14.0, follow-redirects@npm:^1.14.4":
+"follow-redirects@npm:^1.14.0, follow-redirects@npm:^1.14.4, follow-redirects@npm:^1.14.9":
   version: 1.15.2
   resolution: "follow-redirects@npm:1.15.2"
   peerDependenciesMeta:
@@ -9012,7 +9138,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fsevents@npm:^2.3.2, fsevents@npm:~2.3.2":
+"fsevents@npm:2.3.2, fsevents@npm:^2.3.2, fsevents@npm:~2.3.2":
   version: 2.3.2
   resolution: "fsevents@npm:2.3.2"
   dependencies:
@@ -9022,7 +9148,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fsevents@patch:fsevents@^2.3.2#~builtin<compat/fsevents>, fsevents@patch:fsevents@~2.3.2#~builtin<compat/fsevents>":
+"fsevents@patch:fsevents@2.3.2#~builtin<compat/fsevents>, fsevents@patch:fsevents@^2.3.2#~builtin<compat/fsevents>, fsevents@patch:fsevents@~2.3.2#~builtin<compat/fsevents>":
   version: 2.3.2
   resolution: "fsevents@patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"
   dependencies:
@@ -11334,7 +11460,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"joi@npm:^17.3.0":
+"joi@npm:^17.3.0, joi@npm:^17.7.0":
   version: 17.9.2
   resolution: "joi@npm:17.9.2"
   dependencies:
@@ -12887,7 +13013,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimist@npm:^1.2.0, minimist@npm:^1.2.5, minimist@npm:^1.2.6":
+"minimist@npm:^1.2.0, minimist@npm:^1.2.5, minimist@npm:^1.2.6, minimist@npm:^1.2.7":
   version: 1.2.8
   resolution: "minimist@npm:1.2.8"
   checksum: 75a6d645fb122dad29c06a7597bddea977258957ed88d7a6df59b5cd3fe4a527e253e9bbf2e783e4b73657f9098b96a5fe96ab8a113655d4109108577ecf85b0
@@ -13908,6 +14034,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"playwright-core@npm:1.37.1":
+  version: 1.37.1
+  resolution: "playwright-core@npm:1.37.1"
+  bin:
+    playwright-core: cli.js
+  checksum: 69f818da2230057584140d5b3af7778a4f4a822b5b18d133abfc5d259128becb943c343a2ddf6b0635277a69f28983e83e2bc3fce23595ececb1e410475b6368
+  languageName: node
+  linkType: hard
+
 "playwright@npm:^1.14.0":
   version: 1.36.1
   resolution: "playwright@npm:1.36.1"
@@ -13943,6 +14078,17 @@ __metadata:
     picocolors: ^1.0.0
     source-map-js: ^1.0.2
   checksum: 1cf08ee10d58cbe98f94bf12ac49a5e5ed1588507d333d2642aacc24369ca987274e1f60ff4cbf0081f70d2ab18a5cd3a4a273f188d835b8e7f3ba381b184e57
+  languageName: node
+  linkType: hard
+
+"postcss@npm:^8.4.27":
+  version: 8.4.28
+  resolution: "postcss@npm:8.4.28"
+  dependencies:
+    nanoid: ^3.3.6
+    picocolors: ^1.0.0
+    source-map-js: ^1.0.2
+  checksum: f605c24a36f7e400bad379735fbfc893ccb8d293ad6d419bb824db77cdcb69f43d614ef35f9f7091f32ca588d130ec60dbcf53b366e6bf88a8a64bbeb3c05f6d
   languageName: node
   linkType: hard
 
@@ -15045,6 +15191,20 @@ __metadata:
   bin:
     rollup: dist/bin/rollup
   checksum: e6a765b2b7af709170344cc804392936613e06b6bdab46a04d264368d154bdadaaaf77de39e6e656bf728a060d7b4867d81e2464d791c0f37dd5b21aa9c7a6df
+  languageName: node
+  linkType: hard
+
+"rollup@npm:^3.27.1":
+  version: 3.28.0
+  resolution: "rollup@npm:3.28.0"
+  dependencies:
+    fsevents: ~2.3.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    rollup: dist/bin/rollup
+  checksum: 6ded4a0d3ca531d68e82897d5eebaa9d085014a062620bc328f2859ccf78d6a148a51ed53f1275a5f89b55cc6d7b1440b7cee44e5a9e3a51442f809b4b26f727
   languageName: node
   linkType: hard
 
@@ -17077,6 +17237,46 @@ __metadata:
   languageName: node
   linkType: hard
 
+"vite@npm:^4.3.9":
+  version: 4.4.9
+  resolution: "vite@npm:4.4.9"
+  dependencies:
+    esbuild: ^0.18.10
+    fsevents: ~2.3.2
+    postcss: ^8.4.27
+    rollup: ^3.27.1
+  peerDependencies:
+    "@types/node": ">= 14"
+    less: "*"
+    lightningcss: ^1.21.0
+    sass: "*"
+    stylus: "*"
+    sugarss: "*"
+    terser: ^5.4.0
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  peerDependenciesMeta:
+    "@types/node":
+      optional: true
+    less:
+      optional: true
+    lightningcss:
+      optional: true
+    sass:
+      optional: true
+    stylus:
+      optional: true
+    sugarss:
+      optional: true
+    terser:
+      optional: true
+  bin:
+    vite: bin/vite.js
+  checksum: c511024ceae39c68c7dbf2ac4381ee655cd7bb62cf43867a14798bc835d3320b8fa7867a336143c30825c191c1fb4e9aa3348fce831ab617e96203080d3d2908
+  languageName: node
+  linkType: hard
+
 "vitest-axe@npm:^0.1.0":
   version: 0.1.0
   resolution: "vitest-axe@npm:0.1.0"
@@ -17166,6 +17366,21 @@ __metadata:
   bin:
     wait-on: bin/wait-on
   checksum: b7099104b7900ff6349f1196edff759076ab557a2053c017a587819f7a59f146ec9e35c99579acd31dcda371bfa72241ef28b8ccda902f0bf3fbf2d780a00ebf
+  languageName: node
+  linkType: hard
+
+"wait-on@npm:^7.0.1":
+  version: 7.0.1
+  resolution: "wait-on@npm:7.0.1"
+  dependencies:
+    axios: ^0.27.2
+    joi: ^17.7.0
+    lodash: ^4.17.21
+    minimist: ^1.2.7
+    rxjs: ^7.8.0
+  bin:
+    wait-on: bin/wait-on
+  checksum: 1e8a17d8ee6436f71d3ab82781ce31267481fcd7bbccde49b0f8124871e6e40a1acac3401f04f775ba6203853a5813352fa131620fc139914351f3b2894d573f
   languageName: node
   linkType: hard
 

@@ -1,4 +1,5 @@
 import { StoryObj, Meta } from '@storybook/react'
+import { composeStory } from '@storybook/react'
 
 import { Button } from './Button'
 
@@ -50,3 +51,7 @@ export const IconAndText: Story = {
     ),
   },
 }
+
+// for playwright-ct, as a component
+// https://github.com/microsoft/playwright/issues/18057#issuecomment-1284501646
+export const ButtonDefault = composeStory(Default, meta)

@@ -5,6 +5,8 @@
     "src/**/*.ts",
     "functions/*.ts",
     ".eslintrc.js",
+    "playwright",
+    "playwright-ct.config.ts",
     "test-runner-jest.config.js",
     "vite.config.ts",
     "vitest.config.ts",

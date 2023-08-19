@@ -7,25 +7,12 @@ import styled, { css, ThemeProvider } from 'styled-components'
 import { Decorator } from '@storybook/react'
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider as StoreProvider } from 'react-redux'
-import { initialize, mswDecorator } from 'msw-storybook-addon'
+import { mswDecorator } from 'msw-storybook-addon'
 
 import { rootReducer } from '../src/app-state'
 import { breakpoints } from '../src/styles/breakpoints'
 import { GlobalStyle } from '../src/styles/GlobalStyle'
 import { darkTheme, lightTheme } from '../src/styles/theme'
-
-initialize({
-  onUnhandledRequest: ({ method, url }) => {
-    if (url.pathname.startsWith('/.netlify/functions')) {
-      console.error(`Unhandled ${method} request to ${url}.
-
-        This exception has been only logged in the console, however, it's strongly recommended to resolve this error as you don't want unmocked data in Storybook stories.
-
-        If you wish to mock an error response, please refer to this guide: https://mswjs.io/docs/recipes/mocking-error-responses
-      `)
-    }
-  },
-})
 
 const ThemeBlock = styled.div<{ left?: boolean; fullScreen?: boolean }>(
   ({ left, fullScreen, theme: { color } }) =>
@@ -49,8 +36,10 @@ const ThemeBlock = styled.div<{ left?: boolean; fullScreen?: boolean }>(
     `
 )
 
-export const withTheme: Decorator = (StoryFn, { globals: { theme = 'light' }, parameters }) => {
-  const fullScreen = parameters.layout === 'fullscreen'
+export const withTheme: Decorator = (StoryFn, { globals, parameters } = {} as any) => {
+  const theme = globals?.theme || 'light'
+  const layout = parameters.layout || 'padded'
+  const fullScreen = layout === 'fullscreen'
   const appTheme = theme === 'light' ? lightTheme : darkTheme
   const secondContainerRef = React.useRef<HTMLDivElement>(null)
 
@@ -97,6 +86,14 @@ export const withTheme: Decorator = (StoryFn, { globals: { theme = 'light' }, pa
   }
 }
 
+export const withThemeSimplified = (StoryFn: any) => {
+  return (
+    <ThemeProvider theme={lightTheme}>
+      <GlobalStyle />
+      <StoryFn />
+    </ThemeProvider>
+  )
+}
 
 /**
  *
@@ -113,7 +110,7 @@ export const withTheme: Decorator = (StoryFn, { globals: { theme = 'light' }, pa
  *   }
  * };
  */
-export const withStore: Decorator = (StoryFn, { parameters }) => {
+export const withStore: Decorator = (StoryFn, { parameters } = {} as any) => {
   // Creates a store by merging optional custom initialState
   const store = configureStore({
     reducer: rootReducer,
