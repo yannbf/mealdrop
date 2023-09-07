@@ -6,7 +6,12 @@ import { RestaurantCard } from './RestaurantCard'
 
 const meta = {
   component: RestaurantCard,
-  tags: ['autodocs'],
+  parameters: {
+    design: {
+      type: 'figspec',
+      url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1091-2986&mode=design&t=PGeoMU7t8HOFToQL-4',
+    },
+  },
 } satisfies Meta<typeof RestaurantCard>
 
 export default meta
@@ -21,8 +26,10 @@ export const Default: Story = {
 }
 
 export const New: Story = {
-  render: (args) => <RestaurantCard {...args} isNew />,
-  args: Default.args,
+  args: {
+    ...Default.args,
+    isNew: true,
+  },
 }
 
 export const Closed: Story = {

@@ -13,6 +13,10 @@ export default {
   parameters: {
     layout: 'fullscreen',
     deeplink: { route: '/categories/burgers', path: '/categories/:id' },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=206-573&mode=design&t=PGeoMU7t8HOFToQL-4',
+    },
   },
   decorators: [withDeeplink],
 } as ComponentMeta<typeof CategoryDetailPage>
@@ -38,5 +42,9 @@ Missing.parameters = {
   deeplink: { route: '/categories/wrong', path: '/categories/:id' },
   msw: {
     handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json([])))],
+  },
+  design: {
+    type: 'figma',
+    url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=426-1402&mode=design&t=PGeoMU7t8HOFToQL-4',
   },
 }

@@ -74,7 +74,7 @@ type DefaultProps = {
   /**
    * Does the button have an icon?
    */
-  children?: React.ReactNode | string
+  children?: string
   /**
    * Optional click handler
    */
@@ -94,7 +94,7 @@ export const Button: React.FC<React.PropsWithChildren<ButtonProps>> = ({
   icon,
   iconSize,
   ...props
-}) => {
+}: ButtonProps) => {
   const { color } = useTheme()
 
   return (

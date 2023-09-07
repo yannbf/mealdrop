@@ -7,6 +7,10 @@ export default {
   component: CheckoutPage,
   parameters: {
     layout: 'fullscreen',
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=426-3291&mode=design&t=PGeoMU7t8HOFToQL-4',
+    },
   },
 } as ComponentMeta<typeof CheckoutPage>
 
