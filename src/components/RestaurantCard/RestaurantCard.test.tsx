@@ -1,4 +1,4 @@
-import { vi } from 'vitest'
+import { vi, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { composeStories } from '@storybook/react'
 import { axe } from 'vitest-axe'
@@ -47,5 +47,6 @@ const testCases = Object.values(composeStories(stories)).map((Story) => [
 // Go through all test cases to batch test accessibility
 test.each(testCases)('%s story should be accessible', async (_storyName, Story) => {
   const { container } = render(<Story />)
+  // @ts-ignore TODO fix Property 'toHaveNoViolations' does not exist on type 'Assertion<AxeResults>
   expect(await axe(container)).toHaveNoViolations()
 })

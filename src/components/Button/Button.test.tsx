@@ -1,4 +1,4 @@
-import { vi } from 'vitest'
+import { vi, expect, test } from 'vitest'
 import { axe } from 'vitest-axe'
 import { render, screen } from '@testing-library/react'
 import { composeStories } from '@storybook/react'
@@ -9,6 +9,7 @@ const { Default, Disabled } = composeStories(stories)
 test('renders button with custom children', async () => {
   const { container } = render(<Default />)
   expect(screen.getByText(/Button/i)).toBeInTheDocument()
+  // @ts-ignore TODO fix Property 'toHaveNoViolations' does not exist on type 'Assertion<AxeResults>
   expect(await axe(container)).toHaveNoViolations()
 })
 

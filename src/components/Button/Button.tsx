@@ -74,7 +74,7 @@ type DefaultProps = {
   /**
    * Does the button have an icon?
    */
-  children?: string
+  children?: string | React.ReactNode
   /**
    * Optional click handler
    */
