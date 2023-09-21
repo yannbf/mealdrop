@@ -1,4 +1,4 @@
-import { userEvent } from '@storybook/testing-library'
+import { userEvent } from '@storybook/test'
 
 export function delay(ms: number) {
   if (!!global.test) {

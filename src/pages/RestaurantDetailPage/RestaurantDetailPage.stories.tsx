@@ -1,7 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { rest } from 'msw'
-import { within, userEvent } from '@storybook/testing-library'
-import { expect } from '@storybook/jest'
+import { expect, within, userEvent } from '@storybook/test'
 
 import { BASE_URL } from '../../api'
 import { restaurants } from '../../stub/restaurants'
@@ -54,7 +53,9 @@ export const WithModalOpen: Story = {
     const canvas = within(canvasElement)
     const item = await canvas.findByText(/Cheeseburger/i)
     await userEvent.click(item)
-    await expect(canvas.getByTestId('modal')).toBeInTheDocument()
+    // this is not shown in the panel, but you have to step through in the debugger to execute it
+    const element = await canvas.getByTestId('modal')
+    await expect(element).toBeInTheDocument()
   },
 }
 
