@@ -1,4 +1,5 @@
 import { StoryObj, Meta } from '@storybook/react'
+import { fn } from '@storybook/test'
 
 import { Button } from './Button'
 
@@ -6,6 +7,7 @@ const meta = {
   component: Button,
   args: {
     children: 'Button',
+    onClick: fn(),
   },
   parameters: {
     design: {
