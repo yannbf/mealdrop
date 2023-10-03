@@ -1,12 +1,18 @@
-import { render, screen, waitFor, within } from '@testing-library/react'
+import { act, render, screen, waitFor, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { composeStories } from '@storybook/react'
 
 import * as stories from './RestaurantDetailPage.stories'
 
-const { Success, Loading, Error, NotFound } = composeStories(stories)
+const { Success, Loading, Error, NotFound, WithModalOpen } = composeStories(stories)
 
 describe('RestaurantDetailPage', () => {
+  test('Modal tests', async () => {
+    const { container } = render(<WithModalOpen />)
+    await act(async () => {
+      await WithModalOpen.play({ canvasElement: container })
+    })
+  })
   test('Should add an item to cart', async () => {
     render(<Success />)
 
