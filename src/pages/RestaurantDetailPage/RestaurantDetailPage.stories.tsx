@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { rest } from 'msw'
-import { within, userEvent } from '@storybook/testing-library'
-import { expect } from '@storybook/jest'
+import { within, userEvent } from '@storybook/test'
+import { expect } from '@storybook/test'
 
 import { BASE_URL } from '../../api'
 import { restaurants } from '../../stub/restaurants'
