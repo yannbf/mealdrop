@@ -2468,19 +2468,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mswjs/interceptors@npm:^0.17.5":
-  version: 0.17.9
-  resolution: "@mswjs/interceptors@npm:0.17.9"
+"@mswjs/interceptors@npm:^0.17.10":
+  version: 0.17.10
+  resolution: "@mswjs/interceptors@npm:0.17.10"
   dependencies:
     "@open-draft/until": ^1.0.3
     "@types/debug": ^4.1.7
     "@xmldom/xmldom": ^0.8.3
     debug: ^4.3.3
-    headers-polyfill: ^3.1.0
+    headers-polyfill: 3.2.5
     outvariant: ^1.2.1
     strict-event-emitter: ^0.2.4
     web-encoding: ^1.1.5
-  checksum: 4df726cbee93d8baa54ead1ecb11e98124468659f51eb659ef8ead4aca7d6375198baf412ea17d4810fa5f1ee4fa53994702cb3b0b4f6f427a2f0fb890020192
+  checksum: 0e6d32f399144b5cefe6fd7620f2776c83adc9bbbbccf2eb4ea347332be059f585136c44168c09b544c41cd3d686f88e43432e10192227a24fbb0c98a2f52dc8
   languageName: node
   linkType: hard
 
@@ -4687,12 +4687,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/debug@npm:^4.0.0, @types/debug@npm:^4.1.7":
+"@types/debug@npm:^4.0.0":
   version: 4.1.8
   resolution: "@types/debug@npm:4.1.8"
   dependencies:
     "@types/ms": "*"
   checksum: a9a9bb40a199e9724aa944e139a7659173a9b274798ea7efbc277cb084bc37d32fc4c00877c3496fac4fed70a23243d284adb75c00b5fdabb38a22154d18e5df
+  languageName: node
+  linkType: hard
+
+"@types/debug@npm:^4.1.7":
+  version: 4.1.12
+  resolution: "@types/debug@npm:4.1.12"
+  dependencies:
+    "@types/ms": "*"
+  checksum: 47876a852de8240bfdaf7481357af2b88cb660d30c72e73789abf00c499d6bc7cd5e52f41c915d1b9cd8ec9fef5b05688d7b7aef17f7f272c2d04679508d1053
   languageName: node
   linkType: hard
 
@@ -5152,11 +5161,11 @@ __metadata:
   linkType: hard
 
 "@types/set-cookie-parser@npm:^2.4.0":
-  version: 2.4.3
-  resolution: "@types/set-cookie-parser@npm:2.4.3"
+  version: 2.4.7
+  resolution: "@types/set-cookie-parser@npm:2.4.7"
   dependencies:
     "@types/node": "*"
-  checksum: 8c0ded364c5a53598dc58f6c668d6fdbefa3bb78fcb1181202b92f4d8495ca33b4317f54ac0fe42824278e789d730ee5cbd2f7f864466e708589ff4eab2bf457
+  checksum: 01ef803e24b8cd33e49fe7463f32a562da45ce3f960381b90cccf67ea71b1830d2273df044255b040069c0a92ea25b4bf21c39ac2f85b50c01818ded5e918554
   languageName: node
   linkType: hard
 
@@ -6572,16 +6581,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:4.1.1":
-  version: 4.1.1
-  resolution: "chalk@npm:4.1.1"
-  dependencies:
-    ansi-styles: ^4.1.0
-    supports-color: ^7.1.0
-  checksum: 036e973e665ba1a32c975e291d5f3d549bceeb7b1b983320d4598fb75d70fe20c5db5d62971ec0fe76cdbce83985a00ee42372416abfc3a5584465005a7855ed
-  languageName: node
-  linkType: hard
-
 "chalk@npm:5.2.0":
   version: 5.2.0
   resolution: "chalk@npm:5.2.0"
@@ -7224,8 +7223,8 @@ __metadata:
     jest-junit: ^13.2.0
     jsdom: ^20.0.2
     lint-staged: ">=10"
-    msw: ^0.49.3
-    msw-storybook-addon: ^2.0.0-next.1
+    msw: ^1.3.2
+    msw-storybook-addon: ^1.10.0
     prettier: ^2.5.0
     react: ^17.0.2
     react-dom: ^17.0.2
@@ -9598,10 +9597,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql@npm:^15.0.0 || ^16.0.0":
-  version: 16.7.1
-  resolution: "graphql@npm:16.7.1"
-  checksum: c924d8428daf0e96a5ea43e9bc3cd1b6802899907d284478ac8f705c8fd233a0a51eef915f7569fb5de8acb2e85b802ccc6c85c2b157ad805c1e9adba5a299bd
+"graphql@npm:^16.8.1":
+  version: 16.8.1
+  resolution: "graphql@npm:16.8.1"
+  checksum: 8d304b7b6f708c8c5cc164b06e92467dfe36aff6d4f2cf31dd19c4c2905a0e7b89edac4b7e225871131fd24e21460836b369de0c06532644d15b461d55b1ccc0
   languageName: node
   linkType: hard
 
@@ -9825,10 +9824,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"headers-polyfill@npm:^3.1.0":
-  version: 3.1.2
-  resolution: "headers-polyfill@npm:3.1.2"
-  checksum: 510ca9637ef652404dbd432e680418f8d418ba18094ef2f64c3d8de955ebf6e68d553c7f0aeaa5fc937d130b139c1e2d7c2066cd4cf0f740a4627924eaaee9db
+"headers-polyfill@npm:3.2.5":
+  version: 3.2.5
+  resolution: "headers-polyfill@npm:3.2.5"
+  checksum: a3c4bdd661584fd39e40c0f91412abc514616edfbd20d29a75567e591f90ef5c445c8e209b7f3c2b2375d27e95e4690f33417368a168d4832484a93861ab6a3c
   languageName: node
   linkType: hard
 
@@ -10432,7 +10431,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-node-process@npm:^1.0.1":
+"is-node-process@npm:^1.0.1, is-node-process@npm:^1.2.0":
   version: 1.2.0
   resolution: "is-node-process@npm:1.2.0"
   checksum: 930765cdc6d81ab8f1bbecbea4a8d35c7c6d88a3ff61f3630e0fc7f22d624d7661c1df05c58547d0eb6a639dfa9304682c8e342c4113a6ed51472b704cee2928
@@ -13108,48 +13107,48 @@ __metadata:
   languageName: node
   linkType: hard
 
-"msw-storybook-addon@npm:^2.0.0-next.1":
-  version: 2.0.0-next.1
-  resolution: "msw-storybook-addon@npm:2.0.0-next.1"
+"msw-storybook-addon@npm:^1.10.0":
+  version: 1.10.0
+  resolution: "msw-storybook-addon@npm:1.10.0"
   dependencies:
     is-node-process: ^1.0.1
   peerDependencies:
     msw: ">=0.35.0 <2.0.0"
-  checksum: ee5ef5bf4c7a81c02f48463fef2df634bc48aac160c9a6887b683617ecf22d6a0979dc1a2367dedff60e1ddc437f64632c0b9208806a00dc73351c69bce1f692
+  checksum: d139c54bd18e4352caff1c087897d7bb5818d03aab89d147bc6f06a766988c97108420a7fa9ddc1509d8fd9c00579f8222adec184b5a82746be6de6e28508a4c
   languageName: node
   linkType: hard
 
-"msw@npm:^0.49.3":
-  version: 0.49.3
-  resolution: "msw@npm:0.49.3"
+"msw@npm:^1.3.2":
+  version: 1.3.2
+  resolution: "msw@npm:1.3.2"
   dependencies:
     "@mswjs/cookies": ^0.2.2
-    "@mswjs/interceptors": ^0.17.5
+    "@mswjs/interceptors": ^0.17.10
     "@open-draft/until": ^1.0.3
     "@types/cookie": ^0.4.1
     "@types/js-levenshtein": ^1.1.1
-    chalk: 4.1.1
+    chalk: ^4.1.1
     chokidar: ^3.4.2
     cookie: ^0.4.2
-    graphql: ^15.0.0 || ^16.0.0
-    headers-polyfill: ^3.1.0
+    graphql: ^16.8.1
+    headers-polyfill: 3.2.5
     inquirer: ^8.2.0
-    is-node-process: ^1.0.1
+    is-node-process: ^1.2.0
     js-levenshtein: ^1.1.6
     node-fetch: ^2.6.7
-    outvariant: ^1.3.0
+    outvariant: ^1.4.0
     path-to-regexp: ^6.2.0
     strict-event-emitter: ^0.4.3
     type-fest: ^2.19.0
     yargs: ^17.3.1
   peerDependencies:
-    typescript: ">= 4.4.x <= 4.9.x"
+    typescript: ">= 4.4.x <= 5.2.x"
   peerDependenciesMeta:
     typescript:
       optional: true
   bin:
     msw: cli/index.js
-  checksum: 8322cd42cd69f289c05517d02bde22fc2f10e86fc2d0d209d9df54bd03d10b8123723c5587a2654dcd2cd0f314a016f9eccac88cffa30fafd1f9fead16db639e
+  checksum: c2d4f7747f5806f0fd8d8cc3ca250ee1c2a7a6cd608de43f95bd072ba1fb13cdce0b52932ce9bf8f4a21b194d2815db535501e224ec8f7052593447fe1c0cb70
   languageName: node
   linkType: hard
 
@@ -13224,7 +13223,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-fetch@npm:^2, node-fetch@npm:^2.0.0, node-fetch@npm:^2.6.7":
+"node-fetch@npm:^2, node-fetch@npm:^2.0.0":
   version: 2.6.12
   resolution: "node-fetch@npm:2.6.12"
   dependencies:
@@ -13235,6 +13234,20 @@ __metadata:
     encoding:
       optional: true
   checksum: 3bc1655203d47ee8e313c0d96664b9673a3d4dd8002740318e9d27d14ef306693a4b2ef8d6525775056fd912a19e23f3ac0d7111ad8925877b7567b29a625592
+  languageName: node
+  linkType: hard
+
+"node-fetch@npm:^2.6.7":
+  version: 2.7.0
+  resolution: "node-fetch@npm:2.7.0"
+  dependencies:
+    whatwg-url: ^5.0.0
+  peerDependencies:
+    encoding: ^0.1.0
+  peerDependenciesMeta:
+    encoding:
+      optional: true
+  checksum: d76d2f5edb451a3f05b15115ec89fc6be39de37c6089f1b6368df03b91e1633fd379a7e01b7ab05089a25034b2023d959b47e59759cb38d88341b2459e89d6e5
   languageName: node
   linkType: hard
 
@@ -13615,7 +13628,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"outvariant@npm:^1.2.1, outvariant@npm:^1.3.0":
+"outvariant@npm:^1.2.1, outvariant@npm:^1.4.0":
   version: 1.4.0
   resolution: "outvariant@npm:1.4.0"
   checksum: ec32dfc315c464bb6e4906b2f450d259ce0b86caf70b70b249054359d9af21a7fccf53a8b6aa232f8d718449e31c1cfa594e6ebffaafe7bf908b502495256d7b
