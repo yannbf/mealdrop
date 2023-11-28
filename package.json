@@ -57,15 +57,15 @@
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@ladle/react": "^2.4.5",
-    "@storybook/addon-a11y": "7.6.0-alpha.7",
+    "@storybook/addon-a11y": "7.6.0",
     "@storybook/addon-coverage": "^0.0.9",
     "@storybook/addon-designs": "^7.0.5",
-    "@storybook/addon-essentials": "7.6.0-alpha.7",
-    "@storybook/addon-interactions": "7.6.0-alpha.7",
-    "@storybook/blocks": "7.6.0-alpha.7",
-    "@storybook/react": "7.6.0-alpha.7",
-    "@storybook/react-vite": "7.6.0-alpha.7",
-    "@storybook/test": "7.6.0-alpha.7",
+    "@storybook/addon-essentials": "7.6.0",
+    "@storybook/addon-interactions": "7.6.0",
+    "@storybook/blocks": "7.6.0",
+    "@storybook/react": "7.6.0",
+    "@storybook/react-vite": "7.6.0",
+    "@storybook/test": "7.6.0",
     "@storybook/test-runner": "0.15.3-next.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^12.1.2",
@@ -106,7 +106,7 @@
     "prettier": "^2.5.0",
     "react-is": "^17.0.2",
     "react-test-renderer": "^17.0.2",
-    "storybook": "7.6.0-alpha.7",
+    "storybook": "7.6.0",
     "storybook-mobile-addon": "^2.0.2",
     "vite": "^4.0.0",
     "vite-plugin-svgr": "^2.2.2",
@@ -117,13 +117,7 @@
     "wait-on": "^7.2.0"
   },
   "resolutions": {
-    "@types/react": "^17.0.2",
-    "@storybook/channels": "7.6.0-alpha.7",
-    "@storybook/core-common": "7.6.0-alpha.7",
-    "@storybook/core-events": "7.6.0-alpha.7",
-    "@storybook/csf-tools": "7.6.0-alpha.7",
-    "@storybook/node-logger": "7.6.0-alpha.7",
-    "@storybook/types": "7.6.0-alpha.7"
+    "@types/react": "^17.0.2"
   },
   "msw": {
     "workerDirectory": "public"
