@@ -32,7 +32,9 @@
     "prepare": "husky install",
     "lint": "eslint --fix .",
     "prettier": "prettier --write .",
-    "pre-commit": "lint-staged"
+    "pre-commit": "lint-staged",
+    "archive-storybook": "archive-storybook",
+    "build-archive-storybook": "build-archive-storybook"
   },
   "eslintConfig": {
     "extends": "react-app"
