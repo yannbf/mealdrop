@@ -9,4 +9,4 @@ Showcases Chromatic's [E2E Visual Tests](https://www.chromatic.com/docs/e2e-visu
 4. Run `yarn playwright test` to run the Playwright tests (which we automatically snapshot)
 5. (Optional) Run `yarn archive-storybook` to see the storybook created for the tests (e.g. to visually see what we snapshotted)
 6. Run `npx chromatic@latest --build-script-name=build-archive-storybook -t=<project-token>` to make a Chromatic build
-7. Inspect the build in [Chromatic](https://www.chromatic.com/builds?appId=65727c8333f449f3cf7b5965)https://www.chromatic.com/builds?appId=65727c8333f449f3cf7b5965
+7. Inspect the build in [Chromatic](https://www.chromatic.com/builds?appId=65727c8333f449f3cf7b5965)
