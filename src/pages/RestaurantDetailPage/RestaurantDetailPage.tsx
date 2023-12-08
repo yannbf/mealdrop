@@ -112,7 +112,7 @@ export const RestaurantDetailPage: VFC = () => {
       <DetailSection>
         <div className="container">
           <Heading level={2}>{name}</Heading>
-          <Body>Specialties: {specialty}</Body>
+          <Body>Specialtiesz: {specialty}</Body>
           <Review rating={rating} />
           <div>
             {categories?.map((category) => (
