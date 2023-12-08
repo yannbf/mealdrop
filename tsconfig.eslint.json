@@ -6,6 +6,9 @@
     "functions/*.ts",
     ".eslintrc.js",
     "test-runner-jest.config.js",
+    "playwright.config.ts",
+    "tests-examples",
+    "tests",
     "vite.config.ts",
     "vitest.config.ts",
   ]
