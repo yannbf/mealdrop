@@ -8,14 +8,12 @@ const defaultAnimation = css`
   }
   &.modal-enter-active {
     transform: translateY(0);
-    transition: transform 300ms;
   }
   &.modal-exit {
     transform: translateY(0);
   }
   &.modal-exit-active {
     transform: translateY(100%);
-    transition: transform 300ms;
   }
 `
 
@@ -27,7 +25,6 @@ const desktopAnimation = css`
   &.modal-enter-active {
     opacity: 1;
     transform: translateX(0);
-    transition: opacity 120ms, transform 120ms;
   }
   &.modal-exit {
     opacity: 1;
@@ -35,7 +32,6 @@ const desktopAnimation = css`
   &.modal-exit-active {
     opacity: 0;
     transform: scale(0.9);
-    transition: opacity 120ms, transform 120ms;
   }
 `
 
@@ -84,14 +80,12 @@ export const Backdrop = styled.div`
   }
   &.backdrop-enter-active {
     opacity: 1;
-    transition: opacity 300ms;
   }
   &.backdrop-exit {
     opacity: 1;
   }
   &.backdrop-exit-active {
     opacity: 0;
-    transition: opacity 300ms;
   }
 `
 

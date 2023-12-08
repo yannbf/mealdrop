@@ -47,7 +47,6 @@ const LeftContainer = styled.div`
 const SlidingBackground = styled.div`
   background: url(${restaurants}) repeat-y;
   height: 5076px;
-  animation: slide 60s linear infinite;
   width: 100%;
   display: none;
 

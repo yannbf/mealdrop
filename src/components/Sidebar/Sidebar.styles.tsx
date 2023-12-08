@@ -8,14 +8,12 @@ const defaultAnimation = css`
   }
   &.sidebar-enter-active {
     transform: translateX(0);
-    transition: transform 300ms;
   }
   &.sidebar-exit {
     transform: translateX(0);
   }
   &.sidebar-exit-active {
     transform: translateX(100%);
-    transition: transform 300ms;
   }
 `
 
@@ -25,14 +23,12 @@ const desktopAnimation = css`
   }
   &.sidebar-enter-active {
     transform: translateX(0);
-    transition: transform 300ms;
   }
   &.sidebar-exit {
     transform: translateX(0);
   }
   &.sidebar-exit-active {
     transform: translateX(100%);
-    transition: transform 300ms;
   }
 `
 
@@ -89,14 +85,12 @@ export const Backdrop = styled.div`
   }
   &.backdrop-enter-active {
     opacity: 1;
-    transition: opacity 300ms;
   }
   &.backdrop-exit {
     opacity: 1;
   }
   &.backdrop-exit-active {
     opacity: 0;
-    transition: opacity 300ms;
   }
 `
 

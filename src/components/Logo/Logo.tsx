@@ -20,9 +20,6 @@ const shine = (color: string) => keyframes`
 `
 
 const pathStyles = (color: string, delay: number) => css`
-  animation: ${shine(color)} 400ms ease-in;
-  animation-delay: ${delay}ms;
-  animation-iteration-count: 3;
   &:hover {
     fill: ${color};
   }
