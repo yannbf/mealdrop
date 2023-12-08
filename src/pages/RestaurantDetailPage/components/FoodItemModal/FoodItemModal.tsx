@@ -98,7 +98,7 @@ export const FoodItemModal = ({
                 aria-label="decrease quantity by one"
                 round
                 clear
-                icon="minus"
+                icon={<line x1="5" y1="12" x2="19" y2="12"></line>}
                 onClick={() => setQuantity(quantity - 1)}
                 disabled={quantity <= 1}
               />
@@ -107,7 +107,12 @@ export const FoodItemModal = ({
                 aria-label="increase quantity by one"
                 round
                 clear
-                icon="plus"
+                icon={
+                  <>
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </>
+                }
                 onClick={() => setQuantity(quantity + 1)}
                 disabled={quantity >= 10}
               />

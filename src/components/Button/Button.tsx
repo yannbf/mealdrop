@@ -62,7 +62,7 @@ type DefaultProps = {
   /**
    * Does the button have an icon?
    */
-  icon?: string
+  icon?: React.ReactNode
   /**
    * Size of the icon
    */
@@ -107,7 +107,9 @@ export const Button: React.FC<React.PropsWithChildren<ButtonProps>> = ({
       {...props}
     >
       {icon && (
-        <Icon color={clear ? color.primaryText : color.buttonText} size={iconSize} name={icon} />
+        <Icon color={clear ? color.primaryText : color.buttonText} size={iconSize}>
+          {icon}
+        </Icon>
       )}
       {icon && children && <Spacer />}
       {children}

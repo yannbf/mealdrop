@@ -44,7 +44,12 @@ export const Sidebar: React.FC<React.PropsWithChildren<SidebarProps>> = ({
               onClick={onClose}
               clear
               round
-              icon="cross"
+              icon={
+                <>
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </>
+              }
               iconSize={16}
             />
           </TopBar>
