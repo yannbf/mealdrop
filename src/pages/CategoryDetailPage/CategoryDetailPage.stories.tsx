@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { rest } from 'msw'
+import { delay, http, HttpResponse } from 'msw'
 
 import { restaurants } from '../../stub/restaurants'
 import { BASE_URL } from '../../api'
@@ -26,14 +26,14 @@ const Template: ComponentStory<typeof CategoryDetailPage> = () => <CategoryDetai
 export const Default = Template.bind({})
 Default.parameters = {
   msw: {
-    handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json([restaurants[0]])))],
+    handlers: [http.get(BASE_URL, () => HttpResponse.json([restaurants[0]]))],
   },
 }
 
 export const Loading = Template.bind({})
 Loading.parameters = {
   msw: {
-    handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.delay('infinite')))],
+    handlers: [http.get(BASE_URL, () => delay('infinite'))],
   },
 }
 
@@ -41,7 +41,7 @@ export const Missing = Template.bind({})
 Missing.parameters = {
   deeplink: { route: '/categories/wrong', path: '/categories/:id' },
   msw: {
-    handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json([])))],
+    handlers: [http.get(BASE_URL, () => HttpResponse.json([]))],
   },
   design: {
     type: 'figma',

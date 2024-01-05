@@ -1,11 +1,14 @@
 import type { Preview } from '@storybook/react'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
+import { mswLoader, initialize } from 'msw-storybook-addon'
 
 import { globalDecorators } from './decorators'
 import { viewports as breakpoints } from '../src/styles/breakpoints'
 import { DocsContainer, DocsContainerProps } from '@storybook/blocks'
 import { ThemeProvider } from 'styled-components'
 import { lightTheme } from '../src/styles/theme'
+
+initialize()
 
 // Create custom viewports using widths defined in design tokens
 const breakpointViewports = Object.keys(breakpoints).reduce((acc, key) => {

@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { rest } from 'msw'
+import { delay, http, HttpResponse } from 'msw'
 import { within, userEvent } from '@storybook/testing-library'
 import { expect } from '@storybook/jest'
 
@@ -41,7 +41,7 @@ export const Success = {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=169%3A510',
     },
     msw: [
-      rest.get(BASE_URL, (req, res, ctx) => {
+      http.get(BASE_URL, () => {
         return res(ctx.json(restaurants[0]))
       }),
     ],
@@ -74,11 +74,7 @@ export const Loading: Story = {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=2152%3A3158',
     },
     msw: {
-      handlers: [
-        rest.get(BASE_URL, (req, res, ctx) => {
-          return res(ctx.delay('infinite'))
-        }),
-      ],
+      handlers: [http.get(BASE_URL, async () => delay('infinite'))],
     },
   },
 }
@@ -91,8 +87,10 @@ export const NotFound: Story = {
     },
     msw: {
       handlers: [
-        rest.get(BASE_URL, (req, res, ctx) => {
-          return res(ctx.status(404))
+        http.get(BASE_URL, () => {
+          return new HttpResponse(null, {
+            status: 404,
+          })
         }),
       ],
     },
@@ -107,8 +105,10 @@ export const Error: Story = {
     },
     msw: {
       handlers: [
-        rest.get(BASE_URL, (req, res, ctx) => {
-          return res(ctx.status(500))
+        http.get(BASE_URL, () => {
+          return new HttpResponse(null, {
+            status: 500,
+          })
         }),
       ],
     },

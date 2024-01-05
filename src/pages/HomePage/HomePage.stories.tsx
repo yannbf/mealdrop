@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { rest } from 'msw'
+import { http, HttpResponse } from 'msw'
 
 import { BASE_URL } from '../../api'
 import { restaurants } from '../../stub/restaurants'
@@ -16,7 +16,7 @@ export default {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=135%3A258',
     },
     msw: {
-      handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json(restaurants)))],
+      handlers: [http.get(BASE_URL, () => HttpResponse.json(restaurants))],
     },
   },
 } as ComponentMeta<typeof HomePage>
