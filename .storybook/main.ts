@@ -1,18 +1,13 @@
 import { StorybookConfig } from '@storybook/react-vite'
 
 const config: StorybookConfig = {
-  stories: [
-    '../src/docs/Introduction.mdx',
-    '../src/docs/*.mdx',
-    '../src/**/*.mdx',
-    '../src/**/*.stories.@(js|jsx|ts|tsx)',
-  ],
+  stories: ['../src/**/Bug.mdx'],
   addons: [
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
-    '@storybook/addon-a11y',
-    '@storybook/addon-coverage',
-    '@storybook/addon-designs',
+    // '@storybook/addon-a11y',
+    // '@storybook/addon-coverage',
+    // '@storybook/addon-designs',
   ],
   typescript: {
     reactDocgen: 'react-docgen',
