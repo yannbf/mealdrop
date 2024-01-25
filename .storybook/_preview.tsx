@@ -36,17 +36,17 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
-    docs: {
-      toc: true,
-      source: {
-        excludeDecorators: true,
-      },
-      container: (props: DocsContainerProps) => (
-        <ThemeProvider theme={lightTheme}>
-          <DocsContainer {...props} />
-        </ThemeProvider>
-      ),
-    },
+    //   docs: {
+    //     toc: true,
+    //     source: {
+    //       excludeDecorators: true,
+    //     },
+    //     container: (props: DocsContainerProps) => (
+    //       <ThemeProvider theme={lightTheme}>
+    //         <DocsContainer {...props} />
+    //       </ThemeProvider>
+    //     ),
+    // },
   },
   globalTypes: {
     theme: {
