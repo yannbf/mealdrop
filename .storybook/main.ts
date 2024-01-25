@@ -20,7 +20,7 @@ const config: StorybookConfig = {
   staticDirs: ['../public'],
   framework: '@storybook/react-vite',
   docs: {
-    autodocs: 'tag',
+    autodocs: true,
   },
 }
 export default config
