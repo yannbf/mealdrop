@@ -1,4 +1,4 @@
-import { test, expect, takeSnapshot } from 'chromatic-playwright'
+import { test, expect, takeSnapshot } from '@chromatic-com/playwright'
 
 test('Home page loads', async ({ page }) => {
   await page.goto('http://localhost:3000')
