@@ -4,7 +4,7 @@ import { composeStories } from '@storybook/react'
 
 import * as stories from './RestaurantDetailPage.stories'
 
-const { Success, Loading, Error, NotFound } = composeStories(stories)
+const { Success, Loading, Error, NotFound, WithModalOpen } = composeStories(stories)
 
 describe('RestaurantDetailPage', () => {
   test('Should add an item to cart', async () => {
@@ -29,6 +29,10 @@ describe('RestaurantDetailPage', () => {
   test('Should display a 404 screen', async () => {
     render(<NotFound />)
     await waitFor(() => expect(screen.getByText("We can't find this page")).toBeInTheDocument())
+  })
+  test('Should execute story tests', async () => {
+    const { container } = render(<WithModalOpen />)
+    await WithModalOpen.play({ canvasElement: container })
   })
 })
 
