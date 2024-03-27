@@ -4,6 +4,7 @@ import { setProjectAnnotations } from '@storybook/react'
 import * as axeMatchers from 'vitest-axe/matchers'
 import { cleanup } from '@testing-library/react'
 import * as matchers from '@testing-library/jest-dom/matchers'
+import { getWorker } from 'msw-storybook-addon'
 
 import globalStorybookConfig from '../.storybook/preview'
 
@@ -14,6 +15,10 @@ expect.extend(axeMatchers)
 // runs a cleanup after each test case (e.g. clearing jsdom)
 afterEach(() => {
   cleanup()
+})
+afterAll(() => {
+  // @ts-expect-error TODO fix this
+  getWorker().close()
 })
 setProjectAnnotations(globalStorybookConfig)
 

@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { rest } from 'msw'
+import { delay, HttpResponse, http } from 'msw'
 
 import { BASE_URL } from '../../../../api'
 import { restaurants } from '../../../../stub/restaurants'
@@ -21,7 +21,7 @@ Default.args = {
 }
 Default.parameters = {
   msw: {
-    handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json(restaurants)))],
+    handlers: [http.get(BASE_URL, () => HttpResponse.json(restaurants))],
   },
 }
 
@@ -31,6 +31,10 @@ Loading.args = {
 }
 Loading.parameters = {
   msw: {
-    handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.delay('infinite')))],
+    handlers: [
+      http.get(BASE_URL, async () => {
+        await delay('infinite')
+      }),
+    ],
   },
 }
