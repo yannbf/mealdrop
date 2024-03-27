@@ -23,7 +23,6 @@ const breakpointViewports = Object.keys(breakpoints).reduce((acc, key) => {
 
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
     viewport: {
       viewports: {
         ...breakpointViewports,
