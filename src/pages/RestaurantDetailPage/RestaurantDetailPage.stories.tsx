@@ -81,6 +81,11 @@ export const Loading: Story = {
       ],
     },
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const item = await canvas.findByText(/Looking for some food.../i)
+    await expect(item).toBeInTheDocument()
+  },
 }
 
 export const NotFound: Story = {
@@ -97,6 +102,11 @@ export const NotFound: Story = {
       ],
     },
   },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const item = await canvas.findByText(/We can't find this page/i)
+    await expect(item).toBeInTheDocument()
+  },
 }
 
 export const Error: Story = {
@@ -112,5 +122,12 @@ export const Error: Story = {
         }),
       ],
     },
+  },
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement)
+    await step('Name of step', async () => {
+      const item = await canvas.findByText(/Something went wrong!/i)
+      await expect(item).toBeInTheDocument()
+    })
   },
 }
