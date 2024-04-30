@@ -7,6 +7,8 @@
     ".eslintrc.js",
     "test-runner-jest.config.js",
     "vite.config.ts",
-    "vitest.config.ts",
+    "vitest.browser.config.ts",
+    "vitest.node.config.ts",
+    "vitest.workspace.config.ts",
   ]
 }

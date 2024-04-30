@@ -9,17 +9,18 @@ export default mergeConfig(
   viteConfig,
   defineConfig({
     test: {
-      globals: true,
-      environment: 'jsdom',
-      clearMocks: true,
-      setupFiles: './src/setupTests.ts',
-      deps: {
-        inline: ['vitest-canvas-mock'],
+      browser: {
+        enabled: true,
+        name: 'chromium',
+        provider: 'playwright',
       },
+      globals: true,
+      clearMocks: true,
+      setupFiles: './src/setupTests.browser.ts',
       coverage: {
         provider: 'istanbul',
         reporter: ['text', 'html'],
-        exclude: ['node_modules/', 'src/setupTests.ts'],
+        exclude: ['node_modules/', 'src/setupTests.browser.ts'],
       },
     },
   })
