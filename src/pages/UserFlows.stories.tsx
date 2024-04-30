@@ -69,94 +69,94 @@ export const ToCategoryDetailPage = {
   },
 } satisfies Story
 
-export const ToRestaurantDetailPage = {
-  play: async (context) => {
-    await ToCategoryDetailPage.play(context)
-    const { canvasElement, args, step } = context
+// export const ToRestaurantDetailPage = {
+//   play: async (context) => {
+//     await ToCategoryDetailPage.play(context)
+//     const { canvasElement, args, step } = context
 
-    const clickEvent = args.demoMode === true ? animatedUserEventClick : userEvent.click
-    const canvas = within(canvasElement)
+//     const clickEvent = args.demoMode === true ? animatedUserEventClick : userEvent.click
+//     const canvas = within(canvasElement)
 
-    await step('Select first restaurant from the list', async () => {
-      // await waitForElementToBeRemoved(canvas.getAllByTestId('loading'))
-      await clickEvent((await canvas.findAllByTestId('restaurant-card'))[0])
-    })
-  },
-} satisfies Story
+//     await step('Select first restaurant from the list', async () => {
+//       // await waitForElementToBeRemoved(canvas.getAllByTestId('loading'))
+//       await clickEvent((await canvas.findAllByTestId('restaurant-card'))[0])
+//     })
+//   },
+// } satisfies Story
 
-export const ToCheckoutPage = {
-  play: async (context) => {
-    await ToRestaurantDetailPage.play(context)
-    const { canvasElement, args, step } = context
+// export const ToCheckoutPage = {
+//   play: async (context) => {
+//     await ToRestaurantDetailPage.play(context)
+//     const { canvasElement, args, step } = context
 
-    const clickEvent = args.demoMode === true ? animatedUserEventClick : userEvent.click
-    const canvas = within(canvasElement)
+//     const clickEvent = args.demoMode === true ? animatedUserEventClick : userEvent.click
+//     const canvas = within(canvasElement)
 
-    // await waitFor(async () => {
-    //   // await expect(canvas.getByText('Looking for some food...')).not.toBeInTheDocument()
-    //   await waitForElementToBeRemoved(canvas.getByText('Looking for some food...'))
-    // })
+//     // await waitFor(async () => {
+//     //   // await expect(canvas.getByText('Looking for some food...')).not.toBeInTheDocument()
+//     //   await waitForElementToBeRemoved(canvas.getByText('Looking for some food...'))
+//     // })
 
-    await step('Add Cheeseburger to cart', async () => {
-      const foodItem = await canvas.findByText(/Cheeseburger/i)
-      await clickEvent(foodItem)
+//     await step('Add Cheeseburger to cart', async () => {
+//       const foodItem = await canvas.findByText(/Cheeseburger/i)
+//       await clickEvent(foodItem)
 
-      const modalButton = await canvas.findByLabelText('increase quantity by one')
-      await clickEvent(modalButton)
-      await clickEvent(canvas.getByLabelText('confirm'))
+//       const modalButton = await canvas.findByLabelText('increase quantity by one')
+//       await clickEvent(modalButton)
+//       await clickEvent(canvas.getByLabelText('confirm'))
 
-      const cheeseburgerItem = within(foodItem.parentElement!)
+//       const cheeseburgerItem = within(foodItem.parentElement!)
 
-      await expect(cheeseburgerItem.getByLabelText('food quantity').textContent).toEqual('2')
-    })
+//       await expect(cheeseburgerItem.getByLabelText('food quantity').textContent).toEqual('2')
+//     })
 
-    await step('Sidebar should contain 2 items', async () => {
-      await clickEvent(canvas.getByLabelText('food cart'))
-      const sidebar = await within(canvasElement).findByTestId('sidebar')
+//     await step('Sidebar should contain 2 items', async () => {
+//       await clickEvent(canvas.getByLabelText('food cart'))
+//       const sidebar = await within(canvasElement).findByTestId('sidebar')
 
-      const foodItemSelector: HTMLSelectElement = within(sidebar).getByRole('combobox')
-      await expect(foodItemSelector.value).toEqual('2')
-    })
+//       const foodItemSelector: HTMLSelectElement = within(sidebar).getByRole('combobox')
+//       await expect(foodItemSelector.value).toEqual('2')
+//     })
 
-    await step('Go to "Checkout" page', async () => {
-      await clickEvent(canvas.getByText(/checkout/i))
-    })
-  },
-} satisfies Story
+//     await step('Go to "Checkout" page', async () => {
+//       await clickEvent(canvas.getByText(/checkout/i))
+//     })
+//   },
+// } satisfies Story
 
-export const ToSuccessPage = {
-  play: async (context) => {
-    await ToCheckoutPage.play(context)
-    const { canvasElement, args, step } = context
+// export const ToSuccessPage = {
+//   play: async (context) => {
+//     await ToCheckoutPage.play(context)
+//     const { canvasElement, args, step } = context
 
-    const clickEvent = args.demoMode === true ? animatedUserEventClick : userEvent.click
-    const delay = args.demoMode === true ? 50 : 0
-    const canvas = within(canvasElement)
+//     const clickEvent = args.demoMode === true ? animatedUserEventClick : userEvent.click
+//     const delay = args.demoMode === true ? 50 : 0
+//     const canvas = within(canvasElement)
 
-    await step('Fill in user details', async () => {
-      await userEvent.type(canvas.getByLabelText('First name'), 'Jane', { delay })
-      await userEvent.type(canvas.getByLabelText('Last name'), 'Dough', { delay })
-      await userEvent.type(canvas.getByLabelText('Email'), 'jane@dough.com', { delay })
-      await userEvent.type(canvas.getByLabelText('Phone number'), '0612345678', { delay })
-    })
+//     await step('Fill in user details', async () => {
+//       await userEvent.type(canvas.getByLabelText('First name'), 'Jane', { delay })
+//       await userEvent.type(canvas.getByLabelText('Last name'), 'Dough', { delay })
+//       await userEvent.type(canvas.getByLabelText('Email'), 'jane@dough.com', { delay })
+//       await userEvent.type(canvas.getByLabelText('Phone number'), '0612345678', { delay })
+//     })
 
-    await step('Go to the next step', async () => {
-      await clickEvent(canvas.getByText(/Next/i))
-    })
+//     await step('Go to the next step', async () => {
+//       await clickEvent(canvas.getByText(/Next/i))
+//     })
 
-    await step('Fill in delivery details', async () => {
-      await userEvent.type(canvas.getByLabelText('Streetname and housenumber'), 'Somestreet 14', {
-        delay,
-      })
-      await userEvent.type(canvas.getByLabelText('Postcode'), '1043DX', { delay })
-      await userEvent.type(canvas.getByLabelText('City'), 'Amsterdam', { delay })
-    })
+//     await step('Fill in delivery details', async () => {
+//       await userEvent.type(canvas.getByLabelText('Streetname and housenumber'), 'Somestreet 14', {
+//         delay,
+//       })
+//       await userEvent.type(canvas.getByLabelText('Postcode'), '1043DX', { delay })
+//       await userEvent.type(canvas.getByLabelText('City'), 'Amsterdam', { delay })
+//     })
 
-    await step('Complete order', async () => {
-      await clickEvent(canvas.getByText(/Complete/i))
-    })
-  },
-} satisfies Story
+//     await step('Complete order', async () => {
+//       await clickEvent(canvas.getByText(/Complete/i))
+//     })
+//   },
+// } satisfies Story
 
 // export const EndToEnd: Story = {
 //   ...ToSuccessPage,

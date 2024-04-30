@@ -10,24 +10,31 @@ export default mergeConfig(
   viteConfig,
   // @ts-ignore
   defineConfig({
+    define: {
+      'process.env': {},
+    },
     // @ts-ignore
     plugins: [storybookTest()],
     test: {
       watch: false,
       include: [...configDefaults.include, '**/*.stories.tsx'],
       globals: true,
-      environment: 'happy-dom',
       clearMocks: true,
-      setupFiles: './src/setupTests.ts',
       server: {
         deps: {
           inline: ['vitest-canvas-mock'],
         },
       },
+      browser: {
+        enabled: true,
+        name: 'chromium',
+        provider: 'playwright',
+      },
+      setupFiles: './src/setupTests.browser.ts',
       coverage: {
         provider: 'istanbul',
         reporter: ['text', 'html'],
-        exclude: ['node_modules/', 'src/setupTests.ts'],
+        exclude: ['node_modules/', 'src/setupTests.browser.ts'],
       },
     },
   })
