@@ -1,5 +1,6 @@
-import { render, screen, waitFor, within } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { act } from 'react'
+import { render, screen, waitFor } from '@testing-library/react'
+import { userEvent } from '@testing-library/user-event'
 import { composeStories } from '@storybook/react'
 
 import * as stories from './RestaurantDetailPage.stories'
@@ -16,7 +17,8 @@ describe('RestaurantDetailPage', () => {
     const modalButton = await screen.findByLabelText('confirm')
     userEvent.click(modalButton)
 
-    expect(within(foodItem.parentElement!).getByLabelText('food quantity').textContent).toEqual('1')
+    const foodQuantity = await screen.findByLabelText('food quantity')
+    expect(foodQuantity.textContent).toEqual('1')
   })
   test('Should display an error screen', async () => {
     render(<Error />)
@@ -32,7 +34,7 @@ describe('RestaurantDetailPage', () => {
   })
   test('Should execute story tests', async () => {
     const { container } = render(<WithModalOpen />)
-    await WithModalOpen.play({ canvasElement: container })
+    await WithModalOpen.play!({ canvasElement: container })
   })
 })
 

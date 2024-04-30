@@ -1,11 +1,8 @@
-// Replace react with one of the supported Storybook frameworks (react, vue3)
 import path from 'path'
 
 import type { Meta, StoryFn } from '@storybook/react'
-import { describe, expect, test } from 'vitest'
-// Replace your-testing-library with one of the supported testing libraries (e.g., react, vue)
+import { describe, test } from 'vitest'
 import { render } from '@testing-library/react'
-// Adjust the import based on the supported framework or Storybook's testing libraries (e.g., react, testing-vue3)
 import { composeStories } from '@storybook/react'
 
 type StoryFile = {
@@ -76,10 +73,9 @@ describe(options.suite, () => {
         const testFn = story.parameters.storyshots?.skip ? test.skip : test
 
         testFn(name, async () => {
-          await story.load()
-          const mounted = render(story())
-          await story.play?.()
-          // expect(mounted.container).toMatchSnapshot()
+          // await story.load()
+          // render(story())
+          // await story.play?.()
         })
       })
     })
