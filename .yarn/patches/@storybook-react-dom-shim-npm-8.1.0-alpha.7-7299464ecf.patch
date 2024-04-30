@@ -1,0 +1,41 @@
+diff --git a/package.json b/package.json
+index 31c3f4b02ca2aedaf61584073dbab6ba295e537c..64d70f43655963002980a8eb1cbbc0f24c8310eb 100644
+--- a/package.json
++++ b/package.json
+@@ -22,10 +22,10 @@
+   "sideEffects": false,
+   "exports": {
+     ".": {
+-      "types": "./dist/react-18.d.ts",
+-      "node": "./dist/react-18.js",
+-      "require": "./dist/react-18.js",
+-      "import": "./dist/react-18.mjs"
++      "types": "./dist/react-16.d.ts",
++      "node": "./dist/react-16.js",
++      "require": "./dist/react-16.js",
++      "import": "./dist/react-16.mjs"
+     },
+     "./dist/react-16": {
+       "types": "./dist/react-16.d.ts",
+@@ -39,9 +39,9 @@
+     },
+     "./package.json": "./package.json"
+   },
+-  "main": "dist/react-18.js",
+-  "module": "dist/react-18.mjs",
+-  "types": "dist/react-18.d.ts",
++  "main": "dist/react-16.js",
++  "module": "dist/react-16.mjs",
++  "types": "dist/react-16.d.ts",
+   "files": [
+     "dist/**/*",
+     "README.md",
+@@ -68,7 +68,7 @@
+     "entries": [
+       "./src/preset.ts",
+       "./src/react-16.tsx",
+-      "./src/react-18.tsx"
++      "./src/react-16.tsx"
+     ]
+   },
+   "gitHead": "e6a7fd8a655c69780bc20b9749c2699e44beae17"

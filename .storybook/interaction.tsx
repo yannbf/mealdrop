@@ -1,7 +1,7 @@
 import { userEvent } from '@storybook/test'
 
 export function delay(ms: number) {
-  if (!!global.test) {
+  if (!!globalThis.test) {
     return new Promise((resolve) => resolve(undefined))
   } else {
     return new Promise((resolve) => {
@@ -12,7 +12,7 @@ export function delay(ms: number) {
 }
 
 export async function mouseTo(target: Element, delay = 1700) {
-  if (!!global.test || !target) {
+  if (!!globalThis.test || !target) {
     return new Promise((resolve) => resolve(undefined))
   } else {
     return new Promise((resolve) => {

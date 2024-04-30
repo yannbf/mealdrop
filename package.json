@@ -18,6 +18,7 @@
     "typescript": "^4.9.5",
     "use-dark-mode": "^2.3.1"
   },
+  "type": "module",
   "scripts": {
     "start": "vite",
     "build": "tsc && vite build",
@@ -125,7 +126,9 @@
     "wait-on": "^7.2.0"
   },
   "resolutions": {
-    "@types/react": "^17.0.2"
+    "@types/react": "^17.0.2",
+    "@storybook/react-dom-shim@8.1.0-alpha.7": "patch:@storybook/react-dom-shim@npm%3A8.1.0-alpha.7#./.yarn/patches/@storybook-react-dom-shim-npm-8.1.0-alpha.7-7299464ecf.patch",
+    "use-dark-mode@^2.3.1": "patch:use-dark-mode@npm%3A2.3.1#./.yarn/patches/use-dark-mode-npm-2.3.1-99b223f5c4.patch"
   },
   "msw": {
     "workerDirectory": "public"

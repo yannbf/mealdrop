@@ -3799,6 +3799,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/react-dom-shim@patch:@storybook/react-dom-shim@npm%3A8.1.0-alpha.7#./.yarn/patches/@storybook-react-dom-shim-npm-8.1.0-alpha.7-7299464ecf.patch::locator=course-app%40workspace%3A.":
+  version: 8.1.0-alpha.7
+  resolution: "@storybook/react-dom-shim@patch:@storybook/react-dom-shim@npm%3A8.1.0-alpha.7#./.yarn/patches/@storybook-react-dom-shim-npm-8.1.0-alpha.7-7299464ecf.patch::version=8.1.0-alpha.7&hash=b42b79&locator=course-app%40workspace%3A."
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: 293da5060fa4a81d9be7d93ae4bb7bae375c6daae1f5dbf1a41bd4862c690e6bb916b0c11f4d4138b8bd5de3a390d715770b32bc87ec15029dc986833c7b92c7
+  languageName: node
+  linkType: hard
+
 "@storybook/react-vite@npm:^8.1.0-alpha.7":
   version: 8.1.0-alpha.7
   resolution: "@storybook/react-vite@npm:8.1.0-alpha.7"
@@ -17096,7 +17106,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"use-dark-mode@npm:^2.3.1":
+"use-dark-mode@npm:2.3.1":
   version: 2.3.1
   resolution: "use-dark-mode@npm:2.3.1"
   dependencies:
@@ -17105,6 +17115,18 @@ __metadata:
   peerDependencies:
     react: ^16.8.0
   checksum: 2a40129922bdf5780ebe32e6a0eedd0f7355cb157d3c806ec3e94532da4ce795175d9bcc3c967071f2f8035e964ffdaff6a004b0a62a4e0ec2462858407571fc
+  languageName: node
+  linkType: hard
+
+"use-dark-mode@patch:use-dark-mode@npm%3A2.3.1#./.yarn/patches/use-dark-mode-npm-2.3.1-99b223f5c4.patch::locator=course-app%40workspace%3A.":
+  version: 2.3.1
+  resolution: "use-dark-mode@patch:use-dark-mode@npm%3A2.3.1#./.yarn/patches/use-dark-mode-npm-2.3.1-99b223f5c4.patch::version=2.3.1&hash=495313&locator=course-app%40workspace%3A."
+  dependencies:
+    "@use-it/event-listener": ^0.1.2
+    use-persisted-state: ^0.3.0
+  peerDependencies:
+    react: ^16.8.0
+  checksum: 4fb2b8fae5c909980168c532c12211ef76727f18c0339d817ca693df7fe057b497df628c84eba5691c4f0d19f36e6c17f0a5319708ec7b886044e3fbfa802688
   languageName: node
   linkType: hard
 
