@@ -6,9 +6,11 @@
     "functions/*.ts",
     ".eslintrc.js",
     "test-runner-jest.config.js",
+    "playwright.config.ts",
     "vite.config.ts",
     "vitest.browser.config.ts",
     "vitest.node.config.ts",
     "vitest.workspace.config.ts",
+    "playwright/index.tsx",
   ]
 }
