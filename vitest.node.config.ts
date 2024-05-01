@@ -4,8 +4,6 @@ import { mergeConfig } from 'vite'
 
 import viteConfig from './vite.config'
 
-console.log('opa')
-
 // https://vitejs.dev/config/
 export default mergeConfig(
   viteConfig,

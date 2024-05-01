@@ -4,6 +4,8 @@ import { mergeConfig } from 'vite'
 
 import viteConfig from './vite.config'
 
+const USE_WEBDRIVERIO = process.env.USE_WEBDRIVERIO === 'true'
+
 // https://vitejs.dev/config/
 export default mergeConfig(
   viteConfig,
@@ -11,8 +13,8 @@ export default mergeConfig(
     test: {
       browser: {
         enabled: true,
-        name: 'chromium',
-        provider: 'playwright',
+        name: USE_WEBDRIVERIO ? 'chrome' : 'chromium',
+        provider: USE_WEBDRIVERIO ? 'webdriverio' : 'playwright',
       },
       globals: true,
       clearMocks: true,
