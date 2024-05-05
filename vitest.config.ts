@@ -13,8 +13,10 @@ export default mergeConfig(
       environment: 'jsdom',
       clearMocks: true,
       setupFiles: './src/setupTests.ts',
-      deps: {
-        inline: ['vitest-canvas-mock'],
+      server: {
+        deps: {
+          inline: ['vitest-canvas-mock'],
+        },
       },
       coverage: {
         provider: 'istanbul',
