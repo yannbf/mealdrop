@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { delay, HttpResponse, http } from 'msw'
 
 import { BASE_URL } from '../../../../api'
@@ -9,11 +9,9 @@ import { RestaurantsSection } from './RestaurantsSection'
 export default {
   title: 'Pages/HomePage/Components/RestaurantsSection',
   component: RestaurantsSection,
-} as ComponentMeta<typeof RestaurantsSection>
+} as Meta<typeof RestaurantsSection>
 
-const Template: ComponentStory<typeof RestaurantsSection> = (args) => (
-  <RestaurantsSection {...args} />
-)
+const Template: StoryFn<typeof RestaurantsSection> = (args) => <RestaurantsSection {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

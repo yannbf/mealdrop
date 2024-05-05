@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 
 import { CategoryListPage } from './CategoryListPage'
 
@@ -12,8 +12,8 @@ export default {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=169-365&mode=design&t=PGeoMU7t8HOFToQL-4',
     },
   },
-} as ComponentMeta<typeof CategoryListPage>
+} as Meta<typeof CategoryListPage>
 
-const Template: ComponentStory<typeof CategoryListPage> = () => <CategoryListPage />
+const Template: StoryFn<typeof CategoryListPage> = () => <CategoryListPage />
 
 export const Default = Template.bind({})

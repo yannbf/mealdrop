@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 
 import { Footer } from './Footer'
 
@@ -12,9 +12,9 @@ export default {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1716-3158&mode=design&t=zmyrZnTzOLfLqBwr-4',
     },
   },
-} as ComponentMeta<typeof Footer>
+} as Meta<typeof Footer>
 
-const Template: ComponentStory<typeof Footer> = () => (
+const Template: StoryFn<typeof Footer> = () => (
   <div style={{ position: 'relative', height: '100vh' }}>
     <div style={{ position: 'absolute', bottom: 0, width: '100%' }}>
       <Footer />

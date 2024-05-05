@@ -22,3 +22,4 @@ declare module 'react-lottie-player' {
 
   export default class Lottie extends React.Component<LottieProps> {}
 }
+

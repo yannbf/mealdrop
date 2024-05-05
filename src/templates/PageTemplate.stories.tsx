@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { Meta, StoryFn } from '@storybook/react'
 
 import { cartItems } from '../stub/cart-items'
 
@@ -11,13 +11,13 @@ export default {
   parameters: {
     layout: 'fullscreen',
   },
-} as ComponentMeta<typeof PageTemplate>
+} as Meta<typeof PageTemplate>
 
 const DummyComponent: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => (
   <div style={{ padding: 60 }}>{children}</div>
 )
 
-const Template: ComponentStory<typeof PageTemplate> = (args) => <PageTemplate {...args} />
+const Template: StoryFn<typeof PageTemplate> = (args) => <PageTemplate {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

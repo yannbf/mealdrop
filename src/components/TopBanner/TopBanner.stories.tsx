@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 
 import { TopBanner } from './TopBanner'
 
@@ -12,9 +12,9 @@ export default {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1690-5067&mode=design&t=zmyrZnTzOLfLqBwr-4',
     },
   },
-} as ComponentMeta<typeof TopBanner>
+} as Meta<typeof TopBanner>
 
-const Template: ComponentStory<typeof TopBanner> = (args) => <TopBanner {...args} />
+const Template: StoryFn<typeof TopBanner> = (args) => <TopBanner {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

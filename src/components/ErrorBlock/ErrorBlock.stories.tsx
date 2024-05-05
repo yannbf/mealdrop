@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 
 import sushi from '../../assets/images/sushi.svg'
 import { AnimatedIllustration } from '../AnimatedIllustration'
@@ -11,9 +11,9 @@ export default {
   parameters: {
     layout: 'fullscreen',
   },
-} as ComponentMeta<typeof ErrorBlock>
+} as Meta<typeof ErrorBlock>
 
-const Template: ComponentStory<typeof ErrorBlock> = (args) => <ErrorBlock {...args} />
+const Template: StoryFn<typeof ErrorBlock> = (args) => <ErrorBlock {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

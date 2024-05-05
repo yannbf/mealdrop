@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 
 import { SuccessPage } from './SuccessPage'
 
@@ -12,9 +12,9 @@ export default {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=426%3A3444',
     },
   },
-} as ComponentMeta<typeof SuccessPage>
+} as Meta<typeof SuccessPage>
 
-const Template: ComponentStory<typeof SuccessPage> = () => <SuccessPage />
+const Template: StoryFn<typeof SuccessPage> = () => <SuccessPage />
 
 export const Default = Template.bind({})
 Default.parameters = {

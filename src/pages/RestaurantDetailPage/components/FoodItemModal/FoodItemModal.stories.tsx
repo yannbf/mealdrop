@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 
 import { Button } from '../../../../components/Button'
 
@@ -14,16 +14,16 @@ export default {
     docs: { inlineStories: false, iframeHeight: 600 },
   },
   decorators: [
-    (StoryFn) => (
+    (StoryEl) => (
       <>
         <div id="modal" />
-        <StoryFn />
+        <StoryEl />
       </>
     ),
   ],
 } as Meta
 
-const Template: Story = () => {
+const Template: StoryFn = () => {
   const itemMock = {
     name: 'Dish.name',
     description: 'Juicy dish with extra mayonaise',

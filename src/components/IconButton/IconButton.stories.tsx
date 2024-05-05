@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 
 import { IconButton } from './IconButton'
 
@@ -9,9 +9,9 @@ export default {
     type: 'figma',
     url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1131-437&mode=design&t=zmyrZnTzOLfLqBwr-4',
   },
-} as ComponentMeta<typeof IconButton>
+} as Meta<typeof IconButton>
 
-const Template: ComponentStory<typeof IconButton> = (args) => <IconButton {...args} />
+const Template: StoryFn<typeof IconButton> = (args) => <IconButton {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { http, delay, HttpResponse } from 'msw'
 
 import { restaurants } from '../../stub/restaurants'
@@ -19,9 +19,9 @@ export default {
     },
   },
   decorators: [withDeeplink],
-} as ComponentMeta<typeof CategoryDetailPage>
+} as Meta<typeof CategoryDetailPage>
 
-const Template: ComponentStory<typeof CategoryDetailPage> = () => <CategoryDetailPage />
+const Template: StoryFn<typeof CategoryDetailPage> = () => <CategoryDetailPage />
 
 export const Default = Template.bind({})
 Default.parameters = {
