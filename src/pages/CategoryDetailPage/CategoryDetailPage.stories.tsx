@@ -1,5 +1,5 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { rest } from 'msw'
+import { StoryFn, Meta } from '@storybook/react'
+import { http, delay, HttpResponse } from 'msw'
 
 import { restaurants } from '../../stub/restaurants'
 import { BASE_URL } from '../../api'
@@ -19,21 +19,25 @@ export default {
     },
   },
   decorators: [withDeeplink],
-} as ComponentMeta<typeof CategoryDetailPage>
+} as Meta<typeof CategoryDetailPage>
 
-const Template: ComponentStory<typeof CategoryDetailPage> = () => <CategoryDetailPage />
+const Template: StoryFn<typeof CategoryDetailPage> = () => <CategoryDetailPage />
 
 export const Default = Template.bind({})
 Default.parameters = {
   msw: {
-    handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json([restaurants[0]])))],
+    handlers: [http.get(BASE_URL, () => HttpResponse.json([restaurants[0]]))],
   },
 }
 
 export const Loading = Template.bind({})
 Loading.parameters = {
   msw: {
-    handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.delay('infinite')))],
+    handlers: [
+      http.get(BASE_URL, async () => {
+        await delay('infinite')
+      }),
+    ],
   },
 }
 
@@ -41,7 +45,7 @@ export const Missing = Template.bind({})
 Missing.parameters = {
   deeplink: { route: '/categories/wrong', path: '/categories/:id' },
   msw: {
-    handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json([])))],
+    handlers: [http.get(BASE_URL, () => HttpResponse.json([]))],
   },
   design: {
     type: 'figma',

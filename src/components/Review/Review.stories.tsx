@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 
 import { Review } from './Review'
 
@@ -21,9 +21,9 @@ export default {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1128-3434&mode=design&t=zmyrZnTzOLfLqBwr-4',
     },
   },
-} as ComponentMeta<typeof Review>
+} as Meta<typeof Review>
 
-const Template: ComponentStory<typeof Review> = (args) => <Review {...args} />
+const Template: StoryFn<typeof Review> = (args) => <Review {...args} />
 
 export const Default = Template.bind({})
 

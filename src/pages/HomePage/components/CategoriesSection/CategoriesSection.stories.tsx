@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 
 import { categories } from '../../../../stub/categories'
 
@@ -10,8 +10,8 @@ export default {
   args: {
     categories,
   },
-} as ComponentMeta<typeof CategoriesSection>
+} as Meta<typeof CategoriesSection>
 
-const Template: ComponentStory<typeof CategoriesSection> = (args) => <CategoriesSection {...args} />
+const Template: StoryFn<typeof CategoriesSection> = (args) => <CategoriesSection {...args} />
 
 export const Default = Template.bind({})

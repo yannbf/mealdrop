@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 
 import { Select } from './Select'
 
@@ -11,9 +11,9 @@ export default {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1145-3229&mode=design&t=zmyrZnTzOLfLqBwr-4',
     },
   },
-} as ComponentMeta<typeof Select>
+} as Meta<typeof Select>
 
-const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />
+const Template: StoryFn<typeof Select> = (args) => <Select {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

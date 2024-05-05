@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 
 import { CheckoutPage } from './CheckoutPage'
 
@@ -12,9 +12,9 @@ export default {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=426-3291&mode=design&t=PGeoMU7t8HOFToQL-4',
     },
   },
-} as ComponentMeta<typeof CheckoutPage>
+} as Meta<typeof CheckoutPage>
 
-const Template: ComponentStory<typeof CheckoutPage> = () => <CheckoutPage />
+const Template: StoryFn<typeof CheckoutPage> = () => <CheckoutPage />
 
 export const Empty = Template.bind({})
 

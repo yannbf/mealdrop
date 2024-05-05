@@ -1,4 +1,4 @@
-import { Story, Meta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 import { useEffect, useState } from 'react'
 
 import { Button } from '../Button'
@@ -20,7 +20,7 @@ export default {
   },
 } as Meta
 
-const Template: Story = () => {
+const Template: StoryFn = () => {
   const [isOpen, setIsOpen] = useState(false)
   const openSidebar = () => setIsOpen(true)
   const closeSidebar = () => setIsOpen(false)

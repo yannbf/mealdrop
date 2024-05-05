@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 
 import { AnimatedIllustration } from './AnimatedIllustration'
 
@@ -11,17 +11,15 @@ export default {
     chromatic: { delay: 1000 },
   },
   decorators: [
-    (StoryFn) => (
+    (StoryEl) => (
       <div style={{ maxWidth: 400 }}>
-        <StoryFn />
+        <StoryEl />
       </div>
     ),
   ],
-} as ComponentMeta<typeof AnimatedIllustration>
+} as Meta<typeof AnimatedIllustration>
 
-const Template: ComponentStory<typeof AnimatedIllustration> = (args) => (
-  <AnimatedIllustration {...args} />
-)
+const Template: StoryFn<typeof AnimatedIllustration> = (args) => <AnimatedIllustration {...args} />
 
 export const Default = Template.bind({})
 Default.args = {

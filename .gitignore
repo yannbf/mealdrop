@@ -29,7 +29,7 @@ yarn-error.log*
 .netlify
 
 # storybook
-build-storybook.log
+*-storybook.log
 
 
 # Yarn berry

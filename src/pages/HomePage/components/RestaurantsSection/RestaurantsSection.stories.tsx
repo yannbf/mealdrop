@@ -1,5 +1,5 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
-import { rest } from 'msw'
+import { StoryFn, Meta } from '@storybook/react'
+import { delay, HttpResponse, http } from 'msw'
 
 import { BASE_URL } from '../../../../api'
 import { restaurants } from '../../../../stub/restaurants'
@@ -9,11 +9,9 @@ import { RestaurantsSection } from './RestaurantsSection'
 export default {
   title: 'Pages/HomePage/Components/RestaurantsSection',
   component: RestaurantsSection,
-} as ComponentMeta<typeof RestaurantsSection>
+} as Meta<typeof RestaurantsSection>
 
-const Template: ComponentStory<typeof RestaurantsSection> = (args) => (
-  <RestaurantsSection {...args} />
-)
+const Template: StoryFn<typeof RestaurantsSection> = (args) => <RestaurantsSection {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
@@ -21,7 +19,7 @@ Default.args = {
 }
 Default.parameters = {
   msw: {
-    handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.json(restaurants)))],
+    handlers: [http.get(BASE_URL, () => HttpResponse.json(restaurants))],
   },
 }
 
@@ -31,6 +29,10 @@ Loading.args = {
 }
 Loading.parameters = {
   msw: {
-    handlers: [rest.get(BASE_URL, (req, res, ctx) => res(ctx.delay('infinite')))],
+    handlers: [
+      http.get(BASE_URL, async () => {
+        await delay('infinite')
+      }),
+    ],
   },
 }

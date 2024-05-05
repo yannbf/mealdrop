@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Story, ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 
 import { cartItems } from '../../stub/cart-items'
 import { Button } from '../Button'
@@ -20,9 +20,9 @@ export default {
     cartItems: cartItems,
     totalPrice: 1200,
   },
-} as ComponentMeta<typeof ShoppingCartMenu>
+} as Meta<typeof ShoppingCartMenu>
 
-const Template: ComponentStory<typeof ShoppingCartMenu> = (args) => <ShoppingCartMenu {...args} />
+const Template: StoryFn<typeof ShoppingCartMenu> = (args) => <ShoppingCartMenu {...args} />
 
 export const Empty = Template.bind({})
 Empty.args = {
@@ -39,7 +39,7 @@ Mobile.parameters = {
   },
 }
 
-export const Playground: Story = () => {
+export const Playground: StoryFn = () => {
   const [isOpen, setIsOpen] = useState(false)
   const openShoppingCartMenu = () => setIsOpen(true)
   const closeShoppingCartMenu = () => setIsOpen(false)

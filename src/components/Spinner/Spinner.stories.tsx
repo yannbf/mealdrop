@@ -1,4 +1,4 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react'
+import { StoryFn, Meta } from '@storybook/react'
 
 import { Spinner } from './Spinner'
 
@@ -13,9 +13,9 @@ export default {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=12703-2132&mode=design&t=PGeoMU7t8HOFToQL-4',
     },
   },
-} as ComponentMeta<typeof Spinner>
+} as Meta<typeof Spinner>
 
-export const Default: ComponentStory<typeof Spinner> = () => (
+export const Default: StoryFn<typeof Spinner> = () => (
   <div style={{ minHeight: '100vh' }}>
     <Spinner />
   </div>

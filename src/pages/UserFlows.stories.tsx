@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { rest } from 'msw'
+import { http, HttpResponse } from 'msw'
 import { within, userEvent, expect } from '@storybook/test'
 
 import { BASE_URL } from '../api'
@@ -15,19 +15,20 @@ const meta = {
     deeplink: { route: '/', path: '/' },
     msw: {
       handlers: [
-        rest.get(BASE_URL, (req, res, ctx) => {
-          const id = req.url.searchParams.get('id')
-          const category = req.url.searchParams.get('category')
+        http.get(BASE_URL, ({ request }) => {
+          const url = new URL(request.url)
+          const id = url.searchParams.get('id')
+          const category = url.searchParams.get('category')
 
           if (id) {
-            return res(ctx.json(restaurants[0]))
+            return HttpResponse.json(restaurants[0])
           }
 
           if (category) {
-            return res(ctx.json([restaurants[0], restaurants[1], restaurants[2]]))
+            return HttpResponse.json([restaurants[0], restaurants[1], restaurants[2]])
           }
 
-          return res(ctx.json(restaurants))
+          return HttpResponse.json(restaurants)
         }),
       ],
     },

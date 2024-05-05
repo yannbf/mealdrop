@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { rest } from 'msw'
+import { http, HttpResponse, delay } from 'msw'
 import { within, userEvent } from '@storybook/test'
 import { expect } from '@storybook/test'
 
@@ -40,11 +40,13 @@ export const Success = {
       type: 'figma',
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=169%3A510',
     },
-    msw: [
-      rest.get(BASE_URL, (req, res, ctx) => {
-        return res(ctx.json(restaurants[0]))
-      }),
-    ],
+    msw: {
+      handlers: [
+        http.get(BASE_URL, () => {
+          return HttpResponse.json(restaurants[0])
+        }),
+      ],
+    },
   },
 }
 
@@ -75,11 +77,16 @@ export const Loading: Story = {
     },
     msw: {
       handlers: [
-        rest.get(BASE_URL, (req, res, ctx) => {
-          return res(ctx.delay('infinite'))
+        http.get(BASE_URL, async () => {
+          await delay('infinite')
         }),
       ],
     },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const item = await canvas.findByText(/Looking for some food.../i)
+    await expect(item).toBeInTheDocument()
   },
 }
 
@@ -90,12 +97,17 @@ export const NotFound: Story = {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=1097%3A3785',
     },
     msw: {
-      handlers: [
-        rest.get(BASE_URL, (req, res, ctx) => {
-          return res(ctx.status(404))
+      handlers: {
+        error: http.get(BASE_URL, () => {
+          return HttpResponse.json(null, { status: 404 })
         }),
-      ],
+      },
     },
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    const item = await canvas.findByText(/We can't find this page/i)
+    await expect(item).toBeInTheDocument()
   },
 }
 
@@ -107,10 +119,17 @@ export const Error: Story = {
     },
     msw: {
       handlers: [
-        rest.get(BASE_URL, (req, res, ctx) => {
-          return res(ctx.status(500))
+        http.get(BASE_URL, () => {
+          return HttpResponse.json({}, { status: 500 })
         }),
       ],
     },
+  },
+  play: async ({ canvasElement, step }) => {
+    const canvas = within(canvasElement)
+    await step('Name of step', async () => {
+      const item = await canvas.findByText(/Something went wrong!/i)
+      await expect(item).toBeInTheDocument()
+    })
   },
 }

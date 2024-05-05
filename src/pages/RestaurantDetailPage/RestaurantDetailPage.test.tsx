@@ -1,13 +1,14 @@
-import { render, screen, waitFor, within } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
+import { render, screen, waitFor } from '@testing-library/react'
+import { userEvent } from '@testing-library/user-event'
 import { composeStories } from '@storybook/react'
 
 import * as stories from './RestaurantDetailPage.stories'
 
-const { Success, Loading, Error, NotFound } = composeStories(stories)
+const { Success, Loading, Error, NotFound, WithModalOpen } = composeStories(stories)
 
 describe('RestaurantDetailPage', () => {
   test('Should add an item to cart', async () => {
+    await Success.load()
     render(<Success />)
 
     const foodItem = await screen.findByText(/Cheeseburger/i)
@@ -16,19 +17,28 @@ describe('RestaurantDetailPage', () => {
     const modalButton = await screen.findByLabelText('confirm')
     userEvent.click(modalButton)
 
-    expect(within(foodItem.parentElement!).getByLabelText('food quantity').textContent).toEqual('1')
+    const foodQuantity = await screen.findByLabelText('food quantity')
+    expect(foodQuantity.textContent).toEqual('1')
   })
   test('Should display an error screen', async () => {
+    await Error.load()
     render(<Error />)
     await waitFor(() => expect(screen.getByText('Something went wrong!')).toBeInTheDocument())
   })
   test('Should display a loading screen', async () => {
+    await Loading.load()
     render(<Loading />)
     await waitFor(() => expect(screen.getByText('Looking for some food...')).toBeInTheDocument())
   })
   test('Should display a 404 screen', async () => {
+    await NotFound.load()
     render(<NotFound />)
     await waitFor(() => expect(screen.getByText("We can't find this page")).toBeInTheDocument())
+  })
+  test('Should execute story tests', async () => {
+    await WithModalOpen.load()
+    const { container } = render(<WithModalOpen />)
+    await WithModalOpen.play!({ canvasElement: container })
   })
 })
 
