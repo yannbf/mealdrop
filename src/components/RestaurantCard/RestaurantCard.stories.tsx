@@ -12,11 +12,28 @@ const meta = {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1091-2986&mode=design&t=PGeoMU7t8HOFToQL-4',
     },
   },
+  play: waitForImagesToLoad,
 } satisfies Meta<typeof RestaurantCard>
 
 export default meta
 
 type Story = StoryObj<typeof meta>
+
+async function waitForImagesToLoad() {
+  const images = Array.from(document.getElementsByTagName('img'))
+
+  await Promise.all(
+    images.map((image) => {
+      if (image.complete) {
+        return Promise.resolve()
+      } else {
+        return new Promise((resolve) => {
+          image.addEventListener('load', resolve)
+        })
+      }
+    })
+  )
+}
 
 export const Default: Story = {
   args: {
