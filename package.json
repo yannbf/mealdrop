@@ -30,7 +30,7 @@
     "build-storybook:test": "storybook build --output-dir build/storybook --test",
     "build-all": "yarn build && yarn build-storybook",
     "chromatic": "chromatic --project-token $CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes --only-changed",
-    "prepare": "husky install",
+    "prepare": "husky",
     "lint": "eslint --fix .",
     "prettier": "prettier --write .",
     "pre-commit": "lint-staged",
@@ -124,5 +124,8 @@
     "*.{ts,tsx}": "eslint --fix",
     "*.{html,md}": "prettier --write"
   },
-  "packageManager": "yarn@4.2.1"
+  "packageManager": "yarn@4.2.1",
+  "resolutions": {
+    "@use-it/event-listener@npm:^0.1.2": "patch:@use-it/event-listener@npm%3A0.1.7#~/.yarn/patches/@use-it-event-listener-npm-0.1.7-56ef42a654.patch"
+  }
 }

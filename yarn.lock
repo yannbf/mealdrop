@@ -5306,12 +5306,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@use-it/event-listener@npm:^0.1.2":
+"@use-it/event-listener@npm:0.1.7":
   version: 0.1.7
   resolution: "@use-it/event-listener@npm:0.1.7"
   peerDependencies:
     react: ">=16.8.0"
   checksum: 10c0/a47d631124021349ab8fffd452289b9d977c1dbe2b6e548661f6114970817a5033186de700b30514b52c58b20f0311dc508229c069fb696cb1dcf5715e55434b
+  languageName: node
+  linkType: hard
+
+"@use-it/event-listener@patch:@use-it/event-listener@npm%3A0.1.7#~/.yarn/patches/@use-it-event-listener-npm-0.1.7-56ef42a654.patch":
+  version: 0.1.7
+  resolution: "@use-it/event-listener@patch:@use-it/event-listener@npm%3A0.1.7#~/.yarn/patches/@use-it-event-listener-npm-0.1.7-56ef42a654.patch::version=0.1.7&hash=4e5cf2"
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 10c0/a12ca843f43d4c53d317df4de82af38b435e778683af33cf3e83313b99636cbaae86c6151207da00eb4bebf951cabcd3a72624550a9eb17870b846e74e117f1d
   languageName: node
   linkType: hard
 
