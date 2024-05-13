@@ -100,7 +100,7 @@ export const CartTotal = styled(Body)(
 )
 
 const ThemeToggle = () => {
-  const darkMode = useDarkMode(false)
+  const darkMode = useDarkMode(false, { global: globalThis.window })
   return (
     <Button
       round

@@ -1,0 +1,21 @@
+diff --git a/dist/event-listener.js b/dist/event-listener.js
+index 237ce88887b5ecc20945dc01e00f2b23323c2392..f3cb0df84ae93ab10d9227387e5d6e2c46398274 100644
+--- a/dist/event-listener.js
++++ b/dist/event-listener.js
+@@ -1 +1 @@
+-var e=require("react");module.exports=function(n,r,t,u){void 0===t&&(t=global),void 0===u&&(u={});var c=e.useRef(),i=u.capture,o=u.passive,a=u.once;e.useEffect(function(){c.current=r},[r]),e.useEffect(function(){if(t&&t.addEventListener){var e=function(e){return c.current(e)},r={capture:i,passive:o,once:a};return t.addEventListener(n,e,r),function(){t.removeEventListener(n,e,r)}}},[n,t,i,o,a])};
++var e=require("react");module.exports=function(n,r,t,u){void 0===t&&(t=globalThis),void 0===u&&(u={});var c=e.useRef(),i=u.capture,o=u.passive,a=u.once;e.useEffect(function(){c.current=r},[r]),e.useEffect(function(){if(t&&t.addEventListener){var e=function(e){return c.current(e)},r={capture:i,passive:o,once:a};return t.addEventListener(n,e,r),function(){t.removeEventListener(n,e,r)}}},[n,t,i,o,a])};
+diff --git a/dist/event-listener.m.js b/dist/event-listener.m.js
+index 064342caa68ec6f96ffb07315dfdea8f3eea8526..c6a88a7c26d903a6bcb11659d14663a22f6b3e14 100644
+--- a/dist/event-listener.m.js
++++ b/dist/event-listener.m.js
+@@ -1 +1 @@
+-import{useRef as e,useEffect as n}from"react";export default function(t,r,i,o){void 0===i&&(i=global),void 0===o&&(o={});var c=e(),u=o.capture,a=o.passive,v=o.once;n(function(){c.current=r},[r]),n(function(){if(i&&i.addEventListener){var e=function(e){return c.current(e)},n={capture:u,passive:a,once:v};return i.addEventListener(t,e,n),function(){i.removeEventListener(t,e,n)}}},[t,i,u,a,v])}
++import{useRef as e,useEffect as n}from"react";export default function(t,r,i,o){void 0===i&&(i=globalThis),void 0===o&&(o={});var c=e(),u=o.capture,a=o.passive,v=o.once;n(function(){c.current=r},[r]),n(function(){if(i&&i.addEventListener){var e=function(e){return c.current(e)},n={capture:u,passive:a,once:v};return i.addEventListener(t,e,n),function(){i.removeEventListener(t,e,n)}}},[t,i,u,a,v])}
+diff --git a/dist/event-listener.modern.js b/dist/event-listener.modern.js
+index 8f4b8201ea08b0c7d2a295b53cd6263f8ce1bb7e..c3b91c1fddb52da998a460f5127202db264c93c3 100644
+--- a/dist/event-listener.modern.js
++++ b/dist/event-listener.modern.js
+@@ -1 +1 @@
+-import{useRef as e,useEffect as r}from"react";export default(t,n,a=global,c={})=>{const o=e(),{capture:s,passive:i,once:u}=c;r(()=>{o.current=n},[n]),r(()=>{if(!a||!a.addEventListener)return;const e=e=>o.current(e),r={capture:s,passive:i,once:u};return a.addEventListener(t,e,r),()=>{a.removeEventListener(t,e,r)}},[t,a,s,i,u])};
++import{useRef as e,useEffect as r}from"react";export default(t,n,a=globalThis,c={})=>{const o=e(),{capture:s,passive:i,once:u}=c;r(()=>{o.current=n},[n]),r(()=>{if(!a||!a.addEventListener)return;const e=e=>o.current(e),r={capture:s,passive:i,once:u};return a.addEventListener(t,e,r),()=>{a.removeEventListener(t,e,r)}},[t,a,s,i,u])};
