@@ -5,6 +5,7 @@ import { restaurants } from '../../stub/restaurants'
 import { RestaurantCard } from './RestaurantCard'
 
 const meta = {
+  title: 'Components/RestaurantCard',
   component: RestaurantCard,
   parameters: {
     design: {
