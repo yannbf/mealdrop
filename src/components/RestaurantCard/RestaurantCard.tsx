@@ -184,9 +184,7 @@ export const RestaurantCard = ({
         <StyledHeading level={2}>{name}</StyledHeading>
         <Review rating={rating} />
         <Description fontWeight="regular">{specialty}</Description>
-        {categories?.map((category) => (
-          <StyledBadge key={category} text={category} />
-        ))}
+        {categories?.map((category) => <StyledBadge key={category} text={category} />)}
       </StyledContent>
     </Container>
   )
