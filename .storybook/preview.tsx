@@ -23,6 +23,7 @@ const breakpointViewports = Object.keys(breakpoints).reduce((acc, key) => {
 }, {} as typeof INITIAL_VIEWPORTS)
 
 const preview: Preview = {
+  tags: ['autodocs'],
   parameters: {
     viewport: {
       viewports: {
