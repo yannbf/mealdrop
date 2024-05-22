@@ -10,6 +10,11 @@ console.log('opa')
 export default mergeConfig(
   viteConfig,
   defineConfig({
+    server: {
+      watch: {
+        ignored: ['**/.test-results.json'],
+      },
+    },
     test: {
       globals: true,
       clearMocks: true,
