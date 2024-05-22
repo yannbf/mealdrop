@@ -30,7 +30,7 @@ yarn-error.log*
 
 # storybook
 *-storybook.log
-
+.test-results.json
 
 # Yarn berry
 /**/.yarn/*

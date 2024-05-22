@@ -7,6 +7,8 @@ import { DocsContainer, DocsContainerProps } from '@storybook/blocks'
 import { ThemeProvider } from 'styled-components'
 import { lightTheme } from '../src/styles/theme'
 import { mswLoader } from 'msw-storybook-addon'
+import results from '../.test-results.json';
+import { withTests } from '@storybook/addon-jest';
 
 // Create custom viewports using widths defined in design tokens
 const breakpointViewports = Object.keys(breakpoints).reduce((acc, key) => {
@@ -63,7 +65,7 @@ const preview: Preview = {
       },
     },
   },
-  decorators: globalDecorators,
+  decorators: [...globalDecorators, withTests({ results, filesExt: '((\\.stories?)|(\\.tests?))?(\\.[jt]sx?)?$'})],
   loaders: [mswLoader]
 }
 export default preview
