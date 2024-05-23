@@ -1,7 +1,7 @@
 import { defineWorkspace } from 'vitest/config'
 
 const getBrowserConfig = (name: 'chromium' | 'firefox' | 'webkit') => ({
-  extends: './vitest.browser.config.ts',
+  extends: './test.browser.config.ts',
   test: {
     browser: {
       enabled: true,

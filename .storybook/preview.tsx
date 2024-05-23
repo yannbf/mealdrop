@@ -65,7 +65,9 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [...globalDecorators, withTests({ results, filesExt: '((\\.stories?)|(\\.tests?))?(\\.[jt]sx?)?$'})],
+  decorators: [...globalDecorators,
+    withTests({ results, filesExt: '((\\.stories?)|(\\.tests?))?(\\.[jt]sx?)?$' })
+  ],
   loaders: [mswLoader]
 }
 export default preview

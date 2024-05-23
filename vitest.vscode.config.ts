@@ -1,40 +1,42 @@
 /// <reference types="vitest" />
-import { defineConfig, configDefaults } from 'vitest/config'
+import { defineConfig, defaultInclude, defaultExclude } from 'vitest/config'
 import { mergeConfig } from 'vite'
 import { storybookTest } from '@hipster/experimental-vitest-plugin-sb'
 
 import viteConfig from './vite.config'
+
+const include = ['src/**/*.stories.tsx']
+const exclude = [...defaultExclude, 'storybook.test.ts']
+const plugins = [storybookTest()]
 
 // https://vitejs.dev/config/
 export default mergeConfig(
   viteConfig,
   // @ts-ignore
   defineConfig({
-    define: {
-      'process.env': {},
-    },
     // @ts-ignore
-    plugins: [storybookTest()],
+    plugins,
+    server: {
+      watch: {
+        ignored: ['**/.test-results.json'],
+      },
+    },
     test: {
-      watch: false,
-      include: [...configDefaults.include, '**/*.stories.tsx'],
+      include,
+      exclude,
       globals: true,
       clearMocks: true,
+      setupFiles: './src/setupTests.node.ts',
       server: {
         deps: {
           inline: ['vitest-canvas-mock'],
         },
       },
-      browser: {
-        enabled: true,
-        name: 'chromium',
-        provider: 'playwright',
-      },
-      setupFiles: './src/setupTests.browser.ts',
+      environment: 'happy-dom',
       coverage: {
         provider: 'istanbul',
         reporter: ['text', 'html'],
-        exclude: ['node_modules/', 'src/setupTests.browser.ts'],
+        exclude: ['node_modules/', 'src/setupTests.node.ts'],
       },
     },
   })
