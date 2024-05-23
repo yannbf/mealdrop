@@ -161,10 +161,3 @@ export const ToSuccessPage = {
     })
   },
 } satisfies Story
-
-// export const EndToEnd: Story = {
-//   ...ToSuccessPage,
-//   args: {
-//     demoMode: true,
-//   },
-// }

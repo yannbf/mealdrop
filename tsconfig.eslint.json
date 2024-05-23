@@ -3,6 +3,8 @@
   "include": [
     "src/**/*.tsx",
     "src/**/*.ts",
+    "playwright/**/*.ts",
+    "playwright/**/*.tsx",
     "functions/*.ts",
     ".eslintrc.js",
     "test-runner-jest.config.js",
@@ -11,5 +13,7 @@
     "test.multibrowser.config.ts",
     "test.node.config.ts",
     "vitest.vscode.config.ts",
+    "**.ts",
+    "**.tsx",
   ]
 }
