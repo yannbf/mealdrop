@@ -49,13 +49,14 @@
     "test-storybook:ci": "concurrently --kill-others --success first --names \"SB,TEST\" --prefix-colors \"magenta,blue\" \"yarn build-storybook:test && npx serve build/storybook --listen 6006 --no-request-logging\" \"wait-on tcp:6006 && yarn test-storybook\"",
     "test-storybook:json:ci": "concurrently --kill-others --success first --names \"SB,TEST\" --prefix-colors \"magenta,blue\" \"yarn build-storybook:test && npx serve build/storybook --listen 6006 --no-request-logging\" \"wait-on tcp:6006 && SKIP_SNAPSHOTS=true yarn test-storybook:json\"",
     "---------PERF-SPECIFIC-SCRIPTS---------": "---------------------",
-    "perf:storyshots": "hyperfine --prepare \"yarn clear-cache\" \"node_modules/.bin/vitest run -c test.node.config.ts storybook.test.ts\"",
-    "perf:plugin": "hyperfine --prepare \"yarn clear-cache\" \"PLUGIN_ONLY=true node_modules/.bin/vitest run -c test.node.config.ts\"",
-    "perf:storyshots:browser": "hyperfine --prepare \"yarn clear-cache\" \"node_modules/.bin/vitest run -c test.browser.config.ts storybook.test.ts\"",
-    "perf:storyshots:browser:wdio": "hyperfine --prepare \"yarn clear-cache\" \"WDIO=true node_modules/.bin/vitest run -c test.browser.config.ts storybook.test.ts\"",
-    "perf:plugin:browser": "hyperfine --prepare \"yarn clear-cache\" \"WDIO=true PLUGIN_ONLY=true node_modules/.bin/vitest run -c test.browser.config.ts\"",
-    "perf:plugin:browser:wdio": "hyperfine --prepare \"yarn clear-cache\" \"PLUGIN_ONLY=true node_modules/.bin/vitest run -c test.browser.config.ts\"",
-    "perf:test-storybook": "hyperfine  --show-output \"node_modules/.bin/test-storybook\""
+    "perf:storyshots": "hyperfine --warmup 1 --prepare \"yarn clear-cache\" \"node_modules/.bin/vitest run -c test.node.config.ts storybook.test.ts\"",
+    "perf:storyshots:browser": "hyperfine --warmup 1 --prepare \"yarn clear-cache\" \"node_modules/.bin/vitest run -c test.browser.config.ts storybook.test.ts\"",
+    "perf:storyshots:browser:wdio": "hyperfine --warmup 1 --prepare \"yarn clear-cache\" \"WDIO=true node_modules/.bin/vitest run -c test.browser.config.ts storybook.test.ts\"",
+    "perf:plugin": "hyperfine --warmup 1 --prepare \"yarn clear-cache\" \"PLUGIN_ONLY=true node_modules/.bin/vitest run -c test.node.config.ts\"",
+    "perf:plugin:browser": "hyperfine --warmup 1 --prepare \"yarn clear-cache\" \"WDIO=true PLUGIN_ONLY=true node_modules/.bin/vitest run -c test.browser.config.ts\"",
+    "perf:plugin:browser:wdio": "hyperfine --warmup 1 --prepare \"yarn clear-cache\" \"PLUGIN_ONLY=true node_modules/.bin/vitest run -c test.browser.config.ts\"",
+    "perf:test-storybook": "hyperfine --warmup 1 \"node_modules/.bin/test-storybook\"",
+    "perf:test-ct": "hyperfine --warmup 1 \"node_modules/.bin/playwright test\""
   },
   "eslintConfig": {
     "extends": "react-app"
