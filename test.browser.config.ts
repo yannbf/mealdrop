@@ -37,8 +37,8 @@ export default mergeConfig(
       },
       browser: {
         enabled: true,
-        name: 'chromium',
-        provider: 'playwright',
+        name: process.env.WDIO ? 'chrome' : 'chromium',
+        provider: process.env.WDIO ? 'webdriverio' : 'playwright',
       },
       setupFiles: './src/setupTests.browser.ts',
       coverage: {
