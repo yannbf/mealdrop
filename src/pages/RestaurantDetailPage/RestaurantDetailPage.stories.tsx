@@ -29,8 +29,27 @@ const meta = {
       </>
     )
   },
+  // play: waitForImagesToLoad,
 } satisfies Meta<typeof RestaurantDetailPage>
 export default meta
+
+async function waitForImagesToLoad() {
+  // @ts-expect-error fix later
+  if (window.happyDOM) return Promise.resolve()
+  const images = Array.from(document.getElementsByTagName('img'))
+
+  await Promise.all(
+    images.map((image) => {
+      if (image.complete) {
+        return Promise.resolve()
+      } else {
+        return new Promise((resolve) => {
+          image.addEventListener('load', resolve)
+        })
+      }
+    })
+  )
+}
 
 type Story = StoryObj<typeof meta>
 
@@ -50,10 +69,10 @@ export const Success = {
   },
 }
 
-// TODO: Bring them back. Seems like MSW doesn't play well in Vitest browser mode.
 export const WithModalOpen: Story = {
   ...Success,
   play: async ({ canvasElement }) => {
+    // await waitForImagesToLoad()
     const canvas = within(canvasElement)
     const item = await canvas.findByText(/Cheeseburger/i)
     await userEvent.click(item)
@@ -85,6 +104,7 @@ export const Loading: Story = {
     },
   },
   play: async ({ canvasElement }) => {
+    // await waitForImagesToLoad()
     const canvas = within(canvasElement)
     const item = await canvas.findByText(/Looking for some food.../i)
     await expect(item).toBeInTheDocument()
@@ -106,6 +126,7 @@ export const NotFound: Story = {
     },
   },
   play: async ({ canvasElement }) => {
+    // await waitForImagesToLoad()
     const canvas = within(canvasElement)
     const item = await canvas.findByText(/We can't find this page/i)
     await expect(item).toBeInTheDocument()
@@ -127,6 +148,7 @@ export const Error: Story = {
     },
   },
   play: async ({ canvasElement, step }) => {
+    // await waitForImagesToLoad()
     const canvas = within(canvasElement)
     await step('Name of step', async () => {
       const item = await canvas.findByText(/Something went wrong!/i)

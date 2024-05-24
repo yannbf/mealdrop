@@ -364,7 +364,8 @@ test.describe('renders RestaurantDetailPage.stories stories', async () => {
   test('Loading', async ({ mount }) => {
     await mount(<restaurantdetailpageStoriesStories.Loading />)
   })
-  test('NotFound', async ({ mount }) => {
+  test('NotFound', async ({ mount, page }) => {
+    await page.waitForLoadState('networkidle')
     await mount(<restaurantdetailpageStoriesStories.NotFound />)
   })
   test('Error', async ({ mount }) => {
