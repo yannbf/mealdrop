@@ -14,6 +14,7 @@
     "test.node.config.ts",
     "vitest.vscode.config.ts",
     "**.ts",
+    "**.js",
     "**.tsx",
   ]
 }

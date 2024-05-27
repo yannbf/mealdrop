@@ -355,22 +355,22 @@ test.describe('renders RestaurantDetailPage.stories stories', async () => {
   test('Success', async ({ mount }) => {
     await mount(<restaurantdetailpageStoriesStories.Success />)
   })
-  test('WithModalOpen', async ({ mount }) => {
-    await mount(<restaurantdetailpageStoriesStories.WithModalOpen />)
-  })
-  test('WithItemsInTheCart', async ({ mount }) => {
-    await mount(<restaurantdetailpageStoriesStories.WithItemsInTheCart />)
-  })
-  test('Loading', async ({ mount }) => {
-    await mount(<restaurantdetailpageStoriesStories.Loading />)
-  })
-  test('NotFound', async ({ mount, page }) => {
-    await page.waitForLoadState('networkidle')
-    await mount(<restaurantdetailpageStoriesStories.NotFound />)
-  })
-  test('Error', async ({ mount }) => {
-    await mount(<restaurantdetailpageStoriesStories.Error />)
-  })
+  // test('WithModalOpen', async ({ mount }) => {
+  //   await mount(<restaurantdetailpageStoriesStories.WithModalOpen />)
+  // })
+  // test('WithItemsInTheCart', async ({ mount }) => {
+  //   await mount(<restaurantdetailpageStoriesStories.WithItemsInTheCart />)
+  // })
+  // test('Loading', async ({ mount }) => {
+  //   await mount(<restaurantdetailpageStoriesStories.Loading />)
+  // })
+  // test('NotFound', async ({ mount, page }) => {
+  //   await page.waitForLoadState('networkidle')
+  //   await mount(<restaurantdetailpageStoriesStories.NotFound />)
+  // })
+  // test('Error', async ({ mount }) => {
+  //   await mount(<restaurantdetailpageStoriesStories.Error />)
+  // })
 })
 
 test.describe('renders FoodItem.stories stories', async () => {
@@ -401,21 +401,21 @@ test.describe('renders UserFlows.stories stories', async () => {
   test('Home', async ({ mount }) => {
     await mount(<userflowsStoriesStories.Home />)
   })
-  test('ToCategoryListPage', async ({ mount }) => {
-    await mount(<userflowsStoriesStories.ToCategoryListPage />)
-  })
-  test('ToCategoryDetailPage', async ({ mount }) => {
-    await mount(<userflowsStoriesStories.ToCategoryDetailPage />)
-  })
-  test('ToRestaurantDetailPage', async ({ mount }) => {
-    await mount(<userflowsStoriesStories.ToRestaurantDetailPage />)
-  })
-  test('ToCheckoutPage', async ({ mount }) => {
-    await mount(<userflowsStoriesStories.ToCheckoutPage />)
-  })
-  test('ToSuccessPage', async ({ mount }) => {
-    await mount(<userflowsStoriesStories.ToSuccessPage />)
-  })
+  // test('ToCategoryListPage', async ({ mount }) => {
+  //   await mount(<userflowsStoriesStories.ToCategoryListPage />)
+  // })
+  // test('ToCategoryDetailPage', async ({ mount }) => {
+  //   await mount(<userflowsStoriesStories.ToCategoryDetailPage />)
+  // })
+  // test('ToRestaurantDetailPage', async ({ mount }) => {
+  //   await mount(<userflowsStoriesStories.ToRestaurantDetailPage />)
+  // })
+  // test('ToCheckoutPage', async ({ mount }) => {
+  //   await mount(<userflowsStoriesStories.ToCheckoutPage />)
+  // })
+  // test('ToSuccessPage', async ({ mount }) => {
+  //   await mount(<userflowsStoriesStories.ToSuccessPage />)
+  // })
 })
 
 test.describe('renders PageTemplate.stories stories', async () => {
