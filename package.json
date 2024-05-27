@@ -160,8 +160,6 @@
   },
   "packageManager": "yarn@4.2.1",
   "resolutions": {
-    "@playwright/test": "1.43.1",
-    "playwright": "1.43.1",
     "@use-it/event-listener@npm:^0.1.2": "patch:@use-it/event-listener@npm%3A0.1.7#~/.yarn/patches/@use-it-event-listener-npm-0.1.7-56ef42a654.patch"
   }
 }
