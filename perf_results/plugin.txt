@@ -1,0 +1,7 @@
+Test:plugin
+Command:hyperfine --warmup 1 "PLUGIN_ONLY=true node_modules/.bin/vitest run -c test.node.config.ts"
+Results:
+Benchmark 1: PLUGIN_ONLY=true node_modules/.bin/vitest run -c test.node.config.ts
+  Time (mean ± σ):      3.940 s ±  0.015 s    [User: 25.393 s, System: 4.066 s]
+  Range (min … max):    3.913 s …  3.962 s    10 runs
+ 

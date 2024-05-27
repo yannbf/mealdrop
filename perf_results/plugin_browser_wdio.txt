@@ -1,0 +1,7 @@
+Test:plugin:browser:wdio
+Command:hyperfine --warmup 1 "WDIO=true PLUGIN_ONLY=true node_modules/.bin/vitest run -c test.browser.config.ts"
+Results:
+Benchmark 1: WDIO=true PLUGIN_ONLY=true node_modules/.bin/vitest run -c test.browser.config.ts
+  Time (mean ± σ):      6.645 s ±  0.021 s    [User: 4.904 s, System: 2.255 s]
+  Range (min … max):    6.613 s …  6.670 s    10 runs
+ 

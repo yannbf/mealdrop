@@ -1,0 +1,7 @@
+Test:storyshots:browser
+Command:hyperfine --warmup 1 "node_modules/.bin/vitest run -c test.browser.config.ts storybook.test.ts"
+Results:
+Benchmark 1: node_modules/.bin/vitest run -c test.browser.config.ts storybook.test.ts
+  Time (mean ± σ):      2.751 s ±  0.047 s    [User: 3.754 s, System: 0.719 s]
+  Range (min … max):    2.713 s …  2.872 s    10 runs
+ 

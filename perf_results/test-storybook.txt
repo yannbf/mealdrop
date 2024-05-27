@@ -1,0 +1,7 @@
+Test:test-storybook
+Command:hyperfine --warmup 1 "node_modules/.bin/test-storybook"
+Results:
+Benchmark 1: node_modules/.bin/test-storybook
+  Time (mean ± σ):      9.284 s ±  0.254 s    [User: 51.167 s, System: 12.331 s]
+  Range (min … max):    8.968 s …  9.715 s    10 runs
+ 

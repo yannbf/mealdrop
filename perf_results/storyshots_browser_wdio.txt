@@ -1,0 +1,7 @@
+Test:storyshots:browser:wdio
+Command:hyperfine --warmup 1  "WDIO=true node_modules/.bin/vitest run -c test.browser.config.ts storybook.test.ts"
+Results:
+Benchmark 1: WDIO=true node_modules/.bin/vitest run -c test.browser.config.ts storybook.test.ts
+  Time (mean ± σ):      3.897 s ±  0.023 s    [User: 2.127 s, System: 0.634 s]
+  Range (min … max):    3.858 s …  3.924 s    10 runs
+ 

@@ -1,0 +1,7 @@
+Test:plugin:browser
+Command:hyperfine --warmup 1 "PLUGIN_ONLY=true node_modules/.bin/vitest run -c test.browser.config.ts"
+Results:
+Benchmark 1: PLUGIN_ONLY=true node_modules/.bin/vitest run -c test.browser.config.ts
+  Time (mean ± σ):      5.734 s ±  0.052 s    [User: 10.560 s, System: 1.994 s]
+  Range (min … max):    5.630 s …  5.818 s    10 runs
+ 
