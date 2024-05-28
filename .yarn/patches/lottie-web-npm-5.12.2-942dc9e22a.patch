@@ -1,0 +1,13 @@
+diff --git a/build/player/lottie.js b/build/player/lottie.js
+index cddf7ca82a09be4b846c83e3173ad65b874f72a9..e8f1676c31c81d01fff2b65c5db3aa71eb8525c3 100644
+--- a/build/player/lottie.js
++++ b/build/player/lottie.js
+@@ -5276,7 +5276,7 @@
+   lottie.version = '5.12.2';
+ 
+   function checkReady() {
+-    if (document.readyState === 'complete') {
++    if (typeof document !== 'undefined' && document.readyState === 'complete') {
+       clearInterval(readyStateCheckInterval);
+       searchAnimations();
+     }
