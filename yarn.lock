@@ -13572,10 +13572,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lottie-web@npm:^5.12.2":
+"lottie-web@npm:5.12.2":
   version: 5.12.2
   resolution: "lottie-web@npm:5.12.2"
   checksum: 10/cd377d54a675b37ac9359306b84097ea402dff3d74a2f45e6e0dbcff1df94b3a978e92e48fd34765754bdbb94bd2d8d4da31954d95f156e77489596b235cac91
+  languageName: node
+  linkType: hard
+
+"lottie-web@patch:lottie-web@npm%3A5.12.2#~/.yarn/patches/lottie-web-npm-5.12.2-942dc9e22a.patch":
+  version: 5.12.2
+  resolution: "lottie-web@patch:lottie-web@npm%3A5.12.2#~/.yarn/patches/lottie-web-npm-5.12.2-942dc9e22a.patch::version=5.12.2&hash=acc0ba"
+  checksum: 10/9a2579a57296ba474a56ebd14429f88ca12cb79db38c302c313ecb38cf4cd0e6ff2ac79228cb42ef42939933a22974699fa7b12c0e0ed4361303f9e5207371e7
   languageName: node
   linkType: hard
 
