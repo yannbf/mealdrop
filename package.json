@@ -43,6 +43,7 @@
     "test:coverage": "vitest run -c test.node.config.ts --coverage",
     "test:ci": "vitest run -c test.node.config.ts",
     "storybook": "storybook dev -p 6006",
+    "storybook:no-docs": "NO_DOCS=true storybook dev -p 6006",
     "build-storybook": "storybook build --output-dir build/storybook",
     "build-storybook:test": "storybook build --output-dir build/storybook --test",
     "build-all": "yarn build && yarn build-storybook",
