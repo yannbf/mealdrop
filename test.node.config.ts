@@ -37,7 +37,7 @@ export default mergeConfig(
       exclude,
       globals: true,
       clearMocks: true,
-      isolate: false,
+      isolate: process.env.ISOLATED === 'false' ? false : true,
       setupFiles: './src/setupTests.node.ts',
       environment: 'happy-dom',
       coverage: {
