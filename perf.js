@@ -6,9 +6,11 @@ const clearCacheCommand = 'rm -rf node_modules/.vite && rm -rf node_modules/.cac
 
 const commands = {
   storyshots: `hyperfine --warmup 1 "node_modules/.bin/vitest run -c test.node.config.ts storybook.test.ts"`,
+  'storyshots:no-isolate': `ISOLATED=false hyperfine --warmup 1 "node_modules/.bin/vitest run -c test.node.config.ts storybook.test.ts"`,
   'storyshots:browser': `hyperfine --warmup 1 "node_modules/.bin/vitest run -c test.browser.config.ts storybook.test.ts"`,
   'storyshots:browser:wdio': `hyperfine --warmup 1  "WDIO=true node_modules/.bin/vitest run -c test.browser.config.ts storybook.test.ts"`,
   plugin: `hyperfine --warmup 1 "PLUGIN_ONLY=true node_modules/.bin/vitest run -c test.node.config.ts"`,
+  'plugin:no-isolate': `ISOLATED=false hyperfine --warmup 1 "PLUGIN_ONLY=true node_modules/.bin/vitest run -c test.node.config.ts"`,
   'plugin:browser': `hyperfine --warmup 1 "PLUGIN_ONLY=true node_modules/.bin/vitest run -c test.browser.config.ts"`,
   'plugin:browser:wdio': `hyperfine --warmup 1 "WDIO=true PLUGIN_ONLY=true node_modules/.bin/vitest run -c test.browser.config.ts"`,
   'test-storybook': `hyperfine --warmup 1 "node_modules/.bin/test-storybook"`,
