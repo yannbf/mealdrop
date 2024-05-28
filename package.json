@@ -144,13 +144,13 @@
     "react-is": "^18.3.1",
     "react-test-renderer": "^18.3.1",
     "storybook": "^8.1.2",
+    "vi-canvas-mock": "^1.0.0",
     "vite": "^4.0.0",
     "vite-plugin-inspect": "^0.8.4",
     "vite-plugin-svgr": "^4.2.0",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^1.6.0",
     "vitest-axe": "^0.1.0",
-    "vitest-canvas-mock": "^0.3.3",
     "wait-on": "^7.2.0",
     "webdriverio": "^8.37.0"
   },
@@ -163,6 +163,7 @@
   },
   "packageManager": "yarn@4.2.1",
   "resolutions": {
-    "@use-it/event-listener@npm:^0.1.2": "patch:@use-it/event-listener@npm%3A0.1.7#~/.yarn/patches/@use-it-event-listener-npm-0.1.7-56ef42a654.patch"
+    "@use-it/event-listener@npm:^0.1.2": "patch:@use-it/event-listener@npm%3A0.1.7#~/.yarn/patches/@use-it-event-listener-npm-0.1.7-56ef42a654.patch",
+    "lottie-web@npm:^5.12.2": "patch:lottie-web@npm%3A5.12.2#~/.yarn/patches/lottie-web-npm-5.12.2-942dc9e22a.patch"
   }
 }

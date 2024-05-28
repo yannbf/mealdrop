@@ -36,11 +36,6 @@ export default mergeConfig(
       globals: true,
       clearMocks: true,
       isolate: true,
-      server: {
-        deps: {
-          inline: ['vitest-canvas-mock'],
-        },
-      },
       browser: {
         isolate: true,
         enabled: true,

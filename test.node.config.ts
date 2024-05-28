@@ -35,15 +35,10 @@ export default mergeConfig(
     test: {
       include,
       exclude,
-      isolate: true,
       globals: true,
       clearMocks: true,
+      isolate: false,
       setupFiles: './src/setupTests.node.ts',
-      server: {
-        deps: {
-          inline: ['vitest-canvas-mock'],
-        },
-      },
       environment: 'happy-dom',
       coverage: {
         reporter: ['text', 'html'],

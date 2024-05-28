@@ -8260,13 +8260,13 @@ __metadata:
     styled-components: "npm:^5.3.3"
     typescript: "npm:^5.4.5"
     use-dark-mode: "npm:^2.3.1"
+    vi-canvas-mock: "npm:^1.0.0"
     vite: "npm:^4.0.0"
     vite-plugin-inspect: "npm:^0.8.4"
     vite-plugin-svgr: "npm:^4.2.0"
     vite-tsconfig-paths: "npm:^4.3.2"
     vitest: "npm:^1.6.0"
     vitest-axe: "npm:^0.1.0"
-    vitest-canvas-mock: "npm:^0.3.3"
     wait-on: "npm:^7.2.0"
     webdriverio: "npm:^8.37.0"
   languageName: unknown
@@ -12457,16 +12457,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-canvas-mock@npm:~2.5.2":
-  version: 2.5.2
-  resolution: "jest-canvas-mock@npm:2.5.2"
-  dependencies:
-    cssfontparser: "npm:^1.2.1"
-    moo-color: "npm:^1.0.2"
-  checksum: 10/094e2e1c773c658fab7e91e9279027fc38a55060865b5b6a3c9acc47fc912fb9d3451ab4fdf544d016578f77b975626707c3a62e396575aa878f46d939c7ca5e
-  languageName: node
-  linkType: hard
-
 "jest-changed-files@npm:^29.7.0":
   version: 29.7.0
   resolution: "jest-changed-files@npm:29.7.0"
@@ -13582,10 +13572,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lottie-web@npm:^5.12.2":
+"lottie-web@npm:5.12.2":
   version: 5.12.2
   resolution: "lottie-web@npm:5.12.2"
   checksum: 10/cd377d54a675b37ac9359306b84097ea402dff3d74a2f45e6e0dbcff1df94b3a978e92e48fd34765754bdbb94bd2d8d4da31954d95f156e77489596b235cac91
+  languageName: node
+  linkType: hard
+
+"lottie-web@patch:lottie-web@npm%3A5.12.2#~/.yarn/patches/lottie-web-npm-5.12.2-942dc9e22a.patch":
+  version: 5.12.2
+  resolution: "lottie-web@patch:lottie-web@npm%3A5.12.2#~/.yarn/patches/lottie-web-npm-5.12.2-942dc9e22a.patch::version=5.12.2&hash=acc0ba"
+  checksum: 10/9a2579a57296ba474a56ebd14429f88ca12cb79db38c302c313ecb38cf4cd0e6ff2ac79228cb42ef42939933a22974699fa7b12c0e0ed4361303f9e5207371e7
   languageName: node
   linkType: hard
 
@@ -19121,6 +19118,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"vi-canvas-mock@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "vi-canvas-mock@npm:1.0.0"
+  dependencies:
+    cssfontparser: "npm:^1.2.1"
+    moo-color: "npm:^1.0.2"
+  checksum: 10/bfe9d79ce8a835407fe6abe2238ed4e6ba8faf847790d7c16e5c5ee5ffdf4dfcf66e17c6320635bb6033bfa35a47a3eaa870c57f466b51d10485bb8962922739
+  languageName: node
+  linkType: hard
+
 "vite-node@npm:1.6.0":
   version: 1.6.0
   resolution: "vite-node@npm:1.6.0"
@@ -19332,17 +19339,6 @@ __metadata:
   peerDependencies:
     vitest: ">=0.16.0"
   checksum: 10/2304b352ce001b86f57ca23e2e47e708a36a41783ebf130a84c86b2d75fe7161888ae78fa9de69ced3eb0865bfe0ce076e2c86b2161f7ffc1afaa76fcd11942e
-  languageName: node
-  linkType: hard
-
-"vitest-canvas-mock@npm:^0.3.3":
-  version: 0.3.3
-  resolution: "vitest-canvas-mock@npm:0.3.3"
-  dependencies:
-    jest-canvas-mock: "npm:~2.5.2"
-  peerDependencies:
-    vitest: "*"
-  checksum: 10/bf564fe0cb701f228eb20cacdbd3abb9eb83c948bebbbea7fe907082ef830b2f8d7865277eade77fd84806bd1ddccdf1426c85ad716b8da8a977ae6b82e4f85f
   languageName: node
   linkType: hard
 
