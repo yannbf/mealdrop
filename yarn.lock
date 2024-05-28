@@ -8267,7 +8267,6 @@ __metadata:
     vite-tsconfig-paths: "npm:^4.3.2"
     vitest: "npm:^1.6.0"
     vitest-axe: "npm:^0.1.0"
-    vitest-canvas-mock: "npm:^0.3.3"
     wait-on: "npm:^7.2.0"
     webdriverio: "npm:^8.37.0"
   languageName: unknown
@@ -12458,7 +12457,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-canvas-mock@npm:^2.5.2, jest-canvas-mock@npm:~2.5.2":
+"jest-canvas-mock@npm:^2.5.2":
   version: 2.5.2
   resolution: "jest-canvas-mock@npm:2.5.2"
   dependencies:
@@ -19333,17 +19332,6 @@ __metadata:
   peerDependencies:
     vitest: ">=0.16.0"
   checksum: 10/2304b352ce001b86f57ca23e2e47e708a36a41783ebf130a84c86b2d75fe7161888ae78fa9de69ced3eb0865bfe0ce076e2c86b2161f7ffc1afaa76fcd11942e
-  languageName: node
-  linkType: hard
-
-"vitest-canvas-mock@npm:^0.3.3":
-  version: 0.3.3
-  resolution: "vitest-canvas-mock@npm:0.3.3"
-  dependencies:
-    jest-canvas-mock: "npm:~2.5.2"
-  peerDependencies:
-    vitest: "*"
-  checksum: 10/bf564fe0cb701f228eb20cacdbd3abb9eb83c948bebbbea7fe907082ef830b2f8d7865277eade77fd84806bd1ddccdf1426c85ad716b8da8a977ae6b82e4f85f
   languageName: node
   linkType: hard
 
