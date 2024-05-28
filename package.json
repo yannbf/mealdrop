@@ -135,6 +135,7 @@
     "husky": ">=6",
     "hyperfine": "^1.0.0",
     "istanbul": "^0.4.5",
+    "jest-canvas-mock": "^2.5.2",
     "jest-junit": "^16.0.0",
     "lint-staged": ">=10",
     "msw": "^2.2.2",
@@ -150,7 +151,6 @@
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^1.6.0",
     "vitest-axe": "^0.1.0",
-    "vitest-canvas-mock": "^0.3.3",
     "wait-on": "^7.2.0",
     "webdriverio": "^8.37.0"
   },

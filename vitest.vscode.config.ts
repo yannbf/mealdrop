@@ -27,11 +27,6 @@ export default mergeConfig(
       globals: true,
       clearMocks: true,
       setupFiles: './src/setupTests.node.ts',
-      server: {
-        deps: {
-          inline: ['vitest-canvas-mock'],
-        },
-      },
       environment: 'happy-dom',
       coverage: {
         provider: 'istanbul',
