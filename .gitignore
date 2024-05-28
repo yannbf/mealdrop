@@ -21,6 +21,7 @@ junit
 .env.test.local
 .env.production.local
 .cache
+.vite-inspect
 
 npm-debug.log*
 yarn-debug.log*

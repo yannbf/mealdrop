@@ -2,6 +2,7 @@
 import { defineConfig, defaultInclude, defaultExclude } from 'vitest/config'
 import { mergeConfig } from 'vite'
 import { storybookTest } from '@hipster/experimental-vitest-plugin-sb'
+// import Inspect from 'vite-plugin-inspect'
 
 import viteConfig from './vite.config'
 
@@ -11,7 +12,11 @@ let plugins: any[] = []
 if (process.env.PLUGIN_ONLY) {
   include = ['src/**/*.stories.tsx']
   exclude = [...defaultExclude, 'storybook.test.ts']
-  plugins = [storybookTest()]
+  plugins = [
+    storybookTest(),
+    // in case we want to debug the Storybook plugin transformation
+    // Inspect({ build: true, outputDir: '.vite-inspect' })
+  ]
 } else {
   include = defaultInclude
   exclude = [...defaultExclude, 'src/**/*.stories.tsx']
@@ -30,6 +35,7 @@ export default mergeConfig(
     test: {
       include,
       exclude,
+      isolate: true,
       globals: true,
       clearMocks: true,
       setupFiles: './src/setupTests.node.ts',
@@ -40,7 +46,6 @@ export default mergeConfig(
       },
       environment: 'happy-dom',
       coverage: {
-        provider: 'istanbul',
         reporter: ['text', 'html'],
         exclude: ['node_modules/', 'src/setupTests.node.ts'],
       },
