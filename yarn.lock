@@ -8239,7 +8239,6 @@ __metadata:
     husky: "npm:>=6"
     hyperfine: "npm:^1.0.0"
     istanbul: "npm:^0.4.5"
-    jest-canvas-mock: "npm:^2.5.2"
     jest-junit: "npm:^16.0.0"
     lint-staged: "npm:>=10"
     msw: "npm:^2.2.2"
@@ -8261,6 +8260,7 @@ __metadata:
     styled-components: "npm:^5.3.3"
     typescript: "npm:^5.4.5"
     use-dark-mode: "npm:^2.3.1"
+    vi-canvas-mock: "npm:^1.0.0"
     vite: "npm:^4.0.0"
     vite-plugin-inspect: "npm:^0.8.4"
     vite-plugin-svgr: "npm:^4.2.0"
@@ -12454,16 +12454,6 @@ __metadata:
   bin:
     jake: bin/cli.js
   checksum: 10/82603513de5a61bc12360d2b8ba2be9f6bb52495b73f4d1b541cdfef9e43314b132ca10e73d2b41e3c1ea16bf79ec30a64afc9b9e2d2c72a4d4575a8db61cbc8
-  languageName: node
-  linkType: hard
-
-"jest-canvas-mock@npm:^2.5.2":
-  version: 2.5.2
-  resolution: "jest-canvas-mock@npm:2.5.2"
-  dependencies:
-    cssfontparser: "npm:^1.2.1"
-    moo-color: "npm:^1.0.2"
-  checksum: 10/094e2e1c773c658fab7e91e9279027fc38a55060865b5b6a3c9acc47fc912fb9d3451ab4fdf544d016578f77b975626707c3a62e396575aa878f46d939c7ca5e
   languageName: node
   linkType: hard
 
@@ -19118,6 +19108,16 @@ __metadata:
     unist-util-stringify-position: "npm:^4.0.0"
     vfile-message: "npm:^4.0.0"
   checksum: 10/7f8412f9ce7709d3be4041fd68a159e2cf96f9c9a4f095bcb18d1561009757b8efb37b71d0ae087e5202fe0e3b3162aae0adf92e30e2448a45645912c23c4ab2
+  languageName: node
+  linkType: hard
+
+"vi-canvas-mock@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "vi-canvas-mock@npm:1.0.0"
+  dependencies:
+    cssfontparser: "npm:^1.2.1"
+    moo-color: "npm:^1.0.2"
+  checksum: 10/bfe9d79ce8a835407fe6abe2238ed4e6ba8faf847790d7c16e5c5ee5ffdf4dfcf66e17c6320635bb6033bfa35a47a3eaa870c57f466b51d10485bb8962922739
   languageName: node
   linkType: hard
 

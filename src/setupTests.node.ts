@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom/vitest'
-import './vitest-canvas-mock'
+import 'vi-canvas-mock'
 import { setProjectAnnotations } from '@storybook/react'
 import * as axeMatchers from 'vitest-axe/matchers'
 import { cleanup } from '@testing-library/react'
