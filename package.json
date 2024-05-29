@@ -27,6 +27,7 @@
     "inspect": "serve .vite-inspect",
     "vitest:storyshots": "yarn vitest:node storybook.test.ts",
     "vitest:storyshots:no-isolate": "ISOLATED=false yarn vitest:node storybook.test.ts",
+    "vitest:plugin:workspace": "vitest run --workspace test.plugin.config.ts",
     "vitest:plugin": "PLUGIN_ONLY=true yarn vitest:node",
     "vitest:plugin:no-isolate": "ISOLATED=false PLUGIN_ONLY=true yarn vitest:node",
     "vitest:storyshots:browser": "yarn vitest:browser storybook.test.ts",
