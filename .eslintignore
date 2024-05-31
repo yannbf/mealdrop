@@ -8,3 +8,8 @@ coverage
 
 public
 src/typings.d.ts
+scripts
+tests
+cypress
+cypress.config.ts
+playwright.config.ts

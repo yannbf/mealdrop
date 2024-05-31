@@ -4,13 +4,13 @@
   "eslint.alwaysShowStatus": true,
   "eslint.validate": ["javascript", "typescript"],
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
-  "workbench.colorCustomizations": {
-    "activityBar.background": "#156b68",
-    "titleBar.activeBackground": "#50b1b6",
-    "titleBar.inactiveBackground": "#50b1b6c0",
-    "titleBar.activeForeground": "#F6FCEE"
+  "deepscan.ignoreConfirmWarning": true,
+  "[mdx]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
-  "deepscan.ignoreConfirmWarning": true
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

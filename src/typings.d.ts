@@ -23,3 +23,7 @@ declare module 'react-lottie-player' {
   export default class Lottie extends React.Component<LottieProps> {}
 }
 
+declare module '*.svg' {
+  const content: string
+  export default content
+}
