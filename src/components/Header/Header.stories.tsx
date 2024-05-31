@@ -1,5 +1,7 @@
 import { StoryFn, Meta } from '@storybook/react'
 
+import { allModes } from '../../../.storybook/modes'
+
 import { Header } from './Header'
 
 export default {
@@ -10,6 +12,14 @@ export default {
     design: {
       type: 'figma',
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1690-4054&mode=design&t=zmyrZnTzOLfLqBwr-4',
+    },
+    chromatic: {
+      modes: {
+        xs: allModes.xs,
+        s: allModes.s,
+        m: allModes.m,
+        l: allModes.l,
+      },
     },
   },
 } as Meta<typeof Header>
