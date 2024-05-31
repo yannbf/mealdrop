@@ -6,10 +6,10 @@ import Github from './assets/github.svg'
 import MealdropLogo from './assets/logo.svg'
 import Flow from './assets/flow.svg'
 import Repo from './assets/repo.svg'
-import Colors from './assets/colors.svg'
+import Figma from './assets/figma.svg'
 import banner from './assets/mealdrop-banner.png'
 
-<Meta title="Getting Started/With Mealdrop" />
+<Meta title="Getting Started/Introduction" />
 
 <style>
   {`
@@ -32,21 +32,21 @@ import banner from './assets/mealdrop-banner.png'
     row-gap: 10px;
   }
 
-  @media (min-width: 620px) {
-    .link-list {
-      row-gap: 20px;
-      column-gap: 20px;
-      grid-template-columns: 1fr 1fr;
-    }
-  }
+  // @media (min-width: 620px) {
+  //   .link-list {
+  //     row-gap: 20px;
+  //     column-gap: 20px;
+  //     grid-template-columns: 1fr 1fr;
+  //   }
+  // }
 
-  @media all and (-ms-high-contrast:none) {
-  .link-list {
-      display: -ms-grid;
-      -ms-grid-columns: 1fr 1fr;
-      -ms-grid-rows: 1fr 1fr;
-    }
-  }
+  // @media all and (-ms-high-contrast:none) {
+  // .link-list {
+  //     display: -ms-grid;
+  //     -ms-grid-columns: 1fr 1fr;
+  //     -ms-grid-rows: 1fr 1fr;
+  //   }
+  // }
 
   .link-item {
     padding: 20px;
@@ -127,37 +127,25 @@ import banner from './assets/mealdrop-banner.png'
   `}
 </style>
 
-# Welcome to Mealdrop's Storybook!
+# Welcome to Chromatic Demo
 
-Storybook helps you build UI components in isolation from your app's business logic, data, and context.
-That makes it easy to develop hard-to-reach states. Save these UI states as **stories** to revisit during development, testing, or QA.
+This Storybook is based on the [Mealdrop app](https://github.com/yannbf/mealdrop), a project used in the [Storybook for React apps](https://www.newline.co/courses/storybook-for-react-apps) course by [Yann Braga](https://twitter.com/yannbf).
 
-This Storybook is part of the [Storybook for React apps](https://www.newline.co/courses/storybook-for-react-apps) course made by [Yann Braga](https://twitter.com/yannbf), where you learn how to unleash the full potential of Storybook for React apps. We start from the basics and quickly build up to learn how to develop features and even pages straight from Storybook, saving lots of development time, and at the same time creating a living documentation of components.
+### Examples
 
-We will see the power of addons and how they help improve the development experience and the end quality of components. We will also connect Figma to Storybook, write interaction tests using Testing Library, test accessibility, dark/light mode, and much more!
+- [Header](?path=/story/components-header--default) is a good example of using viewports to test responsiveness
+- [RestaurantCard](?path=/story/components-restaurantcard--default) demonstrates testing light & dark theme variants using [modes](https://www.chromatic.com/docs/modes/)
+- [Home](?path=/story/userflows-app--home) is a basic example of a story that mocks API requests using [MSW](https://storybook.js.org/docs/writing-stories/mocking-network-requests)
+- [RestaurantDetailPage](?path=/story/pages-restaurantdetailpage--with-modal-open) is an example of a full page story with [interaction tests](https://www.chromatic.com/docs/interactions/) and mocked API requests
+- [App » ToCheckoutPage](?path=/story/userflows-app--to-checkout-page) is another full page example with complex (multi-page) interactions and mocked API requests
 
-**By the end of the course**, you'll be able to impress your team by implementing a tool which will _drastically_ improve the development workflow of your projects!
-
-<img src={banner} />
-
-<div className="subheading">Check this out</div>
+<div className="subheading">Links</div>
 <div className="link-list">
-  <a
-    className="link-item"
-    href="https://www.newline.co/courses/storybook-for-react-apps/welcome"
-    target="_blank"
-  >
-    <img src={Repo} alt="code" />
-    <span>
-      <strong>Watch the course</strong>
-      Including some free lessons :)
-    </span>
-  </a>
   <a className="link-item" href="https://mealdrop.vercel.app/" target="_blank">
     <img src={MealdropLogo} alt="direction" />
     <span>
       <strong>Check the mealdrop app</strong>
-      App used in the course
+      Deployed instance of the app
     </span>
   </a>
   <a
@@ -165,44 +153,17 @@ We will see the power of addons and how they help improve the development experi
     href="https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop"
     target="_blank"
   >
-    <img src={Colors} alt="direction" />
+    <img src={Figma} alt="direction" />
     <span>
       <strong>Figma design</strong>
-      Design was built by the incredible <strong>Maxim Molenaars</strong>
+      By Maxim Molenaars
     </span>
   </a>
-</div>
-
-<div className="subheading">Already a student?</div>
-
-<div className="link-list">
-  <a className="link-item" href="https://github.com/yannbf/mealdrop" target="_blank">
-    <img src={Code} alt="code" />
-    <span>
-      <strong>Mealdrop's repository</strong>
-      This project is open source, check it out!
-    </span>
-  </a>
-  <a className="link-item" href="https://discord.gg/wrn8CUMkuH" target="_blank">
-    <img src={Comments} alt="comments" />
-    <span>
-      <strong>Discord chat</strong>
-      Chat with the course instructor and the <strong>newline community</strong> in the
-      <pre>#storybook-for-react-apps</pre>
-      channel
-    </span>
-  </a>
-</div>
-
-<div className="subheading">Follow me for updates!</div>
-
-<div className="link-list">
-  <a className="link-item link-item--title-only" href="https://twitter.com/yannbf" target="_blank">
-    <img src={Twitter} alt="code" />
-    <strong>Twitter</strong>
-  </a>
-  <a className="link-item link-item--title-only" href="https://github.com/yannbf" target="_blank">
+  <a className="link-item link-item--title-only" href="https://github.com/chromaui-demo/mealdrop-demo" target="_blank">
     <img src={Github} alt="code" />
-    <strong>Github</strong>
+    <span>
+      <strong>Github</strong>
+      Source code for this demo
+    </span>
   </a>
 </div>

@@ -29,75 +29,36 @@ initialize({
 })
 
 const ThemeBlock = styled.div<{ left?: boolean; fullScreen?: boolean }>(
-  ({ left, fullScreen, theme: { color } }) =>
-    css`
-      position: absolute;
-      top: 0;
+  ({ left, fullScreen, theme: { color } }) => css`
+    position: absolute;
+    top: 0;
+    left: ${left ? 0 : '50vw'};
+    border-right: ${left ? '1px solid #202020' : 'none'};
+    right: ${left ? '50vw' : 0};
+    width: 50vw;
+    height: 100vh;
+    bottom: 0;
+    overflow: auto;
+    padding: ${fullScreen ? 0 : '1rem'};
+    background: ${color.screenBackground};
+    ${breakpoints.S} {
       left: ${left ? 0 : '50vw'};
-      border-right: ${left ? '1px solid #202020' : 'none'};
       right: ${left ? '50vw' : 0};
-      width: 50vw;
-      height: 100vh;
-      bottom: 0;
-      overflow: auto;
-      padding: ${fullScreen ? 0 : '1rem'};
-      background: ${color.screenBackground};
-      ${breakpoints.S} {
-        left: ${left ? 0 : '50vw'};
-        right: ${left ? '50vw' : 0};
-        padding: 0 !important;
-      }
-    `
+      padding: 0 !important;
+    }
+  `
 )
 
-export const withTheme: Decorator = (StoryFn, { globals: { theme = 'light' }, parameters }) => {
-  const fullScreen = parameters.layout === 'fullscreen'
+export const withTheme: Decorator = (StoryFn, { globals: { theme = 'light' } }) => {
   const appTheme = theme === 'light' ? lightTheme : darkTheme
-  const secondContainerRef = React.useRef<HTMLDivElement>(null)
 
-  const firstBlockRef = React.useCallback(
-    (node: any) => {
-      if (node) {
-        node.addEventListener('scroll', () => {
-          if (secondContainerRef.current) {
-            secondContainerRef.current.scrollTop = node.scrollTop
-          }
-        })
-      }
-    },
-    [secondContainerRef.current]
+  return (
+    <ThemeProvider theme={appTheme}>
+      <GlobalStyle />
+      <StoryFn />
+    </ThemeProvider>
   )
-
-  switch (theme) {
-    case 'side-by-side': {
-      return (
-        <>
-          <ThemeProvider theme={lightTheme}>
-            <GlobalStyle />
-            <ThemeBlock ref={firstBlockRef} left fullScreen={fullScreen}>
-              <StoryFn />
-            </ThemeBlock>
-          </ThemeProvider>
-          <ThemeProvider theme={darkTheme}>
-            <GlobalStyle />
-            <ThemeBlock ref={secondContainerRef} fullScreen={fullScreen}>
-              <StoryFn />
-            </ThemeBlock>
-          </ThemeProvider>
-        </>
-      )
-    }
-    default: {
-      return (
-        <ThemeProvider theme={appTheme}>
-          <GlobalStyle />
-          <StoryFn />
-        </ThemeProvider>
-      )
-    }
-  }
 }
-
 
 /**
  *
