@@ -1,9 +1,3 @@
-import { setProjectAnnotations } from '@storybook/react'
-
-import globalStorybookConfig from '../.storybook/preview'
-
-setProjectAnnotations(globalStorybookConfig)
-
 const ignoreList = [(error: any) => error.message.includes('act')]
 
 const throwMessage = (type: any, message: any) => {

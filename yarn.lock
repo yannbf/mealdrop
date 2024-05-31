@@ -2200,15 +2200,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hipster/experimental-vitest-plugin-sb@npm:1.0.1-canary.11.aad9c1b.0":
-  version: 1.0.1-canary.11.aad9c1b.0
-  resolution: "@hipster/experimental-vitest-plugin-sb@npm:1.0.1-canary.11.aad9c1b.0"
+"@hipster/experimental-vitest-plugin-sb@npm:1.0.1-canary.11.2f07818.0":
+  version: 1.0.1-canary.11.2f07818.0
+  resolution: "@hipster/experimental-vitest-plugin-sb@npm:1.0.1-canary.11.2f07818.0"
   dependencies:
     magic-string: "npm:^0.30.10"
     typescript: "npm:^5.0.0"
   peerDependencies:
     vitest: ">=0.29.0"
-  checksum: 10/1b721c8b04574ad0636193ad91c255177ad56fa890a7ce4ffbf409f47f9ceb87104a70b7e3d8551e93ae702982390645305e82042bf47cbe2c087f366bf4120f
+  checksum: 10/e52505bb0361e0ad433c8e1045a47f8cf8f6ee3283357309517a93c1ac79a612d6d139b68f578a25efccba1dbb6f2c34248bb34a1da88ff5e3a7d9625649eb81
   languageName: node
   linkType: hard
 
@@ -8184,7 +8184,7 @@ __metadata:
   dependencies:
     "@babel/core": "npm:^7.14.6"
     "@chromatic-com/storybook": "npm:^1.2.18"
-    "@hipster/experimental-vitest-plugin-sb": "npm:1.0.1-canary.11.aad9c1b.0"
+    "@hipster/experimental-vitest-plugin-sb": "npm:1.0.1-canary.11.2f07818.0"
     "@ladle/react": "npm:^4.0.3"
     "@playwright/experimental-ct-react": "npm:^1.44.1"
     "@reduxjs/toolkit": "npm:^2.2.3"

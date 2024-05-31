@@ -86,7 +86,7 @@
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@chromatic-com/storybook": "^1.2.18",
-    "@hipster/experimental-vitest-plugin-sb": "1.0.1-canary.11.aad9c1b.0",
+    "@hipster/experimental-vitest-plugin-sb": "1.0.1-canary.11.2f07818.0",
     "@ladle/react": "^4.0.3",
     "@playwright/experimental-ct-react": "^1.44.1",
     "@storybook/addon-a11y": "^8.1.2",
