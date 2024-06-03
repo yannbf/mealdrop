@@ -120,6 +120,7 @@ const StyledHeading = styled(Heading)(
   }) => css`
     font-size: ${fontSize.heading4};
     margin-bottom: ${spacing.xs};
+    color: purple;
   `
 )
 

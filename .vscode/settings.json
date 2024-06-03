@@ -6,5 +6,8 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "deepscan.ignoreConfirmWarning": true
+  "deepscan.ignoreConfirmWarning": true,
+  "[mdx]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  }
 }
