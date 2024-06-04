@@ -1,3 +1,5 @@
+import '@testing-library/jest-dom/vitest'
+
 const ignoreList = [(error: any) => error.message.includes('act')]
 
 const throwMessage = (type: any, message: any) => {

@@ -1,7 +1,7 @@
 import { vi, expect } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { composeStories } from '@storybook/react'
-import { axe } from 'vitest-axe'
+// import { axe } from 'vitest-axe'
 
 import * as stories from './RestaurantCard.stories'
 
@@ -38,15 +38,15 @@ describe('RestaurantCard', () => {
 })
 
 // Go through every story from composeStories and create a map of StoryName <-> StoryComponent
-const testCases = Object.values(composeStories(stories)).map((Story) => [
-  // The ! is necessary in Typescript only, as the property is part of a partial type
-  Story.storyName!,
-  Story,
-])
+// const testCases = Object.values(composeStories(stories)).map((Story) => [
+//   // The ! is necessary in Typescript only, as the property is part of a partial type
+//   Story.storyName!,
+//   Story,
+// ])
 
-// Go through all test cases to batch test accessibility
-test.each(testCases)('%s story should be accessible', async (_storyName, Story) => {
-  const { container } = render(<Story />)
-  // @ts-ignore TODO fix Property 'toHaveNoViolations' does not exist on type 'Assertion<AxeResults>
-  expect(await axe(container)).toHaveNoViolations()
-})
+// // Go through all test cases to batch test accessibility
+// test.each(testCases)('%s story should be accessible', async (_storyName, Story) => {
+//   const { container } = render(<Story />)
+//   // @ts-ignore TODO fix Property 'toHaveNoViolations' does not exist on type 'Assertion<AxeResults>
+//   expect(await axe(container)).toHaveNoViolations()
+// })

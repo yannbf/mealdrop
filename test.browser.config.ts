@@ -1,5 +1,5 @@
 /// <reference types="vitest" />
-import { defineConfig, defaultInclude, defaultExclude } from 'vitest/config'
+import { defineConfig, defaultInclude, defaultExclude, configDefaults } from 'vitest/config'
 import { mergeConfig } from 'vite'
 import { storybookTest } from '@hipster/experimental-vitest-plugin-sb'
 // import Inspect from 'vite-plugin-inspect'
@@ -13,7 +13,10 @@ if (process.env.PLUGIN_ONLY) {
   include = ['src/**/*.stories.tsx']
   exclude = [...defaultExclude, 'storybook.test.ts']
   plugins = [
-    storybookTest(),
+    storybookTest({
+      renderer: 'react',
+      storybookScript: 'yarn storybook',
+    }),
     // in case we want to debug the Storybook plugin transformation
     // Inspect({ build: true, outputDir: '.vite-inspect' })
   ]
@@ -35,18 +38,22 @@ export default mergeConfig(
       exclude,
       globals: true,
       clearMocks: true,
-      isolate: true,
+      isolate: false,
       browser: {
-        isolate: true,
+        isolate: false,
         enabled: true,
         name: process.env.WDIO ? 'chrome' : 'chromium',
         provider: process.env.WDIO ? 'webdriverio' : 'playwright',
       },
-      setupFiles: './src/setupTests.browser.ts',
+      setupFiles: ['./src/setupTests.browser.ts', 'src/setupTests.storyshots.ts'],
       coverage: {
-        provider: 'v8',
+        provider: 'istanbul', // v8 does not work with browser mode
         reporter: ['text', 'html'],
-        exclude: ['node_modules/', 'src/setupTests.browser.ts'],
+        exclude: [
+          ...configDefaults.coverage.exclude!,
+          'node_modules/',
+          'src/setupTests.browser.ts',
+        ],
       },
     },
   })

@@ -28,7 +28,8 @@ export const Disabled: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-    await expect(canvas.getByRole('button')).toBeDisabled()
+    const myButton = canvas.getByRole('button')
+    await expect(myButton).toBeDisabled()
   },
 }
 
