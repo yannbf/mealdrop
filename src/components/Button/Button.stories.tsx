@@ -1,4 +1,5 @@
 import { StoryObj, Meta } from '@storybook/react'
+import { within, expect } from '@storybook/test'
 
 import { Button } from './Button'
 
@@ -24,6 +25,10 @@ export const Default: Story = {}
 export const Disabled: Story = {
   args: {
     disabled: true,
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await expect(canvas.getByRole('button')).toBeDisabled()
   },
 }
 
