@@ -1,5 +1,5 @@
 import { defineWorkspace } from 'vitest/config'
-import { storybookTest } from '@hipster/experimental-vitest-plugin-sb'
+import { storybookTest } from '@storybook/experimental-vitest-plugin'
 
 export default defineWorkspace([
   {

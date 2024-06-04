@@ -76,7 +76,6 @@
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@chromatic-com/storybook": "^1.2.18",
-    "@hipster/experimental-vitest-plugin-sb": "1.0.1-canary.11.3d9ac1b.0",
     "@ladle/react": "^4.0.3",
     "@playwright/experimental-ct-react": "^1.44.1",
     "@storybook/addon-a11y": "0.0.0-pr-27522-sha-b32386a1",
@@ -86,6 +85,7 @@
     "@storybook/addon-interactions": "0.0.0-pr-27522-sha-b32386a1",
     "@storybook/addon-themes": "0.0.0-pr-27522-sha-b32386a1",
     "@storybook/blocks": "0.0.0-pr-27522-sha-b32386a1",
+    "@storybook/experimental-vitest-plugin": "0.0.1--canary.1.95c2e41.0",
     "@storybook/react": "0.0.0-pr-27522-sha-b32386a1",
     "@storybook/react-vite": "0.0.0-pr-27522-sha-b32386a1",
     "@storybook/test": "0.0.0-pr-27522-sha-b32386a1",

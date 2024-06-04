@@ -2200,20 +2200,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@hipster/experimental-vitest-plugin-sb@npm:1.0.1-canary.11.3d9ac1b.0":
-  version: 1.0.1-canary.11.3d9ac1b.0
-  resolution: "@hipster/experimental-vitest-plugin-sb@npm:1.0.1-canary.11.3d9ac1b.0"
-  dependencies:
-    execa: "npm:^5.0.0"
-    magic-string: "npm:^0.30.10"
-    typescript: "npm:^5.0.0"
-    wait-on: "npm:^7.2.0"
-  peerDependencies:
-    vitest: ">=0.29.0"
-  checksum: 10/1628fdf1c8f7ab95a9f6c75ffb02108f5b66ca45a3ecd498d178526d2d66202d9334c6de469ca5e0f18501ede4688bc1b55a747bab52f215c4ef739ff46ff13f
-  languageName: node
-  linkType: hard
-
 "@humanwhocodes/config-array@npm:^0.11.14":
   version: 0.11.14
   resolution: "@humanwhocodes/config-array@npm:0.11.14"
@@ -4153,6 +4139,20 @@ __metadata:
     doctrine: "npm:^3.0.0"
     lodash: "npm:^4.17.21"
   checksum: 10/6e298bb91ed902cc621f971b57b131a14d5e58068c7c3318b424ca11ecd378259ea869f01594064dfd31d7fe0fbb02ae2b27714daf03aa33ef0cb9c1be14bdfb
+  languageName: node
+  linkType: hard
+
+"@storybook/experimental-vitest-plugin@npm:0.0.1--canary.1.95c2e41.0":
+  version: 0.0.1--canary.1.95c2e41.0
+  resolution: "@storybook/experimental-vitest-plugin@npm:0.0.1--canary.1.95c2e41.0"
+  dependencies:
+    execa: "npm:^5.0.0"
+    magic-string: "npm:^0.30.10"
+    typescript: "npm:^5.0.0"
+    wait-on: "npm:^7.2.0"
+  peerDependencies:
+    vitest: ">=0.29.0"
+  checksum: 10/9c07c27a7aee07352eac7d4b0540a67a9a47445002ac052294d3f0bb2c96c883389dffbd662c175c70aefa9ee77d1626b406edbd20a75d0031c6970e52866458
   languageName: node
   linkType: hard
 
@@ -7978,7 +7978,6 @@ __metadata:
   dependencies:
     "@babel/core": "npm:^7.14.6"
     "@chromatic-com/storybook": "npm:^1.2.18"
-    "@hipster/experimental-vitest-plugin-sb": "npm:1.0.1-canary.11.3d9ac1b.0"
     "@ladle/react": "npm:^4.0.3"
     "@playwright/experimental-ct-react": "npm:^1.44.1"
     "@reduxjs/toolkit": "npm:^2.2.3"
@@ -7989,6 +7988,7 @@ __metadata:
     "@storybook/addon-interactions": "npm:0.0.0-pr-27522-sha-b32386a1"
     "@storybook/addon-themes": "npm:0.0.0-pr-27522-sha-b32386a1"
     "@storybook/blocks": "npm:0.0.0-pr-27522-sha-b32386a1"
+    "@storybook/experimental-vitest-plugin": "npm:0.0.1--canary.1.95c2e41.0"
     "@storybook/react": "npm:0.0.0-pr-27522-sha-b32386a1"
     "@storybook/react-vite": "npm:0.0.0-pr-27522-sha-b32386a1"
     "@storybook/test": "npm:0.0.0-pr-27522-sha-b32386a1"

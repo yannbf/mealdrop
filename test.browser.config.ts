@@ -1,7 +1,7 @@
 /// <reference types="vitest" />
 import { defineConfig, defaultInclude, defaultExclude, configDefaults } from 'vitest/config'
 import { mergeConfig } from 'vite'
-import { storybookTest } from '@hipster/experimental-vitest-plugin-sb'
+import { storybookTest } from '@storybook/experimental-vitest-plugin'
 // import Inspect from 'vite-plugin-inspect'
 
 import viteConfig from './vite.config'
