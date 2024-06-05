@@ -8,6 +8,7 @@ import viteConfig from './vite.config'
 
 let include: string[]
 let exclude: string[]
+let setupFiles = ['./src/setupTests.browser.ts']
 let plugins: any[] = []
 if (process.env.PLUGIN_ONLY) {
   include = ['src/**/*.stories.tsx']
@@ -18,11 +19,12 @@ if (process.env.PLUGIN_ONLY) {
       storybookScript: 'yarn storybook',
     }),
     // in case we want to debug the Storybook plugin transformation
-    // Inspect({ build: true, outputDir: '.vite-inspect' })
+    // Inspect({ build: true, outputDir: '.vite-inspect' }),
   ]
 } else {
   include = defaultInclude
   exclude = [...defaultExclude, 'src/**/*.stories.tsx']
+  setupFiles.push('src/setupTests.storyshots.ts')
 }
 
 // https://vitejs.dev/config/
@@ -38,14 +40,14 @@ export default mergeConfig(
       exclude,
       globals: true,
       clearMocks: true,
-      isolate: false,
+      isolate: true,
       browser: {
-        isolate: false,
+        isolate: true,
         enabled: true,
         name: process.env.WDIO ? 'chrome' : 'chromium',
         provider: process.env.WDIO ? 'webdriverio' : 'playwright',
       },
-      setupFiles: ['./src/setupTests.browser.ts', 'src/setupTests.storyshots.ts'],
+      setupFiles,
       coverage: {
         provider: 'istanbul', // v8 does not work with browser mode
         reporter: ['text', 'html'],
