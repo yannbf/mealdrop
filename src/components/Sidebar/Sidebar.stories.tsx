@@ -1,12 +1,13 @@
-import { StoryFn, Meta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { useEffect, useState } from 'react'
+import { fn } from '@storybook/test'
 
 import { Button } from '../Button'
 import { Body } from '../typography'
 
 import { Sidebar } from './Sidebar'
 
-export default {
+const meta = {
   title: 'Components/Sidebar',
   component: Sidebar,
   parameters: {
@@ -18,40 +19,52 @@ export default {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1714-3811&mode=design&t=zmyrZnTzOLfLqBwr-4',
     },
   },
-} as Meta
+  args: {
+    isOpen: false,
+    title: '',
+    /* 
+    The following line emulates the event handler that would be passed to the component
+    Read more about the `fn` utility function at
+    https://storybook.js.org/docs/essentials/actions#via-storybooktest-fn-spy-function 
+    */
+    onClose: fn(),
+  },
+  render: () => {
+    const [isOpen, setIsOpen] = useState(false)
+    const openSidebar = () => setIsOpen(true)
+    const closeSidebar = () => setIsOpen(false)
+    useEffect(() => {
+      setIsOpen(true)
+    }, [])
 
-const Template: StoryFn = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const openSidebar = () => setIsOpen(true)
-  const closeSidebar = () => setIsOpen(false)
+    return (
+      <>
+        <Body>Press ESC to close the sidebar or click on the close icon!</Body>
+        <Button onClick={openSidebar}>Open sidebar</Button>
+        <Sidebar
+          title="Your order"
+          isOpen={isOpen}
+          onClose={() => {
+            closeSidebar()
+          }}
+          footer={<Body>Some footer here</Body>}
+        >
+          <Body>Some content here</Body>
+        </Sidebar>
+      </>
+    )
+  },
+} satisfies Meta<typeof Sidebar>
 
-  useEffect(() => {
-    setIsOpen(true)
-  }, [])
+export default meta
+type Story = StoryObj<typeof meta>
 
-  return (
-    <>
-      <Body>Press ESC to close the sidebar or click on the close icon!</Body>
-      <Button onClick={openSidebar}>Open sidebar</Button>
-      <Sidebar
-        title="Your order"
-        isOpen={isOpen}
-        onClose={() => {
-          closeSidebar()
-        }}
-        footer={<Body>Some footer here</Body>}
-      >
-        <Body>Some content here</Body>
-      </Sidebar>
-    </>
-  )
-}
+export const Desktop: Story = {}
 
-export const Desktop = Template.bind({})
-
-export const Mobile = Template.bind({})
-Mobile.parameters = {
-  viewport: {
-    defaultViewport: 'iphonex',
+export const Mobile: Story = {
+  parameters: {
+    viewport: {
+      defaultViewport: 'iphonex',
+    },
   },
 }

@@ -1,8 +1,8 @@
-import { StoryFn, Meta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 
 import { Footer } from './Footer'
 
-export default {
+const meta = {
   title: 'Components/Footer',
   component: Footer,
   parameters: {
@@ -12,14 +12,9 @@ export default {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1716-3158&mode=design&t=zmyrZnTzOLfLqBwr-4',
     },
   },
-} as Meta<typeof Footer>
+} satisfies Meta<typeof Footer>
 
-const Template: StoryFn<typeof Footer> = () => (
-  <div style={{ position: 'relative', height: '100vh' }}>
-    <div style={{ position: 'absolute', bottom: 0, width: '100%' }}>
-      <Footer />
-    </div>
-  </div>
-)
+export default meta
+type Story = StoryObj<typeof meta>
 
-export const Default = Template.bind({})
+export const Default: Story = {}

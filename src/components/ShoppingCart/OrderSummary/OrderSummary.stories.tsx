@@ -1,15 +1,19 @@
-import { StoryFn, Meta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 
 import { cartItems } from '../../../stub/cart-items'
 
 import { OrderSummary } from './OrderSummary'
 
-export default {
+const meta = {
   title: 'Components/OrderSummary',
   component: OrderSummary,
-} as Meta<typeof OrderSummary>
+} satisfies Meta<typeof OrderSummary>
 
-export const Default: StoryFn<typeof OrderSummary> = (args) => <OrderSummary {...args} />
-Default.args = {
-  cartItems,
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {
+  args: {
+    cartItems,
+  },
 }

@@ -1,8 +1,8 @@
-import { StoryFn, Meta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 
 import { AwardWinningSection } from './AwardWinningSection'
 
-export default {
+const meta = {
   title: 'Pages/HomePage/Components/AwardWinningSection',
   component: AwardWinningSection,
   parameters: {
@@ -12,8 +12,9 @@ export default {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1682-4910&mode=design&t=PGeoMU7t8HOFToQL-4',
     },
   },
-} as Meta<typeof AwardWinningSection>
+} satisfies Meta<typeof AwardWinningSection>
 
-const Template: StoryFn<typeof AwardWinningSection> = () => <AwardWinningSection />
+export default meta
+type Story = StoryObj<typeof meta>
 
-export const Default = Template.bind({})
+export const Default: Story = {}
