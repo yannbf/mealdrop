@@ -1,0 +1,26 @@
+name: Prepare Demo
+
+on: workflow_dispatch
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Modify badge component
+        run: |
+          node scripts/modify-badge.mjs
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          title: "Invert badge colors-${{ github.run_id }}-${{ github.run_attempt }}"
+          commit-message: "Inverted the badge colors"
