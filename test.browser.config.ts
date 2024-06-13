@@ -43,6 +43,7 @@ export default mergeConfig(
       isolate: true,
       browser: {
         isolate: true,
+        headless: true,
         enabled: true,
         name: process.env.WDIO ? 'chrome' : 'chromium',
         provider: process.env.WDIO ? 'webdriverio' : 'playwright',
