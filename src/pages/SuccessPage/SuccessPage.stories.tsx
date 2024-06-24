@@ -1,8 +1,8 @@
-import { StoryFn, Meta } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react'
 
 import { SuccessPage } from './SuccessPage'
 
-export default {
+const meta = {
   title: 'Pages/SuccessPage',
   component: SuccessPage,
   parameters: {
@@ -12,31 +12,33 @@ export default {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=426%3A3444',
     },
   },
-} as Meta<typeof SuccessPage>
+} satisfies Meta<typeof SuccessPage>
 
-const Template: StoryFn<typeof SuccessPage> = () => <SuccessPage />
+export default meta
+type Story = StoryObj<typeof meta>
 
-export const Default = Template.bind({})
-Default.parameters = {
-  store: {
-    initialState: {
-      order: {
-        items: [
-          {
-            id: 2,
-            name: 'Fries',
-            description: 'Fried french fries',
-            price: 2.5,
-            quantity: 2,
-          },
-          {
-            id: 1,
-            name: 'Cheeseburger',
-            description: 'Nice grilled burger with cheese',
-            price: 8.5,
-            quantity: 1,
-          },
-        ],
+export const Default: Story = {
+  parameters: {
+    store: {
+      initialState: {
+        order: {
+          items: [
+            {
+              id: 2,
+              name: 'Fries',
+              description: 'Fried french fries',
+              price: 2.5,
+              quantity: 2,
+            },
+            {
+              id: 1,
+              name: 'Cheeseburger',
+              description: 'Nice grilled burger with cheese',
+              price: 8.5,
+              quantity: 1,
+            },
+          ],
+        },
       },
     },
   },

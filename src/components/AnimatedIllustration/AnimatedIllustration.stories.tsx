@@ -1,8 +1,8 @@
-import { StoryFn, Meta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 
 import { AnimatedIllustration } from './AnimatedIllustration'
 
-export default {
+const meta = {
   title: 'Components/AnimatedIllustration',
   component: AnimatedIllustration,
   parameters: {
@@ -17,11 +17,13 @@ export default {
       </div>
     ),
   ],
-} as Meta<typeof AnimatedIllustration>
+} satisfies Meta<typeof AnimatedIllustration>
 
-const Template: StoryFn<typeof AnimatedIllustration> = (args) => <AnimatedIllustration {...args} />
+export default meta
+type Story = StoryObj<typeof meta>
 
-export const Default = Template.bind({})
-Default.args = {
-  animation: 'Error',
+export const Default: Story = {
+  args: {
+    animation: 'Error',
+  },
 }

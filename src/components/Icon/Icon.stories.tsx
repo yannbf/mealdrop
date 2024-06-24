@@ -1,4 +1,4 @@
-import { StoryFn, Meta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import styled, { css } from 'styled-components'
 
 import { Body } from '../typography/Body'
@@ -27,7 +27,7 @@ const IconContainer = styled.div(
   `
 )
 
-export default {
+const meta = {
   title: 'Components/Icon',
   component: Icon,
   argTypes: {
@@ -43,27 +43,31 @@ export default {
       },
     },
   },
-} as Meta<typeof Icon>
+} satisfies Meta<typeof Icon>
 
-const Template: StoryFn<typeof Icon> = (args) => <Icon {...args} />
+export default meta
+type Story = StoryObj<typeof meta>
 
-export const AllIcons = () => (
-  <>
-    <IconContainer>
-      {icons.map((icon) => (
-        <div key={icon}>
-          <Icon name={icon} size={24} />
-          <Body type="span" size="XS">
-            {icon}
-          </Body>
-        </div>
-      ))}
-    </IconContainer>
-  </>
-)
+export const AllIcons: Story = {
+  render: () => (
+    <>
+      <IconContainer>
+        {icons.map((icon) => (
+          <div key={icon}>
+            <Icon name={icon} size={24} />
+            <Body type="span" size="XS">
+              {icon}
+            </Body>
+          </div>
+        ))}
+      </IconContainer>
+    </>
+  ),
+}
 
-export const Playground = Template.bind({})
-Playground.args = {
-  name: 'cart',
-  size: 24,
+export const Playground: Story = {
+  args: {
+    name: 'cart',
+    size: 24,
+  },
 }

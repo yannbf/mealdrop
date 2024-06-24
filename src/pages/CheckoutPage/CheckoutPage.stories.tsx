@@ -1,8 +1,8 @@
-import { StoryFn, Meta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 
 import { CheckoutPage } from './CheckoutPage'
 
-export default {
+const meta = {
   title: 'Pages/CheckoutPage',
   component: CheckoutPage,
   parameters: {
@@ -12,34 +12,36 @@ export default {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=426-3291&mode=design&t=PGeoMU7t8HOFToQL-4',
     },
   },
-} as Meta<typeof CheckoutPage>
+} satisfies Meta<typeof CheckoutPage>
 
-const Template: StoryFn<typeof CheckoutPage> = () => <CheckoutPage />
+export default meta
+type Story = StoryObj<typeof meta>
 
-export const Empty = Template.bind({})
+export const Empty: Story = {}
 
-export const WithItems = Template.bind({})
-WithItems.parameters = {
-  store: {
-    initialState: {
-      cart: {
-        visible: false,
-        items: [
-          {
-            id: 2,
-            name: 'Fries',
-            description: 'Fried french fries',
-            price: 2.5,
-            quantity: 2,
-          },
-          {
-            id: 1,
-            name: 'Cheeseburger',
-            description: 'Nice grilled burger with cheese',
-            price: 8.5,
-            quantity: 1,
-          },
-        ],
+export const WithItems: Story = {
+  parameters: {
+    store: {
+      initialState: {
+        cart: {
+          visible: false,
+          items: [
+            {
+              id: 2,
+              name: 'Fries',
+              description: 'Fried french fries',
+              price: 2.5,
+              quantity: 2,
+            },
+            {
+              id: 1,
+              name: 'Cheeseburger',
+              description: 'Nice grilled burger with cheese',
+              price: 8.5,
+              quantity: 1,
+            },
+          ],
+        },
       },
     },
   },

@@ -1,16 +1,19 @@
-import { StoryFn, Meta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 
 import { StepIndicator } from './StepIndicator'
 
-export default {
+const meta = {
   title: 'Pages/CheckoutPage/Components/StepIndicator',
   component: StepIndicator,
-} as Meta<typeof StepIndicator>
+} satisfies Meta<typeof StepIndicator>
 
-const Template: StoryFn<typeof StepIndicator> = (args) => <StepIndicator {...args} />
-export const Default = Template.bind({})
-Default.args = {
-  title: 'Step',
-  amountOfSteps: 4,
-  currentStep: 1,
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {
+  args: {
+    title: 'Step',
+    amountOfSteps: 4,
+    currentStep: 1,
+  },
 }
