@@ -1,25 +1,28 @@
-import { StoryFn, Meta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 
 import { PageSection } from './PageSection'
 
-export default {
+const meta = {
   title: 'Components/PageSection',
   component: PageSection,
   parameters: {
     layout: 'fullscreen',
   },
-} as Meta<typeof PageSection>
+} satisfies Meta<typeof PageSection>
 
-const Template: StoryFn<typeof PageSection> = (args) => <PageSection {...args} />
+export default meta
+type Story = StoryObj<typeof meta>
 
-export const Default = Template.bind({})
-Default.args = {
-  title: 'Asian',
-  children: <h1>Hello Dummy Content</h1>,
+export const Default: Story = {
+  args: {
+    title: 'Asian',
+    children: <h1>Hello Dummy Content</h1>,
+  },
 }
 
-export const WithButtons = Template.bind({})
-WithButtons.args = {
-  ...Default.args,
-  title: 'Asian',
+export const WithButtons: Story = {
+  args: {
+    ...Default.args,
+    title: 'Asian',
+  },
 }

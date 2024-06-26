@@ -1,8 +1,8 @@
-import { StoryFn, Meta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 
 import { Header } from './Header'
 
-export default {
+const meta = {
   title: 'Components/Header',
   component: Header,
   parameters: {
@@ -12,38 +12,36 @@ export default {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1690-4054&mode=design&t=zmyrZnTzOLfLqBwr-4',
     },
   },
-} as Meta<typeof Header>
+} satisfies Meta<typeof Header>
 
-const Template: StoryFn<typeof Header> = (args) => (
-  <div style={{ position: 'relative', height: '100vh' }}>
-    <Header {...args} />
-  </div>
-)
+export default meta
+type Story = StoryObj<typeof meta>
 
-export const Default = Template.bind({})
+export const Default: Story = {}
 
-export const WithCartData = Template.bind({})
-WithCartData.parameters = {
-  store: {
-    initialState: {
-      cart: {
-        visible: false,
-        items: [
-          {
-            id: 2,
-            name: 'Fries',
-            description: 'Fried french fries',
-            price: 2.5,
-            quantity: 2,
-          },
-          {
-            id: 1,
-            name: 'Cheeseburger',
-            description: 'Nice grilled burger with cheese',
-            price: 8.5,
-            quantity: 1,
-          },
-        ],
+export const WithCartData: Story = {
+  parameters: {
+    store: {
+      initialState: {
+        cart: {
+          visible: false,
+          items: [
+            {
+              id: 2,
+              name: 'Fries',
+              description: 'Fried french fries',
+              price: 2.5,
+              quantity: 2,
+            },
+            {
+              id: 1,
+              name: 'Cheeseburger',
+              description: 'Nice grilled burger with cheese',
+              price: 8.5,
+              quantity: 1,
+            },
+          ],
+        },
       },
     },
   },

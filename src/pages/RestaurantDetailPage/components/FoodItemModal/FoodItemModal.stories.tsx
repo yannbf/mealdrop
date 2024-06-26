@@ -1,11 +1,12 @@
+import type { Meta, StoryObj } from '@storybook/react'
 import { useState } from 'react'
-import { StoryFn, Meta } from '@storybook/react'
+import { fn } from '@storybook/test'
 
 import { Button } from '../../../../components/Button'
 
 import { FoodItemModal } from './FoodItemModal'
 
-export default {
+const meta = {
   title: 'Pages/RestaurantDetailPage/Components/FoodItemModal',
   component: FoodItemModal,
   parameters: {
@@ -21,39 +22,53 @@ export default {
       </>
     ),
   ],
-} as Meta
+  args: {
+    /* 
+    The following lines emulate the event handlers that would be passed to the component
+    Read more about the `fn` utility function at
+    https://storybook.js.org/docs/essentials/actions#via-storybooktest-fn-spy-function 
+    */
+    onClose: fn(),
+    onItemSave: fn(),
+    onItemRemove: fn(),
+    cartItems: [],
+  },
+  render: () => {
+    const itemMock = {
+      name: 'Dish.name',
+      description: 'Juicy dish with extra mayonaise',
+      price: 12,
+    }
 
-const Template: StoryFn = () => {
-  const itemMock = {
-    name: 'Dish.name',
-    description: 'Juicy dish with extra mayonaise',
-    price: 12,
-  }
+    const [item, setItem] = useState<any>(itemMock)
+    const openModal = () => setItem(itemMock)
+    const closeModal = () => setItem(undefined)
 
-  const [item, setItem] = useState<any>(itemMock)
-  const openModal = () => setItem(itemMock)
-  const closeModal = () => setItem(undefined)
+    return (
+      <>
+        <p>Press ESC to close modal or click on the close icon!</p>
+        <Button onClick={openModal}>Open modal</Button>
+        <FoodItemModal
+          item={item}
+          cartItems={[item]}
+          onClose={closeModal}
+          onItemSave={() => {}}
+          onItemRemove={() => {}}
+        />
+      </>
+    )
+  },
+} satisfies Meta<typeof FoodItemModal>
 
-  return (
-    <>
-      <p>Press ESC to close modal or click on the close icon!</p>
-      <Button onClick={openModal}>Open modal</Button>
-      <FoodItemModal
-        item={item}
-        cartItems={[item]}
-        onClose={closeModal}
-        onItemSave={() => {}}
-        onItemRemove={() => {}}
-      />
-    </>
-  )
-}
+export default meta
+type Story = StoryObj<typeof meta>
 
-export const Desktop = Template.bind({})
+export const Desktop: Story = {}
 
-export const Mobile = Template.bind({})
-Mobile.parameters = {
-  viewport: {
-    defaultViewport: 'iphonex',
+export const Mobile: Story = {
+  parameters: {
+    viewport: {
+      defaultViewport: 'iphonex',
+    },
   },
 }

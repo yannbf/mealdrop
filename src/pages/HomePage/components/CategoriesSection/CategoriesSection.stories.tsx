@@ -1,17 +1,18 @@
-import { StoryFn, Meta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 
 import { categories } from '../../../../stub/categories'
 
 import { CategoriesSection } from './CategoriesSection'
 
-export default {
+const meta = {
   title: 'Pages/HomePage/Components/CategoriesSection',
   component: CategoriesSection,
   args: {
     categories,
   },
-} as Meta<typeof CategoriesSection>
+} satisfies Meta<typeof CategoriesSection>
 
-const Template: StoryFn<typeof CategoriesSection> = (args) => <CategoriesSection {...args} />
+export default meta
+type Story = StoryObj<typeof meta>
 
-export const Default = Template.bind({})
+export const Default: Story = {}

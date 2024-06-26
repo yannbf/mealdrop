@@ -1,5 +1,6 @@
+import type { Meta, StoryObj } from '@storybook/react'
 import { useEffect, useState } from 'react'
-import { StoryFn, Meta } from '@storybook/react'
+import { fn } from '@storybook/test'
 
 import { cartItems } from '../../stub/cart-items'
 import { Button } from '../Button'
@@ -7,7 +8,7 @@ import { Body } from '../typography'
 
 import { ShoppingCartMenu } from './ShoppingCartMenu'
 
-export default {
+const meta = {
   title: 'Components/ShoppingCartMenu',
   component: ShoppingCartMenu,
   parameters: {
@@ -19,48 +20,60 @@ export default {
     isOpen: true,
     cartItems: cartItems,
     totalPrice: 1200,
+    /* 
+    The following lines emulate the event handlers that would be passed to the component
+    Read more about the `fn` utility function at
+    https://storybook.js.org/docs/essentials/actions#via-storybooktest-fn-spy-function 
+    */
+    onClose: fn(),
+    onItemChange: fn(),
   },
-} as Meta<typeof ShoppingCartMenu>
+} satisfies Meta<typeof ShoppingCartMenu>
 
-const Template: StoryFn<typeof ShoppingCartMenu> = (args) => <ShoppingCartMenu {...args} />
+export default meta
+type Story = StoryObj<typeof meta>
 
-export const Empty = Template.bind({})
-Empty.args = {
-  cartItems: [],
-  totalPrice: 0,
+export const Empty: Story = {
+  args: {
+    cartItems: [],
+    totalPrice: 0,
+  },
 }
 
-export const WithItems = Template.bind({})
+export const WithItems: Story = {}
 
-export const Mobile = Template.bind({})
-Mobile.parameters = {
-  viewport: {
-    defaultViewport: 'iphonex',
+export const Mobile: Story = {
+  parameters: {
+    viewport: {
+      defaultViewport: 'iphonex',
+    },
   },
 }
 
-export const Playground: StoryFn = () => {
-  const [isOpen, setIsOpen] = useState(false)
-  const openShoppingCartMenu = () => setIsOpen(true)
-  const closeShoppingCartMenu = () => setIsOpen(false)
+export const Playground: Story = {
+  render: () => {
+    const [isOpen, setIsOpen] = useState(false)
+    const openShoppingCartMenu = () => setIsOpen(true)
+    const closeShoppingCartMenu = () => setIsOpen(false)
 
-  useEffect(() => {
-    setIsOpen(true)
-  }, [])
+    useEffect(() => {
+      setIsOpen(true)
+    }, [])
 
-  return (
-    <>
-      <Body>Press ESC to close the ShoppingCartMenu or click on the close icon!</Body>
-      <Button onClick={openShoppingCartMenu}>Open ShoppingCartMenu</Button>
-      <ShoppingCartMenu
-        isOpen={isOpen}
-        cartItems={cartItems}
-        totalPrice={1200}
-        onItemChange={() => {}}
-        onClose={() => {
-          closeShoppingCartMenu()
-        }}
-      />
-    </>
-  )
+    return (
+      <>
+        <Body>Press ESC to close the ShoppingCartMenu or click on the close icon!</Body>
+        <Button onClick={openShoppingCartMenu}>Open ShoppingCartMenu</Button>
+        <ShoppingCartMenu
+          isOpen={isOpen}
+          cartItems={cartItems}
+          totalPrice={1200}
+          onItemChange={() => {}}
+          onClose={() => {
+            closeShoppingCartMenu()
+          }}
+        />
+      </>
+    )
+  },
 }

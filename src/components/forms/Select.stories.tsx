@@ -1,8 +1,8 @@
-import { StoryFn, Meta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 
 import { Select } from './Select'
 
-export default {
+const meta = {
   title: 'Components/Form/Select',
   component: Select,
   parameters: {
@@ -11,19 +11,23 @@ export default {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1145-3229&mode=design&t=zmyrZnTzOLfLqBwr-4',
     },
   },
-} as Meta<typeof Select>
+} satisfies Meta<typeof Select>
 
-const Template: StoryFn<typeof Select> = (args) => <Select {...args} />
+export default meta
+type Story = StoryObj<typeof meta>
 
-export const Default = Template.bind({})
-Default.args = {
-  options: ['Burger', 'Pizza', 'Sushi'],
-  id: 'select',
-  'aria-label': 'food',
+export const Default: Story = {
+  args: {
+    options: ['Burger', 'Pizza', 'Sushi'],
+    id: 'select',
+    'aria-label': 'food',
+  },
 }
-export const WithLabel = Template.bind({})
-WithLabel.args = {
-  ...Default.args,
-  id: 'select',
-  label: 'Select field',
+
+export const WithLabel: Story = {
+  args: {
+    ...Default.args,
+    id: 'select',
+    label: 'Select field',
+  },
 }

@@ -1,8 +1,8 @@
-import { StoryFn, Meta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 
 import { Review } from './Review'
 
-export default {
+const meta = {
   title: 'Components/Review',
   component: Review,
   argTypes: {
@@ -21,28 +21,33 @@ export default {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1128-3434&mode=design&t=zmyrZnTzOLfLqBwr-4',
     },
   },
-} as Meta<typeof Review>
+} satisfies Meta<typeof Review>
 
-const Template: StoryFn<typeof Review> = (args) => <Review {...args} />
+export default meta
+type Story = StoryObj<typeof meta>
 
-export const Default = Template.bind({})
+export const Default: Story = {}
 
-export const Excellent = Template.bind({})
-Excellent.args = {
-  rating: 5,
+export const Excellent: Story = {
+  args: {
+    rating: 5,
+  },
 }
 
-export const VeryGood = Template.bind({})
-VeryGood.args = {
-  rating: 4.3,
+export const VeryGood: Story = {
+  args: {
+    rating: 4.3,
+  },
 }
 
-export const Adequate = Template.bind({})
-Adequate.args = {
-  rating: 2.5,
+export const Adequate: Story = {
+  args: {
+    rating: 2.5,
+  },
 }
 
-export const VeryPoor = Template.bind({})
-VeryPoor.args = {
-  rating: 1,
+export const Poor: Story = {
+  args: {
+    rating: 1.5,
+  },
 }

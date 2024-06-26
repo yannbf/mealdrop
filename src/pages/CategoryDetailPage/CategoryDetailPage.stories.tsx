@@ -1,4 +1,4 @@
-import { StoryFn, Meta } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import { http, delay, HttpResponse } from 'msw'
 
 import { restaurants } from '../../stub/restaurants'
@@ -7,7 +7,7 @@ import { withDeeplink } from '../../../.storybook/withDeeplink'
 
 import { CategoryDetailPage } from './CategoryDetailPage'
 
-export default {
+const meta = {
   title: 'Pages/CategoryDetailPage',
   component: CategoryDetailPage,
   parameters: {
@@ -19,36 +19,40 @@ export default {
     },
   },
   decorators: [withDeeplink],
-} as Meta<typeof CategoryDetailPage>
+} satisfies Meta<typeof CategoryDetailPage>
 
-const Template: StoryFn<typeof CategoryDetailPage> = () => <CategoryDetailPage />
+export default meta
+type Story = StoryObj<typeof meta>
 
-export const Default = Template.bind({})
-Default.parameters = {
-  msw: {
-    handlers: [http.get(BASE_URL, () => HttpResponse.json([restaurants[0]]))],
+export const Default: Story = {
+  parameters: {
+    msw: {
+      handlers: [http.get(BASE_URL, () => HttpResponse.json([restaurants[0]]))],
+    },
   },
 }
 
-export const Loading = Template.bind({})
-Loading.parameters = {
-  msw: {
-    handlers: [
-      http.get(BASE_URL, async () => {
-        await delay('infinite')
-      }),
-    ],
+export const Loading: Story = {
+  parameters: {
+    msw: {
+      handlers: [
+        http.get(BASE_URL, async () => {
+          await delay('infinite')
+        }),
+      ],
+    },
   },
 }
 
-export const Missing = Template.bind({})
-Missing.parameters = {
-  deeplink: { route: '/categories/wrong', path: '/categories/:id' },
-  msw: {
-    handlers: [http.get(BASE_URL, () => HttpResponse.json([]))],
-  },
-  design: {
-    type: 'figma',
-    url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=426-1402&mode=design&t=PGeoMU7t8HOFToQL-4',
+export const Missing: Story = {
+  parameters: {
+    deeplink: { route: '/categories/wrong', path: '/categories/:id' },
+    msw: {
+      handlers: [http.get(BASE_URL, () => HttpResponse.json([]))],
+    },
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=426-1402&mode=design&t=PGeoMU7t8HOFToQL-4',
+    },
   },
 }
