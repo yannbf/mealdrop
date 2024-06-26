@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { fn } from '@storybook/test'
 
 import { Input } from './Input'
 
@@ -10,6 +11,9 @@ const meta = {
       type: 'figma',
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1126-3572&mode=design&t=zmyrZnTzOLfLqBwr-4',
     },
+  },
+  args: {
+    onChange: fn(),
   },
 } satisfies Meta<typeof Input>
 
