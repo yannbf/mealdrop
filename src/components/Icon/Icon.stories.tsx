@@ -48,7 +48,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const AllIcons: Story = {
+export const AllIcons: StoryObj = {
   render: () => (
     <>
       <IconContainer>
