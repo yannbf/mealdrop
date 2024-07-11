@@ -1,5 +1,5 @@
 import { vi, expect } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import { composeStories } from '@storybook/react'
 import { axe } from 'vitest-axe'
 
@@ -8,25 +8,25 @@ import * as stories from './RestaurantCard.stories'
 const { Default, Loading, New, Closed } = composeStories(stories)
 
 describe('RestaurantCard', () => {
-  test('should render correctly', () => {
-    render(<Default />)
+  test('should render correctly', async () => {
+    await Default.play()
 
     expect(screen.getByText('Burger Kingdom')).toBeInTheDocument()
   })
 
-  test('should provide a loading skeleton', () => {
-    render(<Loading />)
+  test('should provide a loading skeleton', async () => {
+    await Loading.play()
     expect(screen.getByTestId('loading')).toBeInTheDocument()
   })
 
-  test('should show a "new" tag', () => {
-    render(<New />)
+  test('should show a "new" tag', async () => {
+    await New.play()
     expect(screen.getByText('new')).toBeInTheDocument()
   })
 
   test('should not trigger onclick when restaurant is closed', async () => {
     const onClickSpy = vi.fn()
-    render(<Closed onClick={onClickSpy} />)
+    await Closed.play({ args: { ...Closed.args, onClick: onClickSpy } })
 
     // display closed message
     expect(screen.getByText('This restaurant is closed.')).toBeInTheDocument()
@@ -46,7 +46,7 @@ const testCases = Object.values(composeStories(stories)).map((Story) => [
 
 // Go through all test cases to batch test accessibility
 test.each(testCases)('%s story should be accessible', async (_storyName, Story) => {
-  const { container } = render(<Story />)
+  await (Story as any).play()
   // @ts-ignore TODO fix Property 'toHaveNoViolations' does not exist on type 'Assertion<AxeResults>
-  expect(await axe(container)).toHaveNoViolations()
+  expect(await axe(document.body.firstChild)).toHaveNoViolations()
 })

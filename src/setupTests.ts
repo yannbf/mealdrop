@@ -2,7 +2,7 @@ import '@testing-library/jest-dom/vitest'
 import 'vitest-canvas-mock'
 import { setProjectAnnotations } from '@storybook/react'
 import * as axeMatchers from 'vitest-axe/matchers'
-import { cleanup } from '@testing-library/react'
+import { cleanup, render as testingLibraryRender } from '@testing-library/react'
 import * as matchers from '@testing-library/jest-dom/matchers'
 import { getWorker } from 'msw-storybook-addon'
 
@@ -20,7 +20,7 @@ afterAll(() => {
   // @ts-expect-error TODO fix this
   getWorker().close()
 })
-setProjectAnnotations(globalStorybookConfig)
+setProjectAnnotations([globalStorybookConfig, { testingLibraryRender }])
 
 // https://github.com/nickcolley/jest-axe/issues/147#issuecomment-758804533
 const { getComputedStyle } = window

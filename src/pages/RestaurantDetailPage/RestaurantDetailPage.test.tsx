@@ -8,8 +8,7 @@ const { Success, Loading, Error, NotFound, WithModalOpen } = composeStories(stor
 
 describe('RestaurantDetailPage', () => {
   test('Should add an item to cart', async () => {
-    await Success.load()
-    render(<Success />)
+    await Success.play()
 
     const foodItem = await screen.findByText(/Cheeseburger/i)
     userEvent.click(foodItem)
@@ -21,24 +20,19 @@ describe('RestaurantDetailPage', () => {
     expect(foodQuantity.textContent).toEqual('1')
   })
   test('Should display an error screen', async () => {
-    await Error.load()
-    render(<Error />)
+    await Error.play()
     await waitFor(() => expect(screen.getByText('Something went wrong!')).toBeInTheDocument())
   })
   test('Should display a loading screen', async () => {
-    await Loading.load()
-    render(<Loading />)
+    await Loading.play()
     await waitFor(() => expect(screen.getByText('Looking for some food...')).toBeInTheDocument())
   })
   test('Should display a 404 screen', async () => {
-    await NotFound.load()
-    render(<NotFound />)
+    await NotFound.play()
     await waitFor(() => expect(screen.getByText("We can't find this page")).toBeInTheDocument())
   })
   test('Should execute story tests', async () => {
-    await WithModalOpen.load()
-    const { container } = render(<WithModalOpen />)
-    await WithModalOpen.play!({ canvasElement: container })
+    await WithModalOpen.play()
   })
 })
 
