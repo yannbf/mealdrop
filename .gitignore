@@ -30,7 +30,7 @@ yarn-error.log*
 
 # storybook
 *-storybook.log
-
+storybook-static
 
 # Yarn berry
 /**/.yarn/*

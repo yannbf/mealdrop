@@ -15,6 +15,7 @@ import { GlobalStyle } from '../src/styles/GlobalStyle'
 import { darkTheme, lightTheme } from '../src/styles/theme'
 
 initialize({
+  quiet: true,
   onUnhandledRequest: ({ url, method }) => {
     const pathname = new URL(url).pathname
     if (pathname.startsWith('/.netlify/functions')) {
