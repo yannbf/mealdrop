@@ -1,7 +1,7 @@
 /// <reference types="vitest" />
 import { defineConfig } from 'vitest/config'
 import { mergeConfig } from 'vite'
-import { storybookTest } from '@storybook/experimental-vitest-plugin'
+import { storybookTest } from '@storybook/experimental-addon-vitest/plugin'
 
 import viteConfig from './vite.config'
 
@@ -11,7 +11,6 @@ export default mergeConfig(
   defineConfig({
     plugins: [
       storybookTest({
-        renderer: 'react',
         storybookScript: 'yarn storybook --ci',
       }),
     ],
@@ -31,7 +30,7 @@ export default mergeConfig(
         enabled: true,
         provider: 'playwright',
         name: 'chromium',
-        headless: true,
+        headless: false,
         screenshotFailures: false,
       },
       coverage: {
