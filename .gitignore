@@ -12,6 +12,7 @@ junit
 
 # production
 /build
+.vite-inspect
 
 # misc
 .DS_Store

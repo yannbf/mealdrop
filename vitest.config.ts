@@ -2,6 +2,7 @@
 import { defineConfig } from 'vitest/config'
 import { mergeConfig } from 'vite'
 import { storybookTest } from '@storybook/experimental-addon-vitest/plugin'
+import Inspect from 'vite-plugin-inspect'
 
 import viteConfig from './vite.config'
 
@@ -11,16 +12,20 @@ export default mergeConfig(
   defineConfig({
     plugins: [
       storybookTest({
-        storybookScript: 'yarn storybook --ci',
+        storybookScript: 'yarn storybook --ci'
       }),
+      Inspect({
+        build: true,
+        open: true,
+        include: [ '**/*.stories.*'],
+        dev: false,
+      })
     ],
     publicDir: './public',
     test: {
-      globals: true,
       environment: 'jsdom',
-      clearMocks: true,
-      setupFiles: './src/setupTests.ts',
-      include: ['src/**/*.stories.tsx'],
+      setupFiles: './storybook.setup.ts',
+      include: ['src/**/*.stories.*'],
       server: {
         deps: {
           inline: ['vitest-canvas-mock'],
@@ -30,13 +35,13 @@ export default mergeConfig(
         enabled: true,
         provider: 'playwright',
         name: 'chromium',
-        headless: false,
+        headless: true,
         screenshotFailures: false,
       },
       coverage: {
         provider: 'istanbul',
         reporter: ['text', 'html'],
-        exclude: ['node_modules/', 'src/setupTests.ts'],
+        exclude: ['node_modules/', 'storybook.setup.ts'],
       },
     },
   })
