@@ -1,10 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
 import { Input } from './Input'
+import { fn } from '@storybook/test'
 
 const meta = {
   title: 'Components/Form/Input',
   component: Input,
+  args: {
+    onChange: fn(),
+  },
   parameters: {
     design: {
       type: 'figma',
