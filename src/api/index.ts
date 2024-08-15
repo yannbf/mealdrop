@@ -10,7 +10,7 @@ interface BaseApi {
 
 export const BASE_URL = 'https://mealdrop.netlify.app/.netlify/functions/restaurants'
 
-const isMockedEnvironment = !!import.meta.env.STORYBOOK || import.meta.env.NODE_ENV === 'test'
+const isMockedEnvironment = !!import.meta.env.STORYBOOK || import.meta.env.NODE_ENV === 'test' || (globalThis as any).__vitest_browser__
 
 const apiCache = new Map()
 
