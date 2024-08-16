@@ -7,7 +7,7 @@ import * as stories from './Button.stories'
 
 const { Default, Disabled } = composeStories(stories)
 test('renders button with custom children', async () => {
-  await Default.play()
+  await Default.run()
   expect(screen.getByText(/Button/i)).toBeInTheDocument()
   // @ts-ignore TODO fix Property 'toHaveNoViolations' does not exist on type 'Assertion<AxeResults>
   expect(await axe(document.body.firstChild)).toHaveNoViolations()
@@ -15,7 +15,7 @@ test('renders button with custom children', async () => {
 
 test('onclick handler is called', async () => {
   const onClickSpy = vi.fn()
-  await Default.play({ args: { ...Default.args, onClick: onClickSpy } })
+  await Default.run({ args: { ...Default.args, onClick: onClickSpy } })
   const buttonElement = screen.getByRole('button')
   buttonElement.click()
   expect(onClickSpy).toHaveBeenCalled()
@@ -23,7 +23,7 @@ test('onclick handler is called', async () => {
 
 test('onclick handler is not called when disabled', async () => {
   const onClickSpy = vi.fn()
-  await Disabled.play({ args: { ...Disabled.args, onClick: onClickSpy } })
+  await Disabled.run({ args: { ...Disabled.args, onClick: onClickSpy } })
   screen.getByRole('button').click()
   expect(onClickSpy).not.toHaveBeenCalled()
 })

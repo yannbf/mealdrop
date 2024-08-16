@@ -12,6 +12,7 @@ junit
 
 # production
 /build
+.vite-inspect
 
 # misc
 .DS_Store
@@ -30,7 +31,7 @@ yarn-error.log*
 
 # storybook
 *-storybook.log
-
+storybook-static
 
 # Yarn berry
 /**/.yarn/*
