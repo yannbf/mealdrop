@@ -16,6 +16,9 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
+      - name: Install playwright dependencies
+        run: yarn exec playwright install chromium --with-deps
+
       - name: Run tests
         run: |
           yarn test:ci

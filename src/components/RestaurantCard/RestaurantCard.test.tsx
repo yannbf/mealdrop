@@ -9,24 +9,24 @@ const { Default, Loading, New, Closed } = composeStories(stories)
 
 describe('RestaurantCard', () => {
   test('should render correctly', async () => {
-    await Default.play()
+    await Default.run()
 
     expect(screen.getByText('Burger Kingdom')).toBeInTheDocument()
   })
 
   test('should provide a loading skeleton', async () => {
-    await Loading.play()
+    await Loading.run()
     expect(screen.getByTestId('loading')).toBeInTheDocument()
   })
 
   test('should show a "new" tag', async () => {
-    await New.play()
+    await New.run()
     expect(screen.getByText('new')).toBeInTheDocument()
   })
 
   test('should not trigger onclick when restaurant is closed', async () => {
     const onClickSpy = vi.fn()
-    await Closed.play({ args: { ...Closed.args, onClick: onClickSpy } })
+    await Closed.run({ args: { ...Closed.args, onClick: onClickSpy } })
 
     // display closed message
     expect(screen.getByText('This restaurant is closed.')).toBeInTheDocument()
@@ -46,7 +46,7 @@ const testCases = Object.values(composeStories(stories)).map((Story) => [
 
 // Go through all test cases to batch test accessibility
 test.each(testCases)('%s story should be accessible', async (_storyName, Story) => {
-  await (Story as any).play()
+  await (Story as any).run()
   // @ts-ignore TODO fix Property 'toHaveNoViolations' does not exist on type 'Assertion<AxeResults>
   expect(await axe(document.body.firstChild)).toHaveNoViolations()
 })

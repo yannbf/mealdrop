@@ -8,7 +8,7 @@ const { Success, Loading, Error, NotFound, WithModalOpen } = composeStories(stor
 
 describe('RestaurantDetailPage', () => {
   test('Should add an item to cart', async () => {
-    await Success.play()
+    await Success.run()
 
     const foodItem = await screen.findByText(/Cheeseburger/i)
     userEvent.click(foodItem)
@@ -20,19 +20,19 @@ describe('RestaurantDetailPage', () => {
     expect(foodQuantity.textContent).toEqual('1')
   })
   test('Should display an error screen', async () => {
-    await Error.play()
+    await Error.run()
     await waitFor(() => expect(screen.getByText('Something went wrong!')).toBeInTheDocument())
   })
   test('Should display a loading screen', async () => {
-    await Loading.play()
+    await Loading.run()
     await waitFor(() => expect(screen.getByText('Looking for some food...')).toBeInTheDocument())
   })
   test('Should display a 404 screen', async () => {
-    await NotFound.play()
+    await NotFound.run()
     await waitFor(() => expect(screen.getByText("We can't find this page")).toBeInTheDocument())
   })
   test('Should execute story tests', async () => {
-    await WithModalOpen.play()
+    await WithModalOpen.run()
   })
 })
 
