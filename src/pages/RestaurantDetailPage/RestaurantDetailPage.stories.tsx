@@ -48,15 +48,19 @@ export const Success = {
       ],
     },
   },
-}
+  play: async ({ canvas }) => {
+    const item = await canvas.findByText(/Burger Kingdom/i)
+    await expect(item).toBeInTheDocument()
+  },
+} satisfies Story
 
 export const WithModalOpen: Story = {
   ...Success,
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement)
-    const item = await canvas.findByText(/Cheeseburger/i)
+  play: async (context) => {
+    await Success.play(context)
+    const item = await context.canvas.findByText(/Cheeseburger/i)
     await userEvent.click(item)
-    await expect(canvas.getByTestId('modal')).toBeInTheDocument()
+    await expect(context.canvas.getByTestId('modal')).toBeInTheDocument()
   },
 }
 
@@ -83,8 +87,7 @@ export const Loading: Story = {
       ],
     },
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement)
+  play: async ({ canvas }) => {
     const item = await canvas.findByText(/Looking for some food.../i)
     await expect(item).toBeInTheDocument()
   },
@@ -104,8 +107,7 @@ export const NotFound: Story = {
       },
     },
   },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement)
+  play: async ({ canvas }) => {
     const item = await canvas.findByText(/We can't find this page/i)
     await expect(item).toBeInTheDocument()
   },
@@ -125,8 +127,7 @@ export const Error: Story = {
       ],
     },
   },
-  play: async ({ canvasElement, step }) => {
-    const canvas = within(canvasElement)
+  play: async ({ canvas, step }) => {
     await step('Name of step', async () => {
       const item = await canvas.findByText(/Something went wrong!/i)
       await expect(item).toBeInTheDocument()
