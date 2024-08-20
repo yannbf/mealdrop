@@ -28,11 +28,6 @@ const meta = {
       </>
     )
   },
-  argTypes: {
-    demoMode: {
-      control: { type: 'boolean' },
-    },
-  },
 } satisfies Meta<typeof RestaurantDetailPage>
 export default meta
 
