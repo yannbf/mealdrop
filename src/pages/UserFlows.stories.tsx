@@ -1,10 +1,9 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { http, HttpResponse } from 'msw'
-import { within, userEvent, expect } from '@storybook/test'
+import { within, expect } from '@storybook/test'
 
 import { BASE_URL } from '../api'
 import { restaurants } from '../stub/restaurants'
-import { animatedUserEventClick } from '../../.storybook/interaction'
 import { withDeeplink } from '../../.storybook/withDeeplink'
 
 const meta = {
@@ -47,11 +46,10 @@ type Story = StoryObj<{ demoMode: boolean }>
 export const Home = {}
 
 export const ToCategoryListPage = {
-  play: async ({ canvasElement, args, step }) => {
-    const clickEvent = args.demoMode === true ? animatedUserEventClick : userEvent.click
+  play: async ({ canvasElement, step, userEvent }) => {
     const canvas = within(canvasElement)
     await step('Visit Restaurants page', async () => {
-      await clickEvent(canvas.getByText('View all restaurants'))
+      await userEvent.click(canvas.getByText('View all restaurants'))
     })
   },
 } satisfies Story
@@ -59,12 +57,11 @@ export const ToCategoryListPage = {
 export const ToCategoryDetailPage = {
   play: async (context) => {
     await ToCategoryListPage.play(context)
-    const { canvasElement, args, step } = context
+    const { canvasElement, step, userEvent } = context
 
-    const clickEvent = args.demoMode === true ? animatedUserEventClick : userEvent.click
     const canvas = within(canvasElement)
     await step('Select "Burgers" category', async () => {
-      await clickEvent(canvas.getByTestId('Burgers'))
+      await userEvent.click(canvas.getByTestId('Burgers'))
     })
   },
 } satisfies Story
@@ -72,14 +69,13 @@ export const ToCategoryDetailPage = {
 export const ToRestaurantDetailPage = {
   play: async (context) => {
     await ToCategoryDetailPage.play(context)
-    const { canvasElement, args, step } = context
+    const { canvasElement, step, userEvent } = context
 
-    const clickEvent = args.demoMode === true ? animatedUserEventClick : userEvent.click
     const canvas = within(canvasElement)
 
     await step('Select first restaurant from the list', async () => {
       // await waitForElementToBeRemoved(canvas.getAllByTestId('loading'))
-      await clickEvent((await canvas.findAllByTestId('restaurant-card'))[0])
+      await userEvent.click((await canvas.findAllByTestId('restaurant-card'))[0])
     })
   },
 } satisfies Story
@@ -87,9 +83,8 @@ export const ToRestaurantDetailPage = {
 export const ToCheckoutPage = {
   play: async (context) => {
     await ToRestaurantDetailPage.play(context)
-    const { canvasElement, args, step } = context
+    const { canvasElement, userEvent, step } = context
 
-    const clickEvent = args.demoMode === true ? animatedUserEventClick : userEvent.click
     const canvas = within(canvasElement)
 
     // await waitFor(async () => {
@@ -99,11 +94,11 @@ export const ToCheckoutPage = {
 
     await step('Add Cheeseburger to cart', async () => {
       const foodItem = await canvas.findByText(/Cheeseburger/i)
-      await clickEvent(foodItem)
+      await userEvent.click(foodItem)
 
       const modalButton = await canvas.findByLabelText('increase quantity by one')
-      await clickEvent(modalButton)
-      await clickEvent(canvas.getByLabelText('confirm'))
+      await userEvent.click(modalButton)
+      await userEvent.click(canvas.getByLabelText('confirm'))
 
       const cheeseburgerItem = within(foodItem.parentElement!)
 
@@ -111,7 +106,7 @@ export const ToCheckoutPage = {
     })
 
     await step('Sidebar should contain 2 items', async () => {
-      await clickEvent(canvas.getByLabelText('food cart'))
+      await userEvent.click(canvas.getByLabelText('food cart'))
       const sidebar = await within(canvasElement).findByTestId('sidebar')
 
       const foodItemSelector: HTMLSelectElement = within(sidebar).getByRole('combobox')
@@ -119,7 +114,7 @@ export const ToCheckoutPage = {
     })
 
     await step('Go to "Checkout" page', async () => {
-      await clickEvent(canvas.getByText(/checkout/i))
+      await userEvent.click(canvas.getByText(/checkout/i))
     })
   },
 } satisfies Story
@@ -127,40 +122,34 @@ export const ToCheckoutPage = {
 export const ToSuccessPage = {
   play: async (context) => {
     await ToCheckoutPage.play(context)
-    const { canvasElement, args, step } = context
-
-    const clickEvent = args.demoMode === true ? animatedUserEventClick : userEvent.click
-    const delay = args.demoMode === true ? 50 : 0
-    const canvas = within(canvasElement)
+    const { canvas, step, userEvent } = context
 
     await step('Fill in user details', async () => {
-      await userEvent.type(canvas.getByLabelText('First name'), 'Jane', { delay })
-      await userEvent.type(canvas.getByLabelText('Last name'), 'Dough', { delay })
-      await userEvent.type(canvas.getByLabelText('Email'), 'jane@dough.com', { delay })
-      await userEvent.type(canvas.getByLabelText('Phone number'), '0612345678', { delay })
+      await userEvent.type(canvas.getByLabelText('First name'), 'Jane')
+      await userEvent.type(canvas.getByLabelText('Last name'), 'Dough')
+      await userEvent.type(canvas.getByLabelText('Email'), 'jane@dough.com')
+      await userEvent.type(canvas.getByLabelText('Phone number'), '0612345678')
     })
 
     await step('Go to the next step', async () => {
-      await clickEvent(canvas.getByText(/Next/i))
+      await userEvent.click(canvas.getByText(/Next/i))
     })
 
     await step('Fill in delivery details', async () => {
-      await userEvent.type(canvas.getByLabelText('Streetname and housenumber'), 'Somestreet 14', {
-        delay,
-      })
-      await userEvent.type(canvas.getByLabelText('Postcode'), '1043DX', { delay })
-      await userEvent.type(canvas.getByLabelText('City'), 'Amsterdam', { delay })
+      await userEvent.type(canvas.getByLabelText('Streetname and housenumber'), 'Somestreet 14')
+      await userEvent.type(canvas.getByLabelText('Postcode'), '1043DX')
+      await userEvent.type(canvas.getByLabelText('City'), 'Amsterdam')
     })
 
     await step('Complete order', async () => {
-      await clickEvent(canvas.getByText(/Complete/i))
+      await userEvent.click(canvas.getByText(/Complete/i))
     })
   },
 } satisfies Story
 
-// export const EndToEnd: Story = {
-//   ...ToSuccessPage,
-//   args: {
-//     demoMode: true,
-//   },
-// }
+export const DemoMode: Story = {
+  ...ToSuccessPage,
+  args: {
+    demoMode: true,
+  },
+}
