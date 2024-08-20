@@ -1,3 +1,4 @@
+import isChromatic from 'chromatic/isChromatic'
 import { userEvent } from '@storybook/test'
 import { Loader } from '@storybook/react'
 
@@ -100,11 +101,10 @@ async function mouseTo(
   }
 }
 
-// @ts-expect-error add module augmentation for types
-const isInStorybook = import.meta.env.STORYBOOK && !globalThis.test
-
 export const demoModeLoader: Loader = async (context) => {
-  if (isInStorybook && context.args.demoMode || context.parameters.test?.demoMode || context.globals.interactionsDemoMode) {
+  // @ts-expect-error add module augmentation for types
+  const shouldUseDemoMode = import.meta.env.STORYBOOK && !globalThis.test && !isChromatic();
+  if (shouldUseDemoMode && context.args.demoMode || context.parameters.test?.demoMode || context.globals.interactionsDemoMode) {
     const user = userEvent.setup();
 
     context.userEvent = {
