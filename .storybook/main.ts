@@ -12,8 +12,8 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/addon-a11y',
-    '@storybook/addon-coverage',
     '@storybook/addon-designs',
+    '@storybook/experimental-addon-coverage'
   ],
   typescript: {
     reactDocgen: 'react-docgen',
