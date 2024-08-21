@@ -29,7 +29,7 @@ export const Disabled: Story = {
   play: async ({ canvas }) => {
     const button = await canvas.findByRole('button')
     await expect(button).toBeDisabled()
-  }
+  },
 }
 
 export const Clear: Story = {

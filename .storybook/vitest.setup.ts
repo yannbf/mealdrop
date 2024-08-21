@@ -6,6 +6,6 @@ if(!globalThis.__vitest_browser__) {
 }
 
 import { setProjectAnnotations } from '@storybook/react'
-import storybookAnnotations from './.storybook/preview'
+import storybookAnnotations from './preview'
 
 setProjectAnnotations([storybookAnnotations])
