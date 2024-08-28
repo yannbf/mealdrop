@@ -34,7 +34,7 @@ export default mergeConfig(
       coverage: {
         provider: 'istanbul',
         reporter: ['text', 'html'],
-        exclude: ['node_modules/', 'storybook.setup.ts'],
+        exclude: ['node_modules/', 'storybook.setup.ts', 'src/**/*.stories.*', '.storybook'],
       },
     },
   })
