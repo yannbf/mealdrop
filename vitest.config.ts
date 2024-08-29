@@ -1,5 +1,5 @@
 /// <reference types="vitest" />
-import { defineConfig } from 'vitest/config'
+import { defineConfig, coverageConfigDefaults } from 'vitest/config'
 import { mergeConfig } from 'vite'
 import { storybookTest } from '@storybook/experimental-addon-vitest/plugin'
 
@@ -34,7 +34,7 @@ export default mergeConfig(
       coverage: {
         provider: 'istanbul',
         reporter: ['text', 'html'],
-        exclude: ['node_modules/', 'storybook.setup.ts', 'src/**/*.stories.*', '.storybook'],
+        exclude: [...coverageConfigDefaults.exclude, 'storybook.setup.ts', 'src/**/*.stories.*', '.storybook'],
       },
     },
   })
