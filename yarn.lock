@@ -2225,6 +2225,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/experimental-addon-test@npm:^8.3.0-beta.3":
+  version: 8.3.0-beta.3
+  resolution: "@storybook/experimental-addon-test@npm:8.3.0-beta.3"
+  dependencies:
+    "@storybook/csf": "npm:^0.1.11"
+  peerDependencies:
+    "@vitest/browser": ^2.0.0
+    storybook: ^8.3.0-beta.3
+    vitest: ^2.0.0
+  checksum: 10c0/a8e2a670c7b5d16be3c274a7ba56697fbd825ea9052850464d087fbd99457cdc12bbf62ec52c968d9ae83a7ea9770beddd0c909e0477ac691114b1c0d3b97d10
+  languageName: node
+  linkType: hard
+
 "@storybook/global@npm:^5.0.0":
   version: 5.0.0
   resolution: "@storybook/global@npm:5.0.0"
@@ -4773,6 +4786,7 @@ __metadata:
     "@storybook/addon-interactions": "npm:^8.3.0-beta.3"
     "@storybook/addon-themes": "npm:^8.3.0-beta.3"
     "@storybook/blocks": "npm:^8.3.0-beta.3"
+    "@storybook/experimental-addon-test": "npm:^8.3.0-beta.3"
     "@storybook/manager-api": "npm:^8.3.0-beta.3"
     "@storybook/react": "npm:^8.3.0-beta.3"
     "@storybook/react-vite": "npm:^8.3.0-beta.3"

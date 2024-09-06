@@ -13,6 +13,7 @@ const config: StorybookConfig = {
     '@chromatic-com/storybook',
     '@storybook/addon-a11y',
     '@storybook/addon-designs',
+    '@storybook/experimental-addon-test'
   ],
   staticDirs: ['../public'],
   framework: '@storybook/react-vite',
