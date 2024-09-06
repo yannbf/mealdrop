@@ -1,0 +1,15 @@
+diff --git a/dist/node/chunks/dep-41cf5ffd.js b/dist/node/chunks/dep-41cf5ffd.js
+index ebb430a89fd4557205de32d1b7cb574f1f74a429..703ef08eaa2e344abae77b3b5ee8b53b7fbe7027 100644
+--- a/dist/node/chunks/dep-41cf5ffd.js
++++ b/dist/node/chunks/dep-41cf5ffd.js
+@@ -16773,8 +16773,8 @@ async function injectSourcesContent(map, file, logger) {
+     //    DEBUG="vite:sourcemap" vite build
+     // …to log the missing sources.
+     if (missingSources.length) {
+-        logger.warnOnce(`Sourcemap for "${file}" points to missing source files`);
+-        debug$e?.(`Missing sources:\n  ` + missingSources.join(`\n  `));
++        // logger.warnOnce(`Sourcemap for "${file}" points to missing source files`);
++        // debug$e?.(`Missing sources:\n  ` + missingSources.join(`\n  `));
+     }
+ }
+ function genSourceMapUrl(map) {

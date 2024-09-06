@@ -3,7 +3,7 @@ import { http, delay, HttpResponse } from 'msw'
 
 import { restaurants } from '../../stub/restaurants'
 import { BASE_URL } from '../../api'
-import { withDeeplink } from '../../../.storybook/withDeeplink'
+import { withDeeplink } from '../../../.storybook/utils/withDeeplink'
 
 import { CategoryDetailPage } from './CategoryDetailPage'
 

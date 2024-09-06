@@ -2,12 +2,12 @@ import type { Preview } from '@storybook/react'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import { userEvent } from '@storybook/test'
 
-import { globalDecorators } from './decorators'
+import { globalDecorators } from './utils/decorators'
 import { viewports as breakpoints } from '../src/styles/breakpoints'
 import { DocsContainer, DocsContainerProps } from '@storybook/blocks'
 import { ThemeProvider } from 'styled-components'
 import { lightTheme } from '../src/styles/theme'
-import { demoModeLoader } from './interaction'
+import { demoModeLoader } from './utils/interaction'
 import { mswLoader } from 'msw-storybook-addon'
 
 // Create custom viewports using widths defined in design tokens

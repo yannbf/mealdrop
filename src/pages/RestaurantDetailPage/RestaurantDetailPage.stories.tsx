@@ -5,7 +5,7 @@ import { expect } from '@storybook/test'
 import { BASE_URL } from '../../api'
 import { restaurants } from '../../stub/restaurants'
 import { cartItems } from '../../stub/cart-items'
-import { withDeeplink } from '../../../.storybook/withDeeplink'
+import { withDeeplink } from '../../../.storybook/utils/withDeeplink'
 
 import { RestaurantDetailPage } from './RestaurantDetailPage'
 
@@ -35,10 +35,6 @@ type Story = StoryObj<typeof meta>
 
 export const Success = {
   parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=169%3A510',
-    },
     msw: {
       handlers: [
         http.get(BASE_URL, () => {
@@ -74,10 +70,6 @@ export const WithItemsInTheCart: Story = {
 
 export const Loading: Story = {
   parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=2152%3A3158',
-    },
     msw: {
       handlers: [
         http.get(BASE_URL, async () => {
@@ -94,10 +86,6 @@ export const Loading: Story = {
 
 export const NotFound: Story = {
   parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=1097%3A3785',
-    },
     msw: {
       handlers: {
         error: http.get(BASE_URL, () => {
@@ -114,10 +102,6 @@ export const NotFound: Story = {
 
 export const Error: Story = {
   parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=1091%3A4537',
-    },
     msw: {
       handlers: [
         http.get(BASE_URL, () => {

@@ -4,7 +4,7 @@ import { within, expect } from '@storybook/test'
 
 import { BASE_URL } from '../api'
 import { restaurants } from '../stub/restaurants'
-import { withDeeplink } from '../../.storybook/withDeeplink'
+import { withDeeplink } from '../../.storybook/utils/withDeeplink'
 
 const meta = {
   title: 'UserFlows/App',

@@ -9,10 +9,10 @@ import { configureStore } from '@reduxjs/toolkit'
 import { Provider as StoreProvider } from 'react-redux'
 import { initialize } from 'msw-storybook-addon'
 
-import { rootReducer } from '../src/app-state'
-import { breakpoints } from '../src/styles/breakpoints'
-import { GlobalStyle } from '../src/styles/GlobalStyle'
-import { darkTheme, lightTheme } from '../src/styles/theme'
+import { rootReducer } from '../../src/app-state'
+import { breakpoints } from '../../src/styles/breakpoints'
+import { GlobalStyle } from '../../src/styles/GlobalStyle'
+import { darkTheme, lightTheme } from '../../src/styles/theme'
 
 initialize({
   quiet: true,

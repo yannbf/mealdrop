@@ -8,16 +8,12 @@ const config: StorybookConfig = {
     '../src/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
-    '@chromatic-com/storybook',
-    '@storybook/addon-essentials',
     '@storybook/addon-interactions',
+    '@storybook/addon-essentials',
+    '@chromatic-com/storybook',
     '@storybook/addon-a11y',
-    '@storybook/addon-coverage',
     '@storybook/addon-designs',
   ],
-  typescript: {
-    reactDocgen: 'react-docgen',
-  },
   staticDirs: ['../public'],
   framework: '@storybook/react-vite',
 }
