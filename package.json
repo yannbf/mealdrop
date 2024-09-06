@@ -132,6 +132,7 @@
   "packageManager": "yarn@4.2.1",
   "resolutions": {
     "@use-it/event-listener@npm:^0.1.2": "patch:@use-it/event-listener@npm%3A0.1.7#~/.yarn/patches/@use-it-event-listener-npm-0.1.7-56ef42a654.patch",
-    "vite@npm:^4.5.3": "patch:vite@npm%3A4.5.3#~/.yarn/patches/vite-npm-4.5.3-5cedc7cb8f.patch"
+    "vite@npm:^4.5.3": "patch:vite@npm%3A4.5.3#~/.yarn/patches/vite-npm-4.5.3-5cedc7cb8f.patch",
+    "@storybook/core@npm:8.3.0-beta.3": "patch:@storybook/core@npm%3A8.3.0-beta.3#~/.yarn/patches/@storybook-core-npm-8.3.0-beta.3-dd96c8e525.patch"
   }
 }

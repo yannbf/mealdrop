@@ -2187,6 +2187,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storybook/core@patch:@storybook/core@npm%3A8.3.0-beta.3#~/.yarn/patches/@storybook-core-npm-8.3.0-beta.3-dd96c8e525.patch":
+  version: 8.3.0-beta.3
+  resolution: "@storybook/core@patch:@storybook/core@npm%3A8.3.0-beta.3#~/.yarn/patches/@storybook-core-npm-8.3.0-beta.3-dd96c8e525.patch::version=8.3.0-beta.3&hash=913a5e"
+  dependencies:
+    "@storybook/csf": "npm:^0.1.11"
+    "@types/express": "npm:^4.17.21"
+    browser-assert: "npm:^1.2.1"
+    esbuild: "npm:^0.18.0 || ^0.19.0 || ^0.20.0 || ^0.21.0 || ^0.22.0 || ^0.23.0"
+    esbuild-register: "npm:^3.5.0"
+    express: "npm:^4.19.2"
+    process: "npm:^0.11.10"
+    recast: "npm:^0.23.5"
+    semver: "npm:^7.6.2"
+    util: "npm:^0.12.5"
+    ws: "npm:^8.2.3"
+  checksum: 10c0/4aa9bb72e7349b7dff7bf36160131a54c32952b2578caf35739df73a9c3c93c4d581e6babcc222379d081eb7a0b1320299d50fc831b6d9a0756c434187c6f99b
+  languageName: node
+  linkType: hard
+
 "@storybook/csf-plugin@npm:8.3.0-beta.3":
   version: 8.3.0-beta.3
   resolution: "@storybook/csf-plugin@npm:8.3.0-beta.3"
