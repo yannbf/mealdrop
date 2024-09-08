@@ -126,6 +126,7 @@ export const demoModeLoader: Loader = async (context) => {
       },
     };
   } else {
-    context.userEvent = userEvent.setup();
+    // @ts-expect-error add module augmentation for types
+    context.userEvent = userEvent;
   }
 }
