@@ -21,11 +21,3 @@ export const Clear: Story = {
     clear: true,
   },
 }
-
-export const Icon: Story = {
-  args: {
-    icon: 'cart',
-    'aria-label': 'cart',
-  },
-}
-
