@@ -8,8 +8,8 @@ const config: StorybookConfig = {
     '../src/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
-    '@storybook/addon-interactions',
     '@storybook/addon-essentials',
+    '@storybook/addon-interactions',
     '@chromatic-com/storybook',
     '@storybook/addon-a11y',
     '@storybook/addon-designs',
