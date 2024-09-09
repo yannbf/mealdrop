@@ -38,11 +38,6 @@ const StyledButton = styled.button<{
       box-shadow: ${boxShadow.outerBorder};
     }
 
-    &:disabled {
-      background-color: ${clear ? color.buttonClear : color.buttonPrimary};
-      opacity: 0.4;
-    }
-
     @media ${breakpoints.M} {
       padding: ${withIcon ? '1rem' : large ? '1.125rem 1.5rem' : '0.875rem 1.5rem'};
     }
