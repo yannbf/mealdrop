@@ -34,6 +34,11 @@ const StyledButton = styled.button<{
       background-color: ${clear ? color.buttonClearHover : color.buttonPrimaryHover};
     }
 
+    &:disabled {
+      background-color: ${clear ? color.buttonClear : color.buttonPrimary};
+      opacity: 0.4;
+    }
+
     &:focus {
       box-shadow: ${boxShadow.outerBorder};
     }
