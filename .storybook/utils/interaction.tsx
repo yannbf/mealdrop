@@ -125,7 +125,7 @@ export const demoModeLoader: Loader = async (context) => {
         return user.click(target);
       },
     };
-  } else if(!context.title.includes('button')) {
+  } else if(!context.title.includes('Button')) {
     context.userEvent = userEvent.setup();
   }
 }
