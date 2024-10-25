@@ -2149,21 +2149,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-interactions@npm:^8.4.0-beta.0":
-  version: 8.4.0-beta.0
-  resolution: "@storybook/addon-interactions@npm:8.4.0-beta.0"
-  dependencies:
-    "@storybook/global": "npm:^5.0.0"
-    "@storybook/instrumenter": "npm:8.4.0-beta.0"
-    "@storybook/test": "npm:8.4.0-beta.0"
-    polished: "npm:^4.2.2"
-    ts-dedent: "npm:^2.2.0"
-  peerDependencies:
-    storybook: ^8.4.0-beta.0
-  checksum: 10c0/f7ec70526733f955629fb5a96ae325c7f894b4289557f4521477a4c4e130c7954b4a3f9afca4bc6ea54cc75ff1993e980496be83b6a65c9859261922e4058c5a
-  languageName: node
-  linkType: hard
-
 "@storybook/addon-measure@npm:8.4.0-beta.0":
   version: 8.4.0-beta.0
   resolution: "@storybook/addon-measure@npm:8.4.0-beta.0"
@@ -5071,7 +5056,6 @@ __metadata:
     "@storybook/addon-coverage": "npm:^1.0.4"
     "@storybook/addon-designs": "npm:^8.0.3"
     "@storybook/addon-essentials": "npm:^8.4.0-beta.0"
-    "@storybook/addon-interactions": "npm:^8.4.0-beta.0"
     "@storybook/addon-themes": "npm:^8.4.0-beta.0"
     "@storybook/blocks": "npm:^8.4.0-beta.0"
     "@storybook/experimental-addon-test": "npm:^8.4.0-beta.0"

@@ -63,7 +63,6 @@
     "@storybook/addon-coverage": "^1.0.4",
     "@storybook/addon-designs": "^8.0.3",
     "@storybook/addon-essentials": "^8.4.0-beta.0",
-    "@storybook/addon-interactions": "^8.4.0-beta.0",
     "@storybook/addon-themes": "^8.4.0-beta.0",
     "@storybook/blocks": "^8.4.0-beta.0",
     "@storybook/experimental-addon-test": "^8.4.0-beta.0",

@@ -24,14 +24,4 @@ export default defineWorkspace([
       setupFiles: ['./.storybook/vitest.setup.ts'],
     },
   },
-  // This is just to test legacy code, ignore this.
-  {
-    extends: 'vite.config.ts',
-    test: {
-      name: 'portable-stories',
-      environment: 'happy-dom',
-      include: ['**/*.test.tsx'],
-      setupFiles: ['./ps-setup.ts'],
-    },
-  },
 ]);
