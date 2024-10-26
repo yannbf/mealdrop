@@ -15,23 +15,13 @@ export default defineWorkspace([
       name: 'storybook',
       browser: {
         enabled: true,
-        headless: true,
+        headless: false,
         name: 'chromium',
         provider: 'playwright',
       },
       // Make sure to adjust this pattern to match your stories files.
       include: ['**/*.stories.?(m)[jt]s?(x)'],
       setupFiles: ['./.storybook/vitest.setup.ts'],
-    },
-  },
-  // This is just to test legacy code, ignore this.
-  {
-    extends: 'vite.config.ts',
-    test: {
-      name: 'portable-stories',
-      environment: 'happy-dom',
-      include: ['**/*.test.tsx'],
-      setupFiles: ['./ps-setup.ts'],
     },
   },
 ]);

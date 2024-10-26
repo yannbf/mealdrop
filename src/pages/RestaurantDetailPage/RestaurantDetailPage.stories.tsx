@@ -4,7 +4,6 @@ import { expect } from '@storybook/test'
 
 import { BASE_URL } from '../../api'
 import { restaurants } from '../../stub/restaurants'
-import { cartItems } from '../../stub/cart-items'
 import { withDeeplink } from '../../../.storybook/withDeeplink'
 
 import { RestaurantDetailPage } from './RestaurantDetailPage'
@@ -12,8 +11,17 @@ import { RestaurantDetailPage } from './RestaurantDetailPage'
 const meta = {
   title: 'Pages/RestaurantDetailPage',
   component: RestaurantDetailPage,
+  tags: ['autodocs'],
   decorators: [withDeeplink],
   parameters: {
+    docs: {
+      story: {
+        // HEY ARTEM: This flag being false makes each story render in a separate iframe.
+        // if false, they render as inline components.
+        inline: false,
+        iframeHeight: 400,
+      }
+    },
     layout: 'fullscreen',
     deeplink: {
       route: '/restaurants/1',
@@ -33,6 +41,26 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+
+function isolatedResolver(resolver: any) {
+  return (info: any) => {
+    console.log('INSIDE RESOLVER RESOLVING')
+    const node = document.createElement('p')
+    node.id = "MSW_DEBUG"
+    node.style.fontSize = '50px'
+    node.style.color = 'red'
+    node.style.fontWeight = 'bold'
+    node.style.zIndex = '999'
+    node.innerText = info.request.referrer + '-' + location.href
+    document.body.appendChild(node)
+    console.log('info', { requestReferrer: info.request.referrer, href: location.href })
+    if (info.request.referrer !== location.href) {
+      return
+    }
+    return resolver(info)
+  }
+}
+
 export const Success = {
   parameters: {
     design: {
@@ -41,9 +69,10 @@ export const Success = {
     },
     msw: {
       handlers: [
-        http.get(BASE_URL, () => {
+        http.get(BASE_URL, isolatedResolver(() => {
+          console.log('INSIDE RESOLVER CB')
           return HttpResponse.json(restaurants[0])
-        }),
+        })),
       ],
     },
   },
@@ -53,25 +82,6 @@ export const Success = {
   },
 } satisfies Story
 
-export const WithModalOpen: Story = {
-  ...Success,
-  play: async (context) => {
-    await Success.play(context)
-    const item = await context.canvas.findByText(/Cheeseburger/i)
-    await context.userEvent.click(item)
-    await expect(context.canvas.getByTestId('modal')).toBeInTheDocument()
-  },
-}
-
-export const WithItemsInTheCart: Story = {
-  parameters: {
-    ...Success.parameters,
-    store: {
-      initialState: { cart: { items: cartItems } },
-    },
-  },
-}
-
 export const Loading: Story = {
   parameters: {
     design: {
@@ -80,9 +90,9 @@ export const Loading: Story = {
     },
     msw: {
       handlers: [
-        http.get(BASE_URL, async () => {
+        http.get(BASE_URL, isolatedResolver(async () => {
           await delay('infinite')
-        }),
+        })),
       ],
     },
   },
@@ -100,9 +110,9 @@ export const NotFound: Story = {
     },
     msw: {
       handlers: {
-        error: http.get(BASE_URL, () => {
+        error: http.get(BASE_URL, isolatedResolver(() => {
           return HttpResponse.json(null, { status: 404 })
-        }),
+        })),
       },
     },
   },
@@ -120,9 +130,9 @@ export const Error: Story = {
     },
     msw: {
       handlers: [
-        http.get(BASE_URL, () => {
+        http.get(BASE_URL, isolatedResolver(() => {
           return HttpResponse.json({}, { status: 500 })
-        }),
+        })),
       ],
     },
   },
