@@ -2,14 +2,27 @@
 import { mergeConfig, coverageConfigDefaults } from 'vitest/config'
 import viteConfig from './vite.config'
 
-export default mergeConfig(viteConfig,{
+export default mergeConfig(viteConfig, {
   test: {
     environment: 'happy-dom',
     include: ['**/*.test.ts'],
     coverage: {
-      provider: 'v8',
-      reporter: ['text', 'html'],
-      exclude: [...coverageConfigDefaults.exclude, 'storybook.setup.ts', 'src/**/*.stories.*', '.storybook'],
+      exclude: [
+        ...coverageConfigDefaults.exclude,
+        'storybook.setup.ts',
+        '**/*.stories.*',
+        '.storybook',
+        'src/docs',
+        'src/components/Button/utils.tsx',
+        'public',
+        'functions',
+        '**/conditional-logic.ts',
+        '**/RestaurantCard/progress',
+        '**/RestaurantsSection.container.tsx',
+        'src/stub',
+        'ps-setup.ts',
+        '**/serviceWorker.ts',
+      ],
     },
   },
 })

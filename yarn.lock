@@ -3558,7 +3558,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitest/browser@npm:^2.1.2":
+"@vitest/browser@npm:2.1.2":
   version: 2.1.2
   resolution: "@vitest/browser@npm:2.1.2"
   dependencies:
@@ -3586,7 +3586,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitest/coverage-v8@npm:^2.1.2":
+"@vitest/coverage-v8@npm:2.1.2":
   version: 2.1.2
   resolution: "@vitest/coverage-v8@npm:2.1.2"
   dependencies:
@@ -5093,8 +5093,8 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:^7.8.0"
     "@typescript-eslint/parser": "npm:^7.8.0"
     "@vitejs/plugin-react": "npm:^4.2.1"
-    "@vitest/browser": "npm:^2.1.2"
-    "@vitest/coverage-v8": "npm:^2.1.2"
+    "@vitest/browser": "npm:2.1.2"
+    "@vitest/coverage-v8": "npm:2.1.2"
     axios: "npm:^1.6.8"
     babel-loader: "npm:8.1.0"
     babel-plugin-istanbul: "npm:^6.1.1"
@@ -5138,7 +5138,7 @@ __metadata:
     vite: "npm:^4.0.0"
     vite-plugin-svgr: "npm:^4.2.0"
     vite-tsconfig-paths: "npm:^4.3.2"
-    vitest: "npm:^2.1.2"
+    vitest: "npm:2.1.2"
     vitest-axe: "npm:^0.1.0"
     vitest-canvas-mock: "npm:^0.3.3"
     wait-on: "npm:^7.2.0"
@@ -13972,7 +13972,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vitest@npm:^2.1.2":
+"vitest@npm:2.1.2":
   version: 2.1.2
   resolution: "vitest@npm:2.1.2"
   dependencies:

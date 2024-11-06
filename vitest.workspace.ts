@@ -11,6 +11,7 @@ export default defineWorkspace([
       // See options at: https://storybook.js.org/docs/writing-tests/vitest-plugin#storybooktest
       storybookTest({ configDir: '.storybook' }),
     ],
+    publicDir: 'public',
     test: {
       name: 'storybook',
       browser: {

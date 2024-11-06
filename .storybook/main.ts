@@ -8,12 +8,11 @@ const config: StorybookConfig = {
     '../src/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
+    '@storybook/experimental-addon-test',
     '@chromatic-com/storybook',
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
-    '@storybook/addon-coverage',
     '@storybook/addon-designs',
-    '@storybook/experimental-addon-test'
   ],
   typescript: {
     reactDocgen: 'react-docgen',
