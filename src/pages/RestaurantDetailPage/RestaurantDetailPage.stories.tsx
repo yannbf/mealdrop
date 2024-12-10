@@ -3,6 +3,7 @@ import { http, HttpResponse, delay } from 'msw'
 import { within, userEvent } from '@storybook/test'
 import { expect } from '@storybook/test'
 
+import { allModes } from '../../../.storybook/modes'
 import { BASE_URL } from '../../api'
 import { restaurants } from '../../stub/restaurants'
 import { cartItems } from '../../stub/cart-items'
@@ -52,6 +53,14 @@ export const Success = {
 
 export const WithModalOpen: Story = {
   ...Success,
+  parameters: {
+    chromatic: {
+      modes: {
+        l: allModes.l,
+      },
+      // cropToViewport: true,
+    },
+  },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
     const item = await canvas.findByText(/Cheeseburger/i)
