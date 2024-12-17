@@ -103,7 +103,7 @@ async function mouseTo(
 
 export const demoModeLoader: Loader = async (context) => {
   // @ts-expect-error add module augmentation for types
-  const shouldUseDemoMode = import.meta.env.STORYBOOK && !globalThis.test && !isChromatic();
+  const shouldUseDemoMode = import.meta.env.STORYBOOK && !globalThis.test && !isChromatic() && !globalThis.__vitest_browser__;
   if (shouldUseDemoMode && context.args.demoMode || context.parameters.test?.demoMode || context.globals.interactionsDemoMode) {
     const user = userEvent.setup();
 

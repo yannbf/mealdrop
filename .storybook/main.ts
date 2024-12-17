@@ -8,9 +8,9 @@ const config: StorybookConfig = {
     '../src/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
+    '@storybook/addon-essentials',
     '@storybook/experimental-addon-test',
     '@chromatic-com/storybook',
-    '@storybook/addon-essentials',
     '@storybook/addon-a11y',
     '@storybook/addon-designs',
   ],
