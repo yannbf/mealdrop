@@ -1,5 +1,5 @@
 
-import { mergeConfig, coverageConfigDefaults } from 'vitest/config'
+import { mergeConfig, coverageConfigDefaults, UserConfig } from 'vitest/config'
 import viteConfig from './vite.config'
 
 export default mergeConfig(viteConfig, {
@@ -25,4 +25,4 @@ export default mergeConfig(viteConfig, {
       ],
     },
   },
-})
+} as UserConfig)

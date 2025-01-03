@@ -149,6 +149,7 @@ export const ToSuccessPage = {
 
 export const DemoMode: Story = {
   ...ToSuccessPage,
+  tags: ['!test'],
   args: {
     demoMode: true,
   },

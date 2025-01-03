@@ -11,6 +11,29 @@ export default defineWorkspace([
       // See options at: https://storybook.js.org/docs/writing-tests/vitest-plugin#storybooktest
       storybookTest({ configDir: '.storybook' }),
     ],
+    optimizeDeps: {
+      include: [
+        '@storybook/addon-a11y/preview', 
+        '@storybook/react', 
+        '@storybook/addon-viewport', 
+        '@storybook/blocks', 
+        'styled-components', 
+        'msw-storybook-addon', 
+        'react-router-dom', 
+        '@reduxjs/toolkit', 
+        'react-redux', 
+        'chromatic/isChromatic', 
+        '@storybook/test',
+        'axios',
+        'react-multi-carousel', 
+        'react-hooks-helper', 
+        'react-loading-skeleton', 
+        'react-lottie-player', 
+        'use-dark-mode', 
+        'react-transition-group', 
+        'react-dom'
+      ]
+    },
     publicDir: 'public',
     test: {
       name: 'storybook',

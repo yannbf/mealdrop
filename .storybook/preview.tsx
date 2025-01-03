@@ -51,6 +51,7 @@ const preview: Preview = {
       ),
     },
   },
+
   globalTypes: {
     theme: {
       name: 'Theme',
@@ -66,13 +67,17 @@ const preview: Preview = {
       },
     },
   },
+
   decorators: globalDecorators,
-  loaders: [mswLoader, demoModeLoader]
+  loaders: [mswLoader, demoModeLoader],
+  // a11ytest tag controls whether accessibility tests are run as part of a standalone Vitest test run
+  // For more information please visit: https://storybook.js.org/docs/writing-tests/accessibility-testing
+  tags: ['!a11ytest']
 }
 
 declare module '@storybook/csf' {
   interface StoryContext {
-      userEvent: ReturnType<typeof userEvent.setup>;
+    userEvent: ReturnType<typeof userEvent.setup>;
   }
 }
 export default preview
