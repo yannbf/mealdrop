@@ -8,7 +8,7 @@
  * - Please do NOT serve this file on production.
  */
 
-const PACKAGE_VERSION = '2.4.9'
+const PACKAGE_VERSION = '2.3.1'
 const INTEGRITY_CHECKSUM = '26357c79639bfa20d64c0efca2a87423'
 const IS_MOCKED_RESPONSE = Symbol('isMockedResponse')
 const activeClientIds = new Set()
@@ -260,6 +260,29 @@ function sendToClient(client, message, transferrables = []) {
     client.postMessage(
       message,
       [channel.port2].concat(transferrables.filter(Boolean)),
+    )
+  })
+}
+
+async function respondWithMock(response) {
+  // Setting response status code to 0 is a no-op.
+  // However, when responding with a "Response.error()", the produced Response
+  // instance will have status code set to 0. Since it's not possible to create
+  // a Response instance with status code 0, handle that use-case separately.
+  if (response.status === 0) {
+    return Response.error()
+  }
+
+  const mockedResponse = new Response(response.body, response)
+
+  Reflect.defineProperty(mockedResponse, IS_MOCKED_RESPONSE, {
+    value: true,
+    enumerable: true,
+  })
+
+  return mockedResponse
+}
+bles.filter(Boolean)),
     )
   })
 }

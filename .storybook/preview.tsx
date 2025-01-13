@@ -51,6 +51,7 @@ const preview: Preview = {
       ),
     },
   },
+
   globalTypes: {
     theme: {
       name: 'Theme',
@@ -66,8 +67,12 @@ const preview: Preview = {
       },
     },
   },
+
   decorators: globalDecorators,
-  loaders: [mswLoader, demoModeLoader]
+  loaders: [mswLoader, demoModeLoader],
+  // a11y-test tag controls whether accessibility tests are run as part of a standalone Vitest test run
+  // For more information please visit: https://storybook.js.org/docs/writing-tests/accessibility-testing
+  tags: [/*'a11y-test'*/]
 }
 
 declare module '@storybook/csf' {
