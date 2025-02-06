@@ -1,8 +1,8 @@
-import type { StoryObj, Meta } from '@storybook/react'
+import preview from "../../../.storybook/preview";
 
 import { Category } from './Category'
 
-const meta = {
+const meta = preview.meta({
   title: 'Components/Category',
   component: Category,
   args: {
@@ -17,15 +17,12 @@ const meta = {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1145-3681&mode=design&t=zmyrZnTzOLfLqBwr-4',
     },
   },
-} satisfies Meta<typeof Category>
-export default meta
+})
 
-type Story = StoryObj<typeof meta>
+export const Default = meta.story({})
 
-export const Default: Story = {}
-
-export const Rounded: Story = {
+export const Rounded = meta.story({
   args: {
     round: true,
   },
-}
+})

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import preview from "../../../.storybook/preview";
 import { useEffect, useState } from 'react'
 import { fn } from '@storybook/test'
 
@@ -7,7 +7,7 @@ import { Body } from '../typography'
 
 import { Modal } from './Modal'
 
-const meta = {
+const meta = preview.meta({
   title: 'Components/Modal',
   component: Modal,
   parameters: {
@@ -60,17 +60,14 @@ const meta = {
       </>
     )
   },
-} satisfies Meta<typeof Modal>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
+export const Desktop = meta.story({})
 
-export const Desktop: Story = {}
-
-export const Mobile: Story = {
+export const Mobile = meta.story({
   parameters: {
     viewport: {
       defaultViewport: 'iphonex',
     },
   },
-}
+})

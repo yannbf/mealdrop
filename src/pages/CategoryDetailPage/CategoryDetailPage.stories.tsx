@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import preview from "../../../.storybook/preview";
 import { http, delay, HttpResponse } from 'msw'
 
 import { restaurants } from '../../stub/restaurants'
@@ -7,7 +7,7 @@ import { withDeeplink } from '../../../.storybook/withDeeplink'
 
 import { CategoryDetailPage } from './CategoryDetailPage'
 
-const meta = {
+const meta = preview.meta({
   title: 'Pages/CategoryDetailPage',
   component: CategoryDetailPage,
   parameters: {
@@ -19,20 +19,17 @@ const meta = {
     },
   },
   decorators: [withDeeplink],
-} satisfies Meta<typeof CategoryDetailPage>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   parameters: {
     msw: {
       handlers: [http.get(BASE_URL, () => HttpResponse.json([restaurants[0]]))],
     },
   },
-}
+})
 
-export const Loading: Story = {
+export const Loading = meta.story({
   parameters: {
     msw: {
       handlers: [
@@ -42,9 +39,9 @@ export const Loading: Story = {
       ],
     },
   },
-}
+})
 
-export const Missing: Story = {
+export const Missing = meta.story({
   parameters: {
     deeplink: { route: '/categories/wrong', path: '/categories/:id' },
     msw: {
@@ -55,4 +52,4 @@ export const Missing: Story = {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=426-1402&mode=design&t=PGeoMU7t8HOFToQL-4',
     },
   },
-}
+})

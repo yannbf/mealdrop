@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react'
+import preview from "../../../.storybook/preview";
 import { http, HttpResponse, delay } from 'msw'
 import { expect } from '@storybook/test'
 
@@ -9,7 +9,7 @@ import { withDeeplink } from '../../../.storybook/withDeeplink'
 
 import { RestaurantDetailPage } from './RestaurantDetailPage'
 
-const meta = {
+const meta = preview.meta({
   title: 'Pages/RestaurantDetailPage',
   component: RestaurantDetailPage,
   decorators: [withDeeplink],
@@ -28,12 +28,9 @@ const meta = {
       </>
     )
   },
-} satisfies Meta<typeof RestaurantDetailPage>
-export default meta
+})
 
-type Story = StoryObj<typeof meta>
-
-export const Success = {
+export const Success = meta.story({
   parameters: {
     design: {
       type: 'figma',
@@ -51,28 +48,23 @@ export const Success = {
     const item = await canvas.findByText(/Burger Kingdom/i)
     await expect(item).toBeInTheDocument()
   },
-} satisfies Story
+})
+Success.test('should open a modal on click', async (context) => {
+  const item = await context.canvas.findByText(/Cheeseburger/i)
+  await context.userEvent.click(item)
+  await expect(context.canvas.getByTestId('modal')).toBeInTheDocument()
+})
 
-export const WithModalOpen: Story = {
-  ...Success,
-  play: async (context) => {
-    await Success.play(context)
-    const item = await context.canvas.findByText(/Cheeseburger/i)
-    await context.userEvent.click(item)
-    await expect(context.canvas.getByTestId('modal')).toBeInTheDocument()
-  },
-}
-
-export const WithItemsInTheCart: Story = {
+export const WithItemsInTheCart = meta.story({
   parameters: {
-    ...Success.parameters,
+    ...Success.input.parameters,
     store: {
       initialState: { cart: { items: cartItems } },
     },
   },
-}
+})
 
-export const Loading: Story = {
+export const Loading = meta.story({
   parameters: {
     design: {
       type: 'figma',
@@ -90,9 +82,9 @@ export const Loading: Story = {
     const item = await canvas.findByText(/Looking for some food.../i)
     await expect(item).toBeInTheDocument()
   },
-}
+})
 
-export const NotFound: Story = {
+export const NotFound = meta.story({
   parameters: {
     design: {
       type: 'figma',
@@ -110,9 +102,9 @@ export const NotFound: Story = {
     const item = await canvas.findByText(/We can't find this page/i)
     await expect(item).toBeInTheDocument()
   },
-}
+})
 
-export const Error: Story = {
+export const Error = meta.story({
   parameters: {
     design: {
       type: 'figma',
@@ -132,4 +124,4 @@ export const Error: Story = {
       await expect(item).toBeInTheDocument()
     })
   },
-}
+})

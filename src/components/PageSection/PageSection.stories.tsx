@@ -1,28 +1,25 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import preview from "../../../.storybook/preview";
 
 import { PageSection } from './PageSection'
 
-const meta = {
+const meta = preview.meta({
   title: 'Components/PageSection',
   component: PageSection,
   parameters: {
     layout: 'fullscreen',
   },
-} satisfies Meta<typeof PageSection>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     title: 'Asian',
     children: <h1>Hello Dummy Content</h1>,
   },
-}
+})
 
-export const WithButtons: Story = {
+export const WithButtons = meta.story({
   args: {
-    ...Default.args,
+    ...Default.input.args,
     title: 'Asian',
   },
-}
+})

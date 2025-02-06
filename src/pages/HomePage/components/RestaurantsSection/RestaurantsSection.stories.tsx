@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import preview from "../../../../../.storybook/preview";
 import { delay, HttpResponse, http } from 'msw'
 
 import { BASE_URL } from '../../../../api'
@@ -6,15 +6,12 @@ import { restaurants } from '../../../../stub/restaurants'
 
 import { RestaurantsSection } from './RestaurantsSection'
 
-const meta = {
+const meta = preview.meta({
   title: 'Pages/HomePage/Components/RestaurantsSection',
   component: RestaurantsSection,
-} satisfies Meta<typeof RestaurantsSection>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     title: 'Our favorite picks',
   },
@@ -23,11 +20,11 @@ export const Default: Story = {
       handlers: [http.get(BASE_URL, () => HttpResponse.json(restaurants))],
     },
   },
-}
+})
 
-export const Loading: Story = {
+export const Loading = meta.story({
   args: {
-    ...Default.args,
+    ...Default.input.args,
   },
   parameters: {
     msw: {
@@ -38,4 +35,4 @@ export const Loading: Story = {
       ],
     },
   },
-}
+})

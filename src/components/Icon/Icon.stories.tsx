@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import preview from "../../../.storybook/preview";
 import styled, { css } from 'styled-components'
 
 import { Body } from '../typography/Body'
@@ -27,7 +27,7 @@ const IconContainer = styled.div(
   `
 )
 
-const meta = {
+const meta = preview.meta({
   title: 'Components/Icon',
   component: Icon,
   argTypes: {
@@ -43,12 +43,9 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof Icon>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const AllIcons: StoryObj = {
+export const AllIcons = meta.story({
   render: () => (
     <>
       <IconContainer>
@@ -63,11 +60,11 @@ export const AllIcons: StoryObj = {
       </IconContainer>
     </>
   ),
-}
+})
 
-export const Playground: Story = {
+export const Playground = meta.story({
   args: {
     name: 'cart',
     size: 24,
   },
-}
+})

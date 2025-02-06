@@ -1,8 +1,8 @@
-import { Meta, StoryObj } from '@storybook/react'
+import preview from "../../../.storybook/preview";
 
 import { SuccessPage } from './SuccessPage'
 
-const meta = {
+const meta = preview.meta({
   title: 'Pages/SuccessPage',
   component: SuccessPage,
   parameters: {
@@ -12,12 +12,9 @@ const meta = {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=426%3A3444',
     },
   },
-} satisfies Meta<typeof SuccessPage>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   parameters: {
     store: {
       initialState: {
@@ -42,4 +39,4 @@ export const Default: Story = {
       },
     },
   },
-}
+})

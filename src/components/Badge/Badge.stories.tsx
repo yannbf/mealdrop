@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import preview from "../../../.storybook/preview";
 
 import { Badge } from './Badge'
 
-const meta = {
+const meta = preview.meta({
   title: 'Components/Badge',
   component: Badge,
   parameters: {
@@ -11,13 +11,10 @@ const meta = {
       url: 'https://www.figma.com/file/XW4Bcjmj3JOILjKmZjjdQd/Mealdrop?node-id=780%3A2938',
     },
   },
-} satisfies Meta<typeof Badge>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     text: 'Comfort food',
   },
-}
+})

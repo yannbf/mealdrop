@@ -1,4 +1,7 @@
-import type { Preview } from '@storybook/react'
+import addonA11y from "@storybook/addon-a11y";
+import experimentalAddonTest from "@storybook/experimental-addon-test";
+import addonEssentials from "@storybook/addon-essentials";
+import { definePreview } from "@storybook/react-vite";
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import { userEvent } from '@storybook/test'
 
@@ -24,7 +27,12 @@ const breakpointViewports = Object.keys(breakpoints).reduce((acc, key) => {
   return acc
 }, {} as typeof INITIAL_VIEWPORTS)
 
-const preview: Preview = {
+declare module '@storybook/csf' {
+  interface StoryContext {
+      userEvent: ReturnType<typeof userEvent.setup>;
+  }
+}
+export default definePreview({
   parameters: {
     viewport: {
       defaultViewport: 'responsive',
@@ -51,6 +59,7 @@ const preview: Preview = {
       ),
     },
   },
+
   globalTypes: {
     theme: {
       name: 'Theme',
@@ -66,13 +75,8 @@ const preview: Preview = {
       },
     },
   },
-  decorators: globalDecorators,
-  loaders: [mswLoader, demoModeLoader]
-}
 
-declare module '@storybook/csf' {
-  interface StoryContext {
-      userEvent: ReturnType<typeof userEvent.setup>;
-  }
-}
-export default preview
+  decorators: globalDecorators,
+  loaders: [mswLoader, demoModeLoader],
+  addons: [addonEssentials(), experimentalAddonTest(), addonA11y()]
+});

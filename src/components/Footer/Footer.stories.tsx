@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import preview from "../../../.storybook/preview";
 
 import { Footer } from './Footer'
 
-const meta = {
+const meta = preview.meta({
   title: 'Components/Footer',
   component: Footer,
   parameters: {
@@ -12,9 +12,6 @@ const meta = {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1716-3158&mode=design&t=zmyrZnTzOLfLqBwr-4',
     },
   },
-} satisfies Meta<typeof Footer>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {}
+export const Default = meta.story({})

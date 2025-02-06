@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import preview from "../../../.storybook/preview";
 
 import { Review } from './Review'
 
-const meta = {
+const meta = preview.meta({
   title: 'Components/Review',
   component: Review,
   argTypes: {
@@ -21,33 +21,30 @@ const meta = {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1128-3434&mode=design&t=zmyrZnTzOLfLqBwr-4',
     },
   },
-} satisfies Meta<typeof Review>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
+export const Default = meta.story({})
 
-export const Default: Story = {}
-
-export const Excellent: Story = {
+export const Excellent = meta.story({
   args: {
     rating: 5,
   },
-}
+})
 
-export const VeryGood: Story = {
+export const VeryGood = meta.story({
   args: {
     rating: 4.3,
   },
-}
+})
 
-export const Adequate: Story = {
+export const Adequate = meta.story({
   args: {
     rating: 2.5,
   },
-}
+})
 
-export const Poor: Story = {
+export const Poor = meta.story({
   args: {
     rating: 1.5,
   },
-}
+})

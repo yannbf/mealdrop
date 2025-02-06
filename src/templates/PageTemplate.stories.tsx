@@ -1,42 +1,39 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import preview from "../../.storybook/preview";
 import * as React from 'react'
 
 import { cartItems } from '../stub/cart-items'
 
 import { PageTemplate } from './PageTemplate'
 
-const meta = {
+const meta = preview.meta({
   title: 'Templates/PageTemplate',
   component: PageTemplate,
   parameters: {
     layout: 'fullscreen',
   },
-} satisfies Meta<typeof PageTemplate>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 const DummyComponent: React.FC<React.PropsWithChildren<unknown>> = ({ children }) => (
   <div style={{ padding: 60 }}>{children}</div>
 )
 
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     children: (
       <DummyComponent>Default template with scrollable header and navigation items</DummyComponent>
     ),
   },
-}
+})
 
-export const DefaultWithItemsInTheCart: Story = {
+export const DefaultWithItemsInTheCart = meta.story({
   parameters: {
     store: {
       initialState: { cart: { items: cartItems } },
     },
   },
-}
+})
 
-export const StickyHeader: Story = {
+export const StickyHeader = meta.story({
   args: {
     type: 'sticky-header',
     children: (
@@ -45,9 +42,9 @@ export const StickyHeader: Story = {
       </DummyComponent>
     ),
   },
-}
+})
 
-export const Basic: Story = {
+export const Basic = meta.story({
   args: {
     type: 'basic',
     children: (
@@ -56,4 +53,4 @@ export const Basic: Story = {
       </DummyComponent>
     ),
   },
-}
+})

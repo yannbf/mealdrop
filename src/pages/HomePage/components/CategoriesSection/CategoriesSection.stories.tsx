@@ -1,18 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import preview from "../../../../../.storybook/preview";
 
 import { categories } from '../../../../stub/categories'
 
 import { CategoriesSection } from './CategoriesSection'
 
-const meta = {
+const meta = preview.meta({
   title: 'Pages/HomePage/Components/CategoriesSection',
   component: CategoriesSection,
   args: {
     categories,
   },
-} satisfies Meta<typeof CategoriesSection>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {}
+export const Default = meta.story({})

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import preview from "../../../.storybook/preview";
 import { fn } from '@storybook/test'
 
 import sushi from '../../assets/images/sushi.svg'
@@ -6,7 +6,7 @@ import { AnimatedIllustration } from '../AnimatedIllustration'
 
 import { ErrorBlock } from './ErrorBlock'
 
-const meta = {
+const meta = preview.meta({
   title: 'Components/ErrorBlock',
   component: ErrorBlock,
   parameters: {
@@ -20,19 +20,16 @@ const meta = {
     */
     onButtonClick: fn(),
   },
-} satisfies Meta<typeof ErrorBlock>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     title: 'This is not the food you’re looking for.',
     body: 'There seems that there are no restaurants in this category yet. Try to come back later?',
     image: <img alt="no restaurants found" src={sushi} />,
     buttonText: 'See all restaurants',
   },
-}
+})
 
 /* export const Error500: Story = {
   args: {
@@ -43,11 +40,11 @@ export const Default: Story = {
   },
 } */
 
-export const Error404: Story = {
+export const Error404 = meta.story({
   args: {
     title: "We can't find this page",
     body: 'This page doesn’t exist, keep looking.',
     image: <AnimatedIllustration animation="NotFound" />,
     buttonText: 'Home',
   },
-}
+})

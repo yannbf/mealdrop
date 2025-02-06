@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import preview from "../../../.storybook/preview";
 
 import { AnimatedIllustration } from './AnimatedIllustration'
 
-const meta = {
+const meta = preview.meta({
   title: 'Components/AnimatedIllustration',
   component: AnimatedIllustration,
   parameters: {
@@ -17,13 +17,10 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<typeof AnimatedIllustration>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     animation: 'Error',
   },
-}
+})

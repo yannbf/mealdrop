@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import preview from "../../../.storybook/preview";
 
 import { CheckoutPage } from './CheckoutPage'
 
-const meta = {
+const meta = preview.meta({
   title: 'Pages/CheckoutPage',
   component: CheckoutPage,
   parameters: {
@@ -12,14 +12,11 @@ const meta = {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=426-3291&mode=design&t=PGeoMU7t8HOFToQL-4',
     },
   },
-} satisfies Meta<typeof CheckoutPage>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
+export const Empty = meta.story({})
 
-export const Empty: Story = {}
-
-export const WithItems: Story = {
+export const WithItems = meta.story({
   parameters: {
     store: {
       initialState: {
@@ -45,4 +42,4 @@ export const WithItems: Story = {
       },
     },
   },
-}
+})

@@ -1,20 +1,17 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import preview from "../../../.storybook/preview";
 
 import { Heading } from './Heading'
 
-const meta = {
+const meta = preview.meta({
   title: 'Components/Typography/Heading',
   component: Heading,
   argTypes: {
     children: { controls: 'text' },
     level: { table: { disable: true } },
   },
-} satisfies Meta<typeof Heading>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     children: '',
   },
@@ -26,4 +23,4 @@ export const Default: Story = {
       <Heading level={4}>{children || 'Heading 4'}</Heading>
     </div>
   ),
-}
+})
