@@ -56,7 +56,8 @@ export const ToCategoryListPage = meta.story({
 
 export const ToCategoryDetailPage = meta.story({
   play: async (context) => {
-    await ToCategoryListPage.play(context)
+    // in an upcoming canary the .input would not be needed for play functions
+    await ToCategoryListPage.input.play?.(context)
     const { canvasElement, step, userEvent } = context
 
     const canvas = within(canvasElement)
@@ -68,7 +69,8 @@ export const ToCategoryDetailPage = meta.story({
 
 export const ToRestaurantDetailPage = meta.story({
   play: async (context) => {
-    await ToCategoryDetailPage.play(context)
+    // in an upcoming canary the .input would not be needed for play functions
+    await ToCategoryDetailPage.input.play?.(context)
     const { canvasElement, step, userEvent } = context
 
     const canvas = within(canvasElement)
@@ -82,7 +84,8 @@ export const ToRestaurantDetailPage = meta.story({
 
 export const ToCheckoutPage = meta.story({
   play: async (context) => {
-    await ToRestaurantDetailPage.play(context)
+    // in an upcoming canary the .input would not be needed for play functions
+    await ToRestaurantDetailPage.input.play?.(context)
     const { canvasElement, userEvent, step } = context
 
     const canvas = within(canvasElement)
@@ -121,7 +124,8 @@ export const ToCheckoutPage = meta.story({
 
 export const ToSuccessPage = meta.story({
   play: async (context) => {
-    await ToCheckoutPage.play(context)
+    // in an upcoming canary the .input would not be needed for play functions
+    await ToCheckoutPage.input.play?.(context)
     const { canvas, step, userEvent } = context
 
     await step('Fill in user details', async () => {
