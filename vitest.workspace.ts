@@ -20,8 +20,6 @@ export default defineWorkspace([
         name: 'chromium',
         provider: 'playwright',
       },
-      // Make sure to adjust this pattern to match your stories files.
-      include: ['**/*.stories.?(m)[jt]s?(x)'],
       setupFiles: ['.storybook/vitest.setup.ts'],
     },
   },
