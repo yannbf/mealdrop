@@ -13,7 +13,7 @@ describe('useKey hook', () => {
     const { result } = renderHook(() => useKey('a', keyDownCb))
 
     act(() => {
-      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'a' }))
+      globalThis.dispatchEvent(new KeyboardEvent('keydown', { key: 'a' }))
     })
 
     expect(result.current).toBe(true)
@@ -25,8 +25,8 @@ describe('useKey hook', () => {
     const { result } = renderHook(() => useKey('a', undefined, keyUpCb))
 
     act(() => {
-      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'a' }))
-      window.dispatchEvent(new KeyboardEvent('keyup', { key: 'a' }))
+      globalThis.dispatchEvent(new KeyboardEvent('keydown', { key: 'a' }))
+      globalThis.dispatchEvent(new KeyboardEvent('keyup', { key: 'a' }))
     })
 
     expect(result.current).toBe(false)
@@ -37,8 +37,8 @@ describe('useKey hook', () => {
     const { result } = renderHook(() => useKey('a'))
 
     act(() => {
-      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'b' }))
-      window.dispatchEvent(new KeyboardEvent('keyup', { key: 'b' }))
+      globalThis.dispatchEvent(new KeyboardEvent('keydown', { key: 'b' }))
+      globalThis.dispatchEvent(new KeyboardEvent('keyup', { key: 'b' }))
     })
 
     expect(result.current).toBe(false)
@@ -50,14 +50,14 @@ describe('useKey hook', () => {
     const { result } = renderHook(() => useKey('a', keyDownCb, keyUpCb))
 
     act(() => {
-      window.dispatchEvent(new KeyboardEvent('keydown', { key: 'A' }))
+      globalThis.dispatchEvent(new KeyboardEvent('keydown', { key: 'A' }))
     })
 
     expect(result.current).toBe(true)
     expect(keyDownCb).toHaveBeenCalled()
 
     act(() => {
-      window.dispatchEvent(new KeyboardEvent('keyup', { key: 'A' }))
+      globalThis.dispatchEvent(new KeyboardEvent('keyup', { key: 'A' }))
     })
 
     expect(result.current).toBe(false)

@@ -24,6 +24,7 @@ type RestaurantsSectionProps = {
 
 const CustomArrow = (props: Partial<CarouselProps & ArrowProps> & { isNext?: boolean }) => {
   // filter out unnecessary props coming from react-multi-carousel
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { carouselState, rtl, isNext, ...rest } = props
   return isNext ? (
     <NextButton name="arrow-right" {...rest} />
@@ -37,7 +38,7 @@ export const RestaurantsSection = ({ title }: RestaurantsSectionProps) => {
 
   const { restaurants, status } = useFetchRestaurants()
 
-  const isMobile = /Mobi/i.test(window.navigator.userAgent)
+  const isMobile = /Mobi/i.test(globalThis.navigator.userAgent)
   return (
     <PageSection title={title}>
       <Carousel
@@ -67,14 +68,14 @@ export const RestaurantsSection = ({ title }: RestaurantsSectionProps) => {
         itemClass="carousel-item"
       >
         {status === 'loading'
-          ? Array.from(Array(3)).map((_, index) => <RestaurantCardSkeleton key={index} />)
+          ? Array.from({ length: 3 }).map((_, index) => <RestaurantCardSkeleton key={index} />)
           : restaurants.map((restaurant: Restaurant, index: number) => (
-            <RestaurantCard
-              key={restaurant.name + index}
-              {...restaurant}
-              onClick={() => navigate(`/restaurants/${restaurant.id}`)}
-            />
-          ))}
+              <RestaurantCard
+                key={restaurant.name + index}
+                {...restaurant}
+                onClick={() => navigate(`/restaurants/${restaurant.id}`)}
+              />
+            ))}
       </Carousel>
     </PageSection>
   )

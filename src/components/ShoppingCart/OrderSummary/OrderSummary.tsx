@@ -28,7 +28,7 @@ export const OrderSummary = ({ cartItems }: OrderSummaryProps) => {
           Your order
         </StyledHeading>
         <CartItemsContainer>
-          {cartItems.length ? (
+          {cartItems.length > 0 ? (
             cartItems.map((item) => <ShoppingCartItem key={item.id} item={item} />)
           ) : (
             <Body>Your cart is empty.</Body>

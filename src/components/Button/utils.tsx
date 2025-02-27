@@ -1,6 +1,6 @@
-/* eslint-disable @typescript-eslint/naming-convention */
 import { Story } from '@storybook/blocks'
 export const Grid = ({ of: components }: any) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { __namedExportsOrder, default: Default, ...stories } = components
   return (
     <div

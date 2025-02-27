@@ -1,4 +1,3 @@
-
 import { mergeConfig, coverageConfigDefaults } from 'vitest/config'
 import viteConfig from './vite.config'
 

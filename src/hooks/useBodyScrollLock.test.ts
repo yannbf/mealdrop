@@ -19,7 +19,7 @@ describe('useLockBodyScroll hook', () => {
     renderHook(() => useLockBodyScroll(true))
 
     expect(document.body.style.overflow).toBe('hidden')
-    if (/Mobi/i.test(window.navigator.userAgent)) {
+    if (/Mobi/i.test(globalThis.navigator.userAgent)) {
       expect(document.body.style.height).toBe('100vh')
     } else {
       expect(document.body.style.height).toBe('')

@@ -8,14 +8,14 @@ const Spacer = styled.span`
   padding-left: 1rem;
 `
 
-type StyledButtonProps = {
+type StyledButtonProperties = {
   $clear: boolean
   $large: boolean
   $withIcon: boolean
   $round: boolean
 }
 
-const StyledButton = styled.button<StyledButtonProps>(
+const StyledButton = styled.button<StyledButtonProperties>(
   ({ $clear, $large, $round, $withIcon, theme: { color, boxShadow, borderRadius } }) => css`
     outline: none;
     border: 0;
@@ -51,7 +51,7 @@ const StyledButton = styled.button<StyledButtonProps>(
   `
 )
 
-type DefaultProps = {
+type DefaultProperties = {
   /**
    * Clear button styles leaving just a text
    */
@@ -84,20 +84,21 @@ type DefaultProps = {
 }
 
 // Remove StyledButton props from ButtonProps to avoid duplicate props
-type ButtonProps = DefaultProps & Omit<React.ComponentProps<'button'>, keyof DefaultProps>
+type ButtonProperties = DefaultProperties &
+  Omit<React.ComponentProps<'button'>, keyof DefaultProperties>
 
 /**
  * Primary UI component for user interaction
  */
-export const Button: React.FC<React.PropsWithChildren<ButtonProps>> = ({
+export const Button: React.FC<React.PropsWithChildren<ButtonProperties>> = ({
   children,
   large = false,
   clear = false,
   round = false,
   icon,
   iconSize,
-  ...props
-}: ButtonProps) => {
+  ...properties
+}: ButtonProperties) => {
   const { color } = useTheme()
 
   return (
@@ -107,7 +108,7 @@ export const Button: React.FC<React.PropsWithChildren<ButtonProps>> = ({
       $clear={clear}
       $round={round}
       $withIcon={!!icon}
-      {...props}
+      {...properties}
     >
       {icon && (
         <Icon color={clear ? color.primaryText : color.buttonText} size={iconSize} name={icon} />

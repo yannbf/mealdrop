@@ -1,15 +1,25 @@
-import { Meta, Title, IconGallery, IconItem } from '@storybook/blocks';
+import { Meta, Title, IconGallery, IconItem } from '@storybook/blocks'
 
-import { Icon as IconExample } from './Icon';
+import { Icon as IconExample } from './Icon'
 
 <Meta title="Design System/Iconography" />
 
-export const names = ['arrow-right', 'arrow-left', 'cross', 'cart', 'minus', 'plus', 'moon', 'sun', 'star']
+export const names = [
+  'arrow-right',
+  'arrow-left',
+  'cross',
+  'cart',
+  'minus',
+  'plus',
+  'moon',
+  'sun',
+  'star',
+]
 
 # Iconography
 
 <IconGallery>
-  {names.map(name => (
+  {names.map((name) => (
     <IconItem key={name} name={name}>
       <IconExample name={name} />
     </IconItem>

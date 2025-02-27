@@ -19,12 +19,15 @@ const defaultData = {
 
 const getCurrentStep = (step: string, props: any) => {
   switch (step) {
-    case 'Contact details':
+    case 'Contact details': {
       return <ContactDetails {...props} />
-    case 'Delivery details':
+    }
+    case 'Delivery details': {
       return <DeliveryDetails {...props} />
-    default:
+    }
+    default: {
       return null
+    }
   }
 }
 

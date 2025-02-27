@@ -47,6 +47,6 @@ const testCases = Object.values(composeStories(stories)).map((Story) => [
 // Go through all test cases to batch test accessibility
 test.each(testCases)('%s story should be accessible', async (_storyName, Story) => {
   await (Story as any).run()
-  // @ts-ignore TODO fix Property 'toHaveNoViolations' does not exist on type 'Assertion<AxeResults>
+  // @ts-expect-error TODO fix Property 'toHaveNoViolations' does not exist on type 'Assertion<AxeResults>
   expect(await axe(document.body.firstChild)).toHaveNoViolations()
 })

@@ -7,11 +7,7 @@ import { ThemeProvider } from 'styled-components'
 import { rootReducer } from '../src/app-state'
 import { BrowserRouter } from 'react-router-dom'
 
-export const Provider = ({
-  children,
-  globalState,
-  storyMeta,
-}) => {
+export const Provider = ({ children, globalState, storyMeta }) => {
   const store = configureStore({
     reducer: rootReducer,
     preloadedState: storyMeta?.store?.initialState, // if undefined, just use default state from reducers
@@ -26,4 +22,4 @@ export const Provider = ({
       </StoreProvider>
     </BrowserRouter>
   )
-};
+}

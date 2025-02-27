@@ -21,13 +21,13 @@ const BodyBase = styled.p<StyledBodyProps>(
 
 type AsElement = 'span' | 'p' | 'label' | 'figcaption'
 
-type ElementProps<T extends AsElement> = T extends 'label' 
+type ElementProps<T extends AsElement> = T extends 'label'
   ? React.LabelHTMLAttributes<HTMLLabelElement>
   : T extends 'span'
-  ? React.HTMLAttributes<HTMLSpanElement>
-  : T extends 'p'
-  ? React.HTMLAttributes<HTMLParagraphElement>
-  : React.HTMLAttributes<HTMLElement>
+    ? React.HTMLAttributes<HTMLSpanElement>
+    : T extends 'p'
+      ? React.HTMLAttributes<HTMLParagraphElement>
+      : React.HTMLAttributes<HTMLElement>
 
 type DefaultProps = {
   className?: string

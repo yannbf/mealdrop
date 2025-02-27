@@ -1,6 +1,6 @@
-const { getJestConfig } = require('@storybook/test-runner')
+import { getJestConfig } from '@storybook/test-runner'
 
-module.exports = {
+export default {
   // The default configuration comes from @storybook/test-runner
   ...getJestConfig(),
   reporters: ['default', ['jest-junit', { outputDirectory: 'junit/e2e' }]],
