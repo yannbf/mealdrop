@@ -19,16 +19,26 @@ const BodyBase = styled.p<StyledBodyProps>(
   `
 )
 
+type AsElement = 'span' | 'p' | 'label' | 'figcaption'
+
+type ElementProps<T extends AsElement> = T extends 'label' 
+  ? React.LabelHTMLAttributes<HTMLLabelElement>
+  : T extends 'span'
+  ? React.HTMLAttributes<HTMLSpanElement>
+  : T extends 'p'
+  ? React.HTMLAttributes<HTMLParagraphElement>
+  : React.HTMLAttributes<HTMLElement>
+
 type DefaultProps = {
   className?: string
   size?: 'S' | 'XS' | 'XXS'
   fontWeight?: 'regular' | 'medium' | 'bold' | 'black'
-  type?: 'span' | 'p' | 'label' | 'figcaption'
+  type?: AsElement
   color?: string
   children: React.ReactNode | string
 }
 
-type BodyProps = DefaultProps & Omit<React.ComponentProps<'p'>, keyof DefaultProps>
+type BodyProps = DefaultProps & ElementProps<AsElement>
 
 export const Body: React.FC<React.PropsWithChildren<BodyProps>> = ({
   size = '',

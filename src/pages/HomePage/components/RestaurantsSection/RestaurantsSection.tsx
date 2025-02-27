@@ -22,7 +22,7 @@ type RestaurantsSectionProps = {
   title: string
 }
 
-const CustomArrow = (props: CarouselProps & ArrowProps & { isNext?: boolean }) => {
+const CustomArrow = (props: Partial<CarouselProps & ArrowProps> & { isNext?: boolean }) => {
   // filter out unnecessary props coming from react-multi-carousel
   const { carouselState, rtl, isNext, ...rest } = props
   return isNext ? (

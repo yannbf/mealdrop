@@ -3,6 +3,47 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "scripts": {
+    "build": "tsc && vite build",
+    "build-all": "yarn build && yarn build-storybook",
+    "build-storybook": "storybook build --output-dir build/storybook",
+    "build-storybook:test": "storybook build --output-dir build/storybook --test",
+    "chromatic": "chromatic --project-token $CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes --only-changed",
+    "lint": "eslint --fix .",
+    "pre-commit": "lint-staged",
+    "prepare": "husky",
+    "prettier": "prettier --write .",
+    "serve": "vite preview",
+    "start": "vite",
+    "check": "tsc --noEmit",
+    "storybook": "storybook dev -p 6006",
+    "test": "vitest",
+    "test-storybook": "test-storybook",
+    "test-storybook:ci": "concurrently --kill-others --success first --names \"SB,TEST\" --prefix-colors \"magenta,blue\" \"yarn build-storybook:test && npx serve build/storybook --listen 6006 --no-request-logging\" \"wait-on tcp:6006 && yarn test-storybook\"",
+    "test-storybook:json": "test-storybook --index-json",
+    "test-storybook:json:ci": "concurrently --kill-others --success first --names \"SB,TEST\" --prefix-colors \"magenta,blue\" \"yarn build-storybook:test && npx serve build/storybook --listen 6006 --no-request-logging\" \"wait-on tcp:6006 && SKIP_SNAPSHOTS=true yarn test-storybook:json\"",
+    "test:ci": "vitest run",
+    "test:coverage": "vitest run --coverage"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": "eslint --fix",
+    "*.{html,md}": "prettier --write"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "resolutions": {
+    "@use-it/event-listener@npm:^0.1.2": "patch:@use-it/event-listener@npm%3A0.1.7#~/.yarn/patches/@use-it-event-listener-npm-0.1.7-56ef42a654.patch"
+  },
   "dependencies": {
     "@reduxjs/toolkit": "^2.6.0",
     "axios": "^1.8.1",
@@ -19,39 +60,6 @@
     "stylis": "^4.3.6",
     "typescript": "^5.7.3",
     "use-dark-mode": "^2.3.1"
-  },
-  "scripts": {
-    "start": "vite",
-    "build": "tsc && vite build",
-    "serve": "vite preview",
-    "test": "vitest",
-    "test:coverage": "vitest run --coverage",
-    "test:ci": "vitest run",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build --output-dir build/storybook",
-    "build-storybook:test": "storybook build --output-dir build/storybook --test",
-    "build-all": "yarn build && yarn build-storybook",
-    "chromatic": "chromatic --project-token $CHROMATIC_PROJECT_TOKEN --exit-zero-on-changes --only-changed",
-    "prepare": "husky",
-    "lint": "eslint --fix .",
-    "prettier": "prettier --write .",
-    "pre-commit": "lint-staged",
-    "test-storybook": "test-storybook",
-    "test-storybook:json": "test-storybook --index-json",
-    "test-storybook:ci": "concurrently --kill-others --success first --names \"SB,TEST\" --prefix-colors \"magenta,blue\" \"yarn build-storybook:test && npx serve build/storybook --listen 6006 --no-request-logging\" \"wait-on tcp:6006 && yarn test-storybook\"",
-    "test-storybook:json:ci": "concurrently --kill-others --success first --names \"SB,TEST\" --prefix-colors \"magenta,blue\" \"yarn build-storybook:test && npx serve build/storybook --listen 6006 --no-request-logging\" \"wait-on tcp:6006 && SKIP_SNAPSHOTS=true yarn test-storybook:json\""
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   },
   "devDependencies": {
     "@babel/core": "^7.26.9",
@@ -119,15 +127,8 @@
     "vitest-canvas-mock": "^0.3.3",
     "wait-on": "^8.0.2"
   },
+  "packageManager": "yarn@4.2.1",
   "msw": {
     "workerDirectory": "public"
-  },
-  "lint-staged": {
-    "*.{ts,tsx}": "eslint --fix",
-    "*.{html,md}": "prettier --write"
-  },
-  "packageManager": "yarn@4.2.1",
-  "resolutions": {
-    "@use-it/event-listener@npm:^0.1.2": "patch:@use-it/event-listener@npm%3A0.1.7#~/.yarn/patches/@use-it-event-listener-npm-0.1.7-56ef42a654.patch"
   }
 }

@@ -1,6 +1,6 @@
 import type { Preview } from '@storybook/react'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
-import type { UserEvent } from '@storybook/test'
+import { userEvent } from '@testing-library/user-event'
 import { mswLoader } from 'msw-storybook-addon'
 import { ThemeProvider } from 'styled-components'
 
@@ -72,7 +72,7 @@ const preview: Preview = {
 
 declare module 'storybook/internal/csf' {
   interface StoryContext {
-    userEvent: UserEvent;
+    userEvent: ReturnType<typeof userEvent.setup>
   }
 }
 export default preview

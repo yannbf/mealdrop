@@ -2,15 +2,15 @@ import styled, { css } from 'styled-components'
 
 import { Heading } from '../../typography/Heading'
 
-export const StyledHeading = styled(Heading)(
+export const StyledHeading = styled(Heading)<{ $withMargin?: boolean }>(
   ({
-    withMargin = false,
+    $withMargin = false,
     theme: {
       typography: { fontSize },
     },
   }) => css`
     font-size: ${fontSize.heading4};
-    margin-bottom: ${withMargin ? '1.5rem' : 0};
+    margin-bottom: ${$withMargin ? '1.5rem' : 0};
   `
 )
 

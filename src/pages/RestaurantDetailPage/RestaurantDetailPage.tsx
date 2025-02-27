@@ -1,4 +1,4 @@
-import { VFC, useState } from 'react'
+import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import styled, { css } from 'styled-components'
 
@@ -43,7 +43,7 @@ const StyledBadge = styled(Badge)(
   `
 )
 
-export const RestaurantDetailPage: VFC = () => {
+export const RestaurantDetailPage = () => {
   const { id = '' } = useParams<'id'>()
 
   const navigate = useNavigate()
