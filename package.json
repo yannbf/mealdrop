@@ -66,8 +66,11 @@
   },
   "devDependencies": {
     "@babel/core": "^7.26.9",
+    "@chromatic-com/cypress": "^0.11.5",
+    "@chromatic-com/playwright": "^0.12.5",
     "@chromatic-com/storybook": "4.0.0",
     "@eslint/js": "^9.21.0",
+    "@playwright/test": "^1.53.1",
     "@storybook/addon-a11y": "^9.0.9",
     "@storybook/addon-coverage": "^2.0.0",
     "@storybook/addon-designs": "10.0.1",
@@ -98,6 +101,7 @@
     "c8": "^7.14.0",
     "chromatic": "^11.26.1",
     "concurrently": "^9.1.2",
+    "cypress": "^14.5.0",
     "eslint": "^9.21.0",
     "eslint-config-prettier": "^10.0.2",
     "eslint-plugin-jsx-a11y": "^6.10.2",
@@ -124,7 +128,8 @@
     "vitest": "^3.0.7",
     "vitest-axe": "^0.1.0",
     "vitest-canvas-mock": "^0.3.3",
-    "wait-on": "^8.0.2"
+    "wait-on": "^8.0.2",
+    "zx": "^8.1.2"
   },
   "packageManager": "yarn@4.2.1",
   "msw": {
