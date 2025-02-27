@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/prefer-ternary */
 import isChromatic from 'chromatic/isChromatic'
 import { userEvent } from '@storybook/test'
 import { Loader } from '@storybook/react'
@@ -13,16 +14,14 @@ async function mouseTo(
   target: Element,
   { cursorStyle = 'hand', delay = 1000 }: { cursorStyle?: 'hand' | 'circle'; delay?: number }
 ) {
-  if (!target) {
-    return new Promise((resolve) => resolve(undefined));
-  } else {
+  if (target) {
     return new Promise((resolve) => {
       // animate mouse pointer from previous to current element
-      let cursorEl = document.getElementById('sb-demo-cursor');
+      let cursorEl: HTMLDivElement | null = document.querySelector('#sb-demo-cursor')
       if (!cursorEl) {
-        cursorEl = document.createElement('div');
-        cursorEl.id = 'sb-demo-cursor';
-        cursorEl.dataset.type = cursorStyle;
+        cursorEl = document.createElement('div')
+        cursorEl.id = 'sb-demo-cursor'
+        cursorEl.dataset.type = cursorStyle
         // Use a hand image if the cursor style is 'hand', else use a circle
         if (cursorStyle === 'hand') {
           cursorEl.innerHTML = `
@@ -39,93 +38,105 @@ async function mouseTo(
               <rect width="800" height="800" fill="white" />
             </clipPath>
           </defs>
-        </svg>`;
+        </svg>`
         }
         cursorEl.addEventListener(
           'transitionend',
           () => {
             if (cursorEl) {
-              cursorEl.className = 'sb-cursor-hide';
+              cursorEl.className = 'sb-cursor-hide'
             }
             target.dispatchEvent(
+              // eslint-disable-next-line unicorn/prefer-global-this
               new MouseEvent('mouseover', { view: window, bubbles: true, cancelable: true })
-            );
+            )
           },
           { capture: true }
-        );
+        )
 
-        document.body.appendChild(cursorEl);
+        document.body.append(cursorEl)
       }
 
       if (!target.getBoundingClientRect) {
-        console.log('target does not have getBoundingClientRect', target);
-        return;
+        console.log('target does not have getBoundingClientRect', target)
+        return
       }
 
       // Function to determine if the element is fully visible in the viewport
       const isElementInViewport = (el: Element) => {
-        const rect = el.getBoundingClientRect();
+        const rect = el.getBoundingClientRect()
         return (
           rect.top >= 0 &&
           rect.left >= 0 &&
           rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
           rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-      };
+        )
+      }
 
       // Scroll the element into view if it's not fully visible
       if (!isElementInViewport(target)) {
-        target.scrollIntoView({ block: 'center', inline: 'center' });
+        target.scrollIntoView({ block: 'center', inline: 'center' })
       }
 
       const moveCursor = () => {
-        const { left, top, width, height } = target.getBoundingClientRect();
-        const sTop = Math.round(top + Math.min(height / 2, 50)) + 'px';
-        const sLeft = Math.round(left + Math.min(width / 2, 50)) + 'px';
-        cursorEl.className = '';
+        const { left, top, width, height } = target.getBoundingClientRect()
+        const sTop = Math.round(top + Math.min(height / 2, 50)) + 'px'
+        const sLeft = Math.round(left + Math.min(width / 2, 50)) + 'px'
+        cursorEl.className = ''
 
         if (cursorStyle === 'circle') {
-          cursorEl.className = 'sb-cursor-moving';
+          cursorEl.className = 'sb-cursor-moving'
         }
-        cursorEl.style.top = sTop;
-        cursorEl.style.left = sLeft;
-        cursorEl.style.transitionDuration = `${Math.round(delay * 0.9)}ms`;
+        cursorEl.style.top = sTop
+        cursorEl.style.left = sLeft
+        cursorEl.style.transitionDuration = `${Math.round(delay * 0.9)}ms`
         // ^ bakes in a 10% time delay from movement ending to click event
 
-        setTimeout(resolve, delay);
-      };
+        setTimeout(resolve, delay)
+      }
 
       // Timeout is needed when there are animations on the page e.g. sidebar sliding etc, else the calculation is off and the cursor goes to the wrong place
-      setTimeout(moveCursor, 300);
-    });
+      setTimeout(moveCursor, 300)
+    })
+  } else {
+    return new Promise<void>((resolve) => resolve())
   }
 }
 
 export const demoModeLoader: Loader = async (context) => {
-  // @ts-expect-error add module augmentation for types
-  const shouldUseDemoMode = import.meta.env.STORYBOOK && !globalThis.test && !isChromatic() && !globalThis.__vitest_browser__;
-  if (shouldUseDemoMode && context.args.demoMode || context.parameters.test?.demoMode || context.globals.interactionsDemoMode) {
-    const user = userEvent.setup();
+  const isTestRunner = globalThis.navigator.userAgent.match(/StorybookTestRunner/)
+  const shouldUseDemoMode =
+    import.meta.env.STORYBOOK &&
+    !('test' in globalThis) &&
+    !isTestRunner &&
+    !isChromatic() &&
+    !('__vitest_browser__' in globalThis)
+  if (
+    (shouldUseDemoMode && context.args.demoMode) ||
+    context.parameters.test?.demoMode ||
+    context.globals.interactionsDemoMode
+  ) {
+    const user = userEvent.setup()
 
     context.userEvent = {
       ...user,
       type: async (...args: any[]) => {
-        const [target, text, options] = args;
+        const [target, text, options] = args
         const userSession = userEvent.setup({
           // make the typing take .5 seconds
           delay: Math.floor(Math.max(500 / text.length, 0)),
-        });
-        return userSession.type(target, text, options);
+        })
+        return userSession.type(target, text, options)
       },
       click: async (target: Element) => {
         await mouseTo(target, {
           cursorStyle: context.parameters.test?.cursorStyle,
           delay: context.parameters.test?.demoModeDelay,
-        });
-        return user.click(target);
+        })
+        return user.click(target)
       },
-    };
+    }
   } else {
-    context.userEvent = userEvent.setup();
+    context.userEvent = userEvent.setup()
   }
 }

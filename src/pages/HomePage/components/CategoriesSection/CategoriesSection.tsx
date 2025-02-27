@@ -28,7 +28,7 @@ const NextButton = styled(IconButton)`
 export const CategoriesSection = ({ categories }: CategoriesSectionProps) => {
   const navigate = useNavigate()
 
-  const isMobile = /Mobi/i.test(window.navigator.userAgent)
+  const isMobile = /Mobi/i.test(globalThis.navigator.userAgent)
   return (
     <PageSection
       title="Categories"

@@ -11,8 +11,6 @@ type RestaurantCardProps = {
   categories?: string[]
   isLoading?: boolean
   isNew?: boolean
-  onClick: () => void
-  className?: string
 }
 
 export const RestaurantCard = ({
@@ -24,8 +22,6 @@ export const RestaurantCard = ({
   isLoading = false,
   categories,
   isNew = false,
-  className,
-  onClick,
 }: RestaurantCardProps) => {
   if (isLoading) {
     return <div>Loading...</div>

@@ -8,16 +8,16 @@ const Container = styled.div`
   min-height: calc(100vh - 200px);
 `
 
-type PageTemplateProps = {
+type PageTemplateProperties = {
   type?: 'default' | 'sticky-header' | 'basic'
 }
 
-export const PageTemplate: React.FC<React.PropsWithChildren<PageTemplateProps>> = ({
+export const PageTemplate: React.FC<React.PropsWithChildren<PageTemplateProperties>> = ({
   type = 'default',
   children,
 }) => {
   switch (type) {
-    case 'sticky-header':
+    case 'sticky-header': {
       return (
         <>
           <Header sticky />
@@ -25,13 +25,15 @@ export const PageTemplate: React.FC<React.PropsWithChildren<PageTemplateProps>> 
           <Footer />
         </>
       )
-    case 'basic':
+    }
+    case 'basic': {
       return (
         <>
           <HeaderComponent logoOnly />
           <Container>{children}</Container>
         </>
       )
+    }
   }
 
   return (

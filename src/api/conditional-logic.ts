@@ -1,4 +1,3 @@
-/* eslint-disable max-classes-per-file */
 import axios, { AxiosResponse } from 'axios'
 
 import { Restaurant } from '../types'
@@ -42,7 +41,7 @@ class RestaurantsApi implements BaseApi {
     const { data: restaurant, status } = await apiGet<Restaurant>(`${BASE_URL}?id=${id}`)
 
     if (status === 404) {
-      return Promise.reject({ response: { status: 404 } })
+      throw { response: { status: 404 } }
     }
 
     return restaurant

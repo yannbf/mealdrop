@@ -7,7 +7,7 @@ import { Button } from '../../../../components/Button'
 import { Input } from '../../../../components/forms/Input'
 
 type DeliveryDetailsProps = {
-  setForm: () => {}
+  setForm: () => object
   formData: {
     address: string
     city: string

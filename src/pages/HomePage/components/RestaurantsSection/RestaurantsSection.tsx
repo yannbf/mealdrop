@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom'
-import Carousel from 'react-multi-carousel'
+import Carousel, { type ArrowProps, type CarouselProps } from 'react-multi-carousel'
 
 import { useFetchRestaurants } from '../../../../api/hooks'
 import { IconButton } from '../../../../components/IconButton'
@@ -22,19 +22,30 @@ type RestaurantsSectionProps = {
   title: string
 }
 
+const CustomArrow = (props: Partial<CarouselProps & ArrowProps> & { isNext?: boolean }) => {
+  // filter out unnecessary props coming from react-multi-carousel
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { carouselState, rtl, isNext, ...rest } = props
+  return isNext ? (
+    <NextButton name="arrow-right" {...rest} />
+  ) : (
+    <PreviousButton name="arrow-left" {...rest} />
+  )
+}
+
 export const RestaurantsSection = ({ title }: RestaurantsSectionProps) => {
   const navigate = useNavigate()
 
   const { restaurants, status } = useFetchRestaurants()
 
-  const isMobile = /Mobi/i.test(window.navigator.userAgent)
+  const isMobile = /Mobi/i.test(globalThis.navigator.userAgent)
   return (
     <PageSection title={title}>
       <Carousel
         draggable={isMobile}
         partialVisible={isMobile}
-        customLeftArrow={<PreviousButton name="arrow-left" />}
-        customRightArrow={<NextButton name="arrow-right" />}
+        customLeftArrow={<CustomArrow />}
+        customRightArrow={<CustomArrow isNext />}
         responsive={{
           desktop: {
             breakpoint: { max: 5000, min: 1024 },
@@ -57,7 +68,7 @@ export const RestaurantsSection = ({ title }: RestaurantsSectionProps) => {
         itemClass="carousel-item"
       >
         {status === 'loading'
-          ? Array.from(Array(3)).map((_, index) => <RestaurantCardSkeleton key={index} />)
+          ? Array.from({ length: 3 }).map((_, index) => <RestaurantCardSkeleton key={index} />)
           : restaurants.map((restaurant: Restaurant, index: number) => (
               <RestaurantCard
                 key={restaurant.name + index}

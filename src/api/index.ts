@@ -10,7 +10,10 @@ interface BaseApi {
 
 export const BASE_URL = 'https://mealdrop.netlify.app/.netlify/functions/restaurants'
 
-const isMockedEnvironment = !!import.meta.env.STORYBOOK || import.meta.env.NODE_ENV === 'test' || (globalThis as any).__vitest_browser__
+const isMockedEnvironment =
+  !!import.meta.env.STORYBOOK ||
+  import.meta.env.NODE_ENV === 'test' ||
+  (globalThis as any).__vitest_browser__
 
 const apiCache = new Map()
 
@@ -40,7 +43,7 @@ class RestaurantsApi implements BaseApi {
     const { data: restaurant, status } = await apiGet<Restaurant>(`${BASE_URL}?id=${id}`)
 
     if (status === 404) {
-      return Promise.reject({ response: { status: 404 } })
+      throw { response: { status: 404 } }
     }
 
     return restaurant

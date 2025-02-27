@@ -76,7 +76,7 @@ export const ModalContent = styled.div(
 
 export const Backdrop = styled.div`
   position: fixed;
-  background-color: ${({ theme }) => 'rgba(0, 0, 0, 0.4)'};
+  background-color: rgba(0, 0, 0, 0.4);
   top: 0;
   right: 0;
   bottom: 0;

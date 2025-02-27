@@ -7,7 +7,7 @@ type Props = {
 }
 
 export const Portal: React.FC<React.PropsWithChildren<Props>> = ({ children, selector }) => {
-  const ref = useRef<Element>()
+  const ref = useRef<Element | null>(null)
 
   useEffect(() => {
     const element = document.querySelector<Element>(selector)

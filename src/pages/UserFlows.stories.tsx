@@ -75,7 +75,8 @@ export const ToRestaurantDetailPage = {
 
     await step('Select first restaurant from the list', async () => {
       // await waitForElementToBeRemoved(canvas.getAllByTestId('loading'))
-      await userEvent.click((await canvas.findAllByTestId('restaurant-card'))[0])
+      const restaurantCards = await canvas.findAllByTestId('restaurant-card')
+      await userEvent.click(restaurantCards[0])
     })
   },
 } satisfies Story

@@ -30,25 +30,24 @@ initialize({
 })
 
 const ThemeBlock = styled.div<{ left?: boolean; fullScreen?: boolean }>(
-  ({ left, fullScreen, theme: { color } }) =>
-    css`
-      position: absolute;
-      top: 0;
+  ({ left, fullScreen, theme: { color } }) => css`
+    position: absolute;
+    top: 0;
+    left: ${left ? 0 : '50vw'};
+    border-right: ${left ? '1px solid #202020' : 'none'};
+    right: ${left ? '50vw' : 0};
+    width: 50vw;
+    height: 100vh;
+    bottom: 0;
+    overflow: auto;
+    padding: ${fullScreen ? 0 : '1rem'};
+    background: ${color.screenBackground};
+    ${breakpoints.S} {
       left: ${left ? 0 : '50vw'};
-      border-right: ${left ? '1px solid #202020' : 'none'};
       right: ${left ? '50vw' : 0};
-      width: 50vw;
-      height: 100vh;
-      bottom: 0;
-      overflow: auto;
-      padding: ${fullScreen ? 0 : '1rem'};
-      background: ${color.screenBackground};
-      ${breakpoints.S} {
-        left: ${left ? 0 : '50vw'};
-        right: ${left ? '50vw' : 0};
-        padding: 0 !important;
-      }
-    `
+      padding: 0 !important;
+    }
+  `
 )
 
 export const withTheme: Decorator = (StoryFn, { globals: { theme = 'light' }, parameters }) => {
@@ -98,7 +97,6 @@ export const withTheme: Decorator = (StoryFn, { globals: { theme = 'light' }, pa
     }
   }
 }
-
 
 /**
  *

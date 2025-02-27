@@ -54,7 +54,11 @@ const ShoppingCartMenuItem = ({ item, onChange }: any) => (
       <Body>{item.description}</Body>
       <Body>{toEuro(item.price * item.quantity)}</Body>
     </div>
-    <Select value={item.quantity} onChange={onChange} options={[...Array(11).keys()]} />
+    <Select
+      value={item.quantity}
+      onChange={onChange}
+      options={[...Array.from({ length: 11 }).keys()]}
+    />
   </MenuItemContainer>
 )
 

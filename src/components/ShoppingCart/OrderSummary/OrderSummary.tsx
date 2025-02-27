@@ -24,11 +24,11 @@ export const OrderSummary = ({ cartItems }: OrderSummaryProps) => {
   return (
     <>
       <OrderSummaryContainer>
-        <StyledHeading level={2} withMargin>
+        <StyledHeading level={2} $withMargin>
           Your order
         </StyledHeading>
         <CartItemsContainer>
-          {cartItems.length ? (
+          {cartItems.length > 0 ? (
             cartItems.map((item) => <ShoppingCartItem key={item.id} item={item} />)
           ) : (
             <Body>Your cart is empty.</Body>

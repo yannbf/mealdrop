@@ -36,7 +36,7 @@ export const RestaurantsSectionComponent = ({
   onRestaurantClick,
   isLoading,
 }: RestaurantsSectionComponentProps) => {
-  const isMobile = /Mobi/i.test(window.navigator.userAgent)
+  const isMobile = /Mobi/i.test(globalThis.navigator.userAgent)
 
   return (
     <PageSection title={title}>
@@ -67,7 +67,7 @@ export const RestaurantsSectionComponent = ({
         itemClass="carousel-item"
       >
         {isLoading
-          ? Array.from(Array(3)).map((_, index) => <RestaurantCardSkeleton key={index} />)
+          ? Array.from({ length: 3 }).map((_, index) => <RestaurantCardSkeleton key={index} />)
           : restaurants.map((restaurant: Restaurant) => (
               <RestaurantCard
                 key={restaurant.name}

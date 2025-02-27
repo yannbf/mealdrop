@@ -11,11 +11,11 @@
 // opt-in, read https://bit.ly/CRA-PWA
 
 const isLocalhost = Boolean(
-  window.location.hostname === 'localhost' ||
+  globalThis.location.hostname === 'localhost' ||
     // [::1] is the IPv6 localhost address.
-    window.location.hostname === '[::1]' ||
+    globalThis.location.hostname === '[::1]' ||
     // 127.0.0.0/8 are considered localhost for IPv4.
-    window.location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/)
+    /^127(?:\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)){3}$/.test(globalThis.location.hostname)
 )
 
 type Config = {
@@ -26,8 +26,8 @@ type Config = {
 export function register(config?: Config) {
   if (import.meta.env.NODE_ENV === 'production' && 'serviceWorker' in navigator) {
     // The URL constructor is available in all browsers that support SW.
-    const publicUrl = new URL(import.meta.env.PUBLIC_URL, window.location.href)
-    if (publicUrl.origin !== window.location.origin) {
+    const publicUrl = new URL(import.meta.env.PUBLIC_URL, globalThis.location.href)
+    if (publicUrl.origin !== globalThis.location.origin) {
       // Our service worker won't work if PUBLIC_URL is on a different origin
       // from what our page is served on. This might happen if a CDN is used to
       // serve assets; see https://github.com/facebook/create-react-app/issues/2374
@@ -61,12 +61,12 @@ function registerValidSW(swUrl: string, config?: Config) {
   navigator.serviceWorker
     .register(swUrl)
     .then((registration) => {
-      registration.onupdatefound = () => {
+      registration.addEventListener('updatefound', () => {
         const installingWorker = registration.installing
         if (installingWorker == null) {
           return
         }
-        installingWorker.onstatechange = () => {
+        installingWorker.addEventListener('statechange', () => {
           if (installingWorker.state === 'installed') {
             if (navigator.serviceWorker.controller) {
               // At this point, the updated precached content has been fetched,
@@ -93,8 +93,8 @@ function registerValidSW(swUrl: string, config?: Config) {
               }
             }
           }
-        }
-      }
+        })
+      })
     })
     .catch((error) => {
       console.error('Error during service worker registration:', error)
@@ -109,14 +109,11 @@ function checkValidServiceWorker(swUrl: string, config?: Config) {
     .then((response) => {
       // Ensure service worker exists, and that we really are getting a JS file.
       const contentType = response.headers.get('content-type')
-      if (
-        response.status === 404 ||
-        (contentType != null && contentType.indexOf('javascript') === -1)
-      ) {
+      if (response.status === 404 || (contentType != null && !contentType.includes('javascript'))) {
         // No service worker found. Probably a different app. Reload the page.
         navigator.serviceWorker.ready.then((registration) => {
           registration.unregister().then(() => {
-            window.location.reload()
+            globalThis.location.reload()
           })
         })
       } else {
