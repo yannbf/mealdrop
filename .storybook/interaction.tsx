@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/prefer-ternary */
 import isChromatic from 'chromatic/isChromatic'
 import { userEvent } from '@storybook/test'
 import { Loader } from '@storybook/react'
@@ -13,12 +14,10 @@ async function mouseTo(
   target: Element,
   { cursorStyle = 'hand', delay = 1000 }: { cursorStyle?: 'hand' | 'circle'; delay?: number }
 ) {
-  if (!target) {
-    return new Promise((resolve) => resolve(undefined))
-  } else {
+  if (target) {
     return new Promise((resolve) => {
       // animate mouse pointer from previous to current element
-      let cursorEl = document.getElementById('sb-demo-cursor')
+      let cursorEl: HTMLDivElement | null = document.querySelector('#sb-demo-cursor')
       if (!cursorEl) {
         cursorEl = document.createElement('div')
         cursorEl.id = 'sb-demo-cursor'
@@ -48,13 +47,14 @@ async function mouseTo(
               cursorEl.className = 'sb-cursor-hide'
             }
             target.dispatchEvent(
+              // eslint-disable-next-line unicorn/prefer-global-this
               new MouseEvent('mouseover', { view: window, bubbles: true, cancelable: true })
             )
           },
           { capture: true }
         )
 
-        document.body.appendChild(cursorEl)
+        document.body.append(cursorEl)
       }
 
       if (!target.getBoundingClientRect) {
@@ -98,18 +98,19 @@ async function mouseTo(
       // Timeout is needed when there are animations on the page e.g. sidebar sliding etc, else the calculation is off and the cursor goes to the wrong place
       setTimeout(moveCursor, 300)
     })
+  } else {
+    return new Promise<void>((resolve) => resolve())
   }
 }
 
 export const demoModeLoader: Loader = async (context) => {
-  const isTestRunner = window.navigator.userAgent.match(/StorybookTestRunner/)
-  // @ts-expect-error add module augmentation for types
+  const isTestRunner = globalThis.navigator.userAgent.match(/StorybookTestRunner/)
   const shouldUseDemoMode =
     import.meta.env.STORYBOOK &&
-    !globalThis.test &&
+    !('test' in globalThis) &&
     !isTestRunner &&
     !isChromatic() &&
-    !globalThis.__vitest_browser__
+    !('__vitest_browser__' in globalThis)
   if (
     (shouldUseDemoMode && context.args.demoMode) ||
     context.parameters.test?.demoMode ||
