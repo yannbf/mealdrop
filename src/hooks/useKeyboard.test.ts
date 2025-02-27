@@ -1,5 +1,5 @@
 import { describe, it, vi, expect } from 'vitest'
-import { renderHook, act } from '@testing-library/react-hooks'
+import { renderHook, act } from '@testing-library/react'
 import { useKey } from './useKeyboard'
 
 describe('useKey hook', () => {

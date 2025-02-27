@@ -3,9 +3,9 @@ import styled, { css } from 'styled-components'
 
 type FontSize = 'heading1' | 'heading2' | 'heading3' | 'heading4'
 
-const HeadingBase = styled.h1<{ level: number }>(
+const HeadingBase = styled.h1<{ $level: number }>(
   ({
-    level,
+    $level,
     theme: {
       color,
       typography: { fontSize },
@@ -14,8 +14,8 @@ const HeadingBase = styled.h1<{ level: number }>(
     margin: 0;
     color: ${color.primaryText};
     font-family: 'Montserrat';
-    letter-spacing: ${level === 1 || level === 2 ? '-2px' : 'unset'};
-    font-size: ${fontSize[`heading${level}` as FontSize]};
+    letter-spacing: ${$level === 1 || $level === 2 ? '-2px' : 'unset'};
+    font-size: ${fontSize[`heading${$level}` as FontSize]};
   `
 )
 
@@ -24,7 +24,7 @@ type DefaultProps = {
   className?: string
 }
 
-type HeadingProps = DefaultProps & React.ComponentProps<typeof HeadingBase>
+type HeadingProps = DefaultProps & Omit<React.ComponentProps<'h1'>, keyof DefaultProps>
 
 export const Heading: React.FC<React.PropsWithChildren<HeadingProps>> = ({
   level = 1,
@@ -33,7 +33,7 @@ export const Heading: React.FC<React.PropsWithChildren<HeadingProps>> = ({
 }) => {
   const heading = `h${level}` as React.ElementType
   return (
-    <HeadingBase as={heading} level={level} className={className}>
+    <HeadingBase as={heading} $level={level} className={className}>
       {children}
     </HeadingBase>
   )

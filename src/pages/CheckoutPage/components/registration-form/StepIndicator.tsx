@@ -12,10 +12,10 @@ const OuterBar = styled.div(
     background: ${color.stepsIndicatorOuterBar};
   `
 )
-const InnerBar = styled.div<{ progress: string }>(
-  ({ progress, theme: { color, borderRadius } }) => css`
+const InnerBar = styled.div<{ $progress: string }>(
+  ({ $progress, theme: { color, borderRadius } }) => css`
     background: ${color.stepsIndicatorInnerBar};
-    width: ${progress};
+    width: ${$progress};
     border-radius: ${borderRadius.xs};
     height: 4px;
     transition: width 0.5s ease-in-out;
@@ -63,7 +63,7 @@ export const StepIndicator = ({ title, currentStep, amountOfSteps }: StepIndicat
         </Body>
       </TitleSection>
       <OuterBar>
-        <InnerBar progress={progress} />
+        <InnerBar $progress={progress} />
       </OuterBar>
     </div>
   )

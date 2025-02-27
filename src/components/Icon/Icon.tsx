@@ -1,7 +1,5 @@
 import styled, { useTheme } from 'styled-components'
 
-import Icons from '../../assets/icons/sprite-map.svg'
-
 const StyledSVG = styled.svg`
   display: block;
 `
@@ -21,7 +19,7 @@ export const Icon = ({ name, color, size = '1.5rem' }: IconProps) => {
       height={size}
       style={{ minWidth: size }}
     >
-      <use xlinkHref={`${Icons}#${name}`} />
+      <use xlinkHref={`/sprite-map.svg#${name}`} />
     </StyledSVG>
   )
 }

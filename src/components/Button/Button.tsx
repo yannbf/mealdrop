@@ -8,30 +8,32 @@ const Spacer = styled.span`
   padding-left: 1rem;
 `
 
-const StyledButton = styled.button<{
-  clear: boolean
-  large: boolean
-  withIcon: boolean
-  round: boolean
-}>(
-  ({ clear, large, round, withIcon, theme: { color, boxShadow, borderRadius } }) => css`
+type StyledButtonProps = {
+  $clear: boolean
+  $large: boolean
+  $withIcon: boolean
+  $round: boolean
+}
+
+const StyledButton = styled.button<StyledButtonProps>(
+  ({ $clear, $large, $round, $withIcon, theme: { color, boxShadow, borderRadius } }) => css`
     outline: none;
     border: 0;
     font-family: 'Hind';
-    border-radius: ${round ? borderRadius.xl : borderRadius.xs};
+    border-radius: ${$round ? borderRadius.xl : borderRadius.xs};
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: ${withIcon ? '0.7rem' : large ? '1.125rem 1rem' : '0.875rem 1rem'};
-    color: ${clear ? color.primaryText : color.buttonText};
+    padding: ${$withIcon ? '0.7rem' : $large ? '1.125rem 1rem' : '0.875rem 1rem'};
+    color: ${$clear ? color.primaryText : color.buttonText};
 
     transition: box-shadow 150ms ease-in;
     z-index: 1;
-    background-color: ${clear ? color.buttonClear : color.buttonPrimary};
+    background-color: ${$clear ? color.buttonClear : color.buttonPrimary};
 
     &:hover {
       cursor: pointer;
-      background-color: ${clear ? color.buttonClearHover : color.buttonPrimaryHover};
+      background-color: ${$clear ? color.buttonClearHover : color.buttonPrimaryHover};
     }
 
     &:focus {
@@ -39,12 +41,12 @@ const StyledButton = styled.button<{
     }
 
     &:disabled {
-      background-color: ${clear ? color.buttonClear : color.buttonPrimary};
+      background-color: ${$clear ? color.buttonClear : color.buttonPrimary};
       opacity: 0.4;
     }
 
     @media ${breakpoints.M} {
-      padding: ${withIcon ? '1rem' : large ? '1.125rem 1.5rem' : '0.875rem 1.5rem'};
+      padding: ${$withIcon ? '1rem' : $large ? '1.125rem 1.5rem' : '0.875rem 1.5rem'};
     }
   `
 )
@@ -81,7 +83,8 @@ type DefaultProps = {
   onClick?: () => void
 }
 
-type ButtonProps = DefaultProps & React.ComponentProps<typeof StyledButton>
+// Remove StyledButton props from ButtonProps to avoid duplicate props
+type ButtonProps = DefaultProps & Omit<React.ComponentProps<'button'>, keyof DefaultProps>
 
 /**
  * Primary UI component for user interaction
@@ -100,11 +103,11 @@ export const Button: React.FC<React.PropsWithChildren<ButtonProps>> = ({
   return (
     <StyledButton
       type="button"
-      large={large}
-      clear={clear}
-      round={round}
+      $large={large}
+      $clear={clear}
+      $round={round}
+      $withIcon={!!icon}
       {...props}
-      withIcon={!!icon}
     >
       {icon && (
         <Icon color={clear ? color.primaryText : color.buttonText} size={iconSize} name={icon} />

@@ -10,29 +10,29 @@ export type CategoryProps = {
   round?: boolean
 }
 
-const Container = styled.figure<{ round: boolean }>(
-  ({ round, theme: { color, borderRadius } }) => css`
+const Container = styled.figure<{ $round: boolean }>(
+  ({ $round, theme: { color, borderRadius } }) => css`
     display: flex;
     cursor: pointer;
     position: relative;
-    flex-direction: ${round ? 'column' : 'row'};
-    align-items: ${round ? 'center' : 'start'};
+    flex-direction: ${$round ? 'column' : 'row'};
+    align-items: ${$round ? 'center' : 'start'};
     border-radius: ${borderRadius.s};
-    background: ${round ? color.cardBackground : 'transparent'};
+    background: ${$round ? color.cardBackground : 'transparent'};
     height: 100%;
     width: 100%;
     min-width: 50px;
-    max-width: ${round ? '200px' : 'auto'};
-    max-height: ${round ? '200px' : '309px'};
+    max-width: ${$round ? '200px' : 'auto'};
+    max-height: ${$round ? '200px' : '309px'};
     margin: 0;
-    padding: ${round ? '1.5rem 2rem' : '0'};
+    padding: ${$round ? '1.5rem 2rem' : '0'};
 
     &:hover {
       opacity: 0.9;
     }
 
     @media ${breakpoints.M} {
-      padding: ${round ? '1.5rem 0' : '0'};
+      padding: ${$round ? '1.5rem 0' : '0'};
     }
   `
 )
@@ -108,7 +108,7 @@ const Squared = ({ title, photoUrl: url }: CategoryProps) => (
 
 export const Category = ({ photoUrl, title, round = false }: CategoryProps) => {
   return (
-    <Container round={round} data-testid={title}>
+    <Container $round={round} data-testid={title}>
       {round ? (
         <Rounded photoUrl={photoUrl} title={title} />
       ) : (

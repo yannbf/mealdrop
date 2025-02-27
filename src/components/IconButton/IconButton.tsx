@@ -3,11 +3,11 @@ import styled, { css } from 'styled-components'
 
 import { Icon } from '../Icon'
 
-const StyledButton = styled.button<{ small: boolean }>(
-  ({ small, theme: { borderRadius } }) => css`
+const StyledButton = styled.button<{ $small: boolean }>(
+  ({ $small, theme: { borderRadius } }) => css`
     border: 0;
-    width: ${small ? '3rem' : '4rem'};
-    height: ${small ? '3rem' : '4rem'};
+    width: ${$small ? '3rem' : '4rem'};
+    height: ${$small ? '3rem' : '4rem'};
     border-radius: ${borderRadius.round};
     cursor: pointer;
     display: flex;
@@ -24,10 +24,12 @@ type IconButtonProps = {
   name: string
   small?: boolean
   onClick?: () => void
-} & ComponentProps<typeof StyledButton>
+} & Omit<ComponentProps<'button'>, 'name' | 'small'>
 
-export const IconButton = ({ small = false, name, ...props }: IconButtonProps) => (
-  <StyledButton type="button" small={small} {...props}>
-    <Icon name={name} size={small ? 15 : 24} color="#202020" />
-  </StyledButton>
-)
+export const IconButton = ({ small = false, name, ...props }: IconButtonProps) => {
+  return (
+    <StyledButton type="button" $small={small} {...props}>
+      <Icon name={name} size={small ? 15 : 24} color="#202020" />
+    </StyledButton>
+  )
+}

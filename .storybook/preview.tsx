@@ -1,14 +1,14 @@
 import type { Preview } from '@storybook/react'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
-import { userEvent } from '@storybook/test'
+import type { UserEvent } from '@storybook/test'
+import { mswLoader } from 'msw-storybook-addon'
+import { ThemeProvider } from 'styled-components'
 
 import { globalDecorators } from './decorators'
 import { viewports as breakpoints } from '../src/styles/breakpoints'
 import { DocsContainer, DocsContainerProps } from '@storybook/blocks'
-import { ThemeProvider } from 'styled-components'
 import { lightTheme } from '../src/styles/theme'
 import { demoModeLoader } from './interaction'
-import { mswLoader } from 'msw-storybook-addon'
 
 // Create custom viewports using widths defined in design tokens
 const breakpointViewports = Object.keys(breakpoints).reduce((acc, key) => {
@@ -70,9 +70,9 @@ const preview: Preview = {
   loaders: [mswLoader, demoModeLoader]
 }
 
-declare module '@storybook/csf' {
+declare module 'storybook/internal/csf' {
   interface StoryContext {
-      userEvent: ReturnType<typeof userEvent.setup>;
+    userEvent: UserEvent;
   }
 }
 export default preview
