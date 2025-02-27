@@ -126,7 +126,8 @@
     "vitest": "^3.0.7",
     "vitest-axe": "^0.1.0",
     "vitest-canvas-mock": "^0.3.3",
-    "wait-on": "^8.0.2"
+    "wait-on": "^8.0.2",
+    "zx": "^8.1.2"
   },
   "packageManager": "yarn@4.2.1",
   "msw": {
