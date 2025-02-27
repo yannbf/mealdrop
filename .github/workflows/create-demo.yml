@@ -1,0 +1,30 @@
+name: Create Demo
+
+on: [workflow_dispatch]
+
+permissions:
+  contents: write
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Modify badge component
+        run: PAT=${{ secrets.PAT }} npx zx scripts/create-demo.mjs
+
+      - name: Spin up a demo branch and create a pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+            token: ${{ secrets.PAT }}
+            commit-message: Invert badge colors
+            title: Invert badge colors
+            branch: ch-demo-${{ github.run_id }}-${{ github.run_attempt }}

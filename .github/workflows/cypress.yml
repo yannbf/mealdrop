@@ -1,0 +1,55 @@
+name: Cypress tests
+on: push
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  cypress:
+    name: Run Cypress
+    runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node-22.16.0-chrome-137.0.7151.119-1-ff-139.0.4-edge-137.0.3296.62-1
+      options: --user 1001
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: yarn
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v6
+        env:
+          ELECTRON_EXTRA_LAUNCH_ARGS: "--remote-debugging-port=9222"
+        with:
+          build: yarn build
+          start: yarn serve
+      - uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: ./cypress/downloads
+          retention-days: 30
+  chromatic:
+    name: Run Chromatic on Cypress tests
+    needs: cypress
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: yarn
+      - name: Download Cypress test results
+        uses: actions/download-artifact@v4
+      - name: Run Chromatic
+        uses: chromaui/action@latest
+        with:
+          cypress: true
+          projectToken: ${{ secrets.CHROMATIC_CY_PROJECT_TOKEN }}

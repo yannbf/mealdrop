@@ -1,49 +1,83 @@
-## MealDrop
+## Chromatic demo with MealDrop
 
-Storybook is an open-source tool that helps you develop UI components in isolation. It runs in your codebase, but separately from your application. It's like a sandbox, allowing you to not get distracted by incomplete APIs, flaky data, and other external dependencies. It integrates with frameworks like React, Vue, Svelte, Angular, and many others!
+This Storybook is based on the [Mealdrop app](https://github.com/yannbf/mealdrop), a project used in the [Storybook for React apps](https://www.newline.co/courses/storybook-for-react-apps) course by [Yann Braga](https://twitter.com/yannbf).
 
-With Storybook, you can ease the development of a design system and share a common language with Designers. QA's can get an overview and test functionalities in isolation. Stakeholders can use it for demo purposes. Overall, Storybook helps connect all of these people, greatly improving collaboration!
+## To run the project locally
 
-This is MealDrop, a real-world like project made by [Yann Braga](https://twitter.com/yannbf) (from the Storybook team). It's a food delivery app built from scratch with:
+1. Clone the project
+2. Run `yarn` to install the dependencies
+3. Run `yarn storybook` to start the Storybook server
+4. Or run `yarn start` to start the app
 
-- Modern React with [Typescript](https://www.typescriptlang.org/) and hooks
-- Styles with [Styled components](http://styled-components.com/)
-- State management [Redux](https://redux.js.org/) with [@reduxjs/toolkit](https://redux-toolkit.js.org/)
-- Tests with [Vitest](https://vitest.dev/) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
-- Routing with [React router](https://reactrouter.com/)
-- Component explorer [Storybook](https://storybook.js.org/)
+### To run Chromatic tests
 
-Every component of the app is developed and documented in Storybook, and the designs are all in Figma.
+```bash
+$ CHROMATIC_PROJECT_TOKEN=<your_project_token> yarn chromatic
+```
 
-[![MealDrop Demo](https://img.shields.io/badge/MealDrop-Live%20demo-green?style=for-the-badge&logo=vercel)](http://mealdrop.vercel.app/)
-[![MealDrop Storybook](https://img.shields.io/badge/MealDrop-Storybook-ff4785?style=for-the-badge&logo=storybook)](http://mealdrop.vercel.app/storybook)
-[![MealDrop Designs](https://img.shields.io/badge/MealDrop-Designs-eeeeee?style=for-the-badge&logo=figma)](https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop)
-
-![](./.github/media/application-example.png)
-
-You can check this repo as a reference for:
-
-- The core concepts of Storybook
-- Development workflow with Storybook
-- Using the full potential of Storybook, adding components, features and pages
-- Testing strategies with Storybook
-- Building UI faster
-- Mental models for component development
-- Tools to improve designer-developer collaboration
-- Best practices
+---
 
 ## What the demo showcases
 
-- <a href="https://mealdrop.vercel.app/storybook/?path=/docs/design-system-colors--docs">Documenting design tokens</a>
-- <a href="https://mealdrop.vercel.app/storybook/?path=/docs/components-button--docs">Documenting components</a>
-- <a href="https://mealdrop.vercel.app/storybook/?path=/story/pages-categorydetailpage--default&addonPanel=storybook/a11y/panel&panel=right">Accessibility testing</a>
-- <a href="https://mealdrop.vercel.app/storybook/?path=/story/pages-restaurantdetailpage--not-found&panel=right">Network mocking</a>
-- Rendering components in isolation, from the <a href="https://mealdrop.vercel.app/storybook/?path=/docs/components-button--default&panel=right">simplest</a> to the <a href="https://mealdrop.vercel.app/storybook/?path=/story/userflows-app--home&panel=right">most complex ones</a>
-  ![](./.github/media/restaurant-card-stories.gif)
-- <a href="https://mealdrop.vercel.app/storybook/?path=/story/userflows-app--to-success-page&addonPanel=storybook/interactions/panel&panel=right">Interaction testing</a>
-  ![](./.github/media/interaction-tests.gif)
-- <a href="https://mealdrop.vercel.app/storybook/?path=/story/components-button--default&addonPanel=STORYBOOK_ADDON_DESIGNS/panel&panel=right">Design integration (Figma)</a>
-  ![](./.github/media/figma-connect.png)
-- <a href="https://mealdrop.vercel.app/storybook/?path=/story/components-button--default&globals=theme:dark">Theme switching</a>
-  ![](./.github/media/theme-toolbar.gif)
-- And much more!
+- [Deployed Storybook](https://main--665a454c207e6c8e7fea1174.chromatic.com/)
+- [Deployed Mealdrop app](https://mealdrop.vercel.app/)
+- [Figma file](https://www.figma.com/design/JHymAhlkm3qUEjy360dL8k/Mealdrop-for-demo?node-id=1091-2985&m=dev)
+
+### Visual tests
+
+This project is configured to demonstrate all three Chromatic integrations:
+
+- [Storybook](https://www.chromatic.com/docs/storybook/): all `*.stories.js` files will be tested by Chromatic
+- [Playwright](https://www.chromatic.com/docs/playwright/): `tests/example.spec.ts` E2E test
+- [Cypress](https://www.chromatic.com/docs/cypress/): `cypress/e2e/spec.cy.js` E2E test
+
+### Diffing basics
+
+[This build](https://www.chromatic.com/build?appId=665a454c207e6c8e7fea1174&number=12) has UI changes that can be reviewed in the Chromatic UI. You can see component level changes and see how those bubble up to the page level.
+
+![UI changes detected by Chromatic](.github/media/ui-changes.png)
+
+### Testing variants with Modes
+
+#### Viewports
+
+The [Header component](https://main--665a454c207e6c8e7fea1174.chromatic.com/?path=/story/components-header--default) is a good example of using the viewports addon to test responsiveness.
+
+![Header component with viewport enabled](.github/media/viewports.png)
+
+#### Themes
+
+The Mealdrop Storybook is configured with a theme switcher that toggles between light and dark themes. This is useful for testing components in with different themes during development. For example, open the [RestaurantCard](https://main--665a454c207e6c8e7fea1174.chromatic.com/?path=/story/components-restaurantcard--default) story and toggle the theme switcher.
+
+<video src="https://github.com/chromaui-demo/mealdrop-demo/assets/42671/ce671c7a-fe43-4b82-a4b9-df32de166f45"></video>
+
+Theme (and other such variants) plug into Chromatic's [Modes feature](https://www.chromatic.com/docs/modes/) to capture snapshots of different variants of a component.
+
+![Light and dark variants are captured as separate snapshots for the RestaurantCard component](.github/media/modes.png)
+
+### Mocking API requests and interactions
+
+[Home component](https://main--665a454c207e6c8e7fea1174.chromatic.com/?path=/story/userflows-app--home) is a basic example of a story that mocks API data, in this case the restaurants data, using the [Storybook MSW addon](https://storybook.js.org/docs/writing-stories/mocking-network-requests#set-up-the-msw-addon).
+
+![Home page story](.github/media/home-with-mock-api.png)
+
+[RestaurantDetailPage](https://main--665a454c207e6c8e7fea1174.chromatic.com/?path=/story/pages-restaurantdetailpage--with-modal-open) is an example of a full page story that also that uses mocked API requests and has [interaction tests](https://www.chromatic.com/docs/interactions/).
+
+![RestaurantDetailPage story with interaction tests](.github/media/interactions.png)
+
+[App » ToCheckoutPage](https://main--665a454c207e6c8e7fea1174.chromatic.com/?path=/story/userflows-app--to-checkout-page) is another full page example with complex (multi-page) interactions and mocked API requests
+
+![checkout flow test using Storybook interactions](.github/media/checkout-test.png)
+
+### Figma integration
+
+There are three workflows:
+
+1. Figma designs can be embedded within Storybook to provide context for developers, eg: [RestaurantCard story in published Storybook](https://main--665a454c207e6c8e7fea1174.chromatic.com/?path=/story/components-restaurantcard--default)
+   ![Figma designs embedded within Storybook](.github/media/figma-in-storybook.png)
+
+2. Storybook Connect plugin enables designers to view Storybook stories within Figma, eg: [RestaurantCard Figma component](https://www.figma.com/design/JHymAhlkm3qUEjy360dL8k/Mealdrop-for-demo?node-id=1091-2985&m=dev)
+   <video src="https://github.com/chromaui-demo/mealdrop-demo/assets/42671/4664a74f-efd9-4a75-8454-0a82276bb5a8"></video>
+
+3. Figma designs in Chromatic: in Chromatic's library view you can view Figma designs alongside Storybook stories and snapshots captured by Chromatic, eg: [RestaurantCard](https://www.chromatic.com/component?appId=665a454c207e6c8e7fea1174&csfId=components-restaurantcard--default&buildNumber=5&k=665dff72d4b0e5916b350a46-dark-designs-true&h=43&b=-6)
+   <video src="https://github.com/chromaui-demo/mealdrop-demo/assets/42671/63bb41f5-a53b-4e85-a18b-42e6d57f0bd7"></video>

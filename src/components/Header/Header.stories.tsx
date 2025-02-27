@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Header } from './Header'
+import { allModes } from '../../../.storybook/modes'
 
 const meta = {
   title: 'Components/Header',
@@ -10,6 +11,14 @@ const meta = {
     design: {
       type: 'figma',
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1690-4054&mode=design&t=zmyrZnTzOLfLqBwr-4',
+    },
+    chromatic: {
+      modes: {
+        xs: allModes.xs,
+        s: allModes.s,
+        m: allModes.m,
+        l: allModes.l,
+      },
     },
   },
 } satisfies Meta<typeof Header>
