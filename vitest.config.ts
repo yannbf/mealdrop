@@ -13,6 +13,7 @@ export default mergeConfig(viteConfig, {
         '.storybook',
         'src/docs',
         'src/components/Button/utils.tsx',
+        'build',
         'public',
         'functions',
         '**/conditional-logic.ts',

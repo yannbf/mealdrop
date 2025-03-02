@@ -57,6 +57,7 @@ const ShoppingCartMenuItem = ({ item, onChange }: any) => (
     <Select
       value={item.quantity}
       onChange={onChange}
+      aria-label={`${item.quantity} times`}
       options={[...Array.from({ length: 11 }).keys()]}
     />
   </MenuItemContainer>

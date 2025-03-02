@@ -4,6 +4,17 @@ import { breakpoints } from '../../../../styles/breakpoints'
 import { Body } from '../../../../components/typography/Body'
 import { Heading } from '../../../../components/typography/Heading'
 
+export const StyledHeading = styled(Heading)<{ $withMargin?: boolean }>(
+  ({
+    theme: {
+      typography: { fontSize },
+    },
+  }) => css`
+    font-size: ${fontSize.heading4};
+    margin-bottom: 0;
+  `
+)
+
 const OuterBar = styled.div(
   ({ theme: { color, borderRadius } }) => css`
     height: 4px;
@@ -57,7 +68,7 @@ export const StepIndicator = ({ title, currentStep, amountOfSteps }: StepIndicat
   return (
     <div style={{ marginBottom: '2rem' }}>
       <TitleSection>
-        <Heading level={4}>{title}</Heading>
+        <StyledHeading level={3}>{title}</StyledHeading>
         <Body size="XS" type="span">
           Step {currentStep} of {amountOfSteps}
         </Body>

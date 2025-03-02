@@ -24,7 +24,7 @@ export const OrderSummary = ({ cartItems }: OrderSummaryProps) => {
   return (
     <>
       <OrderSummaryContainer>
-        <StyledHeading level={2} $withMargin>
+        <StyledHeading level={3} $withMargin>
           Your order
         </StyledHeading>
         <CartItemsContainer>
