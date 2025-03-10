@@ -3,7 +3,7 @@ import { http, HttpResponse } from 'msw'
 import { within, expect } from '@storybook/test'
 
 import { BASE_URL } from '../api'
-import { restaurants } from '../stub/restaurants'
+import { restaurantsCompleteData } from '../stub/restaurants'
 import { withDeeplink } from '../../.storybook/withDeeplink'
 
 const meta = {
@@ -20,14 +20,18 @@ const meta = {
           const category = url.searchParams.get('category')
 
           if (id) {
-            return HttpResponse.json(restaurants[0])
+            return HttpResponse.json(restaurantsCompleteData[0])
           }
 
           if (category) {
-            return HttpResponse.json([restaurants[0], restaurants[1], restaurants[2]])
+            return HttpResponse.json([
+              restaurantsCompleteData[0],
+              restaurantsCompleteData[1],
+              restaurantsCompleteData[2],
+            ])
           }
 
-          return HttpResponse.json(restaurants)
+          return HttpResponse.json(restaurantsCompleteData)
         }),
       ],
     },

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { http, delay, HttpResponse } from 'msw'
 
-import { restaurants } from '../../stub/restaurants'
+import { restaurantsCompleteData } from '../../stub/restaurants'
 import { BASE_URL } from '../../api'
 import { withDeeplink } from '../../../.storybook/withDeeplink'
 
@@ -27,7 +27,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   parameters: {
     msw: {
-      handlers: [http.get(BASE_URL, () => HttpResponse.json([restaurants[0]]))],
+      handlers: [http.get(BASE_URL, () => HttpResponse.json([restaurantsCompleteData[0]]))],
     },
   },
 }

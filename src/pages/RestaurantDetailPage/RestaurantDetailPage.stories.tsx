@@ -3,7 +3,7 @@ import { http, HttpResponse, delay } from 'msw'
 import { expect } from '@storybook/test'
 
 import { BASE_URL } from '../../api'
-import { restaurants } from '../../stub/restaurants'
+import { restaurantsCompleteData } from '../../stub/restaurants'
 import { cartItems } from '../../stub/cart-items'
 import { withDeeplink } from '../../../.storybook/withDeeplink'
 
@@ -42,7 +42,7 @@ export const Success = {
     msw: {
       handlers: [
         http.get(BASE_URL, () => {
-          return HttpResponse.json(restaurants[0])
+          return HttpResponse.json(restaurantsCompleteData[0])
         }),
       ],
     },
