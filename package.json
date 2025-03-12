@@ -68,7 +68,6 @@
     "@babel/core": "^7.26.9",
     "@chromatic-com/storybook": "^3.2.5",
     "@eslint/js": "^9.21.0",
-    "@ladle/react": "^5.0.1",
     "@storybook/addon-a11y": "^8.6.1",
     "@storybook/addon-coverage": "^1.0.5",
     "@storybook/addon-designs": "^8.2.0",
