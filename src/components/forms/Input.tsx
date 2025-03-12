@@ -6,8 +6,8 @@ import { Body } from '../typography/Body'
 const Container = styled.div(
   ({ theme: { color, spacing, boxShadow, borderRadius } }) => css`
     display: flex;
-    flex-direction: column-reverse;
-    padding-bottom: ${spacing.m};
+    flex-direction: column;
+    padding-bottom: 0;
     label {
       color: ${color.label};
       padding-bottom: ${spacing.xxs};
@@ -40,19 +40,30 @@ const Container = styled.div(
   `
 )
 
+const ErrorMessage = styled(Body)(
+  ({ theme: { color, spacing } }) => css`
+    color: ${color.error};
+    margin-top: ${spacing.xxs};
+    font-size: 12px;
+    min-height: 16px;
+  `
+)
+
 type InputProps = {
   label?: string
   value?: any
   onChange?: (data: any) => void
+  error?: string
 } & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 
-export const Input = ({ label = '', type = 'text', id, ...otherProps }: InputProps) => (
+export const Input = ({ label = '', type = 'text', id, error, ...otherProps }: InputProps) => (
   <Container>
-    <input id={id} aria-label={label} type={type} {...otherProps} />
     {label && (
       <Body type="label" htmlFor={id}>
         {label}
       </Body>
     )}
+    <input id={id} aria-label={label} type={type} {...otherProps} autoComplete="off" />
+    <ErrorMessage>{error || ' '}</ErrorMessage>
   </Container>
 )

@@ -17,6 +17,7 @@ declare module 'styled-components' {
 const baseColors = {
   white: '#FFFFFF ',
   black: '#202020',
+  red: '#FF4444',
   otherBlack: '#2C2C2C ',
   grey: {
     base: '#909090',
@@ -124,6 +125,7 @@ const color = {
   cardBackground: baseColors.grey.light6,
   checkoutTopBackground: baseColors.green.base,
   checkoutBottomBackground: baseColors.grey.light6,
+  error: baseColors.red,
   formBackground: baseColors.white,
   foodItemBackground: baseColors.white,
   footerBackground: baseColors.grey.dark5,
