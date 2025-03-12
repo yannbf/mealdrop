@@ -17,7 +17,7 @@ declare module 'styled-components' {
 const baseColors = {
   white: '#FFFFFF ',
   black: '#202020',
-  red: '#FF4444',
+  red: '#D70808',
   otherBlack: '#2C2C2C ',
   grey: {
     base: '#909090',
@@ -144,6 +144,7 @@ const color = {
   overlayBackground: baseColors.white,
   overlayHeader: baseColors.grey.light5,
   primaryText: baseColors.otherBlack,
+  secondaryText: baseColors.grey.light1,
   reviewText: baseColors.blue.dark5,
   screenBackground: baseColors.white,
   sidebarHeader: baseColors.grey.dark4,
