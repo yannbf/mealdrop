@@ -1,3 +1,4 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
@@ -7,7 +8,7 @@ const BreadcrumbContainer = styled.div(
   margin-bottom: 2rem;
   a,
   p {
-    color: ${color.secondaryText};
+    color: #aaa;
     text-transform: lowercase;
   }
 `
@@ -38,7 +39,7 @@ export const Breadcrumb = ({ items }: BreadcrumbProps) => {
   return (
     <BreadcrumbContainer>
       {items.map((item, index) => (
-        <>
+        <React.Fragment key={index}>
           {index > 0 && <Separator>/</Separator>}
           {item.path ? (
             <LinkText>
@@ -47,7 +48,7 @@ export const Breadcrumb = ({ items }: BreadcrumbProps) => {
           ) : (
             <PlainText>{item.label}</PlainText>
           )}
-        </>
+        </React.Fragment>
       ))}
     </BreadcrumbContainer>
   )

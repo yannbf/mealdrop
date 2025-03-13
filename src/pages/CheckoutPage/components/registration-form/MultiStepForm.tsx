@@ -38,7 +38,6 @@ export const MultiStepForm = () => {
   const [formData, setFormData] = useState(defaultData)
 
   const handleNext = () => {
-    console.log('handleNext', { currentStep, stepsLength: steps.length })
     if (currentStep < steps.length - 1) {
       setCurrentStep(currentStep + 1)
     }

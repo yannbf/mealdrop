@@ -50,37 +50,3 @@ export const Loading: Story = {
     isLoading: true,
   },
 }
-
-export const NoCategories: Story = {
-  args: {
-    name: 'Burger Kingdom',
-    specialty: 'Nicest place for burgers',
-    photoUrl:
-      'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1003&q=20',
-    rating: 4.2,
-    categories: null,
-  },
-}
-
-export const NoReviews: Story = {
-  args: {
-    name: 'Burger Kingdom',
-    specialty: 'Nicest place for burgers',
-    photoUrl:
-      'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1003&q=20',
-    rating: 0,
-    categories: ['burgers', 'comfort food'],
-  },
-}
-
-export const Loading1: Story = {
-  args: {
-    name: 'Burger Kingdom',
-    specialty: 'Nicest place for burgers',
-    photoUrl:
-      'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1003&q=20',
-    rating: 4.2,
-    categories: ['burgers', 'comfort food'],
-    isLoading: true,
-  },
-}

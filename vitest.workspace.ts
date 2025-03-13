@@ -11,17 +11,16 @@ export default defineWorkspace([
       storybookTest({ configDir: '.storybook', storybookScript: 'yarn storybook --ci' }),
     ],
     publicDir: 'public',
+    optimizeDeps: {
+      exclude: ['storybook-addon-test-codegen/preview'],
+    },
     test: {
       name: 'storybook',
       browser: {
         enabled: true,
         headless: true,
         provider: 'playwright',
-        instances: [
-          {
-            browser: 'chromium',
-          },
-        ],
+        name: 'chromium',
       },
       setupFiles: ['.storybook/vitest.setup.ts'],
     },
