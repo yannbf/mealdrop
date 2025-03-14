@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { http, HttpResponse, delay } from 'msw'
-import { expect } from '@storybook/test'
+import { expect, userEvent, within, waitFor } from '@storybook/test';
 
 import { BASE_URL } from '../../api'
 import { restaurantsCompleteData } from '../../stub/restaurants'
@@ -19,6 +19,13 @@ const meta = {
       route: '/restaurants/1',
       path: '/restaurants/:id',
     },
+    msw: {
+      handlers: [
+        http.get(BASE_URL, () => {
+          return HttpResponse.json(restaurantsCompleteData[0])
+        }),
+      ],
+    },
   },
   render: () => {
     return (
@@ -34,19 +41,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Success = {
-  parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=169%3A510',
-    },
-    msw: {
-      handlers: [
-        http.get(BASE_URL, () => {
-          return HttpResponse.json(restaurantsCompleteData[0])
-        }),
-      ],
-    },
-  },
   play: async ({ canvas }) => {
     const item = await canvas.findByText(/Burger Kingdom/i)
     await expect(item).toBeInTheDocument()
@@ -65,7 +59,6 @@ export const WithModalOpen: Story = {
 
 export const WithItemsInTheCart: Story = {
   parameters: {
-    ...Success.parameters,
     store: {
       initialState: { cart: { items: cartItems } },
     },
@@ -74,10 +67,6 @@ export const WithItemsInTheCart: Story = {
 
 export const Loading: Story = {
   parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=2152%3A3158',
-    },
     msw: {
       handlers: [
         http.get(BASE_URL, async () => {
@@ -94,10 +83,6 @@ export const Loading: Story = {
 
 export const NotFound: Story = {
   parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=1097%3A3785',
-    },
     msw: {
       handlers: {
         error: http.get(BASE_URL, () => {
@@ -114,10 +99,6 @@ export const NotFound: Story = {
 
 export const Error: Story = {
   parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=1091%3A4537',
-    },
     msw: {
       handlers: [
         http.get(BASE_URL, () => {

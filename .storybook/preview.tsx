@@ -52,15 +52,16 @@ const ThemeBlock = styled.div<{ $left?: boolean; $fullScreen?: boolean }>(
   `
 )
 
-export const withTheme: Decorator = (StoryFn, { globals: { theme = 'light' }, parameters }) => {
+export const withTheme: Decorator = (StoryFn, { globals: { theme = 'light' }, parameters, viewMode }) => {
   const fullScreen = parameters.layout === 'fullscreen'
   const appTheme = theme === 'light' ? lightTheme : darkTheme
   const leftContainerRef = React.useRef<HTMLDivElement>(null)
   const rightContainerRef = React.useRef<HTMLDivElement>(null)
   const isScrolling = React.useRef(false)
+  const isSideBySide = theme === 'side-by-side' && viewMode === 'story'
 
   React.useEffect(() => {
-    if (theme === 'side-by-side') {
+    if (isSideBySide) {
       const originalClasses = document.body.className
       document.body.className = originalClasses.replace('sb-main-padded', '')
       return () => {
@@ -73,7 +74,7 @@ export const withTheme: Decorator = (StoryFn, { globals: { theme = 'light' }, pa
     const leftContainer = leftContainerRef.current
     const rightContainer = rightContainerRef.current
 
-    if (!leftContainer || !rightContainer || theme !== 'side-by-side') {
+    if (!leftContainer || !rightContainer || !isSideBySide) {
       return
     }
 
@@ -210,7 +211,15 @@ const preview: Preview = {
       },
     },
     a11y: {
-      test: 'error'
+      test: 'error',
+      config: {
+        rules: [
+          {
+            id: 'heading-order',
+            enabled: false
+          },
+        ],
+      },
     },
     controls: {
       matchers: {

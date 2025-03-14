@@ -8,6 +8,13 @@ const Wrapper = styled.div`
   justify-content: flex-start;
 `
 
+const StyledBody = styled(Body)(({ theme: { color } }) => `
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: ${color.reviewText};
+`)
+
 type ReviewProps = {
   rating?: number
 }
@@ -32,8 +39,8 @@ const getReview = (rating?: number) => {
 
 export const Review = ({ rating }: ReviewProps) => (
   <Wrapper>
-    <Body size="S" type="span" className="review-text">
+    <StyledBody size="S" type="span" className="review-text">
       {getReview(rating)}
-    </Body>
+    </StyledBody>
   </Wrapper>
 )

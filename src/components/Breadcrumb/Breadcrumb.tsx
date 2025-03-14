@@ -8,7 +8,7 @@ const BreadcrumbContainer = styled.div(
   margin-bottom: 2rem;
   a,
   p {
-    color: #aaa;
+    color: ${color.secondaryText};
     text-transform: lowercase;
   }
 `

@@ -3,6 +3,7 @@ import viteConfig from './vite.config'
 
 export default mergeConfig(viteConfig, {
   test: {
+    name: 'node',
     environment: 'happy-dom',
     include: ['**/*.test.ts'],
     coverage: {
