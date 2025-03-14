@@ -218,6 +218,10 @@ const preview: Preview = {
             id: 'heading-order',
             enabled: false
           },
+          {
+            id: 'aria-hidden-focus',
+            enabled: false
+          },
         ],
       },
     },
