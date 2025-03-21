@@ -4,7 +4,7 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import styled, { css, ThemeProvider } from 'styled-components'
-import { Decorator } from '@storybook/react'
+import { Decorator } from '@storybook/react-vite'
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider as StoreProvider } from 'react-redux'
 import { initialize } from 'msw-storybook-addon'

@@ -1,4 +1,4 @@
-import type { Preview } from '@storybook/react'
+import type { Preview } from '@storybook/react-vite'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import { userEvent } from '@testing-library/user-event'
 import { mswLoader } from 'msw-storybook-addon'

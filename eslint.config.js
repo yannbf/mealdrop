@@ -35,6 +35,7 @@ export default [
       'unicorn/no-null': 'off',
       'unicorn/filename-case': 'off',
       'unicorn/no-nested-ternary': 'off',
+      'unicorn/no-array-reduce': 'off',
     },
   },
   {

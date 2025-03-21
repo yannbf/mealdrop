@@ -1,4 +1,4 @@
-import { getJestConfig } from '@storybook/test-runner'
+import { getJestConfig } from 'storybook/test-runner'
 
 export default {
   // The default configuration comes from @storybook/test-runner
