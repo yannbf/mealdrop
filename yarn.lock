@@ -720,18 +720,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chromatic-com/storybook@npm:^3.2.5":
-  version: 3.2.5
-  resolution: "@chromatic-com/storybook@npm:3.2.5"
+"@chromatic-com/storybook@npm:next":
+  version: 4.0.0-next.3
+  resolution: "@chromatic-com/storybook@npm:4.0.0-next.3"
   dependencies:
-    chromatic: "npm:^11.15.0"
+    chromatic: "npm:^11.27.0"
     filesize: "npm:^10.0.12"
     jsonfile: "npm:^6.1.0"
     react-confetti: "npm:^6.1.0"
     strip-ansi: "npm:^7.1.0"
   peerDependencies:
-    storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
-  checksum: 10c0/a8064e433caf8842079a676a9ecc0e423b6599e2549d14f9d69cef19d0a4f527c819c9577975436463925dcc8046278fc2f1f3d2bb2d1c250df14e37b0ae44a4
+    storybook: ^0.0.0-0 || ^9.0.0 || ^9.0.0-alpha.4
+  checksum: 10c0/43d9c7c04932b99b8654eccc5ab95736a0b79ba8dba4353e115eef938f93464ca63b36c9599dafb9d224608ffa730f07ccb592078063b5b070d69b44d52a080d
   languageName: node
   linkType: hard
 
@@ -2033,29 +2033,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-designs@npm:^8.2.0":
-  version: 8.2.0
-  resolution: "@storybook/addon-designs@npm:8.2.0"
+"@storybook/addon-designs@npm:next":
+  version: 9.0.0-next.0
+  resolution: "@storybook/addon-designs@npm:9.0.0-next.0"
   dependencies:
     "@figspec/react": "npm:^1.0.0"
   peerDependencies:
-    "@storybook/blocks": ^8.0.0 || ^8.1.0-0 || ^8.2.0-0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
-    "@storybook/components": ^8.0.0 || ^8.1.0-0 || ^8.2.0-0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
-    "@storybook/theming": ^8.0.0 || ^8.1.0-0 || ^8.2.0-0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    storybook: ^0.0.0-0 || ^9.0.0 || ^9.0.0-0
   peerDependenciesMeta:
     "@storybook/blocks":
-      optional: true
-    "@storybook/components":
-      optional: true
-    "@storybook/theming":
       optional: true
     react:
       optional: true
     react-dom:
       optional: true
-  checksum: 10c0/6a6ff46696daaea42a870cf18cb028f94d57048b88f8089addcfef7aca503146970ffdaaad1647e02b8cb6e4f9c030f06a4c373c634fac66291c9eaa25a5b507
+  checksum: 10c0/0698e7a7df1be96c83a666678ee57463a90610f369fe1351d4e1c5cc7efc46c757f32d3c7ed3edc08cc0756570352ebde5f973ab44b9e31c3fbdeda16af704a6
   languageName: node
   linkType: hard
 
@@ -2307,9 +2301,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/test-runner@npm:^0.21.3":
-  version: 0.21.3
-  resolution: "@storybook/test-runner@npm:0.21.3"
+"@storybook/test-runner@npm:next":
+  version: 0.22.0-next.2
+  resolution: "@storybook/test-runner@npm:0.22.0-next.2"
   dependencies:
     "@babel/core": "npm:^7.22.5"
     "@babel/generator": "npm:^7.22.5"
@@ -2331,10 +2325,10 @@ __metadata:
     nyc: "npm:^15.1.0"
     playwright: "npm:^1.14.0"
   peerDependencies:
-    storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
+    storybook: ^0.0.0-0 || ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0 || ^9.0.0-0
   bin:
     test-storybook: dist/test-storybook.js
-  checksum: 10c0/aec04919852dfc5efd52bc05f74d2e1c3d0f7b207d3e54e05a351cd6727225c4010f9b1c133108460c5868430604fd0732f7200bfd431aad9ece21f0311e8e48
+  checksum: 10c0/a442a1d13892c4e639cd13616af8885cee142ab67193cf6786d8f83428f1ebc57ab97a3641bcaf14ab6c930ff87ab208f37d5acfc7bc7e2658f1a61b3c2c4dbf
   languageName: node
   linkType: hard
 
@@ -4661,25 +4655,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:^11.15.0":
-  version: 11.16.3
-  resolution: "chromatic@npm:11.16.3"
-  peerDependencies:
-    "@chromatic-com/cypress": ^0.*.* || ^1.0.0
-    "@chromatic-com/playwright": ^0.*.* || ^1.0.0
-  peerDependenciesMeta:
-    "@chromatic-com/cypress":
-      optional: true
-    "@chromatic-com/playwright":
-      optional: true
-  bin:
-    chroma: dist/bin.js
-    chromatic: dist/bin.js
-    chromatic-cli: dist/bin.js
-  checksum: 10c0/407e8c78ea8cea7a47ea427fe76380d5033dc3be3928b5d3537b81aa0f617db4944d7c1a377705e83900b6bb78ca6d7cbeb55ea4ebf2154f0739c15fc605b3b5
-  languageName: node
-  linkType: hard
-
 "chromatic@npm:^11.26.1":
   version: 11.26.1
   resolution: "chromatic@npm:11.26.1"
@@ -4696,6 +4671,25 @@ __metadata:
     chromatic: dist/bin.js
     chromatic-cli: dist/bin.js
   checksum: 10c0/959b18b35867535411dc8b30ff3927a5a39b5f0169db06af5c9d377d5fb7c31ca5a883de3662f5db792f2e0469a3c5a90db78f65e597c5c7e27b8f1c054a1f92
+  languageName: node
+  linkType: hard
+
+"chromatic@npm:^11.27.0":
+  version: 11.27.0
+  resolution: "chromatic@npm:11.27.0"
+  peerDependencies:
+    "@chromatic-com/cypress": ^0.*.* || ^1.0.0
+    "@chromatic-com/playwright": ^0.*.* || ^1.0.0
+  peerDependenciesMeta:
+    "@chromatic-com/cypress":
+      optional: true
+    "@chromatic-com/playwright":
+      optional: true
+  bin:
+    chroma: dist/bin.js
+    chromatic: dist/bin.js
+    chromatic-cli: dist/bin.js
+  checksum: 10c0/500c1a522a48b3ef9188d63693b2602128b4cd7b2b96e5cb5412cdc0e3b7ac2a33c30d8f55f7662de4111e1c7c70bcb970e86782700e02580881400bdd10419b
   languageName: node
   linkType: hard
 
@@ -5020,19 +5014,19 @@ __metadata:
   resolution: "course-app@workspace:."
   dependencies:
     "@babel/core": "npm:^7.26.9"
-    "@chromatic-com/storybook": "npm:^3.2.5"
+    "@chromatic-com/storybook": "npm:next"
     "@eslint/js": "npm:^9.21.0"
     "@ladle/react": "npm:^5.0.1"
     "@reduxjs/toolkit": "npm:^2.6.0"
     "@storybook/addon-a11y": "npm:0.0.0-pr-30875-sha-e06705ac"
     "@storybook/addon-coverage": "npm:^1.0.5"
-    "@storybook/addon-designs": "npm:^8.2.0"
+    "@storybook/addon-designs": "npm:next"
     "@storybook/addon-essentials": "npm:0.0.0-pr-30875-sha-e06705ac"
     "@storybook/addon-test": "npm:0.0.0-pr-30875-sha-e06705ac"
     "@storybook/addon-themes": "npm:0.0.0-pr-30875-sha-e06705ac"
     "@storybook/blocks": "npm:0.0.0-pr-30875-sha-e06705ac"
     "@storybook/react-vite": "npm:0.0.0-pr-30875-sha-e06705ac"
-    "@storybook/test-runner": "npm:^0.21.3"
+    "@storybook/test-runner": "npm:next"
     "@testing-library/jest-dom": "npm:^6.6.3"
     "@testing-library/react": "npm:^16.2.0"
     "@testing-library/user-event": "npm:^14.6.1"
