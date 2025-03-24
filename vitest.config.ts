@@ -6,11 +6,10 @@ export default mergeConfig(viteConfig, {
     environment: 'happy-dom',
     include: ['**/*.test.ts'],
     coverage: {
-      // uncomment these lines to enable coverage threshold
-      // thresholds: {
-      //   // Requires 100% function coverage
-      //   functions: 100,
-      // },
+      thresholds: {
+        // Requires 100% function coverage
+        functions: 100,
+      },
       exclude: [
         ...coverageConfigDefaults.exclude,
         'storybook.setup.ts',
