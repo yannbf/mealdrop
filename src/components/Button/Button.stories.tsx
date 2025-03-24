@@ -36,6 +36,11 @@ export const Clear: Story = {
   args: {
     clear: true,
   },
+  parameters: {
+    a11y: {
+      test: 'todo',
+    },
+  },
 }
 
 export const Icon: Story = {

@@ -25,7 +25,7 @@ const StyledButton = styled.button<StyledButtonProperties>(
     align-items: center;
     justify-content: center;
     padding: ${$withIcon ? '0.7rem' : $large ? '1.125rem 1rem' : '0.875rem 1rem'};
-    color: ${$clear ? color.primaryText : color.buttonText};
+    color: #ccc;
 
     transition: box-shadow 150ms ease-in;
     z-index: 1;
