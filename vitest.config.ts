@@ -6,6 +6,13 @@ export default mergeConfig(viteConfig, {
     environment: 'happy-dom',
     include: ['**/*.test.ts'],
     coverage: {
+      thresholds: {
+        // Requires 90% function coverage
+        functions: 99,
+
+        // Require that no more than 10 lines are uncovered
+        lines: -10,
+      },
       exclude: [
         ...coverageConfigDefaults.exclude,
         'storybook.setup.ts',
