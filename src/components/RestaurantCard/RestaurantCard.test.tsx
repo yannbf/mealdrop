@@ -1,6 +1,6 @@
 import { vi, expect, describe, test } from 'vitest'
 import { screen } from '@testing-library/react'
-import { composeStories } from '@storybook/react'
+import { composeStories } from '@storybook/react-vite'
 import { axe } from 'vitest-axe'
 
 import * as stories from './RestaurantCard.stories'

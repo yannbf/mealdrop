@@ -1,7 +1,7 @@
 import { vi, expect, test } from 'vitest'
 import { axe } from 'vitest-axe'
 import { screen } from '@testing-library/react'
-import { composeStories } from '@storybook/react'
+import { composeStories } from '@storybook/react-vite'
 
 import * as stories from './Button.stories'
 

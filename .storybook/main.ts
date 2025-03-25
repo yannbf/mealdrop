@@ -15,9 +15,11 @@ const config: StorybookConfig = {
         backgrounds: false,
       },
     },
-    '@storybook/experimental-addon-test',
+    '@storybook/addon-test',
     '@storybook/addon-a11y',
-    'storybook-addon-test-codegen',
+    // TODO: Not compatible with SB9
+    // 'storybook-addon-test-codegen',
+    '@storybook/addon-docs',
   ],
   typescript: {
     reactDocgen: 'react-docgen',
