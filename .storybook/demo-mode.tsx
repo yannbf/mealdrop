@@ -116,10 +116,8 @@ export const demoModeLoader: Loader = async (context) => {
     context.parameters.test?.demoMode ||
     context.globals.interactionsDemoMode
   ) {
-    const user = userEvent.setup()
-
     context.userEvent = {
-      ...user,
+      ...userEvent,
       type: async (...args: any[]) => {
         const [target, text, options] = args
         const userSession = userEvent.setup({
@@ -133,10 +131,10 @@ export const demoModeLoader: Loader = async (context) => {
           cursorStyle: context.parameters.test?.cursorStyle,
           delay: context.parameters.test?.demoModeDelay,
         })
-        return user.click(target)
+        return userEvent.click(target)
       },
-    }
+    } as unknown as ReturnType<typeof userEvent.setup>
   } else {
-    context.userEvent = userEvent.setup()
+    context.userEvent = userEvent as unknown as ReturnType<typeof userEvent.setup>
   }
 }

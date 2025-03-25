@@ -22,7 +22,13 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
+export const NotFound: Story = {
+  args: {
+    animation: 'NotFound',
+  },
+}
+
+export const Error: Story = {
   args: {
     animation: 'Error',
   },

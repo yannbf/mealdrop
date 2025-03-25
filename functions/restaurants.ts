@@ -1,11 +1,11 @@
-import { restaurants } from '../src/stub/restaurants'
+import { restaurantsCompleteData } from '../src/stub/restaurants'
 
 const getRestaurantById = (id: string) => {
-  return restaurants.find((restaurant) => restaurant.id === id)
+  return restaurantsCompleteData.find((restaurant) => restaurant.id === id)
 }
 
 const getRestaurantsByCategory = (category: string) => {
-  return restaurants
+  return restaurantsCompleteData
     .filter((restaurant) => restaurant.categories?.includes(category.toLowerCase()))
     .sort((restaurant) => (restaurant.isClosed ? 1 : -1))
     .sort((restaurant) => (restaurant.isNew ? -1 : 1))
@@ -47,7 +47,7 @@ export const handler = async (event: any) => {
 
   return {
     statusCode: 200,
-    body: JSON.stringify(restaurants),
+    body: JSON.stringify(restaurantsCompleteData),
     headers,
   }
 }

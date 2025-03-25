@@ -5,7 +5,17 @@ import { Body } from '../typography/Body'
 
 import { Icon } from './Icon'
 
-const icons = ['arrow-right', 'arrow-left', 'cross', 'cart', 'minus', 'plus', 'moon', 'sun', 'star']
+const icons = [
+  'arrow-right',
+  'arrow-left',
+  'cross',
+  'cart',
+  'minus',
+  'plus',
+  'moon',
+  'sun',
+  'star',
+] as const
 
 const IconContainer = styled.div(
   ({ theme: { color } }) => css`
