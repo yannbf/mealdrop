@@ -3,7 +3,7 @@ import { http, HttpResponse, delay } from 'msw'
 import { expect } from '@storybook/test'
 
 import { BASE_URL } from '../../api'
-import { restaurants } from '../../stub/restaurants'
+import { restaurantsCompleteData } from '../../stub/restaurants'
 import { cartItems } from '../../stub/cart-items'
 import { withDeeplink } from '../../../.storybook/withDeeplink'
 
@@ -18,6 +18,13 @@ const meta = {
     deeplink: {
       route: '/restaurants/1',
       path: '/restaurants/:id',
+    },
+    msw: {
+      handlers: [
+        http.get(BASE_URL, () => {
+          return HttpResponse.json(restaurantsCompleteData[0])
+        }),
+      ],
     },
   },
   render: () => {
@@ -34,19 +41,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Success = {
-  parameters: {
-    design: {
-      type: 'figma',
-      url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=169%3A510',
-    },
-    msw: {
-      handlers: [
-        http.get(BASE_URL, () => {
-          return HttpResponse.json(restaurants[0])
-        }),
-      ],
-    },
-  },
   play: async ({ canvas }) => {
     const item = await canvas.findByText(/Burger Kingdom/i)
     await expect(item).toBeInTheDocument()
@@ -65,7 +59,6 @@ export const WithModalOpen: Story = {
 
 export const WithItemsInTheCart: Story = {
   parameters: {
-    ...Success.parameters,
     store: {
       initialState: { cart: { items: cartItems } },
     },

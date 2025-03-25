@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios'
 
 import { Restaurant } from '../types'
-import { restaurants as restaurantsMock } from '../stub/restaurants'
+import { restaurantsCompleteData as restaurantsMock } from '../stub/restaurants'
 
 interface BaseApi {
   getRestaurants: () => Promise<Restaurant[]>

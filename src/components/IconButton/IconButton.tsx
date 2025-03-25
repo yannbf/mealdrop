@@ -1,7 +1,7 @@
 import type { ComponentProps } from 'react'
 import styled, { css } from 'styled-components'
 
-import { Icon } from '../Icon'
+import { Icon, IconName } from '../Icon'
 
 const StyledButton = styled.button<{ $small: boolean }>(
   ({ $small, theme: { borderRadius } }) => css`
@@ -21,7 +21,7 @@ const StyledButton = styled.button<{ $small: boolean }>(
 )
 
 type IconButtonProps = {
-  name: string
+  name: IconName
   small?: boolean
   onClick?: () => void
 } & Omit<ComponentProps<'button'>, 'name' | 'small'>
