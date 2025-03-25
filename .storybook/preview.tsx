@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/react-vite'
-import { INITIAL_VIEWPORTS } from 'storybook/viewport'
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import { userEvent } from '@testing-library/user-event'
 import { mswLoader, initialize } from 'msw-storybook-addon'
 import { DocsContainer, DocsContainerProps } from '@storybook/blocks'
