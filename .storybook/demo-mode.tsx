@@ -1,6 +1,6 @@
 /* eslint-disable unicorn/prefer-ternary */
 import isChromatic from 'chromatic/isChromatic'
-import { userEvent } from '@storybook/test'
+import { userEvent } from 'storybook/test'
 import { Loader } from '@storybook/react'
 
 export function delay(ms: number) {
