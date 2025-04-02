@@ -11,7 +11,7 @@ const config: StorybookConfig = {
     '@storybook/addon-docs',
     '@storybook/addon-test',
     '@storybook/addon-a11y',
-    'storybook-addon-test-codegen',
+    // 'storybook-addon-test-codegen',
   ],
   typescript: {
     reactDocgen: 'react-docgen',
