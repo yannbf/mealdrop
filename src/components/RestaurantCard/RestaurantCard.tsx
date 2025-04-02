@@ -37,9 +37,6 @@ const StyledContent = styled.div(
     padding: 24px;
     background: ${color.cardBackground};
     border-radius: 0px 0px 8px 8px;
-    .review-text {
-      color: ${color.reviewText};
-    }
   `
 )
 

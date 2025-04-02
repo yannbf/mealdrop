@@ -10,9 +10,9 @@ const config: StorybookConfig = {
   addons: [
     '@storybook/addon-docs',
     '@storybook/addon-test',
-    '@chromatic-com/storybook',
     '@storybook/addon-a11y',
     '@storybook/addon-designs',
+    'storybook-addon-test-codegen',
   ],
   typescript: {
     reactDocgen: 'react-docgen',

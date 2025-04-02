@@ -46,3 +46,12 @@ export const Filled: Story = {
     value: 'Already filled text',
   },
 }
+
+export const ErrorValidation: Story = {
+  args: {
+    id: 'input',
+    label: 'Input field',
+    value: 'jane@doecom',
+    error: 'email should be valid',
+  },
+}

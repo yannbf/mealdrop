@@ -4,8 +4,19 @@ const StyledSVG = styled.svg`
   display: block;
 `
 
+export type IconName =
+  | 'arrow-right'
+  | 'arrow-left'
+  | 'cross'
+  | 'cart'
+  | 'minus'
+  | 'plus'
+  | 'moon'
+  | 'sun'
+  | 'star'
+
 type IconProps = {
-  name: string
+  name: IconName
   color?: string
   size?: number | string
 }

@@ -42,7 +42,7 @@ const drinks = [
   },
 ]
 
-export const restaurants: Restaurant[] = [
+export const restaurantsCompleteData: Restaurant[] = [
   {
     id: '1',
     name: 'Burger Kingdom',
@@ -156,7 +156,7 @@ export const restaurants: Restaurant[] = [
     },
   },
   {
-    id: '1',
+    id: '8',
     name: "Yuan's Hot Pot",
     mapsUrl: 'https://g.page/yuanhotpot',
     url: 'https://yuanhotpot.com/',
@@ -171,7 +171,7 @@ export const restaurants: Restaurant[] = [
     },
   },
   {
-    id: '1',
+    id: '9',
     name: 'BAK',
     mapsUrl: 'https://g.page/BAKRESTAURANT',
     url: 'https://bakrestaurant.nl/en/',
@@ -186,7 +186,7 @@ export const restaurants: Restaurant[] = [
     },
   },
   {
-    id: '1',
+    id: '10',
     name: 'FOER',
     mapsUrl: 'https://g.page/foer-amsterdam',
     url: 'http://foeramsterdam.nl/',
@@ -202,3 +202,11 @@ export const restaurants: Restaurant[] = [
     },
   },
 ]
+
+export const restaurants = restaurantsCompleteData.map((restaurant) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const { id, mapsUrl, url, address, menu, ...rest } = restaurant
+  return {
+    ...rest,
+  }
+})
