@@ -1,5 +1,5 @@
 import type { StoryObj, Meta } from '@storybook/react'
-import { expect } from '@storybook/test'
+import {expect, fn} from 'storybook/test'
 
 import { Button } from './Button'
 
@@ -7,6 +7,7 @@ const meta = {
   title: 'Components/Button',
   component: Button,
   args: {
+    onClick: fn(),
     children: 'Button',
   },
   parameters: {
@@ -26,8 +27,10 @@ export const Disabled: Story = {
   args: {
     disabled: true,
   },
-  play: async ({ canvas }) => {
+  play: async ({ canvas, userEvent }) => {
+
     const button = await canvas.findByRole('button')
+    await userEvent.click(button);
     await expect(button).toBeDisabled()
   },
 }

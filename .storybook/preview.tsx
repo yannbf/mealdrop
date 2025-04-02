@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/react'
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
+import { INITIAL_VIEWPORTS } from 'storybook/viewport'
 import { userEvent } from '@testing-library/user-event'
 import { mswLoader } from 'msw-storybook-addon'
 import { ThemeProvider } from 'styled-components'

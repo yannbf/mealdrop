@@ -1,6 +1,6 @@
 /* eslint-disable unicorn/prefer-ternary */
 import isChromatic from 'chromatic/isChromatic'
-import { userEvent } from '@storybook/test'
+import { userEvent } from 'storybook/test'
 import { Loader } from '@storybook/react'
 
 export function delay(ms: number) {
@@ -104,39 +104,39 @@ async function mouseTo(
 }
 
 export const demoModeLoader: Loader = async (context) => {
-  const isTestRunner = globalThis.navigator.userAgent.match(/StorybookTestRunner/)
-  const shouldUseDemoMode =
-    import.meta.env.STORYBOOK &&
-    !('test' in globalThis) &&
-    !isTestRunner &&
-    !isChromatic() &&
-    !('__vitest_browser__' in globalThis)
-  if (
-    (shouldUseDemoMode && context.args.demoMode) ||
-    context.parameters.test?.demoMode ||
-    context.globals.interactionsDemoMode
-  ) {
-    const user = userEvent.setup()
-
-    context.userEvent = {
-      ...user,
-      type: async (...args: any[]) => {
-        const [target, text, options] = args
-        const userSession = userEvent.setup({
-          // make the typing take .5 seconds
-          delay: Math.floor(Math.max(500 / text.length, 0)),
-        })
-        return userSession.type(target, text, options)
-      },
-      click: async (target: Element) => {
-        await mouseTo(target, {
-          cursorStyle: context.parameters.test?.cursorStyle,
-          delay: context.parameters.test?.demoModeDelay,
-        })
-        return user.click(target)
-      },
-    }
-  } else {
-    context.userEvent = userEvent.setup()
-  }
+  // const isTestRunner = globalThis.navigator.userAgent.match(/StorybookTestRunner/)
+  // const shouldUseDemoMode =
+  //   import.meta.env.STORYBOOK &&
+  //   !('test' in globalThis) &&
+  //   !isTestRunner &&
+  //   !isChromatic() &&
+  //   !('__vitest_browser__' in globalThis)
+  // if (
+  //   (shouldUseDemoMode && context.args.demoMode) ||
+  //   context.parameters.test?.demoMode ||
+  //   context.globals.interactionsDemoMode
+  // ) {
+  //   const user = userEvent.setup()
+  //
+  //   context.userEvent = {
+  //     ...user,
+  //     type: async (...args: any[]) => {
+  //       const [target, text, options] = args
+  //       const userSession = userEvent.setup({
+  //         // make the typing take .5 seconds
+  //         delay: Math.floor(Math.max(500 / text.length, 0)),
+  //       })
+  //       return userSession.type(target, text, options)
+  //     },
+  //     click: async (target: Element) => {
+  //       await mouseTo(target, {
+  //         cursorStyle: context.parameters.test?.cursorStyle,
+  //         delay: context.parameters.test?.demoModeDelay,
+  //       })
+  //       return user.click(target)
+  //     },
+  //   }
+  // } else {
+  //   // context.userEvent = userEvent.setup()
+  // }
 }
