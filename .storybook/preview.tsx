@@ -206,35 +206,34 @@ const breakpointViewports = Object.keys(breakpoints).reduce(
   {} as typeof INITIAL_VIEWPORTS
 )
 
-const preview: Preview = {
-  parameters: {
-    viewport: {
-      viewports: {
-        ...breakpointViewports,
-        ...INITIAL_VIEWPORTS,
-      },
-    },
-    a11y: {
-      test: 'todo',
-    },
-    controls: {
-      matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/,
-      },
-    },
-    docs: {
-      toc: true,
-      source: {
-        excludeDecorators: true,
-      },
-      container: (props: DocsContainerProps) => (
-        <ThemeProvider theme={lightTheme}>
-          <DocsContainer {...props} />
-        </ThemeProvider>
-      ),
+const parameters = {
+  viewport: {
+    viewports: {
+      ...breakpointViewports,
+      ...INITIAL_VIEWPORTS,
     },
   },
+  controls: {
+    matchers: {
+      color: /(background|color)$/i,
+      date: /Date$/,
+    },
+  },
+  docs: {
+    toc: true,
+    source: {
+      excludeDecorators: true,
+    },
+    container: (props: DocsContainerProps) => (
+      <ThemeProvider theme={lightTheme}>
+        <DocsContainer {...props} />
+      </ThemeProvider>
+    ),
+  },
+}
+
+const preview: Preview = {
+  parameters,
   globalTypes: {
     theme: {
       name: 'Theme',
