@@ -9,11 +9,12 @@ const config: StorybookConfig = {
   ],
   addons: [
     '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
     '@storybook/addon-a11y',
     '@storybook/addon-coverage',
     '@storybook/addon-designs',
     '@chromatic-com/storybook',
+    'storybook-addon-test-codegen',
+    '@storybook/experimental-addon-test'
   ],
   typescript: {
     reactDocgen: 'react-docgen',
