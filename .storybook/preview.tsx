@@ -31,7 +31,7 @@ const breakpointViewports = Object.keys(breakpoints).reduce(
 const preview: Preview = {
   parameters: {
     a11y: {
-      // test: 'error',
+      test: 'error',
     },
     viewport: {
       viewports: {
