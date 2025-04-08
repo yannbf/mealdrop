@@ -154,7 +154,6 @@ const color = {
   // This is just used to demo a11y violations, use it in the Review component
   bannerText: baseColors.blue.dark3,
   reviewText: baseColors.blue.dark5,
-  bannerText: baseColors.blue.dark3,
   screenBackground: baseColors.white,
   sidebarHeader: baseColors.grey.dark4,
   sidebarFooter: baseColors.white,

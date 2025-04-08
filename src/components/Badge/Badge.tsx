@@ -27,7 +27,6 @@ type BadgeProps = {
   text: string
   className?: string
   icon?: IconName
-  iconSize?: number
   squared?: boolean
   uppercase?: boolean
 }
