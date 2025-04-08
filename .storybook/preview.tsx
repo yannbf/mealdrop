@@ -218,9 +218,6 @@ const preview: Preview = {
         ...INITIAL_VIEWPORTS,
       },
     },
-    a11y: {
-      test: 'todo',
-    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
