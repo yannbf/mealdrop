@@ -16,7 +16,7 @@ const config: StorybookConfig = {
     'storybook-addon-test-codegen',
   ],
   typescript: {
-    reactDocgen: 'react-docgen-typescript',
+    reactDocgen: 'react-docgen',
   },
   staticDirs: ['../public'],
   framework: '@storybook/react-vite',

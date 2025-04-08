@@ -2,7 +2,7 @@ import * as React from 'react'
 import styled, { css, useTheme } from 'styled-components'
 
 import { breakpoints } from '../../styles/breakpoints'
-import { Icon } from '../Icon'
+import { Icon, IconName } from '../Icon'
 
 const Spacer = styled.span`
   padding-left: 1rem;
@@ -64,7 +64,7 @@ type DefaultProperties = {
   /**
    * Does the button have an icon?
    */
-  icon?: string
+  icon?: IconName
   /**
    * Size of the icon
    */
