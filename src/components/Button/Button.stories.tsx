@@ -1,5 +1,5 @@
-import type { StoryObj, Meta } from '@storybook/react'
-import { expect } from '@storybook/test'
+import type { StoryObj, Meta } from '@storybook/react-vite'
+import { expect } from 'storybook/test'
 
 import { Button } from './Button'
 

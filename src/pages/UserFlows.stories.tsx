@@ -1,6 +1,6 @@
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 import { http, HttpResponse } from 'msw'
-import { within, expect } from '@storybook/test'
+import { within, expect } from 'storybook/test'
 
 import { BASE_URL } from '../api'
 import { restaurants } from '../stub/restaurants'

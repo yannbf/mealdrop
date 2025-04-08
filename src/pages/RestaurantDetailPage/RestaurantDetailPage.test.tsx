@@ -1,7 +1,7 @@
 import { describe, test, expect } from 'vitest'
 import { render, screen, waitFor } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
-import { composeStories } from '@storybook/react'
+import { composeStories } from '@storybook/react-vite'
 
 import * as stories from './RestaurantDetailPage.stories'
 
