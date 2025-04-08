@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { http, HttpResponse } from 'msw'
 
 import { BASE_URL } from '../../api'
-import { restaurants } from '../../stub/restaurants'
+import { restaurantsCompleteData } from '../../stub/restaurants'
 
 import { HomePage } from './HomePage'
 
@@ -16,7 +16,7 @@ const meta = {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?node-id=135%3A258',
     },
     msw: {
-      handlers: [http.get(BASE_URL, () => HttpResponse.json(restaurants))],
+      handlers: [http.get(BASE_URL, () => HttpResponse.json(restaurantsCompleteData))],
     },
   },
 } satisfies Meta<typeof HomePage>

@@ -17,6 +17,13 @@ declare module 'styled-components' {
 const baseColors = {
   white: '#FFFFFF ',
   black: '#202020',
+  red: {
+    base: '#D70808',
+    light1: '#E57373',
+    light2: '#EF9A9A',
+    dark1: '#C62828',
+    dark2: '#B71C1C',
+  },
   otherBlack: '#2C2C2C ',
   grey: {
     base: '#909090',
@@ -124,6 +131,7 @@ const color = {
   cardBackground: baseColors.grey.light6,
   checkoutTopBackground: baseColors.green.base,
   checkoutBottomBackground: baseColors.grey.light6,
+  error: baseColors.red.dark2,
   formBackground: baseColors.white,
   foodItemBackground: baseColors.white,
   footerBackground: baseColors.grey.dark5,
@@ -142,6 +150,9 @@ const color = {
   overlayBackground: baseColors.white,
   overlayHeader: baseColors.grey.light5,
   primaryText: baseColors.otherBlack,
+  secondaryText: baseColors.grey.dark2,
+  // This is just used to demo a11y violations, use it in the Review component
+  bannerText: baseColors.blue.dark3,
   reviewText: baseColors.blue.dark5,
   bannerText: baseColors.blue.dark3,
   screenBackground: baseColors.white,

@@ -23,10 +23,10 @@ const meta = {
     ),
   ],
   args: {
-    /* 
+    /*
     The following lines emulate the event handlers that would be passed to the component
     Read more about the `fn` utility function at
-    https://storybook.js.org/docs/essentials/actions#via-storybooktest-fn-spy-function 
+    https://storybook.js.org/docs/essentials/actions#via-storybooktest-fn-spy-function
     */
     onClose: fn(),
     onItemSave: fn(),
@@ -63,7 +63,13 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Desktop: Story = {}
+export const Desktop: Story = {
+  parameters: {
+    viewport: {
+      defaultViewport: 'responsive',
+    },
+  },
+}
 
 export const Mobile: Story = {
   parameters: {

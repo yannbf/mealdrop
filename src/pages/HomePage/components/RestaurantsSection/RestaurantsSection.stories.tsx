@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { delay, HttpResponse, http } from 'msw'
 
 import { BASE_URL } from '../../../../api'
-import { restaurants } from '../../../../stub/restaurants'
+import { restaurantsCompleteData } from '../../../../stub/restaurants'
 
 import { RestaurantsSection } from './RestaurantsSection'
 
@@ -20,7 +20,7 @@ export const Default: Story = {
   },
   parameters: {
     msw: {
-      handlers: [http.get(BASE_URL, () => HttpResponse.json(restaurants))],
+      handlers: [http.get(BASE_URL, () => HttpResponse.json(restaurantsCompleteData))],
     },
   },
 }

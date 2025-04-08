@@ -7,7 +7,7 @@ enum LottieAnimations {
 }
 
 type AnimatedIllustrationProps = {
-  animation: keyof typeof LottieAnimations
+  animation: 'NotFound' | 'Error'
 }
 
 export const AnimatedIllustration = ({ animation }: AnimatedIllustrationProps) => {

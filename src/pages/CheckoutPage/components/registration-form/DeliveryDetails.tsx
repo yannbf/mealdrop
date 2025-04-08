@@ -1,3 +1,4 @@
+import { useState, ChangeEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { saveOrderAction } from '../../../../app-state/order'
@@ -5,30 +6,88 @@ import { useAppDispatch, useAppSelector } from '../../../../app-state'
 import { clearCartAction, selectCartItems } from '../../../../app-state/cart'
 import { Button } from '../../../../components/Button'
 import { Input } from '../../../../components/forms/Input'
+import { type DeliveryDetailsFormData } from './validation'
 
 type DeliveryDetailsProps = {
-  setForm: () => object
-  formData: {
-    address: string
-    city: string
-    postcode: string
-  }
-  navigation: any
+  formData: DeliveryDetailsFormData
+  setFormData: (data: Partial<DeliveryDetailsFormData>) => void
+  onPrevious: () => void
 }
 
-export const DeliveryDetails = ({ setForm, formData, navigation }: DeliveryDetailsProps) => {
+type FormErrors = {
+  [K in keyof DeliveryDetailsFormData]?: string
+}
+
+const deliveryFields: (keyof DeliveryDetailsFormData)[] = ['address', 'city', 'postcode']
+
+export const DeliveryDetails = ({ formData, setFormData, onPrevious }: DeliveryDetailsProps) => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
   const cartItems = useAppSelector(selectCartItems)
+  const [errors, setErrors] = useState<FormErrors>({})
+  const [form, setForm] = useState<DeliveryDetailsFormData>(formData)
+  const [isSubmitted, setIsSubmitted] = useState(false)
 
-  const { address, city, postcode } = formData
+  const validateField = (
+    name: keyof DeliveryDetailsFormData,
+    value: string
+  ): string | undefined => {
+    if (!value) return 'Required'
 
-  const { previous } = navigation
+    switch (name) {
+      case 'address': {
+        return value.length < 5 ? 'Please enter a valid address' : undefined
+      }
+      case 'city': {
+        return value.length < 2 ? 'Please enter a valid city' : undefined
+      }
+      case 'postcode': {
+        return /^[0-9]{4}[A-Z]{2}$/.test(value)
+          ? undefined
+          : 'Please enter a valid postcode (e.g., 1234AB)'
+      }
+      default: {
+        return undefined
+      }
+    }
+  }
 
-  const onCompleteOrder = () => {
-    dispatch(saveOrderAction(cartItems))
-    dispatch(clearCartAction())
-    navigate('/success')
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target
+    setForm((prev) => ({ ...prev, [name]: value }))
+
+    if (isSubmitted) {
+      const error = validateField(name as keyof DeliveryDetailsFormData, value)
+      setErrors((prev) => ({
+        ...prev,
+        [name]: error,
+      }))
+    }
+  }
+
+  const handleComplete = () => {
+    setIsSubmitted(true)
+
+    // Validate only delivery fields
+    const newErrors: FormErrors = {}
+    let hasErrors = false
+
+    for (const field of deliveryFields) {
+      const error = validateField(field, form[field])
+      if (error) {
+        newErrors[field] = error
+        hasErrors = true
+      }
+    }
+
+    setErrors(newErrors)
+
+    if (!hasErrors) {
+      setFormData(form)
+      dispatch(saveOrderAction(cartItems))
+      dispatch(clearCartAction())
+      navigate('/success')
+    }
   }
 
   return (
@@ -37,27 +96,36 @@ export const DeliveryDetails = ({ setForm, formData, navigation }: DeliveryDetai
         label="Streetname and housenumber"
         placeholder="Some street, 13"
         name="address"
-        value={address}
-        onChange={setForm}
+        value={form.address}
+        onChange={handleChange}
+        error={isSubmitted ? errors.address : undefined}
       />
       <Input
         label="Postcode"
         placeholder="AAAAXX"
         name="postcode"
-        value={postcode}
-        onChange={setForm}
+        value={form.postcode}
+        onChange={handleChange}
+        error={isSubmitted ? errors.postcode : undefined}
       />
-      <Input label="City" placeholder="Amsterdam" name="city" value={city} onChange={setForm} />
+      <Input
+        label="City"
+        placeholder="Amsterdam"
+        name="city"
+        value={form.city}
+        onChange={handleChange}
+        error={isSubmitted ? errors.city : undefined}
+      />
       <div
         style={{
           display: 'flex',
           justifyContent: 'space-between',
         }}
       >
-        <Button clear onClick={previous}>
+        <Button clear onClick={onPrevious}>
           Previous
         </Button>
-        <Button onClick={onCompleteOrder}>Complete order</Button>
+        <Button onClick={handleComplete}>Complete order</Button>
       </div>
     </div>
   )
