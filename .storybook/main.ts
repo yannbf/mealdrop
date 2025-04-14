@@ -8,14 +8,7 @@ const config: StorybookConfig = {
     '../src/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
-    {
-      name: '@storybook/addon-essentials',
-      options: {
-        actions: false,
-        backgrounds: false,
-      },
-    },
-    '@storybook/addon-test',
+    '@storybook/addon-vitest',
     '@storybook/addon-a11y',
     // TODO: Not compatible with SB9
     // 'storybook-addon-test-codegen',
