@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react-vite'
 import { http, HttpResponse } from 'msw'
-import { within, expect } from 'storybook/test'
+import { within, expect, waitFor } from 'storybook/test'
 
 import { BASE_URL } from '../api'
 import { restaurantsCompleteData } from '../stub/restaurants'
@@ -128,6 +128,10 @@ export const ToSuccessPage = {
   play: async (context) => {
     await ToCheckoutPage.play(context)
     const { canvas, step, userEvent } = context
+
+    await waitFor(async () => {
+      await expect(canvas.getByRole('heading', { name: 'Checkout' })).toBeInTheDocument()
+    })
 
     await step('Fill in user details', async () => {
       await userEvent.type(canvas.getByLabelText('First name'), 'Jane')
