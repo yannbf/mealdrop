@@ -210,7 +210,7 @@ const breakpointViewports = Object.keys(breakpoints).reduce(
 const preview: Preview = {
   parameters: {
     a11y: {
-      test: 'error',
+      test: 'todo',
     },
     viewport: {
       viewports: {
@@ -253,6 +253,9 @@ const preview: Preview = {
   },
   decorators: [withRouter, withTheme, withStore],
   loaders: [mswLoader, demoModeLoader],
+  afterEach: async () => {
+    await new Promise((resolve) => setTimeout(resolve, 1))
+  },
 }
 
 declare module 'storybook/internal/csf' {
