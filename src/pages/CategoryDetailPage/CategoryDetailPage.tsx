@@ -42,7 +42,7 @@ export const CategoryDetailPage = () => {
         />
         {status === 'success' && restaurants.length <= 0 && (
           <ErrorBlock
-            body="It seems that there are no restaurants in this category yet. Try to come back later?"
+            body="TODO: Talk to the team about this"
             title="This is not the food you're looking for."
             image={<img alt="no restaurants found" src={sushi} />}
             buttonText="See all restaurants"
