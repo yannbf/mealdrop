@@ -1,20 +1,17 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import preview from '#.storybook/preview'
 
 import { Body } from './Body'
 
-const meta = {
+const meta = preview.meta({
   title: 'Components/Typography/Body',
   component: Body,
   argTypes: {
     children: { controls: 'text' },
     size: { table: { disable: true } },
   },
-} satisfies Meta<typeof Body>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     children: '',
   },
@@ -26,4 +23,4 @@ export const Default: Story = {
       <Body size="XXS">{children || 'Body XXS'}</Body>
     </div>
   ),
-}
+})

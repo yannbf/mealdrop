@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import preview from '#.storybook/preview'
 import { fn } from 'storybook/test'
 
 import { FoodItem } from './FoodItem'
 
-const meta = {
+const meta = preview.meta({
   title: 'Pages/RestaurantDetailPage/Components/FoodItem',
   component: FoodItem,
   args: {
@@ -14,22 +14,19 @@ const meta = {
     */
     onClick: fn(),
   },
-} satisfies Meta<typeof FoodItem>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     name: 'Food',
     price: 7.5,
     description: 'nice stuff',
   },
-}
+})
 
-export const WithQuantity: Story = {
+export const WithQuantity = meta.story({
   args: {
-    ...Default.args,
+    ...Default.input.args,
     quantity: 5,
   },
-}
+})
