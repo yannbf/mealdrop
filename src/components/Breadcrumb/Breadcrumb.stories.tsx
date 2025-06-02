@@ -1,22 +1,19 @@
-import { Meta, StoryObj } from '@storybook/react-vite'
+import preview from '#.storybook/preview'
 
 import { Breadcrumb } from './Breadcrumb'
 
-const meta: Meta<typeof Breadcrumb> = {
+const meta = preview.meta({
   title: 'Components/Breadcrumb',
   component: Breadcrumb,
-}
+})
 
-export default meta
-type Story = StoryObj<typeof Breadcrumb>
-
-export const SingleItem: Story = {
+export const SingleItem = meta.story({
   args: {
     items: [{ label: 'categories' }],
   },
-}
+})
 
-export const MultipleItems: Story = {
+export const MultipleItems = meta.story({
   args: {
     items: [
       { label: 'home', path: '/' },
@@ -24,4 +21,4 @@ export const MultipleItems: Story = {
       { label: 'sushi' },
     ],
   },
-}
+})

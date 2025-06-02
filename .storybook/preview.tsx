@@ -1,4 +1,4 @@
-import type { Preview } from '@storybook/react-vite'
+import { definePreview } from '@storybook/react-vite'
 import { INITIAL_VIEWPORTS } from 'storybook/viewport'
 import { userEvent } from '@testing-library/user-event'
 import { mswLoader, initialize } from 'msw-storybook-addon'
@@ -9,6 +9,10 @@ import { Provider as StoreProvider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import React from 'react'
 import styled, { css, ThemeProvider } from 'styled-components'
+
+import addonVitest from '@storybook/addon-vitest'
+import addonA11y from '@storybook/addon-a11y'
+import addonDocs from '@storybook/addon-docs'
 
 import { demoModeLoader } from './demo-mode'
 import { rootReducer } from '../src/app-state'
@@ -206,7 +210,13 @@ const breakpointViewports = Object.keys(breakpoints).reduce(
   {} as typeof INITIAL_VIEWPORTS
 )
 
-const preview: Preview = {
+declare module 'storybook/internal/csf' {
+  interface StoryContext {
+    userEvent: ReturnType<typeof userEvent.setup>
+  }
+}
+export default definePreview({
+  addons: [addonVitest(), addonA11y(), addonDocs()],
   parameters: {
     viewport: {
       viewports: {
@@ -252,11 +262,4 @@ const preview: Preview = {
   },
   decorators: [withRouter, withTheme, withStore],
   loaders: [mswLoader, demoModeLoader],
-}
-
-declare module 'storybook/internal/csf' {
-  interface StoryContext {
-    userEvent: ReturnType<typeof userEvent.setup>
-  }
-}
-export default preview
+})

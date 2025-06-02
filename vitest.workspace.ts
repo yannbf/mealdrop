@@ -23,7 +23,6 @@ export default defineWorkspace([
           },
         ],
       },
-      setupFiles: ['.storybook/vitest.setup.ts'],
     },
   },
 ])

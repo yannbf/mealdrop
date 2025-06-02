@@ -1,6 +1,6 @@
-import { StorybookConfig } from '@storybook/react-vite'
+import { defineMain } from '@storybook/react-vite/node'
 
-const config: StorybookConfig = {
+export default defineMain({
   stories: [
     '../src/docs/Introduction.mdx',
     '../src/docs/*.mdx',
@@ -19,5 +19,4 @@ const config: StorybookConfig = {
   },
   staticDirs: ['../public'],
   framework: '@storybook/react-vite',
-}
-export default config
+})

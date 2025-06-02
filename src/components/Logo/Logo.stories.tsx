@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import preview from '#.storybook/preview'
 
 import { Logo } from './Logo'
 
-const meta = {
+const meta = preview.meta({
   title: 'Components/Logo',
   component: Logo,
   parameters: {
@@ -11,16 +11,13 @@ const meta = {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1145-4821&mode=design&t=zmyrZnTzOLfLqBwr-4',
     },
   },
-} satisfies Meta<typeof Logo>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
+export const WithText = meta.story()
 
-export const WithText: Story = {}
-
-export const LogoOnly: Story = {
+export const LogoOnly = meta.story({
   args: {
     large: true,
     logoOnly: true,
   },
-}
+})

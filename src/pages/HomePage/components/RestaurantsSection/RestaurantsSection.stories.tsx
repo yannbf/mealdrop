@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import preview from '#.storybook/preview'
 import { delay, HttpResponse, http } from 'msw'
 
 import { BASE_URL } from '../../../../api'
@@ -6,15 +6,12 @@ import { restaurantsCompleteData } from '../../../../stub/restaurants'
 
 import { RestaurantsSection } from './RestaurantsSection'
 
-const meta = {
+const meta = preview.meta({
   title: 'Pages/HomePage/Components/RestaurantsSection',
   component: RestaurantsSection,
-} satisfies Meta<typeof RestaurantsSection>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     title: 'Our favorite picks',
   },
@@ -23,12 +20,9 @@ export const Default: Story = {
       handlers: [http.get(BASE_URL, () => HttpResponse.json(restaurantsCompleteData))],
     },
   },
-}
+})
 
-export const Loading: Story = {
-  args: {
-    ...Default.args,
-  },
+export const Loading = Default.extend({
   parameters: {
     msw: {
       handlers: [
@@ -38,4 +32,4 @@ export const Loading: Story = {
       ],
     },
   },
-}
+})

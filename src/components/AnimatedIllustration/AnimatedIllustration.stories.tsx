@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import preview from '#.storybook/preview'
 
 import { AnimatedIllustration } from './AnimatedIllustration'
 
-const meta = {
+const meta = preview.meta({
   title: 'Components/AnimatedIllustration',
   component: AnimatedIllustration,
   parameters: {
@@ -17,19 +17,16 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<typeof AnimatedIllustration>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const NotFound: Story = {
+export const NotFound = meta.story({
   args: {
     animation: 'NotFound',
   },
-}
+})
 
-export const Error: Story = {
+export const Error = meta.story({
   args: {
     animation: 'Error',
   },
-}
+})
