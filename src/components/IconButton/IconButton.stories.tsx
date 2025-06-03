@@ -21,9 +21,4 @@ export const Default = meta.story({
   },
 })
 
-export const Small = meta.story({
-  args: {
-    ...Default.input.args,
-    small: true,
-  },
-})
+export const Small = Default.extend({ args: { small: true } })

@@ -20,9 +20,8 @@ export const Default = meta.story({
   },
 })
 
-export const WithImage = meta.story({
+export const WithImage = Default.extend({
   args: {
-    ...Default.input.args,
     photoUrl:
       'https://images.unsplash.com/photo-1426869981800-95ebf51ce900?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=20',
   },

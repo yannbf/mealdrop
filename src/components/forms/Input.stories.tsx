@@ -30,19 +30,9 @@ export const WithLabel = meta.story({
   },
 })
 
-export const WithHint = meta.story({
-  args: {
-    ...WithLabel.input.args,
-    placeholder: 'This is a hint',
-  },
-})
+export const WithHint = WithLabel.extend({ args: { placeholder: 'This is a hint' } })
 
-export const Filled = meta.story({
-  args: {
-    ...WithLabel.input.args,
-    value: 'Already filled text',
-  },
-})
+export const Filled = WithLabel.extend({ args: { value: 'Already filled text' } })
 
 export const ErrorValidation = meta.story({
   args: {

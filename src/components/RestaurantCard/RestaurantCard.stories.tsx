@@ -23,26 +23,15 @@ export const Default = meta.story({
   },
 })
 
-export const New = meta.story({
-  args: {
-    ...Default.input.args,
-    isNew: true,
-  },
-})
+export const New = Default.extend({ args: { isNew: true } })
 
-export const Closed = meta.story({
-  args: {
-    ...Default.input.args,
-    isClosed: true,
-  },
+export const Closed = Default.extend({
+  args: { isClosed: true },
   play: async ({ canvas }) => {
     await expect(canvas.getByText('This restaurant is closed.')).toBeInTheDocument()
   },
 })
 
-export const Loading = meta.story({
-  args: {
-    ...Default.input.args,
-    isLoading: true,
-  },
+export const Loading = Default.extend({
+  args: { isLoading: true },
 })

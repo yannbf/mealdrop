@@ -22,10 +22,7 @@ export const Default = meta.story({
   },
 })
 
-export const Loading = meta.story({
-  args: {
-    ...Default.input.args,
-  },
+export const Loading = Default.extend({
   parameters: {
     msw: {
       handlers: [

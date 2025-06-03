@@ -13,7 +13,7 @@ test('renders button with custom children', async () => {
 
 test('onclick handler is called', async () => {
   const onClickSpy = vi.fn()
-  await Default.run({ args: { ...Default.input.args, onClick: onClickSpy } })
+  await Default.run({ args: { onClick: onClickSpy } })
   const buttonElement = screen.getByRole('button')
   buttonElement.click()
   expect(onClickSpy).toHaveBeenCalled()

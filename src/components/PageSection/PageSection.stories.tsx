@@ -17,9 +17,4 @@ export const Default = meta.story({
   },
 })
 
-export const WithButtons = meta.story({
-  args: {
-    ...Default.input.args,
-    title: 'Asian',
-  },
-})
+export const WithButtons = Default.extend({ args: { title: 'Asian' } })

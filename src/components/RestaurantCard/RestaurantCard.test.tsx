@@ -1,6 +1,5 @@
 import { vi, expect, describe, test } from 'vitest'
 import { screen } from '@testing-library/react'
-import { composeStories } from '@storybook/react-vite'
 import { axe } from 'vitest-axe'
 
 import { Default, Loading, New, Closed } from './RestaurantCard.stories'
@@ -36,11 +35,7 @@ describe('RestaurantCard', () => {
 })
 
 // Go through every story from composeStories and create a map of StoryName <-> StoryComponent
-const testCases = Object.values(composeStories(stories)).map((Story) => [
-  // The ! is necessary in Typescript only, as the property is part of a partial type
-  Story.storyName!,
-  Story,
-])
+const testCases = Object.entries({ Default, Loading, New, Closed });
 
 // Go through all test cases to batch test accessibility
 test.each(testCases)('%s story should be accessible', async (_storyName, Story) => {

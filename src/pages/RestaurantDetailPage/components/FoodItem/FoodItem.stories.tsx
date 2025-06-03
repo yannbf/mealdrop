@@ -7,10 +7,10 @@ const meta = preview.meta({
   title: 'Pages/RestaurantDetailPage/Components/FoodItem',
   component: FoodItem,
   args: {
-    /* 
+    /*
     The following line emulates the event handler that would be passed to the component
     Read more about the `fn` utility function at
-    https://storybook.js.org/docs/essentials/actions#via-storybooktest-fn-spy-function 
+    https://storybook.js.org/docs/essentials/actions#via-storybooktest-fn-spy-function
     */
     onClick: fn(),
   },
@@ -24,9 +24,4 @@ export const Default = meta.story({
   },
 })
 
-export const WithQuantity = meta.story({
-  args: {
-    ...Default.input.args,
-    quantity: 5,
-  },
-})
+export const WithQuantity = Default.extend({ args: { quantity: 5 } })
