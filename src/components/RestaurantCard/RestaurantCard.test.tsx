@@ -3,9 +3,7 @@ import { screen } from '@testing-library/react'
 import { composeStories } from '@storybook/react-vite'
 import { axe } from 'vitest-axe'
 
-import * as stories from './RestaurantCard.stories'
-
-const { Default, Loading, New, Closed } = composeStories(stories)
+import { Default, Loading, New, Closed } from './RestaurantCard.stories'
 
 describe('RestaurantCard', () => {
   test('should render correctly', async () => {
@@ -26,7 +24,7 @@ describe('RestaurantCard', () => {
 
   test('should not trigger onclick when restaurant is closed', async () => {
     const onClickSpy = vi.fn()
-    await Closed.run({ args: { ...Closed.args, onClick: onClickSpy } })
+    await Closed.run({ args: { ...Closed.input.args, onClick: onClickSpy } })
 
     // display closed message
     expect(screen.getByText('This restaurant is closed.')).toBeInTheDocument()
