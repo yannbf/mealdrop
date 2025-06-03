@@ -1,11 +1,8 @@
 import { describe, test, expect } from 'vitest'
 import { render, screen, waitFor } from '@testing-library/react'
 import { userEvent } from '@testing-library/user-event'
-import { composeStories } from '@storybook/react-vite'
 
-import * as stories from './RestaurantDetailPage.stories'
-
-const { Success, Loading, Error, NotFound, WithModalOpen } = composeStories(stories)
+import { Success, Loading, Error, NotFound, WithModalOpen } from './RestaurantDetailPage.stories'
 
 describe('RestaurantDetailPage', () => {
   test('Should add an item to cart', async () => {
@@ -34,13 +31,6 @@ describe('RestaurantDetailPage', () => {
   })
   test('Should execute story tests', async () => {
     await WithModalOpen.run()
-  })
-
-  test('Should add an item to cart (using render - LEGACY)', async () => {
-    await WithModalOpen.load()
-    const canvas = render(<WithModalOpen />)
-
-    await WithModalOpen.play?.({ canvas, userEvent } as any)
   })
 })
 

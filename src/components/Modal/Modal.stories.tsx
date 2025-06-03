@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import preview from '#.storybook/preview'
 import { useEffect, useState } from 'react'
 import { fn } from 'storybook/test'
 
@@ -7,13 +7,18 @@ import { Body } from '../typography'
 
 import { Modal } from './Modal'
 
-const meta = {
+const meta = preview.meta({
   title: 'Components/Modal',
   component: Modal,
   parameters: {
     // This makes it so that the modal is loaded inside of an iframe in docs mode.
     // If it's not rendered in an iframe, the modal is going to open on top of Storybook itself!
-    docs: { inlineStories: false, iframeHeight: 600 },
+    docs: {
+      story: {
+        inline: false,
+        iframeHeight: '600px',
+      },
+    },
     design: {
       type: 'figma',
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1138-3227&mode=design&t=zmyrZnTzOLfLqBwr-4',
@@ -29,10 +34,10 @@ const meta = {
   ],
   args: {
     isOpen: false,
-    /* 
+    /*
     The following line emulates the event handler that would be passed to the component
     Read more about the `fn` utility function at
-    https://storybook.js.org/docs/essentials/actions#via-storybooktest-fn-spy-function 
+    https://storybook.js.org/docs/essentials/actions#via-storybooktest-fn-spy-function
     */
     onClose: fn(),
   },
@@ -60,17 +65,17 @@ const meta = {
       </>
     )
   },
-} satisfies Meta<typeof Modal>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
+export const Desktop = meta.story({})
 
-export const Desktop: Story = {}
-
-export const Mobile: Story = {
-  parameters: {
+export const Mobile = meta.story({
+  globals: {
+    a11y: {
+      manual: true,
+    },
     viewport: {
-      defaultViewport: 'iphonex',
+      value: 'iphonex',
     },
   },
-}
+})

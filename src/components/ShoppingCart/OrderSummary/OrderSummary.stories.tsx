@@ -1,19 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import preview from '#.storybook/preview'
 
 import { cartItems } from '../../../stub/cart-items'
 
 import { OrderSummary } from './OrderSummary'
 
-const meta = {
+const meta = preview.meta({
   title: 'Components/OrderSummary',
   component: OrderSummary,
-} satisfies Meta<typeof OrderSummary>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     cartItems,
   },
-}
+})

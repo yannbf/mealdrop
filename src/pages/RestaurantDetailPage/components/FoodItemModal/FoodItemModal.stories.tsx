@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import preview from '#.storybook/preview'
 import { useState } from 'react'
 import { fn } from 'storybook/test'
 
@@ -6,13 +6,18 @@ import { Button } from '../../../../components/Button'
 
 import { FoodItemModal } from './FoodItemModal'
 
-const meta = {
+const meta = preview.meta({
   title: 'Pages/RestaurantDetailPage/Components/FoodItemModal',
   component: FoodItemModal,
   parameters: {
     // This makes it so that the modal is loaded inside of an iframe in docs mode.
     // If it's not rendered in an iframe, the modal is going to open on top of Storybook itself!
-    docs: { inlineStories: false, iframeHeight: 600 },
+    docs: {
+      story: {
+        inline: false,
+        iframeHeight: '600px',
+      },
+    },
   },
   decorators: [
     (StoryEl) => (
@@ -58,23 +63,20 @@ const meta = {
       </>
     )
   },
-} satisfies Meta<typeof FoodItemModal>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Desktop: Story = {
-  parameters: {
+export const Desktop = meta.story({
+  globals: {
     viewport: {
-      defaultViewport: 'responsive',
+      value: 'responsive',
     },
   },
-}
+})
 
-export const Mobile: Story = {
-  parameters: {
+export const Mobile = meta.story({
+  globals: {
     viewport: {
-      defaultViewport: 'iphonex',
+      value: 'iphonex',
     },
   },
-}
+})

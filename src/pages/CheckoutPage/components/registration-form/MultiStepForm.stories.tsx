@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import preview from '#.storybook/preview'
 
 import { MultiStepForm } from './MultiStepForm'
 
-const meta = {
+const meta = preview.meta({
   title: 'Pages/CheckoutPage/Components/MultiStepForm',
   component: MultiStepForm,
   parameters: {
@@ -11,9 +11,6 @@ const meta = {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=426-3309&mode=design&t=PGeoMU7t8HOFToQL-4',
     },
   },
-} satisfies Meta<typeof MultiStepForm>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {}
+export const Default = meta.story()
