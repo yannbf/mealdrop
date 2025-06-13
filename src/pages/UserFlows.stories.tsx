@@ -11,6 +11,7 @@ const meta = {
   component: () => <></>,
   parameters: {
     layout: 'fullscreen',
+    chromatic: { disable: true },
     deeplink: { route: '/', path: '/' },
     msw: {
       handlers: [
