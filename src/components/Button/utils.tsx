@@ -1,4 +1,4 @@
-import { Story } from '@storybook/blocks'
+import { Story } from '@storybook/addon-docs/blocks'
 export const Grid = ({ of: components }: any) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { __namedExportsOrder, default: Default, ...stories } = components

@@ -8,16 +8,11 @@ const config: StorybookConfig = {
     '../src/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
-    {
-      name: '@storybook/addon-essentials',
-      options: {
-        actions: false,
-        backgrounds: false,
-      },
-    },
-    '@storybook/experimental-addon-test',
+    '@storybook/addon-vitest',
     '@storybook/addon-a11y',
+    // TODO: this addon has a bad instrumentation of getConfig.asyncWrapper that should be fixed
     'storybook-addon-test-codegen',
+    '@storybook/addon-docs',
   ],
   typescript: {
     reactDocgen: 'react-docgen',
