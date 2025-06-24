@@ -15,6 +15,8 @@ type StyledButtonProperties = {
   $round: boolean
 }
 
+const testColor = '#B9B9B4' // use to replace color.buttonPrimary
+
 const StyledButton = styled.button<StyledButtonProperties>(
   ({ $clear, $large, $round, $withIcon, theme: { color, boxShadow, borderRadius } }) => css`
     outline: none;
