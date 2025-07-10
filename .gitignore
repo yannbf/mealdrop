@@ -41,3 +41,10 @@ storybook-static
 !/**/.yarn/sdks
 !/**/.yarn/versions
 /**/.pnp.*
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

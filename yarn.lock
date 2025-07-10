@@ -1677,6 +1677,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@playwright/test@npm:^1.53.2":
+  version: 1.53.2
+  resolution: "@playwright/test@npm:1.53.2"
+  dependencies:
+    playwright: "npm:1.53.2"
+  bin:
+    playwright: cli.js
+  checksum: 10c0/cdc718a94df00aaaff5489421a89286e006e9c7781c5e8294fd10aaffcf6558cfe3d0db2d76a447574b334329902659cd539756dfd12fafde03627e2013698ae
+  languageName: node
+  linkType: hard
+
 "@polka/url@npm:^1.0.0-next.24":
   version: 1.0.0-next.28
   resolution: "@polka/url@npm:1.0.0-next.28"
@@ -4325,6 +4336,7 @@ __metadata:
     "@chromatic-com/storybook": "npm:4.0.0"
     "@eslint/js": "npm:^9.21.0"
     "@hookform/resolvers": "npm:^4.1.3"
+    "@playwright/test": "npm:^1.53.2"
     "@reduxjs/toolkit": "npm:^2.6.0"
     "@storybook/addon-a11y": "npm:0.0.0-pr-31819-sha-8b752a73"
     "@storybook/addon-coverage": "npm:^2.0.0"
@@ -4373,7 +4385,7 @@ __metadata:
     lint-staged: "npm:^15.4.3"
     msw: "npm:^2.7.3"
     msw-storybook-addon: "npm:^2.0.5"
-    playwright: "npm:^1.50.1"
+    playwright: "npm:^1.53.2"
     prettier: "npm:^3.5.2"
     react: "npm:^19.0.0"
     react-dom: "npm:^19.0.0"
@@ -7005,7 +7017,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-circus@npm:^30":
+"jest-circus@npm:30.0.4, jest-circus@npm:^30.0.4":
   version: 30.0.4
   resolution: "jest-circus@npm:30.0.4"
   dependencies:
@@ -7135,7 +7147,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-environment-node@npm:^30":
+"jest-environment-node@npm:30.0.4, jest-environment-node@npm:^30.0.4":
   version: 30.0.4
   resolution: "jest-environment-node@npm:30.0.4"
   dependencies:
@@ -7316,7 +7328,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-runner@npm:^30":
+"jest-runner@npm:30.0.4, jest-runner@npm:^30.0.4":
   version: 30.0.4
   resolution: "jest-runner@npm:30.0.4"
   dependencies:
@@ -7504,7 +7516,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest@npm:^30":
+"jest@npm:^30.0.4":
   version: 30.0.4
   resolution: "jest@npm:30.0.4"
   dependencies:
@@ -8342,7 +8354,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-fetch@npm:^3":
+"node-fetch@npm:^3.3.2":
   version: 3.3.2
   resolution: "node-fetch@npm:3.3.2"
   dependencies:
@@ -8932,7 +8944,31 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright@npm:^1.14.0, playwright@npm:^1.50.1":
+"playwright-core@npm:1.53.2":
+  version: 1.53.2
+  resolution: "playwright-core@npm:1.53.2"
+  bin:
+    playwright-core: cli.js
+  checksum: 10c0/cd9434736687600943e749313e3d6166ef5d8614e64e74f440099f3a1b0fe56a9a462921c0ca9264aebc7bfc4ffeaec3fddf1c30731c0d60de3211d796f1be44
+  languageName: node
+  linkType: hard
+
+"playwright@npm:1.53.2, playwright@npm:^1.53.2":
+  version: 1.53.2
+  resolution: "playwright@npm:1.53.2"
+  dependencies:
+    fsevents: "npm:2.3.2"
+    playwright-core: "npm:1.53.2"
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    playwright: cli.js
+  checksum: 10c0/4620bdb2bd341916cae50721336f628abc9d0b1a097fd74a93127feed8dede52be4fb789ac0d17aefac74e5d43a5832b1b79a0d3c2af5abc5a82491b72ebcf92
+  languageName: node
+  linkType: hard
+
+"playwright@npm:^1.14.0":
   version: 1.51.1
   resolution: "playwright@npm:1.51.1"
   dependencies:

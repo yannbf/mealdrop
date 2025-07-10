@@ -19,7 +19,8 @@
     "storybook": "storybook dev -p 6006",
     "test": "vitest",
     "test-storybook": "test-storybook",
-    "test-storybook:ci": "concurrently --kill-others --success first --names \"SB,TEST\" --prefix-colors \"magenta,blue\" \"yarn build-storybook:test && npx serve build/storybook --listen 6006 --no-request-logging\" \"wait-on tcp:6006 && yarn test-storybook\"",
+    "build-and-serve-storybook": "concurrently --kill-others --success first --names \"SB,TEST\" --prefix-colors \"magenta,blue\" \"yarn build-storybook:test && npx http-server build/storybook --port 6006 --no-request-logging\"",
+    "test-storybook:ci": "concurrently --kill-others --success first --names \"SB,TEST\" --prefix-colors \"magenta,blue\" \"yarn build-storybook:test && npx serve build/storybook --port 6006 --no-request-logging\" \"wait-on tcp:6006 && yarn test-storybook\"",
     "test-storybook:json": "test-storybook --index-json",
     "test-storybook:json:ci": "concurrently --kill-others --success first --names \"SB,TEST\" --prefix-colors \"magenta,blue\" \"yarn build-storybook:test && npx serve build/storybook --listen 6006 --no-request-logging\" \"wait-on tcp:6006 && SKIP_SNAPSHOTS=true yarn test-storybook:json\"",
     "test:ci": "vitest run",
@@ -42,15 +43,6 @@
     ]
   },
   "resolutions": {
-    "node-fetch": "^3",
-    "jest": "^30",
-    "jest-circus": "^30",
-    "jest-environment-node": "^30",
-    "jest-junit": "^16.0.0",
-    "jest-playwright-preset": "^4.0.0",
-    "jest-runner": "^30",
-    "jest-serializer-html": "^7.1.0",
-    "jest-watch-typeahead": "^3.0.1",
     "@use-it/event-listener@npm:^0.1.2": "patch:@use-it/event-listener@npm%3A0.1.7#~/.yarn/patches/@use-it-event-listener-npm-0.1.7-56ef42a654.patch"
   },
   "dependencies": {
@@ -77,6 +69,7 @@
     "@babel/core": "^7.26.9",
     "@chromatic-com/storybook": "4.0.0",
     "@eslint/js": "^9.21.0",
+    "@playwright/test": "^1.53.2",
     "@storybook/addon-a11y": "0.0.0-pr-31819-sha-8b752a73",
     "@storybook/addon-coverage": "^2.0.0",
     "@storybook/addon-designs": "10.0.1",
@@ -123,7 +116,7 @@
     "lint-staged": "^15.4.3",
     "msw": "^2.7.3",
     "msw-storybook-addon": "^2.0.5",
-    "playwright": "^1.50.1",
+    "playwright": "^1.53.2",
     "prettier": "^3.5.2",
     "react-is": "^19.0.0",
     "react-test-renderer": "^19.0.0",
