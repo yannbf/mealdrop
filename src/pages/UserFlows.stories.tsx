@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react-vite'
+import preview from '#.storybook/preview'
 import { http, HttpResponse } from 'msw'
 import { within, expect } from 'storybook/test'
 
@@ -6,7 +6,7 @@ import { BASE_URL } from '../api'
 import { restaurantsCompleteData } from '../stub/restaurants'
 import { withDeeplink } from '../../.storybook/withDeeplink'
 
-const meta = {
+const meta = preview.meta({
   title: 'UserFlows/App',
   component: () => <></>,
   parameters: {
@@ -43,23 +43,20 @@ const meta = {
       control: { type: 'boolean' },
     },
   },
-} satisfies Meta<{ demoMode: boolean }>
-export default meta
+})
 
-type Story = StoryObj<{ demoMode: boolean }>
+export const Home = meta.story({})
 
-export const Home = {}
-
-export const ToCategoryListPage = {
+export const ToCategoryListPage = meta.story({
   play: async ({ canvasElement, step, userEvent }) => {
     const canvas = within(canvasElement)
     await step('Visit Restaurants page', async () => {
       await userEvent.click(canvas.getByText('View all restaurants'))
     })
   },
-} satisfies Story
+})
 
-export const ToCategoryDetailPage = {
+export const ToCategoryDetailPage = meta.story({
   play: async (context) => {
     await ToCategoryListPage.play(context)
     const { canvasElement, step, userEvent } = context
@@ -69,9 +66,9 @@ export const ToCategoryDetailPage = {
       await userEvent.click(canvas.getByTestId('Burgers'))
     })
   },
-} satisfies Story
+})
 
-export const ToRestaurantDetailPage = {
+export const ToRestaurantDetailPage = meta.story({
   play: async (context) => {
     await ToCategoryDetailPage.play(context)
     const { canvasElement, step, userEvent } = context
@@ -84,9 +81,9 @@ export const ToRestaurantDetailPage = {
       await userEvent.click(restaurantCards[0])
     })
   },
-} satisfies Story
+})
 
-export const ToCheckoutPage = {
+export const ToCheckoutPage = meta.story({
   play: async (context) => {
     await ToRestaurantDetailPage.play(context)
     const { canvasElement, userEvent, step } = context
@@ -123,9 +120,9 @@ export const ToCheckoutPage = {
       await userEvent.click(canvas.getByText(/checkout/i))
     })
   },
-} satisfies Story
+})
 
-export const ToSuccessPage = {
+export const ToSuccessPage = meta.story({
   play: async (context) => {
     await ToCheckoutPage.play(context)
     const { canvas, step, userEvent } = context
@@ -151,11 +148,11 @@ export const ToSuccessPage = {
       await userEvent.click(canvas.getByText(/Complete/i))
     })
   },
-} satisfies Story
+})
 
-export const DemoMode: Story = {
-  ...ToSuccessPage,
+export const DemoMode = meta.story({
+  ...ToSuccessPage.input,
   args: {
     demoMode: true,
   },
-}
+})

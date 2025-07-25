@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import preview from '#.storybook/preview'
 import { useEffect, useState } from 'react'
 import { fn } from 'storybook/test'
 
@@ -8,7 +8,7 @@ import { Body } from '../typography'
 
 import { ShoppingCartMenu } from './ShoppingCartMenu'
 
-const meta = {
+const meta = preview.meta({
   title: 'Components/ShoppingCartMenu',
   component: ShoppingCartMenu,
   parameters: {
@@ -28,29 +28,26 @@ const meta = {
     onClose: fn(),
     onItemChange: fn(),
   },
-} satisfies Meta<typeof ShoppingCartMenu>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Empty: Story = {
+export const Empty = meta.story({
   args: {
     cartItems: [],
     totalPrice: 0,
   },
-}
+})
 
-export const WithItems: Story = {}
+export const WithItems = meta.story({})
 
-export const Mobile: Story = {
+export const Mobile = meta.story({
   parameters: {
     viewport: {
       defaultViewport: 'iphonex',
     },
   },
-}
+})
 
-export const Playground: Story = {
+export const Playground = meta.story({
   render: () => {
     const [isOpen, setIsOpen] = useState(false)
     const openShoppingCartMenu = () => setIsOpen(true)
@@ -76,4 +73,4 @@ export const Playground: Story = {
       </>
     )
   },
-}
+})

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import preview from '#.storybook/preview'
 import { useState } from 'react'
 import { fn } from 'storybook/test'
 
@@ -6,7 +6,7 @@ import { Button } from '../../../../components/Button'
 
 import { FoodItemModal } from './FoodItemModal'
 
-const meta = {
+const meta = preview.meta({
   title: 'Pages/RestaurantDetailPage/Components/FoodItemModal',
   component: FoodItemModal,
   parameters: {
@@ -58,23 +58,20 @@ const meta = {
       </>
     )
   },
-} satisfies Meta<typeof FoodItemModal>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Desktop: Story = {
+export const Desktop = meta.story({
   parameters: {
     viewport: {
       defaultViewport: 'responsive',
     },
   },
-}
+})
 
-export const Mobile: Story = {
+export const Mobile = meta.story({
   parameters: {
     viewport: {
       defaultViewport: 'iphonex',
     },
   },
-}
+})

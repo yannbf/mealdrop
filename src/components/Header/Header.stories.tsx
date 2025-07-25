@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import preview from '#.storybook/preview'
 
 import { Header } from './Header'
 
-const meta = {
+const meta = preview.meta({
   title: 'Components/Header',
   component: Header,
   parameters: {
@@ -12,14 +12,11 @@ const meta = {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1690-4054&mode=design&t=zmyrZnTzOLfLqBwr-4',
     },
   },
-} satisfies Meta<typeof Header>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
+export const Default = meta.story({})
 
-export const Default: Story = {}
-
-export const WithCartData: Story = {
+export const WithCartData = meta.story({
   parameters: {
     store: {
       initialState: {
@@ -45,4 +42,4 @@ export const WithCartData: Story = {
       },
     },
   },
-}
+})

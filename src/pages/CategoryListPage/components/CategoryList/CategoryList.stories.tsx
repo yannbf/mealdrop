@@ -1,19 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import preview from '#.storybook/preview'
 
 import { categories } from '../../../../stub/categories'
 
 import { CategoryList } from './CategoryList'
 
-const meta = {
+const meta = preview.meta({
   title: 'Pages/CategoryListPage/Components/CategoryList',
   component: CategoryList,
-} satisfies Meta<typeof CategoryList>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     categories,
   },
-}
+})

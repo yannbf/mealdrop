@@ -1,10 +1,10 @@
-import type { Preview } from '@storybook/react-vite'
 import { INITIAL_VIEWPORTS } from 'storybook/viewport'
-import { userEvent } from '@testing-library/user-event'
 import { mswLoader, initialize } from 'msw-storybook-addon'
 import { DocsContainer, DocsContainerProps } from '@storybook/addon-docs/blocks'
-import { Decorator } from '@storybook/react-vite'
+import { definePreview } from '@storybook/react-vite'
 import { configureStore } from '@reduxjs/toolkit'
+import addonA11y from '@storybook/addon-a11y'
+import addonVitest from '@storybook/addon-vitest'
 import { Provider as StoreProvider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import React from 'react'
@@ -15,6 +15,7 @@ import { rootReducer } from '../src/app-state'
 import { breakpoints } from '../src/styles/breakpoints'
 import { GlobalStyle } from '../src/styles/GlobalStyle'
 import { darkTheme, lightTheme } from '../src/styles/theme'
+import { DecoratorFunction } from 'storybook/internal/csf'
 
 initialize({
   quiet: true,
@@ -52,7 +53,7 @@ const ThemeBlock = styled.div<{ $left?: boolean; $fullScreen?: boolean }>(
   `
 )
 
-export const withTheme: Decorator = (
+export const withTheme: DecoratorFunction = (
   StoryFn,
   { globals: { theme = 'light' }, parameters, viewMode }
 ) => {
@@ -148,7 +149,7 @@ export const withTheme: Decorator = (
  *   }
  * };
  */
-export const withStore: Decorator = (StoryFn, { parameters }) => {
+export const withStore: DecoratorFunction = (StoryFn, { parameters }) => {
   // Creates a store by merging optional custom initialState
   const store = configureStore({
     reducer: rootReducer,
@@ -175,7 +176,7 @@ export const withStore: Decorator = (StoryFn, { parameters }) => {
  *   }
  * };
  */
-export const withRouter: Decorator = (StoryFn, { parameters: { deeplink } }) => {
+export const withRouter: DecoratorFunction = (StoryFn, { parameters: { deeplink } }) => {
   // if there's a deeplink, routing will be handled in another decorator
   if (deeplink) {
     return <StoryFn />
@@ -206,10 +207,10 @@ const breakpointViewports = Object.keys(breakpoints).reduce(
   {} as typeof INITIAL_VIEWPORTS
 )
 
-const preview: Preview = {
+export default definePreview({
   parameters: {
     viewport: {
-      viewports: {
+      options: {
         ...breakpointViewports,
         ...INITIAL_VIEWPORTS,
       },
@@ -252,11 +253,5 @@ const preview: Preview = {
   },
   decorators: [withRouter, withTheme, withStore],
   loaders: [mswLoader, demoModeLoader],
-}
-
-declare module 'storybook/internal/csf' {
-  interface StoryContext {
-    userEvent: ReturnType<typeof userEvent.setup>
-  }
-}
-export default preview
+  addons: [addonA11y(), addonVitest()],
+})
