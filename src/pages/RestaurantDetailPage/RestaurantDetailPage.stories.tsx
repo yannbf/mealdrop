@@ -52,6 +52,8 @@ export const WithModalOpen: Story = {
   play: async (context) => {
     await Success.play(context)
     const item = await context.canvas.findByText(/Cheeseburger/i)
+    // for demo purposes:
+    // const item = await context.canvas.findByText(/Cheezeburger/i)
     await context.userEvent.click(item)
     await expect(context.canvas.getByTestId('modal')).toBeInTheDocument()
   },

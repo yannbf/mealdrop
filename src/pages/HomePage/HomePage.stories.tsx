@@ -24,4 +24,9 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {}
+export const Default: Story = {
+  play: async ({ canvas }) => {
+    await canvas.findByText(/Burger Kingdom/i)
+    await canvas.findByLabelText('Next')
+  },
+}

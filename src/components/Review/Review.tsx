@@ -14,8 +14,10 @@ const StyledBody = styled(Body)(
   align-items: center;
   justify-content: flex-start;
   color: ${color.reviewText};
-`
+  `
 )
+// For a11y demo purposes:
+// color: ${color.bannerText};
 
 type ReviewProps = {
   rating?: number

@@ -189,7 +189,7 @@ export const withRouter: Decorator = (StoryFn, { parameters: { deeplink } }) => 
 }
 
 // Create custom viewports using widths defined in design tokens
-// eslint-disable-next-line unicorn/no-array-reduce
+
 const breakpointViewports = Object.keys(breakpoints).reduce(
   (acc, key) => {
     acc[`breakpoint${key}`] = {
@@ -208,14 +208,14 @@ const breakpointViewports = Object.keys(breakpoints).reduce(
 
 const preview: Preview = {
   parameters: {
+    a11y: {
+      test: 'error',
+    },
     viewport: {
       viewports: {
         ...breakpointViewports,
         ...INITIAL_VIEWPORTS,
       },
-    },
-    a11y: {
-      test: 'todo',
     },
     controls: {
       matchers: {
