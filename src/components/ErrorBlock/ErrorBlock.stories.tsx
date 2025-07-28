@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { fn } from '@storybook/test'
+import type { Meta, StoryObj } from '@storybook/react-vite'
+import { fn } from 'storybook/test'
 
 import sushi from '../../assets/images/sushi.svg'
 import { AnimatedIllustration } from '../AnimatedIllustration'

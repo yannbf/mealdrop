@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import styled, { css } from 'styled-components'
 
 import { Body } from '../typography/Body'

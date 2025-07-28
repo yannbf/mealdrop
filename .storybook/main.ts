@@ -15,7 +15,7 @@ const config: StorybookConfig = {
         backgrounds: false,
       },
     },
-    '@storybook/experimental-addon-test',
+    '@storybook/addon-vitest',
     '@storybook/addon-a11y',
     'storybook-addon-test-codegen',
   ],

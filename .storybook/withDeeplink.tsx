@@ -1,4 +1,4 @@
-import { Decorator } from '@storybook/react'
+import { Decorator } from '@storybook/react-vite'
 import { MemoryRouter, Route } from 'react-router-dom'
 import { AppRoutes } from '../src/Routes'
 
