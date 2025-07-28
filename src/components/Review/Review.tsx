@@ -13,7 +13,7 @@ const StyledBody = styled(Body)(
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  color: ${color.reviewText};
+  color: ${color.bannerText};
   `
 )
 // For a11y demo purposes:
