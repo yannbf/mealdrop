@@ -253,9 +253,6 @@ const preview: Preview = {
   },
   decorators: [withRouter, withTheme, withStore],
   loaders: [mswLoader, demoModeLoader],
-  afterEach: async () => {
-    await new Promise((resolve) => setTimeout(resolve, 1))
-  },
 }
 
 declare module 'storybook/internal/csf' {

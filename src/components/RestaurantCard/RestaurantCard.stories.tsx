@@ -25,3 +25,27 @@ export const Default: Story = {
     name: 'Burger Kingdom',
   },
 }
+
+// export const New: Story = {
+//   args: {
+//     ...Default.args,
+//     isNew: true,
+//   },
+// }
+
+// export const Closed: Story = {
+//   args: {
+//     ...Default.args,
+//     isClosed: true,
+//   },
+//   play: async ({ canvas }) => {
+//     await expect(canvas.getByText('This restaurant is closed.')).toBeInTheDocument()
+//   },
+// }
+
+// export const Loading: Story = {
+//   args: {
+//     ...Default.args,
+//     isLoading: true,
+//   },
+// }
