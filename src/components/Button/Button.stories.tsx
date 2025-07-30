@@ -1,7 +1,6 @@
 import type { StoryObj, Meta } from '@storybook/react-vite'
-import { expect, mocked, sb } from 'storybook/test'
+import { expect, mocked } from 'storybook/test'
 import { getId } from './id'
-import { v4 as uuidv4 } from 'uuid'
 
 import { Button } from './Button'
 
@@ -12,8 +11,7 @@ const meta = {
     children: 'Button',
   },
   beforeEach: async () => {
-    console.log({ getId: mocked(getId) })
-    // mocked(uuidv4).mockReturnValue('MOCKED_ID')
+    mocked(getId).mockReturnValue('MOCKED_ID')
   },
   parameters: {
     design: {

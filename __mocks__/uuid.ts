@@ -1,3 +1,3 @@
 export function v4() {
-  return 'I am mocked - '
+  return 'I am mocked'
 }

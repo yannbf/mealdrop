@@ -4,6 +4,7 @@ import styled, { css, useTheme } from 'styled-components'
 import { breakpoints } from '../../styles/breakpoints'
 import { Icon, IconName } from '../Icon'
 import { getId } from './id'
+import { v4 as uuidv4 } from 'uuid'
 
 const Spacer = styled.span`
   padding-left: 1rem;
@@ -103,20 +104,24 @@ export const Button: React.FC<React.PropsWithChildren<ButtonProperties>> = ({
   const { color } = useTheme()
 
   return (
-    <StyledButton
-      type="button"
-      $large={large}
-      $clear={clear}
-      $round={round}
-      $withIcon={!!icon}
-      {...properties}
-    >
-      {getId()}
-      {icon && (
-        <Icon color={clear ? color.primaryText : color.buttonText} size={iconSize} name={icon} />
-      )}
-      {icon && children && <Spacer />}
-      {children}
-    </StyledButton>
+    <>
+      <div>id utility: {getId()}</div>
+      <div>uuid direct call: {uuidv4()}</div>
+      <br />
+      <StyledButton
+        type="button"
+        $large={large}
+        $clear={clear}
+        $round={round}
+        $withIcon={!!icon}
+        {...properties}
+      >
+        {icon && (
+          <Icon color={clear ? color.primaryText : color.buttonText} size={iconSize} name={icon} />
+        )}
+        {icon && children && <Spacer />}
+        {children}
+      </StyledButton>
+    </>
   )
 }
