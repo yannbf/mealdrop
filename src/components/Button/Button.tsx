@@ -3,6 +3,7 @@ import styled, { css, useTheme } from 'styled-components'
 
 import { breakpoints } from '../../styles/breakpoints'
 import { Icon, IconName } from '../Icon'
+import { getId } from './id'
 
 const Spacer = styled.span`
   padding-left: 1rem;
@@ -110,6 +111,7 @@ export const Button: React.FC<React.PropsWithChildren<ButtonProperties>> = ({
       $withIcon={!!icon}
       {...properties}
     >
+      {getId()}
       {icon && (
         <Icon color={clear ? color.primaryText : color.buttonText} size={iconSize} name={icon} />
       )}

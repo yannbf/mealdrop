@@ -9,12 +9,14 @@ import { Provider as StoreProvider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import React from 'react'
 import styled, { css, ThemeProvider } from 'styled-components'
-
+import { sb } from 'storybook/test'
 import { demoModeLoader } from './demo-mode'
 import { rootReducer } from '../src/app-state'
 import { breakpoints } from '../src/styles/breakpoints'
 import { GlobalStyle } from '../src/styles/GlobalStyle'
 import { darkTheme, lightTheme } from '../src/styles/theme'
+sb.mock(import('../src/components/Button/id'), { spy: true })
+sb.mock(import('uuid'))
 
 initialize({
   quiet: true,
