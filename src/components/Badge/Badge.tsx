@@ -10,7 +10,7 @@ const Container = styled.div(
     display: inline-block;
     text-transform: capitalize;
     span {
-      color: ${color.badgeText};
+      color: white;
     }
   `
 )
