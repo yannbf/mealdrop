@@ -64,17 +64,13 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Desktop: Story = {
-  parameters: {
-    viewport: {
-      defaultViewport: 'responsive',
-    },
+  globals: {
+    viewport: { value: 'responsive', isRotated: false },
   },
 }
 
 export const Mobile: Story = {
-  parameters: {
-    viewport: {
-      defaultViewport: 'iphonex',
-    },
+  globals: {
+    viewport: { value: 'iphonex', isRotated: false },
   },
 }

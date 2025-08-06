@@ -22,10 +22,10 @@ const meta = {
   args: {
     isOpen: false,
     title: '',
-    /* 
+    /*
     The following line emulates the event handler that would be passed to the component
     Read more about the `fn` utility function at
-    https://storybook.js.org/docs/essentials/actions#via-storybooktest-fn-spy-function 
+    https://storybook.js.org/docs/essentials/actions#via-storybooktest-fn-spy-function
     */
     onClose: fn(),
   },
@@ -62,9 +62,7 @@ type Story = StoryObj<typeof meta>
 export const Desktop: Story = {}
 
 export const Mobile: Story = {
-  parameters: {
-    viewport: {
-      defaultViewport: 'iphonex',
-    },
+  globals: {
+    viewport: { value: 'iphonex', isRotated: false },
   },
 }

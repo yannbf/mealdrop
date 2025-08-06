@@ -207,9 +207,12 @@ const breakpointViewports = Object.keys(breakpoints).reduce(
 )
 
 const preview: Preview = {
+  initialGlobals: {
+    viewport: { value: 'responsive' },
+  },
   parameters: {
     viewport: {
-      viewports: {
+      options: {
         ...breakpointViewports,
         ...INITIAL_VIEWPORTS,
       },
