@@ -97,7 +97,6 @@ export const RestaurantDetailPage = () => {
     return null
   }
 
-  console.log({ restaurant })
   const { menu, name, rating, specialty, photoUrl, categories } = restaurant
 
   return (
