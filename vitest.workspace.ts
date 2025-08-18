@@ -8,7 +8,7 @@ export default defineWorkspace([
     extends: 'vite.config.ts',
     plugins: [
       // See options at: https://storybook.js.org/docs/writing-tests/vitest-plugin#storybooktest
-      storybookTest({ configDir: '.storybook', storybookScript: 'yarn storybook --ci' }),
+      storybookTest({ configDir: '.storybook' }),
     ],
     publicDir: 'public',
     test: {
@@ -24,6 +24,15 @@ export default defineWorkspace([
         ],
       },
       setupFiles: ['.storybook/vitest.setup.ts'],
+    },
+  },
+  {
+    extends: 'vite.config.ts',
+    test: {
+      name: 'portable-stories',
+      environment: 'happy-dom',
+      include: ['**/*.test.tsx'],
+      setupFiles: ['portable-stories-setup.ts'],
     },
   },
 ])

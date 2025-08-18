@@ -23,7 +23,6 @@ const DetailSection = styled.div(
     padding-bottom: 2rem !important;
     background: ${color.restaurantDetailBackground};
     .review-text {
-      color: ${color.reviewText};
       margin-bottom: ${spacing.m};
     }
   `

@@ -27,9 +27,9 @@ const CustomArrow = (props: Partial<CarouselProps & ArrowProps> & { isNext?: boo
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { carouselState, rtl, isNext, ...rest } = props
   return isNext ? (
-    <NextButton name="arrow-right" {...rest} />
+    <NextButton name="arrow-right" {...rest} aria-label="Next" />
   ) : (
-    <PreviousButton name="arrow-left" {...rest} />
+    <PreviousButton name="arrow-left" {...rest} aria-label="Previous" />
   )
 }
 

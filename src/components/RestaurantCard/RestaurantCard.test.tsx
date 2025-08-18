@@ -5,7 +5,8 @@ import { axe } from 'vitest-axe'
 
 import * as stories from './RestaurantCard.stories'
 
-const { Default, Loading, New, Closed } = composeStories(stories)
+const { Default } = composeStories(stories)
+// const { Default, Loading, New, Closed } = composeStories(stories)
 
 describe('RestaurantCard', () => {
   test('should render correctly', async () => {
@@ -14,27 +15,28 @@ describe('RestaurantCard', () => {
     expect(screen.getByText('Burger Kingdom')).toBeInTheDocument()
   })
 
-  test('should provide a loading skeleton', async () => {
-    await Loading.run()
-    expect(screen.getByTestId('loading')).toBeInTheDocument()
-  })
+  // TODO: Reenable once stories are added back
+  // test('should provide a loading skeleton', async () => {
+  //   await Loading.run()
+  //   expect(screen.getByTestId('loading')).toBeInTheDocument()
+  // })
 
-  test('should show a "new" tag', async () => {
-    await New.run()
-    expect(screen.getByText('new')).toBeInTheDocument()
-  })
+  // test('should show a "new" tag', async () => {
+  //   await New.run()
+  //   expect(screen.getByText('new')).toBeInTheDocument()
+  // })
 
-  test('should not trigger onclick when restaurant is closed', async () => {
-    const onClickSpy = vi.fn()
-    await Closed.run({ args: { ...Closed.args, onClick: onClickSpy } })
+  // test('should not trigger onclick when restaurant is closed', async () => {
+  //   const onClickSpy = vi.fn()
+  //   await Closed.run({ args: { ...Closed.args, onClick: onClickSpy } })
 
-    // display closed message
-    expect(screen.getByText('This restaurant is closed.')).toBeInTheDocument()
+  //   // display closed message
+  //   expect(screen.getByText('This restaurant is closed.')).toBeInTheDocument()
 
-    // does not trigger onClick
-    screen.getByTestId('restaurant-card').click()
-    expect(onClickSpy).not.toHaveBeenCalled()
-  })
+  //   // does not trigger onClick
+  //   screen.getByTestId('restaurant-card').click()
+  //   expect(onClickSpy).not.toHaveBeenCalled()
+  // })
 })
 
 // Go through every story from composeStories and create a map of StoryName <-> StoryComponent

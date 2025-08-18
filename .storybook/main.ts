@@ -9,10 +9,12 @@ const config: StorybookConfig = {
   ],
   addons: [
     '@storybook/addon-vitest',
+    '@chromatic-com/storybook',
     '@storybook/addon-a11y',
+    '@storybook/addon-designs',
+    '@storybook/addon-docs',
     // TODO: this addon has a bad instrumentation of getConfig.asyncWrapper that should be fixed
     'storybook-addon-test-codegen',
-    '@storybook/addon-docs',
   ],
   typescript: {
     reactDocgen: 'react-docgen',
