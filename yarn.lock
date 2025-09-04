@@ -1660,7 +1660,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-designs@npm:10.0.2":
+"@storybook/addon-designs@npm:^10.0.2":
   version: 10.0.2
   resolution: "@storybook/addon-designs@npm:10.0.2"
   dependencies:
@@ -3919,7 +3919,7 @@ __metadata:
     "@reduxjs/toolkit": "npm:^2.6.0"
     "@storybook/addon-a11y": "npm:^9.1.1"
     "@storybook/addon-coverage": "npm:^2.0.0"
-    "@storybook/addon-designs": "npm:10.0.2"
+    "@storybook/addon-designs": "npm:^10.0.2"
     "@storybook/addon-docs": "npm:^9.1.1"
     "@storybook/addon-themes": "npm:^9.1.1"
     "@storybook/addon-vitest": "npm:^9.1.1"

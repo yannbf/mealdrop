@@ -12,6 +12,7 @@ const config: StorybookConfig = {
     '@storybook/addon-a11y',
     // TODO: this addon has a bad instrumentation of getConfig.asyncWrapper that should be fixed
     'storybook-addon-test-codegen',
+    '@storybook/addon-designs',
     '@storybook/addon-docs',
   ],
   typescript: {
