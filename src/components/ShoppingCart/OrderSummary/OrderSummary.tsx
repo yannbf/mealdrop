@@ -3,7 +3,7 @@ import { useMemo } from 'react'
 import { ShoppingCartItem } from '../ShoppingCartItem/ShoppingCartItem'
 import { CartItem } from '../../../app-state/cart'
 import { Body } from '../../typography/Body'
-import { toEuro } from '../../../helpers'
+import { toCurrency } from '../../../helpers'
 
 import {
   OrderSummaryContainer,
@@ -36,7 +36,7 @@ export const OrderSummary = ({ cartItems }: OrderSummaryProps) => {
         </CartItemsContainer>
         <BottomContainer>
           <Body>Total</Body>
-          <StyledHeading level={2}>{toEuro(totalPrice)}</StyledHeading>
+          <StyledHeading level={2}>{toCurrency(totalPrice)}</StyledHeading>
         </BottomContainer>
       </OrderSummaryContainer>
     </>

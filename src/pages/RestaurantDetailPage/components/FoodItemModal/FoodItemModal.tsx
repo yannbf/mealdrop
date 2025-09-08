@@ -2,7 +2,7 @@ import { useState, useCallback, useEffect } from 'react'
 import styled, { css } from 'styled-components'
 
 import { CartItem } from '../../../../app-state/cart'
-import { toEuro } from '../../../../helpers'
+import { toCurrency } from '../../../../helpers'
 import { breakpoints } from '../../../../styles/breakpoints'
 import { Button } from '../../../../components/Button'
 import { Body } from '../../../../components/typography/Body'
@@ -113,7 +113,7 @@ export const FoodItemModal = ({
               />
             </ButtonsContainer>
             <StyledButton aria-label="confirm" onClick={saveItem}>
-              add for {toEuro(item.price * quantity)}
+              add for {toCurrency(item.price * quantity)}
             </StyledButton>
           </BottomContainer>
         </div>

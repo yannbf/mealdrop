@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react-vite'
 import { http, HttpResponse, delay } from 'msw'
-import { expect } from 'storybook/test'
+import { expect, mocked } from 'storybook/test'
 
 import { BASE_URL } from '../../api'
 import { restaurantsCompleteData } from '../../stub/restaurants'
@@ -8,6 +8,7 @@ import { cartItems } from '../../stub/cart-items'
 import { withDeeplink } from '../../../.storybook/withDeeplink'
 
 import { RestaurantDetailPage } from './RestaurantDetailPage'
+import { getCurrency } from '../../helpers/getCurrency'
 
 const meta = {
   title: 'Pages/RestaurantDetailPage',
@@ -63,6 +64,12 @@ export const WithItemsInTheCart: Story = {
       initialState: { cart: { items: cartItems } },
     },
   },
+}
+export const WithItemsInTheCartDollarCurrency: Story = {
+  ...WithItemsInTheCart,
+  beforeEach: async () => {
+    mocked(getCurrency).mockReturnValue('USD')
+  }
 }
 
 export const Loading: Story = {

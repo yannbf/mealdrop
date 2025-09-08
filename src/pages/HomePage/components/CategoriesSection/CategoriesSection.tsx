@@ -62,7 +62,7 @@ export const CategoriesSection = ({ categories }: CategoriesSectionProps) => {
         }}
         containerClass="carousel-container"
         removeArrowOnDeviceType={['tablet', 'mobile']}
-        itemClass={isMobile ? 'carousel-item' : ''}
+        itemClass={isOnMobile ? 'carousel-item' : ''}
       >
         {categories.map((category) => (
           <StyledLink key={category.id} to={`/categories/${category.id}`}>

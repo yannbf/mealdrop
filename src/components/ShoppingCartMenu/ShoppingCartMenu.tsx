@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 import { CartItem } from '../../app-state/cart'
-import { toEuro } from '../../helpers'
+import { toCurrency } from '../../helpers'
 import { Button } from '../Button'
 import { Select } from '../forms/Select'
 import { Sidebar } from '../Sidebar'
@@ -24,7 +24,7 @@ const Footer = ({ onClick, totalPrice }: any) => (
   <FooterContainer>
     <TotalSection>
       <Body type="span">Total</Body>
-      <Body type="span">{toEuro(totalPrice)}</Body>
+      <Body type="span">{toCurrency(totalPrice)}</Body>
     </TotalSection>
     <Button disabled={totalPrice === 0} large onClick={onClick}>
       Checkout
@@ -52,7 +52,7 @@ const ShoppingCartMenuItem = ({ item, onChange }: any) => (
         {item.name}
       </Body>
       <Body>{item.description}</Body>
-      <Body>{toEuro(item.price * item.quantity)}</Body>
+      <Body>{toCurrency(item.price * item.quantity)}</Body>
     </div>
     <Select
       value={item.quantity}
