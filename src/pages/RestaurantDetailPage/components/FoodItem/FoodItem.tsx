@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import styled, { css } from 'styled-components'
 
-import { toEuro } from '../../../../helpers'
+import { toCurrency } from '../../../../helpers'
 import { Body } from '../../../../components/typography/Body'
 import { Heading } from '../../../../components/typography/Heading'
 
@@ -69,7 +69,7 @@ export const FoodItem = memo(
         )}
         <Heading level={4}>{name}</Heading>
         <Description>{description}</Description>
-        <Price>{toEuro(price)}</Price>
+        <Price>{toCurrency(price)}</Price>
       </div>
     </Container>
   )

@@ -17,6 +17,9 @@ import { breakpoints } from '../src/styles/breakpoints'
 import { GlobalStyle } from '../src/styles/GlobalStyle'
 import { darkTheme, lightTheme } from '../src/styles/theme'
 import { DecoratorFunction } from 'storybook/internal/csf'
+import { sb } from 'storybook/test'
+
+sb.mock('../src/helpers/getCurrency', { spy: true })
 
 initialize({
   quiet: true,

@@ -1,7 +1,10 @@
-export const toEuro = (number: number) =>
-  number.toLocaleString(undefined, {
+import { getCurrency } from './getCurrency'
+
+export const toCurrency = (number: number) => {
+  return number.toLocaleString(undefined, {
     style: 'currency',
-    currency: 'EUR',
+    currency: getCurrency(),
   })
+}
 
 export const isMobile = () => /Mobi/i.test(globalThis.navigator.userAgent)

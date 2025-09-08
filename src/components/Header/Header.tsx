@@ -14,7 +14,7 @@ import {
 import { breakpoints } from '../../styles/breakpoints'
 import { ShoppingCartMenu } from '../ShoppingCartMenu'
 import { Button } from '../Button'
-import { toEuro } from '../../helpers'
+import { toCurrency } from '../../helpers'
 import { Body } from '../typography/Body'
 import { Logo } from '../Logo'
 
@@ -153,7 +153,7 @@ export const HeaderComponent = ({
             {totalPrice > 0 && (
               <>
                 <CartText type="span">Order</CartText>
-                <CartTotal type="span">{toEuro(totalPrice)}</CartTotal>
+                <CartTotal type="span">{toCurrency(totalPrice)}</CartTotal>
               </>
             )}
           </Button>

@@ -1,5 +1,5 @@
 import { CartItem } from '../../../app-state/cart'
-import { toEuro } from '../../../helpers'
+import { toCurrency } from '../../../helpers'
 
 import { CartItemContainer, Quantity, Name, Price } from './ShoppingCartItem.styles'
 
@@ -13,7 +13,7 @@ export const ShoppingCartItem = ({ item }: ShoppingCartItemProps) => {
     <CartItemContainer>
       <Quantity type="span">{quantity}</Quantity>
       <Name type="span">{name}</Name>
-      <Price type="span">{toEuro(quantity * price)}</Price>
+      <Price type="span">{toCurrency(quantity * price)}</Price>
     </CartItemContainer>
   )
 }

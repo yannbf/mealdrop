@@ -1,6 +1,6 @@
 import preview from '#.storybook/preview'
 import { http, HttpResponse, delay } from 'msw'
-import { expect } from 'storybook/test'
+import { expect, mocked } from 'storybook/test'
 
 import { BASE_URL } from '../../api'
 import { restaurantsCompleteData } from '../../stub/restaurants'
@@ -8,6 +8,7 @@ import { cartItems } from '../../stub/cart-items'
 import { withDeeplink } from '../../../.storybook/withDeeplink'
 
 import { RestaurantDetailPage } from './RestaurantDetailPage'
+import { getCurrency } from '../../helpers/getCurrency'
 
 const meta = preview.meta({
   title: 'Pages/RestaurantDetailPage',
@@ -62,6 +63,11 @@ export const WithItemsInTheCart = meta.story({
       initialState: { cart: { items: cartItems } },
     },
   },
+})
+export const WithItemsInTheCartDollarCurrency = WithItemsInTheCart.extend({
+  beforeEach: async () => {
+    mocked(getCurrency).mockReturnValue('USD')
+  }
 })
 
 export const Loading = meta.story({
