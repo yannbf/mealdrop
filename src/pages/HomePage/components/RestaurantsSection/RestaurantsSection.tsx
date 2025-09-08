@@ -7,6 +7,7 @@ import { IconButton } from '../../../../components/IconButton'
 import { PageSection } from '../../../../components/PageSection'
 import { RestaurantCard, RestaurantCardSkeleton } from '../../../../components/RestaurantCard'
 import { Restaurant } from '../../../../types'
+import { isMobile } from '../../../../helpers'
 
 const PreviousButton = styled(IconButton)`
   position: absolute;
@@ -38,12 +39,12 @@ export const RestaurantsSection = ({ title }: RestaurantsSectionProps) => {
 
   const { restaurants, status } = useFetchRestaurants()
 
-  const isMobile = /Mobi/i.test(globalThis.navigator.userAgent)
+  const isOnMobile = isMobile()
   return (
     <PageSection title={title}>
       <Carousel
-        draggable={isMobile}
-        partialVisible={isMobile}
+        draggable={isOnMobile}
+        partialVisible={isOnMobile}
         customLeftArrow={<CustomArrow />}
         customRightArrow={<CustomArrow isNext />}
         responsive={{

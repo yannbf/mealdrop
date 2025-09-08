@@ -1,15 +1,16 @@
 import { useLayoutEffect } from 'react'
+import { isMobile } from '../helpers'
 
 export const useLockBodyScroll = (shouldLock = false) => {
   useLayoutEffect(() => {
     document.body.style.overflow = shouldLock ? 'hidden' : 'auto'
-    if (/Mobi/i.test(globalThis.navigator.userAgent)) {
+    if (isMobile()) {
       document.body.style.height = shouldLock ? '100vh' : 'auto'
     }
     // Re-enable scrolling when component unmounts
     return () => {
       document.body.style.overflow = 'auto'
-      if (/Mobi/i.test(globalThis.navigator.userAgent)) {
+      if (isMobile()) {
         document.body.style.height = 'auto'
       }
     }
