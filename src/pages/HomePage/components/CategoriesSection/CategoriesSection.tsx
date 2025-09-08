@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { PageSection } from '../../../../components/PageSection'
 import { Category, CategoryProps } from '../../../../components/Category'
 import { IconButton } from '../../../../components/IconButton'
+import { isMobile } from '../../../../helpers'
 
 type CategoriesSectionProps = {
   categories: CategoryProps[]
@@ -28,7 +29,7 @@ const NextButton = styled(IconButton)`
 export const CategoriesSection = ({ categories }: CategoriesSectionProps) => {
   const navigate = useNavigate()
 
-  const isMobile = /Mobi/i.test(globalThis.navigator.userAgent)
+  const isOnMobile = isMobile()
   return (
     <PageSection
       title="Categories"
@@ -36,8 +37,8 @@ export const CategoriesSection = ({ categories }: CategoriesSectionProps) => {
       onTopButtonClick={() => navigate('/categories')}
     >
       <Carousel
-        draggable={isMobile}
-        partialVisible={isMobile}
+        draggable={isOnMobile}
+        partialVisible={isOnMobile}
         customLeftArrow={<PreviousButton name="arrow-left" />}
         customRightArrow={<NextButton name="arrow-right" />}
         responsive={{
