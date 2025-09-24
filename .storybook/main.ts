@@ -18,4 +18,7 @@ export default defineMain({
   },
   staticDirs: ['../public'],
   framework: '@storybook/react-vite',
+  features: {
+    experimentalTestSyntax: true,
+  },
 })
