@@ -6,6 +6,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import addonA11y from '@storybook/addon-a11y'
 import addonVitest from '@storybook/addon-vitest'
 import addonDocs from '@storybook/addon-docs'
+import addonStoryInspector from '@storybook/addon-story-inspector'
 import { Provider as StoreProvider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import React from 'react'
@@ -257,5 +258,5 @@ export default definePreview({
   },
   decorators: [withRouter, withTheme, withStore],
   loaders: [mswLoader, demoModeLoader],
-  addons: [addonDocs(), addonA11y(), addonVitest()],
+  addons: [addonDocs(), addonA11y(), addonVitest(), addonStoryInspector()],
 })

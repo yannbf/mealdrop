@@ -12,6 +12,7 @@ export default defineMain({
     // TODO: this addon has a bad instrumentation of getConfig.asyncWrapper that should be fixed
     // 'storybook-addon-test-codegen',
     '@storybook/addon-docs',
+    '@storybook/addon-story-inspector'
   ],
   typescript: {
     reactDocgen: 'react-docgen',
