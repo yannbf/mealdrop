@@ -12,7 +12,7 @@ const meta = preview.meta({
   parameters: {
     // This makes it so that the modal is loaded inside of an iframe in docs mode.
     // If it's not rendered in an iframe, the modal is going to open on top of Storybook itself!
-    docs: { inlineStories: false, iframeHeight: 600 },
+    docs: { story: { inline: false, iframeHeight: '600px' } },
   },
   decorators: [
     (StoryEl) => (
@@ -61,17 +61,18 @@ const meta = preview.meta({
 })
 
 export const Desktop = meta.story({
-  parameters: {
+  globals: {
     viewport: {
-      defaultViewport: 'responsive',
-    },
-  },
+      value: 'responsive',
+    }
+  }
 })
 
 export const Mobile = meta.story({
-  parameters: {
+  globals: {
     viewport: {
-      defaultViewport: 'iphonex',
-    },
+      value: 'iphonex',
+    }
   },
+  tags: ['mobile'],
 })
