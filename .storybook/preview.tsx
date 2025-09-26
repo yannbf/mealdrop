@@ -17,7 +17,7 @@ import { GlobalStyle } from '../src/styles/GlobalStyle'
 import { darkTheme, lightTheme } from '../src/styles/theme'
 import { sb } from 'storybook/test'
 
-sb.mock('../src/helpers/getCurrency', { spy: true })
+sb.mock('../src/helpers/getCurrency.ts', { spy: true })
 
 initialize({
   quiet: true,
