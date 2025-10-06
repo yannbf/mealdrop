@@ -1955,15 +1955,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-a11y@npm:10.0.0-beta.7":
-  version: 10.0.0-beta.7
-  resolution: "@storybook/addon-a11y@npm:10.0.0-beta.7"
+"@storybook/addon-a11y@npm:10.0.0-beta.9":
+  version: 10.0.0-beta.9
+  resolution: "@storybook/addon-a11y@npm:10.0.0-beta.9"
   dependencies:
     "@storybook/global": "npm:^5.0.0"
     axe-core: "npm:^4.2.0"
   peerDependencies:
-    storybook: ^10.0.0-beta.7
-  checksum: 10c0/67536a8ec5975023aab8481054998b33f45a37f5d02041411ffe99b0ec8bc155f689c760f064c512e27d46fed2800f0dd293255b9605cd91de2f88fce26a15ab
+    storybook: ^10.0.0-beta.9
+  checksum: 10c0/f3d1368fb9b54d933f434ed008a1bb13002b4bc10b0979385113379f315f72582f79ee6d3268a41e3f071cb055a4b6f1101dab2a523723b15e18a5d396ca201a
   languageName: node
   linkType: hard
 
@@ -4386,7 +4386,7 @@ __metadata:
     "@eslint/js": "npm:^9.21.0"
     "@hookform/resolvers": "npm:^4.1.3"
     "@reduxjs/toolkit": "npm:^2.6.0"
-    "@storybook/addon-a11y": "npm:10.0.0-beta.7"
+    "@storybook/addon-a11y": "npm:10.0.0-beta.9"
     "@storybook/addon-coverage": "npm:^2.0.0"
     "@storybook/addon-designs": "npm:10.0.2-next.0"
     "@storybook/addon-docs": "npm:10.0.0-beta.7"
