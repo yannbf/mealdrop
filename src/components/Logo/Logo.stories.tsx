@@ -24,3 +24,11 @@ export const LogoOnly: Story = {
     logoOnly: true,
   },
 }
+
+export const Animated: Story = {
+  args: {
+    large: true,
+    logoOnly: true,
+    animated: true
+  },
+}
