@@ -4001,7 +4001,7 @@ __metadata:
     react-test-renderer: "npm:^19.0.0"
     react-transition-group: "npm:^4.4.5"
     storybook: "npm:10.0.0-beta.10"
-    storybook-addon-test-codegen: "npm:^2.0.1"
+    storybook-addon-test-codegen: "npm:2.0.2--canary.9790c9f.0"
     styled-components: "npm:^6.1.15"
     stylis: "npm:^4.3.6"
     typescript: "npm:^5.7.3"
@@ -9728,12 +9728,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook-addon-test-codegen@npm:^2.0.1":
-  version: 2.0.1
-  resolution: "storybook-addon-test-codegen@npm:2.0.1"
+"storybook-addon-test-codegen@npm:2.0.2--canary.9790c9f.0":
+  version: 2.0.2--canary.9790c9f.0
+  resolution: "storybook-addon-test-codegen@npm:2.0.2--canary.9790c9f.0"
   peerDependencies:
-    storybook: ^9.0.0 || ^9.0.0-rc.4 || ^0.0.0-0
-  checksum: 10c0/fdbfa8313493ec65a0fe50fe054769b4967d76b2bd5a6ec782dd767c92e202dafec13914a2aa611a5be71d3e9ee975a4f01bd9c2677e5a66ca43bb909934c548
+    storybook: "*"
+  checksum: 10c0/a9882e23aa7d0d6fad6eee64cb7a68f8512b730ce154df2e60ad162d97ff2d0b2c6bd12acf7281165824df8b6f5c3cdadeb760b86affda7e91370774bf40785f
   languageName: node
   linkType: hard
 
