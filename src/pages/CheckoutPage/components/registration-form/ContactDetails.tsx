@@ -30,7 +30,15 @@ export const ContactDetails = ({ formData, setFormData, onNext }: ContactDetails
   const [isSubmitted, setIsSubmitted] = useState(false)
 
   const validateField = (name: keyof ContactDetailsFormData, value: string): string | undefined => {
-    if (!value) return 'Required'
+    if (!value) {
+      switch (name) {
+        case 'firstName': return 'First name is required'
+        case 'lastName': return 'Last name is required'
+        case 'email': return 'Email is required'
+        case 'phone': return 'Phone number is required'
+        default: return 'Required'
+      }
+    }
 
     switch (name) {
       case 'firstName':

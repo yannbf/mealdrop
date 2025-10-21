@@ -32,7 +32,14 @@ export const DeliveryDetails = ({ formData, setFormData, onPrevious }: DeliveryD
     name: keyof DeliveryDetailsFormData,
     value: string
   ): string | undefined => {
-    if (!value) return 'Required'
+    if (!value) {
+      switch (name) {
+        case 'address': return 'Address is required'
+        case 'city': return 'City is required'
+        case 'postcode': return 'Postcode is required'
+        default: return 'Required'
+      }
+    }
 
     switch (name) {
       case 'address': {
