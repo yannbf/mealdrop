@@ -72,6 +72,7 @@
     "@storybook/addon-coverage": "^3.0.0",
     "@storybook/addon-designs": "^11.0.0-next.0",
     "@storybook/addon-docs": "10.1.0-beta.0",
+    "@storybook/addon-mcp": "^0.1.4",
     "@storybook/addon-themes": "10.1.0-beta.0",
     "@storybook/addon-vitest": "10.1.0-beta.0",
     "@storybook/react-vite": "10.1.0-beta.0",
