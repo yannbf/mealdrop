@@ -14,11 +14,16 @@ const config: StorybookConfig = {
     'storybook-addon-test-codegen',
     '@storybook/addon-designs',
     '@storybook/addon-docs',
+    '@storybook/addon-mcp',
   ],
   typescript: {
     reactDocgen: 'react-docgen',
   },
   staticDirs: ['../public'],
   framework: '@storybook/react-vite',
+  features: {
+    experimentalCodeExamples: true,
+    experimentalComponentsManifest: true,
+  },
 }
 export default config
