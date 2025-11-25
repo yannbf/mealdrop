@@ -43,10 +43,11 @@ export const Empty: Story = {
 export const WithItems: Story = {}
 
 export const Mobile: Story = {
-  parameters: {
+  globals: {
     viewport: {
-      defaultViewport: 'iphonex',
-    },
+      value: 'iphonex',
+      isRotated: false
+    }
   },
 }
 

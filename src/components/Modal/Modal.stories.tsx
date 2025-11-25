@@ -68,9 +68,10 @@ type Story = StoryObj<typeof meta>
 export const Desktop: Story = {}
 
 export const Mobile: Story = {
-  parameters: {
+  globals: {
     viewport: {
-      defaultViewport: 'iphonex',
-    },
+      value: 'iphonex',
+      isRotated: false
+    }
   },
 }

@@ -1,9 +1,11 @@
-import type { Preview } from '@storybook/react-vite'
+import * as storybookAddonTestCodegen from 'storybook-addon-test-codegen/preview'
+import addonDocs from '@storybook/addon-docs'
+import addonA11y from '@storybook/addon-a11y'
 import { INITIAL_VIEWPORTS } from 'storybook/viewport'
 import { userEvent } from '@testing-library/user-event'
 import { mswLoader, initialize } from 'msw-storybook-addon'
 import { DocsContainer, DocsContainerProps } from '@storybook/addon-docs/blocks'
-import { Decorator } from '@storybook/react-vite'
+import { Decorator, definePreview } from '@storybook/react-vite'
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider as StoreProvider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
@@ -206,13 +208,18 @@ const breakpointViewports = Object.keys(breakpoints).reduce(
   {} as typeof INITIAL_VIEWPORTS
 )
 
-const preview: Preview = {
+declare module 'storybook/internal/csf' {
+  interface StoryContext {
+    userEvent: ReturnType<typeof userEvent.setup>
+  }
+}
+export default definePreview({
   parameters: {
     a11y: {
       test: 'error',
     },
     viewport: {
-      viewports: {
+      options: {
         ...breakpointViewports,
         ...INITIAL_VIEWPORTS,
       },
@@ -235,6 +242,7 @@ const preview: Preview = {
       ),
     },
   },
+
   globalTypes: {
     theme: {
       name: 'Theme',
@@ -249,14 +257,22 @@ const preview: Preview = {
         ],
       },
     },
+    rtl: {
+      name: "RTL",
+      description: "Global RTL for components",
+      defaultValue: undefined,
+      toolbar: {
+        icon: "globe",
+        items: [
+          { value: undefined, title: "LTR" },
+          { value: true, title: "RTL" },
+        ],
+        dynamicTitle: true,
+      },
+    },
   },
+
   decorators: [withRouter, withTheme, withStore],
   loaders: [mswLoader, demoModeLoader],
-}
-
-declare module 'storybook/internal/csf' {
-  interface StoryContext {
-    userEvent: ReturnType<typeof userEvent.setup>
-  }
-}
-export default preview
+  addons: [addonA11y(), addonDocs(), storybookAddonTestCodegen],
+})
