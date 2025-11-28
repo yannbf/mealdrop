@@ -11,6 +11,7 @@ const meta = {
       url: 'https://www.figma.com/file/XW4Bcjmj3JOILjKmZjjdQd/Mealdrop?node-id=780%3A2938',
     },
   },
+  tags: ['autodocs'],
 } satisfies Meta<typeof Badge>
 
 export default meta

@@ -12,6 +12,7 @@ const meta = {
       url: 'https://www.figma.com/file/3Q1HTCalD0lJnNvcMoEw1x/Mealdrop?type=design&node-id=1690-5067&mode=design&t=zmyrZnTzOLfLqBwr-4',
     },
   },
+  tags: ['autodocs'],
 } satisfies Meta<typeof TopBanner>
 
 export default meta
