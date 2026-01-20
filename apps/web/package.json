@@ -44,7 +44,7 @@
     "@chromatic-com/storybook": "next",
     "@storybook/addon-designs": "^11.0.0-next.0",
     "@storybook/addon-docs": "next",
-    "@storybook/addon-mcp": "0.1.4-next.2",
+    "@storybook/addon-mcp": "latest",
     "@storybook/addon-themes": "next",
     "@storybook/addon-vitest": "next",
     "@storybook/react-vite": "next",
