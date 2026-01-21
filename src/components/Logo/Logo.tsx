@@ -19,8 +19,8 @@ const shine = (color: string) => keyframes`
   }
 `
 
-const pathStyles = (color: string, delay: number) => css`
-  animation: ${shine(color)} 400ms ease-in;
+const pathStyles = (color: string, delay: number, animated: boolean) => css`
+  animation: ${animated ? shine(color) : 'none'} 400ms ease-in;
   animation-delay: ${delay}ms;
   animation-iteration-count: 3;
   &:hover {
@@ -28,25 +28,25 @@ const pathStyles = (color: string, delay: number) => css`
   }
 `
 
-const SvgContainer = styled.svg<{ $large: boolean; $logoOnly: boolean }>(
-  ({ $large, $logoOnly, theme: { name } }) => css`
+const SvgContainer = styled.svg<{ $large: boolean; $logoOnly: boolean; $animated: boolean }>(
+  ({ $large, $logoOnly, theme: { name }, $animated }) => css`
     .logo--ear-top-left {
-      ${pathStyles(shineColors[name], 50)};
+      ${pathStyles(shineColors[name], 50, $animated)};
     }
     .logo--ear-bottom-left {
-      ${pathStyles(shineColors[name], 100)};
+      ${pathStyles(shineColors[name], 100, $animated)};
     }
     .logo--face-left {
-      ${pathStyles(shineColors[name], 150)};
+      ${pathStyles(shineColors[name], 150, $animated)};
     }
     .logo--face-right {
-      ${pathStyles(shineColors[name], 200)};
+      ${pathStyles(shineColors[name], 200, $animated)};
     }
     .logo--ear-bottom-right {
-      ${pathStyles(shineColors[name], 250)};
+      ${pathStyles(shineColors[name], 250, $animated)};
     }
     .logo--ear-top-right {
-      ${pathStyles(shineColors[name], 300)};
+      ${pathStyles(shineColors[name], 300, $animated)};
     }
     padding-right: ${$logoOnly ? '0' : '0.75rem'};
     height: ${$large ? '75px' : '24px'};
@@ -75,15 +75,16 @@ const StyledHeading = styled(Heading)(
 type LogoProps = {
   large?: boolean
   logoOnly?: boolean
+  animated?: boolean
 }
 
-export const Logo = ({ large = false, logoOnly = false }: LogoProps) => {
+export const Logo = ({ large = false, logoOnly = false, animated = false }: LogoProps) => {
   const themeName = useTheme().name
   const fillColors = colors[themeName]
 
   return (
     <LogoContainer>
-      <SvgContainer $large={large} $logoOnly={logoOnly} viewBox="0 0 23 20" fill="none">
+      <SvgContainer $animated={animated} $large={large} $logoOnly={logoOnly} viewBox="0 0 23 20" fill="none">
         <path
           className="logo--face-left"
           d="M11.74 19.1662L6.66566 14.0788L0.82428 11.0619L1.76834 4.49574L0.82428 0.029541L11.74 2.1887V19.1662Z"

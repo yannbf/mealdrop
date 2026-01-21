@@ -206,7 +206,7 @@ const breakpointViewports = Object.keys(breakpoints).reduce(
     }
     return acc
   },
-  {} as typeof INITIAL_VIEWPORTS
+  {} as any
 )
 
 const preview: Preview = {
