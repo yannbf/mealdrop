@@ -10,7 +10,6 @@ import { BrowserRouter } from 'react-router-dom'
 import React from 'react'
 import styled, { css, ThemeProvider } from 'styled-components'
 
-import { demoModeLoader } from './demo-mode'
 import { rootReducer } from '../src/app-state'
 import { breakpoints } from '../src/styles/breakpoints'
 import { GlobalStyle } from '../src/styles/GlobalStyle'
@@ -257,7 +256,7 @@ const preview: Preview = {
     },
   },
   decorators: [withRouter, withTheme, withStore],
-  loaders: [mswLoader, demoModeLoader],
+  loaders: [mswLoader],
 }
 
 declare module 'storybook/internal/csf' {
