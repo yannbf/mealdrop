@@ -3896,7 +3896,7 @@ __metadata:
     typescript-eslint: "npm:^8.25.0"
     use-dark-mode: "npm:^2.3.1"
     vite: "npm:^8.0.0-beta.7"
-    vite-plugin-experimental-storybook-devtools: "https://pkg.pr.new/yannbf/vite-plugin-experimental-storybook-devtools@e1713eb"
+    vite-plugin-experimental-storybook-devtools: "https://pkg.pr.new/yannbf/vite-plugin-experimental-storybook-devtools@1914f58"
     vitest: "npm:^3.0.7"
     vitest-axe: "npm:^0.1.0"
     vitest-canvas-mock: "npm:^0.3.3"
@@ -10018,14 +10018,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-experimental-storybook-devtools@https://pkg.pr.new/yannbf/vite-plugin-experimental-storybook-devtools@e1713eb":
+"vite-plugin-experimental-storybook-devtools@https://pkg.pr.new/yannbf/vite-plugin-experimental-storybook-devtools@1914f58":
   version: 0.0.0
-  resolution: "vite-plugin-experimental-storybook-devtools@https://pkg.pr.new/yannbf/vite-plugin-experimental-storybook-devtools@e1713eb"
+  resolution: "vite-plugin-experimental-storybook-devtools@https://pkg.pr.new/yannbf/vite-plugin-experimental-storybook-devtools@1914f58"
   dependencies:
     "@babel/generator": "npm:^7.28.6"
     nanoevents: "npm:^9.0.0"
     react-element-to-jsx-string: "npm:^15.0.0"
-  checksum: 10c0/fb8261cbddd63468098e99de6a39c6e55b9bf7ff265cf84be59e371768cdc50ddd7c368ff5745f99ce08f1000a870fdc1f8499fb8dee32a0a5a6b2fccddeb890
+  checksum: 10c0/117b0813a0e137169eeb72293f198a889dadb1634728383b02b1c092c5ed8231954940ea5d2ca373ceb104ac8da237763bcdb7efa2e95d1f4d453dce0fb87cf2
   languageName: node
   linkType: hard
 
