@@ -3903,7 +3903,7 @@ __metadata:
     typescript-eslint: "npm:^8.25.0"
     use-dark-mode: "npm:^2.3.1"
     vite: "npm:^8.0.0-beta.15"
-    vite-plugin-experimental-storybook-devtools: "https://pkg.pr.new/yannbf/vite-plugin-experimental-storybook-devtools@e120c0e"
+    vite-plugin-experimental-storybook-devtools: "https://pkg.pr.new/yannbf/vite-plugin-experimental-storybook-devtools@6b462eb"
     vitest: "npm:^3.0.7"
     vitest-axe: "npm:^0.1.0"
     vitest-canvas-mock: "npm:^0.3.3"
@@ -10025,9 +10025,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-experimental-storybook-devtools@https://pkg.pr.new/yannbf/vite-plugin-experimental-storybook-devtools@e120c0e":
+"vite-plugin-experimental-storybook-devtools@https://pkg.pr.new/yannbf/vite-plugin-experimental-storybook-devtools@6b462eb":
   version: 0.0.0
-  resolution: "vite-plugin-experimental-storybook-devtools@https://pkg.pr.new/yannbf/vite-plugin-experimental-storybook-devtools@e120c0e"
+  resolution: "vite-plugin-experimental-storybook-devtools@https://pkg.pr.new/yannbf/vite-plugin-experimental-storybook-devtools@6b462eb"
   dependencies:
     "@babel/generator": "npm:^7.28.6"
     "@medv/finder": "npm:^3.1.0"
@@ -10035,7 +10035,7 @@ __metadata:
     dom-accessibility-api: "npm:^0.6.3"
     nanoevents: "npm:^9.0.0"
     react-element-to-jsx-string: "npm:^15.0.0"
-  checksum: 10c0/976cf5c9786779a96b5bd2cf316f624407a78dd488cae5aa068be41f012e23c796d41183f8f820b7aaa80fc993ea934a749a1644b8bad59d8e165830e40fd0c1
+  checksum: 10c0/9bac43043ab1d8738d86c27610e48e2546ec419d61d4a772d2861bd411bae9f336ab6358662cf33e963e890a84afdfc54baa2bea3fa3fcc4d0a255f0e1e18ab4
   languageName: node
   linkType: hard
 
