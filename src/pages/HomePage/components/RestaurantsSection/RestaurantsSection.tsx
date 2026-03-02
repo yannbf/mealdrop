@@ -42,42 +42,27 @@ export const RestaurantsSection = ({ title }: RestaurantsSectionProps) => {
   const isOnMobile = isMobile()
   return (
     <PageSection title={title}>
-      <Carousel
-        draggable={isOnMobile}
-        partialVisible={isOnMobile}
-        customLeftArrow={<CustomArrow />}
-        customRightArrow={<CustomArrow isNext />}
-        responsive={{
-          desktop: {
-            breakpoint: { max: 5000, min: 1024 },
-            items: 3,
-            slidesToSlide: 3,
-          },
-          tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 2,
-            paritialVisibilityGutter: 50,
-          },
-          mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 1,
-            paritialVisibilityGutter: 30,
-          },
+      <div
+        style={{
+          display: 'grid',
+          gridAutoFlow: 'column',
+          gridAutoColumns: '400px',
+          overflowX: 'auto',
+          gap: '16px',
+          height: '440px',
         }}
-        containerClass="carousel-container"
-        removeArrowOnDeviceType={['tablet', 'mobile']}
-        itemClass="carousel-item"
+        className="carousel-container"
       >
         {status === 'loading'
           ? Array.from({ length: 3 }).map((_, index) => <RestaurantCardSkeleton key={index} />)
           : restaurants.map((restaurant: Restaurant, index: number) => (
-              <RestaurantCard
-                key={restaurant.name + index}
-                {...restaurant}
-                onClick={() => navigate(`/restaurants/${restaurant.id}`)}
-              />
-            ))}
-      </Carousel>
+            <RestaurantCard
+              key={restaurant.name + index}
+              {...restaurant}
+              onClick={() => navigate(`/restaurants/${restaurant.id}`)}
+            />
+          ))}
+      </div>
     </PageSection>
   )
 }

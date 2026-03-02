@@ -3,6 +3,8 @@ import { createRoot } from 'react-dom/client'
 
 import App from './App'
 import * as serviceWorker from './serviceWorker'
+import 'vite-plugin-experimental-storybook-devtools/client/listeners'
+import 'vite-plugin-experimental-storybook-devtools/client/overlay'
 
 const container = document.querySelector('#root') as HTMLElement
 const root = createRoot(container)

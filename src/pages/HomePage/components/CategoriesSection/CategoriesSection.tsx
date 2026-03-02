@@ -36,40 +36,23 @@ export const CategoriesSection = ({ categories }: CategoriesSectionProps) => {
       topButtonLabel="View all categories"
       onTopButtonClick={() => navigate('/categories')}
     >
-      <Carousel
-        draggable={isOnMobile}
-        partialVisible={isOnMobile}
-        customLeftArrow={<PreviousButton name="arrow-left" />}
-        customRightArrow={<NextButton name="arrow-right" />}
-        responsive={{
-          desktop: {
-            breakpoint: { max: 5000, min: 1024 },
-            items: 6,
-            slidesToSlide: 3,
-            paritialVisibilityGutter: 80,
-          },
-          tablet: {
-            breakpoint: { max: 1024, min: 464 },
-            items: 3,
-            paritialVisibilityGutter: 50,
-          },
-          mobile: {
-            breakpoint: { max: 464, min: 0 },
-            items: 2,
-            slidesToSlide: 3,
-            paritialVisibilityGutter: 10,
-          },
+      <div
+        style={{
+          display: 'grid',
+          gridAutoFlow: 'column',
+          gridAutoColumns: '200px',
+          overflowX: 'auto',
+          gap: '16px',
+          height: '440px',
         }}
-        containerClass="carousel-container"
-        removeArrowOnDeviceType={['tablet', 'mobile']}
-        itemClass={isOnMobile ? 'carousel-item' : ''}
+        className="carousel-container"
       >
         {categories.map((category) => (
           <StyledLink key={category.id} to={`/categories/${category.id}`}>
             <Category round {...category} />
           </StyledLink>
         ))}
-      </Carousel>
+      </div>
     </PageSection>
   )
 }
