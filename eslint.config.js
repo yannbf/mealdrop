@@ -7,7 +7,7 @@ import pluginStorybook from 'eslint-plugin-storybook'
 import pluginPrettier from 'eslint-plugin-prettier/recommended'
 
 /** @type {import('eslint').Linter.Config[]} */
-export default [pluginPrettier, ...pluginStorybook.configs['flat/recommended'], {
+export default [pluginPrettier, {
   files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'],
   ignores: [
     'node_modules',
@@ -38,4 +38,4 @@ export default [pluginPrettier, ...pluginStorybook.configs['flat/recommended'], 
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
   },
-}, ...storybook.configs["flat/recommended"]];
+}, ...pluginStorybook.configs["flat/recommended"]];

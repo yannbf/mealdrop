@@ -5,7 +5,7 @@ import { DevTools } from '@vitejs/devtools'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react(), DevTools(), storybookDevTools()],
+  plugins: [react(), ...(process.env.STORYBOOK ? [] : [DevTools(), storybookDevTools()])],
   build: {
     outDir: 'build',
     rolldownOptions: {
