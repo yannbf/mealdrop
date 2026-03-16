@@ -3,7 +3,7 @@ name: "Chromatic Web"
 on: push
 
 jobs:
-  chromatic:
+  chromatic-app:
     name: Run Chromatic for web app
     runs-on: ubuntu-latest
     steps:
@@ -22,3 +22,22 @@ jobs:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_APP }}
           buildCommand: yarn turbo chromatic --filter=@mealdrop/web -- --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN_APP }} --outputDir=./apps/web/storybook-static
           outputDir: ./apps/web/storybook-static
+  chromatic-ui:
+    name: Run Chromatic for UI library
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22.x
+      - name: Install dependencies
+        run: yarn install
+      - name: Run Chromatic
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN_UI }}
+          buildCommand: yarn turbo chromatic --filter=@mealdrop/ui -- --project-token=${{ secrets.CHROMATIC_PROJECT_TOKEN_UI }} --outputDir=./packages/ui/storybook-static
+          outputDir: ./packages/ui/storybook-static
