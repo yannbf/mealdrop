@@ -13,7 +13,7 @@
     "test:coverage": "vitest run --coverage",
     "storybook": "storybook dev -p 4141",
     "build-storybook": "storybook build --output-dir build/storybook",
-    "chromatic": "chromatic --exit-zero-on-changes --only-changed",
+    "chromatic": "chromatic",
     "clean": "rm -rf build dist .turbo node_modules"
   },
   "type": "module",
