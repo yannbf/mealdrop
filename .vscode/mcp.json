@@ -1,9 +1,5 @@
 {
 	"servers": {
-		"mealdrop-app": {
-			"url": "http://localhost:4142/mcp",
-			"type": "http"
-		},
 		"mealdrop-ui": {
 			"url": "http://localhost:4141/mcp",
 			"type": "http"
