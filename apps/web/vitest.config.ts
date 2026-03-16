@@ -6,7 +6,6 @@ export default mergeConfig(viteConfig, {
     name: 'node',
     environment: 'happy-dom',
     include: ['**/*.test.ts', '**/*.test.tsx'],
-    setupFiles: ['.storybook/vitest.setup.ts'],
     coverage: {
       exclude: [
         ...coverageConfigDefaults.exclude,
