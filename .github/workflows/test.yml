@@ -20,9 +20,6 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Install Playwright browsers
-        run: npx playwright install
-
       - name: Run check
         run: |
           yarn turbo check --filter=@mealdrop/web
@@ -46,9 +43,6 @@ jobs:
 
       - name: Install dependencies
         run: yarn install
-
-      - name: Install Playwright browsers
-        run: npx playwright install
 
       - name: Run check
         run: |
