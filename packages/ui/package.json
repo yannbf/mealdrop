@@ -11,7 +11,7 @@
     "test": "vitest",
     "test:ci": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "storybook": "storybook dev -p 4141",
+    "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build --output-dir build/storybook",
     "chromatic": "chromatic",
     "clean": "rm -rf build dist .turbo node_modules"
