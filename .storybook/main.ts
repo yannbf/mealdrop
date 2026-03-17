@@ -13,10 +13,11 @@ const config: StorybookConfig = {
     // TODO: this addon has a bad instrumentation of getConfig.asyncWrapper that should be fixed
     'storybook-addon-test-codegen',
     '@storybook/addon-designs',
+    '@storybook/addon-mcp',
     '@storybook/addon-docs',
   ],
   typescript: {
-    reactDocgen: 'react-docgen',
+    reactDocgen: 'react-docgen-typescript',
   },
   staticDirs: ['../public'],
   framework: '@storybook/react-vite',
