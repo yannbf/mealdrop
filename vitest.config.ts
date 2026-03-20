@@ -1,6 +1,7 @@
 import { mergeConfig, defineConfig } from 'vitest/config'
 import { playwright } from '@vitest/browser-playwright'
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin'
+import { chromaticPlugin } from '@chromatic-com/vitest/plugin'
 import viteConfig from './vite.config'
 
 export default mergeConfig(
@@ -14,6 +15,23 @@ export default mergeConfig(
             name: 'node',
             environment: 'happy-dom',
             include: ['**/*.test.ts'],
+          },
+        },
+        {
+          plugins: [chromaticPlugin()],
+          // TODO: Investigate. ESBuild tries to transform top level dynamic imports
+          optimizeDeps: { exclude: ['@chromatic-com/vitest'] },
+          test: {
+            name: 'browser',
+            // The *.test.tsx is already used by disable portable stories tests that crash
+            include: ['**/*.browser.test.tsx'],
+            browser: {
+              enabled: true,
+              headless: true,
+              screenshotFailures: false,
+              provider: playwright(),
+              instances: [{ browser: 'chromium' }],
+            },
           },
         },
         {
@@ -35,6 +53,7 @@ export default mergeConfig(
           },
         },
       ],
+      reporters: 'tree',
       coverage: {
         include: ['./src/**/*.{ts,tsx}'],
         exclude: [

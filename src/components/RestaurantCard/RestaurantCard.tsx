@@ -125,7 +125,7 @@ export const RestaurantCardSkeleton = () => {
   return (
     /* @ts-expect-error wrong types! */
     <SkeletonTheme color={color.skeletonBase} highlightColor={color.skeletonHighlight}>
-      <Container data-testid="loading">
+      <Container data-testid="loading" role="article" aria-busy="true">
         <Skeleton height={200} width="100%" style={{ borderRadius: '4px 4px 0 0' }} />
         <StyledContent>
           <StyledHeading level={2}>
@@ -165,6 +165,7 @@ export const RestaurantCard = ({
   return (
     <Container
       className={className}
+      role="article"
       data-testid="restaurant-card"
       onClick={isClosed ? undefined : onClick}
     >
