@@ -1,0 +1,15 @@
+{
+  "name": "No CI config found — ask rather than assume GitHub Actions",
+  "skills": ["chromatic-setup-ci"],
+  "query": "I want to add Chromatic to my CI pipeline.",
+  "context": "The project has no CI config files: no .github/workflows/, no .gitlab-ci.yml, no Jenkinsfile, no azure-pipelines.yml, no .circleci/config.yml, no bitbucket-pipelines.yml.",
+  "expected_behavior": [
+    "Searches for CI config files and finds none",
+    "Asks the user which CI provider they use before generating any configuration",
+    "Does not assume or default to GitHub Actions without confirmation"
+  ],
+  "success_criteria": [
+    "The response asks the user which CI provider they use",
+    "The response does not generate a GitHub Actions workflow without the user confirming they use GitHub Actions"
+  ]
+}

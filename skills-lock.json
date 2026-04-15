@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "skills": {
+    "chromatic-setup-ci": {
+      "source": "chromaui/chromatic-skills",
+      "sourceType": "github",
+      "computedHash": "c475bfcf07ce1b9ec29941de772750bab0b4dd4e3a2a2be72bb6ca9249e5d42e"
+    },
+    "chromatic-themes": {
+      "source": "chromaui/chromatic-skills",
+      "sourceType": "github",
+      "computedHash": "2f0dddb2908f156c27711a63138b11776fb479ea7d87012fdd9d2d279b0bfe5b"
+    },
+    "chromatic-viewports": {
+      "source": "chromaui/chromatic-skills",
+      "sourceType": "github",
+      "computedHash": "8e647f01a1cc1175f0e8573c3bf494606a8afe4205f3780c29a1d234910285a1"
+    }
+  }
+}

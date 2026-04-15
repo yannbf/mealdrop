@@ -1,0 +1,17 @@
+{
+  "name": "Basic setup request does not include TurboSnap or advanced flags",
+  "skills": ["chromatic-setup-ci"],
+  "query": "Set up Chromatic in our CI.",
+  "context": "The project uses GitLab CI (.gitlab-ci.yml exists). The user has not mentioned TurboSnap, Playwright, Cypress, or monorepos.",
+  "expected_behavior": [
+    "Fetches https://www.chromatic.com/docs/llms/gitlab.txt for current config",
+    "Generates a minimal Chromatic job with GIT_DEPTH: 0 and npx chromatic",
+    "Does not add --only-changed, --playwright, --cypress, or workingDir flags",
+    "Includes CHROMATIC_PROJECT_TOKEN from a CI/CD variable"
+  ],
+  "success_criteria": [
+    "The generated config does not include --only-changed or TurboSnap references",
+    "The generated config does not include --playwright or --cypress",
+    "The response includes GIT_DEPTH: 0"
+  ]
+}

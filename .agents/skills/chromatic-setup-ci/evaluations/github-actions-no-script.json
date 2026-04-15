@@ -1,0 +1,19 @@
+{
+  "name": "GitHub Actions setup does not add chromatic script or devDependency",
+  "skills": ["chromatic-setup-ci"],
+  "query": "How do I set up Chromatic in GitHub Actions?",
+  "context": "The project has a .github/workflows/ directory with an existing ci.yml. The package.json has no chromatic script or devDependency.",
+  "expected_behavior": [
+    "Fetches https://www.chromatic.com/docs/llms/github-actions.txt for current config",
+    "Generates a .github/workflows/chromatic.yml using chromaui/action",
+    "Does not suggest adding chromatic to devDependencies",
+    "Does not suggest adding a chromatic script to package.json",
+    "Includes fetch-depth: 0 in the checkout step",
+    "References CHROMATIC_PROJECT_TOKEN as a secret"
+  ],
+  "success_criteria": [
+    "The response does not mention adding chromatic to package.json",
+    "The workflow uses chromaui/action, not npx chromatic",
+    "The checkout step includes fetch-depth: 0"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Fresh setup with Tailwind uses withThemeByClassName",
+  "skills": ["chromatic-themes"],
+  "query": "I want to test our components in both light and dark mode with Chromatic. We use Tailwind.",
+  "context": "No existing @storybook/addon-themes import, no modes.ts, and no chromatic.modes in any story file. The project has Tailwind configured with a class-based dark mode strategy (darkMode: 'class' in tailwind.config.js).",
+  "expected_behavior": [
+    "Fetches https://chromatic.com/docs/llms/themes.txt or the Tailwind getting-started guide",
+    "Uses withThemeByClassName with themes mapped to Tailwind's dark mode class (e.g. 'dark')",
+    "Creates .storybook/modes.ts with light and dark modes",
+    "Does not use withThemeByDataAttribute",
+    "Does not add viewport or locale modes"
+  ],
+  "success_criteria": [
+    "The response uses withThemeByClassName, not withThemeByDataAttribute",
+    "The decorator's themes object keys match the keys used in allModes",
+    "The response does not include viewport or locale configuration"
+  ]
+}

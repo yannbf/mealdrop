@@ -1,0 +1,17 @@
+{
+  "name": "Fresh setup with Bootstrap uses withThemeByDataAttribute and data-bs-theme",
+  "skills": ["chromatic-themes"],
+  "query": "Set up Chromatic to test light and dark themes. We're using Bootstrap 5.",
+  "context": "No existing @storybook/addon-themes import and no modes.ts. Bootstrap 5 is installed. Bootstrap uses data-bs-theme='dark' on the html element to switch themes.",
+  "expected_behavior": [
+    "Fetches the Bootstrap getting-started guide from the storybook addon-themes repo",
+    "Uses withThemeByDataAttribute with attributeName set to 'data-bs-theme'",
+    "Creates .storybook/modes.ts with light and dark modes",
+    "Does not use withThemeByClassName"
+  ],
+  "success_criteria": [
+    "The response uses withThemeByDataAttribute, not withThemeByClassName",
+    "The decorator includes attributeName: 'data-bs-theme'",
+    "The decorator's themes object keys match the keys used in allModes"
+  ]
+}

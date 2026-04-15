@@ -1,0 +1,18 @@
+{
+  "name": "Material UI setup fetches library-specific guide and uses custom decorator",
+  "skills": ["chromatic-themes"],
+  "query": "How do I get Chromatic to snapshot our components in both the light and dark MUI theme?",
+  "context": "The project uses @mui/material with a custom theme. No @storybook/addon-themes installed yet.",
+  "expected_behavior": [
+    "Fetches the Material UI getting-started guide from the storybook addon-themes repo",
+    "Does not use withThemeByClassName or withThemeByDataAttribute",
+    "Uses pluckThemeFromContext and/or initializeThemeState to bridge Storybook globals with MUI's ThemeProvider",
+    "Creates .storybook/modes.ts with light and dark theme modes",
+    "Shows the complete custom decorator implementation"
+  ],
+  "success_criteria": [
+    "The response does not use withThemeByClassName or withThemeByDataAttribute",
+    "The custom decorator reads from Storybook globals to select the MUI theme",
+    "The decorator's registered theme keys match the keys used in allModes"
+  ]
+}

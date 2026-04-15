@@ -1,0 +1,16 @@
+{
+  "name": "Adding theme modes does not clobber existing viewport modes",
+  "skills": ["chromatic-themes"],
+  "query": "We already test at mobile and desktop viewports. Now we also want to test light and dark themes.",
+  "context": "The project has an existing .storybook/modes.ts:\n\nexport const allModes = {\n  mobile: { viewport: 375 },\n  desktop: { viewport: 1280 },\n} as const;\n\nThe project uses Tailwind with darkMode: 'class'. No @storybook/addon-themes is installed yet.",
+  "expected_behavior": [
+    "Adds light and dark theme entries to the existing allModes object rather than replacing it",
+    "Configures withThemeByClassName for Tailwind",
+    "Does not remove or rename the existing mobile and desktop viewport modes",
+    "Shows the complete updated allModes with all four entries"
+  ],
+  "success_criteria": [
+    "The updated allModes includes both the original viewport modes and the new theme modes",
+    "The response does not suggest deleting or replacing modes.ts from scratch"
+  ]
+}
