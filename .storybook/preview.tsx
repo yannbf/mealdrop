@@ -7,13 +7,15 @@ import { Decorator } from '@storybook/react-vite'
 import { configureStore } from '@reduxjs/toolkit'
 import { Provider as StoreProvider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
+import { withThemeFromJSXProvider } from '@storybook/addon-themes'
 import { ThemeProvider } from 'styled-components'
 
 import { demoModeLoader } from './demo-mode'
+import { allModes } from './modes'
 import { rootReducer } from '../src/app-state'
 import { breakpoints, viewports } from '../src/styles/breakpoints'
 import { GlobalStyle } from '../src/styles/GlobalStyle'
-import { lightTheme } from '../src/styles/theme'
+import { lightTheme, darkTheme } from '../src/styles/theme'
 import { sb } from 'storybook/test'
 
 sb.mock('../src/helpers/getCurrency.ts', { spy: true })
@@ -33,14 +35,15 @@ initialize({
   },
 })
 
-export const withTheme: Decorator = (StoryFn) => {
-  return (
-    <ThemeProvider theme={lightTheme}>
-      <GlobalStyle />
-      <StoryFn />
-    </ThemeProvider>
-  )
-}
+const withTheme: Decorator = withThemeFromJSXProvider({
+  themes: {
+    light: lightTheme,
+    dark: darkTheme,
+  },
+  defaultTheme: 'light',
+  Provider: ThemeProvider,
+  GlobalStyles: GlobalStyle,
+})
 
 /**
  *
@@ -117,6 +120,7 @@ const preview: Preview = {
     viewport: { value: 'responsive' },
   },
   parameters: {
+    chromatic: { modes: allModes },
     viewport: {
       options: {
         ...breakpointViewports,

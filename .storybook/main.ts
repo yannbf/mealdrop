@@ -8,6 +8,7 @@ const config: StorybookConfig = {
     '../src/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
+    '@storybook/addon-themes',
     '@storybook/addon-vitest',
     '@storybook/addon-a11y',
     // TODO: this addon has a bad instrumentation of getConfig.asyncWrapper that should be fixed

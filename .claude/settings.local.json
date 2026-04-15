@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.chromatic.com)",
+      "WebFetch(domain:raw.githubusercontent.com)"
+    ]
+  }
+}
