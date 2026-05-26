@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Vite dev server",
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": ["start"],
+      "port": 3000
+    },
+    {
+      "name": "Storybook",
+      "runtimeExecutable": "yarn",
+      "runtimeArgs": ["storybook"],
+      "port": 6006
+    }
+  ]
+}
