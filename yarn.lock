@@ -2870,18 +2870,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/mcp@file:/tmp/addon-mcp-pack/storybook-mcp-0.7.0.tgz::locator=course-app%40workspace%3A.":
-  version: 0.7.0
-  resolution: "@storybook/mcp@file:/tmp/addon-mcp-pack/storybook-mcp-0.7.0.tgz#/tmp/addon-mcp-pack/storybook-mcp-0.7.0.tgz::hash=edef61&locator=course-app%40workspace%3A."
-  dependencies:
-    "@tmcp/adapter-valibot": "npm:^0.1.5"
-    "@tmcp/transport-http": "npm:^0.8.5"
-    tmcp: "npm:^1.19.4"
-    valibot: "npm:1.2.0"
-  checksum: 10c0/00cddaaf7761c3723f52c85a3e825beaf71375f134b5782bbc1ffa53e428d5996c0f143af71a774c85af812460c5d3df57f18315d654b659e4cd251d909e1bf2
-  languageName: node
-  linkType: hard
-
 "@storybook/mcp@https://pkg.pr.new/storybookjs/mcp/@storybook/mcp@e406bc8e716259c36855b9d59ffbb21e24f39d6e":
   version: 0.7.0
   resolution: "@storybook/mcp@https://pkg.pr.new/storybookjs/mcp/@storybook/mcp@e406bc8e716259c36855b9d59ffbb21e24f39d6e"
@@ -5425,7 +5413,6 @@ __metadata:
     "@storybook/addon-review": "npm:0.0.0-pr-34890-sha-88a33eae"
     "@storybook/addon-themes": "npm:0.0.0-pr-34890-sha-88a33eae"
     "@storybook/addon-vitest": "npm:0.0.0-pr-34890-sha-88a33eae"
-    "@storybook/mcp": /tmp/addon-mcp-pack/storybook-mcp-0.7.0.tgz
     "@storybook/react-vite": "npm:0.0.0-pr-34890-sha-88a33eae"
     "@storybook/test-runner": "npm:^0.24.4"
     "@testing-library/dom": "npm:^0.0.0-pr-34890-sha-88a33eae"

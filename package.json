@@ -47,7 +47,6 @@
   "dependencies": {
     "@hookform/resolvers": "^4.1.3",
     "@reduxjs/toolkit": "^2.6.0",
-    "@storybook/mcp": "/tmp/addon-mcp-pack/storybook-mcp-0.7.0.tgz",
     "axios": "^1.8.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
