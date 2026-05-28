@@ -2,9 +2,9 @@ import * as React from 'react'
 import { CSSTransition } from 'react-transition-group'
 
 import { Portal } from '../Portal'
-import { useKey } from '../../hooks/useKeyboard'
-import { Button } from '../Button'
-import { useLockBodyScroll } from '../../hooks/useBodyScrollLock'
+import { useKey } from '@/hooks/useKeyboard'
+import { Button } from '~components/Button'
+import { useLockBodyScroll } from '@/hooks/useBodyScrollLock'
 
 import { ModalContent, TopBar, Backdrop } from './Modal.styles'
 

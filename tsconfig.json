@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
     "baseUrl": "src",
+    "paths": {
+      "@/*": ["./*"],
+      "~components/*": ["./components/*"]
+    },
     "target": "ESNext",
     "lib": ["dom", "dom.iterable", "esnext"],
     "types": ["vite/client", "vitest/globals", "@testing-library/jest-dom"],

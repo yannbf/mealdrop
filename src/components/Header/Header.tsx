@@ -12,11 +12,11 @@ import {
   toggleVisibilityAction,
 } from '../../app-state/cart'
 import { breakpoints } from '../../styles/breakpoints'
-import { ShoppingCartMenu } from '../ShoppingCartMenu'
-import { Button } from '../Button'
-import { toCurrency } from '../../helpers'
-import { Body } from '../typography/Body'
-import { Logo } from '../Logo'
+import { ShoppingCartMenu } from '~components/ShoppingCartMenu'
+import { Button } from '~components/Button'
+import { toCurrency } from '@/helpers'
+import { Body } from '~components/typography/Body'
+import { Logo } from '~components/Logo'
 
 export const HeaderContainer = styled.div<{ $sticky: boolean }>(
   ({ $sticky, theme: { color } }) => css`

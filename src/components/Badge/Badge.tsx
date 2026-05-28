@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components'
 
 import { Body } from '../typography'
+import type { BadgeVariant } from './BadgeVariant'
 
 const Container = styled.div(
   ({ theme: { color, borderRadius } }) => css`
@@ -17,6 +18,7 @@ const Container = styled.div(
 
 type BadgeProps = {
   text: string
+  variant?: BadgeVariant
   className?: string
 }
 

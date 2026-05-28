@@ -1,11 +1,11 @@
 import styled from 'styled-components'
 
-import { CartItem } from '../../app-state/cart'
-import { toCurrency } from '../../helpers'
-import { Button } from '../Button'
-import { Select } from '../forms/Select'
-import { Sidebar } from '../Sidebar'
-import { Body } from '../typography'
+import { CartItem } from 'app-state/cart'
+import { toCurrency } from 'helpers'
+import { Button } from 'components/Button'
+import { Select } from 'components/forms/Select'
+import { Sidebar } from 'components/Sidebar'
+import { Body } from 'components/typography'
 
 const FooterContainer = styled.div`
   display: flex;
