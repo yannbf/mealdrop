@@ -50,12 +50,18 @@ import banner from './assets/mealdrop-banner.png'
     }
   }
 
+  .sbdocs-content a:not(.link-item) {
+    color: #1EA7FD;
+    text-decoration: none;
+  }
+
   .link-item {
     padding: 20px;
     border: 1px solid #00000010;
     border-radius: 5px;
     transition: background 150ms ease-out, border 150ms ease-out, transform 150ms ease-out;
     color: #333333;
+    text-decoration: none;
     display: flex;
     align-items: flex-start;
   }
@@ -139,16 +145,10 @@ This Storybook is made by [Yann Braga](https://twitter.com/yannbf) (from the Sto
 - Rendering components in isolation, from the <a href="./?path=/story/components-button--default&panel=right">simplest</a> to the <a href="./?path=/story/userflows-app--home&panel=right">most complex ones</a>
 - <a href="./?path=/docs/design-system-colors--docs">Documenting design tokens</a>
 - <a href="./?path=/docs/components-button--docs">Documenting components</a>
-- <a href="./?path=/story/pages-categorydetailpage--default&addonPanel=storybook/a11y/panel&panel=right">
-    Accessibility testing
-  </a>
+- <a href="./?path=/story/pages-categorydetailpage--default&addonPanel=storybook/a11y/panel&panel=right">Accessibility testing</a>
 - <a href="./?path=/story/pages-restaurantdetailpage--not-found&panel=right">Network mocking</a>
-- <a href="./?path=/story/userflows-app--to-success-page&addonPanel=storybook/interactions/panel&panel=right">
-    Interaction testing
-  </a>
-- <a href="./?path=/story/components-button--default&addonPanel=STORYBOOK_ADDON_DESIGNS/panel&panel=right">
-    Design integration (Figma)
-  </a>
+- <a href="./?path=/story/userflows-app--to-success-page&addonPanel=storybook/interactions/panel&panel=right">Interaction testing</a>
+- <a href="./?path=/story/components-button--default&addonPanel=STORYBOOK_ADDON_DESIGNS/panel&panel=right">Design integration (Figma)</a>
 - <a href="./?path=/story/components-button--default&globals=theme:dark">Theme switching</a>
 - And much more!
 
