@@ -9,8 +9,8 @@
     },
     {
       "name": "Storybook",
-      "runtimeExecutable": "yarn",
-      "runtimeArgs": ["storybook"],
+      "runtimeExecutable": "./node_modules/.bin/storybook",
+      "runtimeArgs": ["dev", "-p", "6006", "--no-open"],
       "port": 6006
     }
   ]
