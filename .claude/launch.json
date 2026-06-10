@@ -10,8 +10,8 @@
     {
       "name": "Storybook",
       "runtimeExecutable": "./node_modules/.bin/storybook",
-      "runtimeArgs": ["dev", "-p", "6006", "--no-open"],
-      "port": 6006
+      "runtimeArgs": ["dev", "--port", "$PORT", "--no-open", "--ci"],
+      "autoPort": true
     }
   ]
 }
