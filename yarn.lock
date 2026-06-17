@@ -2726,11 +2726,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-mcp@https://pkg.pr.new/storybookjs/mcp/@storybook/addon-mcp@c0c0eed":
+"@storybook/addon-mcp@https://pkg.pr.new/storybookjs/mcp/@storybook/addon-mcp@559d54d":
   version: 0.6.0
-  resolution: "@storybook/addon-mcp@https://pkg.pr.new/storybookjs/mcp/@storybook/addon-mcp@c0c0eed"
+  resolution: "@storybook/addon-mcp@https://pkg.pr.new/storybookjs/mcp/@storybook/addon-mcp@559d54d"
   dependencies:
-    "@storybook/mcp": "https://pkg.pr.new/storybookjs/mcp/@storybook/mcp@c0c0eedba663f413483132cb1d87eb66a290f170"
+    "@storybook/mcp": "https://pkg.pr.new/storybookjs/mcp/@storybook/mcp@559d54ddff655b712358639e42a42992c16cdf6c"
     "@tmcp/adapter-valibot": "npm:^0.1.5"
     "@tmcp/transport-http": "npm:^0.8.5"
     picoquery: "npm:^2.5.0"
@@ -2742,7 +2742,7 @@ __metadata:
   peerDependenciesMeta:
     "@storybook/addon-vitest":
       optional: true
-  checksum: 10c0/4c0efe195a5f5db15a41282c3c1f482f5333aeac59c865c604315fe7ec7b22780c5dbdd264f61f1c5d279164933b7b838397efab9ef4b704b8e18b20dd535fd2
+  checksum: 10c0/23f72fc6158efbf31915c277d1874ea22c54592d658ec765b499a2aa30c888f4f850f02ddd36f675a99c6bd671148da38aedb11a8c79d3d1b929b44f81a029fb
   languageName: node
   linkType: hard
 
@@ -2845,9 +2845,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/mcp@https://pkg.pr.new/storybookjs/mcp/@storybook/mcp@c0c0eedba663f413483132cb1d87eb66a290f170":
+"@storybook/mcp@https://pkg.pr.new/storybookjs/mcp/@storybook/mcp@559d54ddff655b712358639e42a42992c16cdf6c":
   version: 0.7.0
-  resolution: "@storybook/mcp@https://pkg.pr.new/storybookjs/mcp/@storybook/mcp@c0c0eedba663f413483132cb1d87eb66a290f170"
+  resolution: "@storybook/mcp@https://pkg.pr.new/storybookjs/mcp/@storybook/mcp@559d54ddff655b712358639e42a42992c16cdf6c"
   dependencies:
     "@tmcp/adapter-valibot": "npm:^0.1.5"
     "@tmcp/transport-http": "npm:^0.8.5"
@@ -5346,7 +5346,7 @@ __metadata:
     "@storybook/addon-coverage": "npm:^3.0.1"
     "@storybook/addon-designs": "npm:^11.1.3"
     "@storybook/addon-docs": "npm:0.0.0-pr-35110-sha-6ea7b9f5"
-    "@storybook/addon-mcp": "https://pkg.pr.new/storybookjs/mcp/@storybook/addon-mcp@c0c0eed"
+    "@storybook/addon-mcp": "https://pkg.pr.new/storybookjs/mcp/@storybook/addon-mcp@559d54d"
     "@storybook/addon-review": "npm:0.0.0-pr-35110-sha-6ea7b9f5"
     "@storybook/addon-themes": "npm:0.0.0-pr-35110-sha-6ea7b9f5"
     "@storybook/addon-vitest": "npm:0.0.0-pr-35110-sha-6ea7b9f5"
