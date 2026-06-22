@@ -11,7 +11,6 @@ const config: StorybookConfig = {
     '@storybook/addon-vitest',
     '@storybook/addon-a11y',
     '@storybook/addon-mcp',
-    '@storybook/addon-review',
     // TODO: this addon has a bad instrumentation of getConfig.asyncWrapper that should be fixed
     'storybook-addon-test-codegen',
     '@storybook/addon-designs',
