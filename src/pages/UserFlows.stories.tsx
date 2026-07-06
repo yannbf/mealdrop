@@ -43,6 +43,7 @@ const meta = {
       control: { type: 'boolean' },
     },
   },
+  tags: ['!manifest'],
 } satisfies Meta<{ demoMode: boolean }>
 export default meta
 
