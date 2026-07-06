@@ -23,7 +23,9 @@ const config: StorybookConfig = {
   framework: '@storybook/react-vite',
   features: {
     experimentalCodeExamples: true,
-    componentsManifest: true,
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore this exists just doesn't have types
+    experimentalReview: true,
   },
 }
 export default config
