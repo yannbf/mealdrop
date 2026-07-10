@@ -2,7 +2,6 @@ import { createGlobalStyle, css } from 'styled-components'
 
 import { breakpoints } from './breakpoints'
 import { resetCSS } from './CSSReset'
-import 'react-multi-carousel/lib/styles.css'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 export const GlobalStyle = createGlobalStyle(
@@ -162,20 +161,6 @@ export const GlobalStyle = createGlobalStyle(
       html {
         font-size: 14px;
       }
-    }
-    /* react-multi-carousel overrides */
-    .carousel-item {
-      padding-right: 20px;
-      margin-left: 1px;
-      transition: opacity 200ms linear;
-    }
-
-    .carousel-item:not(.react-multi-carousel-item--active) {
-      opacity: 0.5;
-    }
-
-    .carousel-container {
-      touch-action: pan-x;
     }
   `
 )
