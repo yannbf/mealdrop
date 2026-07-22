@@ -1,4 +1,5 @@
 import * as React from 'react'
+import { Button as BaseButton } from '@base-ui/react/button'
 import styled, { css, useTheme } from 'styled-components'
 
 import { breakpoints } from '../../styles/breakpoints'
@@ -15,33 +16,38 @@ type StyledButtonProperties = {
   $round: boolean
 }
 
-const StyledButton = styled.button<StyledButtonProperties>(
-  ({ $clear, $large, $round, $withIcon, theme: { color, boxShadow, borderRadius } }) => css`
+// Base UI Button + DS tokens: colors/radius/focus come from the --ds-* vars
+// (ds-theme.css), which flip with html[data-theme]. The variant props only
+// pick which token to use.
+const StyledButton = styled(BaseButton)<StyledButtonProperties>(
+  ({ $clear, $large, $round, $withIcon }) => css`
     outline: none;
     border: 0;
-    font-family: 'Hind';
-    border-radius: ${$round ? borderRadius.xl : borderRadius.xs};
+    font-family: var(--ds-type-family-body);
+    border-radius: ${$round ? 'var(--ds-radius-pill)' : 'var(--ds-radius-control)'};
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: ${$withIcon ? '0.7rem' : $large ? '1.125rem 1rem' : '0.875rem 1rem'};
-    color: ${$clear ? color.primaryText : color.buttonText};
+    color: ${$clear ? 'var(--ds-color-text-primary)' : 'var(--ds-color-action-on-primary)'};
 
-    transition: box-shadow 150ms ease-in;
+    transition: box-shadow var(--ds-motion-fast) var(--ds-motion-ease);
     z-index: 1;
-    background-color: ${$clear ? color.buttonClear : color.buttonPrimary};
+    background-color: ${$clear ? 'transparent' : 'var(--ds-color-action-primary)'};
 
     &:hover {
       cursor: pointer;
-      background-color: ${$clear ? color.buttonClearHover : color.buttonPrimaryHover};
+      background-color: ${
+        $clear ? 'var(--ds-color-action-subtle-hover)' : 'var(--ds-color-action-primary-hover)'
+      };
     }
 
-    &:focus {
-      box-shadow: ${boxShadow.outerBorder};
+    &:focus-visible {
+      box-shadow: var(--ds-shadow-focus);
     }
 
-    &:disabled {
-      background-color: ${$clear ? color.buttonClear : color.buttonPrimary};
+    &[data-disabled] {
+      background-color: ${$clear ? 'transparent' : 'var(--ds-color-action-primary)'};
       opacity: 0.4;
     }
 
