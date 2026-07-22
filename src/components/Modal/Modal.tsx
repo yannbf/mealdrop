@@ -21,7 +21,7 @@ export const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
   // canvas-scoped tests/queries keep finding the popup.
   const [modalContainer, setModalContainer] = React.useState<HTMLElement | null>(null)
   React.useEffect(() => {
-    setModalContainer(document.querySelector('#modal'))
+    setModalContainer(document.querySelector<HTMLElement>('#modal'))
   }, [])
 
   return (
