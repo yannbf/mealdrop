@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { Link, useNavigate } from 'react-router-dom'
 import useDarkMode from 'use-dark-mode'
-import { Tooltip } from '@base-ui/react/tooltip'
+import { Tooltip } from '@base-ui/mealdrop'
 
 import { useAppDispatch, useAppSelector } from '../../app-state'
 import {
@@ -100,26 +100,10 @@ export const CartTotal = styled(Body)(
   `
 )
 
-// DS tooltip: small floater — lift shadow + card radius, on the overlay
-// surface, brief ease-in motion (tokens flip with html[data-theme]).
+// @base-ui/mealdrop Tooltip carries the floater chrome via styles.css; the
+// app only lifts it above the sticky header.
 const TooltipPopup = styled(Tooltip.Popup)`
-  background-color: var(--ds-color-surface-overlay);
-  color: var(--ds-color-text-primary);
-  font-family: var(--ds-type-family-body);
-  font-size: var(--ds-type-size-xs);
-  padding: 0.4rem 0.75rem;
-  border-radius: var(--ds-radius-card);
-  box-shadow: var(--ds-shadow-lift);
   z-index: 3;
-  transition:
-    opacity var(--ds-motion-fast) var(--ds-motion-ease),
-    transform var(--ds-motion-fast) var(--ds-motion-ease);
-
-  &[data-starting-style],
-  &[data-ending-style] {
-    opacity: 0;
-    transform: scale(0.9);
-  }
 `
 
 const ThemeToggle = () => {

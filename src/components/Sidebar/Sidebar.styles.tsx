@@ -1,23 +1,14 @@
-import { Drawer } from '@base-ui/react/drawer'
+import { Drawer } from '@base-ui/mealdrop'
 import styled, { css } from 'styled-components'
 
 import { breakpoints } from '../../styles/breakpoints'
 
-// DS Drawer + tokens: colors/radius/shadow/motion come from the --ds-* vars
-// (ds-theme.css), which flip with html[data-theme]. Base UI drives
-// [data-starting-style]/[data-ending-style] for the enter/exit transition —
-// there's no positioner, so the slide-in edge (right) is plain CSS.
+// @base-ui/mealdrop Drawer carries the chrome (overlay surface, leading-edge
+// sheet radius, overlay shadow, scrim, 300ms slide) via styles.css. The app
+// keeps only its layout: the viewport flex shell, full-width panel on mobile
+// growing to 420px, and stacking above the header.
 export const SidebarBackdrop = styled(Drawer.Backdrop)`
-  position: fixed;
-  inset: 0;
   z-index: 98;
-  background-color: rgba(0, 0, 0, 0.4);
-  transition: opacity var(--ds-motion-slow) var(--ds-motion-ease);
-
-  &[data-starting-style],
-  &[data-ending-style] {
-    opacity: 0;
-  }
 `
 
 export const SidebarViewport = styled(Drawer.Viewport)`
@@ -30,16 +21,12 @@ export const SidebarViewport = styled(Drawer.Viewport)`
 `
 
 export const SidebarPopup = styled(Drawer.Popup)`
-  box-sizing: border-box;
   position: relative;
+  inset: auto;
+  height: 100%;
   width: 100%;
-  background-color: var(--ds-color-surface-overlay);
-  color: var(--ds-color-text-primary);
-  box-shadow: var(--ds-shadow-overlay);
-  outline: 0;
-  /* Rounded on the leading (left) edge only — the trailing edge sits flush
-     against the viewport's right side. */
-  border-radius: var(--ds-radius-sheet) 0 0 var(--ds-radius-sheet);
+  /* Keep the slide transition local: the app's viewport-flex layout replaces
+     the package's fixed positioning, so it also owns the resting transform. */
   transform: translateX(0);
   transition: transform var(--ds-motion-slow) var(--ds-motion-ease);
   will-change: transform;

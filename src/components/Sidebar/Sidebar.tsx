@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Drawer } from '@base-ui/react/drawer'
+import { Drawer } from '@base-ui/mealdrop'
 
 import { Button } from '../Button'
 import { Heading } from '../typography'

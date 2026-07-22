@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button as BaseButton } from '@base-ui/react/button'
+import { Button as MdButton } from '@base-ui/mealdrop'
 import styled, { css, useTheme } from 'styled-components'
 
 import { breakpoints } from '../../styles/breakpoints'
@@ -16,39 +16,29 @@ type StyledButtonProperties = {
   $round: boolean
 }
 
-// Base UI Button + DS tokens: colors/radius/focus come from the --ds-* vars
-// (ds-theme.css), which flip with html[data-theme]. The variant props only
-// pick which token to use.
-const StyledButton = styled(BaseButton)<StyledButtonProperties>(
+// @base-ui/mealdrop Button carries the base chrome (fill, radius, focus ring,
+// body face, hover, disabled) via styles.css; only Mealdrop-app variants and
+// layout remain here.
+const StyledButton = styled(MdButton)<StyledButtonProperties>(
   ({ $clear, $large, $round, $withIcon }) => css`
-    outline: none;
-    border: 0;
-    font-family: var(--ds-type-family-body);
-    border-radius: ${$round ? 'var(--ds-radius-pill)' : 'var(--ds-radius-control)'};
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: ${$withIcon ? '0.7rem' : $large ? '1.125rem 1rem' : '0.875rem 1rem'};
-    color: ${$clear ? 'var(--ds-color-text-primary)' : 'var(--ds-color-action-on-primary)'};
-
-    transition: box-shadow var(--ds-motion-fast) var(--ds-motion-ease);
     z-index: 1;
-    background-color: ${$clear ? 'transparent' : 'var(--ds-color-action-primary)'};
+    padding: ${$withIcon ? '0.7rem' : $large ? '1.125rem 1rem' : '0.875rem 1rem'};
+    ${$round ? 'border-radius: var(--ds-radius-pill);' : ''}
+    ${
+      $clear
+        ? css`
+            color: var(--ds-color-text-primary);
+            background-color: transparent;
 
-    &:hover {
-      cursor: pointer;
-      background-color: ${
-        $clear ? 'var(--ds-color-action-subtle-hover)' : 'var(--ds-color-action-primary-hover)'
-      };
-    }
+            &:hover:not([data-disabled]) {
+              background-color: var(--ds-color-action-subtle-hover);
+            }
 
-    &:focus-visible {
-      box-shadow: var(--ds-shadow-focus);
-    }
-
-    &[data-disabled] {
-      background-color: ${$clear ? 'transparent' : 'var(--ds-color-action-primary)'};
-      opacity: 0.4;
+            &[data-disabled] {
+              background-color: transparent;
+            }
+          `
+        : ''
     }
 
     @media ${breakpoints.M} {
