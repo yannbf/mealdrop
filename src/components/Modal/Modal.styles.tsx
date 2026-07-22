@@ -1,80 +1,57 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
+import { Dialog } from '@base-ui/react/dialog'
 
 import { breakpoints } from '../../styles/breakpoints'
 
-const defaultAnimation = css`
-  &.modal-enter {
+// Base UI Dialog + DS tokens: colors/radius/shadow come from the --ds-* vars
+// (ds-theme.css), which flip with html[data-theme]. Open/close motion is
+// driven by Base UI's [data-starting-style]/[data-ending-style] attributes
+// instead of CSSTransition classes.
+export const StyledPopup = styled(Dialog.Popup)`
+  background-color: var(--ds-color-surface-overlay);
+  color: var(--ds-color-text-primary);
+  border-top-left-radius: var(--ds-radius-sheet);
+  border-top-right-radius: var(--ds-radius-sheet);
+  position: fixed;
+  z-index: 99;
+  top: 50%;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform-origin: 'top center';
+  box-shadow: var(--ds-shadow-overlay);
+  outline: none;
+
+  transition: transform var(--ds-motion-slow) var(--ds-motion-ease);
+
+  &[data-starting-style],
+  &[data-ending-style] {
     transform: translateY(100%);
   }
-  &.modal-enter-active {
-    transform: translateY(0);
-    transition: transform 300ms;
-  }
-  &.modal-exit {
-    transform: translateY(0);
-  }
-  &.modal-exit-active {
-    transform: translateY(100%);
-    transition: transform 300ms;
-  }
-`
 
-const desktopAnimation = css`
-  &.modal-enter {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  &.modal-enter-active {
-    opacity: 1;
-    transform: translateX(0);
-    transition:
-      opacity 120ms,
-      transform 120ms;
-  }
-  &.modal-exit {
-    opacity: 1;
-  }
-  &.modal-exit-active {
-    opacity: 0;
-    transform: scale(0.9);
-    transition:
-      opacity 120ms,
-      transform 120ms;
-  }
-`
+  @media ${breakpoints.M} {
+    width: 600px;
+    height: 272px;
 
-export const ModalContent = styled.div(
-  ({ theme: { color, borderRadius } }) => css`
-    background-color: ${color.overlayBackground};
-    border-top-left-radius: ${borderRadius.m};
-    border-top-right-radius: ${borderRadius.m};
-    position: fixed;
-    z-index: 99;
-    top: 50%;
-    right: 0;
     bottom: 0;
-    left: 0;
-    transform-origin: 'top center';
-    box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
+    left: calc(50% - (600px / 2));
+    top: calc(50% - (272px / 2));
+    position: fixed;
+    border-radius: var(--ds-radius-sheet);
 
-    ${defaultAnimation}
-    @media ${breakpoints.M} {
-      width: 600px;
-      height: 272px;
+    transition:
+      opacity var(--ds-motion-slow) var(--ds-motion-ease),
+      transform var(--ds-motion-slow) var(--ds-motion-ease);
 
-      box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
-      bottom: 0;
-      left: calc(50% - (600px / 2));
-      top: calc(50% - (272px / 2));
-      position: fixed;
-      border-radius: ${borderRadius.m};
-
-      ${desktopAnimation}
+    &[data-starting-style],
+    &[data-ending-style] {
+      opacity: 0;
+      transform: scale(0.9);
     }
-  `
-)
+  }
+`
 
-export const Backdrop = styled.div`
+export const StyledBackdrop = styled(Dialog.Backdrop)`
   position: fixed;
   background-color: rgba(0, 0, 0, 0.4);
   top: 0;
@@ -83,19 +60,15 @@ export const Backdrop = styled.div`
   left: 0;
   z-index: 98;
 
-  &.backdrop-enter {
+  transition: opacity var(--ds-motion-slow) var(--ds-motion-ease);
+
+  html[data-theme='dark'] && {
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  &[data-starting-style],
+  &[data-ending-style] {
     opacity: 0;
-  }
-  &.backdrop-enter-active {
-    opacity: 1;
-    transition: opacity 300ms;
-  }
-  &.backdrop-exit {
-    opacity: 1;
-  }
-  &.backdrop-exit-active {
-    opacity: 0;
-    transition: opacity 300ms;
   }
 `
 
