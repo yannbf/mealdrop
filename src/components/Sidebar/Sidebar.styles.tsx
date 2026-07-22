@@ -1,73 +1,58 @@
+import { Drawer } from '@base-ui/react/drawer'
 import styled, { css } from 'styled-components'
 
 import { breakpoints } from '../../styles/breakpoints'
 
-const defaultAnimation = css`
-  &.sidebar-enter {
-    transform: translateX(100%);
-  }
-  &.sidebar-enter-active {
-    transform: translateX(0);
-    transition: transform 300ms;
-  }
-  &.sidebar-exit {
-    transform: translateX(0);
-  }
-  &.sidebar-exit-active {
-    transform: translateX(100%);
-    transition: transform 300ms;
+// DS Drawer + tokens: colors/radius/shadow/motion come from the --ds-* vars
+// (ds-theme.css), which flip with html[data-theme]. Base UI drives
+// [data-starting-style]/[data-ending-style] for the enter/exit transition —
+// there's no positioner, so the slide-in edge (right) is plain CSS.
+export const SidebarBackdrop = styled(Drawer.Backdrop)`
+  position: fixed;
+  inset: 0;
+  z-index: 98;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: opacity var(--ds-motion-slow) var(--ds-motion-ease);
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    opacity: 0;
   }
 `
 
-const desktopAnimation = css`
-  &.sidebar-enter {
-    transform: translateX(100%);
-  }
-  &.sidebar-enter-active {
-    transform: translateX(0);
-    transition: transform 300ms;
-  }
-  &.sidebar-exit {
-    transform: translateX(0);
-  }
-  &.sidebar-exit-active {
-    transform: translateX(100%);
-    transition: transform 300ms;
-  }
+export const SidebarViewport = styled(Drawer.Viewport)`
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
 `
 
-const largeScreenOverrides = css`
+export const SidebarPopup = styled(Drawer.Popup)`
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  background-color: var(--ds-color-surface-overlay);
+  color: var(--ds-color-text-primary);
+  box-shadow: var(--ds-shadow-overlay);
+  outline: 0;
+  /* Rounded on the leading (left) edge only — the trailing edge sits flush
+     against the viewport's right side. */
+  border-radius: var(--ds-radius-sheet) 0 0 var(--ds-radius-sheet);
+  transform: translateX(0);
+  transition: transform var(--ds-motion-slow) var(--ds-motion-ease);
+  will-change: transform;
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    transform: translateX(100%);
+  }
+
   @media ${breakpoints.M} {
     width: 420px;
-    height: 100vh;
-
-    box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
-    bottom: 0;
-    right: 0;
-    top: 0;
-    left: unset;
-    position: fixed;
-
-    ${desktopAnimation}
   }
 `
-
-export const SidebarContainer = styled.div(
-  ({ theme: { color } }) => css`
-    background-color: ${color.overlayBackground};
-    position: fixed;
-    z-index: 99;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    transform-origin: 'top center';
-    box-shadow: 0 28px 48px rgba(0, 0, 0, 0.4);
-
-    ${defaultAnimation}
-    ${largeScreenOverrides}
-  `
-)
 
 export const SidebarContent = styled.div`
   padding: 1.5rem;
@@ -75,41 +60,13 @@ export const SidebarContent = styled.div`
   max-height: calc(100vh - 237px); /** viewport height - topbar - footer */
 `
 
-export const Backdrop = styled.div`
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.4);
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 98;
-
-  &.backdrop-enter {
-    opacity: 0;
-  }
-  &.backdrop-enter-active {
-    opacity: 1;
-    transition: opacity 300ms;
-  }
-  &.backdrop-exit {
-    opacity: 1;
-  }
-  &.backdrop-exit-active {
-    opacity: 0;
-    transition: opacity 300ms;
-  }
-`
-
 export const TopBar = styled.div(
   ({ theme: { color } }) => css`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: static;
     padding: 1.5rem;
     padding-right: 1rem;
-    top: 0.75rem;
-    right: 0.75rem;
     height: 4.5rem;
     background-color: ${color.overlayHeader};
   `
