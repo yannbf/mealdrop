@@ -14,7 +14,7 @@ import { demoModeLoader } from './demo-mode'
 import { rootReducer } from '../src/app-state'
 import { breakpoints, viewports } from '../src/styles/breakpoints'
 import { GlobalStyle } from '../src/styles/GlobalStyle'
-import '@base-ui/mealdrop/styles.css'
+import '@droppy/theme/styles.css'
 import { darkTheme, lightTheme } from '../src/styles/theme'
 import { sb } from 'storybook/test'
 

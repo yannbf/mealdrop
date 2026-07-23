@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useEffect, useState } from 'react'
+import { Button as BaseButton } from '@base-ui/react/button'
+import theme from '@droppy/theme'
 import { fn } from 'storybook/test'
 
 import { cartItems } from '../../stub/cart-items'
-import { Button } from '../Button'
 import { Body } from '../typography'
 
 import { ShoppingCartMenu } from './ShoppingCartMenu'
@@ -61,7 +62,9 @@ export const Playground: Story = {
     return (
       <>
         <Body>Press ESC to close the ShoppingCartMenu or click on the close icon!</Body>
-        <Button onClick={openShoppingCartMenu}>Open ShoppingCartMenu</Button>
+        <BaseButton className={theme.Button} onClick={openShoppingCartMenu}>
+          Open ShoppingCartMenu
+        </BaseButton>
         <ShoppingCartMenu
           isOpen={isOpen}
           cartItems={cartItems}

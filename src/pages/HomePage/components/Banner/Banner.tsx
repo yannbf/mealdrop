@@ -1,10 +1,22 @@
 import { Link } from 'react-router-dom'
+import { Button as BaseButton } from '@base-ui/react/button'
+import theme from '@droppy/theme'
 import styled, { css } from 'styled-components'
 
-import { Button } from '../../../../components/Button'
 import ladies from '../../../../assets/images/ladies.svg'
 import { breakpoints } from '../../../../styles/breakpoints'
 import { Heading } from '../../../../components/typography'
+
+// theme.Button carries the base chrome via @droppy/theme/styles.css; the
+// responsive padding bump is this call site's own CSS — duplicated per site
+// by design (milestone 1 has no shared Button wrapper).
+const StyledButton = styled(BaseButton)`
+  z-index: 1;
+
+  @media ${breakpoints.M} {
+    padding: 0.875rem 1.5rem;
+  }
+`
 
 const Container = styled.div(
   ({ theme: { color } }) => css`
@@ -63,7 +75,7 @@ export const Banner = () => (
         <strong>Hungry?</strong> find your next meal
       </StyledHeading>
       <Link to="/categories">
-        <Button>View all restaurants</Button>
+        <StyledButton className={theme.Button}>View all restaurants</StyledButton>
       </Link>
     </ContentContainer>
     <Image src={ladies} />

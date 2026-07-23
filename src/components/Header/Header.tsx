@@ -1,7 +1,9 @@
-import styled, { css } from 'styled-components'
+import styled, { css, useTheme } from 'styled-components'
 import { Link, useNavigate } from 'react-router-dom'
 import useDarkMode from 'use-dark-mode'
 import { Tooltip } from '@base-ui/react/tooltip'
+import { Button as BaseButton } from '@base-ui/react/button'
+import theme from '@droppy/theme'
 
 import { useAppDispatch, useAppSelector } from '../../app-state'
 import {
@@ -14,7 +16,7 @@ import {
 } from '../../app-state/cart'
 import { breakpoints } from '../../styles/breakpoints'
 import { ShoppingCartMenu } from '../ShoppingCartMenu'
-import { Button } from '../Button'
+import { Icon } from '../Icon'
 import { toCurrency } from '../../helpers'
 import { Body } from '../typography/Body'
 import { Logo } from '../Logo'
@@ -100,11 +102,62 @@ export const CartTotal = styled(Body)(
   `
 )
 
-// The md-TooltipPopup floater chrome comes from @base-ui/mealdrop/styles.css
-// via the class applied below (no external className is ever passed to
-// TooltipPopup at its call site, so .attrs is safe); the app only lifts it
-// above the sticky header.
-const TooltipPopup = styled(Tooltip.Popup).attrs({ className: 'md-TooltipPopup' })`
+// Everything below is what used to live in the app's Button wrapper — now
+// duplicated at each variant this file needs, by design (milestone 1 has no
+// shared Button wrapper). theme.Button carries the base chrome via
+// @droppy/theme/styles.css.
+
+// "clear" variant, plain size (Home / All restaurants nav links).
+const ClearButton = styled(BaseButton)`
+  z-index: 1;
+  color: var(--ds-color-text-primary);
+  background-color: transparent;
+
+  &:hover:not([data-disabled]) {
+    background-color: var(--ds-color-action-subtle-hover);
+  }
+
+  &[data-disabled] {
+    background-color: transparent;
+  }
+
+  @media ${breakpoints.M} {
+    padding: 0.875rem 1.5rem;
+  }
+`
+
+// icon variant, no "clear" (the cart button — solid fill).
+const CartButton = styled(BaseButton)`
+  z-index: 1;
+  padding: 0.7rem;
+
+  @media ${breakpoints.M} {
+    padding: 1rem;
+  }
+`
+
+// round + clear + icon-only variant (theme toggle).
+const RoundClearIconButton = styled(BaseButton)`
+  z-index: 1;
+  padding: 0.7rem;
+  border-radius: var(--ds-radius-pill);
+  color: var(--ds-color-text-primary);
+  background-color: transparent;
+
+  &:hover:not([data-disabled]) {
+    background-color: var(--ds-color-action-subtle-hover);
+  }
+
+  &[data-disabled] {
+    background-color: transparent;
+  }
+
+  @media ${breakpoints.M} {
+    padding: 1rem;
+  }
+`
+
+const TooltipPopup = styled(Tooltip.Popup)`
   z-index: 3;
 `
 
@@ -115,18 +168,18 @@ const ThemeToggle = () => {
     <Tooltip.Root>
       <Tooltip.Trigger
         render={
-          <Button
-            round
-            clear
+          <RoundClearIconButton
+            className={theme.Button}
             aria-label={label}
-            icon={darkMode.value ? 'moon' : 'sun'}
             onClick={darkMode.toggle}
-          />
+          >
+            <Icon name={darkMode.value ? 'moon' : 'sun'} />
+          </RoundClearIconButton>
         }
       />
       <Tooltip.Portal>
         <Tooltip.Positioner sideOffset={8}>
-          <TooltipPopup>{label}</TooltipPopup>
+          <TooltipPopup className={theme.TooltipPopup}>{label}</TooltipPopup>
         </Tooltip.Positioner>
       </Tooltip.Portal>
     </Tooltip.Root>
@@ -153,44 +206,53 @@ export const HeaderComponent = ({
   toggleCartVisibility = () => {},
   goToCheckout = () => {},
   saveItem = () => {},
-}: HeaderComponentProps) => (
-  <HeaderContainer data-testid="header" $sticky={sticky}>
-    <LogoContainer to="/" aria-label="go to home page">
-      <Logo />
-    </LogoContainer>
-    {!logoOnly && (
-      <>
-        <OptionsContainer>
-          <span className="navigation-items">
-            <ThemeToggle />
-            <Link to="/" tabIndex={-1}>
-              <Button clear>Home</Button>
-            </Link>
-            <Link to="/categories" tabIndex={-1}>
-              <Button clear>All restaurants</Button>
-            </Link>
-          </span>
-          <Button aria-label="food cart" icon="cart" onClick={toggleCartVisibility}>
-            {totalPrice > 0 && (
-              <>
-                <CartText type="span">Order</CartText>
-                <CartTotal type="span">{toCurrency(totalPrice)}</CartTotal>
-              </>
-            )}
-          </Button>
-        </OptionsContainer>
-        <ShoppingCartMenu
-          isOpen={isCartVisible}
-          onClose={toggleCartVisibility}
-          onGoToCheckoutClick={goToCheckout}
-          cartItems={cartItems}
-          totalPrice={totalPrice}
-          onItemChange={saveItem}
-        />
-      </>
-    )}
-  </HeaderContainer>
-)
+}: HeaderComponentProps) => {
+  const { color } = useTheme()
+
+  return (
+    <HeaderContainer data-testid="header" $sticky={sticky}>
+      <LogoContainer to="/" aria-label="go to home page">
+        <Logo />
+      </LogoContainer>
+      {!logoOnly && (
+        <>
+          <OptionsContainer>
+            <span className="navigation-items">
+              <ThemeToggle />
+              <Link to="/" tabIndex={-1}>
+                <ClearButton className={theme.Button}>Home</ClearButton>
+              </Link>
+              <Link to="/categories" tabIndex={-1}>
+                <ClearButton className={theme.Button}>All restaurants</ClearButton>
+              </Link>
+            </span>
+            <CartButton
+              className={theme.Button}
+              aria-label="food cart"
+              onClick={toggleCartVisibility}
+            >
+              <Icon name="cart" color={color.buttonText} />
+              {totalPrice > 0 && (
+                <>
+                  <CartText type="span">Order</CartText>
+                  <CartTotal type="span">{toCurrency(totalPrice)}</CartTotal>
+                </>
+              )}
+            </CartButton>
+          </OptionsContainer>
+          <ShoppingCartMenu
+            isOpen={isCartVisible}
+            onClose={toggleCartVisibility}
+            onGoToCheckoutClick={goToCheckout}
+            cartItems={cartItems}
+            totalPrice={totalPrice}
+            onItemChange={saveItem}
+          />
+        </>
+      )}
+    </HeaderContainer>
+  )
+}
 
 export const Header = ({ sticky }: { sticky?: boolean }) => {
   const isCartVisible = useAppSelector(selectCartVisibility)
