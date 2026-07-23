@@ -550,9 +550,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@base-ui/mealdrop@https://pkg.pr.new/storybook-tmp/base-ui/@base-ui/mealdrop@f743fda5c":
+"@base-ui/mealdrop@https://pkg.pr.new/storybook-tmp/base-ui/@base-ui/mealdrop@dade1921f":
   version: 0.1.0
-  resolution: "@base-ui/mealdrop@https://pkg.pr.new/storybook-tmp/base-ui/@base-ui/mealdrop@f743fda5c"
+  resolution: "@base-ui/mealdrop@https://pkg.pr.new/storybook-tmp/base-ui/@base-ui/mealdrop@dade1921f"
   dependencies:
     "@babel/runtime": "npm:^7.29.2"
   peerDependencies:
@@ -563,13 +563,13 @@ __metadata:
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 10c0/ef45fd2e13c82fca431a5a44e29f5df2349eaacefba0691b7e00c9186d3e161afec42cfc1b77cb0cfc9ec3ccbf5e3ac48913f182736a825342625a761d7d197b
+  checksum: 10c0/a803afe3fa634ceff15dad66ddabbdf4d848a2af9fcc861b0b1a473e5c9d5f1536872a4100ac94dec3c55b7758ad7151b42ef1c5e0dba2fcc1452d1931cee57e
   languageName: node
   linkType: hard
 
-"@base-ui/react@https://pkg.pr.new/storybook-tmp/base-ui/@base-ui/react@f743fda5c":
+"@base-ui/react@https://pkg.pr.new/storybook-tmp/base-ui/@base-ui/react@dade1921f":
   version: 1.6.0
-  resolution: "@base-ui/react@https://pkg.pr.new/storybook-tmp/base-ui/@base-ui/react@f743fda5c"
+  resolution: "@base-ui/react@https://pkg.pr.new/storybook-tmp/base-ui/@base-ui/react@dade1921f"
   dependencies:
     "@babel/runtime": "npm:^7.29.2"
     "@base-ui/utils": "npm:0.3.1"
@@ -5070,8 +5070,8 @@ __metadata:
   resolution: "course-app@workspace:."
   dependencies:
     "@babel/core": "npm:^7.26.9"
-    "@base-ui/mealdrop": "https://pkg.pr.new/storybook-tmp/base-ui/@base-ui/mealdrop@f743fda5c"
-    "@base-ui/react": "https://pkg.pr.new/storybook-tmp/base-ui/@base-ui/react@f743fda5c"
+    "@base-ui/mealdrop": "https://pkg.pr.new/storybook-tmp/base-ui/@base-ui/mealdrop@dade1921f"
+    "@base-ui/react": "https://pkg.pr.new/storybook-tmp/base-ui/@base-ui/react@dade1921f"
     "@chromatic-com/storybook": "npm:^5.2.1"
     "@eslint/js": "npm:^9.21.0"
     "@hookform/resolvers": "npm:^4.1.3"
