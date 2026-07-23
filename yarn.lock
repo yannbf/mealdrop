@@ -550,26 +550,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@base-ui/mealdrop@https://pkg.pr.new/storybook-tmp/base-ui/@base-ui/mealdrop@dade1921f":
-  version: 0.1.0
-  resolution: "@base-ui/mealdrop@https://pkg.pr.new/storybook-tmp/base-ui/@base-ui/mealdrop@dade1921f"
-  dependencies:
-    "@babel/runtime": "npm:^7.29.2"
-  peerDependencies:
-    "@base-ui/react": 1.6.0
-    "@types/react": ^17 || ^18 || ^19
-    react: ^17 || ^18 || ^19
-    react-dom: ^17 || ^18 || ^19
-  peerDependenciesMeta:
-    "@types/react":
-      optional: true
-  checksum: 10c0/a803afe3fa634ceff15dad66ddabbdf4d848a2af9fcc861b0b1a473e5c9d5f1536872a4100ac94dec3c55b7758ad7151b42ef1c5e0dba2fcc1452d1931cee57e
-  languageName: node
-  linkType: hard
-
-"@base-ui/react@https://pkg.pr.new/storybook-tmp/base-ui/@base-ui/react@dade1921f":
+"@base-ui/react@https://pkg.pr.new/storybook-tmp/base-ui/@base-ui/react@2e2b59db4":
   version: 1.6.0
-  resolution: "@base-ui/react@https://pkg.pr.new/storybook-tmp/base-ui/@base-ui/react@dade1921f"
+  resolution: "@base-ui/react@https://pkg.pr.new/storybook-tmp/base-ui/@base-ui/react@2e2b59db4"
   dependencies:
     "@babel/runtime": "npm:^7.29.2"
     "@base-ui/utils": "npm:0.3.1"
@@ -644,6 +627,23 @@ __metadata:
   peerDependencies:
     storybook: ^0.0.0-0 || ^10.1.0 || ^10.1.0-0 || ^10.2.0-0 || ^10.3.0-0 || ^10.4.0-0 || ^10.5.0-0 || ^10.6.0-0
   checksum: 10c0/066b0a75906936916cbafbcb26375509240025bbacda02d9ae4929aaec07ae3ec7792dddf0b03095b8792d7891a55c1d70af6496eda1d3932fa2e2b9caa2407e
+  languageName: node
+  linkType: hard
+
+"@droppy/theme@https://pkg.pr.new/storybook-tmp/base-ui/@droppy/theme@2e2b59db4":
+  version: 0.1.0
+  resolution: "@droppy/theme@https://pkg.pr.new/storybook-tmp/base-ui/@droppy/theme@2e2b59db4"
+  dependencies:
+    "@babel/runtime": "npm:^7.29.2"
+  peerDependencies:
+    "@base-ui/react": 1.6.0
+    "@types/react": ^17 || ^18 || ^19
+    react: ^17 || ^18 || ^19
+    react-dom: ^17 || ^18 || ^19
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+  checksum: 10c0/cc2075d790ad576e33e580974f58bae02ff132bc28e27f9329f94643b1c855942f3411fd8e525c63363c19196778ccc0f7d444fd8cefc37df2677632f2335a39
   languageName: node
   linkType: hard
 
@@ -5070,9 +5070,9 @@ __metadata:
   resolution: "course-app@workspace:."
   dependencies:
     "@babel/core": "npm:^7.26.9"
-    "@base-ui/mealdrop": "https://pkg.pr.new/storybook-tmp/base-ui/@base-ui/mealdrop@dade1921f"
-    "@base-ui/react": "https://pkg.pr.new/storybook-tmp/base-ui/@base-ui/react@dade1921f"
+    "@base-ui/react": "https://pkg.pr.new/storybook-tmp/base-ui/@base-ui/react@2e2b59db4"
     "@chromatic-com/storybook": "npm:^5.2.1"
+    "@droppy/theme": "https://pkg.pr.new/storybook-tmp/base-ui/@droppy/theme@2e2b59db4"
     "@eslint/js": "npm:^9.21.0"
     "@hookform/resolvers": "npm:^4.1.3"
     "@reduxjs/toolkit": "npm:^2.6.0"
