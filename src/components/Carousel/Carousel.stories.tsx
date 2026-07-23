@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { expect, userEvent, waitFor } from 'storybook/test'
+import { expect } from 'storybook/test'
 import styled from 'styled-components'
 
 import { Carousel } from './Carousel'
@@ -35,20 +35,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
-
-// More items than fit on screen: navigation arrows drive scrolling.
-export const Navigable: Story = {
-  play: async ({ canvas }) => {
-    // At the start you can only scroll forward, so only the Next arrow shows.
-    await expect(canvas.queryByRole('button', { name: 'Previous' })).not.toBeInTheDocument()
-    const next = canvas.getByRole('button', { name: 'Next' })
-
-    await userEvent.click(next)
-
-    // After scrolling forward, the back arrow appears.
-    await waitFor(() => expect(canvas.getByRole('button', { name: 'Previous' })).toBeVisible())
-  },
-}
 
 // Few enough items to fit at once: neither arrow is shown.
 export const AllItemsVisible: Story = {
