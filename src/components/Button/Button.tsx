@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Button as MdButton } from '@base-ui/mealdrop'
+import { Button as MdButton } from '@base-ui/react/button'
 import styled, { css, useTheme } from 'styled-components'
 
 import { breakpoints } from '../../styles/breakpoints'
@@ -16,9 +16,9 @@ type StyledButtonProperties = {
   $round: boolean
 }
 
-// @base-ui/mealdrop Button carries the base chrome (fill, radius, focus ring,
-// body face, hover, disabled) via styles.css; only Mealdrop-app variants and
-// layout remain here.
+// The md-Button chrome (fill, radius, focus ring, body face, hover, disabled)
+// comes from @base-ui/mealdrop/styles.css via the md-Button class applied
+// below; only Mealdrop-app variants and layout remain here.
 const StyledButton = styled(MdButton)<StyledButtonProperties>(
   ({ $clear, $large, $round, $withIcon }) => css`
     z-index: 1;
@@ -93,6 +93,7 @@ export const Button: React.FC<React.PropsWithChildren<ButtonProperties>> = ({
   round = false,
   icon,
   iconSize,
+  className,
   ...properties
 }: ButtonProperties) => {
   const { color } = useTheme()
@@ -104,6 +105,10 @@ export const Button: React.FC<React.PropsWithChildren<ButtonProperties>> = ({
       $clear={clear}
       $round={round}
       $withIcon={!!icon}
+      // md-Button must survive being wrapped further (e.g. styled(Button) in
+      // AwardWinningSection/FoodItemModal passes its own className down) —
+      // merge rather than let an incoming className win.
+      className={className ? `md-Button ${className}` : 'md-Button'}
       {...properties}
     >
       {icon && (

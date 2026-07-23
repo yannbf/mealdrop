@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Drawer } from '@base-ui/mealdrop'
+import { Drawer } from '@base-ui/react/drawer'
 
 import { Button } from '../Button'
 import { Heading } from '../typography'
@@ -43,7 +43,10 @@ export const Sidebar: React.FC<React.PropsWithChildren<SidebarProps>> = ({
       <SidebarViewport>
         <SidebarPopup data-testid="sidebar">
           <TopBar>
-            <Drawer.Title render={<Heading level={4}>{title}</Heading>} />
+            <Drawer.Title
+              className="md-DrawerTitle"
+              render={<Heading level={4}>{title}</Heading>}
+            />
             <Button
               aria-label="close sidebar"
               data-testid="sidebar-close-btn"

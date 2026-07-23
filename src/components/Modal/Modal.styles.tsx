@@ -1,13 +1,15 @@
 import styled from 'styled-components'
-import { Dialog } from '@base-ui/mealdrop'
+import { Dialog } from '@base-ui/react/dialog'
 
 import { breakpoints } from '../../styles/breakpoints'
 
-// @base-ui/mealdrop Dialog carries the chrome (overlay surface, sheet radius,
-// overlay shadow, scrim + dark tweak, motion) via styles.css. The app keeps
-// only its layout: bottom-sheet on mobile (slide-up, top corners only),
-// fixed 600x272 centered card on desktop, and stacking above the header.
-export const StyledPopup = styled(Dialog.Popup)`
+// The md-Dialog* chrome (overlay surface, sheet radius, overlay shadow,
+// scrim + dark tweak, motion) comes from @base-ui/mealdrop/styles.css via the
+// md-Dialog* classes applied below (no external className is ever passed to
+// these at their call sites, so .attrs is safe). The app keeps only its
+// layout: bottom-sheet on mobile (slide-up, top corners only), fixed 600x272
+// centered card on desktop, and stacking above the header.
+export const StyledPopup = styled(Dialog.Popup).attrs({ className: 'md-DialogPopup' })`
   z-index: 99;
   top: 50%;
   right: 0;
@@ -44,7 +46,7 @@ export const StyledPopup = styled(Dialog.Popup)`
   }
 `
 
-export const StyledBackdrop = styled(Dialog.Backdrop)`
+export const StyledBackdrop = styled(Dialog.Backdrop).attrs({ className: 'md-DialogBackdrop' })`
   z-index: 98;
 `
 

@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { Link, useNavigate } from 'react-router-dom'
 import useDarkMode from 'use-dark-mode'
-import { Tooltip } from '@base-ui/mealdrop'
+import { Tooltip } from '@base-ui/react/tooltip'
 
 import { useAppDispatch, useAppSelector } from '../../app-state'
 import {
@@ -100,9 +100,11 @@ export const CartTotal = styled(Body)(
   `
 )
 
-// @base-ui/mealdrop Tooltip carries the floater chrome via styles.css; the
-// app only lifts it above the sticky header.
-const TooltipPopup = styled(Tooltip.Popup)`
+// The md-TooltipPopup floater chrome comes from @base-ui/mealdrop/styles.css
+// via the class applied below (no external className is ever passed to
+// TooltipPopup at its call site, so .attrs is safe); the app only lifts it
+// above the sticky header.
+const TooltipPopup = styled(Tooltip.Popup).attrs({ className: 'md-TooltipPopup' })`
   z-index: 3;
 `
 

@@ -1,13 +1,15 @@
-import { Drawer } from '@base-ui/mealdrop'
+import { Drawer } from '@base-ui/react/drawer'
 import styled, { css } from 'styled-components'
 
 import { breakpoints } from '../../styles/breakpoints'
 
-// @base-ui/mealdrop Drawer carries the chrome (overlay surface, leading-edge
-// sheet radius, overlay shadow, scrim, 300ms slide) via styles.css. The app
-// keeps only its layout: the viewport flex shell, full-width panel on mobile
-// growing to 420px, and stacking above the header.
-export const SidebarBackdrop = styled(Drawer.Backdrop)`
+// The md-Drawer* chrome (overlay surface, leading-edge sheet radius, overlay
+// shadow, scrim, 300ms slide) comes from @base-ui/mealdrop/styles.css via the
+// md-Drawer* classes applied below (no external className is ever passed to
+// these at their call sites, so .attrs is safe). The app keeps only its
+// layout: the viewport flex shell, full-width panel on mobile growing to
+// 420px, and stacking above the header.
+export const SidebarBackdrop = styled(Drawer.Backdrop).attrs({ className: 'md-DrawerBackdrop' })`
   z-index: 98;
 `
 
@@ -20,7 +22,7 @@ export const SidebarViewport = styled(Drawer.Viewport)`
   justify-content: flex-end;
 `
 
-export const SidebarPopup = styled(Drawer.Popup)`
+export const SidebarPopup = styled(Drawer.Popup).attrs({ className: 'md-DrawerPopup' })`
   position: relative;
   inset: auto;
   height: 100%;
