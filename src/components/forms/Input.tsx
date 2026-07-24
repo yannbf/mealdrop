@@ -1,53 +1,19 @@
 import { DetailedHTMLProps, InputHTMLAttributes } from 'react'
-import styled, { css } from 'styled-components'
+import { Field } from '@base-ui/react/field'
+import { Input as MdInput } from '@base-ui/react/input'
+import styled from 'styled-components'
+import theme from '@droppy/theme'
 
-import { Body } from '../typography/Body'
-
-const Container = styled.div(
-  ({ theme: { color, spacing, boxShadow, borderRadius } }) => css`
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 0;
-    label {
-      color: ${color.label};
-      padding-bottom: ${spacing.xxs};
-      &:first-letter {
-        text-transform: uppercase;
-      }
-    }
-
-    input {
-      outline: none;
-      padding: 13px 16px;
-      box-sizing: border-box;
-      border-radius: ${borderRadius.xs};
-      border: none;
-      color: ${color.primaryText};
-      background: ${color.inputBackground};
-      margin: 0;
-      &:placeholder {
-        color: ${color.inputHint};
-      }
-      &:focus,
-      &:hover {
-        box-shadow: ${boxShadow.outerBorder};
-      }
-    }
-
-    input:focus + label {
-      color: ${color.labelActive};
-    }
-  `
-)
-
-const ErrorMessage = styled(Body)(
-  ({ theme: { color, spacing } }) => css`
-    color: ${color.error};
-    margin-top: ${spacing.xxs};
-    font-size: 12px;
-    min-height: 16px;
-  `
-)
+// The theme.Field*/theme.Input chrome (sunken surface, control radius, focus
+// ring, label/error colors and focus-active flip) comes from
+// @droppy/theme/styles.css via the theme.* classes applied below (no
+// external className is ever passed to Container, so .attrs is safe). The
+// app keeps only its 1.125rem body-size label (the stylesheet default is 1rem).
+const Container = styled(Field.Root).attrs({ className: theme.FieldRoot })`
+  label {
+    font-size: var(--ds-type-size-md);
+  }
+`
 
 type InputProps = {
   label?: string
@@ -56,14 +22,33 @@ type InputProps = {
   error?: string
 } & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>
 
-export const Input = ({ label = '', type = 'text', id, error, ...otherProps }: InputProps) => (
+export const Input = ({
+  label = '',
+  type = 'text',
+  id,
+  error,
+  className,
+  ...otherProps
+}: InputProps) => (
   <Container>
-    {label && (
-      <Body type="label" htmlFor={id}>
-        {label}
-      </Body>
-    )}
-    <input id={id} aria-label={label} type={type} {...otherProps} autoComplete="off" />
-    <ErrorMessage>{error || ' '}</ErrorMessage>
+    {label && <Field.Label className={theme.FieldLabel}>{label}</Field.Label>}
+    <MdInput
+      id={id}
+      aria-label={label}
+      type={type}
+      // theme.Input must survive an incoming className (none of today's
+      // callers pass one, but Input is a shared form primitive) — merge,
+      // don't overwrite.
+      className={className ? `${theme.Input} ${className}` : theme.Input}
+      {...otherProps}
+      autoComplete="off"
+    />
+    {/* `match` forces the error slot to always mount so layout never jumps
+        (the stylesheet gives it a fixed min-height); children override
+        Field.Error's computed message while keeping the aria-describedby
+        wiring. */}
+    <Field.Error className={theme.FieldError} match>
+      {error || ' '}
+    </Field.Error>
   </Container>
 )

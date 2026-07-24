@@ -1,5 +1,7 @@
 import * as React from 'react'
+import { Button as MdButton } from '@base-ui/react/button'
 import styled, { css, useTheme } from 'styled-components'
+import theme from '@droppy/theme'
 
 import { breakpoints } from '../../styles/breakpoints'
 import { Icon, IconName } from '../Icon'
@@ -15,34 +17,29 @@ type StyledButtonProperties = {
   $round: boolean
 }
 
-const StyledButton = styled.button<StyledButtonProperties>(
-  ({ $clear, $large, $round, $withIcon, theme: { color, boxShadow, borderRadius } }) => css`
-    outline: none;
-    border: 0;
-    font-family: 'Hind';
-    border-radius: ${$round ? borderRadius.xl : borderRadius.xs};
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: ${$withIcon ? '0.7rem' : $large ? '1.125rem 1rem' : '0.875rem 1rem'};
-    color: ${$clear ? color.primaryText : color.buttonText};
-
-    transition: box-shadow 150ms ease-in;
+// The theme.Button chrome (fill, radius, focus ring, body face, hover,
+// disabled) comes from @droppy/theme/styles.css via the theme.Button class
+// applied below; only Mealdrop-app variants and layout remain here.
+const StyledButton = styled(MdButton)<StyledButtonProperties>(
+  ({ $clear, $large, $round, $withIcon }) => css`
     z-index: 1;
-    background-color: ${$clear ? color.buttonClear : color.buttonPrimary};
+    padding: ${$withIcon ? '0.7rem' : $large ? '1.125rem 1rem' : '0.875rem 1rem'};
+    ${$round ? 'border-radius: var(--ds-radius-pill);' : ''}
+    ${
+      $clear
+        ? css`
+            color: var(--ds-color-text-primary);
+            background-color: transparent;
 
-    &:hover {
-      cursor: pointer;
-      background-color: ${$clear ? color.buttonClearHover : color.buttonPrimaryHover};
-    }
+            &:hover:not([data-disabled]) {
+              background-color: var(--ds-color-action-subtle-hover);
+            }
 
-    &:focus {
-      box-shadow: ${boxShadow.outerBorder};
-    }
-
-    &:disabled {
-      background-color: ${$clear ? color.buttonClear : color.buttonPrimary};
-      opacity: 0.4;
+            &[data-disabled] {
+              background-color: transparent;
+            }
+          `
+        : ''
     }
 
     @media ${breakpoints.M} {
@@ -97,6 +94,7 @@ export const Button: React.FC<React.PropsWithChildren<ButtonProperties>> = ({
   round = false,
   icon,
   iconSize,
+  className,
   ...properties
 }: ButtonProperties) => {
   const { color } = useTheme()
@@ -108,6 +106,10 @@ export const Button: React.FC<React.PropsWithChildren<ButtonProperties>> = ({
       $clear={clear}
       $round={round}
       $withIcon={!!icon}
+      // theme.Button must survive being wrapped further (e.g. styled(Button)
+      // in AwardWinningSection/FoodItemModal passes its own className down)
+      // — merge rather than let an incoming className win.
+      className={className ? `${theme.Button} ${className}` : theme.Button}
       {...properties}
     >
       {icon && (

@@ -1,12 +1,9 @@
 import * as React from 'react'
-import { CSSTransition } from 'react-transition-group'
+import { Dialog } from '@base-ui/react/dialog'
 
-import { Portal } from '../Portal'
-import { useKey } from '../../hooks/useKeyboard'
 import { Button } from '../Button'
-import { useLockBodyScroll } from '../../hooks/useBodyScrollLock'
 
-import { ModalContent, TopBar, Backdrop } from './Modal.styles'
+import { StyledBackdrop, StyledPopup, TopBar } from './Modal.styles'
 
 type ModalProps = {
   isOpen: boolean
@@ -18,21 +15,25 @@ export const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
   isOpen,
   onClose,
 }) => {
-  useKey('escape', onClose)
-  useLockBodyScroll(isOpen)
-  const contentRef = React.useRef(null)
-  const backdropRef = React.useRef(null)
+  // Matches the previous <Portal selector="#modal" /> behavior: portal into
+  // the #modal container (present in index.html, and provided by story
+  // decorators) rather than Base UI's document.body default, so existing
+  // canvas-scoped tests/queries keep finding the popup.
+  const [modalContainer, setModalContainer] = React.useState<HTMLElement | null>(null)
+  React.useEffect(() => {
+    setModalContainer(document.querySelector<HTMLElement>('#modal'))
+  }, [])
 
   return (
-    <Portal selector="#modal">
-      <CSSTransition
-        in={isOpen}
-        timeout={300}
-        classNames="modal"
-        unmountOnExit
-        nodeRef={contentRef}
-      >
-        <ModalContent data-testid="modal" ref={contentRef}>
+    <Dialog.Root
+      open={isOpen}
+      onOpenChange={(open) => {
+        if (!open) onClose()
+      }}
+    >
+      <Dialog.Portal container={modalContainer}>
+        <StyledBackdrop data-testid="modal-backdrop" />
+        <StyledPopup data-testid="modal" aria-label="dialog">
           <TopBar>
             <Button
               data-testid="modal-close-btn"
@@ -45,18 +46,8 @@ export const Modal: React.FC<React.PropsWithChildren<ModalProps>> = ({
             />
           </TopBar>
           {children}
-        </ModalContent>
-      </CSSTransition>
-
-      <CSSTransition
-        in={isOpen}
-        timeout={300}
-        classNames="backdrop"
-        unmountOnExit
-        nodeRef={backdropRef}
-      >
-        <Backdrop data-testid="modal-backdrop" ref={backdropRef} onClick={onClose} />
-      </CSSTransition>
-    </Portal>
+        </StyledPopup>
+      </Dialog.Portal>
+    </Dialog.Root>
   )
 }

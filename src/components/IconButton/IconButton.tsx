@@ -1,14 +1,18 @@
 import type { ComponentProps } from 'react'
+import { Button as BaseButton } from '@base-ui/react/button'
 import styled, { css } from 'styled-components'
 
 import { Icon, IconName } from '../Icon'
 
-const StyledButton = styled.button<{ $small: boolean }>(
-  ({ $small, theme: { borderRadius } }) => css`
+// Deliberately theme-independent (the carousel-arrow pill stays a light pill in
+// dark mode — an intentional Mealdrop bypass); only radius and the focus ring
+// come from the DS tokens.
+const StyledButton = styled(BaseButton)<{ $small: boolean }>(
+  ({ $small }) => css`
     border: 0;
     width: ${$small ? '3rem' : '4rem'};
     height: ${$small ? '3rem' : '4rem'};
-    border-radius: ${borderRadius.round};
+    border-radius: var(--ds-radius-round);
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -17,6 +21,12 @@ const StyledButton = styled.button<{ $small: boolean }>(
     color: #333;
     background-color: white;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.14);
+
+    &:focus-visible {
+      box-shadow:
+        var(--ds-shadow-focus),
+        0 4px 8px rgba(0, 0, 0, 0.14);
+    }
   `
 )
 
