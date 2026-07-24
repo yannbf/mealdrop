@@ -6,8 +6,8 @@ import { breakpoints } from '../../styles/breakpoints'
 
 // The theme.Dialog* chrome (overlay surface, sheet radius, overlay shadow,
 // scrim + dark tweak, motion) comes from @droppy/theme/styles.css via the
-// theme.Dialog* classes applied below (no longer md-* prefixed; no external
-// className is ever passed to these at their call sites, so .attrs is safe).
+// theme.Dialog* classes applied below (no external className is ever
+// passed to these at their call sites, so .attrs is safe).
 // The app keeps only its layout: bottom-sheet on mobile (slide-up, top
 // corners only), fixed 600x272 centered card on desktop, and stacking above
 // the header.

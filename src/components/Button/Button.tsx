@@ -19,8 +19,7 @@ type StyledButtonProperties = {
 
 // The theme.Button chrome (fill, radius, focus ring, body face, hover,
 // disabled) comes from @droppy/theme/styles.css via the theme.Button class
-// applied below (no longer md-* prefixed); only Mealdrop-app variants and
-// layout remain here.
+// applied below; only Mealdrop-app variants and layout remain here.
 const StyledButton = styled(MdButton)<StyledButtonProperties>(
   ({ $clear, $large, $round, $withIcon }) => css`
     z-index: 1;

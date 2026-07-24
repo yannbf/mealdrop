@@ -6,10 +6,9 @@ import theme from '@droppy/theme'
 
 // The theme.Field*/theme.Input chrome (sunken surface, control radius, focus
 // ring, label/error colors and focus-active flip) comes from
-// @droppy/theme/styles.css via the theme.* classes applied below (no longer
-// md-* prefixed; no external className is ever passed to Container, so
-// .attrs is safe). The app keeps only its label size (the original used the
-// 1.125rem body size; the stylesheet default is 1rem).
+// @droppy/theme/styles.css via the theme.* classes applied below (no
+// external className is ever passed to Container, so .attrs is safe). The
+// app keeps only its 1.125rem body-size label (the stylesheet default is 1rem).
 const Container = styled(Field.Root).attrs({ className: theme.FieldRoot })`
   label {
     font-size: var(--ds-type-size-md);

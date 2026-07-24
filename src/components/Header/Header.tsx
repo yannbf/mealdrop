@@ -102,9 +102,9 @@ export const CartTotal = styled(Body)(
 )
 
 // The theme.TooltipPopup floater chrome comes from @droppy/theme/styles.css
-// via the class applied below (no longer md-* prefixed; no external
-// className is ever passed to TooltipPopup at its call site, so .attrs is
-// safe); the app only lifts it above the sticky header.
+// via the class applied below (no external className is ever passed to
+// TooltipPopup at its call site, so .attrs is safe); the app only lifts it
+// above the sticky header.
 const TooltipPopup = styled(Tooltip.Popup).attrs({ className: theme.TooltipPopup })`
   z-index: 3;
 `

@@ -6,9 +6,8 @@ import { breakpoints } from '../../styles/breakpoints'
 
 // The theme.Drawer* chrome (overlay surface, leading-edge sheet radius,
 // overlay shadow, scrim, 300ms slide) comes from @droppy/theme/styles.css
-// via the theme.Drawer* classes applied below (no longer md-* prefixed; no
-// external className is ever passed to these at their call sites, so
-// .attrs is safe). The app keeps only its layout: the viewport flex shell,
+// via the theme.Drawer* classes applied below (no external className is
+// ever passed to these at their call sites, so .attrs is safe). The app keeps only its layout: the viewport flex shell,
 // full-width panel on mobile growing to 420px, and stacking above the
 // header.
 export const SidebarBackdrop = styled(Drawer.Backdrop).attrs({
