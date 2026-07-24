@@ -1,11 +1,8 @@
 import { useState, ChangeEvent } from 'react'
-import { Button as BaseButton } from '@base-ui/react/button'
-import { Field } from '@base-ui/react/field'
-import { Input as BaseInput } from '@base-ui/react/input'
-import theme from '@droppy/theme'
 import styled, { css } from 'styled-components'
 
-import { breakpoints } from '../../../../styles/breakpoints'
+import { Button } from '../../../../components/Button'
+import { Input } from '../../../../components/forms/Input'
 import { Body } from '../../../../components/typography/Body'
 import { type ContactDetailsFormData } from './validation'
 
@@ -14,25 +11,6 @@ const DisclaimerText = styled(Body)(
     margin-bottom: ${spacing.m};
   `
 )
-
-// Everything below through NextButton is what used to live in the app's
-// Field/Input/Button wrappers — now duplicated at each call site this file
-// needs, by design (milestone 1 has no shared wrappers). The theme.* classes
-// carry the base chrome via @droppy/theme/styles.css; only the app's own
-// label size and responsive button padding remain as local CSS.
-const FieldRoot = styled(Field.Root)`
-  label {
-    font-size: var(--ds-type-size-md);
-  }
-`
-
-const NextButton = styled(BaseButton)`
-  z-index: 1;
-
-  @media ${breakpoints.M} {
-    padding: 0.875rem 1.5rem;
-  }
-`
 
 type ContactDetailsProps = {
   formData: ContactDetailsFormData
@@ -111,75 +89,45 @@ export const ContactDetails = ({ formData, setFormData, onNext }: ContactDetails
 
   return (
     <div className="form">
-      <FieldRoot className={theme.FieldRoot}>
-        <Field.Label className={theme.FieldLabel}>First name</Field.Label>
-        <BaseInput
-          className={theme.Input}
-          aria-label="First name"
-          placeholder="John"
-          name="firstName"
-          value={form.firstName}
-          onChange={handleChange}
-          autoComplete="off"
-        />
-        <Field.Error className={theme.FieldError} match>
-          {(isSubmitted ? errors.firstName : undefined) || ' '}
-        </Field.Error>
-      </FieldRoot>
-      <FieldRoot className={theme.FieldRoot}>
-        <Field.Label className={theme.FieldLabel}>Last name</Field.Label>
-        <BaseInput
-          className={theme.Input}
-          aria-label="Last name"
-          placeholder="Doe"
-          name="lastName"
-          value={form.lastName}
-          onChange={handleChange}
-          autoComplete="off"
-        />
-        <Field.Error className={theme.FieldError} match>
-          {(isSubmitted ? errors.lastName : undefined) || ' '}
-        </Field.Error>
-      </FieldRoot>
-      <FieldRoot className={theme.FieldRoot}>
-        <Field.Label className={theme.FieldLabel}>Email</Field.Label>
-        <BaseInput
-          className={theme.Input}
-          type="email"
-          aria-label="Email"
-          placeholder="email address"
-          name="email"
-          value={form.email}
-          onChange={handleChange}
-          autoComplete="off"
-        />
-        <Field.Error className={theme.FieldError} match>
-          {(isSubmitted ? errors.email : undefined) || ' '}
-        </Field.Error>
-      </FieldRoot>
-      <FieldRoot className={theme.FieldRoot}>
-        <Field.Label className={theme.FieldLabel}>Phone number</Field.Label>
-        <BaseInput
-          className={theme.Input}
-          type="tel"
-          aria-label="Phone number"
-          placeholder="phone number"
-          name="phone"
-          value={form.phone}
-          onChange={handleChange}
-          autoComplete="off"
-        />
-        <Field.Error className={theme.FieldError} match>
-          {(isSubmitted ? errors.phone : undefined) || ' '}
-        </Field.Error>
-      </FieldRoot>
+      <Input
+        label="First name"
+        placeholder="John"
+        name="firstName"
+        value={form.firstName}
+        onChange={handleChange}
+        error={isSubmitted ? errors.firstName : undefined}
+      />
+      <Input
+        label="Last name"
+        placeholder="Doe"
+        name="lastName"
+        value={form.lastName}
+        onChange={handleChange}
+        error={isSubmitted ? errors.lastName : undefined}
+      />
+      <Input
+        label="Email"
+        type="email"
+        placeholder="email address"
+        name="email"
+        value={form.email}
+        onChange={handleChange}
+        error={isSubmitted ? errors.email : undefined}
+      />
+      <Input
+        label="Phone number"
+        placeholder="phone number"
+        type="tel"
+        name="phone"
+        value={form.phone}
+        onChange={handleChange}
+        error={isSubmitted ? errors.phone : undefined}
+      />
       <DisclaimerText size="XXS" type="span">
         We'll only use your phone to call you about your order
       </DisclaimerText>
       <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
-        <NextButton className={theme.Button} onClick={handleNext}>
-          Next
-        </NextButton>
+        <Button onClick={handleNext}>Next</Button>
       </div>
     </div>
   )

@@ -1,22 +1,13 @@
 import styled, { css } from 'styled-components'
 import { Link } from 'react-router-dom'
-import { Button as BaseButton } from '@base-ui/react/button'
-import theme from '@droppy/theme'
 
 import restaurants from '../../../../assets/images/restaurants.png'
 import { breakpoints } from '../../../../styles/breakpoints'
+import { Button } from '../../../../components/Button'
 import { Heading } from '../../../../components/typography'
 
-// theme.Button carries the base chrome via @droppy/theme/styles.css; the
-// margin-top and responsive padding bump are this call site's own CSS —
-// duplicated per site by design (milestone 1 has no shared Button wrapper).
-const StyledButton = styled(BaseButton)`
-  z-index: 1;
+const StyledButton = styled(Button)`
   margin-top: 2.5rem;
-
-  @media ${breakpoints.M} {
-    padding: 0.875rem 1.5rem;
-  }
 `
 
 const Container = styled.div(
@@ -82,7 +73,7 @@ export const AwardWinningSection = () => (
         <Heading className="bolder">Award winning</Heading>
         <Heading>The best restaurants near you!</Heading>
         <Link to="/categories">
-          <StyledButton className={theme.Button}>Explore best restaurants</StyledButton>
+          <StyledButton>Explore best restaurants</StyledButton>
         </Link>
       </LeftContainer>
       <SlidingBackground />

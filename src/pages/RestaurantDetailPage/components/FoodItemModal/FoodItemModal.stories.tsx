@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useState } from 'react'
-import { Button as BaseButton } from '@base-ui/react/button'
-import theme from '@droppy/theme'
 import { fn } from 'storybook/test'
+
+import { Button } from '../../../../components/Button'
 
 import { FoodItemModal } from './FoodItemModal'
 
@@ -47,9 +47,7 @@ const meta = {
     return (
       <>
         <p>Press ESC to close modal or click on the close icon!</p>
-        <BaseButton className={theme.Button} onClick={openModal}>
-          Open modal
-        </BaseButton>
+        <Button onClick={openModal}>Open modal</Button>
         <FoodItemModal
           item={item}
           cartItems={[item]}

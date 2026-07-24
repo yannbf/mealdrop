@@ -1,9 +1,7 @@
 import * as React from 'react'
-import { Button as BaseButton } from '@base-ui/react/button'
-import theme from '@droppy/theme'
 import styled from 'styled-components'
 
-import { breakpoints } from '../../styles/breakpoints'
+import { Button } from '../Button'
 import { Heading } from '../typography'
 
 type PageSectionProps = {
@@ -12,28 +10,6 @@ type PageSectionProps = {
   onTopButtonClick?: () => void
   children: React.ReactNode
 }
-
-// theme.Button carries the base chrome via @droppy/theme/styles.css; the
-// "clear" look (transparent fill, no hover fill outside the subtle-hover
-// bg) and the responsive padding bump are this call site's own CSS —
-// duplicated per site by design (milestone 1 has no shared Button wrapper).
-const ClearButton = styled(BaseButton)`
-  z-index: 1;
-  color: var(--ds-color-text-primary);
-  background-color: transparent;
-
-  &:hover:not([data-disabled]) {
-    background-color: var(--ds-color-action-subtle-hover);
-  }
-
-  &[data-disabled] {
-    background-color: transparent;
-  }
-
-  @media ${breakpoints.M} {
-    padding: 0.875rem 1.5rem;
-  }
-`
 
 const Container = styled.div`
   width: 100%;
@@ -61,9 +37,9 @@ export const PageSection: React.FC<React.PropsWithChildren<PageSectionProps>> = 
     <TopContainer>
       <Heading level={2}>{title}</Heading>
       {topButtonLabel && (
-        <ClearButton className={theme.Button} onClick={onTopButtonClick}>
+        <Button clear onClick={onTopButtonClick}>
           {topButtonLabel}
-        </ClearButton>
+        </Button>
       )}
     </TopContainer>
     {children}
