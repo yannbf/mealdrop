@@ -13,7 +13,9 @@ import { breakpoints } from '../../styles/breakpoints'
 export const SidebarBackdrop = styled(Drawer.Backdrop).attrs({
   className: theme.DrawerBackdrop,
 })`
-  z-index: 98;
+  && {
+    z-index: 98;
+  }
 `
 
 export const SidebarViewport = styled(Drawer.Viewport)`
@@ -26,23 +28,27 @@ export const SidebarViewport = styled(Drawer.Viewport)`
 `
 
 export const SidebarPopup = styled(Drawer.Popup).attrs({ className: theme.DrawerPopup })`
-  position: relative;
-  inset: auto;
-  height: 100%;
-  width: 100%;
-  /* Keep the slide transition local: the app's viewport-flex layout replaces
-     the package's fixed positioning, so it also owns the resting transform. */
-  transform: translateX(0);
-  transition: transform var(--ds-motion-slow) var(--ds-motion-ease);
-  will-change: transform;
+  && {
+    position: relative;
+    inset: auto;
+    height: 100%;
+    width: 100%;
+    /* Keep the slide transition local: the app's viewport-flex layout replaces
+       the package's fixed positioning, so it also owns the resting transform. */
+    transform: translateX(0);
+    transition: transform var(--ds-motion-slow) var(--ds-motion-ease);
+    will-change: transform;
+  }
 
-  &[data-starting-style],
-  &[data-ending-style] {
+  &&[data-starting-style],
+  &&[data-ending-style] {
     transform: translateX(100%);
   }
 
   @media ${breakpoints.M} {
-    width: 420px;
+    && {
+      width: 420px;
+    }
   }
 `
 

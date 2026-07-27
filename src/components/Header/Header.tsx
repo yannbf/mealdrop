@@ -106,7 +106,9 @@ export const CartTotal = styled(Body)(
 // TooltipPopup at its call site, so .attrs is safe); the app only lifts it
 // above the sticky header.
 const TooltipPopup = styled(Tooltip.Popup).attrs({ className: theme.TooltipPopup })`
-  z-index: 3;
+  && {
+    z-index: 3;
+  }
 `
 
 const ThemeToggle = () => {

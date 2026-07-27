@@ -10,7 +10,7 @@ import theme from '@droppy/theme'
 // external className is ever passed to Container, so .attrs is safe). The
 // app keeps only its 1.125rem body-size label (the stylesheet default is 1rem).
 const Container = styled(Field.Root).attrs({ className: theme.FieldRoot })`
-  label {
+  && label {
     font-size: var(--ds-type-size-md);
   }
 `

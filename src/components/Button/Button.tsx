@@ -22,20 +22,24 @@ type StyledButtonProperties = {
 // applied below; only Mealdrop-app variants and layout remain here.
 const StyledButton = styled(MdButton)<StyledButtonProperties>(
   ({ $clear, $large, $round, $withIcon }) => css`
-    z-index: 1;
-    padding: ${$withIcon ? '0.7rem' : $large ? '1.125rem 1rem' : '0.875rem 1rem'};
-    ${$round ? 'border-radius: var(--ds-radius-pill);' : ''}
+    && {
+      z-index: 1;
+      padding: ${$withIcon ? '0.7rem' : $large ? '1.125rem 1rem' : '0.875rem 1rem'};
+      ${$round ? 'border-radius: var(--ds-radius-pill);' : ''}
+    }
     ${
       $clear
         ? css`
-            color: var(--ds-color-text-primary);
-            background-color: transparent;
+            && {
+              color: var(--ds-color-text-primary);
+              background-color: transparent;
+            }
 
-            &:hover:not([data-disabled]) {
+            &&:hover:not([data-disabled]) {
               background-color: var(--ds-color-action-subtle-hover);
             }
 
-            &[data-disabled] {
+            &&[data-disabled] {
               background-color: transparent;
             }
           `
@@ -43,7 +47,9 @@ const StyledButton = styled(MdButton)<StyledButtonProperties>(
     }
 
     @media ${breakpoints.M} {
-      padding: ${$withIcon ? '1rem' : $large ? '1.125rem 1.5rem' : '0.875rem 1.5rem'};
+      && {
+        padding: ${$withIcon ? '1rem' : $large ? '1.125rem 1.5rem' : '0.875rem 1.5rem'};
+      }
     }
   `
 )
