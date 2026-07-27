@@ -24,6 +24,10 @@ export const StyledPopup = styled(Dialog.Popup).attrs({ className: theme.DialogP
     width: auto;
     max-width: none;
     max-height: none;
+    /* The theme pads the popup by 1rem; the app's modal content (e.g. the
+       FoodItemModal header) is edge-to-edge, so reset it or the content
+       floats with a white gap around it. */
+    padding: 0;
     transform: none;
     border-radius: var(--ds-radius-sheet) var(--ds-radius-sheet) 0 0;
     transition: transform var(--ds-motion-slow) var(--ds-motion-ease);
