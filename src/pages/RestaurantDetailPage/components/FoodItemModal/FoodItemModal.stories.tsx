@@ -70,6 +70,11 @@ export const Desktop: Story = {
 }
 
 export const Mobile: Story = {
+  // Storybook 10's viewport global isn't applied by Chromatic at capture time,
+  // so pin the capture width explicitly to the iphonex viewport (375px).
+  parameters: {
+    chromatic: { viewports: [375] },
+  },
   globals: {
     viewport: { value: 'iphonex', isRotated: false },
   },
