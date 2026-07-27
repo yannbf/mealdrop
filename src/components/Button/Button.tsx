@@ -24,6 +24,12 @@ const StyledButton = styled(MdButton)<StyledButtonProperties>(
   ({ $clear, $large, $round, $withIcon }) => css`
     && {
       z-index: 1;
+      /* Restore the app's default line-height: the theme sets line-height:1,
+         which makes the button ~10px shorter than Mealdrop's original. */
+      line-height: normal;
+      /* The app spaces the icon from the label with a <Spacer>; the theme's
+         gap would add to that and over-space icon buttons. */
+      gap: 0;
       padding: ${$withIcon ? '0.7rem' : $large ? '1.125rem 1rem' : '0.875rem 1rem'};
       ${$round ? 'border-radius: var(--ds-radius-pill);' : ''}
     }
