@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components'
 import { Link, useNavigate } from 'react-router-dom'
 import useDarkMode from 'use-dark-mode'
+import { Tooltip } from '@base-ui/react/tooltip'
+import theme from '@droppy/theme'
 
 import { useAppDispatch, useAppSelector } from '../../app-state'
 import {
@@ -99,16 +101,38 @@ export const CartTotal = styled(Body)(
   `
 )
 
+// The theme.TooltipPopup floater chrome comes from @droppy/theme/styles.css
+// via the class applied below (no external className is ever passed to
+// TooltipPopup at its call site, so .attrs is safe); the app only lifts it
+// above the sticky header.
+const TooltipPopup = styled(Tooltip.Popup).attrs({ className: theme.TooltipPopup })`
+  && {
+    z-index: 3;
+  }
+`
+
 const ThemeToggle = () => {
   const darkMode = useDarkMode(false, { global: globalThis.window })
+  const label = `turn on ${darkMode.value ? 'light' : 'dark'} mode`
   return (
-    <Button
-      round
-      clear
-      aria-label={`turn on ${darkMode.value ? 'light' : 'dark'} mode`}
-      icon={darkMode.value ? 'moon' : 'sun'}
-      onClick={darkMode.toggle}
-    />
+    <Tooltip.Root>
+      <Tooltip.Trigger
+        render={
+          <Button
+            round
+            clear
+            aria-label={label}
+            icon={darkMode.value ? 'moon' : 'sun'}
+            onClick={darkMode.toggle}
+          />
+        }
+      />
+      <Tooltip.Portal>
+        <Tooltip.Positioner sideOffset={8}>
+          <TooltipPopup>{label}</TooltipPopup>
+        </Tooltip.Positioner>
+      </Tooltip.Portal>
+    </Tooltip.Root>
   )
 }
 

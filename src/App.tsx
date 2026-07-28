@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import useDarkMode from 'use-dark-mode'
 import { ThemeProvider } from 'styled-components'
 import { BrowserRouter as Router } from 'react-router-dom'
@@ -11,6 +12,12 @@ import { GlobalStyle } from './styles/GlobalStyle'
 export default function App() {
   const { value } = useDarkMode(false, { global: globalThis.window })
   const theme = value ? darkTheme : lightTheme
+
+  // Keep the DS tokens (--ds-* vars in ds-theme.css) in sync with the
+  // styled-components theme: one toggle, two theming systems.
+  useEffect(() => {
+    document.documentElement.dataset.theme = value ? 'dark' : 'light'
+  }, [value])
 
   return (
     <Router>

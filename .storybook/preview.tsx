@@ -14,8 +14,17 @@ import { demoModeLoader } from './demo-mode'
 import { rootReducer } from '../src/app-state'
 import { breakpoints, viewports } from '../src/styles/breakpoints'
 import { GlobalStyle } from '../src/styles/GlobalStyle'
+import '@droppy/theme/styles.css'
+import isChromatic from 'chromatic/isChromatic'
 import { darkTheme, lightTheme } from '../src/styles/theme'
 import { sb } from 'storybook/test'
+
+// Chromatic's capture engine moves focus into open dialogs/tooltips, which draws
+// the theme's :focus-visible ring and pollutes the snapshots. Neutralize just the
+// ring token during capture — real users still get their focus indicator.
+if (typeof document !== 'undefined' && isChromatic()) {
+  document.documentElement.style.setProperty('--ds-shadow-focus', 'none')
+}
 
 sb.mock('../src/helpers/getCurrency.ts', { spy: true })
 
@@ -65,6 +74,13 @@ export const withTheme: Decorator = (
   const rightContainerRef = React.useRef<HTMLDivElement>(null)
   const isScrolling = React.useRef(false)
   const isSideBySide = theme === 'side-by-side' && viewMode === 'story'
+
+  // Keep the DS tokens (--ds-* vars) in sync with the picked theme. Side-by-side
+  // can't split :root-level vars; it keeps the light tokens (styled-components
+  // still theme both halves).
+  React.useEffect(() => {
+    document.documentElement.dataset.theme = theme === 'dark' ? 'dark' : 'light'
+  }, [theme])
 
   React.useEffect(() => {
     if (isSideBySide) {

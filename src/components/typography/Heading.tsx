@@ -26,15 +26,16 @@ type DefaultProps = {
 
 type HeadingProps = DefaultProps & Omit<React.ComponentProps<'h1'>, keyof DefaultProps>
 
-export const Heading: React.FC<React.PropsWithChildren<HeadingProps>> = ({
-  level = 1,
-  children,
-  className,
-}) => {
-  const heading = `h${level}` as React.ElementType
-  return (
-    <HeadingBase as={heading} $level={level} className={className}>
-      {children}
-    </HeadingBase>
-  )
-}
+// Forwards ref and rest props (id, aria-*) so composition wrappers like
+// Drawer.Title can wire aria-labelledby to the rendered heading.
+export const Heading = React.forwardRef<HTMLHeadingElement, React.PropsWithChildren<HeadingProps>>(
+  ({ level = 1, children, className, ...rest }, ref) => {
+    const heading = `h${level}` as React.ElementType
+    return (
+      <HeadingBase ref={ref} as={heading} $level={level} className={className} {...rest}>
+        {children}
+      </HeadingBase>
+    )
+  }
+)
+Heading.displayName = 'Heading'
