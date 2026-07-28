@@ -28,6 +28,9 @@ export const StyledPopup = styled(Dialog.Popup).attrs({ className: theme.DialogP
        FoodItemModal header) is edge-to-edge, so reset it or the content
        floats with a white gap around it. */
     padding: 0;
+    /* The original modal lets its content overflow (no scrollbar); the theme's
+       overflow:auto adds a scrollbar for the last few pixels of the card. */
+    overflow: visible;
     transform: none;
     border-radius: var(--ds-radius-sheet) var(--ds-radius-sheet) 0 0;
     transition: transform var(--ds-motion-slow) var(--ds-motion-ease);
