@@ -26,13 +26,19 @@ const Container = styled.div<ContainerProps>(
   ({ $iconColor }) => css`
     display: flex;
     flex-direction: column-reverse;
-    padding-bottom: var(--ds-space-md);
+    /* Droppy's space scale is offset from the original's, so mapping by name
+       overshot: the original used spacing.m (1.25rem) here, but --ds-space-md
+       is 2rem. There is no 1.25rem step in the DS scale; --ds-space-sm (1.5rem)
+       is the nearest interval. */
+    padding-bottom: var(--ds-space-sm);
     label {
       color: var(--ds-color-text-label);
       font-family: var(--ds-type-family-body);
       font-size: var(--ds-type-size-md);
       font-weight: var(--ds-type-weight-regular);
-      padding-bottom: var(--ds-space-xs);
+      /* Same offset: the original's spacing.xs is 0.5rem, which is
+         --ds-space-2xs in the DS scale (--ds-space-xs is 1rem). */
+      padding-bottom: var(--ds-space-2xs);
       &:first-letter {
         text-transform: uppercase;
       }
