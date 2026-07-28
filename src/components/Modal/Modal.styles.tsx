@@ -33,7 +33,8 @@ export const StyledPopup = styled(Dialog.Popup).attrs({ className: theme.DialogP
     overflow: visible;
     transform: none;
     border-radius: var(--ds-radius-sheet) var(--ds-radius-sheet) 0 0;
-    transition: transform var(--ds-motion-slow) var(--ds-motion-ease);
+    /* Match the original modal's open/close timing (theme motion is slower). */
+    transition: transform 300ms;
   }
 
   &&[data-starting-style],
@@ -50,9 +51,10 @@ export const StyledPopup = styled(Dialog.Popup).attrs({ className: theme.DialogP
       left: calc(50% - (600px / 2));
       top: calc(50% - (272px / 2));
       border-radius: var(--ds-radius-sheet);
+      /* Desktop uses the original's fast 120ms fade/scale, not the theme's slow. */
       transition:
-        opacity var(--ds-motion-slow) var(--ds-motion-ease),
-        transform var(--ds-motion-slow) var(--ds-motion-ease);
+        opacity 120ms,
+        transform 120ms;
     }
 
     &&[data-starting-style],
@@ -68,6 +70,8 @@ export const StyledBackdrop = styled(Dialog.Backdrop).attrs({ className: theme.D
     z-index: 98;
     position: fixed;
     inset: 0;
+    /* Match the original backdrop fade (theme uses ease-in). */
+    transition: opacity 300ms;
   }
 `
 

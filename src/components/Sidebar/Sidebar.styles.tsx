@@ -15,6 +15,8 @@ export const SidebarBackdrop = styled(Drawer.Backdrop).attrs({
 })`
   && {
     z-index: 98;
+    /* Match the original backdrop fade (theme uses ease-in). */
+    transition: opacity 300ms;
   }
 `
 
@@ -36,7 +38,8 @@ export const SidebarPopup = styled(Drawer.Popup).attrs({ className: theme.Drawer
     /* Keep the slide transition local: the app's viewport-flex layout replaces
        the package's fixed positioning, so it also owns the resting transform. */
     transform: translateX(0);
-    transition: transform var(--ds-motion-slow) var(--ds-motion-ease);
+    /* Match the original drawer timing (theme motion uses ease-in). */
+    transition: transform 300ms;
     will-change: transform;
   }
 
