@@ -22,6 +22,17 @@ const Container = styled(Field.Root).attrs({ className: theme.FieldRoot })`
     font-family: 'Montserrat', sans-serif;
     border: none;
   }
+
+  /* The original error slot is a Body paragraph: 12px text, a 16px min-height
+     reserve, and — crucially — a 12px bottom margin that spaces the form
+     fields apart. The theme's FieldError has a smaller font, a 1rem reserve,
+     and no bottom margin, which packs every field 12px tighter. Restore the
+     original metrics so the form layout matches. */
+  && .${theme.FieldError} {
+    font-size: 12px;
+    min-height: 16px;
+    margin-bottom: 12px;
+  }
 `
 
 type InputProps = {

@@ -15,6 +15,9 @@ export const SidebarBackdrop = styled(Drawer.Backdrop).attrs({
 })`
   && {
     z-index: 98;
+    /* The theme tints the scrim to 20% black; the original sidebar used 40%.
+       Match it (the element-opacity fade animates 0 -> 1 over this color). */
+    background-color: rgba(0, 0, 0, 0.4);
     /* Match the original backdrop fade (theme uses ease-in). */
     transition: opacity 300ms;
   }
@@ -35,6 +38,10 @@ export const SidebarPopup = styled(Drawer.Popup).attrs({ className: theme.Drawer
     inset: auto;
     height: 100%;
     width: 100%;
+    /* Base UI moves focus into the drawer on open; in Chromatic's headless
+       capture that programmatic focus matches :focus-visible and draws the
+       browser's default outline around the panel. The original showed none. */
+    outline: none;
     /* Keep the slide transition local: the app's viewport-flex layout replaces
        the package's fixed positioning, so it also owns the resting transform. */
     transform: translateX(0);

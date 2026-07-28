@@ -24,6 +24,18 @@ export const StyledPopup = styled(Dialog.Popup).attrs({ className: theme.DialogP
     width: auto;
     max-width: none;
     max-height: none;
+    /* The theme's popup is a flex column with a 1rem gap, a -2rem margin-top,
+       and a 1px border — none of which the original modal has. The margin
+       shifts the card up, the border draws a hairline, and the flex gap
+       re-spaces the content. Reset to the original's plain block. */
+    display: block;
+    margin-top: 0;
+    border: none;
+    /* Base UI moves focus into the popup on open; in Chromatic's headless
+       capture that programmatic focus matches :focus-visible and draws the
+       browser's default outline around the whole modal. The original never
+       showed one. */
+    outline: none;
     /* The theme pads the popup by 1rem; the app's modal content (e.g. the
        FoodItemModal header) is edge-to-edge, so reset it or the content
        floats with a white gap around it. */
@@ -70,8 +82,16 @@ export const StyledBackdrop = styled(Dialog.Backdrop).attrs({ className: theme.D
     z-index: 98;
     position: fixed;
     inset: 0;
+    /* The theme tints the scrim to 20% black; the original modal used 40%.
+       Match it (the element-opacity fade below animates 0 -> 0.4). */
+    opacity: 0.4;
     /* Match the original backdrop fade (theme uses ease-in). */
     transition: opacity 300ms;
+  }
+
+  &&[data-starting-style],
+  &&[data-ending-style] {
+    opacity: 0;
   }
 `
 
