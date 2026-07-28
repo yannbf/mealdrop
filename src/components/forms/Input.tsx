@@ -10,18 +10,16 @@ import theme from '@droppy/theme'
 // external className is ever passed to Container, so .attrs is safe). The
 // app keeps only its 1.125rem body-size label (the stylesheet default is 1rem).
 const Container = styled(Field.Root).attrs({ className: theme.FieldRoot })`
-  /* The app's form text is Montserrat; the theme's body-font token is Hind
-     (correct for buttons, not for inputs). Scope it back to the app font on
-     the form so the input/label match the pre-migration design. */
-  --ds-type-family-body: 'Montserrat', sans-serif;
-
   && label {
     font-size: var(--ds-type-size-md);
   }
 
-  /* The original input has no border and shows validation via the error
-     message; the theme's transparent border only added height. Remove it. */
+  /* Match the original: the input text is Montserrat (the theme's body-font
+     token is Hind, right for buttons but not the input), while the label keeps
+     the theme's Hind. Remove the theme's transparent border too — the original
+     has none and shows validation via the error message. */
   && input {
+    font-family: 'Montserrat', sans-serif;
     border: none;
   }
 `
