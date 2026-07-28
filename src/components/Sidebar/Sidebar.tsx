@@ -27,41 +27,50 @@ export const Sidebar: React.FC<React.PropsWithChildren<SidebarProps>> = ({
   isOpen,
   title,
   onClose,
-}) => (
-  // Base UI's Drawer handles ESC-to-close, body scroll lock, focus trapping,
-  // and outside/backdrop-press dismissal natively (modal defaults to true).
-  <Drawer.Root
-    open={isOpen}
-    swipeDirection="right"
-    onOpenChange={(open) => {
-      if (!open) {
-        onClose()
-      }
-    }}
-  >
-    <Drawer.Portal>
-      <SidebarBackdrop data-testid="Sidebar-backdrop" />
-      <SidebarViewport>
-        <SidebarPopup data-testid="sidebar">
-          <TopBar>
-            <Drawer.Title
-              className={theme.DrawerTitle}
-              render={<Heading level={4}>{title}</Heading>}
-            />
-            <Button
-              aria-label="close sidebar"
-              data-testid="sidebar-close-btn"
-              onClick={onClose}
-              clear
-              round
-              icon="cross"
-              iconSize={16}
-            />
-          </TopBar>
-          <SidebarContent data-testid="sidebar-content">{children}</SidebarContent>
-          {footer && <SidebarFooter data-testid="sidebar-footer">{footer}</SidebarFooter>}
-        </SidebarPopup>
-      </SidebarViewport>
-    </Drawer.Portal>
-  </Drawer.Root>
-)
+}) => {
+  // Portal into the in-app #modal container (like Modal) so the drawer renders
+  // inside the story canvas; Base UI's Drawer defaults to document.body.
+  const [container, setContainer] = React.useState<HTMLElement | null>(null)
+  React.useEffect(() => {
+    setContainer(document.querySelector<HTMLElement>('#modal'))
+  }, [])
+
+  return (
+    // Base UI's Drawer handles ESC-to-close, body scroll lock, focus trapping,
+    // and outside/backdrop-press dismissal natively (modal defaults to true).
+    <Drawer.Root
+      open={isOpen}
+      swipeDirection="right"
+      onOpenChange={(open) => {
+        if (!open) {
+          onClose()
+        }
+      }}
+    >
+      <Drawer.Portal container={container || undefined}>
+        <SidebarBackdrop data-testid="Sidebar-backdrop" />
+        <SidebarViewport>
+          <SidebarPopup data-testid="sidebar">
+            <TopBar>
+              <Drawer.Title
+                className={theme.DrawerTitle}
+                render={<Heading level={4}>{title}</Heading>}
+              />
+              <Button
+                aria-label="close sidebar"
+                data-testid="sidebar-close-btn"
+                onClick={onClose}
+                clear
+                round
+                icon="cross"
+                iconSize={16}
+              />
+            </TopBar>
+            <SidebarContent data-testid="sidebar-content">{children}</SidebarContent>
+            {footer && <SidebarFooter data-testid="sidebar-footer">{footer}</SidebarFooter>}
+          </SidebarPopup>
+        </SidebarViewport>
+      </Drawer.Portal>
+    </Drawer.Root>
+  )
+}

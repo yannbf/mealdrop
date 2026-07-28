@@ -114,16 +114,14 @@ export const ToCheckoutPage = {
 
     await step('Sidebar should contain 2 items', async () => {
       await userEvent.click(canvas.getByLabelText('food cart'))
-      // The cart drawer portals to document.body (Base UI Drawer), so query the document
-      const sidebar = await within(canvasElement.ownerDocument.body).findByTestId('sidebar')
+      const sidebar = await within(canvasElement).findByTestId('sidebar')
 
       const foodItemSelector: HTMLSelectElement = within(sidebar).getByRole('combobox')
       await expect(foodItemSelector.value).toEqual('2')
     })
 
     await step('Go to "Checkout" page', async () => {
-      // The Checkout button lives in the drawer footer, which portals to body
-      await userEvent.click(within(canvasElement.ownerDocument.body).getByText(/checkout/i))
+      await userEvent.click(canvas.getByText(/checkout/i))
     })
   },
 } satisfies Story
