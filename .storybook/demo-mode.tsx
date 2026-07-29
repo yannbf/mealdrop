@@ -10,9 +10,23 @@ export function delay(ms: number) {
   })
 }
 
+// Determines if the element is fully visible in the viewport
+const isElementInViewport = (el: Element) => {
+  const rect = el.getBoundingClientRect()
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  )
+}
+
 async function mouseTo(
   target: Element,
-  { cursorStyle = 'hand', delay = 1000 }: { cursorStyle?: 'hand' | 'circle'; delay?: number }
+  {
+    cursorStyle = 'hand',
+    delay: delayMs = 1000,
+  }: { cursorStyle?: 'hand' | 'circle'; delay?: number }
 ) {
   if (target) {
     return new Promise((resolve) => {
@@ -62,17 +76,6 @@ async function mouseTo(
         return
       }
 
-      // Function to determine if the element is fully visible in the viewport
-      const isElementInViewport = (el: Element) => {
-        const rect = el.getBoundingClientRect()
-        return (
-          rect.top >= 0 &&
-          rect.left >= 0 &&
-          rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-          rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        )
-      }
-
       // Scroll the element into view if it's not fully visible
       if (!isElementInViewport(target)) {
         target.scrollIntoView({ block: 'center', inline: 'center' })
@@ -89,10 +92,10 @@ async function mouseTo(
         }
         cursorEl.style.top = sTop
         cursorEl.style.left = sLeft
-        cursorEl.style.transitionDuration = `${Math.round(delay * 0.9)}ms`
+        cursorEl.style.transitionDuration = `${Math.round(delayMs * 0.9)}ms`
         // ^ bakes in a 10% time delay from movement ending to click event
 
-        setTimeout(resolve, delay)
+        setTimeout(resolve, delayMs)
       }
 
       // Timeout is needed when there are animations on the page e.g. sidebar sliding etc, else the calculation is off and the cursor goes to the wrong place

@@ -114,7 +114,11 @@ export const RestaurantDetailPage = () => {
           <Heading level={2}>{name}</Heading>
           <Body>Specialties: {specialty}</Body>
           <Review rating={rating} />
-          <div>{categories?.map((category) => <StyledBadge key={category} text={category} />)}</div>
+          <div>
+            {categories?.map((category) => (
+              <StyledBadge key={category} text={category} />
+            ))}
+          </div>
         </div>
       </DetailSection>
       <MenuSection>

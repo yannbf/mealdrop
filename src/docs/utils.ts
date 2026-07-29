@@ -11,7 +11,7 @@ interface Theme {
 export const sortObjectKeys = (obj: GenericObject): GenericObject =>
   Object.fromEntries(
     Object.entries(obj)
-      .sort()
+      .toSorted()
       .map(([k, v]) => [k, v])
   )
 

@@ -29,6 +29,6 @@ export const Animated: Story = {
   args: {
     large: true,
     logoOnly: true,
-    animated: true
+    animated: true,
   },
 }

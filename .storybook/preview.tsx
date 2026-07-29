@@ -74,7 +74,7 @@ export const withTheme: Decorator = (
         document.body.className = originalClasses
       }
     }
-  }, [theme])
+  }, [isSideBySide])
 
   React.useEffect(() => {
     const leftContainer = leftContainerRef.current
@@ -104,7 +104,7 @@ export const withTheme: Decorator = (
       leftContainer.removeEventListener('scroll', leftScrollHandler)
       rightContainer.removeEventListener('scroll', rightScrollHandler)
     }
-  }, [theme])
+  }, [isSideBySide])
 
   switch (theme) {
     case 'side-by-side': {
