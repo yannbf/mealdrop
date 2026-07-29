@@ -132,10 +132,10 @@ export const ToSuccessPage = {
     const { canvas, step, userEvent } = context
 
     await step('Fill in user details', async () => {
-      await userEvent.type(canvas.getByLabelText('First name'), 'Jane')
-      await userEvent.type(canvas.getByLabelText('Last name'), 'Dough')
-      await userEvent.type(canvas.getByLabelText('Email'), 'jane@dough.com')
-      await userEvent.type(canvas.getByLabelText('Phone number'), '0612345678')
+      await userEvent.type(canvas.getByPlaceholderText('John'), 'Jane')
+      await userEvent.type(canvas.getByPlaceholderText('Doe'), 'Dough')
+      await userEvent.type(canvas.getByPlaceholderText('email address'), 'jane@dough.com')
+      await userEvent.type(canvas.getByPlaceholderText('phone number'), '0612345678')
     })
 
     await step('Go to the next step', async () => {
@@ -143,9 +143,9 @@ export const ToSuccessPage = {
     })
 
     await step('Fill in delivery details', async () => {
-      await userEvent.type(canvas.getByLabelText('Streetname and housenumber'), 'Somestreet 14')
-      await userEvent.type(canvas.getByLabelText('Postcode'), '1043DX')
-      await userEvent.type(canvas.getByLabelText('City'), 'Amsterdam')
+      await userEvent.type(canvas.getByPlaceholderText('Some street, 13'), 'Somestreet 14')
+      await userEvent.type(canvas.getByPlaceholderText('AAAAXX'), '1043DX')
+      await userEvent.type(canvas.getByPlaceholderText('Amsterdam'), 'Amsterdam')
     })
 
     await step('Complete order', async () => {

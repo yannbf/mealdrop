@@ -63,7 +63,7 @@ export const Input = ({ label = '', type = 'text', id, error, ...otherProps }: I
         {label}
       </Body>
     )}
-    <input id={id} aria-label={label} type={type} {...otherProps} autoComplete="off" />
+    <input id={id} type={type} {...otherProps} autoComplete="off" />
     <ErrorMessage>{error || ' '}</ErrorMessage>
   </Container>
 )
