@@ -40,6 +40,8 @@
     "@use-it/event-listener@npm:^0.1.2": "patch:@use-it/event-listener@npm%3A0.1.7#~/.yarn/patches/@use-it-event-listener-npm-0.1.7-56ef42a654.patch"
   },
   "dependencies": {
+    "@base-ui/react": "https://pkg.pr.new/storybook-tmp/base-ui/@base-ui/react@85313eccf",
+    "@droppy/theme": "https://pkg.pr.new/storybook-tmp/base-ui/@droppy/theme@85313eccf",
     "@hookform/resolvers": "^5.5.7",
     "@reduxjs/toolkit": "^2.12.0",
     "axios": "^1.18.1",
