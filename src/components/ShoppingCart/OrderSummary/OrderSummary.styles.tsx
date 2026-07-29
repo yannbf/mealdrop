@@ -26,6 +26,10 @@ export const OrderSummaryContainer = styled.div<{ fixed?: boolean }>(
   `
 )
 
+export const TotalHeading = styled(StyledHeading)`
+  color: #d70808;
+`
+
 export const BottomContainer = styled.div`
   margin-top: auto;
   border-top: 1px solid #f5f6f7;
