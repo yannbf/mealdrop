@@ -15,6 +15,7 @@ const config: StorybookConfig = {
     '@storybook/addon-designs',
     '@storybook/addon-docs',
     '@storybook/addon-mcp',
+    'msw-storybook-addon',
   ],
   typescript: {
     reactDocgen: 'react-docgen',
