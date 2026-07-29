@@ -1,0 +1,22 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "semi": false,
+  "singleQuote": true,
+  "printWidth": 100,
+  "bracketSpacing": true,
+  "sortPackageJson": false,
+  "ignorePatterns": [
+    ".github",
+    ".husky",
+    ".yarn",
+    "build",
+    "node_modules",
+    "public",
+    "src/assets",
+    "src/docs/assets",
+    "src/__snapshots__",
+    "**/*.mdx"
+  ]
+}

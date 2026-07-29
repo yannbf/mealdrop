@@ -24,32 +24,32 @@ type FormErrors = {
 
 const contactFields: (keyof ContactDetailsFormData)[] = ['firstName', 'lastName', 'email', 'phone']
 
+const validateField = (name: keyof ContactDetailsFormData, value: string): string | undefined => {
+  if (!value) return 'Required'
+
+  switch (name) {
+    case 'firstName':
+    case 'lastName': {
+      return value.length < 2 ? 'Must be at least 2 characters' : undefined
+    }
+    case 'email': {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
+        ? undefined
+        : 'Please enter a valid email address'
+    }
+    case 'phone': {
+      return value.length < 10 ? 'Please enter a valid phone number' : undefined
+    }
+    default: {
+      return undefined
+    }
+  }
+}
+
 export const ContactDetails = ({ formData, setFormData, onNext }: ContactDetailsProps) => {
   const [errors, setErrors] = useState<FormErrors>({})
   const [form, setForm] = useState<ContactDetailsFormData>(formData)
   const [isSubmitted, setIsSubmitted] = useState(false)
-
-  const validateField = (name: keyof ContactDetailsFormData, value: string): string | undefined => {
-    if (!value) return 'Required'
-
-    switch (name) {
-      case 'firstName':
-      case 'lastName': {
-        return value.length < 2 ? 'Must be at least 2 characters' : undefined
-      }
-      case 'email': {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
-          ? undefined
-          : 'Please enter a valid email address'
-      }
-      case 'phone': {
-        return value.length < 10 ? 'Please enter a valid phone number' : undefined
-      }
-      default: {
-        return undefined
-      }
-    }
-  }
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target

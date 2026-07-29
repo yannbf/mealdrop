@@ -1,7 +1,7 @@
 import type { Preview } from '@storybook/react-vite'
 import { INITIAL_VIEWPORTS } from 'storybook/viewport'
 import { userEvent } from '@testing-library/user-event'
-import { mswLoader, initialize } from 'msw-storybook-addon'
+import { mswLoader } from 'msw-storybook-addon/csf3'
 import { DocsContainer, DocsContainerProps } from '@storybook/addon-docs/blocks'
 import { Decorator } from '@storybook/react-vite'
 import { configureStore } from '@reduxjs/toolkit'
@@ -18,21 +18,6 @@ import { darkTheme, lightTheme } from '../src/styles/theme'
 import { sb } from 'storybook/test'
 
 sb.mock('../src/helpers/getCurrency.ts', { spy: true })
-
-initialize({
-  quiet: true,
-  onUnhandledRequest: ({ url, method }) => {
-    const pathname = new URL(url).pathname
-    if (pathname.startsWith('/.netlify/functions')) {
-      console.error(`Unhandled ${method} request to ${url}.
-
-        This exception has been only logged in the console, however, it's strongly recommended to resolve this error as you don't want unmocked data in Storybook stories.
-
-        If you wish to mock an error response, please refer to this guide: https://mswjs.io/docs/recipes/mocking-error-responses
-      `)
-    }
-  },
-})
 
 const ThemeBlock = styled.div<{ $left?: boolean; $fullScreen?: boolean }>(
   ({ $left, $fullScreen, theme: { color } }) => css`
@@ -74,7 +59,7 @@ export const withTheme: Decorator = (
         document.body.className = originalClasses
       }
     }
-  }, [theme])
+  }, [isSideBySide])
 
   React.useEffect(() => {
     const leftContainer = leftContainerRef.current
@@ -104,7 +89,7 @@ export const withTheme: Decorator = (
       leftContainer.removeEventListener('scroll', leftScrollHandler)
       rightContainer.removeEventListener('scroll', rightScrollHandler)
     }
-  }, [theme])
+  }, [isSideBySide])
 
   switch (theme) {
     case 'side-by-side': {
@@ -254,7 +239,7 @@ const preview: Preview = {
     },
   },
   decorators: [withRouter, withTheme, withStore],
-  loaders: [mswLoader, demoModeLoader],
+  loaders: [mswLoader(), demoModeLoader],
 }
 
 declare module 'storybook/internal/csf' {

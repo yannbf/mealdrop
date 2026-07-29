@@ -7,8 +7,8 @@ const getRestaurantById = (id: string) => {
 const getRestaurantsByCategory = (category: string) => {
   return restaurantsCompleteData
     .filter((restaurant) => restaurant.categories?.includes(category.toLowerCase()))
-    .sort((restaurant) => (restaurant.isClosed ? 1 : -1))
-    .sort((restaurant) => (restaurant.isNew ? -1 : 1))
+    .toSorted((restaurant) => (restaurant.isClosed ? 1 : -1))
+    .toSorted((restaurant) => (restaurant.isNew ? -1 : 1))
 }
 
 const headers = {

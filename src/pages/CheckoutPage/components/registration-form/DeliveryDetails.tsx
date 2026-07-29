@@ -20,6 +20,27 @@ type FormErrors = {
 
 const deliveryFields: (keyof DeliveryDetailsFormData)[] = ['address', 'city', 'postcode']
 
+const validateField = (name: keyof DeliveryDetailsFormData, value: string): string | undefined => {
+  if (!value) return 'Required'
+
+  switch (name) {
+    case 'address': {
+      return value.length < 5 ? 'Please enter a valid address' : undefined
+    }
+    case 'city': {
+      return value.length < 2 ? 'Please enter a valid city' : undefined
+    }
+    case 'postcode': {
+      return /^[0-9]{4}[A-Z]{2}$/.test(value)
+        ? undefined
+        : 'Please enter a valid postcode (e.g., 1234AB)'
+    }
+    default: {
+      return undefined
+    }
+  }
+}
+
 export const DeliveryDetails = ({ formData, setFormData, onPrevious }: DeliveryDetailsProps) => {
   const navigate = useNavigate()
   const dispatch = useAppDispatch()
@@ -27,30 +48,6 @@ export const DeliveryDetails = ({ formData, setFormData, onPrevious }: DeliveryD
   const [errors, setErrors] = useState<FormErrors>({})
   const [form, setForm] = useState<DeliveryDetailsFormData>(formData)
   const [isSubmitted, setIsSubmitted] = useState(false)
-
-  const validateField = (
-    name: keyof DeliveryDetailsFormData,
-    value: string
-  ): string | undefined => {
-    if (!value) return 'Required'
-
-    switch (name) {
-      case 'address': {
-        return value.length < 5 ? 'Please enter a valid address' : undefined
-      }
-      case 'city': {
-        return value.length < 2 ? 'Please enter a valid city' : undefined
-      }
-      case 'postcode': {
-        return /^[0-9]{4}[A-Z]{2}$/.test(value)
-          ? undefined
-          : 'Please enter a valid postcode (e.g., 1234AB)'
-      }
-      default: {
-        return undefined
-      }
-    }
-  }
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target

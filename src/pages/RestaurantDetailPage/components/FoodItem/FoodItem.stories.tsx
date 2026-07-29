@@ -7,7 +7,7 @@ const meta = {
   title: 'Pages/RestaurantDetailPage/Components/FoodItem',
   component: FoodItem,
   args: {
-    /* 
+    /*
     The following line emulates the event handler that would be passed to the component
     Read more about the `fn` utility function at
     https://storybook.js.org/docs/essentials/actions#via-storybooktest-fn-spy-function 

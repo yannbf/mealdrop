@@ -69,7 +69,7 @@ export const WithItemsInTheCartDollarCurrency: Story = {
   ...WithItemsInTheCart,
   beforeEach: async () => {
     mocked(getCurrency).mockReturnValue('USD')
-  }
+  },
 }
 
 export const Loading: Story = {

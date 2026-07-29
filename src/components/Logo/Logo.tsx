@@ -84,7 +84,13 @@ export const Logo = ({ large = false, logoOnly = false, animated = false }: Logo
 
   return (
     <LogoContainer>
-      <SvgContainer $animated={animated} $large={large} $logoOnly={logoOnly} viewBox="0 0 23 20" fill="none">
+      <SvgContainer
+        $animated={animated}
+        $large={large}
+        $logoOnly={logoOnly}
+        viewBox="0 0 23 20"
+        fill="none"
+      >
         <path
           className="logo--face-left"
           d="M11.74 19.1662L6.66566 14.0788L0.82428 11.0619L1.76834 4.49574L0.82428 0.029541L11.74 2.1887V19.1662Z"
