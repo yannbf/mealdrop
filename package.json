@@ -49,7 +49,7 @@
     "@use-it/event-listener@npm:^0.1.2": "patch:@use-it/event-listener@npm%3A0.1.7#~/.yarn/patches/@use-it-event-listener-npm-0.1.7-56ef42a654.patch"
   },
   "dependencies": {
-    "@hookform/resolvers": "^4.1.3",
+    "@hookform/resolvers": "^5.5.7",
     "@reduxjs/toolkit": "^2.12.0",
     "axios": "^1.18.1",
     "embla-carousel-react": "^8.6.0",
@@ -67,7 +67,7 @@
     "stylis": "^4.4.0",
     "typescript": "^5.7.3",
     "use-dark-mode": "^2.3.1",
-    "zod": "^3.24.2"
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^5.2.1",
