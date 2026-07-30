@@ -2,7 +2,6 @@ import { createGlobalStyle, css } from 'styled-components'
 
 import { breakpoints } from './breakpoints'
 import { resetCSS } from './CSSReset'
-import 'react-loading-skeleton/dist/skeleton.css'
 
 export const GlobalStyle = createGlobalStyle(
   ({ theme: { color } }) => css`

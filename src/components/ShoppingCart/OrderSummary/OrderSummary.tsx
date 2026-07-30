@@ -25,7 +25,7 @@ export const OrderSummary = ({ cartItems }: OrderSummaryProps) => {
   return (
     <>
       <OrderSummaryContainer>
-        <StyledHeading level={3} $withMargin>
+        <StyledHeading level={3} size={4} $withMargin>
           Your order
         </StyledHeading>
         <CartItemsContainer>
@@ -37,7 +37,9 @@ export const OrderSummary = ({ cartItems }: OrderSummaryProps) => {
         </CartItemsContainer>
         <BottomContainer>
           <Body>Total</Body>
-          <TotalHeading level={2}>{toCurrency(totalPrice)}</TotalHeading>
+          <TotalHeading level={2} size={4}>
+            {toCurrency(totalPrice)}
+          </TotalHeading>
         </BottomContainer>
       </OrderSummaryContainer>
     </>

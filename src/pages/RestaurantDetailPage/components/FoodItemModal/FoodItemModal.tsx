@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from 'react'
+import { QuantityStepper } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
 
 import { CartItem } from '../../../../app-state/cart'
@@ -85,7 +86,7 @@ export const FoodItemModal = ({
   }, [cartItems, item])
 
   return (
-    <Modal isOpen={!!item} onClose={onClose}>
+    <Modal isOpen={!!item} onClose={onClose} container="#modal">
       {item && (
         <div>
           <TopContainer>
@@ -94,23 +95,7 @@ export const FoodItemModal = ({
           </TopContainer>
           <BottomContainer>
             <ButtonsContainer>
-              <Button
-                aria-label="decrease quantity by one"
-                round
-                clear
-                icon="minus"
-                onClick={() => setQuantity(quantity - 1)}
-                disabled={quantity <= 1}
-              />
-              <Body type="span">{quantity}</Body>
-              <Button
-                aria-label="increase quantity by one"
-                round
-                clear
-                icon="plus"
-                onClick={() => setQuantity(quantity + 1)}
-                disabled={quantity >= 10}
-              />
+              <QuantityStepper value={quantity} onChange={setQuantity} min={1} max={10} />
             </ButtonsContainer>
             <StyledButton aria-label="confirm" onClick={saveItem}>
               add for {toCurrency(item.price * quantity)}

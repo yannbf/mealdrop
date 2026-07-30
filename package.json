@@ -40,6 +40,7 @@
     "@use-it/event-listener@npm:^0.1.2": "patch:@use-it/event-listener@npm%3A0.1.7#~/.yarn/patches/@use-it-event-listener-npm-0.1.7-56ef42a654.patch"
   },
   "dependencies": {
+    "@droppy/design-system": "https://pkg.pr.new/yannbf/droppy-ds/@droppy/design-system@1fba4ce",
     "@hookform/resolvers": "^5.5.7",
     "@reduxjs/toolkit": "^2.12.0",
     "axios": "^1.18.1",
@@ -49,11 +50,9 @@
     "react-dom": "^19.2.8",
     "react-hook-form": "^7.83.0",
     "react-hooks-helper": "^1.6.0",
-    "react-loading-skeleton": "^3.5.0",
     "react-lottie-player": "^2.1.0",
     "react-redux": "^9.3.0",
     "react-router-dom": "^7.18.2",
-    "react-transition-group": "^4.4.5",
     "styled-components": "^6.4.4",
     "stylis": "^4.4.0",
     "typescript": "^7.0.2",
@@ -69,7 +68,6 @@
     "@types/react-dom": "^19.2.3",
     "@types/react-hooks-helper": "^1.6.6",
     "@types/react-redux": "^7.1.34",
-    "@types/react-transition-group": "^4.4.12",
     "@types/stylis": "^4.2.7",
     "@types/testing-library__jest-dom": "^6.0.0",
     "@vitejs/plugin-react": "^6.0.4",

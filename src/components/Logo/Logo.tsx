@@ -61,17 +61,6 @@ const LogoContainer = styled.div`
   align-items: center;
 `
 
-const StyledHeading = styled(Heading)(
-  ({
-    theme: {
-      typography: { fontSize },
-    },
-  }) => css`
-    font-size: ${fontSize.heading4};
-    letter-spacing: unset;
-  `
-)
-
 type LogoProps = {
   large?: boolean
   logoOnly?: boolean
@@ -127,7 +116,11 @@ export const Logo = ({ large = false, logoOnly = false, animated = false }: Logo
           fill={fillColors[6]}
         />
       </SvgContainer>
-      {!logoOnly && <StyledHeading level={2}>MealDrop</StyledHeading>}
+      {!logoOnly && (
+        <Heading level={2} size={4}>
+          MealDrop
+        </Heading>
+      )}
     </LogoContainer>
   )
 }

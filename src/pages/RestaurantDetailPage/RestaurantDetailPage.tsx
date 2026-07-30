@@ -63,7 +63,7 @@ export const RestaurantDetailPage = () => {
         <ErrorBlock
           title="Something went wrong!"
           body="Our bad, something went wrong on our side."
-          image={<AnimatedIllustration animation="NotFound" />}
+          illustration={<AnimatedIllustration animation="NotFound" />}
           onButtonClick={retryRequest}
           buttonText="Try again"
         />
@@ -77,7 +77,7 @@ export const RestaurantDetailPage = () => {
         <ErrorBlock
           title="We can't find this page"
           body="This page doesn’t exist, keep looking."
-          image={<AnimatedIllustration animation="Error" />}
+          illustration={<AnimatedIllustration animation="Error" />}
           onButtonClick={() => navigate('/')}
           buttonText="Home"
         />

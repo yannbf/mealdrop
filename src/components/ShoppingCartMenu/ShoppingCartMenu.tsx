@@ -84,6 +84,7 @@ export const ShoppingCartMenu = ({
     title="Your order"
     onClose={onClose}
     isOpen={isOpen}
+    container="#modal"
     footer={<Footer onClick={onGoToCheckoutClick} totalPrice={totalPrice} />}
   >
     <div style={{ display: 'grid', gap: '24px' }}>

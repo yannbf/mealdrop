@@ -1,8 +1,7 @@
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
-import styled, { css, useTheme } from 'styled-components'
+import { Badge, Card, Skeleton } from '@droppy/design-system'
+import styled, { css } from 'styled-components'
 
 import { Body, Heading } from '../typography'
-import { Badge } from '../Badge'
 import { Review } from '../Review'
 
 type RestaurantCardProps = {
@@ -18,48 +17,19 @@ type RestaurantCardProps = {
   className?: string
 }
 
-const Container = styled.div(
-  ({ theme: { borderRadius } }) => css`
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    border-radius: ${borderRadius.s};
-    width: 100%;
-    max-width: 500px;
-    &:hover {
-      opacity: 0.9;
-    }
-  `
-)
-
 const StyledContent = styled.div(
   ({ theme: { color } }) => css`
     padding: 24px;
     background: ${color.cardBackground};
-    border-radius: 0px 0px 8px 8px;
   `
 )
 
-const NewTag = styled.span(
-  ({
-    theme: {
-      color,
-      borderRadius,
-      typography: { fontSize, fontWeight },
-    },
-  }) => css`
-    position: absolute;
-    padding: 8px;
-    background: ${color.newRestaurantTag};
-    display: inline-block;
-    top: 0.5rem;
-    left: 0.5rem;
-    border-radius: ${borderRadius.s};
-    font-size: ${fontSize.heading4};
-    font-weight: ${fontWeight.bold};
-    z-index: 1;
-  `
-)
+const NewBadge = styled(Badge)`
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 1;
+`
 
 const Closed = styled.div(
   ({ theme: { color } }) => css`
@@ -88,7 +58,6 @@ const ImageContainer = styled.div`
 const RestaurantImage = styled.img<{ $isClosed: boolean }>`
   height: 200px;
   width: 100%;
-  border-radius: 8px 8px 0px 0px;
   object-fit: cover;
   filter: ${({ $isClosed }) => ($isClosed ? 'grayscale(1)' : 'none')};
 `
@@ -104,47 +73,35 @@ const Description = styled(Body)`
 `
 
 const StyledBadge = styled(Badge)`
-  margin-top: 1.5rem;
+  margin-top: 1.375rem;
   margin-right: 0.5rem;
 `
 
 const StyledHeading = styled(Heading)(
-  ({
-    theme: {
-      spacing,
-      typography: { fontSize },
-    },
-  }) => css`
-    font-size: ${fontSize.heading4};
+  ({ theme: { spacing } }) => css`
     margin-bottom: ${spacing.xs};
   `
 )
 
-export const RestaurantCardSkeleton = () => {
-  const { color } = useTheme()
-  return (
-    /* @ts-expect-error wrong types! */
-    <SkeletonTheme color={color.skeletonBase} highlightColor={color.skeletonHighlight}>
-      <Container data-testid="loading">
-        <Skeleton height={200} width="100%" style={{ borderRadius: '4px 4px 0 0' }} />
-        <StyledContent>
-          <StyledHeading level={2}>
-            <Skeleton width="50%" />
-          </StyledHeading>
-          <Body type="span">
-            <Skeleton width="35%" />
-          </Body>
-          <Description>
-            <Skeleton />
-          </Description>
-          <Body type="span">
-            <Skeleton width="25%" height="23px" style={{ marginTop: 24 }} />
-          </Body>
-        </StyledContent>
-      </Container>
-    </SkeletonTheme>
-  )
-}
+export const RestaurantCardSkeleton = () => (
+  <Card data-testid="loading">
+    <Skeleton height={200} width="100%" />
+    <StyledContent>
+      <StyledHeading level={2} size={4}>
+        <Skeleton width="50%" />
+      </StyledHeading>
+      <Body type="span">
+        <Skeleton width="35%" />
+      </Body>
+      <Description>
+        <Skeleton />
+      </Description>
+      <Body type="span">
+        <Skeleton width="25%" height="23px" style={{ marginTop: 24 }} />
+      </Body>
+    </StyledContent>
+  </Card>
+)
 
 export const RestaurantCard = ({
   photoUrl,
@@ -163,12 +120,13 @@ export const RestaurantCard = ({
   }
 
   return (
-    <Container
+    <Card
+      interactive
       className={className}
       data-testid="restaurant-card"
       onClick={isClosed ? undefined : onClick}
     >
-      {isNew && <NewTag>new</NewTag>}
+      {isNew && <NewBadge text="new" variant="positive" />}
       <ImageContainer>
         {isClosed && (
           <Closed>
@@ -178,13 +136,15 @@ export const RestaurantCard = ({
         <RestaurantImage $isClosed={isClosed} loading="lazy" src={photoUrl} alt="restaurant" />
       </ImageContainer>
       <StyledContent>
-        <StyledHeading level={2}>{name}</StyledHeading>
+        <StyledHeading level={2} size={4}>
+          {name}
+        </StyledHeading>
         <Review rating={rating} />
         <Description fontWeight="regular">{specialty}</Description>
         {categories?.map((category) => (
           <StyledBadge key={category} text={category} />
         ))}
       </StyledContent>
-    </Container>
+    </Card>
   )
 }
