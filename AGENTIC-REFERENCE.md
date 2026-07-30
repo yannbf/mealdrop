@@ -42,12 +42,10 @@ Kept local, deliberately:
   domain markup, `Footer`, `FooterCard`, `Header`, `Logo`'s SVG mark, `Review`, `ShoppingCart`,
   `ShoppingCartMenu`, `RestaurantCard`'s domain content (rating, specialty, categories), and the
   page-level layout components under `src/pages/`.
-- `@base-ui/react` is not a Mealdrop dependency on this branch — the app never imports it
-  directly, and `@droppy/design-system` carries it as a peer dependency of its own. Note for
-  whoever next touches the build: the package's published bundle imports `@base-ui/react/*` as
-  external specifiers rather than inlining them, so `yarn build`'s bundling step currently fails
-  to resolve them since nothing in this workspace installs that peer. Lint, typecheck, and the
-  test suite are unaffected and all pass; only the production bundle step is impacted.
+- App code never imports `@base-ui/react` directly. It is installed only because
+  `@droppy/design-system` declares it as a peer dependency — its published bundle imports
+  `@base-ui/react/*` as external specifiers rather than inlining them — so the pin here matches
+  the one the design system builds against.
 
 ## Design-system guideline violations
 
