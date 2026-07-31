@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "tsc && vite build",
+    "build-all": "yarn build",
     "lint": "oxlint --fix . && oxfmt .",
     "lint:check": "oxlint . && oxfmt --check .",
     "pre-commit": "lint-staged",
