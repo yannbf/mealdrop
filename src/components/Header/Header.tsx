@@ -1,3 +1,4 @@
+import { Body, Button } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
 import { Link, useNavigate } from 'react-router-dom'
 import useDarkMode from 'use-dark-mode'
@@ -13,9 +14,7 @@ import {
 } from '../../app-state/cart'
 import { breakpoints } from '../../styles/breakpoints'
 import { ShoppingCartMenu } from '../ShoppingCartMenu'
-import { Button } from '../Button'
 import { toCurrency } from '../../helpers'
-import { Body } from '../typography/Body'
 import { Logo } from '../Logo'
 
 export const HeaderContainer = styled.div<{ $sticky: boolean }>(

@@ -1,11 +1,8 @@
+import { Body, Button, Select, Sidebar } from '@droppy/design-system'
 import styled from 'styled-components'
 
 import { CartItem } from '../../app-state/cart'
 import { toCurrency } from '../../helpers'
-import { Button } from '../Button'
-import { Select } from '../forms/Select'
-import { Sidebar } from '../Sidebar'
-import { Body } from '../typography'
 
 const FooterContainer = styled.div`
   display: flex;

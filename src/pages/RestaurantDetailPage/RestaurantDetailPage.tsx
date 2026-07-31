@@ -1,17 +1,14 @@
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { Badge, Body, ErrorBlock, Heading, TopBanner } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
 
 import { PageTemplate } from '../../templates/PageTemplate'
 import { useFetchRestaurant } from '../../api/hooks'
 import { useAppDispatch, useAppSelector } from '../../app-state'
 import { CartItem, clearItemAction, saveItemAction, selectCartItems } from '../../app-state/cart'
-import { TopBanner } from '../../components/TopBanner'
-import { Heading, Body } from '../../components/typography'
-import { Badge } from '../../components/Badge'
 import { Review } from '../../components/Review'
 import { AnimatedIllustration } from '../../components/AnimatedIllustration'
-import { ErrorBlock } from '../../components/ErrorBlock'
 import { Spinner } from '../../components/Spinner'
 
 import { FoodItemModal } from './components/FoodItemModal'

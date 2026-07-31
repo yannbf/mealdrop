@@ -1,8 +1,7 @@
-import { Card } from '@droppy/design-system'
+import { Body, Card } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
 
 import { breakpoints } from '../../styles/breakpoints'
-import { Body } from '../typography'
 
 export type CategoryProps = {
   id?: string

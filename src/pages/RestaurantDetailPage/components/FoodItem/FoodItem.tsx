@@ -1,10 +1,8 @@
 import { memo } from 'react'
-import { Card } from '@droppy/design-system'
+import { Body, Card, Heading } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
 
 import { toCurrency } from '../../../../helpers'
-import { Body } from '../../../../components/typography/Body'
-import { Heading } from '../../../../components/typography/Heading'
 
 const Container = styled(Card).attrs({ interactive: true, padded: true })`
   position: relative;

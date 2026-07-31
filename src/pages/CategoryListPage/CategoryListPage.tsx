@@ -1,10 +1,8 @@
 import { useNavigate } from 'react-router-dom'
+import { Body, Heading, TopBanner } from '@droppy/design-system'
 import styled from 'styled-components'
 
 import { PageTemplate } from '../../templates/PageTemplate'
-import { TopBanner } from '../../components/TopBanner'
-import { Body } from '../../components/typography/Body'
-import { Heading } from '../../components/typography/Heading'
 import { categories } from '../../stub/categories'
 
 import { CategoryList } from './components/CategoryList'

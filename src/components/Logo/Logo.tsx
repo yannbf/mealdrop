@@ -1,7 +1,7 @@
+import { Heading } from '@droppy/design-system'
 import styled, { css, useTheme, keyframes } from 'styled-components'
 
 import { breakpoints } from '../../styles/breakpoints'
-import { Heading } from '../typography'
 
 const colors = {
   light: ['#61D8DE', '#4CC8C0', '#36C1BF', '#36C1BF', '#22ACA7', '#22ACA7', '#B1DCE3'],

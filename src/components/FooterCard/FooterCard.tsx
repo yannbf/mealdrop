@@ -1,8 +1,6 @@
+import { Body, Heading } from '@droppy/design-system'
 import { Link } from 'react-router-dom'
 import styled, { css } from 'styled-components'
-
-import { Body } from '../typography/Body'
-import { Heading } from '../typography/Heading'
 
 const FooterCardContainer = styled.div(
   ({

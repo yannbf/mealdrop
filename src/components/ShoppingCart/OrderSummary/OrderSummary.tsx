@@ -1,8 +1,8 @@
 import { useMemo } from 'react'
+import { Body } from '@droppy/design-system'
 
 import { ShoppingCartItem } from '../ShoppingCartItem/ShoppingCartItem'
 import { CartItem } from '../../../app-state/cart'
-import { Body } from '../../typography/Body'
 import { toCurrency } from '../../../helpers'
 
 import {
