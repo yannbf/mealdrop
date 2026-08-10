@@ -1,9 +1,9 @@
-import { Link } from 'react-router-dom'
 import { Button, Heading } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
 
 import ladies from '../../../../assets/images/ladies.svg'
 import { breakpoints } from '../../../../styles/breakpoints'
+import { Link } from '../../../../components/Link'
 
 const Container = styled.div(
   ({ theme: { color } }) => css`

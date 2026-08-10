@@ -1,7 +1,9 @@
-import { Body, Button } from '@droppy/design-system'
+import { Body, Button, type ButtonProps } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import useDarkMode from 'use-dark-mode'
+
+import { Link } from '../Link'
 
 import { useAppDispatch, useAppSelector } from '../../app-state'
 import {
@@ -98,7 +100,7 @@ export const CartTotal = styled(Body)(
   `
 )
 
-const ThemeToggle = () => {
+const ThemeToggle = (props: Omit<ButtonProps, 'icon' | 'onClick'>) => {
   const darkMode = useDarkMode(false, { global: globalThis.window })
   return (
     <Button
@@ -107,6 +109,7 @@ const ThemeToggle = () => {
       aria-label={`turn on ${darkMode.value ? 'light' : 'dark'} mode`}
       icon={darkMode.value ? 'moon' : 'sun'}
       onClick={darkMode.toggle}
+      {...props}
     />
   )
 }

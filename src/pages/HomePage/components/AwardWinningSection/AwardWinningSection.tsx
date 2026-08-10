@@ -1,9 +1,9 @@
 import { Button, Container as DsContainer, Heading } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
-import { Link } from 'react-router-dom'
 
 import restaurants from '../../../../assets/images/restaurants.png'
 import { breakpoints } from '../../../../styles/breakpoints'
+import { Link } from '../../../../components/Link'
 
 const StyledButton = styled(Button)`
   margin-top: 2.5rem;
