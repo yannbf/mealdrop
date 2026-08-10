@@ -1,4 +1,4 @@
-import { Button, Heading } from '@droppy/design-system'
+import { Button, Container as DsContainer, Heading } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
 import { Link } from 'react-router-dom'
 
@@ -20,7 +20,7 @@ const Container = styled.div(
   `
 )
 
-const ContentContainer = styled.div`
+const ContentContainer = styled(DsContainer)`
   position: relative;
   overflow: hidden;
   display: flex;
@@ -67,7 +67,7 @@ const SlidingBackground = styled.div`
 
 export const AwardWinningSection = () => (
   <Container>
-    <ContentContainer className="container">
+    <ContentContainer>
       <LeftContainer>
         <Heading className="bolder">Award winning</Heading>
         <Heading>The best restaurants near you!</Heading>

@@ -1,4 +1,4 @@
-import { Heading } from '@droppy/design-system'
+import { Container, Heading } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
 
 import { useAppSelector } from '../../app-state'
@@ -32,7 +32,7 @@ const TopContainer = styled.div(
   `
 )
 
-const BottomContainer = styled.div`
+const BottomContainer = styled(Container)`
   display: flex;
   margin-top: -12rem !important;
   justify-content: center;
@@ -68,7 +68,7 @@ export const CheckoutPage = () => {
             Checkout
           </StyledHeading>
         </TopContainer>
-        <BottomContainer className="container">
+        <BottomContainer>
           <MultiStepForm />
           <OrderDetailsContainer>
             <OrderSummary cartItems={cartItems} />
