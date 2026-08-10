@@ -1,9 +1,8 @@
 import { useNavigate } from 'react-router-dom'
-import { PageSection } from '@droppy/design-system'
+import { Carousel, PageSection } from '@droppy/design-system'
 
 import { useFetchRestaurants } from '../../../../api/hooks'
 import { RestaurantCard, RestaurantCardSkeleton } from '../../../../components/RestaurantCard'
-import { Carousel } from '../../../../components/Carousel'
 import { Restaurant } from '../../../../types'
 
 type RestaurantsSectionProps = {
