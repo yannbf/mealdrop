@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "@base-ui/react": "https://pkg.pr.new/storybook-tmp/base-ui/@base-ui/react@85313eccf",
-    "@droppy/design-system": "https://pkg.pr.new/yannbf/droppy-ds/@droppy/design-system@d92deea",
+    "@droppy/design-system": "https://pkg.pr.new/yannbf/droppy-ds/@droppy/design-system@0af43aa",
     "@hookform/resolvers": "^5.5.7",
     "@reduxjs/toolkit": "^2.12.0",
     "axios": "^1.18.1",

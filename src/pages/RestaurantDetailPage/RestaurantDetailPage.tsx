@@ -26,7 +26,7 @@ const DetailSection = styled.div(
     padding-top: 2rem !important;
     padding-bottom: 2rem !important;
     background: ${color.restaurantDetailBackground};
-    .review-text {
+    .droppy-Review-text {
       color: ${color.reviewText};
       margin-bottom: ${spacing.m};
     }
@@ -40,6 +40,15 @@ const MenuSection = styled.div(
     background: ${color.menuSectionBackground};
   `
 )
+
+// The spinner is an inline primitive; centering it over the content area is
+// the page's job. Height matches the template's content min-height.
+const SpinnerContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 200px);
+`
 
 const StyledBadge = styled(Badge)(
   ({ theme: { spacing } }) => css`
@@ -92,7 +101,9 @@ export const RestaurantDetailPage = () => {
   if (status === 'loading') {
     return (
       <PageTemplate type="sticky-header">
-        <Spinner />
+        <SpinnerContainer>
+          <Spinner />
+        </SpinnerContainer>
       </PageTemplate>
     )
   }

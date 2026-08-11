@@ -4,8 +4,14 @@ import styled, { css } from 'styled-components'
 
 import { toCurrency } from '../../../../helpers'
 
-const Container = styled(Card).attrs({ interactive: true, padded: true })`
+const Container = styled(Card).attrs({ padded: true })`
   position: relative;
+  transition: box-shadow 0.1s ease-in;
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: var(--ds-shadow-lift);
+  }
 `
 
 const Quantity = styled(Body)(

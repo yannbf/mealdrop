@@ -21,12 +21,22 @@ const StyledContent = styled.div(
   `
 )
 
-const NewBadge = styled(Badge)`
-  position: absolute;
-  top: 0.5rem;
-  left: 0.5rem;
-  z-index: 1;
-`
+const NewBadge = styled(Badge)(
+  ({
+    theme: {
+      borderRadius,
+      typography: { fontSize },
+    },
+  }) => css`
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 1;
+    padding: 8px;
+    border-radius: ${borderRadius.s};
+    font-size: ${fontSize.heading4};
+  `
+)
 
 const Closed = styled.div(
   ({ theme: { color } }) => css`
