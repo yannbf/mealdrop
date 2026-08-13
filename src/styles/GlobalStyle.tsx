@@ -101,6 +101,10 @@ export const GlobalStyle = createGlobalStyle`
     body {
       margin: 0;
       background: var(--ds-color-surface-page);
+      /* Text colour is set here (not on *) so it inherits: a universal colour
+         rule lands directly on every element, including svg, and overrides the
+         design system's currentcolor-based icon colouring. */
+      color: var(--ds-palette-neutral-900);
       font-family: 'Montserrat', sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -109,7 +113,6 @@ export const GlobalStyle = createGlobalStyle`
 
     * {
       box-sizing: border-box;
-      color: var(--ds-palette-neutral-900);
     }
 
     a {

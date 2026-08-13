@@ -4,9 +4,17 @@ import styled from 'styled-components'
 
 import { toCurrency } from '../../../../helpers'
 
+// Card's surface-card value equals the menu section behind it, so the item
+// keeps its own lighter surface to stay visible at rest (white / neutral-900,
+// composed from palette variables with an explicit dark override).
 const Container = styled(Card).attrs({ padded: true })`
   position: relative;
+  background: var(--ds-palette-neutral-0);
   transition: box-shadow 0.1s ease-in;
+
+  :root[data-ds-theme='dark'] & {
+    background: var(--ds-palette-neutral-900);
+  }
 
   &:hover {
     cursor: pointer;

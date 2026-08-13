@@ -14,6 +14,12 @@ type RestaurantCardProps = {
   className?: string
 }
 
+// Card imposes no layout of its own, so the width cap lives here.
+const ConstrainedCard = styled(Card)`
+  width: 100%;
+  max-width: 500px;
+`
+
 const StyledContent = styled.div`
   padding: 24px;
   background: var(--ds-color-surface-card);
@@ -78,10 +84,10 @@ const StyledHeading = styled(Heading)`
 `
 
 export const RestaurantCardSkeleton = () => (
-  <Card data-testid="loading">
+  <ConstrainedCard data-testid="loading" role="status" aria-label="Loading restaurant">
     <Skeleton height={200} width="100%" />
     <StyledContent>
-      <StyledHeading level={2} size={4}>
+      <StyledHeading aria-hidden level={2} size={4}>
         <Skeleton width="50%" />
       </StyledHeading>
       <Body type="span">
@@ -94,7 +100,7 @@ export const RestaurantCardSkeleton = () => (
         <Skeleton width="25%" height="23px" style={{ marginTop: 24 }} />
       </Body>
     </StyledContent>
-  </Card>
+  </ConstrainedCard>
 )
 
 export const RestaurantCard = ({
@@ -114,7 +120,7 @@ export const RestaurantCard = ({
   }
 
   return (
-    <Card
+    <ConstrainedCard
       interactive
       className={className}
       data-testid="restaurant-card"
@@ -139,6 +145,6 @@ export const RestaurantCard = ({
           <StyledBadge key={category} text={category} />
         ))}
       </StyledContent>
-    </Card>
+    </ConstrainedCard>
   )
 }
