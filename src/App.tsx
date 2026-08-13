@@ -15,10 +15,10 @@ export default function App() {
 
   // Mirrors the dark-mode toggle onto the root element: the app's own
   // styled-components theme and @droppy/design-system's CSS custom
-  // properties are two separate theming systems, and this is the signal
-  // the design system's stylesheet reads for its dark-mode tokens.
+  // properties are two separate theming systems, and data-ds-theme is the
+  // attribute the design system's stylesheet reads for its dark-mode tokens.
   useEffect(() => {
-    document.documentElement.dataset.theme = value ? 'dark' : 'light'
+    document.documentElement.dataset.dsTheme = value ? 'dark' : 'light'
   }, [value])
 
   return (
