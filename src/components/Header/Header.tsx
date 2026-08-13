@@ -20,15 +20,15 @@ import { toCurrency } from '../../helpers'
 import { Logo } from '../Logo'
 
 export const HeaderContainer = styled.div<{ $sticky: boolean }>(
-  ({ $sticky, theme: { color } }) => css`
+  ({ $sticky }) => css`
     display: flex;
     justify-content: space-between;
     height: 56px;
-    border-bottom: 1px solid ${color.headerBorder};
+    border-bottom: 1px solid var(--ds-color-border-subtle);
     top: 0;
     left: 0;
     position: sticky;
-    background: ${color.headerBackground};
+    background: var(--ds-color-surface-default);
     z-index: 2;
     width: 100%;
     padding: 0 1.5rem;
@@ -82,23 +82,25 @@ export const OptionsContainer = styled.div`
   }
 `
 
-export const CartText = styled(Body)(
-  ({ theme: { color } }) => css`
-    display: none;
-    @media ${breakpoints.M} {
-      display: inline-block;
-      color: ${color.cartButtonText};
-      margin-right: 0.25rem;
-    }
-  `
-)
-
-export const CartTotal = styled(Body)(
-  ({ theme: { color } }) => css`
+// cartButtonText has no matching design-token pair (light #909090 / dark
+// #636363): kept as literals with an explicit dark override.
+export const CartText = styled(Body)`
+  display: none;
+  @media ${breakpoints.M} {
     display: inline-block;
-    color: ${color.buttonText};
-  `
-)
+    color: #909090;
+    margin-right: 0.25rem;
+
+    :root[data-theme='dark'] & {
+      color: #636363;
+    }
+  }
+`
+
+export const CartTotal = styled(Body)`
+  display: inline-block;
+  color: var(--ds-color-action-on-primary);
+`
 
 const ThemeToggle = (props: Omit<ButtonProps, 'icon' | 'onClick'>) => {
   const darkMode = useDarkMode(false, { global: globalThis.window })

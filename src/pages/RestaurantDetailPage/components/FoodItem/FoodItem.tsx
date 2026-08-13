@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { Body, Card, Heading } from '@droppy/design-system'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import { toCurrency } from '../../../../helpers'
 
@@ -14,30 +14,26 @@ const Container = styled(Card).attrs({ padded: true })`
   }
 `
 
-const Quantity = styled(Body)(
-  ({ theme: { color, borderRadius } }) => css`
-    padding: 0.25rem;
-    width: 35px;
-    height: 35px;
-    border-radius: ${borderRadius.xs};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: ${color.black};
-    color: ${color.white};
-    position: absolute;
-    top: 0;
-    right: 0;
-  `
-)
+const Quantity = styled(Body)`
+  padding: 0.25rem;
+  width: 35px;
+  height: 35px;
+  border-radius: var(--ds-radius-control);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--ds-color-chip-contrast-bg);
+  color: var(--ds-color-chip-contrast-text);
+  position: absolute;
+  top: 0;
+  right: 0;
+`
 
-const Description = styled(Body)(
-  ({ theme: { color } }) => `
+const Description = styled(Body)`
   margin: 0;
-  color: ${color.badgeText};
+  color: var(--ds-color-text-secondary);
   margin-top: 0.5rem;
 `
-)
 
 const Price = styled(Body)`
   margin: 0;

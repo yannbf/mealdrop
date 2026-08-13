@@ -5,20 +5,18 @@ import ladies from '../../../../assets/images/ladies.svg'
 import { breakpoints } from '../../../../styles/breakpoints'
 import { Link } from '../../../../components/Link'
 
-const Container = styled.div(
-  ({ theme: { color } }) => css`
-    background: ${color.bannerBackground};
-    width: 100%;
-    position: relative;
-    height: 410px;
-    padding-top: 3.75rem;
+const Container = styled.div`
+  background: var(--ds-color-surface-info);
+  width: 100%;
+  position: relative;
+  height: 410px;
+  padding-top: 3.75rem;
 
-    @media ${breakpoints.M} {
-      padding-top: 6rem;
-      height: 566px;
-    }
-  `
-)
+  @media ${breakpoints.M} {
+    padding-top: 6rem;
+    height: 566px;
+  }
+`
 
 const ContentContainer = styled.div`
   text-align: center;
@@ -44,16 +42,14 @@ const Image = styled.div<{ src: string }>(
   `
 )
 
-const StyledHeading = styled(Heading)(
-  ({ theme: { color } }) => `
+const StyledHeading = styled(Heading)`
   margin-bottom: 2.5rem;
   padding: 0 2rem;
   strong {
-    color: ${color.primaryText};
+    color: var(--ds-color-text-primary);
     font-weight: 900;
   }
 `
-)
 
 export const Banner = () => (
   <Container>

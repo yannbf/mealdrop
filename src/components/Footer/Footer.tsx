@@ -1,5 +1,5 @@
 import { Container } from '@droppy/design-system'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import { breakpoints } from '../../styles/breakpoints'
 import { FooterCard } from '../FooterCard/FooterCard'
@@ -7,19 +7,17 @@ import { Logo } from '../Logo'
 import googlePlayBanner from '../../assets/images/googleplay-banner.png'
 import appStoreBanner from '../../assets/images/appstore-banner.png'
 
-const FooterContainer = styled.div(
-  ({ theme: { color } }) => css`
-    min-height: 450px;
-    color: ${color.white};
-    background: ${color.footerBackground};
-    padding: 2rem 0;
+const FooterContainer = styled.div`
+  min-height: 450px;
+  color: var(--ds-color-text-on-inverse);
+  background: var(--ds-color-surface-inverse);
+  padding: 2rem 0;
 
-    hr {
-      color: ${color.white};
-      width: 100%;
-    }
-  `
-)
+  hr {
+    color: var(--ds-color-text-on-inverse);
+    width: 100%;
+  }
+`
 
 const FooterTop = styled.div`
   display: grid;

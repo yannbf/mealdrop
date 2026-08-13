@@ -1,10 +1,9 @@
-import { createGlobalStyle, css } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 
 import { breakpoints } from './breakpoints'
 import { resetCSS } from './CSSReset'
 
-export const GlobalStyle = createGlobalStyle(
-  ({ theme: { color } }) => css`
+export const GlobalStyle = createGlobalStyle`
     ${resetCSS}
     // smooth light-dark mode transition
     * {
@@ -101,7 +100,7 @@ export const GlobalStyle = createGlobalStyle(
 
     body {
       margin: 0;
-      background: ${color.screenBackground};
+      background: var(--ds-color-surface-page);
       font-family: 'Montserrat', sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -162,4 +161,3 @@ export const GlobalStyle = createGlobalStyle(
       }
     }
   `
-)

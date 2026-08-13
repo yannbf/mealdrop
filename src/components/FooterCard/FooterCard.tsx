@@ -1,6 +1,6 @@
 import { FooterCard as DsFooterCard } from '@droppy/design-system'
 import { Link as RouterLink } from 'react-router-dom'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 type FooterCardProps = {
   title: string
@@ -11,11 +11,9 @@ type FooterCardProps = {
   }[]
 }
 
-const StyledFooterCard = styled(DsFooterCard)(
-  ({ theme: { color } }) => css`
-    color: ${color.white};
-  `
-)
+const StyledFooterCard = styled(DsFooterCard)`
+  color: var(--ds-color-text-on-inverse);
+`
 
 export const FooterCard: React.FC<React.PropsWithChildren<FooterCardProps>> = ({
   title,

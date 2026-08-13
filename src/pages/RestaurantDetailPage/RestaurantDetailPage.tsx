@@ -10,7 +10,7 @@ import {
   Spinner,
   TopBanner,
 } from '@droppy/design-system'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import { PageTemplate } from '../../templates/PageTemplate'
 import { useFetchRestaurant } from '../../api/hooks'
@@ -21,25 +21,27 @@ import { AnimatedIllustration } from '../../components/AnimatedIllustration'
 import { FoodItemModal } from './components/FoodItemModal'
 import { FoodSection } from './components/FoodSection'
 
-const DetailSection = styled.div(
-  ({ theme: { color, spacing } }) => css`
-    padding-top: 2rem !important;
-    padding-bottom: 2rem !important;
-    background: ${color.restaurantDetailBackground};
-    .droppy-Review-text {
-      color: ${color.reviewText};
-      margin-bottom: ${spacing.m};
-    }
-  `
-)
+const DetailSection = styled.div`
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+  background: var(--ds-color-surface-overlay);
+  .droppy-Review-text {
+    color: var(--ds-color-text-review);
+    margin-bottom: 1.25em;
+  }
+`
 
-const MenuSection = styled.div(
-  ({ theme: { color } }) => css`
-    padding-top: 3rem !important;
-    padding-bottom: 5rem !important;
-    background: ${color.menuSectionBackground};
-  `
-)
+// menuSectionBackground has no matching design-token pair (light #f9f9f9 /
+// dark #202020): kept as literals with an explicit dark override.
+const MenuSection = styled.div`
+  padding-top: 3rem !important;
+  padding-bottom: 5rem !important;
+  background: #f9f9f9;
+
+  :root[data-theme='dark'] & {
+    background: #202020;
+  }
+`
 
 // The spinner is an inline primitive; centering it over the content area is
 // the page's job. Height matches the template's content min-height.
@@ -50,11 +52,9 @@ const SpinnerContainer = styled.div`
   min-height: calc(100vh - 200px);
 `
 
-const StyledBadge = styled(Badge)(
-  ({ theme: { spacing } }) => css`
-    margin-right: ${spacing.s};
-  `
-)
+const StyledBadge = styled(Badge)`
+  margin-right: 1em;
+`
 
 export const RestaurantDetailPage = () => {
   const { id = '' } = useParams<'id'>()
