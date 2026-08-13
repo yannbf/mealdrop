@@ -5,11 +5,6 @@ import { resetCSS } from './CSSReset'
 
 export const GlobalStyle = createGlobalStyle`
     ${resetCSS}
-    // smooth light-dark mode transition
-    * {
-      transition: all 250ms ease-in;
-      transition-property: background, color, border;
-    }
     @font-face {
       font-family: 'Montserrat';
       font-style: normal;
