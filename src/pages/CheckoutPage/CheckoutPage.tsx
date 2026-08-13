@@ -18,16 +18,16 @@ const OrderDetailsContainer = styled.div`
   }
 `
 
-// checkoutTopBackground has no matching design-token pair (light #e5f8bc /
-// dark #202020): kept as literals with an explicit dark override.
+// No semantic token pairs these values: composed from palette variables
+// with an explicit dark override.
 const TopContainer = styled.div`
   padding-top: 3.25em;
   margin-bottom: 1em;
   min-height: 260px;
-  background: #e5f8bc;
+  background: var(--ds-palette-green-200);
 
-  :root[data-theme='dark'] & {
-    background: #202020;
+  :root[data-ds-theme='dark'] & {
+    background: var(--ds-palette-neutral-950);
   }
 
   @media ${breakpoints.M} {
@@ -53,15 +53,15 @@ const StyledHeading = styled(Heading)`
   margin: 0 auto;
 `
 
-// checkoutBottomBackground has no matching design-token pair (light #f9f9f9
-// / dark #797979): kept as literals with an explicit dark override.
+// No semantic token pairs these values: composed from palette variables
+// with an explicit dark override.
 const ContentContainer = styled.div`
   min-height: 100vh;
   padding-bottom: 5.25em;
-  background: #f9f9f9;
+  background: var(--ds-palette-neutral-50);
 
-  :root[data-theme='dark'] & {
-    background: #797979;
+  :root[data-ds-theme='dark'] & {
+    background: var(--ds-palette-neutral-600);
   }
 `
 

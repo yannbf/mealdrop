@@ -109,7 +109,7 @@ export const GlobalStyle = createGlobalStyle`
 
     * {
       box-sizing: border-box;
-      color: #2c2c2c;
+      color: var(--ds-palette-neutral-900);
     }
 
     a {

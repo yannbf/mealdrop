@@ -42,7 +42,7 @@ const SvgContainer = styled.svg<{ $large: boolean; $logoOnly: boolean; $animated
       fill: var(--ds-palette-brand-nose);
     }
 
-    :root[data-theme='dark'] & {
+    :root[data-ds-theme='dark'] & {
       .logo--face-left {
         fill: var(--ds-palette-brand-dark-100);
       }
@@ -85,7 +85,7 @@ const SvgContainer = styled.svg<{ $large: boolean; $logoOnly: boolean; $animated
       ${pathStyles('var(--ds-palette-brand-shine)', 300, $animated)};
     }
 
-    :root[data-theme='dark'] & {
+    :root[data-ds-theme='dark'] & {
       .logo--ear-top-left {
         ${pathStyles('var(--ds-palette-brand-dark-shine)', 50, $animated)};
       }

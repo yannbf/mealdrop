@@ -81,7 +81,7 @@ const FloatingTitle = styled.figcaption`
   top: 1.5rem;
   left: 1.5rem;
   border-radius: var(--ds-radius-card);
-  background: #202020;
+  background: var(--ds-color-chip-contrast-bg);
   padding: 8px 16px;
   text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.5);
   span {

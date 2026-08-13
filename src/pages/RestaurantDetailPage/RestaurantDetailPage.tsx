@@ -31,15 +31,15 @@ const DetailSection = styled.div`
   }
 `
 
-// menuSectionBackground has no matching design-token pair (light #f9f9f9 /
-// dark #202020): kept as literals with an explicit dark override.
+// No semantic token pairs these values: composed from palette variables
+// with an explicit dark override.
 const MenuSection = styled.div`
   padding-top: 3rem !important;
   padding-bottom: 5rem !important;
-  background: #f9f9f9;
+  background: var(--ds-palette-neutral-50);
 
-  :root[data-theme='dark'] & {
-    background: #202020;
+  :root[data-ds-theme='dark'] & {
+    background: var(--ds-palette-neutral-950);
   }
 `
 

@@ -82,17 +82,17 @@ export const OptionsContainer = styled.div`
   }
 `
 
-// cartButtonText has no matching design-token pair (light #909090 / dark
-// #636363): kept as literals with an explicit dark override.
+// No semantic token pairs these values: composed from palette variables
+// with an explicit dark override.
 export const CartText = styled(Body)`
   display: none;
   @media ${breakpoints.M} {
     display: inline-block;
-    color: #909090;
+    color: var(--ds-palette-neutral-500);
     margin-right: 0.25rem;
 
-    :root[data-theme='dark'] & {
-      color: #636363;
+    :root[data-ds-theme='dark'] & {
+      color: var(--ds-palette-neutral-700);
     }
   }
 `
