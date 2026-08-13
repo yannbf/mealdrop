@@ -79,9 +79,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@droppy/design-system@https://pkg.pr.new/yannbf/droppy-ds/@droppy/design-system@98bd6a5":
+"@droppy/design-system@https://pkg.pr.new/yannbf/droppy-ds/@droppy/design-system@ef74cd3":
   version: 0.1.0
-  resolution: "@droppy/design-system@https://pkg.pr.new/yannbf/droppy-ds/@droppy/design-system@98bd6a5"
+  resolution: "@droppy/design-system@https://pkg.pr.new/yannbf/droppy-ds/@droppy/design-system@ef74cd3"
   dependencies:
     embla-carousel-react: "npm:^8.6.0"
     embla-carousel-wheel-gestures: "npm:^8.1.0"
@@ -89,7 +89,7 @@ __metadata:
   peerDependencies:
     react: ^18.0.0 || ^19.0.0
     react-dom: ^18.0.0 || ^19.0.0
-  checksum: 10c0/380b2835a1e809370e3f826faa8fe726350f7d55a7629ef2f29ae22ddee8b760f5b657e4145a15087bd9685ba0564755ad578e4650e02d8f66c711462f3162a4
+  checksum: 10c0/819ff1abfc23ac49146201a409230275bf41773493bccf16a85da11524ca4bab60339962b6259081a8173eaa11dc85bf530a78647b1f82d229797edf0eb5cf28
   languageName: node
   linkType: hard
 
@@ -1770,7 +1770,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "course-app@workspace:."
   dependencies:
-    "@droppy/design-system": "https://pkg.pr.new/yannbf/droppy-ds/@droppy/design-system@98bd6a5"
+    "@droppy/design-system": "https://pkg.pr.new/yannbf/droppy-ds/@droppy/design-system@ef74cd3"
     "@hookform/resolvers": "npm:^5.5.7"
     "@reduxjs/toolkit": "npm:^2.12.0"
     "@testing-library/dom": "npm:^10.4.1"
