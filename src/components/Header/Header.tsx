@@ -102,6 +102,13 @@ export const CartTotal = styled(Body)`
   color: var(--ds-color-action-on-primary);
 `
 
+// One flex child for both labels: Button's gap separates its children, so
+// left as siblings the label and amount would inherit the icon-to-label gap
+// instead of the tighter spacing CartText's margin defines.
+const CartLabel = styled.span`
+  display: inline-block;
+`
+
 const ThemeToggle = (props: Omit<ButtonProps, 'icon' | 'onClick'>) => {
   const darkMode = useDarkMode(false, { global: globalThis.window })
   return (
@@ -155,10 +162,10 @@ export const HeaderComponent = ({
           </span>
           <Button aria-label="food cart" icon="cart" onClick={toggleCartVisibility}>
             {totalPrice > 0 && (
-              <>
+              <CartLabel>
                 <CartText type="span">Order</CartText>
                 <CartTotal type="span">{toCurrency(totalPrice)}</CartTotal>
-              </>
+              </CartLabel>
             )}
           </Button>
         </OptionsContainer>

@@ -25,6 +25,9 @@ const StyledContent = styled.div`
   background: var(--ds-color-surface-card);
 `
 
+// The corner tag predates Badge and keeps its bespoke look: the app's own
+// display font, lowercase, heading-sized — only Badge's positive colours are
+// reused. Badge itself capitalizes and uses the DS body family by design.
 const NewBadge = styled(Badge)`
   position: absolute;
   top: 0.5rem;
@@ -32,7 +35,10 @@ const NewBadge = styled(Badge)`
   z-index: 1;
   padding: 8px;
   border-radius: var(--ds-radius-card);
-  font-size: var(--ds-type-size-lg);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: none;
 `
 
 const Closed = styled.div`
