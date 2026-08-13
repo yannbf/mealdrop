@@ -41,7 +41,7 @@
     "@use-it/event-listener@npm:^0.1.2": "patch:@use-it/event-listener@npm%3A0.1.7#~/.yarn/patches/@use-it-event-listener-npm-0.1.7-56ef42a654.patch"
   },
   "dependencies": {
-    "@droppy/design-system": "https://pkg.pr.new/yannbf/droppy-ds/@droppy/design-system@0bfae2e",
+    "@droppy/design-system": "https://pkg.pr.new/yannbf/droppy-ds/@droppy/design-system@98bd6a5",
     "@hookform/resolvers": "^5.5.7",
     "@reduxjs/toolkit": "^2.12.0",
     "axios": "^1.18.1",
