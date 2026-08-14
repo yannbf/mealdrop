@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Badge, Body, ErrorBlock, Heading, TopBanner } from '@droppy/design-system'
+import { Badge, Body, Container, ErrorBlock, Heading, TopBanner } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
 
 import { PageTemplate } from '../../templates/PageTemplate'
@@ -107,7 +107,7 @@ export const RestaurantDetailPage = () => {
       />
       <TopBanner photoUrl={photoUrl} onBackClick={() => navigate(-1)} />
       <DetailSection>
-        <div className="container">
+        <Container>
           <Heading level={2}>{name}</Heading>
           <Body>Specialties: {specialty}</Body>
           <Review rating={rating} />
@@ -116,10 +116,10 @@ export const RestaurantDetailPage = () => {
               <StyledBadge key={category} text={category} />
             ))}
           </div>
-        </div>
+        </Container>
       </DetailSection>
       <MenuSection>
-        <div className="container">
+        <Container>
           {menu.food && (
             <FoodSection
               title="To eat"
@@ -144,7 +144,7 @@ export const RestaurantDetailPage = () => {
               onItemClick={setSelectedItem}
             />
           )}
-        </div>
+        </Container>
       </MenuSection>
     </PageTemplate>
   )
