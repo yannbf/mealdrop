@@ -1,7 +1,7 @@
 import { useNavigate, Link } from 'react-router-dom'
+import { PageSection } from '@droppy/design-system'
 import styled from 'styled-components'
 
-import { PageSection } from '../../../../components/PageSection'
 import { Category, CategoryProps } from '../../../../components/Category'
 import { Carousel } from '../../../../components/Carousel'
 

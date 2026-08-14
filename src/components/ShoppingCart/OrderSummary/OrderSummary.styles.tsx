@@ -1,20 +1,13 @@
+import { Heading } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
 
-import { Heading } from '../../typography/Heading'
-
 export const StyledHeading = styled(Heading)<{ $withMargin?: boolean }>(
-  ({
-    $withMargin = false,
-    theme: {
-      typography: { fontSize },
-    },
-  }) => css`
-    font-size: ${fontSize.heading4};
+  ({ $withMargin = false }) => css`
     margin-bottom: ${$withMargin ? '1.5rem' : 0};
   `
 )
 
-export const OrderSummaryContainer = styled.div<{ fixed?: boolean }>(
+export const OrderSummaryContainer = styled.div(
   ({ theme: { color, borderRadius } }) => css`
     width: 100%;
     min-height: 250px;
@@ -26,9 +19,13 @@ export const OrderSummaryContainer = styled.div<{ fixed?: boolean }>(
   `
 )
 
+export const TotalHeading = styled(StyledHeading)`
+  color: #d70808;
+`
+
 export const BottomContainer = styled.div`
   margin-top: auto;
-  border-top: 1px solid #f5f6f7;
+  border-top: 1px solid var(--ds-color-border-subtle);
   display: flex;
   align-items: center;
   justify-content: space-between;

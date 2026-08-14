@@ -1,15 +1,13 @@
-import { useParams, useNavigate } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
+import { Breadcrumb, ErrorBlock, TopBanner } from '@droppy/design-system'
 import styled from 'styled-components'
 
 import { useFetchRestaurantsByCategory } from '../../api/hooks'
 import { PageTemplate } from '../../templates/PageTemplate'
 import { RestaurantCard, RestaurantCardSkeleton } from '../../components/RestaurantCard'
-import { TopBanner } from '../../components/TopBanner'
 import { categories } from '../../stub/categories'
 import sushi from '../../assets/images/sushi.svg'
 import { Restaurant } from '../../types'
-import { ErrorBlock } from '../../components/ErrorBlock'
-import { Breadcrumb } from '../../components/Breadcrumb'
 
 const StyledContainer = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(356px, 1fr));
@@ -36,7 +34,7 @@ export const CategoryDetailPage = () => {
       <div className="container">
         <Breadcrumb
           items={[
-            { label: 'categories', path: '/categories' },
+            { label: 'categories', render: <Link to="/categories" /> },
             { label: category?.title?.toLowerCase() || '' },
           ]}
         />
@@ -44,7 +42,7 @@ export const CategoryDetailPage = () => {
           <ErrorBlock
             body="It seems that there are no restaurants in this category yet. Try to come back later?"
             title="This is not the food you're looking for."
-            image={<img alt="no restaurants found" src={sushi} />}
+            illustration={<img alt="no restaurants found" src={sushi} />}
             buttonText="See all restaurants"
             onButtonClick={() => {
               navigate('/categories')

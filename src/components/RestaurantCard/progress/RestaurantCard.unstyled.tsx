@@ -1,6 +1,7 @@
-import { Badge } from '../../Badge'
+import { Badge, Heading } from '@droppy/design-system'
+
 import { Review } from '../../Review'
-import { Body, Heading } from '../../typography'
+import { Body } from '../../typography'
 
 type RestaurantCardProps = {
   name: string
