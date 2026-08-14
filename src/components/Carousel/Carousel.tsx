@@ -1,9 +1,9 @@
 import { Children, type ReactNode, useCallback, useEffect, useState } from 'react'
+import { IconButton } from '@droppy/design-system'
 import useEmblaCarousel from 'embla-carousel-react'
 import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures'
 import styled, { css } from 'styled-components'
 
-import { IconButton } from '../IconButton'
 import { breakpoints, viewports } from '../../styles/breakpoints'
 
 export type ItemsPerView = {

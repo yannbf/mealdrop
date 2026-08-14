@@ -1,10 +1,9 @@
+import { Select, Sidebar } from '@droppy/design-system'
 import styled from 'styled-components'
 
 import { CartItem } from '../../app-state/cart'
 import { toCurrency } from '../../helpers'
 import { Button } from '../Button'
-import { Select } from '../forms/Select'
-import { Sidebar } from '../Sidebar'
 import { Body } from '../typography'
 
 const FooterContainer = styled.div`
@@ -84,6 +83,7 @@ export const ShoppingCartMenu = ({
     title="Your order"
     onClose={onClose}
     isOpen={isOpen}
+    container="#modal"
     footer={<Footer onClick={onGoToCheckoutClick} totalPrice={totalPrice} />}
   >
     <div style={{ display: 'grid', gap: '24px' }}>

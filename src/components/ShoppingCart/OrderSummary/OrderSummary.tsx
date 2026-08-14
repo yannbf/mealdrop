@@ -2,14 +2,15 @@ import { useMemo } from 'react'
 
 import { ShoppingCartItem } from '../ShoppingCartItem/ShoppingCartItem'
 import { CartItem } from '../../../app-state/cart'
-import { Body } from '../../typography/Body'
 import { toCurrency } from '../../../helpers'
+import { Body } from '../../typography/Body'
 
 import {
   OrderSummaryContainer,
   BottomContainer,
   CartItemsContainer,
   StyledHeading,
+  TotalHeading,
 } from './OrderSummary.styles'
 
 type OrderSummaryProps = {
@@ -24,7 +25,7 @@ export const OrderSummary = ({ cartItems }: OrderSummaryProps) => {
   return (
     <>
       <OrderSummaryContainer>
-        <StyledHeading level={3} $withMargin>
+        <StyledHeading level={3} size={4} $withMargin>
           Your order
         </StyledHeading>
         <CartItemsContainer>
@@ -36,7 +37,9 @@ export const OrderSummary = ({ cartItems }: OrderSummaryProps) => {
         </CartItemsContainer>
         <BottomContainer>
           <Body>Total</Body>
-          <StyledHeading level={2}>{toCurrency(totalPrice)}</StyledHeading>
+          <TotalHeading level={2} size={4}>
+            {toCurrency(totalPrice)}
+          </TotalHeading>
         </BottomContainer>
       </OrderSummaryContainer>
     </>

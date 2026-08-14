@@ -1,18 +1,16 @@
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { Badge, ErrorBlock, Heading, TopBanner } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
 
 import { PageTemplate } from '../../templates/PageTemplate'
 import { useFetchRestaurant } from '../../api/hooks'
 import { useAppDispatch, useAppSelector } from '../../app-state'
 import { CartItem, clearItemAction, saveItemAction, selectCartItems } from '../../app-state/cart'
-import { TopBanner } from '../../components/TopBanner'
-import { Heading, Body } from '../../components/typography'
-import { Badge } from '../../components/Badge'
 import { Review } from '../../components/Review'
 import { AnimatedIllustration } from '../../components/AnimatedIllustration'
-import { ErrorBlock } from '../../components/ErrorBlock'
 import { Spinner } from '../../components/Spinner'
+import { Body } from '../../components/typography'
 
 import { FoodItemModal } from './components/FoodItemModal'
 import { FoodSection } from './components/FoodSection'
@@ -63,7 +61,7 @@ export const RestaurantDetailPage = () => {
         <ErrorBlock
           title="Something went wrong!"
           body="Our bad, something went wrong on our side."
-          image={<AnimatedIllustration animation="NotFound" />}
+          illustration={<AnimatedIllustration animation="NotFound" />}
           onButtonClick={retryRequest}
           buttonText="Try again"
         />
@@ -77,7 +75,7 @@ export const RestaurantDetailPage = () => {
         <ErrorBlock
           title="We can't find this page"
           body="This page doesn’t exist, keep looking."
-          image={<AnimatedIllustration animation="Error" />}
+          illustration={<AnimatedIllustration animation="Error" />}
           onButtonClick={() => navigate('/')}
           buttonText="Home"
         />

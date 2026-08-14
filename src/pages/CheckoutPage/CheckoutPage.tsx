@@ -1,10 +1,10 @@
+import { Heading } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
 
 import { useAppSelector } from '../../app-state'
 import { OrderSummary } from '../../components/ShoppingCart'
 import { selectCartItems } from '../../app-state/cart'
 import { breakpoints } from '../../styles/breakpoints'
-import { Heading } from '../../components/typography/Heading'
 import { PageTemplate } from '../../templates/PageTemplate'
 
 import { MultiStepForm } from './components/registration-form/MultiStepForm'

@@ -1,11 +1,11 @@
+import { useNavigate } from 'react-router-dom'
+import { Heading, TopBanner } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
 
 import ladies from '../../assets/images/ladies-sushi.svg'
 import { useAppSelector } from '../../app-state'
 import { selectOrderItems } from '../../app-state/order'
 import { PageTemplate } from '../../templates/PageTemplate'
-import { TopBanner } from '../../components/TopBanner'
-import { Heading } from '../../components/typography/Heading'
 import { OrderSummary } from '../../components/ShoppingCart'
 import { breakpoints } from '../../styles/breakpoints'
 import { Body } from '../../components/typography/Body'
@@ -53,7 +53,20 @@ const OrderSummaryContainer = styled.div`
   text-align: left;
 `
 
+const ContinueBrowsing = styled.div(
+  ({ theme: { color } }) => css`
+    width: fit-content;
+    margin: 0 auto;
+    padding: 0.75rem 1.25rem;
+    color: ${color.primaryText};
+    text-align: center;
+    cursor: pointer;
+    text-decoration: underline;
+  `
+)
+
 export const SuccessPage = () => {
+  const navigate = useNavigate()
   const orderItems = useAppSelector(selectOrderItems)
   return (
     <PageTemplate type="basic">
@@ -63,6 +76,7 @@ export const SuccessPage = () => {
           <Body type="span">Estimated delivery</Body>
           <StyledHeading level={2}>13:23 today</StyledHeading>
           <OrderSummary cartItems={orderItems} />
+          <ContinueBrowsing onClick={() => navigate('/')}>Continue browsing</ContinueBrowsing>
         </OrderSummaryContainer>
         <Image src={ladies} />
       </Container>
