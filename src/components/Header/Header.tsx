@@ -1,7 +1,9 @@
-import { Body, Button } from '@droppy/design-system'
+import { Body, Button, type ButtonProps } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import useDarkMode from 'use-dark-mode'
+
+import { Link } from '../Link'
 
 import { useAppDispatch, useAppSelector } from '../../app-state'
 import {
@@ -18,15 +20,15 @@ import { toCurrency } from '../../helpers'
 import { Logo } from '../Logo'
 
 export const HeaderContainer = styled.div<{ $sticky: boolean }>(
-  ({ $sticky, theme: { color } }) => css`
+  ({ $sticky }) => css`
     display: flex;
     justify-content: space-between;
     height: 56px;
-    border-bottom: 1px solid ${color.headerBorder};
+    border-bottom: 1px solid var(--ds-color-border-subtle);
     top: 0;
     left: 0;
     position: sticky;
-    background: ${color.headerBackground};
+    background: var(--ds-color-surface-default);
     z-index: 2;
     width: 100%;
     padding: 0 1.5rem;
@@ -80,25 +82,34 @@ export const OptionsContainer = styled.div`
   }
 `
 
-export const CartText = styled(Body)(
-  ({ theme: { color } }) => css`
-    display: none;
-    @media ${breakpoints.M} {
-      display: inline-block;
-      color: ${color.cartButtonText};
-      margin-right: 0.25rem;
-    }
-  `
-)
-
-export const CartTotal = styled(Body)(
-  ({ theme: { color } }) => css`
+// No semantic token pairs these values: composed from palette variables
+// with an explicit dark override.
+export const CartText = styled(Body)`
+  display: none;
+  @media ${breakpoints.M} {
     display: inline-block;
-    color: ${color.buttonText};
-  `
-)
+    color: var(--ds-palette-neutral-500);
+    margin-right: 0.25rem;
 
-const ThemeToggle = () => {
+    :root[data-ds-theme='dark'] & {
+      color: var(--ds-palette-neutral-700);
+    }
+  }
+`
+
+export const CartTotal = styled(Body)`
+  display: inline-block;
+  color: var(--ds-color-action-on-primary);
+`
+
+// One flex child for both labels: Button's gap separates its children, so
+// left as siblings the label and amount would inherit the icon-to-label gap
+// instead of the tighter spacing CartText's margin defines.
+const CartLabel = styled.span`
+  display: inline-block;
+`
+
+const ThemeToggle = (props: Omit<ButtonProps, 'icon' | 'onClick'>) => {
   const darkMode = useDarkMode(false, { global: globalThis.window })
   return (
     <Button
@@ -107,6 +118,7 @@ const ThemeToggle = () => {
       aria-label={`turn on ${darkMode.value ? 'light' : 'dark'} mode`}
       icon={darkMode.value ? 'moon' : 'sun'}
       onClick={darkMode.toggle}
+      {...props}
     />
   )
 }
@@ -150,10 +162,10 @@ export const HeaderComponent = ({
           </span>
           <Button aria-label="food cart" icon="cart" onClick={toggleCartVisibility}>
             {totalPrice > 0 && (
-              <>
+              <CartLabel>
                 <CartText type="span">Order</CartText>
                 <CartTotal type="span">{toCurrency(totalPrice)}</CartTotal>
-              </>
+              </CartLabel>
             )}
           </Button>
         </OptionsContainer>

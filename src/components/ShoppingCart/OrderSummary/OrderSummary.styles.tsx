@@ -7,15 +7,23 @@ export const StyledHeading = styled(Heading)<{ $withMargin?: boolean }>(
   `
 )
 
+// Card's surface-card value equals the checkout page background, so the
+// summary keeps its own lighter surface to read as elevated (white /
+// neutral-900, composed from palette variables with an explicit dark override).
 export const OrderSummaryContainer = styled(Card).attrs({ padded: true })`
   width: 100%;
   min-height: 250px;
+  background: var(--ds-palette-neutral-0);
   display: flex;
   flex-direction: column;
+
+  :root[data-ds-theme='dark'] & {
+    background: var(--ds-palette-neutral-900);
+  }
 `
 
 export const TotalHeading = styled(StyledHeading)`
-  color: #d70808;
+  color: var(--ds-palette-red-500);
 `
 
 export const BottomContainer = styled.div`

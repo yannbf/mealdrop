@@ -1,44 +1,60 @@
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Badge, Body, Container, ErrorBlock, Heading, TopBanner } from '@droppy/design-system'
-import styled, { css } from 'styled-components'
+import {
+  Badge,
+  Body,
+  Container,
+  ErrorBlock,
+  Heading,
+  Review,
+  Spinner,
+  TopBanner,
+} from '@droppy/design-system'
+import styled from 'styled-components'
 
 import { PageTemplate } from '../../templates/PageTemplate'
 import { useFetchRestaurant } from '../../api/hooks'
 import { useAppDispatch, useAppSelector } from '../../app-state'
 import { CartItem, clearItemAction, saveItemAction, selectCartItems } from '../../app-state/cart'
-import { Review } from '../../components/Review'
 import { AnimatedIllustration } from '../../components/AnimatedIllustration'
-import { Spinner } from '../../components/Spinner'
 
 import { FoodItemModal } from './components/FoodItemModal'
 import { FoodSection } from './components/FoodSection'
 
-const DetailSection = styled.div(
-  ({ theme: { color, spacing } }) => css`
-    padding-top: 2rem !important;
-    padding-bottom: 2rem !important;
-    background: ${color.restaurantDetailBackground};
-    .review-text {
-      color: ${color.reviewText};
-      margin-bottom: ${spacing.m};
-    }
-  `
-)
+const DetailSection = styled.div`
+  padding-top: 2rem !important;
+  padding-bottom: 2rem !important;
+  background: var(--ds-color-surface-overlay);
+  .droppy-Review-text {
+    color: var(--ds-color-text-review);
+    margin-bottom: 1.25em;
+  }
+`
 
-const MenuSection = styled.div(
-  ({ theme: { color } }) => css`
-    padding-top: 3rem !important;
-    padding-bottom: 5rem !important;
-    background: ${color.menuSectionBackground};
-  `
-)
+// No semantic token pairs these values: composed from palette variables
+// with an explicit dark override.
+const MenuSection = styled.div`
+  padding-top: 3rem !important;
+  padding-bottom: 5rem !important;
+  background: var(--ds-palette-neutral-50);
 
-const StyledBadge = styled(Badge)(
-  ({ theme: { spacing } }) => css`
-    margin-right: ${spacing.s};
-  `
-)
+  :root[data-ds-theme='dark'] & {
+    background: var(--ds-palette-neutral-950);
+  }
+`
+
+// The spinner is an inline primitive; centering it over the content area is
+// the page's job. Height matches the template's content min-height.
+const SpinnerContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 200px);
+`
+
+const StyledBadge = styled(Badge)`
+  margin-right: 1em;
+`
 
 export const RestaurantDetailPage = () => {
   const { id = '' } = useParams<'id'>()
@@ -85,7 +101,9 @@ export const RestaurantDetailPage = () => {
   if (status === 'loading') {
     return (
       <PageTemplate type="sticky-header">
-        <Spinner />
+        <SpinnerContainer>
+          <Spinner />
+        </SpinnerContainer>
       </PageTemplate>
     )
   }

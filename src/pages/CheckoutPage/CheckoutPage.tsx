@@ -1,5 +1,5 @@
 import { Container, Heading } from '@droppy/design-system'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import { useAppSelector } from '../../app-state'
 import { OrderSummary } from '../../components/ShoppingCart'
@@ -18,19 +18,23 @@ const OrderDetailsContainer = styled.div`
   }
 `
 
-const TopContainer = styled.div(
-  ({ theme: { color, spacing } }) => css`
-    padding-top: ${spacing.xl};
-    margin-bottom: ${spacing.s};
-    min-height: 260px;
-    background: ${color.checkoutTopBackground};
+// No semantic token pairs these values: composed from palette variables
+// with an explicit dark override.
+const TopContainer = styled.div`
+  padding-top: 3.25em;
+  margin-bottom: 1em;
+  min-height: 260px;
+  background: var(--ds-palette-green-200);
 
-    @media ${breakpoints.M} {
-      padding-top: ${spacing.xxl};
-      min-height: 300px;
-    }
-  `
-)
+  :root[data-ds-theme='dark'] & {
+    background: var(--ds-palette-neutral-950);
+  }
+
+  @media ${breakpoints.M} {
+    padding-top: 5.25em;
+    min-height: 300px;
+  }
+`
 
 const BottomContainer = styled(Container)`
   display: flex;
@@ -49,13 +53,17 @@ const StyledHeading = styled(Heading)`
   margin: 0 auto;
 `
 
-const ContentContainer = styled.div(
-  ({ theme: { color, spacing } }) => css`
-    min-height: 100vh;
-    padding-bottom: ${spacing.xxl};
-    background: ${color.checkoutBottomBackground};
-  `
-)
+// No semantic token pairs these values: composed from palette variables
+// with an explicit dark override.
+const ContentContainer = styled.div`
+  min-height: 100vh;
+  padding-bottom: 5.25em;
+  background: var(--ds-palette-neutral-50);
+
+  :root[data-ds-theme='dark'] & {
+    background: var(--ds-palette-neutral-600);
+  }
+`
 
 export const CheckoutPage = () => {
   const cartItems = useAppSelector(selectCartItems)
