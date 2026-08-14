@@ -1,4 +1,4 @@
-import { Heading } from '@droppy/design-system'
+import { Card, Heading } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
 
 export const StyledHeading = styled(Heading)<{ $withMargin?: boolean }>(
@@ -7,17 +7,12 @@ export const StyledHeading = styled(Heading)<{ $withMargin?: boolean }>(
   `
 )
 
-export const OrderSummaryContainer = styled.div(
-  ({ theme: { color, borderRadius } }) => css`
-    width: 100%;
-    min-height: 250px;
-    display: flex;
-    flex-direction: column;
-    padding: 1.5rem;
-    background-color: ${color.orderSummaryBackground};
-    border-radius: ${borderRadius.s};
-  `
-)
+export const OrderSummaryContainer = styled(Card).attrs({ padded: true })`
+  width: 100%;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+`
 
 export const TotalHeading = styled(StyledHeading)`
   color: #d70808;
