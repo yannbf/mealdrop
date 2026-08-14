@@ -96,7 +96,7 @@ const Title = styled(Body)`
 const Rounded = ({ title, photoUrl: url }: CategoryProps) => (
   <RoundCard data-testid={title}>
     <RoundImage src={url} alt="restaurant category" />
-    <Title type="figcaption">{title}</Title>
+    <Title type="span">{title}</Title>
   </RoundCard>
 )
 
