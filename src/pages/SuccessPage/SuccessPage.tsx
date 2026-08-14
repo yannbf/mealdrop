@@ -37,15 +37,9 @@ const StyledHeading = styled(Heading)`
   margin-bottom: 1.5rem;
 `
 
-// No semantic token pairs these values: composed from palette variables
-// with an explicit dark override.
 const Container = styled.div`
-  background: var(--ds-palette-neutral-50);
+  background: var(--ds-color-surface-page);
   min-height: 100vh;
-
-  :root[data-ds-theme='dark'] & {
-    background: var(--ds-palette-neutral-950);
-  }
 `
 
 const OrderSummaryContainer = styled.div`
