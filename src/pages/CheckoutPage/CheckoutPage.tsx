@@ -1,5 +1,5 @@
 import { Container, Heading } from '@droppy/design-system'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import { useAppSelector } from '../../app-state'
 import { OrderSummary } from '../../components/ShoppingCart'
@@ -18,29 +18,36 @@ const OrderDetailsContainer = styled.div`
   }
 `
 
-const TopContainer = styled.div(
-  ({ theme: { color, spacing } }) => css`
-    padding-top: ${spacing.xl};
-    margin-bottom: ${spacing.s};
-    min-height: 260px;
-    background: ${color.checkoutTopBackground};
+const TopContainer = styled.div`
+  padding-top: 3.25em;
+  margin-bottom: 1em;
+  min-height: 260px;
+  background: var(--ds-color-surface-highlight);
 
-    @media ${breakpoints.M} {
-      padding-top: ${spacing.xxl};
-      min-height: 300px;
-    }
-  `
-)
+  @media ${breakpoints.M} {
+    padding-top: 5.25em;
+    min-height: 300px;
+  }
+`
+
+// The negative margin pulls the checkout content up over TopContainer's
+// band. It lives on this wrapper rather than on the Container because the
+// design system's .droppy-Container sets its own margins.
+const BottomPull = styled.div`
+  margin-top: -12rem;
+
+  @media ${breakpoints.S} {
+    margin-top: -10rem;
+  }
+`
 
 const BottomContainer = styled(Container)`
   display: flex;
-  margin-top: -12rem !important;
   justify-content: center;
   flex-direction: column-reverse;
   align-items: flex-start;
 
   @media ${breakpoints.S} {
-    margin-top: -10rem !important;
     flex-direction: row;
   }
 `
@@ -49,13 +56,11 @@ const StyledHeading = styled(Heading)`
   margin: 0 auto;
 `
 
-const ContentContainer = styled.div(
-  ({ theme: { color, spacing } }) => css`
-    min-height: 100vh;
-    padding-bottom: ${spacing.xxl};
-    background: ${color.checkoutBottomBackground};
-  `
-)
+const ContentContainer = styled.div`
+  min-height: 100vh;
+  padding-bottom: 5.25em;
+  background: var(--ds-color-surface-page);
+`
 
 export const CheckoutPage = () => {
   const cartItems = useAppSelector(selectCartItems)
@@ -68,12 +73,14 @@ export const CheckoutPage = () => {
             Checkout
           </StyledHeading>
         </TopContainer>
-        <BottomContainer>
-          <MultiStepForm />
-          <OrderDetailsContainer>
-            <OrderSummary cartItems={cartItems} />
-          </OrderDetailsContainer>
-        </BottomContainer>
+        <BottomPull>
+          <BottomContainer>
+            <MultiStepForm />
+            <OrderDetailsContainer>
+              <OrderSummary cartItems={cartItems} />
+            </OrderDetailsContainer>
+          </BottomContainer>
+        </BottomPull>
       </ContentContainer>
     </PageTemplate>
   )

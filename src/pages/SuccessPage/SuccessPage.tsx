@@ -37,12 +37,10 @@ const StyledHeading = styled(Heading)`
   margin-bottom: 1.5rem;
 `
 
-const Container = styled.div(
-  ({ theme: { color } }) => css`
-    background: ${color.menuSectionBackground};
-    min-height: 100vh;
-  `
-)
+const Container = styled.div`
+  background: var(--ds-color-surface-page);
+  min-height: 100vh;
+`
 
 const OrderSummaryContainer = styled.div`
   max-width: 400px;
@@ -52,17 +50,15 @@ const OrderSummaryContainer = styled.div`
   text-align: left;
 `
 
-const ContinueBrowsing = styled.div(
-  ({ theme: { color } }) => css`
-    width: fit-content;
-    margin: 0 auto;
-    padding: 0.75rem 1.25rem;
-    color: ${color.primaryText};
-    text-align: center;
-    cursor: pointer;
-    text-decoration: underline;
-  `
-)
+const ContinueBrowsing = styled.div`
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0.75rem 1.25rem;
+  color: var(--ds-color-text-primary);
+  text-align: center;
+  cursor: pointer;
+  text-decoration: underline;
+`
 
 export const SuccessPage = () => {
   const navigate = useNavigate()
