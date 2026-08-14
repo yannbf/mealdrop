@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { Heading, TopBanner } from '@droppy/design-system'
+import { Body, Heading, TopBanner } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
 
 import ladies from '../../assets/images/ladies-sushi.svg'
@@ -8,7 +8,6 @@ import { selectOrderItems } from '../../app-state/order'
 import { PageTemplate } from '../../templates/PageTemplate'
 import { OrderSummary } from '../../components/ShoppingCart'
 import { breakpoints } from '../../styles/breakpoints'
-import { Body } from '../../components/typography/Body'
 
 const Image = styled.div<{ src: string }>(
   ({ src }) => css`

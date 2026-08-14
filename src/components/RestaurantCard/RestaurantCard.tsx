@@ -1,9 +1,8 @@
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
-import { Badge, Heading } from '@droppy/design-system'
+import { Badge, Body, Heading } from '@droppy/design-system'
 import styled, { css, useTheme } from 'styled-components'
 
 import { Review } from '../Review'
-import { Body } from '../typography'
 
 type RestaurantCardProps = {
   name: string

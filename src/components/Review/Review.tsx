@@ -1,6 +1,5 @@
+import { Body } from '@droppy/design-system'
 import styled from 'styled-components'
-
-import { Body } from '../typography'
 
 const Wrapper = styled.div`
   display: flex;

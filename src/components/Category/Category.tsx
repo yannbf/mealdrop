@@ -1,7 +1,7 @@
+import { Body } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
 
 import { breakpoints } from '../../styles/breakpoints'
-import { Body } from '../typography'
 
 export type CategoryProps = {
   id?: string
