@@ -1,5 +1,6 @@
-import { Badge, Body, Card, Heading, Skeleton } from '@droppy/design-system'
-import styled, { css } from 'styled-components'
+import type { CSSProperties } from 'react'
+import { Badge, Body, Heading } from '@droppy/design-system'
+import styled, { css, keyframes } from 'styled-components'
 
 import { Review } from '../Review'
 
@@ -16,10 +17,26 @@ type RestaurantCardProps = {
   className?: string
 }
 
+const Container = styled.div(
+  ({ theme: { borderRadius } }) => css`
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    border-radius: ${borderRadius.s};
+    width: 100%;
+    max-width: 500px;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  `
+)
+
 const StyledContent = styled.div(
   ({ theme: { color } }) => css`
     padding: 24px;
     background: ${color.cardBackground};
+    border-radius: 0px 0px 8px 8px;
   `
 )
 
@@ -57,6 +74,7 @@ const ImageContainer = styled.div`
 const RestaurantImage = styled.img<{ $isClosed: boolean }>`
   height: 200px;
   width: 100%;
+  border-radius: 8px 8px 0px 0px;
   object-fit: cover;
   filter: ${({ $isClosed }) => ($isClosed ? 'grayscale(1)' : 'none')};
 `
@@ -82,8 +100,48 @@ const StyledHeading = styled(Heading)(
   `
 )
 
+const shimmer = keyframes`
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: 200px 0;
+  }
+`
+
+const SkeletonBlock = styled.span<{ $width: string; $height: string }>(
+  ({ theme: { color }, $width, $height }) => css`
+    display: block;
+    width: ${$width};
+    height: ${$height};
+    border-radius: 4px;
+    background: linear-gradient(
+      90deg,
+      ${color.skeletonBase} 25%,
+      ${color.skeletonHighlight} 37%,
+      ${color.skeletonBase} 63%
+    );
+    background-size: 400px 100%;
+    animation: ${shimmer} 1.4s ease infinite;
+  `
+)
+
+type SkeletonProps = {
+  width?: string
+  height?: string | number
+  style?: CSSProperties
+}
+
+const Skeleton = ({ width = '100%', height = '1em', style }: SkeletonProps) => (
+  <SkeletonBlock
+    $width={width}
+    $height={typeof height === 'number' ? `${height}px` : height}
+    style={style}
+  />
+)
+
 export const RestaurantCardSkeleton = () => (
-  <Card data-testid="loading">
+  <Container data-testid="loading">
     <Skeleton height={200} width="100%" />
     <StyledContent>
       <StyledHeading level={2} size={4}>
@@ -99,7 +157,7 @@ export const RestaurantCardSkeleton = () => (
         <Skeleton width="25%" height="23px" style={{ marginTop: 24 }} />
       </Body>
     </StyledContent>
-  </Card>
+  </Container>
 )
 
 export const RestaurantCard = ({
@@ -119,8 +177,7 @@ export const RestaurantCard = ({
   }
 
   return (
-    <Card
-      interactive
+    <Container
       className={className}
       data-testid="restaurant-card"
       onClick={isClosed ? undefined : onClick}
@@ -144,6 +201,6 @@ export const RestaurantCard = ({
           <StyledBadge key={category} text={category} />
         ))}
       </StyledContent>
-    </Card>
+    </Container>
   )
 }
