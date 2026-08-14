@@ -1,6 +1,5 @@
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
-import { Badge, Body, Heading } from '@droppy/design-system'
-import styled, { css, useTheme } from 'styled-components'
+import { Badge, Body, Card, Heading, Skeleton } from '@droppy/design-system'
+import styled, { css } from 'styled-components'
 
 import { Review } from '../Review'
 
@@ -17,26 +16,10 @@ type RestaurantCardProps = {
   className?: string
 }
 
-const Container = styled.div(
-  ({ theme: { borderRadius } }) => css`
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    border-radius: ${borderRadius.s};
-    width: 100%;
-    max-width: 500px;
-
-    &:hover {
-      opacity: 0.9;
-    }
-  `
-)
-
 const StyledContent = styled.div(
   ({ theme: { color } }) => css`
     padding: 24px;
     background: ${color.cardBackground};
-    border-radius: 0px 0px 8px 8px;
   `
 )
 
@@ -74,7 +57,6 @@ const ImageContainer = styled.div`
 const RestaurantImage = styled.img<{ $isClosed: boolean }>`
   height: 200px;
   width: 100%;
-  border-radius: 8px 8px 0px 0px;
   object-fit: cover;
   filter: ${({ $isClosed }) => ($isClosed ? 'grayscale(1)' : 'none')};
 `
@@ -100,31 +82,25 @@ const StyledHeading = styled(Heading)(
   `
 )
 
-export const RestaurantCardSkeleton = () => {
-  const { color } = useTheme()
-  return (
-    /* @ts-expect-error wrong types! */
-    <SkeletonTheme color={color.skeletonBase} highlightColor={color.skeletonHighlight}>
-      <Container data-testid="loading">
-        <Skeleton height={200} width="100%" style={{ borderRadius: '4px 4px 0 0' }} />
-        <StyledContent>
-          <StyledHeading level={2} size={4}>
-            <Skeleton width="50%" />
-          </StyledHeading>
-          <Body type="span">
-            <Skeleton width="35%" />
-          </Body>
-          <Description>
-            <Skeleton />
-          </Description>
-          <Body type="span">
-            <Skeleton width="25%" height="23px" style={{ marginTop: 24 }} />
-          </Body>
-        </StyledContent>
-      </Container>
-    </SkeletonTheme>
-  )
-}
+export const RestaurantCardSkeleton = () => (
+  <Card data-testid="loading">
+    <Skeleton height={200} width="100%" />
+    <StyledContent>
+      <StyledHeading level={2} size={4}>
+        <Skeleton width="50%" />
+      </StyledHeading>
+      <Body type="span">
+        <Skeleton width="35%" />
+      </Body>
+      <Description>
+        <Skeleton />
+      </Description>
+      <Body type="span">
+        <Skeleton width="25%" height="23px" style={{ marginTop: 24 }} />
+      </Body>
+    </StyledContent>
+  </Card>
+)
 
 export const RestaurantCard = ({
   photoUrl,
@@ -143,7 +119,8 @@ export const RestaurantCard = ({
   }
 
   return (
-    <Container
+    <Card
+      interactive
       className={className}
       data-testid="restaurant-card"
       onClick={isClosed ? undefined : onClick}
@@ -167,6 +144,6 @@ export const RestaurantCard = ({
           <StyledBadge key={category} text={category} />
         ))}
       </StyledContent>
-    </Container>
+    </Card>
   )
 }

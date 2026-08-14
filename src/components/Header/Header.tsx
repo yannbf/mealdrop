@@ -1,10 +1,9 @@
-import { Body } from '@droppy/design-system'
+import { Body, Button } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
 import { Link, useNavigate } from 'react-router-dom'
 import useDarkMode from 'use-dark-mode'
 
 import { useAppDispatch, useAppSelector } from '../../app-state'
-import { Button } from '../Button'
 import {
   CartItem,
   saveItemAction,

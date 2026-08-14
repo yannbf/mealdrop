@@ -1,11 +1,10 @@
 import { useState, useCallback, useEffect } from 'react'
-import { Body, Heading, Modal, QuantityStepper } from '@droppy/design-system'
+import { Body, Button, Heading, Modal, QuantityStepper } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
 
 import { CartItem } from '../../../../app-state/cart'
 import { toCurrency } from '../../../../helpers'
 import { breakpoints } from '../../../../styles/breakpoints'
-import { Button } from '../../../../components/Button'
 
 const StyledBody = styled(Body)`
   margin: 0;

@@ -1,4 +1,4 @@
-import { Body } from '@droppy/design-system'
+import { Body, Card } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
 
 import { breakpoints } from '../../styles/breakpoints'
@@ -10,32 +10,47 @@ export type CategoryProps = {
   round?: boolean
 }
 
-const Container = styled.figure<{ $round: boolean }>(
-  ({ $round, theme: { color, borderRadius } }) => css`
+const SquaredContainer = styled.figure(
+  ({ theme: { borderRadius } }) => css`
     display: flex;
     cursor: pointer;
     position: relative;
-    flex-direction: ${$round ? 'column' : 'row'};
-    align-items: ${$round ? 'center' : 'start'};
+    flex-direction: row;
+    align-items: start;
     border-radius: ${borderRadius.s};
-    background: ${$round ? color.cardBackground : 'transparent'};
+    background: transparent;
     height: 100%;
     width: 100%;
     min-width: 50px;
-    max-width: ${$round ? '200px' : 'auto'};
-    max-height: ${$round ? '200px' : '309px'};
+    max-height: 309px;
     margin: 0;
-    padding: ${$round ? '1.5rem 2rem' : '0'};
+    padding: 0;
 
     &:hover {
       opacity: 0.9;
     }
-
-    @media ${breakpoints.M} {
-      padding: ${$round ? '1.5rem 0' : '0'};
-    }
   `
 )
+
+// Squared tiles stay a plain figure (transparent, no shell) — only the round
+// avatar tile is a card. Layout only; the shell (background, radius, shadow,
+// hover dim) comes from Card.
+const RoundCard = styled(Card).attrs({ interactive: true })`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  min-width: 50px;
+  max-width: 200px;
+  max-height: 200px;
+  margin: 0;
+  padding: 1.5rem 2rem;
+
+  @media ${breakpoints.M} {
+    padding: 1.5rem 0;
+  }
+`
 
 const Image = styled.img(
   ({ theme: { borderRadius } }) => css`
@@ -87,31 +102,28 @@ const Title = styled.figcaption`
 `
 
 const Rounded = ({ title, photoUrl: url }: CategoryProps) => (
-  <>
+  <RoundCard data-testid={title}>
     <RoundImage src={url} alt="restaurant category" />
     <Title>
       <Body type="span">{title}</Body>
     </Title>
-  </>
+  </RoundCard>
 )
 
 const Squared = ({ title, photoUrl: url }: CategoryProps) => (
-  <>
+  <SquaredContainer data-testid={title}>
     <Image src={url} alt="restaurant category" />
     <FloatingTitle>
       <Body type="span" fontWeight="medium">
         {title}
       </Body>
     </FloatingTitle>
-  </>
+  </SquaredContainer>
 )
 
-export const Category = ({ photoUrl, title, round = false }: CategoryProps) => (
-  <Container $round={round} data-testid={title}>
-    {round ? (
-      <Rounded photoUrl={photoUrl} title={title} />
-    ) : (
-      <Squared photoUrl={photoUrl} title={title} />
-    )}
-  </Container>
-)
+export const Category = ({ photoUrl, title, round = false }: CategoryProps) =>
+  round ? (
+    <Rounded photoUrl={photoUrl} title={title} />
+  ) : (
+    <Squared photoUrl={photoUrl} title={title} />
+  )
