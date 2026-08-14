@@ -1,24 +1,22 @@
 import { Button, Container as DsContainer, Heading } from '@droppy/design-system'
-import styled, { css } from 'styled-components'
-import { Link } from 'react-router-dom'
+import styled from 'styled-components'
 
 import restaurants from '../../../../assets/images/restaurants.png'
 import { breakpoints } from '../../../../styles/breakpoints'
+import { Link } from '../../../../components/Link'
 
 const StyledButton = styled(Button)`
   margin-top: 2.5rem;
 `
 
-const Container = styled.div(
-  ({ theme: { color } }) => css`
-    position: relative;
-    overflow: hidden;
-    background: ${color.topBannerBackground};
-    width: 100%;
-    display: flex;
-    height: 487px;
-  `
-)
+const Container = styled.div`
+  position: relative;
+  overflow: hidden;
+  background: var(--ds-color-surface-highlight);
+  width: 100%;
+  display: flex;
+  height: 487px;
+`
 
 const ContentContainer = styled(DsContainer)`
   position: relative;

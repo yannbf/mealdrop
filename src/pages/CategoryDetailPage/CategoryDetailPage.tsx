@@ -1,4 +1,4 @@
-import { Link, useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { Breadcrumb, Container, ErrorBlock, TopBanner } from '@droppy/design-system'
 import styled from 'styled-components'
 
@@ -8,6 +8,7 @@ import { RestaurantCard, RestaurantCardSkeleton } from '../../components/Restaur
 import { categories } from '../../stub/categories'
 import sushi from '../../assets/images/sushi.svg'
 import { Restaurant } from '../../types'
+import { Link } from '../../components/Link'
 
 const StyledContainer = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(356px, 1fr));
