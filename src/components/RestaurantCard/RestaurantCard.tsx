@@ -1,7 +1,5 @@
-import { Badge, Body, Card, Heading, Skeleton } from '@droppy/design-system'
-import styled, { css } from 'styled-components'
-
-import { Review } from '../Review'
+import { Badge, Body, Card, Heading, Review, Skeleton } from '@droppy/design-system'
+import styled from 'styled-components'
 
 type RestaurantCardProps = {
   name: string
@@ -16,39 +14,50 @@ type RestaurantCardProps = {
   className?: string
 }
 
-const StyledContent = styled.div(
-  ({ theme: { color } }) => css`
-    padding: 24px;
-    background: ${color.cardBackground};
-  `
-)
+// Card imposes no layout of its own, so the width cap lives here.
+const ConstrainedCard = styled(Card)`
+  width: 100%;
+  max-width: 500px;
+`
 
-const NewBadge = styled(Badge)`
+const StyledContent = styled.div`
+  padding: 24px;
+  background: var(--ds-color-surface-card);
+`
+
+// A bespoke corner flag, not a Badge: it overlays the photo at heading size
+// with its own fixed green-on-ink pairing, which no Badge variant provides.
+const NewTag = styled.span`
   position: absolute;
   top: 0.5rem;
   left: 0.5rem;
   z-index: 1;
+  display: inline-block;
+  padding: 8px;
+  background: #e5f8bc;
+  color: #2c2c2c;
+  border-radius: 8px;
+  font-size: 1.4rem;
+  font-weight: 700;
 `
 
-const Closed = styled.div(
-  ({ theme: { color } }) => css`
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    border-radius: 8px 8px 0px 0px;
-    background: rgba(0, 0, 0, 0.4);
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    text-align: center;
-    z-index: 1;
-    span {
-      color: ${color.white};
-      line-height: 210px;
-    }
-  `
-)
+const Closed = styled.div`
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 8px 8px 0px 0px;
+  background: rgba(0, 0, 0, 0.4);
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  z-index: 1;
+  span {
+    color: var(--ds-color-text-on-inverse);
+    line-height: 210px;
+  }
+`
 
 const ImageContainer = styled.div`
   position: relative;
@@ -76,17 +85,15 @@ const StyledBadge = styled(Badge)`
   margin-right: 0.5rem;
 `
 
-const StyledHeading = styled(Heading)(
-  ({ theme: { spacing } }) => css`
-    margin-bottom: ${spacing.xs};
-  `
-)
+const StyledHeading = styled(Heading)`
+  margin-bottom: 0.5em;
+`
 
 export const RestaurantCardSkeleton = () => (
-  <Card data-testid="loading">
+  <ConstrainedCard data-testid="loading" role="status" aria-label="Loading restaurant">
     <Skeleton height={200} width="100%" />
     <StyledContent>
-      <StyledHeading level={2} size={4}>
+      <StyledHeading aria-hidden level={2} size={4}>
         <Skeleton width="50%" />
       </StyledHeading>
       <Body type="span">
@@ -99,7 +106,7 @@ export const RestaurantCardSkeleton = () => (
         <Skeleton width="25%" height="23px" style={{ marginTop: 24 }} />
       </Body>
     </StyledContent>
-  </Card>
+  </ConstrainedCard>
 )
 
 export const RestaurantCard = ({
@@ -119,13 +126,13 @@ export const RestaurantCard = ({
   }
 
   return (
-    <Card
+    <ConstrainedCard
       interactive
       className={className}
       data-testid="restaurant-card"
       onClick={isClosed ? undefined : onClick}
     >
-      {isNew && <NewBadge text="new" variant="positive" />}
+      {isNew && <NewTag>new</NewTag>}
       <ImageContainer>
         {isClosed && (
           <Closed>
@@ -144,6 +151,6 @@ export const RestaurantCard = ({
           <StyledBadge key={category} text={category} />
         ))}
       </StyledContent>
-    </Card>
+    </ConstrainedCard>
   )
 }

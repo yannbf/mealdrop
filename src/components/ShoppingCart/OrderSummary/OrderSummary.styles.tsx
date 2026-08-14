@@ -15,7 +15,7 @@ export const OrderSummaryContainer = styled(Card).attrs({ padded: true })`
 `
 
 export const TotalHeading = styled(StyledHeading)`
-  color: #d70808;
+  color: var(--ds-palette-red-500);
 `
 
 export const BottomContainer = styled.div`

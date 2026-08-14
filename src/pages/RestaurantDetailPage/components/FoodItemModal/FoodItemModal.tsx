@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from 'react'
 import { Body, Button, Heading, Modal, QuantityStepper } from '@droppy/design-system'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 import { CartItem } from '../../../../app-state/cart'
 import { toCurrency } from '../../../../helpers'
@@ -29,13 +29,11 @@ const ButtonsContainer = styled.div`
   }
 `
 
-const TopContainer = styled.div(
-  ({ theme: { color } }) => css`
-    padding: 2.5rem 1.5rem;
-    background: ${color.overlayHeader};
-    border-radius: 16px 16px 0px 0px;
-  `
-)
+const TopContainer = styled.div`
+  padding: 2.5rem 1.5rem;
+  background: var(--ds-color-surface-sunken);
+  border-radius: 16px 16px 0px 0px;
+`
 
 const BottomContainer = styled.div`
   padding: 1.5rem;

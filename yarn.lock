@@ -1788,8 +1788,6 @@ __metadata:
     "@vitest/coverage-v8": "npm:^4.1.10"
     axios: "npm:^1.18.1"
     concurrently: "npm:^10.0.4"
-    embla-carousel-react: "npm:^8.6.0"
-    embla-carousel-wheel-gestures: "npm:^8.1.0"
     happy-dom: "npm:^20.11.1"
     husky: "npm:^9.1.7"
     jest-junit: "npm:^17.0.0"
