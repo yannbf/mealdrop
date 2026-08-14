@@ -4,14 +4,10 @@
     {
       "name": "Vite dev server",
       "runtimeExecutable": "yarn",
-      "runtimeArgs": ["start"],
+      "runtimeArgs": [
+        "start"
+      ],
       "port": 3000
-    },
-    {
-      "name": "Storybook",
-      "runtimeExecutable": "./node_modules/.bin/storybook",
-      "runtimeArgs": ["dev", "--port", "$PORT", "--no-open", "--ci"],
-      "autoPort": true
     }
   ]
 }
