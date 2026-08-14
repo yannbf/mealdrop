@@ -1,19 +1,8 @@
+import { Heading } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
 
 import { breakpoints } from '../../../../styles/breakpoints'
 import { Body } from '../../../../components/typography/Body'
-import { Heading } from '../../../../components/typography/Heading'
-
-export const StyledHeading = styled(Heading)<{ $withMargin?: boolean }>(
-  ({
-    theme: {
-      typography: { fontSize },
-    },
-  }) => css`
-    font-size: ${fontSize.heading4};
-    margin-bottom: 0;
-  `
-)
 
 const OuterBar = styled.div(
   ({ theme: { color, borderRadius } }) => css`
@@ -68,7 +57,9 @@ export const StepIndicator = ({ title, currentStep, amountOfSteps }: StepIndicat
   return (
     <div style={{ marginBottom: '2rem' }}>
       <TitleSection>
-        <StyledHeading level={3}>{title}</StyledHeading>
+        <Heading level={3} size={4}>
+          {title}
+        </Heading>
         <Body size="XS" type="span">
           Step {currentStep} of {amountOfSteps}
         </Body>

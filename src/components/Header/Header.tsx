@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import useDarkMode from 'use-dark-mode'
 
 import { useAppDispatch, useAppSelector } from '../../app-state'
+import { Button } from '../Button'
 import {
   CartItem,
   saveItemAction,
@@ -13,10 +14,9 @@ import {
 } from '../../app-state/cart'
 import { breakpoints } from '../../styles/breakpoints'
 import { ShoppingCartMenu } from '../ShoppingCartMenu'
-import { Button } from '../Button'
 import { toCurrency } from '../../helpers'
-import { Body } from '../typography/Body'
 import { Logo } from '../Logo'
+import { Body } from '../typography/Body'
 
 export const HeaderContainer = styled.div<{ $sticky: boolean }>(
   ({ $sticky, theme: { color } }) => css`

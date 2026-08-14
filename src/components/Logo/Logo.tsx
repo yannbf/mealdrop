@@ -1,7 +1,7 @@
+import { Heading } from '@droppy/design-system'
 import styled, { css, useTheme, keyframes } from 'styled-components'
 
 import { breakpoints } from '../../styles/breakpoints'
-import { Heading } from '../typography'
 
 const colors = {
   light: ['#61D8DE', '#4CC8C0', '#36C1BF', '#36C1BF', '#22ACA7', '#22ACA7', '#B1DCE3'],
@@ -61,17 +61,6 @@ const LogoContainer = styled.div`
   align-items: center;
 `
 
-const StyledHeading = styled(Heading)(
-  ({
-    theme: {
-      typography: { fontSize },
-    },
-  }) => css`
-    font-size: ${fontSize.heading4};
-    letter-spacing: unset;
-  `
-)
-
 type LogoProps = {
   large?: boolean
   logoOnly?: boolean
@@ -127,7 +116,11 @@ export const Logo = ({ large = false, logoOnly = false, animated = false }: Logo
           fill={fillColors[6]}
         />
       </SvgContainer>
-      {!logoOnly && <StyledHeading level={2}>MealDrop</StyledHeading>}
+      {!logoOnly && (
+        <Heading level={2} size={4}>
+          MealDrop
+        </Heading>
+      )}
     </LogoContainer>
   )
 }

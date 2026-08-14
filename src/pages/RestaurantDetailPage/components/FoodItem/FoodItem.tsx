@@ -1,9 +1,9 @@
 import { memo } from 'react'
+import { Heading } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
 
 import { toCurrency } from '../../../../helpers'
 import { Body } from '../../../../components/typography/Body'
-import { Heading } from '../../../../components/typography/Heading'
 
 const Container = styled.div<{ $isHighlighted: boolean }>(
   ({ theme: { boxShadow, color, borderRadius } }) => css`
