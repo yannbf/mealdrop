@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { Body, Heading, TopBanner } from '@droppy/design-system'
+import { Body, Container, Heading, TopBanner } from '@droppy/design-system'
 import styled from 'styled-components'
 
 import { PageTemplate } from '../../templates/PageTemplate'
@@ -20,7 +20,7 @@ export const CategoryListPage = () => {
   return (
     <PageTemplate>
       <TopBanner title="Categories" onBackClick={() => navigate(-1)} />
-      <div className="container">
+      <Container>
         <StyledHeading level={2}>What’s on the menu?</StyledHeading>
         <StyledBody>
           Feeling like having pizza? How about Sushi? Satisfy your cravings with a few quick clicks
@@ -28,7 +28,7 @@ export const CategoryListPage = () => {
           category below.
         </StyledBody>
         <CategoryList categories={categories} />
-      </div>
+      </Container>
     </PageTemplate>
   )
 }

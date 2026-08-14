@@ -1,5 +1,5 @@
 import { Link, useParams, useNavigate } from 'react-router-dom'
-import { Breadcrumb, ErrorBlock, TopBanner } from '@droppy/design-system'
+import { Breadcrumb, Container, ErrorBlock, TopBanner } from '@droppy/design-system'
 import styled from 'styled-components'
 
 import { useFetchRestaurantsByCategory } from '../../api/hooks'
@@ -31,7 +31,7 @@ export const CategoryDetailPage = () => {
         photoUrl={category?.photoUrl}
         onBackClick={() => navigate(-1)}
       />
-      <div className="container">
+      <Container>
         <Breadcrumb
           items={[
             { label: 'categories', render: <Link to="/categories" /> },
@@ -60,7 +60,7 @@ export const CategoryDetailPage = () => {
                 />
               ))}
         </StyledContainer>
-      </div>
+      </Container>
     </PageTemplate>
   )
 }

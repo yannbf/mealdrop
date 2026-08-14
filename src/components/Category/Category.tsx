@@ -97,16 +97,14 @@ const FloatingTitle = styled.figcaption(
   `
 )
 
-const Title = styled.figcaption`
+const Title = styled(Body)`
   padding-top: 1rem;
 `
 
 const Rounded = ({ title, photoUrl: url }: CategoryProps) => (
   <RoundCard data-testid={title}>
     <RoundImage src={url} alt="restaurant category" />
-    <Title>
-      <Body type="span">{title}</Body>
-    </Title>
+    <Title type="figcaption">{title}</Title>
   </RoundCard>
 )
 

@@ -1,3 +1,4 @@
+import { Container } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
 
 import { breakpoints } from '../../styles/breakpoints'
@@ -72,7 +73,7 @@ export const Footer = () => {
 
   return (
     <FooterContainer>
-      <div className="container">
+      <Container>
         <FooterTop>
           <Logo large logoOnly />
           <FooterCard title="Discover us" links={navigationLinks} />
@@ -88,7 +89,7 @@ export const Footer = () => {
             </div>
           </FooterCard>
         </FooterTop>
-      </div>
+      </Container>
     </FooterContainer>
   )
 }

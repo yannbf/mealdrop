@@ -1,8 +1,7 @@
 import { useState, ChangeEvent } from 'react'
-import { Body, Button } from '@droppy/design-system'
+import { Body, Button, Input } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
 
-import { Input } from '../../../../components/forms/Input'
 import { type ContactDetailsFormData } from './validation'
 
 const DisclaimerText = styled(Body)(

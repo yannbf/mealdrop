@@ -1,11 +1,10 @@
 import { useState, ChangeEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Button } from '@droppy/design-system'
+import { Button, Input } from '@droppy/design-system'
 
 import { saveOrderAction } from '../../../../app-state/order'
 import { useAppDispatch, useAppSelector } from '../../../../app-state'
 import { clearCartAction, selectCartItems } from '../../../../app-state/cart'
-import { Input } from '../../../../components/forms/Input'
 import { type DeliveryDetailsFormData } from './validation'
 
 type DeliveryDetailsProps = {
