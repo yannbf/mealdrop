@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Badge, Body, ErrorBlock, Heading, TopBanner } from '@droppy/design-system'
+import { Badge, ErrorBlock, Heading, TopBanner } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
 
 import { PageTemplate } from '../../templates/PageTemplate'
@@ -10,6 +10,7 @@ import { CartItem, clearItemAction, saveItemAction, selectCartItems } from '../.
 import { Review } from '../../components/Review'
 import { AnimatedIllustration } from '../../components/AnimatedIllustration'
 import { Spinner } from '../../components/Spinner'
+import { Body } from '../../components/typography'
 
 import { FoodItemModal } from './components/FoodItemModal'
 import { FoodSection } from './components/FoodSection'

@@ -1,7 +1,8 @@
-import { Body, Heading } from '@droppy/design-system'
+import { Heading } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
 
 import { breakpoints } from '../../../../styles/breakpoints'
+import { Body } from '../../../../components/typography/Body'
 
 const OuterBar = styled.div(
   ({ theme: { color, borderRadius } }) => css`

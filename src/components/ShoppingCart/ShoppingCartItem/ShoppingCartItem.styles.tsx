@@ -1,5 +1,6 @@
-import { Body } from '@droppy/design-system'
 import styled from 'styled-components'
+
+import { Body } from '../../typography/Body'
 
 export const CartItemContainer = styled.div`
   width: 100%;

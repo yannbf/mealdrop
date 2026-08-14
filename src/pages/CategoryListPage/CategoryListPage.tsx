@@ -1,11 +1,12 @@
 import { useNavigate } from 'react-router-dom'
-import { Body, Heading, TopBanner } from '@droppy/design-system'
+import { Heading, TopBanner } from '@droppy/design-system'
 import styled from 'styled-components'
 
 import { PageTemplate } from '../../templates/PageTemplate'
 import { categories } from '../../stub/categories'
 
 import { CategoryList } from './components/CategoryList'
+import { Body } from '../../components/typography/Body'
 
 const StyledHeading = styled(Heading)`
   margin-top: 4.5rem;
