@@ -51,6 +51,7 @@
     "react-dom": "^19.2.8",
     "react-hook-form": "^7.83.0",
     "react-hooks-helper": "^1.6.0",
+    "react-loading-skeleton": "^3.5.0",
     "react-lottie-player": "^2.1.0",
     "react-redux": "^9.3.0",
     "react-router-dom": "^7.18.2",

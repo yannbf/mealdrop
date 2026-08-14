@@ -1802,6 +1802,7 @@ __metadata:
     react-dom: "npm:^19.2.8"
     react-hook-form: "npm:^7.83.0"
     react-hooks-helper: "npm:^1.6.0"
+    react-loading-skeleton: "npm:^3.5.0"
     react-lottie-player: "npm:^2.1.0"
     react-redux: "npm:^9.3.0"
     react-router-dom: "npm:^7.18.2"
@@ -3100,6 +3101,15 @@ __metadata:
   version: 17.0.2
   resolution: "react-is@npm:17.0.2"
   checksum: 10c0/2bdb6b93fbb1820b024b496042cce405c57e2f85e777c9aabd55f9b26d145408f9f74f5934676ffdc46f3dcff656d78413a6e43968e7b3f92eea35b3052e9053
+  languageName: node
+  linkType: hard
+
+"react-loading-skeleton@npm:^3.5.0":
+  version: 3.5.0
+  resolution: "react-loading-skeleton@npm:3.5.0"
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 10c0/a081f561c9700fead6ba98b91e3fe77a36a680e3fd69dbf4eecbaa5fabcb7173049c6d6fb7487355331a770bed432356edaa147702f3d46ddf0d6caa623e779f
   languageName: node
   linkType: hard
 

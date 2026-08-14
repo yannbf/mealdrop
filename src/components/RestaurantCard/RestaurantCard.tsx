@@ -1,6 +1,6 @@
-import type { CSSProperties } from 'react'
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import { Badge, Body, Heading } from '@droppy/design-system'
-import styled, { css, keyframes } from 'styled-components'
+import styled, { css, useTheme } from 'styled-components'
 
 import { Review } from '../Review'
 
@@ -100,65 +100,31 @@ const StyledHeading = styled(Heading)(
   `
 )
 
-const shimmer = keyframes`
-  0% {
-    background-position: -200px 0;
-  }
-  100% {
-    background-position: 200px 0;
-  }
-`
-
-const SkeletonBlock = styled.span<{ $width: string; $height: string }>(
-  ({ theme: { color }, $width, $height }) => css`
-    display: block;
-    width: ${$width};
-    height: ${$height};
-    border-radius: 4px;
-    background: linear-gradient(
-      90deg,
-      ${color.skeletonBase} 25%,
-      ${color.skeletonHighlight} 37%,
-      ${color.skeletonBase} 63%
-    );
-    background-size: 400px 100%;
-    animation: ${shimmer} 1.4s ease infinite;
-  `
-)
-
-type SkeletonProps = {
-  width?: string
-  height?: string | number
-  style?: CSSProperties
+export const RestaurantCardSkeleton = () => {
+  const { color } = useTheme()
+  return (
+    /* @ts-expect-error wrong types! */
+    <SkeletonTheme color={color.skeletonBase} highlightColor={color.skeletonHighlight}>
+      <Container data-testid="loading">
+        <Skeleton height={200} width="100%" style={{ borderRadius: '4px 4px 0 0' }} />
+        <StyledContent>
+          <StyledHeading level={2} size={4}>
+            <Skeleton width="50%" />
+          </StyledHeading>
+          <Body type="span">
+            <Skeleton width="35%" />
+          </Body>
+          <Description>
+            <Skeleton />
+          </Description>
+          <Body type="span">
+            <Skeleton width="25%" height="23px" style={{ marginTop: 24 }} />
+          </Body>
+        </StyledContent>
+      </Container>
+    </SkeletonTheme>
+  )
 }
-
-const Skeleton = ({ width = '100%', height = '1em', style }: SkeletonProps) => (
-  <SkeletonBlock
-    $width={width}
-    $height={typeof height === 'number' ? `${height}px` : height}
-    style={style}
-  />
-)
-
-export const RestaurantCardSkeleton = () => (
-  <Container data-testid="loading">
-    <Skeleton height={200} width="100%" />
-    <StyledContent>
-      <StyledHeading level={2} size={4}>
-        <Skeleton width="50%" />
-      </StyledHeading>
-      <Body type="span">
-        <Skeleton width="35%" />
-      </Body>
-      <Description>
-        <Skeleton />
-      </Description>
-      <Body type="span">
-        <Skeleton width="25%" height="23px" style={{ marginTop: 24 }} />
-      </Body>
-    </StyledContent>
-  </Container>
-)
 
 export const RestaurantCard = ({
   photoUrl,
