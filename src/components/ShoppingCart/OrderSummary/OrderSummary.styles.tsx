@@ -1,4 +1,4 @@
-import { Card, Heading } from '@droppy/design-system'
+import { Body, Card, Heading } from '@droppy/design-system'
 import styled, { css } from 'styled-components'
 
 export const StyledHeading = styled(Heading)<{ $withMargin?: boolean }>(
@@ -26,7 +26,7 @@ export const BottomContainer = styled.div`
   justify-content: space-between;
 `
 
-export const EmptyMessageContainer = styled.span`
+export const EmptyMessageContainer = styled(Body).attrs({ type: 'span' })`
   font-size: 18px;
   margin: 50px auto;
 `
