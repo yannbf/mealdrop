@@ -1,6 +1,7 @@
 import type { Preview } from '@storybook/react-vite'
 import { INITIAL_VIEWPORTS } from 'storybook/viewport'
 import { userEvent } from '@testing-library/user-event'
+import { setupWorker } from 'msw/browser'
 import { mswLoader } from 'msw-storybook-addon/csf3'
 import { DocsContainer, DocsContainerProps } from '@storybook/addon-docs/blocks'
 import { Decorator } from '@storybook/react-vite'
@@ -18,6 +19,16 @@ import { darkTheme, lightTheme } from '../src/styles/theme'
 import { sb } from 'storybook/test'
 
 sb.mock('../src/helpers/getCurrency.ts', { spy: true })
+
+const mswPreviewLoader = mswLoader(async () => {
+  const worker = setupWorker()
+  await worker.start({
+    // Relative so the worker resolves under whatever base path the build is
+    // served from, not just the domain root.
+    serviceWorker: { url: './mockServiceWorker.js' },
+  })
+  return worker
+})
 
 const ThemeBlock = styled.div<{ $left?: boolean; $fullScreen?: boolean }>(
   ({ $left, $fullScreen, theme: { color } }) => css`
@@ -239,7 +250,7 @@ const preview: Preview = {
     },
   },
   decorators: [withRouter, withTheme, withStore],
-  loaders: [mswLoader(), demoModeLoader],
+  loaders: [mswPreviewLoader, demoModeLoader],
 }
 
 declare module 'storybook/internal/csf' {
