@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { PageTemplate as DsPageTemplate } from '@droppy/design-system'
+import { PageTemplate as DsPageTemplate } from '@droppy-ui/design-system'
 
 import { Header, HeaderComponent } from '../components/Header/Header'
 import { Footer } from '../components/Footer/Footer'

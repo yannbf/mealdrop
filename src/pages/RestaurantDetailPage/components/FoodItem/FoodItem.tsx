@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { Body, Card, Heading } from '@droppy/design-system'
+import { Body, Card, Heading } from '@droppy-ui/design-system'
 import styled from 'styled-components'
 
 import { toCurrency } from '../../../../helpers'

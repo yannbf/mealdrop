@@ -1,4 +1,4 @@
-import { Body, Button, type ButtonProps } from '@droppy/design-system'
+import { Body, Button, type ButtonProps } from '@droppy-ui/design-system'
 import styled, { css } from 'styled-components'
 import { useNavigate } from 'react-router-dom'
 import useDarkMode from 'use-dark-mode'

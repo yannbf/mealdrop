@@ -1,4 +1,4 @@
-import { Button, Container as DsContainer, Heading } from '@droppy/design-system'
+import { Button, Container as DsContainer, Heading } from '@droppy-ui/design-system'
 import styled from 'styled-components'
 
 import restaurants from '../../../../assets/images/restaurants.png'

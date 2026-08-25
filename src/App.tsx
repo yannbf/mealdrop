@@ -11,7 +11,7 @@ export default function App() {
   const { value } = useDarkMode(false, { global: globalThis.window })
 
   // Mirrors the dark-mode toggle onto the root element: data-ds-theme is
-  // the attribute both @droppy/design-system's stylesheet and this app's
+  // the attribute both @droppy-ui/design-system's stylesheet and this app's
   // own CSS read for their dark-mode custom properties.
   useEffect(() => {
     document.documentElement.dataset.dsTheme = value ? 'dark' : 'light'

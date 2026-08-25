@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useEffect, useState } from 'react'
 import { fn } from 'storybook/test'
 
-import { Body, Button, Modal } from '@droppy/design-system'
+import { Body, Button, Modal } from '@droppy-ui/design-system'
 
 const meta = {
   title: 'Components/Modal',

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { IconButton } from '@droppy/design-system'
+import { IconButton } from '@droppy-ui/design-system'
 
 const meta = {
   title: 'Components/IconButton',

@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom'
-import { Breadcrumb, Container, ErrorBlock, TopBanner } from '@droppy/design-system'
+import { Breadcrumb, Container, ErrorBlock, TopBanner } from '@droppy-ui/design-system'
 import styled from 'styled-components'
 
 import { useFetchRestaurantsByCategory } from '../../api/hooks'

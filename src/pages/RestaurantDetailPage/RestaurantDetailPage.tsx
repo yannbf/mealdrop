@@ -9,7 +9,7 @@ import {
   Review,
   Spinner,
   TopBanner,
-} from '@droppy/design-system'
+} from '@droppy-ui/design-system'
 import styled from 'styled-components'
 
 import { PageTemplate } from '../../templates/PageTemplate'

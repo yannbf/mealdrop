@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import styled, { css } from 'styled-components'
 
-import { Body, Icon } from '@droppy/design-system'
+import { Body, Icon } from '@droppy-ui/design-system'
 
 const icons = [
   'arrow-right',

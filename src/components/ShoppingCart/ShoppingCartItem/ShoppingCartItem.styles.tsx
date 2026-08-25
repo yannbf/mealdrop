@@ -1,4 +1,4 @@
-import { Body } from '@droppy/design-system'
+import { Body } from '@droppy-ui/design-system'
 import styled from 'styled-components'
 
 export const CartItemContainer = styled.div`

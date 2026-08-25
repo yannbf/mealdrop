@@ -1,5 +1,5 @@
 import { useState, ChangeEvent } from 'react'
-import { Body, Button, Input } from '@droppy/design-system'
+import { Body, Button, Input } from '@droppy-ui/design-system'
 import styled from 'styled-components'
 
 import { type ContactDetailsFormData } from './validation'

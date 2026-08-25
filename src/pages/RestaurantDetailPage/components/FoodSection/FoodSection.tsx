@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { memo } from 'react'
-import { Heading } from '@droppy/design-system'
+import { Heading } from '@droppy-ui/design-system'
 
 import { breakpoints } from '../../../../styles/breakpoints'
 import { FoodItem } from '../FoodItem/FoodItem'

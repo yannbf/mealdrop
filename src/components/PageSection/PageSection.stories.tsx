@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { PageSection } from '@droppy/design-system'
+import { PageSection } from '@droppy-ui/design-system'
 
 const meta = {
   title: 'Components/PageSection',

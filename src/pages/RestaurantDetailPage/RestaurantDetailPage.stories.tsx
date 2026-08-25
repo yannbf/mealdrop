@@ -87,7 +87,7 @@ export const Loading: Story = {
     },
   },
   play: async ({ canvas }) => {
-    // @droppy/design-system's Spinner exposes its loading state via
+    // @droppy-ui/design-system's Spinner exposes its loading state via
     // role="status" rather than main's local Spinner's visible
     // "Looking for some food..." copy.
     const item = await canvas.findByRole('status')

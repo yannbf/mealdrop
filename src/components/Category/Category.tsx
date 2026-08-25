@@ -1,4 +1,4 @@
-import { Body, Card } from '@droppy/design-system'
+import { Badge, Body, Card } from '@droppy-ui/design-system'
 import styled from 'styled-components'
 
 import { breakpoints } from '../../styles/breakpoints'
@@ -76,17 +76,21 @@ const RoundImage = styled(Image)`
   }
 `
 
-const FloatingTitle = styled.figcaption`
+// Badge's chip, floated over the photo. The photo backdrop needs the contrast
+// pairing and body-size type rather than the in-flow badge defaults.
+const FloatingTitle = styled(Badge)`
   position: absolute;
   top: 1.5rem;
   left: 1.5rem;
   border-radius: var(--ds-radius-card);
-  background: var(--ds-color-chip-contrast-bg);
+  background-color: var(--ds-color-chip-contrast-bg);
+  color: var(--ds-color-text-on-inverse);
   padding: 8px 16px;
+  font-size: var(--ds-type-size-md);
+  font-weight: var(--ds-type-weight-medium);
+  line-height: normal;
+  text-transform: none;
   text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.5);
-  span {
-    color: var(--ds-color-text-on-inverse);
-  }
 `
 
 const Title = styled(Body)`
@@ -103,11 +107,7 @@ const Rounded = ({ title, photoUrl: url }: CategoryProps) => (
 const Squared = ({ title, photoUrl: url }: CategoryProps) => (
   <SquaredContainer data-testid={title}>
     <Image src={url} alt="restaurant category" />
-    <FloatingTitle>
-      <Body type="span" fontWeight="medium">
-        {title}
-      </Body>
-    </FloatingTitle>
+    <FloatingTitle text={title} />
   </SquaredContainer>
 )
 

@@ -1,4 +1,4 @@
-import { Body, Card, Heading } from '@droppy/design-system'
+import { Body, Card, Heading } from '@droppy-ui/design-system'
 import styled, { css } from 'styled-components'
 
 export const StyledHeading = styled(Heading)<{ $withMargin?: boolean }>(

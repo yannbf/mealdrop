@@ -1,4 +1,4 @@
-import { Container } from '@droppy/design-system'
+import { Container } from '@droppy-ui/design-system'
 import styled from 'styled-components'
 
 import { breakpoints } from '../../styles/breakpoints'

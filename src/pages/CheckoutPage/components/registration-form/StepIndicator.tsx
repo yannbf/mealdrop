@@ -1,4 +1,4 @@
-import { Body, Heading } from '@droppy/design-system'
+import { Body, Heading } from '@droppy-ui/design-system'
 import styled, { css } from 'styled-components'
 
 import { breakpoints } from '../../../../styles/breakpoints'

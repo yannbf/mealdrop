@@ -1,4 +1,4 @@
-import { Container, Heading } from '@droppy/design-system'
+import { Container, Heading } from '@droppy-ui/design-system'
 import styled from 'styled-components'
 
 import { useAppSelector } from '../../app-state'

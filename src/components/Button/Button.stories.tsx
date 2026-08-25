@@ -1,7 +1,7 @@
 import type { StoryObj, Meta } from '@storybook/react-vite'
 import { expect } from 'storybook/test'
 
-import { Button } from '@droppy/design-system'
+import { Button } from '@droppy-ui/design-system'
 
 const meta = {
   title: 'Components/Button',

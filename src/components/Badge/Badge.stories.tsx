@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Badge } from '@droppy/design-system'
+import { Badge } from '@droppy-ui/design-system'
 
 const meta = {
   title: 'Components/Badge',

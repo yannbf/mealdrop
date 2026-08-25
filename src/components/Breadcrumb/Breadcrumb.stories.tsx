@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Breadcrumb } from '@droppy/design-system'
+import { Breadcrumb } from '@droppy-ui/design-system'
 
 const meta: Meta<typeof Breadcrumb> = {
   title: 'Components/Breadcrumb',

@@ -10,7 +10,7 @@ import { Provider as StoreProvider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import React from 'react'
 import styled, { css } from 'styled-components'
-import '@droppy/design-system/styles.css'
+import '@droppy-ui/design-system/styles.css'
 
 import { demoModeLoader } from './demo-mode'
 import { rootReducer } from '../src/app-state'
@@ -70,7 +70,7 @@ export const withTheme: Decorator = (
   const isScrolling = React.useRef(false)
   const isSideBySide = theme === 'side-by-side' && viewMode === 'story'
 
-  // @droppy/design-system and this app's own CSS both read data-ds-theme for
+  // @droppy-ui/design-system and this app's own CSS both read data-ds-theme for
   // their dark-mode custom properties (see src/App.tsx). Side-by-side mode
   // scopes the attribute onto each ThemeBlock below instead of the root.
   React.useEffect(() => {

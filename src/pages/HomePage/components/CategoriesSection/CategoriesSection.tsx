@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { Carousel, PageSection } from '@droppy/design-system'
+import { Carousel, PageSection } from '@droppy-ui/design-system'
 import styled from 'styled-components'
 
 import { Category, CategoryProps } from '../../../../components/Category'

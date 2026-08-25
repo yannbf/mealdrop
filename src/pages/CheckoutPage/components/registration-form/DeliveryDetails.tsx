@@ -1,6 +1,6 @@
 import { useState, ChangeEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Button, Input } from '@droppy/design-system'
+import { Button, Input } from '@droppy-ui/design-system'
 
 import { saveOrderAction } from '../../../../app-state/order'
 import { useAppDispatch, useAppSelector } from '../../../../app-state'

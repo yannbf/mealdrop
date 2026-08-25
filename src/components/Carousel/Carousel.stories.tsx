@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { expect } from 'storybook/test'
 import styled from 'styled-components'
 
-import { Carousel } from '@droppy/design-system'
+import { Carousel } from '@droppy-ui/design-system'
 
 const DemoSlide = styled.div`
   height: 120px;

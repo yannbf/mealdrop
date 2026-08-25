@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { TopBanner } from '@droppy/design-system'
+import { TopBanner } from '@droppy-ui/design-system'
 
 const meta = {
   title: 'Components/TopBanner',

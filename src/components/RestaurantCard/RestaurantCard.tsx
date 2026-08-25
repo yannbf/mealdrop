@@ -1,4 +1,4 @@
-import { Badge, Body, Card, Heading, Review, Skeleton } from '@droppy/design-system'
+import { Badge, Body, Card, Heading, Review, Skeleton } from '@droppy-ui/design-system'
 import styled from 'styled-components'
 
 type RestaurantCardProps = {
@@ -81,8 +81,8 @@ const Description = styled(Body)`
 `
 
 const StyledBadge = styled(Badge)`
-  margin-top: 1.375rem;
-  margin-right: 0.5rem;
+  margin-top: var(--ds-space-sm);
+  margin-right: var(--ds-space-2xs);
 `
 
 const StyledHeading = styled(Heading)`

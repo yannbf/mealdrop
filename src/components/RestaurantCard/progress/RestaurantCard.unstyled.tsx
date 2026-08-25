@@ -1,4 +1,4 @@
-import { Badge, Body, Heading, Review } from '@droppy/design-system'
+import { Badge, Body, Heading, Review } from '@droppy-ui/design-system'
 
 type RestaurantCardProps = {
   name: string

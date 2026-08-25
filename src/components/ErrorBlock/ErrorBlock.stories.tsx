@@ -4,7 +4,7 @@ import { fn } from 'storybook/test'
 import sushi from '../../assets/images/sushi.svg'
 import { AnimatedIllustration } from '../AnimatedIllustration'
 
-import { ErrorBlock } from '@droppy/design-system'
+import { ErrorBlock } from '@droppy-ui/design-system'
 
 const meta = {
   title: 'Components/ErrorBlock',

@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { Body } from '@droppy/design-system'
+import { Body } from '@droppy-ui/design-system'
 
 import { ShoppingCartItem } from '../ShoppingCartItem/ShoppingCartItem'
 import { CartItem } from '../../../app-state/cart'

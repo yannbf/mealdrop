@@ -1,4 +1,4 @@
-import { FooterCard as DsFooterCard } from '@droppy/design-system'
+import { FooterCard as DsFooterCard } from '@droppy-ui/design-system'
 import { Link as RouterLink } from 'react-router-dom'
 
 type FooterCardProps = {

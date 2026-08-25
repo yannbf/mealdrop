@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Review } from '@droppy/design-system'
+import { Review } from '@droppy-ui/design-system'
 
 const meta = {
   title: 'Components/Review',

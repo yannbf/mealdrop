@@ -1,4 +1,4 @@
-import { Button, Heading } from '@droppy/design-system'
+import { Button, Heading } from '@droppy-ui/design-system'
 import styled, { css } from 'styled-components'
 
 import ladies from '../../../../assets/images/ladies.svg'

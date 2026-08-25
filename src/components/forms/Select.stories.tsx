@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Select } from '@droppy/design-system'
+import { Select } from '@droppy-ui/design-system'
 
 const meta = {
   title: 'Components/Form/Select',

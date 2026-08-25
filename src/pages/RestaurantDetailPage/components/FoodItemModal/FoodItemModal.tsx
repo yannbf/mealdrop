@@ -1,5 +1,5 @@
 import { useState, useCallback, useEffect } from 'react'
-import { Body, Button, Heading, Modal, QuantityStepper } from '@droppy/design-system'
+import { Body, Button, Heading, Modal, QuantityStepper } from '@droppy-ui/design-system'
 import styled from 'styled-components'
 
 import { CartItem } from '../../../../app-state/cart'

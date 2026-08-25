@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { Body, Container, Heading, TopBanner } from '@droppy/design-system'
+import { Body, Container, Heading, TopBanner } from '@droppy-ui/design-system'
 import styled from 'styled-components'
 
 import { PageTemplate } from '../../templates/PageTemplate'

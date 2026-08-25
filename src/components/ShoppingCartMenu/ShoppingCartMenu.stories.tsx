@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useEffect, useState } from 'react'
 import { fn } from 'storybook/test'
 
-import { Body, Button } from '@droppy/design-system'
+import { Body, Button } from '@droppy-ui/design-system'
 
 import { cartItems } from '../../stub/cart-items'
 
