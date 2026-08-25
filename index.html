@@ -34,10 +34,11 @@
       var global = global || window
     </script>
     <!-- Sets the design system's theme attribute before the bundle loads:
-         @droppy-ui/design-system styles the no-attribute case as dark, and the
-         React effect that mirrors the toggle only runs after hydration, so
-         without this first paint would flash dark-themed components. Reads
-         the same "darkMode" localStorage key use-dark-mode persists to. -->
+         with no attribute @droppy-ui/design-system follows the OS preference,
+         and the React effect that mirrors the stored toggle only runs after
+         hydration, so a stored choice that differs from the OS would flash the
+         wrong theme on first paint. Reads the same "darkMode" localStorage key
+         use-dark-mode persists to, with the same OS-preference fallback. -->
     <script>
       ;(function () {
         var dark

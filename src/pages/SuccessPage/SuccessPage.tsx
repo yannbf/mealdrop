@@ -43,7 +43,7 @@ const Container = styled.div`
   background: var(--ds-palette-neutral-50);
   min-height: 100vh;
 
-  :root[data-ds-theme='dark'] & {
+  [data-ds-theme='dark'] & {
     background: var(--ds-palette-neutral-950);
   }
 `

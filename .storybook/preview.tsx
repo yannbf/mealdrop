@@ -63,6 +63,26 @@ const ThemeBlock = styled.div<{ $left?: boolean; $fullScreen?: boolean }>(
   `
 )
 
+// The design system defines its themed custom properties on :root only — a
+// data-ds-theme attribute further down the tree is inert. These clones drop
+// the :root prefix so each ThemeBlock's own attribute re-scopes the tokens to
+// its half of the side-by-side view. Reading the live stylesheet keeps the
+// clones correct across design-system upgrades.
+const blockScopedThemeRules = () =>
+  Array.from(document.styleSheets)
+    .flatMap((sheet) => {
+      try {
+        return Array.from(sheet.cssRules)
+      } catch {
+        return []
+      }
+    })
+    .filter(
+      (rule): rule is CSSStyleRule =>
+        rule instanceof CSSStyleRule && rule.selectorText.startsWith(':root[data-ds-theme=')
+    )
+    .map((rule) => rule.cssText.replace(/^:root\[/, '['))
+
 export const withTheme: Decorator = (
   StoryFn,
   { globals: { theme = 'light' }, parameters, viewMode }
@@ -75,10 +95,19 @@ export const withTheme: Decorator = (
 
   // @droppy-ui/design-system and this app's own CSS both read data-ds-theme for
   // their dark-mode custom properties (see src/App.tsx). Side-by-side mode
-  // scopes the attribute onto each ThemeBlock below instead of the root.
+  // pins the root to light (custom properties are only defined on the root, so
+  // an unset attribute would follow the OS instead) and injects clones of the
+  // design system's dark rules re-scoped to each ThemeBlock's own attribute.
   React.useEffect(() => {
     if (isSideBySide) {
-      return
+      document.documentElement.dataset.dsTheme = 'light'
+      const style = document.createElement('style')
+      style.textContent = blockScopedThemeRules().join('\n')
+      document.head.append(style)
+      return () => {
+        style.remove()
+        delete document.documentElement.dataset.dsTheme
+      }
     }
     document.documentElement.dataset.dsTheme = theme === 'dark' ? 'dark' : 'light'
     return () => {
