@@ -9,10 +9,10 @@ import { configureStore } from '@reduxjs/toolkit'
 import { Provider as StoreProvider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import React from 'react'
-import styled, { css } from 'styled-components'
 import '@droppy-ui/design-system/styles.css'
 
 import { demoModeLoader } from './demo-mode'
+import { SideBySide } from './side-by-side'
 import { rootReducer } from '../src/app-state'
 import { breakpoints, viewports } from '../src/styles/breakpoints'
 import { GlobalStyle } from '../src/styles/GlobalStyle'
@@ -42,72 +42,20 @@ const mswPreviewLoader = mswLoader(async () => {
   return worker
 })
 
-const ThemeBlock = styled.div<{ $left?: boolean; $fullScreen?: boolean }>(
-  ({ $left, $fullScreen }) => css`
-    position: absolute;
-    top: 0;
-    left: ${$left ? 0 : '50vw'};
-    border-right: ${$left ? '1px solid #202020' : 'none'};
-    right: ${$left ? '50vw' : 0};
-    width: 50vw;
-    height: 100vh;
-    bottom: 0;
-    overflow: auto;
-    padding: ${$fullScreen ? 0 : '1rem'};
-    background: var(--ds-color-surface-page);
-    ${breakpoints.S} {
-      left: ${$left ? 0 : '50vw'};
-      right: ${$left ? '50vw' : 0};
-      padding: 0 !important;
-    }
-  `
-)
-
-// The design system defines its themed custom properties on :root only — a
-// data-ds-theme attribute further down the tree is inert. These clones drop
-// the :root prefix so each ThemeBlock's own attribute re-scopes the tokens to
-// its half of the side-by-side view. Reading the live stylesheet keeps the
-// clones correct across design-system upgrades.
-const blockScopedThemeRules = () =>
-  Array.from(document.styleSheets)
-    .flatMap((sheet) => {
-      try {
-        return Array.from(sheet.cssRules)
-      } catch {
-        return []
-      }
-    })
-    .filter(
-      (rule): rule is CSSStyleRule =>
-        rule instanceof CSSStyleRule && rule.selectorText.startsWith(':root[data-ds-theme=')
-    )
-    .map((rule) => rule.cssText.replace(/^:root\[/, '['))
-
-export const withTheme: Decorator = (
-  StoryFn,
-  { globals: { theme = 'light' }, parameters, viewMode }
-) => {
-  const fullScreen = parameters.layout === 'fullscreen'
-  const leftContainerRef = React.useRef<HTMLDivElement>(null)
-  const rightContainerRef = React.useRef<HTMLDivElement>(null)
-  const isScrolling = React.useRef(false)
+export const withTheme: Decorator = (StoryFn, { id, globals: { theme = 'light' }, viewMode }) => {
+  // Side-by-side renders the story in two isolated pane iframes (one per
+  // theme) that sync scroll and interactions — see side-by-side.tsx. Each
+  // pane is a regular single-theme preview, so it goes through the branches
+  // below with its own theme global.
   const isSideBySide = theme === 'side-by-side' && viewMode === 'story'
 
-  // @droppy-ui/design-system and this app's own CSS both read data-ds-theme for
-  // their dark-mode custom properties (see src/App.tsx). Side-by-side mode
-  // pins the root to light (custom properties are only defined on the root, so
-  // an unset attribute would follow the OS instead) and injects clones of the
-  // design system's dark rules re-scoped to each ThemeBlock's own attribute.
+  // @droppy-ui/design-system and this app's own CSS both read data-ds-theme
+  // on the root element for their dark-mode custom properties (see
+  // src/App.tsx). In side-by-side mode each pane document applies its own
+  // attribute; the outer document is fully covered by the panes.
   React.useEffect(() => {
     if (isSideBySide) {
-      document.documentElement.dataset.dsTheme = 'light'
-      const style = document.createElement('style')
-      style.textContent = blockScopedThemeRules().join('\n')
-      document.head.append(style)
-      return () => {
-        style.remove()
-        delete document.documentElement.dataset.dsTheme
-      }
+      return
     }
     document.documentElement.dataset.dsTheme = theme === 'dark' ? 'dark' : 'light'
     return () => {
@@ -125,59 +73,16 @@ export const withTheme: Decorator = (
     }
   }, [isSideBySide])
 
-  React.useEffect(() => {
-    const leftContainer = leftContainerRef.current
-    const rightContainer = rightContainerRef.current
-
-    if (!leftContainer || !rightContainer || !isSideBySide) {
-      return
-    }
-
-    const handleScroll = (source: HTMLDivElement, target: HTMLDivElement) => {
-      if (!isScrolling.current) {
-        isScrolling.current = true
-        target.scrollTop = source.scrollTop
-        requestAnimationFrame(() => {
-          isScrolling.current = false
-        })
-      }
-    }
-
-    const leftScrollHandler = () => handleScroll(leftContainer, rightContainer)
-    const rightScrollHandler = () => handleScroll(rightContainer, leftContainer)
-
-    leftContainer.addEventListener('scroll', leftScrollHandler)
-    rightContainer.addEventListener('scroll', rightScrollHandler)
-
-    return () => {
-      leftContainer.removeEventListener('scroll', leftScrollHandler)
-      rightContainer.removeEventListener('scroll', rightScrollHandler)
-    }
-  }, [isSideBySide])
-
-  switch (theme) {
-    case 'side-by-side': {
-      return (
-        <>
-          <GlobalStyle />
-          <ThemeBlock ref={leftContainerRef} $left $fullScreen={fullScreen} data-ds-theme="light">
-            <StoryFn />
-          </ThemeBlock>
-          <ThemeBlock ref={rightContainerRef} $fullScreen={fullScreen} data-ds-theme="dark">
-            <StoryFn />
-          </ThemeBlock>
-        </>
-      )
-    }
-    default: {
-      return (
-        <>
-          <GlobalStyle />
-          <StoryFn />
-        </>
-      )
-    }
+  if (isSideBySide) {
+    return <SideBySide storyId={id} />
   }
+
+  return (
+    <>
+      <GlobalStyle />
+      <StoryFn />
+    </>
+  )
 }
 
 /**
