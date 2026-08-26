@@ -7,15 +7,14 @@ export const StyledHeading = styled(Heading)<{ $withMargin?: boolean }>(
   `
 )
 
+// surface-default, not Card's surface-card: the summary sits on sunken or
+// highlighted page bands, where the card tone would blend in.
 export const OrderSummaryContainer = styled(Card).attrs({ padded: true })`
   width: 100%;
   min-height: 250px;
   display: flex;
   flex-direction: column;
-`
-
-export const TotalHeading = styled(StyledHeading)`
-  color: var(--ds-palette-red-500);
+  background: var(--ds-color-surface-default);
 `
 
 export const BottomContainer = styled.div`

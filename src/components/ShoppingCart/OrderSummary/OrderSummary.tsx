@@ -10,7 +10,6 @@ import {
   BottomContainer,
   CartItemsContainer,
   StyledHeading,
-  TotalHeading,
 } from './OrderSummary.styles'
 
 type OrderSummaryProps = {
@@ -37,9 +36,9 @@ export const OrderSummary = ({ cartItems }: OrderSummaryProps) => {
         </CartItemsContainer>
         <BottomContainer>
           <Body>Total</Body>
-          <TotalHeading level={2} size={4}>
+          <StyledHeading level={2} size={4}>
             {toCurrency(totalPrice)}
-          </TotalHeading>
+          </StyledHeading>
         </BottomContainer>
       </OrderSummaryContainer>
     </>

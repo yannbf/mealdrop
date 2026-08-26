@@ -15,6 +15,13 @@ const StyledButton = styled(Button)`
   flex: 1;
 `
 
+// The stepper's own layout is compact (small gap); filling the row lets its
+// space-between spread the buttons across the modal width, keeping them
+// comfortably apart on narrow screens.
+const StyledQuantityStepper = styled(QuantityStepper)`
+  flex: 1;
+`
+
 const ButtonsContainer = styled.div`
   display: flex;
   align-items: center;
@@ -89,7 +96,7 @@ export const FoodItemModal = ({
           </TopContainer>
           <BottomContainer>
             <ButtonsContainer>
-              <QuantityStepper value={quantity} onChange={setQuantity} min={1} max={10} />
+              <StyledQuantityStepper value={quantity} onChange={setQuantity} min={1} max={10} />
             </ButtonsContainer>
             <StyledButton aria-label="confirm" onClick={saveItem}>
               add for {toCurrency(item.price * quantity)}
