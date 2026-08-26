@@ -1,13 +1,10 @@
 import { useState, useCallback, useEffect } from 'react'
-import styled, { css } from 'styled-components'
+import { Body, Button, Heading, Modal, QuantityStepper } from '@droppy-ui/design-system'
+import styled from 'styled-components'
 
 import { CartItem } from '../../../../app-state/cart'
 import { toCurrency } from '../../../../helpers'
 import { breakpoints } from '../../../../styles/breakpoints'
-import { Button } from '../../../../components/Button'
-import { Body } from '../../../../components/typography/Body'
-import { Heading } from '../../../../components/typography/Heading'
-import { Modal } from '../../../../components/Modal'
 
 const StyledBody = styled(Body)`
   margin: 0;
@@ -32,13 +29,11 @@ const ButtonsContainer = styled.div`
   }
 `
 
-const TopContainer = styled.div(
-  ({ theme: { color } }) => css`
-    padding: 2.5rem 1.5rem;
-    background: ${color.overlayHeader};
-    border-radius: 16px 16px 0px 0px;
-  `
-)
+const TopContainer = styled.div`
+  padding: 2.5rem 1.5rem;
+  background: var(--ds-color-surface-sunken);
+  border-radius: 16px 16px 0px 0px;
+`
 
 const BottomContainer = styled.div`
   padding: 1.5rem;
@@ -85,7 +80,7 @@ export const FoodItemModal = ({
   }, [cartItems, item])
 
   return (
-    <Modal isOpen={!!item} onClose={onClose}>
+    <Modal isOpen={!!item} onClose={onClose} container="#modal">
       {item && (
         <div>
           <TopContainer>
@@ -94,23 +89,7 @@ export const FoodItemModal = ({
           </TopContainer>
           <BottomContainer>
             <ButtonsContainer>
-              <Button
-                aria-label="decrease quantity by one"
-                round
-                clear
-                icon="minus"
-                onClick={() => setQuantity(quantity - 1)}
-                disabled={quantity <= 1}
-              />
-              <Body type="span">{quantity}</Body>
-              <Button
-                aria-label="increase quantity by one"
-                round
-                clear
-                icon="plus"
-                onClick={() => setQuantity(quantity + 1)}
-                disabled={quantity >= 10}
-              />
+              <QuantityStepper value={quantity} onChange={setQuantity} min={1} max={10} />
             </ButtonsContainer>
             <StyledButton aria-label="confirm" onClick={saveItem}>
               add for {toCurrency(item.price * quantity)}

@@ -33,6 +33,23 @@
     <script>
       var global = global || window
     </script>
+    <!-- Sets the design system's theme attribute before the bundle loads:
+         @droppy-ui/design-system styles the no-attribute case as dark, and the
+         React effect that mirrors the toggle only runs after hydration, so
+         without this first paint would flash dark-themed components. Reads
+         the same "darkMode" localStorage key use-dark-mode persists to. -->
+    <script>
+      ;(function () {
+        var dark
+        try {
+          dark = JSON.parse(localStorage.getItem('darkMode'))
+        } catch (err) {}
+        if (typeof dark !== 'boolean') {
+          dark = window.matchMedia('(prefers-color-scheme: dark)').matches
+        }
+        document.documentElement.dataset.dsTheme = dark ? 'dark' : 'light'
+      })()
+    </script>
     <script type="module" src="/src/index.tsx"></script>
     <!--
     This HTML file is a template.

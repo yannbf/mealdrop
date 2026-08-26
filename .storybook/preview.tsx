@@ -9,13 +9,13 @@ import { configureStore } from '@reduxjs/toolkit'
 import { Provider as StoreProvider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
 import React from 'react'
-import styled, { css, ThemeProvider } from 'styled-components'
+import styled, { css } from 'styled-components'
+import '@droppy-ui/design-system/styles.css'
 
 import { demoModeLoader } from './demo-mode'
 import { rootReducer } from '../src/app-state'
 import { breakpoints, viewports } from '../src/styles/breakpoints'
 import { GlobalStyle } from '../src/styles/GlobalStyle'
-import { darkTheme, lightTheme } from '../src/styles/theme'
 import { sb } from 'storybook/test'
 
 sb.mock('../src/helpers/getCurrency.ts', { spy: true })
@@ -26,12 +26,24 @@ const mswPreviewLoader = mswLoader(async () => {
     // Relative so the worker resolves under whatever base path the build is
     // served from, not just the domain root.
     serviceWorker: { url: './mockServiceWorker.js' },
+    quiet: true,
+    onUnhandledRequest: ({ url, method }) => {
+      const pathname = new URL(url).pathname
+      if (pathname.startsWith('/.netlify/functions')) {
+        console.error(`Unhandled ${method} request to ${url}.
+
+        This exception has been only logged in the console, however, it's strongly recommended to resolve this error as you don't want unmocked data in Storybook stories.
+
+        If you wish to mock an error response, please refer to this guide: https://mswjs.io/docs/recipes/mocking-error-responses
+      `)
+      }
+    },
   })
   return worker
 })
 
 const ThemeBlock = styled.div<{ $left?: boolean; $fullScreen?: boolean }>(
-  ({ $left, $fullScreen, theme: { color } }) => css`
+  ({ $left, $fullScreen }) => css`
     position: absolute;
     top: 0;
     left: ${$left ? 0 : '50vw'};
@@ -42,7 +54,7 @@ const ThemeBlock = styled.div<{ $left?: boolean; $fullScreen?: boolean }>(
     bottom: 0;
     overflow: auto;
     padding: ${$fullScreen ? 0 : '1rem'};
-    background: ${color.screenBackground};
+    background: var(--ds-color-surface-page);
     ${breakpoints.S} {
       left: ${$left ? 0 : '50vw'};
       right: ${$left ? '50vw' : 0};
@@ -56,11 +68,23 @@ export const withTheme: Decorator = (
   { globals: { theme = 'light' }, parameters, viewMode }
 ) => {
   const fullScreen = parameters.layout === 'fullscreen'
-  const appTheme = theme === 'light' ? lightTheme : darkTheme
   const leftContainerRef = React.useRef<HTMLDivElement>(null)
   const rightContainerRef = React.useRef<HTMLDivElement>(null)
   const isScrolling = React.useRef(false)
   const isSideBySide = theme === 'side-by-side' && viewMode === 'story'
+
+  // @droppy-ui/design-system and this app's own CSS both read data-ds-theme for
+  // their dark-mode custom properties (see src/App.tsx). Side-by-side mode
+  // scopes the attribute onto each ThemeBlock below instead of the root.
+  React.useEffect(() => {
+    if (isSideBySide) {
+      return
+    }
+    document.documentElement.dataset.dsTheme = theme === 'dark' ? 'dark' : 'light'
+    return () => {
+      delete document.documentElement.dataset.dsTheme
+    }
+  }, [theme, isSideBySide])
 
   React.useEffect(() => {
     if (isSideBySide) {
@@ -106,27 +130,22 @@ export const withTheme: Decorator = (
     case 'side-by-side': {
       return (
         <>
-          <ThemeProvider theme={lightTheme}>
-            <GlobalStyle />
-            <ThemeBlock ref={leftContainerRef} $left $fullScreen={fullScreen}>
-              <StoryFn />
-            </ThemeBlock>
-          </ThemeProvider>
-          <ThemeProvider theme={darkTheme}>
-            <GlobalStyle />
-            <ThemeBlock ref={rightContainerRef} $fullScreen={fullScreen}>
-              <StoryFn />
-            </ThemeBlock>
-          </ThemeProvider>
+          <GlobalStyle />
+          <ThemeBlock ref={leftContainerRef} $left $fullScreen={fullScreen} data-ds-theme="light">
+            <StoryFn />
+          </ThemeBlock>
+          <ThemeBlock ref={rightContainerRef} $fullScreen={fullScreen} data-ds-theme="dark">
+            <StoryFn />
+          </ThemeBlock>
         </>
       )
     }
     default: {
       return (
-        <ThemeProvider theme={appTheme}>
+        <>
           <GlobalStyle />
           <StoryFn />
-        </ThemeProvider>
+        </>
       )
     }
   }
@@ -227,11 +246,15 @@ const preview: Preview = {
       source: {
         excludeDecorators: true,
       },
-      container: (props: DocsContainerProps) => (
-        <ThemeProvider theme={lightTheme}>
-          <DocsContainer {...props} />
-        </ThemeProvider>
-      ),
+      container: (props: DocsContainerProps) => {
+        React.useEffect(() => {
+          document.documentElement.dataset.dsTheme = 'light'
+          return () => {
+            delete document.documentElement.dataset.dsTheme
+          }
+        }, [])
+        return <DocsContainer {...props} />
+      },
     },
   },
   globalTypes: {
