@@ -56,10 +56,17 @@ const StyledHeading = styled(Heading)`
   margin: 0 auto;
 `
 
+// The band under the checkout header is a tinted page surface the white
+// panels sit on; surface-page would melt the panels into it. No semantic
+// token pairs these values — same palette composition as SuccessPage.
 const ContentContainer = styled.div`
   min-height: 100vh;
   padding-bottom: 5.25em;
-  background: var(--ds-color-surface-page);
+  background: var(--ds-palette-neutral-50);
+
+  [data-ds-theme='dark'] & {
+    background: var(--ds-palette-neutral-950);
+  }
 `
 
 export const CheckoutPage = () => {
