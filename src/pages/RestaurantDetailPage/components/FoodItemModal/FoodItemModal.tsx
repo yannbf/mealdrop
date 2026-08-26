@@ -15,24 +15,24 @@ const StyledButton = styled(Button)`
   flex: 1;
 `
 
-// The stepper's own layout is compact (small gap); filling the row lets its
-// space-between spread the buttons across the modal width, keeping them
-// comfortably apart on narrow screens.
+// The stepper stays a compact group, per the platform convention for
+// quantity controls, but with a wider gap than its default: the touch
+// targets already clear 44pt, and the extra space keeps the pair from
+// reading as cramped without breaking it apart.
 const StyledQuantityStepper = styled(QuantityStepper)`
-  flex: 1;
+  gap: var(--ds-space-sm);
 `
 
 const ButtonsContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   flex: 0.45;
   margin-bottom: 1.5rem;
   margin-right: 0;
   @media ${breakpoints.M} {
     margin-bottom: 0;
     margin-right: 1.5rem;
-    justify-content: space-between;
   }
 `
 
