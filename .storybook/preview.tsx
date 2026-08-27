@@ -1,6 +1,5 @@
 import type { Preview } from '@storybook/react-vite'
 import { INITIAL_VIEWPORTS } from 'storybook/viewport'
-import { userEvent } from '@testing-library/user-event'
 import { setupWorker } from 'msw/browser'
 import { mswLoader } from 'msw-storybook-addon/csf3'
 import { DocsContainer, DocsContainerProps } from '@storybook/addon-docs/blocks'
@@ -210,9 +209,4 @@ const preview: Preview = {
   loaders: [mswPreviewLoader, demoModeLoader],
 }
 
-declare module 'storybook/internal/csf' {
-  interface StoryContext {
-    userEvent: ReturnType<typeof userEvent.setup>
-  }
-}
 export default preview
