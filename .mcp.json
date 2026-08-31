@@ -1,8 +1,8 @@
 {
   "mcpServers": {
-    "storybook-mcp": {
+    "droppy-ds": {
       "type": "http",
-      "url": "http://localhost:6006/mcp"
+      "url": "https://main--6a6b3f5765e7f685e7f73656.chromatic.com/mcp"
     }
   }
 }
