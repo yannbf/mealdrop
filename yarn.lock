@@ -1681,35 +1681,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chromatic@npm:^18.1.0":
-  version: 18.2.0
-  resolution: "chromatic@npm:18.2.0"
-  dependencies:
-    semver: "npm:^7.3.5"
-  peerDependencies:
-    "@chromatic-com/cypress": ^0.*.* || ^1.0.0
-    "@chromatic-com/playwright": ^0.*.* || ^1.0.0
-    "@chromatic-com/vitest": ^0.*.* || ^1.0.0
-  dependenciesMeta:
-    "@sentry/cli":
-      built: true
-    esbuild:
-      built: true
-  peerDependenciesMeta:
-    "@chromatic-com/cypress":
-      optional: true
-    "@chromatic-com/playwright":
-      optional: true
-    "@chromatic-com/vitest":
-      optional: true
-  bin:
-    chroma: dist/bin.cjs
-    chromatic: dist/bin.cjs
-    chromatic-cli: dist/bin.cjs
-  checksum: 10c0/c530eb88761af134b8c15fae397729395db94c0e2c913267f0dbdb8553619cfbb38a12157bbd06386bfa6924deb64c074ad8979194e4e9d908ef47ae9dff93a7
-  languageName: node
-  linkType: hard
-
 "cli-width@npm:^4.1.0":
   version: 4.1.0
   resolution: "cli-width@npm:4.1.0"
@@ -1816,7 +1787,6 @@ __metadata:
     "@vitest/browser-playwright": "npm:^4.1.10"
     "@vitest/coverage-v8": "npm:^4.1.10"
     axios: "npm:^1.18.1"
-    chromatic: "npm:^18.1.0"
     concurrently: "npm:^10.0.4"
     happy-dom: "npm:^20.11.1"
     husky: "npm:^9.1.7"
