@@ -79,9 +79,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@droppy-ui/design-system@npm:^0.3.0":
-  version: 0.3.0
-  resolution: "@droppy-ui/design-system@npm:0.3.0"
+"@droppy-ui/design-system@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "@droppy-ui/design-system@npm:0.3.1"
   dependencies:
     embla-carousel-react: "npm:^8.6.0"
     embla-carousel-wheel-gestures: "npm:^8.1.0"
@@ -89,7 +89,7 @@ __metadata:
   peerDependencies:
     react: ^18.0.0 || ^19.0.0
     react-dom: ^18.0.0 || ^19.0.0
-  checksum: 10c0/19376c071afe675ce957b51ec41ff400f409526c16729d9244a1ea63b71508fc2924efd00d60890b1437498690630e54b3cf8daa89615b72a6ce382fa73a716c
+  checksum: 10c0/faab4a6ab8248d3587290dee8047d750d98dc36e84b8b27f4d50e22a22273ab77a8603bb4c1b7200e424bdfb6870ca683738552155ef3338bab102461e2b6df2
   languageName: node
   linkType: hard
 
@@ -1770,7 +1770,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "course-app@workspace:."
   dependencies:
-    "@droppy-ui/design-system": "npm:^0.3.0"
+    "@droppy-ui/design-system": "npm:^0.3.1"
     "@hookform/resolvers": "npm:^5.5.7"
     "@reduxjs/toolkit": "npm:^2.12.0"
     "@testing-library/dom": "npm:^10.4.1"
